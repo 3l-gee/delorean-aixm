@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ManoeuvringAreaAvailabilityPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ManoeuvringAreaAvailabilityPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ManoeuvringAreaAvailabilityPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}ManoeuvringAreaAvailability"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}ManoeuvringAreaAvailability"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ManoeuvringAreaAvailabilityPropertyType", propOrder = {"manoeuvringAreaAvailability"})
+@XmlType(name = "ManoeuvringAreaAvailabilityPropertyType", propOrder = {
+    "manoeuvringAreaAvailability"
+})
 @Entity(name = "ManoeuvringAreaAvailabilityPropertyType")
 @Table(name = "manoeuvringareaavailability_p", schema = "airport_heliport")
-public class ManoeuvringAreaAvailabilityPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class ManoeuvringAreaAvailabilityPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ManoeuvringAreaAvailability", required = true)
@@ -58,12 +56,15 @@ public class ManoeuvringAreaAvailabilityPropertyType extends AbstractAIXMPropert
 
     /**
      * Gets the value of the manoeuvringAreaAvailability property.
-     *
-     * @return possible object is {@link ManoeuvringAreaAvailabilityType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ManoeuvringAreaAvailabilityType }
+     *     
      */
     @OneToOne(targetEntity = ManoeuvringAreaAvailabilityType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "manoeuvringareaavailability_hjid", referencedColumnName = "hjid")
     public ManoeuvringAreaAvailabilityType getManoeuvringAreaAvailability() {
         return manoeuvringAreaAvailability;
@@ -71,10 +72,11 @@ public class ManoeuvringAreaAvailabilityPropertyType extends AbstractAIXMPropert
 
     /**
      * Sets the value of the manoeuvringAreaAvailability property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ManoeuvringAreaAvailabilityType }
-     *
+     *     allowed object is
+     *     {@link ManoeuvringAreaAvailabilityType }
+     *     
      */
     public void setManoeuvringAreaAvailability(ManoeuvringAreaAvailabilityType value) {
         this.manoeuvringAreaAvailability = value;
@@ -82,13 +84,12 @@ public class ManoeuvringAreaAvailabilityPropertyType extends AbstractAIXMPropert
 
     @Transient
     public boolean isSetManoeuvringAreaAvailability() {
-        return (this.manoeuvringAreaAvailability != null);
+        return (this.manoeuvringAreaAvailability!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +16,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -29,17 +29,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
@@ -51,21 +46,23 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"affinePlacement"})
+@XmlType(name = "", propOrder = {
+    "affinePlacement"
+})
 @Entity(name = "RefLocation")
 @Table(name = "REF_LOCATION")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class RefLocation implements Serializable, Equals, HashCode, ToString {
+public class RefLocation implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * location, refDirection, inDimension and outDimension have the same meaning as
-     * specified in ISO 19107:2003, 6.4.21.
-     *
+     * location, refDirection, inDimension and outDimension have the same meaning as specified in ISO 19107:2003, 6.4.21.
+     * 
      */
     @XmlElement(name = "AffinePlacement", required = true)
     protected AffinePlacementType affinePlacement;
@@ -73,11 +70,12 @@ public class RefLocation implements Serializable, Equals, HashCode, ToString {
     protected Long hjid;
 
     /**
-     * location, refDirection, inDimension and outDimension have the same meaning as
-     * specified in ISO 19107:2003, 6.4.21.
-     *
-     * @return possible object is {@link AffinePlacementType }
-     *
+     * location, refDirection, inDimension and outDimension have the same meaning as specified in ISO 19107:2003, 6.4.21.
+     * 
+     * @return
+     *     possible object is
+     *     {@link AffinePlacementType }
+     *     
      */
     @Transient
     public AffinePlacementType getAffinePlacement() {
@@ -86,10 +84,11 @@ public class RefLocation implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the affinePlacement property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AffinePlacementType }
-     *
+     *     allowed object is
+     *     {@link AffinePlacementType }
+     *     
      * @see #getAffinePlacement()
      */
     public void setAffinePlacement(AffinePlacementType value) {
@@ -98,14 +97,16 @@ public class RefLocation implements Serializable, Equals, HashCode, ToString {
 
     @Transient
     public boolean isSetAffinePlacement() {
-        return (this.affinePlacement != null);
+        return (this.affinePlacement!= null);
     }
 
     /**
      * Gets the value of the hjid property.
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -116,10 +117,11 @@ public class RefLocation implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the hjid property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void setHjid(Long value) {
         this.hjid = value;
@@ -138,9 +140,8 @@ public class RefLocation implements Serializable, Equals, HashCode, ToString {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

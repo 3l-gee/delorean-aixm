@@ -9,6 +9,7 @@ import com.delorean.aixm.core.context.ContextWarehouse;
 import com.delorean.aixm.aixm52.schema.message.AIXMBasicMessageType;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.xml.namespace.QName;
@@ -55,6 +56,13 @@ public class DeloreanAIXM52 implements com.delorean.aixm.core.DeloreanProcessor 
             "/schema/message/AIXM_BasicMessage.xsd",
             "/sql/pre-init.sql",
             "/sql/post-init.sql",
+            Map.of(
+            "domain_check", "/sql/domain_check.sql",
+            "domain_checkless", "/sql/domain_checkless.sql",
+            "query_basic_message_member_ids", "/sql/query_basic_message_member_ids.sql",
+            "query_time_slice_property_ids", "/sql/query_time_slice_property_ids.sql",
+            "postgresql_comments","/sql/postgresql_comments.sql"
+            ),
             "hibernate/hibernate.cfg.xml",
             com.delorean.aixm.core.Delorean.class,
             com.delorean.aixm.aixm52.DeloreanAIXM52.class

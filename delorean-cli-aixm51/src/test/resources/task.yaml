@@ -27,6 +27,7 @@ pipeline:
 
   - action: "startup"
     target: "container-A"
+    domain-check : false
 
   - action: "persist"
     target: "container-A"

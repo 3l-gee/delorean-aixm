@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -10,7 +11,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,23 +24,14 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * A property that has a geometric complex as its value domain may either be an
- * appropriate geometry element encapsulated in an element of this type or an
- * XLink reference to a remote geometry element (where remote includes geometry
- * elements located elsewhere in the same document). Either the reference or the
- * contained element shall be given, but neither both nor none.
- *
- * <p>
- * Java class for GeometricComplexPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * A property that has a geometric complex as its value domain may either be an appropriate geometry element encapsulated in an element of this type or an XLink reference to a remote geometry element (where remote includes geometry elements located elsewhere in the same document). Either the reference or the contained element shall be given, but neither both nor none.
+ * 
+ * <p>Java class for GeometricComplexPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="GeometricComplexPropertyType">
  *   <complexContent>
@@ -53,57 +44,49 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *           <element ref="{http://www.opengis.net/gml/3.2}CompositeSolid"/>
  *         </choice>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeometricComplexPropertyType", propOrder = {"geometricComplex", "compositeCurve", "compositeSurface",
-        "compositeSolid"})
-public class GeometricComplexPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "GeometricComplexPropertyType", propOrder = {
+    "geometricComplex",
+    "compositeCurve",
+    "compositeSurface",
+    "compositeSolid"
+})
+public class GeometricComplexPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "GeometricComplex")
     protected GeometricComplexType geometricComplex;
     /**
-     * A gml:CompositeCurve is represented by a sequence of (orientable) curves such
-     * that each curve in the sequence terminates at the start point of the
-     * subsequent curve in the list. curveMember references or contains inline one
-     * curve in the composite curve. The curves are contiguous, the collection of
-     * curves is ordered. Therefore, if provided, the aggregationType attribute
-     * shall have the value "sequence".
-     *
+     * A gml:CompositeCurve is represented by a sequence of (orientable) curves such that each curve in the sequence terminates at the start point of the subsequent curve in the list. 
+     * curveMember references or contains inline one curve in the composite curve. 
+     * The curves are contiguous, the collection of curves is ordered. Therefore, if provided, the aggregationType attribute shall have the value "sequence".
+     * 
      */
     @XmlElement(name = "CompositeCurve")
     protected CompositeCurveType compositeCurve;
     /**
-     * A gml:CompositeSurface is represented by a set of orientable surfaces. It is
-     * geometry type with all the geometric properties of a (primitive) surface.
-     * Essentially, a composite surface is a collection of surfaces that join in
-     * pairs on common boundary curves and which, when considered as a whole, form a
-     * single surface. surfaceMember references or contains inline one surface in
-     * the composite surface. The surfaces are contiguous.
-     *
+     * A gml:CompositeSurface is represented by a set of orientable surfaces. It is geometry type with all the geometric properties of a (primitive) surface. Essentially, a composite surface is a collection of surfaces that join in pairs on common boundary curves and which, when considered as a whole, form a single surface.
+     * surfaceMember references or contains inline one surface in the composite surface. 
+     * The surfaces are contiguous.
+     * 
      */
     @XmlElement(name = "CompositeSurface")
     protected CompositeSurfaceType compositeSurface;
     /**
-     * gml:CompositeSolid implements ISO 19107 GM_CompositeSolid (see ISO
-     * 19107:2003, 6.6.7) as specified in D.2.3.6. A gml:CompositeSolid is
-     * represented by a set of orientable surfaces. It is a geometry type with all
-     * the geometric properties of a (primitive) solid. Essentially, a composite
-     * solid is a collection of solids that join in pairs on common boundary
-     * surfaces and which, when considered as a whole, form a single solid.
-     * solidMember references or contains one solid in the composite solid. The
-     * solids are contiguous.
-     *
+     * gml:CompositeSolid implements ISO 19107 GM_CompositeSolid (see ISO 19107:2003, 6.6.7) as specified in D.2.3.6. 
+     * A gml:CompositeSolid is represented by a set of orientable surfaces. It is a geometry type with all the geometric properties of a (primitive) solid. Essentially, a composite solid is a collection of solids that join in pairs on common boundary surfaces and which, when considered as a whole, form a single solid. 
+     * solidMember references or contains one solid in the composite solid. The solids are contiguous.
+     * 
      */
     @XmlElement(name = "CompositeSolid")
     protected CompositeSolidType compositeSolid;
@@ -131,9 +114,11 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Gets the value of the geometricComplex property.
-     *
-     * @return possible object is {@link GeometricComplexType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link GeometricComplexType }
+     *     
      */
     public GeometricComplexType getGeometricComplex() {
         return geometricComplex;
@@ -141,29 +126,29 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the geometricComplex property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link GeometricComplexType }
-     *
+     *     allowed object is
+     *     {@link GeometricComplexType }
+     *     
      */
     public void setGeometricComplex(GeometricComplexType value) {
         this.geometricComplex = value;
     }
 
     public boolean isSetGeometricComplex() {
-        return (this.geometricComplex != null);
+        return (this.geometricComplex!= null);
     }
 
     /**
-     * A gml:CompositeCurve is represented by a sequence of (orientable) curves such
-     * that each curve in the sequence terminates at the start point of the
-     * subsequent curve in the list. curveMember references or contains inline one
-     * curve in the composite curve. The curves are contiguous, the collection of
-     * curves is ordered. Therefore, if provided, the aggregationType attribute
-     * shall have the value "sequence".
-     *
-     * @return possible object is {@link CompositeCurveType }
-     *
+     * A gml:CompositeCurve is represented by a sequence of (orientable) curves such that each curve in the sequence terminates at the start point of the subsequent curve in the list. 
+     * curveMember references or contains inline one curve in the composite curve. 
+     * The curves are contiguous, the collection of curves is ordered. Therefore, if provided, the aggregationType attribute shall have the value "sequence".
+     * 
+     * @return
+     *     possible object is
+     *     {@link CompositeCurveType }
+     *     
      */
     public CompositeCurveType getCompositeCurve() {
         return compositeCurve;
@@ -171,10 +156,11 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the compositeCurve property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CompositeCurveType }
-     *
+     *     allowed object is
+     *     {@link CompositeCurveType }
+     *     
      * @see #getCompositeCurve()
      */
     public void setCompositeCurve(CompositeCurveType value) {
@@ -182,19 +168,18 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
     }
 
     public boolean isSetCompositeCurve() {
-        return (this.compositeCurve != null);
+        return (this.compositeCurve!= null);
     }
 
     /**
-     * A gml:CompositeSurface is represented by a set of orientable surfaces. It is
-     * geometry type with all the geometric properties of a (primitive) surface.
-     * Essentially, a composite surface is a collection of surfaces that join in
-     * pairs on common boundary curves and which, when considered as a whole, form a
-     * single surface. surfaceMember references or contains inline one surface in
-     * the composite surface. The surfaces are contiguous.
-     *
-     * @return possible object is {@link CompositeSurfaceType }
-     *
+     * A gml:CompositeSurface is represented by a set of orientable surfaces. It is geometry type with all the geometric properties of a (primitive) surface. Essentially, a composite surface is a collection of surfaces that join in pairs on common boundary curves and which, when considered as a whole, form a single surface.
+     * surfaceMember references or contains inline one surface in the composite surface. 
+     * The surfaces are contiguous.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CompositeSurfaceType }
+     *     
      */
     public CompositeSurfaceType getCompositeSurface() {
         return compositeSurface;
@@ -202,10 +187,11 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the compositeSurface property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CompositeSurfaceType }
-     *
+     *     allowed object is
+     *     {@link CompositeSurfaceType }
+     *     
      * @see #getCompositeSurface()
      */
     public void setCompositeSurface(CompositeSurfaceType value) {
@@ -213,21 +199,18 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
     }
 
     public boolean isSetCompositeSurface() {
-        return (this.compositeSurface != null);
+        return (this.compositeSurface!= null);
     }
 
     /**
-     * gml:CompositeSolid implements ISO 19107 GM_CompositeSolid (see ISO
-     * 19107:2003, 6.6.7) as specified in D.2.3.6. A gml:CompositeSolid is
-     * represented by a set of orientable surfaces. It is a geometry type with all
-     * the geometric properties of a (primitive) solid. Essentially, a composite
-     * solid is a collection of solids that join in pairs on common boundary
-     * surfaces and which, when considered as a whole, form a single solid.
-     * solidMember references or contains one solid in the composite solid. The
-     * solids are contiguous.
-     *
-     * @return possible object is {@link CompositeSolidType }
-     *
+     * gml:CompositeSolid implements ISO 19107 GM_CompositeSolid (see ISO 19107:2003, 6.6.7) as specified in D.2.3.6. 
+     * A gml:CompositeSolid is represented by a set of orientable surfaces. It is a geometry type with all the geometric properties of a (primitive) solid. Essentially, a composite solid is a collection of solids that join in pairs on common boundary surfaces and which, when considered as a whole, form a single solid. 
+     * solidMember references or contains one solid in the composite solid. The solids are contiguous.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CompositeSolidType }
+     *     
      */
     public CompositeSolidType getCompositeSolid() {
         return compositeSolid;
@@ -235,10 +218,11 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the compositeSolid property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CompositeSolidType }
-     *
+     *     allowed object is
+     *     {@link CompositeSolidType }
+     *     
      * @see #getCompositeSolid()
      */
     public void setCompositeSolid(CompositeSolidType value) {
@@ -246,14 +230,16 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
     }
 
     public boolean isSetCompositeSolid() {
-        return (this.compositeSolid != null);
+        return (this.compositeSolid!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link java.lang.Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -265,17 +251,18 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Boolean }
-     *
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -284,9 +271,11 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -294,24 +283,27 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -319,24 +311,27 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the remoteSchema property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
+        return (this.remoteSchema!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -344,24 +339,27 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -369,24 +367,27 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -394,24 +395,27 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -419,24 +423,27 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -444,24 +451,27 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -469,17 +479,18 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
@@ -495,9 +506,8 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -505,27 +515,14 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
         }
         final GeometricComplexPropertyType that = ((GeometricComplexPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCompositeCurve();
-            boolean rhsFieldIsSet = that.isSetCompositeCurve();
-            CompositeCurveType lhsField;
-            lhsField = this.getCompositeCurve();
-            CompositeCurveType rhsField;
-            rhsField = that.getCompositeCurve();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeCurve", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeCurve", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            boolean lhsFieldIsSet = this.isSetCompositeSurface();
+            boolean rhsFieldIsSet = that.isSetCompositeSurface();
+            CompositeSurfaceType lhsField;
+            lhsField = this.getCompositeSurface();
+            CompositeSurfaceType rhsField;
+            rhsField = that.getCompositeSurface();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeSurface", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -557,27 +554,14 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -596,53 +580,66 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
-            lhsField = this.getRemoteSchema();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCompositeSurface();
-            boolean rhsFieldIsSet = that.isSetCompositeSurface();
-            CompositeSurfaceType lhsField;
-            lhsField = this.getCompositeSurface();
-            CompositeSurfaceType rhsField;
-            rhsField = that.getCompositeSurface();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeSurface", rhsField);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCompositeCurve();
+            boolean rhsFieldIsSet = that.isSetCompositeCurve();
+            CompositeCurveType lhsField;
+            lhsField = this.getCompositeCurve();
+            CompositeCurveType rhsField;
+            rhsField = that.getCompositeCurve();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeCurve", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeCurve", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -661,14 +658,27 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getRemoteSchema();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -720,7 +730,7 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -832,7 +842,7 @@ public class GeometricComplexPropertyType implements Serializable, Equals, HashC
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {

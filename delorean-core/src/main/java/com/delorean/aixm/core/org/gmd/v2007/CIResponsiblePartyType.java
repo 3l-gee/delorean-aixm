@@ -1,60 +1,57 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import com.delorean.aixm.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * Identification of, and means of communication with, person(s) and
- * organisations associated with the dataset
- *
- * <p>
- * Java class for CI_ResponsibleParty_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * Identification of, and means of communication with, person(s) and organisations associated with the dataset
+ * 
+ * <p>Java class for CI_ResponsibleParty_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CI_ResponsibleParty_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="individualName" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="organisationName" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="positionName" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="contactInfo" type=
-"{http://www.isotc211.org/2005/gmd}CI_Contact_PropertyType" minOccurs="0"/>
- *         <element name="role" type=
-"{http://www.isotc211.org/2005/gmd}CI_RoleCode_PropertyType"/>
+ *         <element name="individualName" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="organisationName" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="positionName" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="contactInfo" type="{http://www.isotc211.org/2005/gmd}CI_Contact_PropertyType" minOccurs="0"/>
+ *         <element name="role" type="{http://www.isotc211.org/2005/gmd}CI_RoleCode_PropertyType"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CI_ResponsibleParty_Type", propOrder = {"individualName", "organisationName", "positionName",
-        "contactInfo", "role"})
-public class CIResponsiblePartyType extends AbstractObjectType implements Serializable {
+@XmlType(name = "CI_ResponsibleParty_Type", propOrder = {
+    "individualName",
+    "organisationName",
+    "positionName",
+    "contactInfo",
+    "role"
+})
+public class CIResponsiblePartyType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType individualName;
@@ -66,9 +63,11 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
 
     /**
      * Gets the value of the individualName property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getIndividualName() {
         return individualName;
@@ -76,24 +75,27 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
 
     /**
      * Sets the value of the individualName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setIndividualName(CharacterStringPropertyType value) {
         this.individualName = value;
     }
 
     public boolean isSetIndividualName() {
-        return (this.individualName != null);
+        return (this.individualName!= null);
     }
 
     /**
      * Gets the value of the organisationName property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getOrganisationName() {
         return organisationName;
@@ -101,24 +103,27 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
 
     /**
      * Sets the value of the organisationName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setOrganisationName(CharacterStringPropertyType value) {
         this.organisationName = value;
     }
 
     public boolean isSetOrganisationName() {
-        return (this.organisationName != null);
+        return (this.organisationName!= null);
     }
 
     /**
      * Gets the value of the positionName property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getPositionName() {
         return positionName;
@@ -126,24 +131,27 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
 
     /**
      * Sets the value of the positionName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setPositionName(CharacterStringPropertyType value) {
         this.positionName = value;
     }
 
     public boolean isSetPositionName() {
-        return (this.positionName != null);
+        return (this.positionName!= null);
     }
 
     /**
      * Gets the value of the contactInfo property.
-     *
-     * @return possible object is {@link CIContactPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CIContactPropertyType }
+     *     
      */
     public CIContactPropertyType getContactInfo() {
         return contactInfo;
@@ -151,24 +159,27 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
 
     /**
      * Sets the value of the contactInfo property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CIContactPropertyType }
-     *
+     *     allowed object is
+     *     {@link CIContactPropertyType }
+     *     
      */
     public void setContactInfo(CIContactPropertyType value) {
         this.contactInfo = value;
     }
 
     public boolean isSetContactInfo() {
-        return (this.contactInfo != null);
+        return (this.contactInfo!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link CIRoleCodePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CIRoleCodePropertyType }
+     *     
      */
     public CIRoleCodePropertyType getRole() {
         return role;
@@ -176,23 +187,23 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CIRoleCodePropertyType }
-     *
+     *     allowed object is
+     *     {@link CIRoleCodePropertyType }
+     *     
      */
     public void setRole(CIRoleCodePropertyType value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -203,14 +214,14 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
         }
         final CIResponsiblePartyType that = ((CIResponsiblePartyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOrganisationName();
-            boolean rhsFieldIsSet = that.isSetOrganisationName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getOrganisationName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getOrganisationName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
+            boolean lhsFieldIsSet = this.isSetContactInfo();
+            boolean rhsFieldIsSet = that.isSetContactInfo();
+            CIContactPropertyType lhsField;
+            lhsField = this.getContactInfo();
+            CIContactPropertyType rhsField;
+            rhsField = that.getContactInfo();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -229,19 +240,6 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPositionName();
-            boolean rhsFieldIsSet = that.isSetPositionName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getPositionName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getPositionName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             CIRoleCodePropertyType lhsField;
@@ -255,14 +253,27 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContactInfo();
-            boolean rhsFieldIsSet = that.isSetContactInfo();
-            CIContactPropertyType lhsField;
-            lhsField = this.getContactInfo();
-            CIContactPropertyType rhsField;
-            rhsField = that.getContactInfo();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInfo", rhsField);
+            boolean lhsFieldIsSet = this.isSetOrganisationName();
+            boolean rhsFieldIsSet = that.isSetOrganisationName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOrganisationName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOrganisationName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPositionName();
+            boolean rhsFieldIsSet = that.isSetPositionName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getPositionName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getPositionName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,44 +31,30 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AltimeterSourceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AltimeterSourceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AltimeterSourceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="rank" type=
-"{http://www.aixm.aero/schema/5.2}CodeFacilityRankingType" minOccurs="0"/>
- *         <element name="relativeLocation" type=
-"{http://www.aixm.aero/schema/5.2}CodeRelativeLocationType" minOccurs="0"/>
- *         <element name="distance" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="altimeterData" type=
-"{http://www.aixm.aero/schema/5.2}WeatherSourcePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="rank" type="{http://www.aixm.aero/schema/5.2}CodeFacilityRankingType" minOccurs="0"/>
+ *         <element name="relativeLocation" type="{http://www.aixm.aero/schema/5.2}CodeRelativeLocationType" minOccurs="0"/>
+ *         <element name="distance" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="altimeterData" type="{http://www.aixm.aero/schema/5.2}WeatherSourcePropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractAltimeterSourceExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractAltimeterSourceExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -78,15 +64,24 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AltimeterSourceType", propOrder = {"annotation", "rank", "relativeLocation", "distance",
-        "altimeterData", "extension"})
+@XmlType(name = "AltimeterSourceType", propOrder = {
+    "annotation",
+    "rank",
+    "relativeLocation",
+    "distance",
+    "altimeterData",
+    "extension"
+})
 @Entity(name = "AltimeterSourceType")
 @Table(name = "altimetersource_o", schema = "airport_heliport")
-public class AltimeterSourceType extends AbstractAIXMObjectType implements Serializable {
+public class AltimeterSourceType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(nillable = true)
@@ -103,31 +98,34 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "altmtrsrctp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "altimetersource_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "altmtrsrctp_annttn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "altimetersource_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -136,8 +134,8 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -145,7 +143,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -154,10 +152,11 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     /**
      * Gets the value of the rank property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeFacilityRankingType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeFacilityRankingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeFacilityRankingType> getRank() {
@@ -166,11 +165,11 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     /**
      * Sets the value of the rank property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeFacilityRankingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeFacilityRankingType }{@code >}
+     *     
      */
     public void setRank(JAXBElement<CodeFacilityRankingType> value) {
         this.rank = value;
@@ -178,15 +177,16 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     @Transient
     public boolean isSetRank() {
-        return (this.rank != null);
+        return (this.rank!= null);
     }
 
     /**
      * Gets the value of the relativeLocation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeRelativeLocationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeRelativeLocationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeRelativeLocationType> getRelativeLocation() {
@@ -195,11 +195,11 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     /**
      * Sets the value of the relativeLocation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeRelativeLocationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeRelativeLocationType }{@code >}
+     *     
      */
     public void setRelativeLocation(JAXBElement<CodeRelativeLocationType> value) {
         this.relativeLocation = value;
@@ -207,15 +207,16 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     @Transient
     public boolean isSetRelativeLocation() {
-        return (this.relativeLocation != null);
+        return (this.relativeLocation!= null);
     }
 
     /**
      * Gets the value of the distance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getDistance() {
@@ -224,11 +225,11 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     /**
      * Sets the value of the distance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setDistance(JAXBElement<ValDistanceType> value) {
         this.distance = value;
@@ -236,15 +237,16 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     @Transient
     public boolean isSetDistance() {
-        return (this.distance != null);
+        return (this.distance!= null);
     }
 
     /**
      * Gets the value of the altimeterData property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link WeatherSourcePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link WeatherSourcePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<WeatherSourcePropertyType> getAltimeterData() {
@@ -253,11 +255,11 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     /**
      * Sets the value of the altimeterData property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link WeatherSourcePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link WeatherSourcePropertyType }{@code >}
+     *     
      */
     public void setAltimeterData(JAXBElement<WeatherSourcePropertyType> value) {
         this.altimeterData = value;
@@ -265,33 +267,34 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     @Transient
     public boolean isSetAltimeterData() {
-        return (this.altimeterData != null);
+        return (this.altimeterData!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AltimeterSourceExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AltimeterSourceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = AltimeterSourceExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "altimetersource_oe_hjid", referencedColumnName = "hjid")
     public List<AltimeterSourceExtensionType> getExtension() {
         if (extension == null) {
@@ -301,8 +304,8 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AltimeterSourceExtensionType> extension) {
         this.extension = extension;
@@ -310,7 +313,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -318,61 +321,65 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "rank")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "ranknilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "rank", columnDefinition = "codefacilityrankingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "ranknilreason", columnDefinition = "nilreason"))
+    })
     public CodeFacilityRankingType getRankItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFacilityRankingType.class, this.getRank());
     }
 
     public void setRankItem(CodeFacilityRankingType target) {
-        setRank(XmlAdapterUtils.marshallJAXBElement(CodeFacilityRankingType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "rank"), AltimeterSourceType.class, target));
+        setRank(XmlAdapterUtils.marshallJAXBElement(CodeFacilityRankingType.class, new QName("http://www.aixm.aero/schema/5.2", "rank"), AltimeterSourceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "relativelocation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "relativelocationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "relativelocation", columnDefinition = "coderelativelocationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "relativelocationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeRelativeLocationType getRelativeLocationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRelativeLocationType.class, this.getRelativeLocation());
     }
 
     public void setRelativeLocationItem(CodeRelativeLocationType target) {
-        setRelativeLocation(XmlAdapterUtils.marshallJAXBElement(CodeRelativeLocationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "relativeLocation"), AltimeterSourceType.class, target));
+        setRelativeLocation(XmlAdapterUtils.marshallJAXBElement(CodeRelativeLocationType.class, new QName("http://www.aixm.aero/schema/5.2", "relativeLocation"), AltimeterSourceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "distance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "distanceuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "distanceaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "distancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "distance", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "distanceuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "distanceaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "distancenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getDistance());
     }
 
     public void setDistanceItem(ValDistanceType target) {
-        setDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "distance"), AltimeterSourceType.class, target));
+        setDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "distance"), AltimeterSourceType.class, target));
     }
 
-    @OneToOne(targetEntity = WeatherSourcePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "altmtrsrctp_altmtrdt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "altimetersource_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "altimeterdata_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = WeatherSourcePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "altmtrsrctp_altmtrdt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "altimetersource_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "altimeterdata_hjid", referencedColumnName = "hjid")
+    })
     public WeatherSourcePropertyType getAltimeterDataItem() {
         return XmlAdapterUtils.unmarshallSource(WeatherSourcePropertyType.class, this.getAltimeterData());
     }
 
     public void setAltimeterDataItem(WeatherSourcePropertyType target) {
-        setAltimeterData(XmlAdapterUtils.marshallJAXBElement(WeatherSourcePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "altimeterData"), AltimeterSourceType.class, target));
+        setAltimeterData(XmlAdapterUtils.marshallJAXBElement(WeatherSourcePropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "altimeterData"), AltimeterSourceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -382,19 +389,6 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
             return false;
         }
         final AltimeterSourceType that = ((AltimeterSourceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeLocation();
-            boolean rhsFieldIsSet = that.isSetRelativeLocation();
-            JAXBElement<CodeRelativeLocationType> lhsField;
-            lhsField = this.getRelativeLocation();
-            JAXBElement<CodeRelativeLocationType> rhsField;
-            rhsField = that.getRelativeLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAltimeterData();
             boolean rhsFieldIsSet = that.isSetAltimeterData();
@@ -409,19 +403,6 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDistance();
             boolean rhsFieldIsSet = that.isSetDistance();
             JAXBElement<ValDistanceType> lhsField;
@@ -430,6 +411,19 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
             rhsField = that.getDistance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeLocation();
+            boolean rhsFieldIsSet = that.isSetRelativeLocation();
+            JAXBElement<CodeRelativeLocationType> lhsField;
+            lhsField = this.getRelativeLocation();
+            JAXBElement<CodeRelativeLocationType> rhsField;
+            rhsField = that.getRelativeLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -451,11 +445,24 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AltimeterSourceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<AltimeterSourceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -469,7 +476,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -504,7 +511,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AltimeterSourceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -517,7 +524,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -547,7 +554,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AltimeterSourceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

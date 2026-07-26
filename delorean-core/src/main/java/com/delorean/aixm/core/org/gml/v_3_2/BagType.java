@@ -1,49 +1,48 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for BagType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for BagType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="BagType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGMLType">
  *       <sequence>
- *         <element ref="{http://www.opengis.net/gml/3.2}member" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element ref="{http://www.opengis.net/gml/3.2}members" minOccurs=
-"0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}member" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}members" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BagType", propOrder = {"member", "members"})
-public class BagType extends AbstractGMLType implements Serializable {
+@XmlType(name = "BagType", propOrder = {
+    "member",
+    "members"
+})
+public class BagType
+    extends AbstractGMLType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected List<AssociationRoleType> member;
@@ -51,26 +50,25 @@ public class BagType extends AbstractGMLType implements Serializable {
 
     /**
      * Gets the value of the member property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the member property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the member property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getMember().add(newItem);
+     *    getMember().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AssociationRoleType }
-     *
-     *
+     * 
+     * 
      */
     public List<AssociationRoleType> getMember() {
         if (member == null) {
@@ -80,15 +78,15 @@ public class BagType extends AbstractGMLType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setMember(List<AssociationRoleType> member) {
         this.member = member;
     }
 
     public boolean isSetMember() {
-        return ((this.member != null) && (!this.member.isEmpty()));
+        return ((this.member!= null)&&(!this.member.isEmpty()));
     }
 
     public void unsetMember() {
@@ -97,9 +95,11 @@ public class BagType extends AbstractGMLType implements Serializable {
 
     /**
      * Gets the value of the members property.
-     *
-     * @return possible object is {@link ArrayAssociationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ArrayAssociationType }
+     *     
      */
     public ArrayAssociationType getMembers() {
         return members;
@@ -107,23 +107,23 @@ public class BagType extends AbstractGMLType implements Serializable {
 
     /**
      * Sets the value of the members property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ArrayAssociationType }
-     *
+     *     allowed object is
+     *     {@link ArrayAssociationType }
+     *     
      */
     public void setMembers(ArrayAssociationType value) {
         this.members = value;
     }
 
     public boolean isSetMembers() {
-        return (this.members != null);
+        return (this.members!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -133,6 +133,19 @@ public class BagType extends AbstractGMLType implements Serializable {
             return false;
         }
         final BagType that = ((BagType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetMember();
+            boolean rhsFieldIsSet = that.isSetMember();
+            List<AssociationRoleType> lhsField;
+            lhsField = (this.isSetMember()?this.getMember():null);
+            List<AssociationRoleType> rhsField;
+            rhsField = (that.isSetMember()?that.getMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetMembers();
             boolean rhsFieldIsSet = that.isSetMembers();
@@ -146,19 +159,6 @@ public class BagType extends AbstractGMLType implements Serializable {
                 return false;
             }
         }
-        {
-            boolean lhsFieldIsSet = this.isSetMember();
-            boolean rhsFieldIsSet = that.isSetMember();
-            List<AssociationRoleType> lhsField;
-            lhsField = (this.isSetMember() ? this.getMember() : null);
-            List<AssociationRoleType> rhsField;
-            rhsField = (that.isSetMember() ? that.getMember() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         return true;
     }
 
@@ -168,7 +168,7 @@ public class BagType extends AbstractGMLType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetMember();
             List<AssociationRoleType> theField;
-            theField = (this.isSetMember() ? this.getMember() : null);
+            theField = (this.isSetMember()?this.getMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "member", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -188,7 +188,7 @@ public class BagType extends AbstractGMLType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetMember();
             List<AssociationRoleType> theField;
-            theField = (this.isSetMember() ? this.getMember() : null);
+            theField = (this.isSetMember()?this.getMember():null);
             strategy.appendField(locator, this, "member", buffer, theField, theFieldIsSet);
         }
         {

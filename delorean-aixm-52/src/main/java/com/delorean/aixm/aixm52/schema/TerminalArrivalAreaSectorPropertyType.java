@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TerminalArrivalAreaSectorPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TerminalArrivalAreaSectorPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TerminalArrivalAreaSectorPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}TerminalArrivalAreaSector"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}TerminalArrivalAreaSector"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TerminalArrivalAreaSectorPropertyType", propOrder = {"terminalArrivalAreaSector"})
+@XmlType(name = "TerminalArrivalAreaSectorPropertyType", propOrder = {
+    "terminalArrivalAreaSector"
+})
 @Entity(name = "TerminalArrivalAreaSectorPropertyType")
 @Table(name = "terminalarrivalareasectorpropertytype", schema = "procedure")
-public class TerminalArrivalAreaSectorPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class TerminalArrivalAreaSectorPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "TerminalArrivalAreaSector", required = true)
@@ -58,11 +56,15 @@ public class TerminalArrivalAreaSectorPropertyType extends AbstractAIXMPropertyT
 
     /**
      * Gets the value of the terminalArrivalAreaSector property.
-     *
-     * @return possible object is {@link TerminalArrivalAreaSectorType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link TerminalArrivalAreaSectorType }
+     *     
      */
-    @OneToOne(targetEntity = TerminalArrivalAreaSectorType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = TerminalArrivalAreaSectorType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "terminalarrivalareasector_hjid", referencedColumnName = "hjid")
     public TerminalArrivalAreaSectorType getTerminalArrivalAreaSector() {
         return terminalArrivalAreaSector;
@@ -70,10 +72,11 @@ public class TerminalArrivalAreaSectorPropertyType extends AbstractAIXMPropertyT
 
     /**
      * Sets the value of the terminalArrivalAreaSector property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TerminalArrivalAreaSectorType }
-     *
+     *     allowed object is
+     *     {@link TerminalArrivalAreaSectorType }
+     *     
      */
     public void setTerminalArrivalAreaSector(TerminalArrivalAreaSectorType value) {
         this.terminalArrivalAreaSector = value;
@@ -81,13 +84,12 @@ public class TerminalArrivalAreaSectorPropertyType extends AbstractAIXMPropertyT
 
     @Transient
     public boolean isSetTerminalArrivalAreaSector() {
-        return (this.terminalArrivalAreaSector != null);
+        return (this.terminalArrivalAreaSector!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

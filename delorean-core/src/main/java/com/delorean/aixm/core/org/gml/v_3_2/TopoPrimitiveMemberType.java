@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -11,7 +12,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,49 +25,40 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TopoPrimitiveMemberType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TopoPrimitiveMemberType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TopoPrimitiveMemberType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref=
-"{http://www.opengis.net/gml/3.2}AbstractTopoPrimitive"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}AbstractTopoPrimitive"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TopoPrimitiveMemberType", propOrder = {"abstractTopoPrimitive"})
-public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "TopoPrimitiveMemberType", propOrder = {
+    "abstractTopoPrimitive"
+})
+public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:AbstractTopoPrimitive acts as the base type for all topological
-     * primitives. Topology primitives are the atomic (smallest possible) units of a
-     * topology complex. Each topology primitive may contain references to other
-     * topology primitives of codimension 2 or more (gml:isolated). Conversely,
-     * nodes may have faces as containers and nodes and edges may have solids as
-     * containers (gml:container).
-     *
+     * gml:AbstractTopoPrimitive acts as the base type for all topological primitives. Topology primitives are the atomic (smallest possible) units of a topology complex. 
+     * Each topology primitive may contain references to other topology primitives of codimension 2 or more (gml:isolated). Conversely, nodes may have faces as containers and nodes and edges may have solids as containers (gml:container).
+     * 
      */
     @XmlElementRef(name = "AbstractTopoPrimitive", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractTopoPrimitiveType> abstractTopoPrimitive;
@@ -94,20 +85,17 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
     protected java.lang.Boolean owns;
 
     /**
-     * gml:AbstractTopoPrimitive acts as the base type for all topological
-     * primitives. Topology primitives are the atomic (smallest possible) units of a
-     * topology complex. Each topology primitive may contain references to other
-     * topology primitives of codimension 2 or more (gml:isolated). Conversely,
-     * nodes may have faces as containers and nodes and edges may have solids as
-     * containers (gml:container).
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractTopoPrimitiveType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link EdgeType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link FaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link NodeType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TopoSolidType }{@code >}
-     *
+     * gml:AbstractTopoPrimitive acts as the base type for all topological primitives. Topology primitives are the atomic (smallest possible) units of a topology complex. 
+     * Each topology primitive may contain references to other topology primitives of codimension 2 or more (gml:isolated). Conversely, nodes may have faces as containers and nodes and edges may have solids as containers (gml:container).
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractTopoPrimitiveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link EdgeType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NodeType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TopoSolidType }{@code >}
+     *     
      */
     public JAXBElement<? extends AbstractTopoPrimitiveType> getAbstractTopoPrimitive() {
         return abstractTopoPrimitive;
@@ -115,15 +103,15 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the abstractTopoPrimitive property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractTopoPrimitiveType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link EdgeType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link FaceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link NodeType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link TopoSolidType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractTopoPrimitiveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link EdgeType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NodeType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TopoSolidType }{@code >}
+     *     
      * @see #getAbstractTopoPrimitive()
      */
     public void setAbstractTopoPrimitive(JAXBElement<? extends AbstractTopoPrimitiveType> value) {
@@ -131,14 +119,16 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
     }
 
     public boolean isSetAbstractTopoPrimitive() {
-        return (this.abstractTopoPrimitive != null);
+        return (this.abstractTopoPrimitive!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -146,24 +136,27 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -171,24 +164,27 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the remoteSchema property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
+        return (this.remoteSchema!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -196,24 +192,27 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -221,24 +220,27 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -246,24 +248,27 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -271,24 +276,27 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -296,24 +304,27 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -321,24 +332,27 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link java.lang.Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -350,17 +364,18 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Boolean }
-     *
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -380,67 +395,14 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final TopoPrimitiveMemberType that = ((TopoPrimitiveMemberType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractTopoPrimitive();
-            boolean rhsFieldIsSet = that.isSetAbstractTopoPrimitive();
-            JAXBElement<? extends AbstractTopoPrimitiveType> lhsField;
-            lhsField = this.getAbstractTopoPrimitive();
-            JAXBElement<? extends AbstractTopoPrimitiveType> rhsField;
-            rhsField = that.getAbstractTopoPrimitive();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTopoPrimitive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTopoPrimitive", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
@@ -450,19 +412,6 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -481,6 +430,19 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetActuate();
             boolean rhsFieldIsSet = that.isSetActuate();
             ActuateType lhsField;
@@ -494,14 +456,53 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
-            lhsField = this.getRole();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTopoPrimitive();
+            boolean rhsFieldIsSet = that.isSetAbstractTopoPrimitive();
+            JAXBElement<? extends AbstractTopoPrimitiveType> lhsField;
+            lhsField = this.getAbstractTopoPrimitive();
+            JAXBElement<? extends AbstractTopoPrimitiveType> rhsField;
+            rhsField = that.getAbstractTopoPrimitive();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTopoPrimitive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTopoPrimitive", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -515,6 +516,19 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
             rhsField = that.getHref();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -601,7 +615,7 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -687,7 +701,7 @@ public class TopoPrimitiveMemberType implements Serializable, Equals, HashCode, 
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

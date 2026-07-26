@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gml.v_3_2.AngleType;
 import com.delorean.aixm.core.org.gml.v_3_2.LengthType;
 import com.delorean.aixm.core.org.gml.v_3_2.MeasureType;
@@ -11,7 +12,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,17 +25,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for Measure_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for Measure_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="Measure_PropertyType">
  *   <complexContent>
@@ -48,12 +43,15 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Measure_PropertyType", propOrder = {"measure"})
-public class MeasurePropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "Measure_PropertyType", propOrder = {
+    "measure"
+})
+public class MeasurePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "Measure", namespace = "http://www.isotc211.org/2005/gco", type = JAXBElement.class, required = false)
@@ -63,13 +61,15 @@ public class MeasurePropertyType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Gets the value of the measure property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link AngleType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link LengthType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link LengthType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link ScaleType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AngleType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LengthType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LengthType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ScaleType }{@code >}
+     *     
      */
     public JAXBElement<? extends MeasureType> getMeasure() {
         return measure;
@@ -77,29 +77,31 @@ public class MeasurePropertyType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the measure property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link AngleType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link LengthType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link LengthType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link MeasureType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link ScaleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AngleType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LengthType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LengthType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ScaleType }{@code >}
+     *     
      */
     public void setMeasure(JAXBElement<? extends MeasureType> value) {
         this.measure = value;
     }
 
     public boolean isSetMeasure() {
-        return (this.measure != null);
+        return (this.measure!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -107,17 +109,18 @@ public class MeasurePropertyType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -133,9 +136,8 @@ public class MeasurePropertyType implements Serializable, Equals, HashCode, ToSt
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

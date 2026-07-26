@@ -12,7 +12,9 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import com.delorean.aixm.core.time.helper.XMLGregorianCalendarHelper;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class XMLGregorianCalendarAdapter extends XmlAdapter<XMLGregorianCalendar, OffsetDateTime> {
 
     // ISO 8601 : "yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]"
@@ -22,6 +24,7 @@ public class XMLGregorianCalendarAdapter extends XmlAdapter<XMLGregorianCalendar
             return null;
         }
 
+        log.atDebug().setMessage("Unmarshalling XMLGregorianCalendar into OffsetDateTime: {}").addArgument(value.toString()).log();;
         return XMLGregorianCalendarHelper.parseXMLGregorianCalendar(value);
 
     }
@@ -31,7 +34,8 @@ public class XMLGregorianCalendarAdapter extends XmlAdapter<XMLGregorianCalendar
         if (value == null) {
             return null;
         }
-
+        
+        log.atDebug().setMessage("Marshalling OffsetDateTime into XMLGregorianCalendar: {}").addArgument(value.toString()).log();
         return XMLGregorianCalendarHelper.printXMLGregorianCalendar(value);
 
     }

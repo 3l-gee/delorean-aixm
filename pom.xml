@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.aixm.delorean</groupId>
+  <groupId>com.delorean-aixm</groupId>
   <artifactId>delorean-aixm</artifactId>
   <version>0.2.0</version>
   <packaging>pom</packaging>
@@ -50,6 +50,7 @@
     <logback.classic>1.5.34</logback.classic>
     <slf4j.version>2.0.18</slf4j.version>
     <jansi.version>2.4.1</jansi.version>
+    <lombok.version>1.18.46</lombok.version>
   </properties>
   <modules>
     <module>post-jaxb</module>
@@ -115,6 +116,11 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+        <dependency>
+          <groupId>org.codehaus.janino</groupId>
+          <artifactId>janino</artifactId>
+          <version>3.1.12</version>
+      </dependency>
 
 		<!-- Database drivers -->
         <dependency>
@@ -166,7 +172,7 @@
         </dependency>
 
 		<dependency>
-			<groupId>com.aixm.delorean</groupId>
+			<groupId>com.delorean-aixm</groupId>
 			<artifactId>delorean-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -210,6 +216,11 @@
         <configuration>
           <release>${maven.compiler.release}</release>
           <annotationProcessorPaths>
+            <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </path>
             <path>
               <groupId>org.hibernate.orm</groupId>
               <artifactId>hibernate-processor</artifactId>
@@ -280,10 +291,56 @@
             <version>3.11.2</version>
             <configuration>
                 <show>protected</show>
-                <excludePackageNames>com.aixm.delorean.postjaxb*:com.aixm.delorean.core.org*:com.aixm.delorean.aixm51.schema*:com.aixm.delorean.aixm511.schema*:com.aixm.delorean.aixm52.schema*</excludePackageNames>
+                <excludePackageNames>com.delorean.aixm.postjaxb*:com.delorean.aixm.core.org*:com.delorean.aixm.aixm51.schema*:com.delorean.aixm.aixm511.schema*:com.delorean.aixm.aixm52.schema*</excludePackageNames>
                 <doclint>none</doclint>
                 <failOnError>true</failOnError>
             </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.1</version>
+            <!-- Copy Logback main configuration-->
+            <executions>
+                <execution>
+                    <id>copy-shared-logback-config</id>
+                    <phase>generate-resources</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>${maven.multiModuleProjectDirectory}/delorean-core/src/main/resources</directory>
+                                <includes>
+                                    <include>logback.xml</include>
+                                </includes>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+
+                <!-- Copy Logback test configuration-->
+                <execution>
+                    <id>copy-shared-logback-test-config</id>
+                    <phase>generate-test-resources</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.testOutputDirectory}</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>${maven.multiModuleProjectDirectory}/delorean-core/src/test/resources</directory>
+                                <includes>
+                                    <include>logback.xml</include>
+                                </includes>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+            </executions>
         </plugin>
       </plugins>
   </build>

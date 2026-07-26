@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,49 +31,32 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for SegmentLegAltitudeConditionType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SegmentLegAltitudeConditionType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SegmentLegAltitudeConditionType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="minimumEnrouteAltitude" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="minimumCrossingAtEnd" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="minimumCrossingAtEndReference" type=
-"{http://www.aixm.aero/schema/5.2}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="maximumCrossingAtEnd" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="maximumCrossingAtEndReference" type=
-"{http://www.aixm.aero/schema/5.2}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="engineType" type=
-"{http://www.aixm.aero/schema/5.2}AircraftCharacteristicPropertyType" minOccurs=
-"0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="minimumEnrouteAltitude" type="{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="minimumCrossingAtEnd" type="{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="minimumCrossingAtEndReference" type="{http://www.aixm.aero/schema/5.2}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="maximumCrossingAtEnd" type="{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="maximumCrossingAtEndReference" type="{http://www.aixm.aero/schema/5.2}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="engineType" type="{http://www.aixm.aero/schema/5.2}AircraftCharacteristicPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractSegmentLegAltitudeConditionExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractSegmentLegAltitudeConditionExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -83,16 +66,26 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SegmentLegAltitudeConditionType", propOrder = {"minimumEnrouteAltitude", "minimumCrossingAtEnd",
-        "minimumCrossingAtEndReference", "maximumCrossingAtEnd", "maximumCrossingAtEndReference", "engineType",
-        "annotation", "extension"})
+@XmlType(name = "SegmentLegAltitudeConditionType", propOrder = {
+    "minimumEnrouteAltitude",
+    "minimumCrossingAtEnd",
+    "minimumCrossingAtEndReference",
+    "maximumCrossingAtEnd",
+    "maximumCrossingAtEndReference",
+    "engineType",
+    "annotation",
+    "extension"
+})
 @Entity(name = "SegmentLegAltitudeConditionType")
 @Table(name = "segmentlegaltitudecondition_o", schema = "procedure")
-public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType implements Serializable {
+public class SegmentLegAltitudeConditionType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "minimumEnrouteAltitude", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -113,10 +106,11 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     /**
      * Gets the value of the minimumEnrouteAltitude property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMinimumEnrouteAltitude() {
@@ -125,11 +119,11 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     /**
      * Sets the value of the minimumEnrouteAltitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setMinimumEnrouteAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.minimumEnrouteAltitude = value;
@@ -137,15 +131,16 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetMinimumEnrouteAltitude() {
-        return (this.minimumEnrouteAltitude != null);
+        return (this.minimumEnrouteAltitude!= null);
     }
 
     /**
      * Gets the value of the minimumCrossingAtEnd property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMinimumCrossingAtEnd() {
@@ -154,11 +149,11 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     /**
      * Sets the value of the minimumCrossingAtEnd property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setMinimumCrossingAtEnd(JAXBElement<ValDistanceVerticalType> value) {
         this.minimumCrossingAtEnd = value;
@@ -166,15 +161,16 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetMinimumCrossingAtEnd() {
-        return (this.minimumCrossingAtEnd != null);
+        return (this.minimumCrossingAtEnd!= null);
     }
 
     /**
      * Gets the value of the minimumCrossingAtEndReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getMinimumCrossingAtEndReference() {
@@ -183,11 +179,11 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     /**
      * Sets the value of the minimumCrossingAtEndReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setMinimumCrossingAtEndReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.minimumCrossingAtEndReference = value;
@@ -195,15 +191,16 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetMinimumCrossingAtEndReference() {
-        return (this.minimumCrossingAtEndReference != null);
+        return (this.minimumCrossingAtEndReference!= null);
     }
 
     /**
      * Gets the value of the maximumCrossingAtEnd property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMaximumCrossingAtEnd() {
@@ -212,11 +209,11 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     /**
      * Sets the value of the maximumCrossingAtEnd property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setMaximumCrossingAtEnd(JAXBElement<ValDistanceVerticalType> value) {
         this.maximumCrossingAtEnd = value;
@@ -224,15 +221,16 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetMaximumCrossingAtEnd() {
-        return (this.maximumCrossingAtEnd != null);
+        return (this.maximumCrossingAtEnd!= null);
     }
 
     /**
      * Gets the value of the maximumCrossingAtEndReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getMaximumCrossingAtEndReference() {
@@ -241,11 +239,11 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     /**
      * Sets the value of the maximumCrossingAtEndReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setMaximumCrossingAtEndReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.maximumCrossingAtEndReference = value;
@@ -253,15 +251,16 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetMaximumCrossingAtEndReference() {
-        return (this.maximumCrossingAtEndReference != null);
+        return (this.maximumCrossingAtEndReference!= null);
     }
 
     /**
      * Gets the value of the engineType property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AircraftCharacteristicPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AircraftCharacteristicPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AircraftCharacteristicPropertyType> getEngineType() {
@@ -270,11 +269,11 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     /**
      * Sets the value of the engineType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AircraftCharacteristicPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AircraftCharacteristicPropertyType }{@code >}
+     *     
      */
     public void setEngineType(JAXBElement<AircraftCharacteristicPropertyType> value) {
         this.engineType = value;
@@ -282,36 +281,39 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetEngineType() {
-        return (this.engineType != null);
+        return (this.engineType!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sgmntlgalttdcndtntp_annttn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "segmentlegaltitudecondition_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sgmntlgalttdcndtntp_annttn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "segmentlegaltitudecondition_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -320,8 +322,8 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -329,7 +331,7 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -338,29 +340,29 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SegmentLegAltitudeConditionExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SegmentLegAltitudeConditionExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "segmentlegaltitudecondition_oe_hjid", referencedColumnName = "hjid")
     public List<SegmentLegAltitudeConditionExtensionType> getExtension() {
         if (extension == null) {
@@ -370,8 +372,8 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<SegmentLegAltitudeConditionExtensionType> extension) {
         this.extension = extension;
@@ -379,7 +381,7 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -388,99 +390,94 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "minimumenroutealtitude", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "minimumenroutealtitudeuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "minimumenroutealtitudeaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumenroutealtitudenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "minimumenroutealtitude", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "minimumenroutealtitudeuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "minimumenroutealtitudeaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumenroutealtitudenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getMinimumEnrouteAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMinimumEnrouteAltitude());
     }
 
     public void setMinimumEnrouteAltitudeItem(ValDistanceVerticalType target) {
-        setMinimumEnrouteAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "minimumEnrouteAltitude"),
-                SegmentLegAltitudeConditionType.class, target));
+        setMinimumEnrouteAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "minimumEnrouteAltitude"), SegmentLegAltitudeConditionType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "minimumcrossingatend", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "minimumcrossingatenduom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "minimumcrossingatendaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumcrossingatendnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "minimumcrossingatend", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "minimumcrossingatenduom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "minimumcrossingatendaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumcrossingatendnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getMinimumCrossingAtEndItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMinimumCrossingAtEnd());
     }
 
     public void setMinimumCrossingAtEndItem(ValDistanceVerticalType target) {
-        setMinimumCrossingAtEnd(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "minimumCrossingAtEnd"),
-                SegmentLegAltitudeConditionType.class, target));
-    }
-
-    @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "minimumcrossingatendreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumcrossingatendreferencenilreason"))})
-    public CodeVerticalReferenceType getMinimumCrossingAtEndReferenceItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class,
-                this.getMinimumCrossingAtEndReference());
-    }
-
-    public void setMinimumCrossingAtEndReferenceItem(CodeVerticalReferenceType target) {
-        setMinimumCrossingAtEndReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "minimumCrossingAtEndReference"),
-                SegmentLegAltitudeConditionType.class, target));
+        setMinimumCrossingAtEnd(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "minimumCrossingAtEnd"), SegmentLegAltitudeConditionType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "maximumcrossingatend", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "maximumcrossingatenduom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "maximumcrossingatendaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "maximumcrossingatendnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "minimumcrossingatendreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumcrossingatendreferencenilreason", columnDefinition = "nilreason"))
+    })
+    public CodeVerticalReferenceType getMinimumCrossingAtEndReferenceItem() {
+        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getMinimumCrossingAtEndReference());
+    }
+
+    public void setMinimumCrossingAtEndReferenceItem(CodeVerticalReferenceType target) {
+        setMinimumCrossingAtEndReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.2", "minimumCrossingAtEndReference"), SegmentLegAltitudeConditionType.class, target));
+    }
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "maximumcrossingatend", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "maximumcrossingatenduom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "maximumcrossingatendaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "maximumcrossingatendnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getMaximumCrossingAtEndItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMaximumCrossingAtEnd());
     }
 
     public void setMaximumCrossingAtEndItem(ValDistanceVerticalType target) {
-        setMaximumCrossingAtEnd(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "maximumCrossingAtEnd"),
-                SegmentLegAltitudeConditionType.class, target));
+        setMaximumCrossingAtEnd(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "maximumCrossingAtEnd"), SegmentLegAltitudeConditionType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "maximumcrossingatendreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "maximumcrossingatendreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "maximumcrossingatendreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "maximumcrossingatendreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getMaximumCrossingAtEndReferenceItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class,
-                this.getMaximumCrossingAtEndReference());
+        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getMaximumCrossingAtEndReference());
     }
 
     public void setMaximumCrossingAtEndReferenceItem(CodeVerticalReferenceType target) {
-        setMaximumCrossingAtEndReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "maximumCrossingAtEndReference"),
-                SegmentLegAltitudeConditionType.class, target));
+        setMaximumCrossingAtEndReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.2", "maximumCrossingAtEndReference"), SegmentLegAltitudeConditionType.class, target));
     }
 
     @OneToOne(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sgmntlgalttdcndtntp_engntp_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "segmentlegaltitudecondition_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "enginetype_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sgmntlgalttdcndtntp_engntp_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "segmentlegaltitudecondition_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "enginetype_hjid", referencedColumnName = "hjid")
+    })
     public AircraftCharacteristicPropertyType getEngineTypeItem() {
         return XmlAdapterUtils.unmarshallSource(AircraftCharacteristicPropertyType.class, this.getEngineType());
     }
 
     public void setEngineTypeItem(AircraftCharacteristicPropertyType target) {
-        setEngineType(XmlAdapterUtils.marshallJAXBElement(AircraftCharacteristicPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "engineType"), SegmentLegAltitudeConditionType.class,
-                target));
+        setEngineType(XmlAdapterUtils.marshallJAXBElement(AircraftCharacteristicPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "engineType"), SegmentLegAltitudeConditionType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -497,36 +494,21 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
             lhsField = this.getMaximumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> rhsField;
             rhsField = that.getMaximumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEngineType();
-            boolean rhsFieldIsSet = that.isSetEngineType();
-            JAXBElement<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = this.getEngineType();
-            JAXBElement<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = that.getEngineType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engineType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engineType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SegmentLegAltitudeConditionExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SegmentLegAltitudeConditionExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -551,23 +533,34 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
             lhsField = this.getMinimumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> rhsField;
             rhsField = that.getMinimumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SegmentLegAltitudeConditionExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SegmentLegAltitudeConditionExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetEngineType();
+            boolean rhsFieldIsSet = that.isSetEngineType();
+            JAXBElement<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = this.getEngineType();
+            JAXBElement<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = that.getEngineType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engineType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engineType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumEnrouteAltitude();
+            boolean rhsFieldIsSet = that.isSetMinimumEnrouteAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumEnrouteAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumEnrouteAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEnrouteAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEnrouteAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -586,14 +579,14 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumEnrouteAltitude();
-            boolean rhsFieldIsSet = that.isSetMinimumEnrouteAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumEnrouteAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumEnrouteAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEnrouteAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEnrouteAltitude", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -649,14 +642,14 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SegmentLegAltitudeConditionExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -705,13 +698,13 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SegmentLegAltitudeConditionExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

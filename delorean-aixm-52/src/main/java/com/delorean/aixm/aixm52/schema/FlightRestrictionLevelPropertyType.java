@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for FlightRestrictionLevelPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FlightRestrictionLevelPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FlightRestrictionLevelPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}FlightRestrictionLevel"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}FlightRestrictionLevel"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FlightRestrictionLevelPropertyType", propOrder = {"flightRestrictionLevel"})
+@XmlType(name = "FlightRestrictionLevelPropertyType", propOrder = {
+    "flightRestrictionLevel"
+})
 @Entity(name = "FlightRestrictionLevelPropertyType")
 @Table(name = "flightrestrictionlevelpropertytype", schema = "route")
-public class FlightRestrictionLevelPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class FlightRestrictionLevelPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "FlightRestrictionLevel", required = true)
@@ -58,11 +56,15 @@ public class FlightRestrictionLevelPropertyType extends AbstractAIXMPropertyType
 
     /**
      * Gets the value of the flightRestrictionLevel property.
-     *
-     * @return possible object is {@link FlightRestrictionLevelType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link FlightRestrictionLevelType }
+     *     
      */
-    @OneToOne(targetEntity = FlightRestrictionLevelType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = FlightRestrictionLevelType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "flightrestrictionlevel_hjid", referencedColumnName = "hjid")
     public FlightRestrictionLevelType getFlightRestrictionLevel() {
         return flightRestrictionLevel;
@@ -70,10 +72,11 @@ public class FlightRestrictionLevelPropertyType extends AbstractAIXMPropertyType
 
     /**
      * Sets the value of the flightRestrictionLevel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link FlightRestrictionLevelType }
-     *
+     *     allowed object is
+     *     {@link FlightRestrictionLevelType }
+     *     
      */
     public void setFlightRestrictionLevel(FlightRestrictionLevelType value) {
         this.flightRestrictionLevel = value;
@@ -81,13 +84,12 @@ public class FlightRestrictionLevelPropertyType extends AbstractAIXMPropertyType
 
     @Transient
     public boolean isSetFlightRestrictionLevel() {
-        return (this.flightRestrictionLevel != null);
+        return (this.flightRestrictionLevel!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

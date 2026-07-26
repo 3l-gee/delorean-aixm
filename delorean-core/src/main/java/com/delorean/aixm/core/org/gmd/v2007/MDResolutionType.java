@@ -1,11 +1,11 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.DistancePropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -19,37 +19,34 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for MD_Resolution_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MD_Resolution_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MD_Resolution_Type">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element name="equivalentScale" type=
-"{http://www.isotc211.org/2005/gmd}MD_RepresentativeFraction_PropertyType"/>
- *         <element name="distance" type=
-"{http://www.isotc211.org/2005/gco}Distance_PropertyType"/>
+ *         <element name="equivalentScale" type="{http://www.isotc211.org/2005/gmd}MD_RepresentativeFraction_PropertyType"/>
+ *         <element name="distance" type="{http://www.isotc211.org/2005/gco}Distance_PropertyType"/>
  *       </choice>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_Resolution_Type", propOrder = {"equivalentScale", "distance"})
-public class MDResolutionType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "MD_Resolution_Type", propOrder = {
+    "equivalentScale",
+    "distance"
+})
+public class MDResolutionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     protected MDRepresentativeFractionPropertyType equivalentScale;
@@ -57,9 +54,11 @@ public class MDResolutionType implements Serializable, Equals, HashCode, ToStrin
 
     /**
      * Gets the value of the equivalentScale property.
-     *
-     * @return possible object is {@link MDRepresentativeFractionPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link MDRepresentativeFractionPropertyType }
+     *     
      */
     public MDRepresentativeFractionPropertyType getEquivalentScale() {
         return equivalentScale;
@@ -67,24 +66,27 @@ public class MDResolutionType implements Serializable, Equals, HashCode, ToStrin
 
     /**
      * Sets the value of the equivalentScale property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MDRepresentativeFractionPropertyType }
-     *
+     *     allowed object is
+     *     {@link MDRepresentativeFractionPropertyType }
+     *     
      */
     public void setEquivalentScale(MDRepresentativeFractionPropertyType value) {
         this.equivalentScale = value;
     }
 
     public boolean isSetEquivalentScale() {
-        return (this.equivalentScale != null);
+        return (this.equivalentScale!= null);
     }
 
     /**
      * Gets the value of the distance property.
-     *
-     * @return possible object is {@link DistancePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link DistancePropertyType }
+     *     
      */
     public DistancePropertyType getDistance() {
         return distance;
@@ -92,17 +94,18 @@ public class MDResolutionType implements Serializable, Equals, HashCode, ToStrin
 
     /**
      * Sets the value of the distance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link DistancePropertyType }
-     *
+     *     allowed object is
+     *     {@link DistancePropertyType }
+     *     
      */
     public void setDistance(DistancePropertyType value) {
         this.distance = value;
     }
 
     public boolean isSetDistance() {
-        return (this.distance != null);
+        return (this.distance!= null);
     }
 
     @Override
@@ -118,9 +121,8 @@ public class MDResolutionType implements Serializable, Equals, HashCode, ToStrin
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

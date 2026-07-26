@@ -36,6 +36,7 @@ class InteractionMachinery:
         for file in self.files:
             content = HeleperFunction.load_java(file)
             core = ParsingUtility.extract_core(self.parsing, content)
+
             if core.get("class") in self.feature_set:
                 self.views["feature"][core.get("class")] = Feature(core.get("class"), core.get("schema"))
                 continue
@@ -89,62 +90,62 @@ class InteractionMachinery:
                 print(f"Class {core.get('class')} {core.get('parent')} not classified")
 
 
-        # for file in self.files:
-        #     content = HeleperFunction.load_java(file)
-        #     core = ParsingUtility.extract_core(self.parsing, content)
-        #     if core.get("class") in self.feature_set:
-        #         continue
+        for file in self.files:
+            content = HeleperFunction.load_java(file)
+            core = ParsingUtility.extract_core(self.parsing, content)
+            if core.get("class") in self.feature_set:
+                continue
 
-        #     elif core.get("class").replace("PropertyType", "Type") in self.feature_set:
-        #         continue
+            elif core.get("class").replace("PropertyType", "Type") in self.feature_set:
+                continue
 
-        #     elif core.get("class") in self.property_set or core.get("parent") in self.property_set:
-        #         continue
+            elif core.get("class") in self.property_set or core.get("parent") in self.property_set:
+                continue
 
-        #     elif core.get("parent") in self.property_set:
-        #         continue
+            elif core.get("parent") in self.property_set:
+                continue
 
-        #     elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
-        #         continue
+            elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
+                continue
 
-        #     elif core.get("parent") in self.object_set:
-        #         continue
+            elif core.get("parent") in self.object_set:
+                continue
 
-        #     elif core.get("class").replace("ExtensionType", "Type") in self.object_set:
-        #         continue
+            elif core.get("class").replace("ExtensionType", "Type") in self.object_set:
+                continue
 
-        #     elif core.get("class") in self.timesliceproperty_set:
-        #         continue
+            elif core.get("class") in self.timesliceproperty_set:
+                continue
 
-        #     elif core.get("class") in self.timeslice_set:
-        #         continue
+            elif core.get("class") in self.timeslice_set:
+                continue
 
-        #     elif core.get("class") in self.extension_set or core.get("parent") in self.extension_set:
-        #         continue
+            elif core.get("class") in self.extension_set or core.get("parent") in self.extension_set:
+                continue
 
-        #     elif core.get("parent") in self.extension_set:
-        #         continue
+            elif core.get("parent") in self.extension_set:
+                continue
 
-        #     elif core.get("class") in self.basetype_set:
-        #         continue
+            elif core.get("class") in self.basetype_set:
+                continue
 
-        #     elif core.get("class") in self.type_set:
-        #         continue
+            elif core.get("class") in self.type_set:
+                continue
 
-        #     elif core.get("class") in self.ignore_set:
-        #         continue
+            elif core.get("class") in self.ignore_set:
+                continue
 
-        #     elif core.get("parent") in self.ignore_set:
-        #         continue
+            elif core.get("parent") in self.ignore_set:
+                continue
 
-        #     elif core.get("class") in self.abstract_set:
-        #         continue
+            elif core.get("class") in self.abstract_set:
+                continue
 
-        #     elif core.get("parent") in self.abstract_set:
-        #         continue
+            elif core.get("parent") in self.abstract_set:
+                continue
         
-        #     else :
-        #         print(f"Class {core.get('class')} {core.get('parent')} not classified")
+            else :
+                print(f"Class {core.get('class')} {core.get('parent')} not classified")
 
         for feature in self.views["feature"].values():
             feature.generate_sql()

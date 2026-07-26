@@ -5,7 +5,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.delorean.aixm.core.log.ConsoleLogger;
-import com.delorean.aixm.core.log.LogLevel;
 
 import org.hibernate.Transaction;
 
@@ -20,9 +19,12 @@ import java.sql.SQLException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.function.Function;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
     private final Class<ROOT> rootClass;
     private final Class<FEATURE> featureClass;
@@ -32,6 +34,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
     private final Class<?> AIXMResourceAnchorsClass;
     private String sqlPreInit;
     private String sqlPostInit;
+    private Map<String, String> sqlFilesMap;
     private SessionFactory sessionFactory;
     private Configuration configuration;
     private ConnectionStatus connectionStatus;
@@ -44,6 +47,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             Class<OBJECT> objectClass,
             String sqlPreInitPath,
             String sqlPostInitPath,
+            Map<String, String> sqlFilesMap,
             Configuration configuration,
             ConnectionStatus connectionStatus,
             AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper,
@@ -57,10 +61,22 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
         this.sqlPreInit = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(sqlPreInitPath));
         this.sqlPostInit = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(sqlPostInitPath));
+        this.sqlFilesMap = sqlFilesMap;
         this.configuration = configuration;
         this.sessionFactory = null;
         this.connectionStatus = connectionStatus;
         this.databaseHelper = databaseHelper;
+
+        log.info("Initialized DatabaseBindingService");
+        log.atDebug().setMessage("Root class: {}").addArgument(() -> rootClass.getName()).log();
+        log.atDebug().setMessage("Feature class: {}").addArgument(() -> featureClass.getName()).log();
+        log.atDebug().setMessage("TimeSlice class: {}").addArgument(() -> timeSliceClass.getName()).log();
+        log.atDebug().setMessage("Object class: {}").addArgument(() -> objectClass.getName()).log();
+        log.atDebug().setMessage("CoreResourceAnchorsClass: {}").addArgument(() -> CoreResourceAnchorsClass.getName()).log();
+        log.atDebug().setMessage("AIXMResourceAnchorsClass: {}").addArgument(() -> AIXMResourceAnchorsClass.getName()).log();
+        log.atDebug().setMessage("SQL Pre-Init Path: {}").addArgument(() -> sqlPreInitPath).log();
+        log.atDebug().setMessage("SQL Post-Init Path: {}").addArgument(() -> sqlPostInitPath).log();
+
     }
 
     public void setUrl(String url) {
@@ -89,6 +105,8 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.setPassword(password);
         this.setHbm2ddl(hbm2ddl);
 
+        log.atDebug().setMessage("Database credentials set: URL={}, Username={}, hbm2ddl={}").addArgument(() -> url).addArgument(() -> username).addArgument(() -> hbm2ddl).log();
+
         try {
             Class.forName("org.postgresql.Driver");
 
@@ -96,11 +114,9 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                 return true;
             }
         } catch (java.lang.ClassNotFoundException e) {
-            ConsoleLogger.error("PostgreSQL JDBC Driver not found on classpath!");
-            return false;
+            throw new RuntimeException("PostgreSQL JDBC Driver not found. Please check your dependencies.", e);
         } catch (java.sql.SQLException e) {
-            ConsoleLogger.error("Connection failed: " + e.getMessage());
-            return false;
+            throw new RuntimeException("Database connection error. Please check your credentials and database status.", e);
         }
     }
 
@@ -147,8 +163,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-            return "ERROR: Could not fetch statistics.";
+            throw new RuntimeException("Error executing statistics queries", e);
         }
 
         // Format and return the result string
@@ -161,8 +176,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                     .collect(Collectors.joining("\n"));
             return string;
         } catch (Exception e) {
-            ConsoleLogger.error("Error reading SQL resource stream", e);
-            return null;
+            throw new RuntimeException("Error reading SQL resource stream", e);
         }
     }
 
@@ -197,20 +211,40 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                 break;
 
             default:
-                System.err.println("Invalid hbm2ddl value provided: " + hbm2ddlAuto);
-                break;
+                throw new IllegalArgumentException("Unknown hbm2ddl.auto value: " + hbm2ddlAuto);
         }
     }
 
-    public void startup() {
+    /**
+     * Initializes the Hibernate session factory and executes the pre-initialization and post-initialization SQL scripts. 
+     * The behavior of this method is determined by the value of the "hibernate.hbm2ddl.auto" property in the configuration.
+     * Cases:
+     * - "create", "create-only", "create-drop": Executes the pre-initialization SQL script, builds the session factory, and then executes the post-initialization SQL script.
+     * - "none", "drop", "validate", "update": Only builds the session factory without executing any SQL scripts.
+     */
+    public void startup(boolean withDomainCheck) {
         try {
             String hbm2ddl = this.configuration.getProperty("hibernate.hbm2ddl.auto");
+            log.atDebug().setMessage("Starting up with Hbm2ddl: {} | Domain Check Option: {}")
+                .addArgument(hbm2ddl)
+                .addArgument(withDomainCheck)
+                .log();
             switch (hbm2ddl) {
                 case "create":
                 case "create-only":
                 case "create-drop":
                     this.executeSQLScript(this.sqlPreInit);
+                    if (withDomainCheck){
+                        String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("domain_check")));
+                        this.executeSQLScript(sql);
+                    } else {
+                        String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("domain_checkless")));
+                        this.executeSQLScript(sql);
+                    }
+
                     this.sessionFactory = configuration.buildSessionFactory();
+                    String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("postgresql_comments")));
+                    this.executeSQLScript(sql);
                     this.executeSQLScript(this.sqlPostInit);
                     break;
 
@@ -225,11 +259,13 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                     throw new IllegalArgumentException("Unknown hbm2ddl.auto value: " + hbm2ddl);
             }
         } catch (Exception e) {
-            ConsoleLogger.error("Error initializing Hibernate session factory", e);
-
+            throw new RuntimeException("Error initializing Hibernate session factory", e);
         }
     }
 
+    /**
+     * Inspects the persisted messages in the database.
+     */
     public void persistedMessageinspection() {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("sessionfactory is not init");
@@ -240,7 +276,6 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
     /**
      * Executes a single SQL query (typically SELECT) and maps the results to a List
      * of objects.
-     * 
      * @param <T>    The type of object to map the results to.
      * @param sql    The single SQL SELECT query to execute.
      * @param mapper The RowMapper functional interface to handle per-row mapping
@@ -264,9 +299,10 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             }
 
         } catch (SQLException e) {
-            ConsoleLogger.error("Error executing query: " + sql, e);
+            String errorMsg = String.format("SQL Error [State: %s, Code: %d]: %s", e.getSQLState(), e.getErrorCode(), e.getMessage());
+            throw new RuntimeException(errorMsg, e);
         } catch (UnsupportedOperationException e) {
-            ConsoleLogger.error("Database connection error.", e);
+            throw new RuntimeException("Database connection error.", e);
         }
 
         return results;
@@ -274,10 +310,10 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
     /**
      * Executes a custom SQL script
-     * 
      * @param sql The SQL script to execute. Can contain multiple statements
      *            separated by semicolons. If it contains a PostgreSQL DO block, it
      *            will be executed as a single statement.
+     * @throws RuntimeException if there is an error during script execution or if the PostgreSQL JDBC driver is not found.
      */
     private void executeSQLScript(String sql) {
         if (sql == null || sql.isBlank()) {
@@ -285,43 +321,37 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         }
 
         try {
-            // Ensure driver is registered for the DriverManager
             Class.forName("org.postgresql.Driver");
 
             try (Connection conn = getConnection();
-                    Statement stmt = conn.createStatement()) {
-                if (sql.toUpperCase().contains("DO $$") || sql.toUpperCase().contains("BEGIN")) {
-                    stmt.execute(sql);
-                } else {
-                    String[] queries = sql.split(";");
+                Statement stmt = conn.createStatement()) {
+                
+                stmt.execute(sql);
 
-                    for (String query : queries) {
-                        String cleaned = query.trim();
-
-                        if (cleaned.isEmpty() || cleaned.startsWith("--")) {
-                            continue;
-                        }
-
-                        stmt.execute(cleaned);
-                    }
-                }
-                ConsoleLogger.info("SQL script executed successfully.");
+                log.info("SQL script executed successfully.");
             }
         } catch (ClassNotFoundException e) {
-            ConsoleLogger.error("PostgreSQL JDBC Driver not found. Please check your dependencies.", e);
+            throw new RuntimeException("PostgreSQL JDBC Driver not found. Please check your dependencies.", e);
         } catch (SQLException e) {
-            String errorMsg = String.format("SQL Error [State: %s, Code: %d]: %s", e.getSQLState(), e.getErrorCode(),
-                    e.getMessage());
-            ConsoleLogger.error(errorMsg, e);
+            String errorMsg = String.format("SQL Error [State: %s, Code: %d]: %s", e.getSQLState(), e.getErrorCode(), e.getMessage());
+            throw new RuntimeException(errorMsg, e);
         } catch (Exception e) {
-            ConsoleLogger.error("Unexpected error during script execution.", e);
+            throw new RuntimeException("Unexpected error during script execution.", e);
         }
     }
 
+    /**
+     * Shuts down the Hibernate session factory and releases all associated resources.
+     */
     public void shutdown() {
         this.sessionFactory.close();
     }
 
+    /**
+     * Persists the provided message object into the database. The message should be of type ROOT.
+     * @param message The message object to be persisted into the database.
+     * @throws IllegalArgumentException if the session factory is not initialized.
+     */
     public void persist(ROOT message) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("sessionfactory is not init");
@@ -330,32 +360,38 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.databaseHelper.persist(message, this.sessionFactory);
     }
 
+    /**
+     * Extracts an object of type ROOT from the database based on the provided structure and ID.
+     * @param structure The class type of the structure to extract.
+     * @param id The ID of the object to extract.
+     * @return The extracted object, or null if not found.
+     */
     public ROOT extract(Class<ROOT> structure, Object id) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("sessionfactory is not init");
         }
 
-        Session session = this.getSession();
-        Transaction transaction = null;
-
-        try {
-            transaction = session.beginTransaction();
-
-            ROOT object = session.find(structure, id);
-
-            transaction.commit();
-            session.close();
-            return object;
-
-        } catch (Exception e) {
-            if (transaction != null) {
+        try (Session session = this.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            try {
+                ROOT object = session.find(structure, id);
+                transaction.commit();
+                return object;
+            } catch (Exception e) {
                 transaction.rollback();
+                e.printStackTrace();
+                return null;
             }
-            e.printStackTrace();
-            return null;
         }
     }
 
+    /**
+     * Predicates the valid timeslice for a given structure and time. Only the last timeslices before the given 
+     * time are considered valid as well as the timeslices that are valid after or at the given time.
+     * @param structure The class type of the structure for which the valid timeslice is to be determined.
+     * @param time The time for which to determine the valid timeslice.
+     * @return The valid timeslice for the given structure and time.
+     */
     public ROOT predicateValidTimeslice(Class<ROOT> structure, Instant time) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("Sessionfactory is not init");
@@ -363,7 +399,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
         // collect relevant tiemeslice property ids
         Session session = sessionFactory.openSession();
-        InputStream TPIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/time_slice_property_ids.sql");
+        InputStream TPIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("query_time_slice_property_ids"));
         if (TPIdsStream == null) {
             throw new IllegalStateException("TimeSliceProperty predicate script not found");
         }
@@ -373,8 +409,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         TPIdsTX.commit();
 
         // collect relevant basic message memebers ids
-        InputStream BMMIdsStream = this.AIXMResourceAnchorsClass
-                .getResourceAsStream("/sql/basic_message_member_ids.sql");
+        InputStream BMMIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("query_basic_message_member_ids"));
         if (BMMIdsStream == null) {
             throw new IllegalStateException("TimeSliceProperty predicate script not found");
         }
@@ -386,6 +421,11 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         return this.databaseHelper.predicateValidTimeslice(BMMIds, TPIds, this.sessionFactory);
     }
 
+    /**
+     * Merges the provided message into the database.
+     * @param message The message object to be merged into the database. It should be of type ROOT.
+     * @throws IllegalArgumentException if the session factory is not initialized.
+     */
     public void merge(ROOT message) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("Sessionfactory is not init");
@@ -394,6 +434,11 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.databaseHelper.merge(message, this.sessionFactory);
     }
 
+    /**
+     * Integrates the provided message into the database
+     * @param message The message object to be integrated into the database. It should be of type ROOT.
+     * @throws IllegalArgumentException if the session factory is not initialized.
+     */
     public void integrate(ROOT message) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("Sessionfactory is not init");
@@ -401,102 +446,4 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
         this.databaseHelper.merge(message, this.sessionFactory);
     }
-
-    // public Object export(Class<T> structure, Object id) {
-    // ConsoleLogger.log(LogLevel.DEBUG, "Retrieving : " + structure + " with id: "
-    // + id, new Exception().getStackTrace()[0]);
-    // if (this.sessionFactory == null) {
-    // throw new IllegalArgumentException("sessionfactory is not initialized");
-    // }
-
-    // Session session = this.sessionFactory.openSession();
-    // Transaction transaction = null;
-    // AIXMBasicMessageType object = null;
-
-    // try {
-    // transaction = session.beginTransaction();
-
-    // // 1. Execute SQL to get the latest IDs per sequence_number
-    // String sql = """
-    // SELECT DISTINCT ON (identifier, sequence_number)
-    // navaids_points.designatedpoint_tsp.id
-    // FROM navaids_points.designatedpoint
-    // LEFT JOIN master_join
-    // ON navaids_points.designatedpoint.id = master_join.source_id
-    // LEFT JOIN navaids_points.designatedpoint_tsp
-    // ON master_join.target_id = navaids_points.designatedpoint_tsp.id
-    // LEFT JOIN navaids_points.designatedpoint_ts
-    // ON navaids_points.designatedpoint_tsp.designatedpointtimeslice_id =
-    // navaids_points.designatedpoint_ts.id
-    // WHERE
-    // navaids_points.designatedpoint.feature_status = 'APPROVED'
-    // AND
-    // navaids_points.designatedpoint_ts.feature_status = 'APPROVED'
-    // ORDER BY sequence_number, correction_number DESC;
-    // """;
-
-    // List<Integer> validIds = session.createNativeQuery(sql,
-    // Integer.class).getResultList();
-
-    // if (validIds.isEmpty()) {
-    // ConsoleLogger.log(LogLevel.INFO, "No valid DesignatedPointTimeSlice IDs
-    // found");
-    // return null;
-    // }
-
-    // // 2. Run the HQL using the result from SQL
-    // String hql = """
-    // SELECT dpt
-    // FROM DesignatedPointType dpt
-    // JOIN FETCH dpt.timeSlice tsp
-    // JOIN FETCH tsp.designatedPointTimeSlice ts
-    // WHERE
-    // tsp.dbid IN :validIds
-    // AND
-    // (:validDateTime <= ts.validTime.endPosition OR ts.validTime.endPosition IS
-    // NULL)
-    // ORDER BY ts.sequenceNumber, ts.correctionNumber DESC
-    // """;
-
-    // List<DesignatedPointType> designatedPoints = session.createQuery(hql,
-    // DesignatedPointType.class)
-    // .setParameterList("validIds", validIds)
-    // .setParameter("validDateTime", Instant.parse("2011-01-01T00:00:00.000Z"))
-    // .getResultList();
-
-    // // 3. Build the export message
-    // object = new AIXMBasicMessageType();
-    // for (DesignatedPointType dpt : designatedPoints) {
-    // BasicMessageMemberAIXMPropertyType member = new
-    // BasicMessageMemberAIXMPropertyType();
-    // member.setAbstractAIXMFeature(dpt);
-    // object.getHasMember().add(member);
-    // }
-
-    // transaction.commit();
-    // } catch (Exception e) {
-    // if (transaction != null) {
-    // transaction.rollback();
-    // }
-    // e.printStackTrace();
-    // } finally {
-    // session.close();
-    // }
-
-    // ConsoleLogger.log(LogLevel.INFO, "AIXM Successfully exported");
-    // return object;
-    // }
-
-    // public void computeDBView() {
-    // this.executeSQLScript(this.databaseConfig.getSqlDBViewFilePath());
-
-    // ConsoleLogger.log(LogLevel.INFO, "Database views successfully created.");
-    // }
-
-    // private boolean isMappedClass(Object object){
-    // if (this.databaseConfig.getMappedClasses().contains(object.getClass())){
-    // return true;
-    // }
-    // return false;
-    // }
 }

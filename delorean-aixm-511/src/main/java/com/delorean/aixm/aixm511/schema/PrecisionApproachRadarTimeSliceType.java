@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,80 +31,47 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for PrecisionApproachRadarTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for PrecisionApproachRadarTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="PrecisionApproachRadarTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
- *         <element name="serialNumber" type=
-"{http://www.aixm.aero/schema/5.1.1}TextDesignatorType" minOccurs="0"/>
- *         <element name="range" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="rangeAccuracy" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="dualChannel" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="movingTargetIndicator" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="standbyPower" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeStandbyPowerType" minOccurs="0"/>
- *         <element name="digital" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="militaryUseOnly" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="specialUseOnly" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="specialAircraftOnly" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="magneticVariation" type=
-"{http://www.aixm.aero/schema/5.1.1}ValMagneticVariationType" minOccurs="0"/>
- *         <element name="magneticVariationAccuracy" type=
-"{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
- *         <element name="dateMagneticVariation" type=
-"{http://www.aixm.aero/schema/5.1.1}DateYearType" minOccurs="0"/>
- *         <element name="contact" type=
-"{http://www.aixm.aero/schema/5.1.1}ContactInformationPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="precisionApproachRadarType" type=
-"{http://www.aixm.aero/schema/5.1.1}CodePARType" minOccurs="0"/>
- *         <element name="slope" type=
-"{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
- *         <element name="slopeAccuracy" type=
-"{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
- *         <element name="reflector" type=
-"{http://www.aixm.aero/schema/5.1.1}ReflectorPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="serialNumber" type="{http://www.aixm.aero/schema/5.1.1}TextDesignatorType" minOccurs="0"/>
+ *         <element name="range" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="rangeAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="dualChannel" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="movingTargetIndicator" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="standbyPower" type="{http://www.aixm.aero/schema/5.1.1}CodeStandbyPowerType" minOccurs="0"/>
+ *         <element name="digital" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="militaryUseOnly" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="specialUseOnly" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="specialAircraftOnly" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="magneticVariation" type="{http://www.aixm.aero/schema/5.1.1}ValMagneticVariationType" minOccurs="0"/>
+ *         <element name="magneticVariationAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="dateMagneticVariation" type="{http://www.aixm.aero/schema/5.1.1}DateYearType" minOccurs="0"/>
+ *         <element name="contact" type="{http://www.aixm.aero/schema/5.1.1}ContactInformationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="precisionApproachRadarType" type="{http://www.aixm.aero/schema/5.1.1}CodePARType" minOccurs="0"/>
+ *         <element name="slope" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="slopeAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="reflector" type="{http://www.aixm.aero/schema/5.1.1}ReflectorPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPrecisionApproachRadarExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractRadarEquipmentExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPrecisionApproachRadarExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRadarEquipmentExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -114,18 +81,40 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PrecisionApproachRadarTimeSliceType", propOrder = {"aixmName", "serialNumber", "range",
-        "rangeAccuracy", "dualChannel", "movingTargetIndicator", "standbyPower", "digital", "militaryUseOnly",
-        "specialUseOnly", "specialAircraftOnly", "magneticVariation", "magneticVariationAccuracy",
-        "dateMagneticVariation", "contact", "location", "annotation", "precisionApproachRadarType", "slope",
-        "slopeAccuracy", "reflector", "extension"})
+@XmlType(name = "PrecisionApproachRadarTimeSliceType", propOrder = {
+    "aixmName",
+    "serialNumber",
+    "range",
+    "rangeAccuracy",
+    "dualChannel",
+    "movingTargetIndicator",
+    "standbyPower",
+    "digital",
+    "militaryUseOnly",
+    "specialUseOnly",
+    "specialAircraftOnly",
+    "magneticVariation",
+    "magneticVariationAccuracy",
+    "dateMagneticVariation",
+    "contact",
+    "location",
+    "annotation",
+    "precisionApproachRadarType",
+    "slope",
+    "slopeAccuracy",
+    "reflector",
+    "extension"
+})
 @Entity(name = "PrecisionApproachRadarTimeSliceType")
 @Table(name = "precisionapproachradar_t", schema = "surveillance")
-public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class PrecisionApproachRadarTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "name", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -174,10 +163,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -186,11 +176,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -198,15 +188,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the serialNumber property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextDesignatorType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextDesignatorType> getSerialNumber() {
@@ -215,11 +206,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the serialNumber property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextDesignatorType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
+     *     
      */
     public void setSerialNumber(JAXBElement<TextDesignatorType> value) {
         this.serialNumber = value;
@@ -227,15 +218,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetSerialNumber() {
-        return (this.serialNumber != null);
+        return (this.serialNumber!= null);
     }
 
     /**
      * Gets the value of the range property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getRange() {
@@ -244,11 +236,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the range property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setRange(JAXBElement<ValDistanceType> value) {
         this.range = value;
@@ -256,15 +248,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetRange() {
-        return (this.range != null);
+        return (this.range!= null);
     }
 
     /**
      * Gets the value of the rangeAccuracy property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getRangeAccuracy() {
@@ -273,11 +266,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the rangeAccuracy property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setRangeAccuracy(JAXBElement<ValDistanceType> value) {
         this.rangeAccuracy = value;
@@ -285,15 +278,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetRangeAccuracy() {
-        return (this.rangeAccuracy != null);
+        return (this.rangeAccuracy!= null);
     }
 
     /**
      * Gets the value of the dualChannel property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getDualChannel() {
@@ -302,11 +296,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the dualChannel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setDualChannel(JAXBElement<CodeYesNoType> value) {
         this.dualChannel = value;
@@ -314,15 +308,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetDualChannel() {
-        return (this.dualChannel != null);
+        return (this.dualChannel!= null);
     }
 
     /**
      * Gets the value of the movingTargetIndicator property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getMovingTargetIndicator() {
@@ -331,11 +326,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the movingTargetIndicator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setMovingTargetIndicator(JAXBElement<CodeYesNoType> value) {
         this.movingTargetIndicator = value;
@@ -343,15 +338,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetMovingTargetIndicator() {
-        return (this.movingTargetIndicator != null);
+        return (this.movingTargetIndicator!= null);
     }
 
     /**
      * Gets the value of the standbyPower property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeStandbyPowerType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeStandbyPowerType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeStandbyPowerType> getStandbyPower() {
@@ -360,11 +356,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the standbyPower property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeStandbyPowerType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeStandbyPowerType }{@code >}
+     *     
      */
     public void setStandbyPower(JAXBElement<CodeStandbyPowerType> value) {
         this.standbyPower = value;
@@ -372,15 +368,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetStandbyPower() {
-        return (this.standbyPower != null);
+        return (this.standbyPower!= null);
     }
 
     /**
      * Gets the value of the digital property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getDigital() {
@@ -389,11 +386,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the digital property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setDigital(JAXBElement<CodeYesNoType> value) {
         this.digital = value;
@@ -401,15 +398,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetDigital() {
-        return (this.digital != null);
+        return (this.digital!= null);
     }
 
     /**
      * Gets the value of the militaryUseOnly property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getMilitaryUseOnly() {
@@ -418,11 +416,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the militaryUseOnly property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setMilitaryUseOnly(JAXBElement<CodeYesNoType> value) {
         this.militaryUseOnly = value;
@@ -430,15 +428,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetMilitaryUseOnly() {
-        return (this.militaryUseOnly != null);
+        return (this.militaryUseOnly!= null);
     }
 
     /**
      * Gets the value of the specialUseOnly property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getSpecialUseOnly() {
@@ -447,11 +446,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the specialUseOnly property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setSpecialUseOnly(JAXBElement<CodeYesNoType> value) {
         this.specialUseOnly = value;
@@ -459,15 +458,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetSpecialUseOnly() {
-        return (this.specialUseOnly != null);
+        return (this.specialUseOnly!= null);
     }
 
     /**
      * Gets the value of the specialAircraftOnly property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getSpecialAircraftOnly() {
@@ -476,11 +476,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the specialAircraftOnly property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setSpecialAircraftOnly(JAXBElement<CodeYesNoType> value) {
         this.specialAircraftOnly = value;
@@ -488,15 +488,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetSpecialAircraftOnly() {
-        return (this.specialAircraftOnly != null);
+        return (this.specialAircraftOnly!= null);
     }
 
     /**
      * Gets the value of the magneticVariation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValMagneticVariationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValMagneticVariationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValMagneticVariationType> getMagneticVariation() {
@@ -505,11 +506,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the magneticVariation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValMagneticVariationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValMagneticVariationType }{@code >}
+     *     
      */
     public void setMagneticVariation(JAXBElement<ValMagneticVariationType> value) {
         this.magneticVariation = value;
@@ -517,15 +518,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetMagneticVariation() {
-        return (this.magneticVariation != null);
+        return (this.magneticVariation!= null);
     }
 
     /**
      * Gets the value of the magneticVariationAccuracy property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getMagneticVariationAccuracy() {
@@ -534,11 +536,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the magneticVariationAccuracy property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setMagneticVariationAccuracy(JAXBElement<ValAngleType> value) {
         this.magneticVariationAccuracy = value;
@@ -546,15 +548,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetMagneticVariationAccuracy() {
-        return (this.magneticVariationAccuracy != null);
+        return (this.magneticVariationAccuracy!= null);
     }
 
     /**
      * Gets the value of the dateMagneticVariation property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link DateYearType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DateYearType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DateYearType> getDateMagneticVariation() {
@@ -563,11 +566,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the dateMagneticVariation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link DateYearType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DateYearType }{@code >}
+     *     
      */
     public void setDateMagneticVariation(JAXBElement<DateYearType> value) {
         this.dateMagneticVariation = value;
@@ -575,37 +578,39 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetDateMagneticVariation() {
-        return (this.dateMagneticVariation != null);
+        return (this.dateMagneticVariation!= null);
     }
 
     /**
      * Gets the value of the contact property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the contact property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the contact property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getContact().add(newItem);
+     *    getContact().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ContactInformationPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "prcsnapprchrdrtmslctp_cntct_link", schema = "surveillance", joinColumns = {
-            @JoinColumn(name = "precisionapproachradar_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "contact_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "prcsnapprchrdrtmslctp_cntct_l", schema = "surveillance", joinColumns = {
+        @JoinColumn(name = "precisionapproachradar_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "contact_hjid", referencedColumnName = "hjid")
+    })
     public List<ContactInformationPropertyType> getContact() {
         if (contact == null) {
             contact = new ArrayList<>();
@@ -614,8 +619,8 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setContact(List<ContactInformationPropertyType> contact) {
         this.contact = contact;
@@ -623,7 +628,7 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetContact() {
-        return ((this.contact != null) && (!this.contact.isEmpty()));
+        return ((this.contact!= null)&&(!this.contact.isEmpty()));
     }
 
     public void unsetContact() {
@@ -632,10 +637,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getLocation() {
@@ -644,11 +650,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setLocation(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.location = value;
@@ -656,36 +662,39 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "prcsnapprchrdrtmslctp_annttn_link", schema = "surveillance", joinColumns = {
-            @JoinColumn(name = "precisionapproachradar_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "prcsnapprchrdrtmslctp_annttn_l", schema = "surveillance", joinColumns = {
+        @JoinColumn(name = "precisionapproachradar_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -694,8 +703,8 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -703,7 +712,7 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -712,10 +721,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Gets the value of the precisionApproachRadarType property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodePARType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodePARType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodePARType> getPrecisionApproachRadarType() {
@@ -724,11 +734,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the precisionApproachRadarType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link CodePARType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodePARType }{@code >}
+     *     
      */
     public void setPrecisionApproachRadarType(JAXBElement<CodePARType> value) {
         this.precisionApproachRadarType = value;
@@ -736,15 +746,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetPrecisionApproachRadarType() {
-        return (this.precisionApproachRadarType != null);
+        return (this.precisionApproachRadarType!= null);
     }
 
     /**
      * Gets the value of the slope property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getSlope() {
@@ -753,11 +764,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the slope property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setSlope(JAXBElement<ValAngleType> value) {
         this.slope = value;
@@ -765,15 +776,16 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetSlope() {
-        return (this.slope != null);
+        return (this.slope!= null);
     }
 
     /**
      * Gets the value of the slopeAccuracy property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getSlopeAccuracy() {
@@ -782,11 +794,11 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Sets the value of the slopeAccuracy property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setSlopeAccuracy(JAXBElement<ValAngleType> value) {
         this.slopeAccuracy = value;
@@ -794,36 +806,39 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetSlopeAccuracy() {
-        return (this.slopeAccuracy != null);
+        return (this.slopeAccuracy!= null);
     }
 
     /**
      * Gets the value of the reflector property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the reflector property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the reflector property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getReflector().add(newItem);
+     *    getReflector().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ReflectorPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = ReflectorPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "prcsnapprchrdrtmslctp_rflctr_link", schema = "surveillance", joinColumns = {
-            @JoinColumn(name = "precisionapproachradar_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "reflector_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = ReflectorPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "prcsnapprchrdrtmslctp_rflctr_l", schema = "surveillance", joinColumns = {
+        @JoinColumn(name = "precisionapproachradar_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "reflector_hjid", referencedColumnName = "hjid")
+    })
     public List<ReflectorPropertyType> getReflector() {
         if (reflector == null) {
             reflector = new ArrayList<>();
@@ -832,8 +847,8 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setReflector(List<ReflectorPropertyType> reflector) {
         this.reflector = reflector;
@@ -841,7 +856,7 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetReflector() {
-        return ((this.reflector != null) && (!this.reflector.isEmpty()));
+        return ((this.reflector!= null)&&(!this.reflector.isEmpty()));
     }
 
     public void unsetReflector() {
@@ -850,29 +865,29 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PrecisionApproachRadarTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = PrecisionApproachRadarTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "precisionapproachradar_te_hjid", referencedColumnName = "hjid")
     public List<PrecisionApproachRadarTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -882,8 +897,8 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<PrecisionApproachRadarTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -891,7 +906,7 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -900,254 +915,246 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character3")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "name"), PrecisionApproachRadarTimeSliceType.class,
-                target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "name"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "serialnumber", columnDefinition = "VARCHAR", length = 16)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "serialnumbernilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "serialnumber", columnDefinition = "character3")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "serialnumbernilreason", columnDefinition = "nilreason"))
+    })
     public TextDesignatorType getSerialNumberItem() {
         return XmlAdapterUtils.unmarshallSource(TextDesignatorType.class, this.getSerialNumber());
     }
 
     public void setSerialNumberItem(TextDesignatorType target) {
-        setSerialNumber(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "serialNumber"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setSerialNumber(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "serialNumber"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "range", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "rangeuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "rangenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "range", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "rangeuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "rangenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getRangeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getRange());
     }
 
     public void setRangeItem(ValDistanceType target) {
-        setRange(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "range"), PrecisionApproachRadarTimeSliceType.class,
-                target));
+        setRange(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "range"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "rangeaccuracy", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "rangeaccuracyuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "rangeaccuracynilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "rangeaccuracy", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "rangeaccuracyuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "rangeaccuracynilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getRangeAccuracyItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getRangeAccuracy());
     }
 
     public void setRangeAccuracyItem(ValDistanceType target) {
-        setRangeAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "rangeAccuracy"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setRangeAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "rangeAccuracy"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "dualchannel")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "dualchannelnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "dualchannel", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "dualchannelnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getDualChannelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getDualChannel());
     }
 
     public void setDualChannelItem(CodeYesNoType target) {
-        setDualChannel(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "dualChannel"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setDualChannel(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "dualChannel"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "movingtargetindicator")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "movingtargetindicatornilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "movingtargetindicator", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "movingtargetindicatornilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getMovingTargetIndicatorItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getMovingTargetIndicator());
     }
 
     public void setMovingTargetIndicatorItem(CodeYesNoType target) {
-        setMovingTargetIndicator(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "movingTargetIndicator"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setMovingTargetIndicator(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "movingTargetIndicator"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "standbypower")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "standbypowernilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "standbypower", columnDefinition = "codestandbypowerbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "standbypowernilreason", columnDefinition = "nilreason"))
+    })
     public CodeStandbyPowerType getStandbyPowerItem() {
         return XmlAdapterUtils.unmarshallSource(CodeStandbyPowerType.class, this.getStandbyPower());
     }
 
     public void setStandbyPowerItem(CodeStandbyPowerType target) {
-        setStandbyPower(XmlAdapterUtils.marshallJAXBElement(CodeStandbyPowerType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "standbyPower"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setStandbyPower(XmlAdapterUtils.marshallJAXBElement(CodeStandbyPowerType.class, new QName("http://www.aixm.aero/schema/5.1.1", "standbyPower"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "digital")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "digitalnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "digital", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "digitalnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getDigitalItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getDigital());
     }
 
     public void setDigitalItem(CodeYesNoType target) {
-        setDigital(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "digital"), PrecisionApproachRadarTimeSliceType.class,
-                target));
+        setDigital(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "digital"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "militaryuseonly")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "militaryuseonlynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "militaryuseonly", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "militaryuseonlynilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getMilitaryUseOnlyItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getMilitaryUseOnly());
     }
 
     public void setMilitaryUseOnlyItem(CodeYesNoType target) {
-        setMilitaryUseOnly(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "militaryUseOnly"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setMilitaryUseOnly(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "militaryUseOnly"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "specialuseonly")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "specialuseonlynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "specialuseonly", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "specialuseonlynilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getSpecialUseOnlyItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getSpecialUseOnly());
     }
 
     public void setSpecialUseOnlyItem(CodeYesNoType target) {
-        setSpecialUseOnly(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "specialUseOnly"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setSpecialUseOnly(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "specialUseOnly"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "specialaircraftonly")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "specialaircraftonlynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "specialaircraftonly", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "specialaircraftonlynilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getSpecialAircraftOnlyItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getSpecialAircraftOnly());
     }
 
     public void setSpecialAircraftOnlyItem(CodeYesNoType target) {
-        setSpecialAircraftOnly(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "specialAircraftOnly"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setSpecialAircraftOnly(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "specialAircraftOnly"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "magneticvariation", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "magneticvariation", columnDefinition = "valmagneticvariationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationnilreason", columnDefinition = "nilreason"))
+    })
     public ValMagneticVariationType getMagneticVariationItem() {
         return XmlAdapterUtils.unmarshallSource(ValMagneticVariationType.class, this.getMagneticVariation());
     }
 
     public void setMagneticVariationItem(ValMagneticVariationType target) {
-        setMagneticVariation(XmlAdapterUtils.marshallJAXBElement(ValMagneticVariationType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "magneticVariation"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setMagneticVariation(XmlAdapterUtils.marshallJAXBElement(ValMagneticVariationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "magneticVariation"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "magneticvariationaccuracy", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationaccuracynilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "magneticvariationaccuracy", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationaccuracynilreason", columnDefinition = "nilreason"))
+    })
     public ValAngleType getMagneticVariationAccuracyItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getMagneticVariationAccuracy());
     }
 
     public void setMagneticVariationAccuracyItem(ValAngleType target) {
-        setMagneticVariationAccuracy(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "magneticVariationAccuracy"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setMagneticVariationAccuracy(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "magneticVariationAccuracy"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "datemagneticvariation", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "datemagneticvariationnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "datemagneticvariation", columnDefinition = "dateyearbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "datemagneticvariationnilreason", columnDefinition = "nilreason"))
+    })
     public DateYearType getDateMagneticVariationItem() {
         return XmlAdapterUtils.unmarshallSource(DateYearType.class, this.getDateMagneticVariation());
     }
 
     public void setDateMagneticVariationItem(DateYearType target) {
-        setDateMagneticVariation(XmlAdapterUtils.marshallJAXBElement(DateYearType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "dateMagneticVariation"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setDateMagneticVariation(XmlAdapterUtils.marshallJAXBElement(DateYearType.class, new QName("http://www.aixm.aero/schema/5.1.1", "dateMagneticVariation"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "prcsnapprchrdrtmslctp_lctn_link", schema = "surveillance", joinColumns = {
-            @JoinColumn(name = "precisionapproachradar_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "prcsnapprchrdrtmslctp_lctn_l", schema = "surveillance", joinColumns = {
+        @JoinColumn(name = "precisionapproachradar_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
 
     public void setLocationItem(AIXMElevatedPointPropertyType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "location"), PrecisionApproachRadarTimeSliceType.class,
-                target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "location"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "precisionapproachradartype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "precisionapproachradartypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "precisionapproachradartype", columnDefinition = "codeparbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "precisionapproachradartypenilreason", columnDefinition = "nilreason"))
+    })
     public CodePARType getPrecisionApproachRadarTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodePARType.class, this.getPrecisionApproachRadarType());
     }
 
     public void setPrecisionApproachRadarTypeItem(CodePARType target) {
-        setPrecisionApproachRadarType(XmlAdapterUtils.marshallJAXBElement(CodePARType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "precisionApproachRadarType"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setPrecisionApproachRadarType(XmlAdapterUtils.marshallJAXBElement(CodePARType.class, new QName("http://www.aixm.aero/schema/5.1.1", "precisionApproachRadarType"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "slope", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "slopenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "slope", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "slopenilreason", columnDefinition = "nilreason"))
+    })
     public ValAngleType getSlopeItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getSlope());
     }
 
     public void setSlopeItem(ValAngleType target) {
-        setSlope(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "slope"), PrecisionApproachRadarTimeSliceType.class,
-                target));
+        setSlope(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "slope"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "slopeaccuracy", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "slopeaccuracynilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "slopeaccuracy", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "slopeaccuracynilreason", columnDefinition = "nilreason"))
+    })
     public ValAngleType getSlopeAccuracyItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getSlopeAccuracy());
     }
 
     public void setSlopeAccuracyItem(ValAngleType target) {
-        setSlopeAccuracy(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "slopeAccuracy"),
-                PrecisionApproachRadarTimeSliceType.class, target));
+        setSlopeAccuracy(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "slopeAccuracy"), PrecisionApproachRadarTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1158,144 +1165,14 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
         }
         final PrecisionApproachRadarTimeSliceType that = ((PrecisionApproachRadarTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetContact();
-            boolean rhsFieldIsSet = that.isSetContact();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact() ? this.getContact() : null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact() ? that.getContact() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialAircraftOnly();
-            boolean rhsFieldIsSet = that.isSetSpecialAircraftOnly();
+            boolean lhsFieldIsSet = this.isSetMovingTargetIndicator();
+            boolean rhsFieldIsSet = that.isSetMovingTargetIndicator();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSpecialAircraftOnly();
+            lhsField = this.getMovingTargetIndicator();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSpecialAircraftOnly();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialAircraftOnly", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialAircraftOnly", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStandbyPower();
-            boolean rhsFieldIsSet = that.isSetStandbyPower();
-            JAXBElement<CodeStandbyPowerType> lhsField;
-            lhsField = this.getStandbyPower();
-            JAXBElement<CodeStandbyPowerType> rhsField;
-            rhsField = that.getStandbyPower();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standbyPower", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standbyPower", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPrecisionApproachRadarType();
-            boolean rhsFieldIsSet = that.isSetPrecisionApproachRadarType();
-            JAXBElement<CodePARType> lhsField;
-            lhsField = this.getPrecisionApproachRadarType();
-            JAXBElement<CodePARType> rhsField;
-            rhsField = that.getPrecisionApproachRadarType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "precisionApproachRadarType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "precisionApproachRadarType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDualChannel();
-            boolean rhsFieldIsSet = that.isSetDualChannel();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getDualChannel();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getDualChannel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dualChannel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dualChannel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRangeAccuracy();
-            boolean rhsFieldIsSet = that.isSetRangeAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getRangeAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getRangeAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetMagneticVariation();
-            JAXBElement<ValMagneticVariationType> lhsField;
-            lhsField = this.getMagneticVariation();
-            JAXBElement<ValMagneticVariationType> rhsField;
-            rhsField = that.getMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRange();
-            boolean rhsFieldIsSet = that.isSetRange();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getRange();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getRange();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "range", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "range", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSlope();
-            boolean rhsFieldIsSet = that.isSetSlope();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getSlope();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getSlope();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slope", rhsField);
+            rhsField = that.getMovingTargetIndicator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "movingTargetIndicator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "movingTargetIndicator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1314,6 +1191,32 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSlope();
+            boolean rhsFieldIsSet = that.isSetSlope();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getSlope();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getSlope();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slope", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDigital();
             boolean rhsFieldIsSet = that.isSetDigital();
             JAXBElement<CodeYesNoType> lhsField;
@@ -1327,92 +1230,14 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMilitaryUseOnly();
-            boolean rhsFieldIsSet = that.isSetMilitaryUseOnly();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMilitaryUseOnly();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMilitaryUseOnly();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "militaryUseOnly", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "militaryUseOnly", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMagneticVariationAccuracy();
-            boolean rhsFieldIsSet = that.isSetMagneticVariationAccuracy();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getMagneticVariationAccuracy();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getMagneticVariationAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariationAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariationAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReflector();
-            boolean rhsFieldIsSet = that.isSetReflector();
-            List<ReflectorPropertyType> lhsField;
-            lhsField = (this.isSetReflector() ? this.getReflector() : null);
-            List<ReflectorPropertyType> rhsField;
-            rhsField = (that.isSetReflector() ? that.getReflector() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reflector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reflector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMovingTargetIndicator();
-            boolean rhsFieldIsSet = that.isSetMovingTargetIndicator();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMovingTargetIndicator();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMovingTargetIndicator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "movingTargetIndicator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "movingTargetIndicator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<PrecisionApproachRadarTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<PrecisionApproachRadarTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSerialNumber();
-            boolean rhsFieldIsSet = that.isSetSerialNumber();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getSerialNumber();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getSerialNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serialNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serialNumber", rhsField);
+            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
+            JAXBElement<DateYearType> lhsField;
+            lhsField = this.getDateMagneticVariation();
+            JAXBElement<DateYearType> rhsField;
+            rhsField = that.getDateMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1431,14 +1256,196 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
-            JAXBElement<DateYearType> lhsField;
-            lhsField = this.getDateMagneticVariation();
-            JAXBElement<DateYearType> rhsField;
-            rhsField = that.getDateMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
+            boolean lhsFieldIsSet = this.isSetMilitaryUseOnly();
+            boolean rhsFieldIsSet = that.isSetMilitaryUseOnly();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMilitaryUseOnly();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMilitaryUseOnly();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "militaryUseOnly", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "militaryUseOnly", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialAircraftOnly();
+            boolean rhsFieldIsSet = that.isSetSpecialAircraftOnly();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSpecialAircraftOnly();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSpecialAircraftOnly();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialAircraftOnly", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialAircraftOnly", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPrecisionApproachRadarType();
+            boolean rhsFieldIsSet = that.isSetPrecisionApproachRadarType();
+            JAXBElement<CodePARType> lhsField;
+            lhsField = this.getPrecisionApproachRadarType();
+            JAXBElement<CodePARType> rhsField;
+            rhsField = that.getPrecisionApproachRadarType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "precisionApproachRadarType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "precisionApproachRadarType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRange();
+            boolean rhsFieldIsSet = that.isSetRange();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getRange();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getRange();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "range", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "range", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<PrecisionApproachRadarTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<PrecisionApproachRadarTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMagneticVariationAccuracy();
+            boolean rhsFieldIsSet = that.isSetMagneticVariationAccuracy();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getMagneticVariationAccuracy();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getMagneticVariationAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariationAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariationAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandbyPower();
+            boolean rhsFieldIsSet = that.isSetStandbyPower();
+            JAXBElement<CodeStandbyPowerType> lhsField;
+            lhsField = this.getStandbyPower();
+            JAXBElement<CodeStandbyPowerType> rhsField;
+            rhsField = that.getStandbyPower();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standbyPower", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standbyPower", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSerialNumber();
+            boolean rhsFieldIsSet = that.isSetSerialNumber();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getSerialNumber();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getSerialNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serialNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serialNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetMagneticVariation();
+            JAXBElement<ValMagneticVariationType> lhsField;
+            lhsField = this.getMagneticVariation();
+            JAXBElement<ValMagneticVariationType> rhsField;
+            rhsField = that.getMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReflector();
+            boolean rhsFieldIsSet = that.isSetReflector();
+            List<ReflectorPropertyType> lhsField;
+            lhsField = (this.isSetReflector()?this.getReflector():null);
+            List<ReflectorPropertyType> rhsField;
+            rhsField = (that.isSetReflector()?that.getReflector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reflector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reflector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRangeAccuracy();
+            boolean rhsFieldIsSet = that.isSetRangeAccuracy();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getRangeAccuracy();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getRangeAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContact();
+            boolean rhsFieldIsSet = that.isSetContact();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetContact()?this.getContact():null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetContact()?that.getContact():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDualChannel();
+            boolean rhsFieldIsSet = that.isSetDualChannel();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getDualChannel();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getDualChannel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dualChannel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dualChannel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1550,7 +1557,7 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
         {
             boolean theFieldIsSet = this.isSetContact();
             List<ContactInformationPropertyType> theField;
-            theField = (this.isSetContact() ? this.getContact() : null);
+            theField = (this.isSetContact()?this.getContact():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "contact", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1564,7 +1571,7 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1592,14 +1599,14 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
         {
             boolean theFieldIsSet = this.isSetReflector();
             List<ReflectorPropertyType> theField;
-            theField = (this.isSetReflector() ? this.getReflector() : null);
+            theField = (this.isSetReflector()?this.getReflector():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "reflector", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<PrecisionApproachRadarTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1696,7 +1703,7 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
         {
             boolean theFieldIsSet = this.isSetContact();
             List<ContactInformationPropertyType> theField;
-            theField = (this.isSetContact() ? this.getContact() : null);
+            theField = (this.isSetContact()?this.getContact():null);
             strategy.appendField(locator, this, "contact", buffer, theField, theFieldIsSet);
         }
         {
@@ -1708,7 +1715,7 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1732,13 +1739,13 @@ public class PrecisionApproachRadarTimeSliceType extends AbstractAIXMTimeSliceTy
         {
             boolean theFieldIsSet = this.isSetReflector();
             List<ReflectorPropertyType> theField;
-            theField = (this.isSetReflector() ? this.getReflector() : null);
+            theField = (this.isSetReflector()?this.getReflector():null);
             strategy.appendField(locator, this, "reflector", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<PrecisionApproachRadarTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

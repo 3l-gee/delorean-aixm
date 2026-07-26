@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -11,7 +12,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,54 +25,46 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * A property that has a geometric aggregate as its value domain may either be
- * an appropriate geometry element encapsulated in an element of this type or an
- * XLink reference to a remote geometry element (where remote includes geometry
- * elements located elsewhere in the same document). Either the reference or the
- * contained element shall be given, but neither both nor none.
- *
- * <p>
- * Java class for MultiGeometryPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * A property that has a geometric aggregate as its value domain may either be an appropriate geometry element encapsulated in an element of this type or an XLink reference to a remote geometry element (where remote includes geometry elements located elsewhere in the same document). Either the reference or the contained element shall be given, but neither both nor none.
+ * 
+ * <p>Java class for MultiGeometryPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MultiGeometryPropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref=
-"{http://www.opengis.net/gml/3.2}AbstractGeometricAggregate"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}AbstractGeometricAggregate"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MultiGeometryPropertyType", propOrder = {"abstractGeometricAggregate"})
-public class MultiGeometryPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "MultiGeometryPropertyType", propOrder = {
+    "abstractGeometricAggregate"
+})
+public class MultiGeometryPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:AbstractGeometricAggregate is the abstract head of the substitution group
-     * for all geometric aggregates.
-     *
+     * gml:AbstractGeometricAggregate is the abstract head of the substitution group for all geometric aggregates.
+     * 
      */
     @XmlElementRef(name = "AbstractGeometricAggregate", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractGeometricAggregateType> abstractGeometricAggregate;
+    @XmlAttribute(name = "owns")
+    protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
@@ -92,21 +84,19 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
-    @XmlAttribute(name = "owns")
-    protected java.lang.Boolean owns;
 
     /**
-     * gml:AbstractGeometricAggregate is the abstract head of the substitution group
-     * for all geometric aggregates.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     *
+     * gml:AbstractGeometricAggregate is the abstract head of the substitution group for all geometric aggregates.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *     
      */
     public JAXBElement<? extends AbstractGeometricAggregateType> getAbstractGeometricAggregate() {
         return abstractGeometricAggregate;
@@ -114,16 +104,16 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the abstractGeometricAggregate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *     
      * @see #getAbstractGeometricAggregate()
      */
     public void setAbstractGeometricAggregate(JAXBElement<? extends AbstractGeometricAggregateType> value) {
@@ -131,214 +121,16 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
     }
 
     public boolean isSetAbstractGeometricAggregate() {
-        return (this.abstractGeometricAggregate != null);
-    }
-
-    /**
-     * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getNilReason() {
-        return nilReason;
-    }
-
-    /**
-     * Sets the value of the nilReason property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setNilReason(String value) {
-        this.nilReason = value;
-    }
-
-    public boolean isSetNilReason() {
-        return (this.nilReason != null);
-    }
-
-    /**
-     * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getRemoteSchema() {
-        return remoteSchema;
-    }
-
-    /**
-     * Sets the value of the remoteSchema property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setRemoteSchema(String value) {
-        this.remoteSchema = value;
-    }
-
-    public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
-    }
-
-    /**
-     * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getHref() {
-        return href;
-    }
-
-    /**
-     * Sets the value of the href property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setHref(String value) {
-        this.href = value;
-    }
-
-    public boolean isSetHref() {
-        return (this.href != null);
-    }
-
-    /**
-     * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * Sets the value of the role property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setRole(String value) {
-        this.role = value;
-    }
-
-    public boolean isSetRole() {
-        return (this.role != null);
-    }
-
-    /**
-     * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getArcrole() {
-        return arcrole;
-    }
-
-    /**
-     * Sets the value of the arcrole property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setArcrole(String value) {
-        this.arcrole = value;
-    }
-
-    public boolean isSetArcrole() {
-        return (this.arcrole != null);
-    }
-
-    /**
-     * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getSimpleLinkTitle() {
-        return simpleLinkTitle;
-    }
-
-    /**
-     * Sets the value of the simpleLinkTitle property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setSimpleLinkTitle(String value) {
-        this.simpleLinkTitle = value;
-    }
-
-    public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
-    }
-
-    /**
-     * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
-     */
-    public ShowType getShow() {
-        return show;
-    }
-
-    /**
-     * Sets the value of the show property.
-     *
-     * @param value
-     *            allowed object is {@link ShowType }
-     *
-     */
-    public void setShow(ShowType value) {
-        this.show = value;
-    }
-
-    public boolean isSetShow() {
-        return (this.show != null);
-    }
-
-    /**
-     * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
-     */
-    public ActuateType getActuate() {
-        return actuate;
-    }
-
-    /**
-     * Sets the value of the actuate property.
-     *
-     * @param value
-     *            allowed object is {@link ActuateType }
-     *
-     */
-    public void setActuate(ActuateType value) {
-        this.actuate = value;
-    }
-
-    public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.abstractGeometricAggregate!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link java.lang.Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -350,21 +142,246 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Boolean }
-     *
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
         this.owns = null;
+    }
+
+    /**
+     * Gets the value of the nilReason property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNilReason() {
+        return nilReason;
+    }
+
+    /**
+     * Sets the value of the nilReason property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNilReason(String value) {
+        this.nilReason = value;
+    }
+
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
+    /**
+     * Gets the value of the remoteSchema property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRemoteSchema() {
+        return remoteSchema;
+    }
+
+    /**
+     * Sets the value of the remoteSchema property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRemoteSchema(String value) {
+        this.remoteSchema = value;
+    }
+
+    public boolean isSetRemoteSchema() {
+        return (this.remoteSchema!= null);
+    }
+
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
+    }
+
+    public boolean isSetHref() {
+        return (this.href!= null);
+    }
+
+    /**
+     * Gets the value of the role property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * Sets the value of the role property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRole(String value) {
+        this.role = value;
+    }
+
+    public boolean isSetRole() {
+        return (this.role!= null);
+    }
+
+    /**
+     * Gets the value of the arcrole property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getArcrole() {
+        return arcrole;
+    }
+
+    /**
+     * Sets the value of the arcrole property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setArcrole(String value) {
+        this.arcrole = value;
+    }
+
+    public boolean isSetArcrole() {
+        return (this.arcrole!= null);
+    }
+
+    /**
+     * Gets the value of the simpleLinkTitle property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSimpleLinkTitle() {
+        return simpleLinkTitle;
+    }
+
+    /**
+     * Sets the value of the simpleLinkTitle property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSimpleLinkTitle(String value) {
+        this.simpleLinkTitle = value;
+    }
+
+    public boolean isSetSimpleLinkTitle() {
+        return (this.simpleLinkTitle!= null);
+    }
+
+    /**
+     * Gets the value of the show property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
+     */
+    public ShowType getShow() {
+        return show;
+    }
+
+    /**
+     * Sets the value of the show property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ShowType }
+     *     
+     */
+    public void setShow(ShowType value) {
+        this.show = value;
+    }
+
+    public boolean isSetShow() {
+        return (this.show!= null);
+    }
+
+    /**
+     * Gets the value of the actuate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
+     */
+    public ActuateType getActuate() {
+        return actuate;
+    }
+
+    /**
+     * Sets the value of the actuate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
+     */
+    public void setActuate(ActuateType value) {
+        this.actuate = value;
+    }
+
+    public boolean isSetActuate() {
+        return (this.actuate!= null);
     }
 
     @Override
@@ -380,15 +397,27 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final MultiGeometryPropertyType that = ((MultiGeometryPropertyType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetRemoteSchema();
             boolean rhsFieldIsSet = that.isSetRemoteSchema();
@@ -398,6 +427,45 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
             rhsField = that.getRemoteSchema();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGeometricAggregate();
+            boolean rhsFieldIsSet = that.isSetAbstractGeometricAggregate();
+            JAXBElement<? extends AbstractGeometricAggregateType> lhsField;
+            lhsField = this.getAbstractGeometricAggregate();
+            JAXBElement<? extends AbstractGeometricAggregateType> rhsField;
+            rhsField = that.getAbstractGeometricAggregate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometricAggregate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometricAggregate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -455,32 +523,6 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGeometricAggregate();
-            boolean rhsFieldIsSet = that.isSetAbstractGeometricAggregate();
-            JAXBElement<? extends AbstractGeometricAggregateType> lhsField;
-            lhsField = this.getAbstractGeometricAggregate();
-            JAXBElement<? extends AbstractGeometricAggregateType> rhsField;
-            rhsField = that.getAbstractGeometricAggregate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometricAggregate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometricAggregate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetArcrole();
             boolean rhsFieldIsSet = that.isSetArcrole();
             String lhsField;
@@ -489,32 +531,6 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
             rhsField = that.getArcrole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -540,6 +556,13 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
             JAXBElement<? extends AbstractGeometricAggregateType> theField;
             theField = this.getAbstractGeometricAggregate();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGeometricAggregate", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -598,13 +621,6 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
         return currentHashCode;
     }
 
@@ -635,6 +651,12 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
             JAXBElement<? extends AbstractGeometricAggregateType> theField;
             theField = this.getAbstractGeometricAggregate();
             strategy.appendField(locator, this, "abstractGeometricAggregate", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetNilReason();
@@ -683,12 +705,6 @@ public class MultiGeometryPropertyType implements Serializable, Equals, HashCode
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

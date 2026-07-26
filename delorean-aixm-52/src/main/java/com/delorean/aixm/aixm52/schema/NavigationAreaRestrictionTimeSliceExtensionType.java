@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,39 +35,35 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractNavigationAreaRestrictionExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractNavigationAreaRestrictionExtension"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractNavigationAreaRestrictionExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractNavigationAreaRestrictionExtension"
+})
 @Entity(name = "NavigationAreaRestrictionTimeSliceExtensionType")
 @Table(name = "navigationarearestriction_te", schema = "procedure")
-public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString {
+public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractNavigationAreaRestrictionExtension", required = true)
@@ -81,11 +77,15 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
 
     /**
      * Gets the value of the abstractNavigationAreaRestrictionExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractnavigationarearestrictionextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavigationAreaRestrictionExtension() {
         return abstractNavigationAreaRestrictionExtension;
@@ -93,10 +93,11 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
 
     /**
      * Sets the value of the abstractNavigationAreaRestrictionExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractNavigationAreaRestrictionExtension(AbstractExtensionType value) {
         this.abstractNavigationAreaRestrictionExtension = value;
@@ -104,14 +105,16 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
 
     @Transient
     public boolean isSetAbstractNavigationAreaRestrictionExtension() {
-        return (this.abstractNavigationAreaRestrictionExtension != null);
+        return (this.abstractNavigationAreaRestrictionExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -125,10 +128,11 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -136,7 +140,7 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -144,10 +148,12 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -158,21 +164,24 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -181,11 +190,12 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -204,9 +214,8 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -217,9 +226,9 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -233,10 +242,8 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
             lhsField = this.getAbstractNavigationAreaRestrictionExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractNavigationAreaRestrictionExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractNavigationAreaRestrictionExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractNavigationAreaRestrictionExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavigationAreaRestrictionExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavigationAreaRestrictionExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -261,14 +268,13 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
             boolean theFieldIsSet = this.isSetAbstractNavigationAreaRestrictionExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractNavigationAreaRestrictionExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractNavigationAreaRestrictionExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractNavigationAreaRestrictionExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -301,13 +307,12 @@ public class NavigationAreaRestrictionTimeSliceExtensionType implements Serializ
             boolean theFieldIsSet = this.isSetAbstractNavigationAreaRestrictionExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractNavigationAreaRestrictionExtension();
-            strategy.appendField(locator, this, "abstractNavigationAreaRestrictionExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractNavigationAreaRestrictionExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

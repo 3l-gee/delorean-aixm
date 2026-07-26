@@ -73,13 +73,13 @@ def generate_union_sql(schema_class_dict: dict) -> str:
     return final_sql
 
 def generate_basic_message_member_ids_sql(union_sql : str) -> str:
-    start = f"""
-/*
-This query retrieves the distinct m_hjid (BasicMessageMemberAIXMPropertyType) values timeslices associated with AIXM features. 
-It combines (via UNION ALL) timeslices joins them to their corresponding features and timeslices, 
-and filters for currently valid timeslices (valid_time_end > :time or NULL). Among duplicates, 
-it selects the latest correction (correction_number DESC) for each feature identifier and sequence number.
-*/
+    start = f"""-- ========================================================
+-- QUERY : Basic message member
+-- This query retrieves the distinct m_hjid (BasicMessageMemberAIXMPropertyType) values timeslices associated with AIXM features. 
+-- It combines (via UNION ALL) timeslices joins them to their corresponding features and timeslices, 
+-- and filters for currently valid timeslices (valid_time_end > :time or NULL). Among duplicates, 
+-- it selects the latest correction (correction_number DESC) for each feature identifier and sequence number.
+-- ========================================================
 
 WITH union_query AS (
     """
@@ -96,13 +96,13 @@ ORDER BY identifier, sequence_number,correction_number DESC;
     return str(start + union_sql + end)
 
 def generate_time_slice_property_ids_sql(union_sql : str) -> str:
-    start = f"""
-/*
-This query retrieves the distinct tsp_hjid ([Feature]TimeSlicePropertyType) values timeslices associated with AIXM features. 
-It combines (via UNION ALL) timeslices joins them to their corresponding features and timeslices, 
-and filters for currently valid timeslices (valid_time_end > :time or NULL). Among duplicates, 
-it selects the latest correction (correction_number DESC) for each feature identifier and sequence number.
-*/
+    start = f"""-- ========================================================
+-- QUERY 1 : Timeslice Property Type
+-- This query retrieves the distinct tsp_hjid ([Feature]TimeSlicePropertyType) values timeslices associated with AIXM features. 
+-- It combines (via UNION ALL) timeslices joins them to their corresponding features and timeslices, 
+-- and filters for currently valid timeslices (valid_time_end > :time or NULL). Among duplicates, 
+-- it selects the latest correction (correction_number DESC) for each feature identifier and sequence number.
+-- ========================================================
 
 WITH union_query AS (
 

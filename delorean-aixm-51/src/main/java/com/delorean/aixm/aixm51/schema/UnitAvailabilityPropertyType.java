@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for UnitAvailabilityPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for UnitAvailabilityPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="UnitAvailabilityPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1}UnitAvailability"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "UnitAvailabilityPropertyType", propOrder = {"unitAvailability"})
+@XmlType(name = "UnitAvailabilityPropertyType", propOrder = {
+    "unitAvailability"
+})
 @Entity(name = "UnitAvailabilityPropertyType")
 @Table(name = "unitavailability_p", schema = "organisation")
-public class UnitAvailabilityPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class UnitAvailabilityPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "UnitAvailability", required = true)
@@ -57,11 +56,15 @@ public class UnitAvailabilityPropertyType extends AbstractAIXMPropertyType imple
 
     /**
      * Gets the value of the unitAvailability property.
-     *
-     * @return possible object is {@link UnitAvailabilityType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link UnitAvailabilityType }
+     *     
      */
-    @OneToOne(targetEntity = UnitAvailabilityType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = UnitAvailabilityType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "unitavailability_hjid", referencedColumnName = "hjid")
     public UnitAvailabilityType getUnitAvailability() {
         return unitAvailability;
@@ -69,10 +72,11 @@ public class UnitAvailabilityPropertyType extends AbstractAIXMPropertyType imple
 
     /**
      * Sets the value of the unitAvailability property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link UnitAvailabilityType }
-     *
+     *     allowed object is
+     *     {@link UnitAvailabilityType }
+     *     
      */
     public void setUnitAvailability(UnitAvailabilityType value) {
         this.unitAvailability = value;
@@ -80,13 +84,12 @@ public class UnitAvailabilityPropertyType extends AbstractAIXMPropertyType imple
 
     @Transient
     public boolean isSetUnitAvailability() {
-        return (this.unitAvailability != null);
+        return (this.unitAvailability!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

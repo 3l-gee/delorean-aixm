@@ -1,14 +1,14 @@
 
 package com.delorean.aixm.core.org.gco.v2007;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -22,17 +22,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for Number_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for Number_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="Number_PropertyType">
  *   <complexContent>
@@ -47,12 +42,17 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Number_PropertyType", propOrder = {"real", "decimal", "integer"})
-public class NumberPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "Number_PropertyType", propOrder = {
+    "real",
+    "decimal",
+    "integer"
+})
+public class NumberPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Real")
@@ -66,9 +66,11 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Gets the value of the real property.
-     *
-     * @return possible object is {@link Double }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Double }
+     *     
      */
     public Double getReal() {
         return real;
@@ -76,24 +78,27 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Sets the value of the real property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Double }
-     *
+     *     allowed object is
+     *     {@link Double }
+     *     
      */
     public void setReal(Double value) {
         this.real = value;
     }
 
     public boolean isSetReal() {
-        return (this.real != null);
+        return (this.real!= null);
     }
 
     /**
      * Gets the value of the decimal property.
-     *
-     * @return possible object is {@link BigDecimal }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigDecimal }
+     *     
      */
     public BigDecimal getDecimal() {
         return decimal;
@@ -101,24 +106,27 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Sets the value of the decimal property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigDecimal }
-     *
+     *     allowed object is
+     *     {@link BigDecimal }
+     *     
      */
     public void setDecimal(BigDecimal value) {
         this.decimal = value;
     }
 
     public boolean isSetDecimal() {
-        return (this.decimal != null);
+        return (this.decimal!= null);
     }
 
     /**
      * Gets the value of the integer property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getInteger() {
         return integer;
@@ -126,24 +134,27 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Sets the value of the integer property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setInteger(BigInteger value) {
         this.integer = value;
     }
 
     public boolean isSetInteger() {
-        return (this.integer != null);
+        return (this.integer!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -151,17 +162,18 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -177,28 +189,14 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final NumberPropertyType that = ((NumberPropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetReal();
-            boolean rhsFieldIsSet = that.isSetReal();
-            Double lhsField;
-            lhsField = this.getReal();
-            Double rhsField;
-            rhsField = that.getReal();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "real", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "real", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
@@ -234,6 +232,19 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getInteger();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReal();
+            boolean rhsFieldIsSet = that.isSetReal();
+            Double lhsField;
+            lhsField = this.getReal();
+            Double rhsField;
+            rhsField = that.getReal();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "real", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "real", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

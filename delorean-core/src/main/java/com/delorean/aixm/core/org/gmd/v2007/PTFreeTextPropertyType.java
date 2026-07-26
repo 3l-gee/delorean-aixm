@@ -1,34 +1,28 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for PT_FreeText_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for PT_FreeText_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="PT_FreeText_PropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType">
+ *     <extension base="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType">
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.isotc211.org/2005/gmd}PT_FreeText"/>
  *       </sequence>
@@ -36,12 +30,17 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PT_FreeText_PropertyType", propOrder = {"ptFreeText"})
-public class PTFreeTextPropertyType extends CharacterStringPropertyType implements Serializable {
+@XmlType(name = "PT_FreeText_PropertyType", propOrder = {
+    "ptFreeText"
+})
+public class PTFreeTextPropertyType
+    extends CharacterStringPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "PT_FreeText")
@@ -49,9 +48,11 @@ public class PTFreeTextPropertyType extends CharacterStringPropertyType implemen
 
     /**
      * Gets the value of the ptFreeText property.
-     *
-     * @return possible object is {@link PTFreeTextType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link PTFreeTextType }
+     *     
      */
     public PTFreeTextType getPTFreeText() {
         return ptFreeText;
@@ -59,23 +60,23 @@ public class PTFreeTextPropertyType extends CharacterStringPropertyType implemen
 
     /**
      * Sets the value of the ptFreeText property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link PTFreeTextType }
-     *
+     *     allowed object is
+     *     {@link PTFreeTextType }
+     *     
      */
     public void setPTFreeText(PTFreeTextType value) {
         this.ptFreeText = value;
     }
 
     public boolean isSetPTFreeText() {
-        return (this.ptFreeText != null);
+        return (this.ptFreeText!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -19,10 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,91 +30,51 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AircraftCharacteristicType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AircraftCharacteristicType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AircraftCharacteristicType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="engine" type=
-"{http://www.aixm.aero/schema/5.2}CodeAircraftEngineType" minOccurs="0"/>
- *         <element name="numberEngine" type=
-"{http://www.aixm.aero/schema/5.2}CodeAircraftEngineNumberType" minOccurs="0"/>
- *         <element name="typeAircraftICAO" type=
-"{http://www.aixm.aero/schema/5.2}CodeAircraftICAOType" minOccurs="0"/>
- *         <element name="aircraftLandingCategory" type=
-"{http://www.aixm.aero/schema/5.2}CodeAircraftLandingCategoryType" minOccurs=
-"0"/>
- *         <element name="wingSpan" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="wingSpanInterpretation" type=
-"{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
- *         <element name="classWingSpan" type=
-"{http://www.aixm.aero/schema/5.2}CodeAircraftWingspanClassType" minOccurs="0"/>
- *         <element name="weight" type=
-"{http://www.aixm.aero/schema/5.2}ValWeightType" minOccurs="0"/>
- *         <element name="weightInterpretation" type=
-"{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
- *         <element name="passengers" type=
-"{http://www.aixm.aero/schema/5.2}NoNumberType" minOccurs="0"/>
- *         <element name="passengersInterpretation" type=
-"{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
- *         <element name="speed" type=
-"{http://www.aixm.aero/schema/5.2}ValSpeedType" minOccurs="0"/>
- *         <element name="speedInterpretation" type=
-"{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
- *         <element name="wakeTurbulence" type=
-"{http://www.aixm.aero/schema/5.2}CodeWakeTurbulenceType" minOccurs="0"/>
- *         <element name="navigationSpecification" type=
-"{http://www.aixm.aero/schema/5.2}CodeNavigationSpecificationType" minOccurs=
-"0"/>
- *         <element name="verticalSeparationCapability" type=
-"{http://www.aixm.aero/schema/5.2}CodeRVSMType" minOccurs="0"/>
- *         <element name="antiCollisionAndSeparationEquipment" type=
-"{http://www.aixm.aero/schema/5.2}CodeEquipmentAntiCollisionType" minOccurs=
-"0"/>
- *         <element name="communicationEquipment" type=
-"{http://www.aixm.aero/schema/5.2}CodeCommunicationModeType" minOccurs="0"/>
- *         <element name="surveillanceEquipment" type=
-"{http://www.aixm.aero/schema/5.2}CodeTransponderType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="category" type=
-"{http://www.aixm.aero/schema/5.2}CodeAircraftCategoryType" minOccurs="0"/>
- *         <element name="navigationType" type=
-"{http://www.aixm.aero/schema/5.2}CodeNavigationType" minOccurs="0"/>
- *         <element name="navigationAccuracy" type=
-"{http://www.aixm.aero/schema/5.2}ValNavigationAccuracyType" minOccurs="0"/>
- *         <element name="dualFrequency" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="helicopterPerformanceClass" type=
-"{http://www.aixm.aero/schema/5.2}CodeHelicopterPerformanceClassType" minOccurs=
-"0"/>
- *         <element name="radioNavigationEquipment" type=
-"{http://www.aixm.aero/schema/5.2}AircraftNavigationEquipmentPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
+ *         <element name="engine" type="{http://www.aixm.aero/schema/5.2}CodeAircraftEngineType" minOccurs="0"/>
+ *         <element name="numberEngine" type="{http://www.aixm.aero/schema/5.2}CodeAircraftEngineNumberType" minOccurs="0"/>
+ *         <element name="typeAircraftICAO" type="{http://www.aixm.aero/schema/5.2}CodeAircraftICAOType" minOccurs="0"/>
+ *         <element name="aircraftLandingCategory" type="{http://www.aixm.aero/schema/5.2}CodeAircraftLandingCategoryType" minOccurs="0"/>
+ *         <element name="wingSpan" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="wingSpanInterpretation" type="{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
+ *         <element name="classWingSpan" type="{http://www.aixm.aero/schema/5.2}CodeAircraftWingspanClassType" minOccurs="0"/>
+ *         <element name="weight" type="{http://www.aixm.aero/schema/5.2}ValWeightType" minOccurs="0"/>
+ *         <element name="weightInterpretation" type="{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
+ *         <element name="passengers" type="{http://www.aixm.aero/schema/5.2}NoNumberType" minOccurs="0"/>
+ *         <element name="passengersInterpretation" type="{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
+ *         <element name="speed" type="{http://www.aixm.aero/schema/5.2}ValSpeedType" minOccurs="0"/>
+ *         <element name="speedInterpretation" type="{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
+ *         <element name="wakeTurbulence" type="{http://www.aixm.aero/schema/5.2}CodeWakeTurbulenceType" minOccurs="0"/>
+ *         <element name="navigationSpecification" type="{http://www.aixm.aero/schema/5.2}CodeNavigationSpecificationType" minOccurs="0"/>
+ *         <element name="verticalSeparationCapability" type="{http://www.aixm.aero/schema/5.2}CodeRVSMType" minOccurs="0"/>
+ *         <element name="antiCollisionAndSeparationEquipment" type="{http://www.aixm.aero/schema/5.2}CodeEquipmentAntiCollisionType" minOccurs="0"/>
+ *         <element name="communicationEquipment" type="{http://www.aixm.aero/schema/5.2}CodeCommunicationModeType" minOccurs="0"/>
+ *         <element name="surveillanceEquipment" type="{http://www.aixm.aero/schema/5.2}CodeTransponderType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="category" type="{http://www.aixm.aero/schema/5.2}CodeAircraftCategoryType" minOccurs="0"/>
+ *         <element name="navigationType" type="{http://www.aixm.aero/schema/5.2}CodeNavigationType" minOccurs="0"/>
+ *         <element name="navigationAccuracy" type="{http://www.aixm.aero/schema/5.2}ValNavigationAccuracyType" minOccurs="0"/>
+ *         <element name="dualFrequency" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="helicopterPerformanceClass" type="{http://www.aixm.aero/schema/5.2}CodeHelicopterPerformanceClassType" minOccurs="0"/>
+ *         <element name="radioNavigationEquipment" type="{http://www.aixm.aero/schema/5.2}AircraftNavigationEquipmentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractAircraftCharacteristicExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractAircraftCharacteristicExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -124,20 +84,45 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AircraftCharacteristicType", propOrder = {"engine", "numberEngine", "typeAircraftICAO",
-        "aircraftLandingCategory", "wingSpan", "wingSpanInterpretation", "classWingSpan", "weight",
-        "weightInterpretation", "passengers", "passengersInterpretation", "speed", "speedInterpretation",
-        "wakeTurbulence", "navigationSpecification", "verticalSeparationCapability",
-        "antiCollisionAndSeparationEquipment", "communicationEquipment", "surveillanceEquipment", "annotation",
-        "category", "navigationType", "navigationAccuracy", "dualFrequency", "helicopterPerformanceClass",
-        "radioNavigationEquipment", "extension"})
+@XmlType(name = "AircraftCharacteristicType", propOrder = {
+    "engine",
+    "numberEngine",
+    "typeAircraftICAO",
+    "aircraftLandingCategory",
+    "wingSpan",
+    "wingSpanInterpretation",
+    "classWingSpan",
+    "weight",
+    "weightInterpretation",
+    "passengers",
+    "passengersInterpretation",
+    "speed",
+    "speedInterpretation",
+    "wakeTurbulence",
+    "navigationSpecification",
+    "verticalSeparationCapability",
+    "antiCollisionAndSeparationEquipment",
+    "communicationEquipment",
+    "surveillanceEquipment",
+    "annotation",
+    "category",
+    "navigationType",
+    "navigationAccuracy",
+    "dualFrequency",
+    "helicopterPerformanceClass",
+    "radioNavigationEquipment",
+    "extension"
+})
 @Entity(name = "AircraftCharacteristicType")
 @Table(name = "aircraftcharacteristic_o", schema = "shared")
-public class AircraftCharacteristicType extends AbstractAIXMObjectType implements Serializable {
+public class AircraftCharacteristicType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "engine", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -196,10 +181,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the engine property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAircraftEngineType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftEngineType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAircraftEngineType> getEngine() {
@@ -208,11 +194,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the engine property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAircraftEngineType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftEngineType }{@code >}
+     *     
      */
     public void setEngine(JAXBElement<CodeAircraftEngineType> value) {
         this.engine = value;
@@ -220,15 +206,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetEngine() {
-        return (this.engine != null);
+        return (this.engine!= null);
     }
 
     /**
      * Gets the value of the numberEngine property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAircraftEngineNumberType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftEngineNumberType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAircraftEngineNumberType> getNumberEngine() {
@@ -237,11 +224,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the numberEngine property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAircraftEngineNumberType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftEngineNumberType }{@code >}
+     *     
      */
     public void setNumberEngine(JAXBElement<CodeAircraftEngineNumberType> value) {
         this.numberEngine = value;
@@ -249,15 +236,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetNumberEngine() {
-        return (this.numberEngine != null);
+        return (this.numberEngine!= null);
     }
 
     /**
      * Gets the value of the typeAircraftICAO property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAircraftICAOType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftICAOType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAircraftICAOType> getTypeAircraftICAO() {
@@ -266,11 +254,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the typeAircraftICAO property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAircraftICAOType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftICAOType }{@code >}
+     *     
      */
     public void setTypeAircraftICAO(JAXBElement<CodeAircraftICAOType> value) {
         this.typeAircraftICAO = value;
@@ -278,15 +266,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetTypeAircraftICAO() {
-        return (this.typeAircraftICAO != null);
+        return (this.typeAircraftICAO!= null);
     }
 
     /**
      * Gets the value of the aircraftLandingCategory property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAircraftLandingCategoryType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftLandingCategoryType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAircraftLandingCategoryType> getAircraftLandingCategory() {
@@ -295,11 +284,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the aircraftLandingCategory property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAircraftLandingCategoryType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftLandingCategoryType }{@code >}
+     *     
      */
     public void setAircraftLandingCategory(JAXBElement<CodeAircraftLandingCategoryType> value) {
         this.aircraftLandingCategory = value;
@@ -307,15 +296,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetAircraftLandingCategory() {
-        return (this.aircraftLandingCategory != null);
+        return (this.aircraftLandingCategory!= null);
     }
 
     /**
      * Gets the value of the wingSpan property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getWingSpan() {
@@ -324,11 +314,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the wingSpan property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setWingSpan(JAXBElement<ValDistanceType> value) {
         this.wingSpan = value;
@@ -336,15 +326,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetWingSpan() {
-        return (this.wingSpan != null);
+        return (this.wingSpan!= null);
     }
 
     /**
      * Gets the value of the wingSpanInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeValueInterpretationType> getWingSpanInterpretation() {
@@ -353,11 +344,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the wingSpanInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     public void setWingSpanInterpretation(JAXBElement<CodeValueInterpretationType> value) {
         this.wingSpanInterpretation = value;
@@ -365,15 +356,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetWingSpanInterpretation() {
-        return (this.wingSpanInterpretation != null);
+        return (this.wingSpanInterpretation!= null);
     }
 
     /**
      * Gets the value of the classWingSpan property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAircraftWingspanClassType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftWingspanClassType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAircraftWingspanClassType> getClassWingSpan() {
@@ -382,11 +374,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the classWingSpan property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAircraftWingspanClassType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftWingspanClassType }{@code >}
+     *     
      */
     public void setClassWingSpan(JAXBElement<CodeAircraftWingspanClassType> value) {
         this.classWingSpan = value;
@@ -394,15 +386,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetClassWingSpan() {
-        return (this.classWingSpan != null);
+        return (this.classWingSpan!= null);
     }
 
     /**
      * Gets the value of the weight property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValWeightType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValWeightType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValWeightType> getWeight() {
@@ -411,11 +404,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the weight property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValWeightType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValWeightType }{@code >}
+     *     
      */
     public void setWeight(JAXBElement<ValWeightType> value) {
         this.weight = value;
@@ -423,15 +416,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetWeight() {
-        return (this.weight != null);
+        return (this.weight!= null);
     }
 
     /**
      * Gets the value of the weightInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeValueInterpretationType> getWeightInterpretation() {
@@ -440,11 +434,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the weightInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     public void setWeightInterpretation(JAXBElement<CodeValueInterpretationType> value) {
         this.weightInterpretation = value;
@@ -452,15 +446,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetWeightInterpretation() {
-        return (this.weightInterpretation != null);
+        return (this.weightInterpretation!= null);
     }
 
     /**
      * Gets the value of the passengers property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link NoNumberType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NoNumberType> getPassengers() {
@@ -469,11 +464,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the passengers property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link NoNumberType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
+     *     
      */
     public void setPassengers(JAXBElement<NoNumberType> value) {
         this.passengers = value;
@@ -481,15 +476,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetPassengers() {
-        return (this.passengers != null);
+        return (this.passengers!= null);
     }
 
     /**
      * Gets the value of the passengersInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeValueInterpretationType> getPassengersInterpretation() {
@@ -498,11 +494,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the passengersInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     public void setPassengersInterpretation(JAXBElement<CodeValueInterpretationType> value) {
         this.passengersInterpretation = value;
@@ -510,15 +506,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetPassengersInterpretation() {
-        return (this.passengersInterpretation != null);
+        return (this.passengersInterpretation!= null);
     }
 
     /**
      * Gets the value of the speed property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValSpeedType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValSpeedType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValSpeedType> getSpeed() {
@@ -527,11 +524,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the speed property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValSpeedType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValSpeedType }{@code >}
+     *     
      */
     public void setSpeed(JAXBElement<ValSpeedType> value) {
         this.speed = value;
@@ -539,15 +536,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSpeed() {
-        return (this.speed != null);
+        return (this.speed!= null);
     }
 
     /**
      * Gets the value of the speedInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeValueInterpretationType> getSpeedInterpretation() {
@@ -556,11 +554,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the speedInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     public void setSpeedInterpretation(JAXBElement<CodeValueInterpretationType> value) {
         this.speedInterpretation = value;
@@ -568,15 +566,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSpeedInterpretation() {
-        return (this.speedInterpretation != null);
+        return (this.speedInterpretation!= null);
     }
 
     /**
      * Gets the value of the wakeTurbulence property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeWakeTurbulenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeWakeTurbulenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeWakeTurbulenceType> getWakeTurbulence() {
@@ -585,11 +584,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the wakeTurbulence property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeWakeTurbulenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeWakeTurbulenceType }{@code >}
+     *     
      */
     public void setWakeTurbulence(JAXBElement<CodeWakeTurbulenceType> value) {
         this.wakeTurbulence = value;
@@ -597,15 +596,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetWakeTurbulence() {
-        return (this.wakeTurbulence != null);
+        return (this.wakeTurbulence!= null);
     }
 
     /**
      * Gets the value of the navigationSpecification property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeNavigationSpecificationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeNavigationSpecificationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeNavigationSpecificationType> getNavigationSpecification() {
@@ -614,11 +614,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the navigationSpecification property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeNavigationSpecificationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeNavigationSpecificationType }{@code >}
+     *     
      */
     public void setNavigationSpecification(JAXBElement<CodeNavigationSpecificationType> value) {
         this.navigationSpecification = value;
@@ -626,15 +626,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetNavigationSpecification() {
-        return (this.navigationSpecification != null);
+        return (this.navigationSpecification!= null);
     }
 
     /**
      * Gets the value of the verticalSeparationCapability property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeRVSMType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeRVSMType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeRVSMType> getVerticalSeparationCapability() {
@@ -643,11 +644,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the verticalSeparationCapability property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link CodeRVSMType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeRVSMType }{@code >}
+     *     
      */
     public void setVerticalSeparationCapability(JAXBElement<CodeRVSMType> value) {
         this.verticalSeparationCapability = value;
@@ -655,15 +656,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetVerticalSeparationCapability() {
-        return (this.verticalSeparationCapability != null);
+        return (this.verticalSeparationCapability!= null);
     }
 
     /**
      * Gets the value of the antiCollisionAndSeparationEquipment property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeEquipmentAntiCollisionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeEquipmentAntiCollisionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeEquipmentAntiCollisionType> getAntiCollisionAndSeparationEquipment() {
@@ -672,11 +674,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the antiCollisionAndSeparationEquipment property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeEquipmentAntiCollisionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeEquipmentAntiCollisionType }{@code >}
+     *     
      */
     public void setAntiCollisionAndSeparationEquipment(JAXBElement<CodeEquipmentAntiCollisionType> value) {
         this.antiCollisionAndSeparationEquipment = value;
@@ -684,15 +686,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetAntiCollisionAndSeparationEquipment() {
-        return (this.antiCollisionAndSeparationEquipment != null);
+        return (this.antiCollisionAndSeparationEquipment!= null);
     }
 
     /**
      * Gets the value of the communicationEquipment property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeCommunicationModeType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeCommunicationModeType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeCommunicationModeType> getCommunicationEquipment() {
@@ -701,11 +704,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the communicationEquipment property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeCommunicationModeType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeCommunicationModeType }{@code >}
+     *     
      */
     public void setCommunicationEquipment(JAXBElement<CodeCommunicationModeType> value) {
         this.communicationEquipment = value;
@@ -713,15 +716,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetCommunicationEquipment() {
-        return (this.communicationEquipment != null);
+        return (this.communicationEquipment!= null);
     }
 
     /**
      * Gets the value of the surveillanceEquipment property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeTransponderType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeTransponderType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeTransponderType> getSurveillanceEquipment() {
@@ -730,11 +734,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the surveillanceEquipment property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeTransponderType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeTransponderType }{@code >}
+     *     
      */
     public void setSurveillanceEquipment(JAXBElement<CodeTransponderType> value) {
         this.surveillanceEquipment = value;
@@ -742,36 +746,39 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSurveillanceEquipment() {
-        return (this.surveillanceEquipment != null);
+        return (this.surveillanceEquipment!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arcrftchrctrstctp_annttn_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "aircraftcharacteristic_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arcrftchrctrstctp_annttn_l", schema = "shared", joinColumns = {
+        @JoinColumn(name = "aircraftcharacteristic_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -780,8 +787,8 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -789,7 +796,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -798,10 +805,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the category property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAircraftCategoryType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftCategoryType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAircraftCategoryType> getCategory() {
@@ -810,11 +818,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the category property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAircraftCategoryType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAircraftCategoryType }{@code >}
+     *     
      */
     public void setCategory(JAXBElement<CodeAircraftCategoryType> value) {
         this.category = value;
@@ -822,15 +830,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetCategory() {
-        return (this.category != null);
+        return (this.category!= null);
     }
 
     /**
      * Gets the value of the navigationType property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeNavigationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeNavigationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeNavigationType> getNavigationType() {
@@ -839,11 +848,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the navigationType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeNavigationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeNavigationType }{@code >}
+     *     
      */
     public void setNavigationType(JAXBElement<CodeNavigationType> value) {
         this.navigationType = value;
@@ -851,15 +860,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetNavigationType() {
-        return (this.navigationType != null);
+        return (this.navigationType!= null);
     }
 
     /**
      * Gets the value of the navigationAccuracy property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValNavigationAccuracyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValNavigationAccuracyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValNavigationAccuracyType> getNavigationAccuracy() {
@@ -868,11 +878,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the navigationAccuracy property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValNavigationAccuracyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValNavigationAccuracyType }{@code >}
+     *     
      */
     public void setNavigationAccuracy(JAXBElement<ValNavigationAccuracyType> value) {
         this.navigationAccuracy = value;
@@ -880,15 +890,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetNavigationAccuracy() {
-        return (this.navigationAccuracy != null);
+        return (this.navigationAccuracy!= null);
     }
 
     /**
      * Gets the value of the dualFrequency property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getDualFrequency() {
@@ -897,11 +908,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the dualFrequency property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setDualFrequency(JAXBElement<CodeYesNoType> value) {
         this.dualFrequency = value;
@@ -909,15 +920,16 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetDualFrequency() {
-        return (this.dualFrequency != null);
+        return (this.dualFrequency!= null);
     }
 
     /**
      * Gets the value of the helicopterPerformanceClass property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeHelicopterPerformanceClassType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeHelicopterPerformanceClassType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeHelicopterPerformanceClassType> getHelicopterPerformanceClass() {
@@ -926,11 +938,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the helicopterPerformanceClass property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeHelicopterPerformanceClassType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeHelicopterPerformanceClassType }{@code >}
+     *     
      */
     public void setHelicopterPerformanceClass(JAXBElement<CodeHelicopterPerformanceClassType> value) {
         this.helicopterPerformanceClass = value;
@@ -938,37 +950,39 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetHelicopterPerformanceClass() {
-        return (this.helicopterPerformanceClass != null);
+        return (this.helicopterPerformanceClass!= null);
     }
 
     /**
      * Gets the value of the radioNavigationEquipment property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the radioNavigationEquipment property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the radioNavigationEquipment property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getRadioNavigationEquipment().add(newItem);
+     *    getRadioNavigationEquipment().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AircraftNavigationEquipmentPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AircraftNavigationEquipmentPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arcrftchrctrstctp_rdnvgtneqpmnt_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "aircraftcharacteristic_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "radionavigationequipment_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arcrftchrctrstctp_rdnvgtneqpmnt_l", schema = "shared", joinColumns = {
+        @JoinColumn(name = "aircraftcharacteristic_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "radionavigationequipment_hjid", referencedColumnName = "hjid")
+    })
     public List<AircraftNavigationEquipmentPropertyType> getRadioNavigationEquipment() {
         if (radioNavigationEquipment == null) {
             radioNavigationEquipment = new ArrayList<>();
@@ -977,8 +991,8 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setRadioNavigationEquipment(List<AircraftNavigationEquipmentPropertyType> radioNavigationEquipment) {
         this.radioNavigationEquipment = radioNavigationEquipment;
@@ -986,7 +1000,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetRadioNavigationEquipment() {
-        return ((this.radioNavigationEquipment != null) && (!this.radioNavigationEquipment.isEmpty()));
+        return ((this.radioNavigationEquipment!= null)&&(!this.radioNavigationEquipment.isEmpty()));
     }
 
     public void unsetRadioNavigationEquipment() {
@@ -995,29 +1009,29 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AircraftCharacteristicExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AircraftCharacteristicExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "aircraftcharacteristic_oe_hjid", referencedColumnName = "hjid")
     public List<AircraftCharacteristicExtensionType> getExtension() {
         if (extension == null) {
@@ -1027,8 +1041,8 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AircraftCharacteristicExtensionType> extension) {
         this.extension = extension;
@@ -1036,7 +1050,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -1044,329 +1058,324 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "engine")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "enginenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "engine", columnDefinition = "codeaircraftenginebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "enginenilreason", columnDefinition = "nilreason"))
+    })
     public CodeAircraftEngineType getEngineItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAircraftEngineType.class, this.getEngine());
     }
 
     public void setEngineItem(CodeAircraftEngineType target) {
-        setEngine(XmlAdapterUtils.marshallJAXBElement(CodeAircraftEngineType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "engine"), AircraftCharacteristicType.class, target));
+        setEngine(XmlAdapterUtils.marshallJAXBElement(CodeAircraftEngineType.class, new QName("http://www.aixm.aero/schema/5.2", "engine"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "numberengine")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "numberenginenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "numberengine", columnDefinition = "codeaircraftenginenumberbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "numberenginenilreason", columnDefinition = "nilreason"))
+    })
     public CodeAircraftEngineNumberType getNumberEngineItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAircraftEngineNumberType.class, this.getNumberEngine());
     }
 
     public void setNumberEngineItem(CodeAircraftEngineNumberType target) {
-        setNumberEngine(XmlAdapterUtils.marshallJAXBElement(CodeAircraftEngineNumberType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "numberEngine"), AircraftCharacteristicType.class,
-                target));
+        setNumberEngine(XmlAdapterUtils.marshallJAXBElement(CodeAircraftEngineNumberType.class, new QName("http://www.aixm.aero/schema/5.2", "numberEngine"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "typeaircrafticao", columnDefinition = "VARCHAR", length = 4)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typeaircrafticaonilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "typeaircrafticao", columnDefinition = "alphanumeric")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typeaircrafticaonilreason", columnDefinition = "nilreason"))
+    })
     public CodeAircraftICAOType getTypeAircraftICAOItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAircraftICAOType.class, this.getTypeAircraftICAO());
     }
 
     public void setTypeAircraftICAOItem(CodeAircraftICAOType target) {
-        setTypeAircraftICAO(XmlAdapterUtils.marshallJAXBElement(CodeAircraftICAOType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "typeAircraftICAO"), AircraftCharacteristicType.class,
-                target));
-    }
-
-    @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "aircraftlandingcategory")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "aircraftlandingcategorynilreason"))})
-    public CodeAircraftLandingCategoryType getAircraftLandingCategoryItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeAircraftLandingCategoryType.class,
-                this.getAircraftLandingCategory());
-    }
-
-    public void setAircraftLandingCategoryItem(CodeAircraftLandingCategoryType target) {
-        setAircraftLandingCategory(XmlAdapterUtils.marshallJAXBElement(CodeAircraftLandingCategoryType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "aircraftLandingCategory"),
-                AircraftCharacteristicType.class, target));
+        setTypeAircraftICAO(XmlAdapterUtils.marshallJAXBElement(CodeAircraftICAOType.class, new QName("http://www.aixm.aero/schema/5.2", "typeAircraftICAO"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "wingspan", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "wingspanuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "wingspanaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "wingspannilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "aircraftlandingcategory", columnDefinition = "codeaircraftlandingcategorybase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "aircraftlandingcategorynilreason", columnDefinition = "nilreason"))
+    })
+    public CodeAircraftLandingCategoryType getAircraftLandingCategoryItem() {
+        return XmlAdapterUtils.unmarshallSource(CodeAircraftLandingCategoryType.class, this.getAircraftLandingCategory());
+    }
+
+    public void setAircraftLandingCategoryItem(CodeAircraftLandingCategoryType target) {
+        setAircraftLandingCategory(XmlAdapterUtils.marshallJAXBElement(CodeAircraftLandingCategoryType.class, new QName("http://www.aixm.aero/schema/5.2", "aircraftLandingCategory"), AircraftCharacteristicType.class, target));
+    }
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "wingspan", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "wingspanuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "wingspanaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "wingspannilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getWingSpanItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getWingSpan());
     }
 
     public void setWingSpanItem(ValDistanceType target) {
-        setWingSpan(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "wingSpan"), AircraftCharacteristicType.class, target));
+        setWingSpan(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "wingSpan"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "wingspaninterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "wingspaninterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "wingspaninterpretation", columnDefinition = "codevalueinterpretationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "wingspaninterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeValueInterpretationType getWingSpanInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeValueInterpretationType.class, this.getWingSpanInterpretation());
     }
 
     public void setWingSpanInterpretationItem(CodeValueInterpretationType target) {
-        setWingSpanInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "wingSpanInterpretation"),
-                AircraftCharacteristicType.class, target));
+        setWingSpanInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class, new QName("http://www.aixm.aero/schema/5.2", "wingSpanInterpretation"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "classwingspan")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "classwingspannilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "classwingspan", columnDefinition = "codeaircraftwingspanclassbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "classwingspannilreason", columnDefinition = "nilreason"))
+    })
     public CodeAircraftWingspanClassType getClassWingSpanItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAircraftWingspanClassType.class, this.getClassWingSpan());
     }
 
     public void setClassWingSpanItem(CodeAircraftWingspanClassType target) {
-        setClassWingSpan(XmlAdapterUtils.marshallJAXBElement(CodeAircraftWingspanClassType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "classWingSpan"), AircraftCharacteristicType.class,
-                target));
+        setClassWingSpan(XmlAdapterUtils.marshallJAXBElement(CodeAircraftWingspanClassType.class, new QName("http://www.aixm.aero/schema/5.2", "classWingSpan"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "weight", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "weightuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "weightnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "weight", columnDefinition = "valweightbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "weightuom", columnDefinition = "uomweight")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "weightnilreason", columnDefinition = "nilreason"))
+    })
     public ValWeightType getWeightItem() {
         return XmlAdapterUtils.unmarshallSource(ValWeightType.class, this.getWeight());
     }
 
     public void setWeightItem(ValWeightType target) {
-        setWeight(XmlAdapterUtils.marshallJAXBElement(ValWeightType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "weight"), AircraftCharacteristicType.class, target));
+        setWeight(XmlAdapterUtils.marshallJAXBElement(ValWeightType.class, new QName("http://www.aixm.aero/schema/5.2", "weight"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "weightinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "weightinterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "weightinterpretation", columnDefinition = "codevalueinterpretationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "weightinterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeValueInterpretationType getWeightInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeValueInterpretationType.class, this.getWeightInterpretation());
     }
 
     public void setWeightInterpretationItem(CodeValueInterpretationType target) {
-        setWeightInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "weightInterpretation"), AircraftCharacteristicType.class,
-                target));
+        setWeightInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class, new QName("http://www.aixm.aero/schema/5.2", "weightInterpretation"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "passengers")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "passengersnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "passengers", columnDefinition = "nonumberbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "passengersnilreason", columnDefinition = "nilreason"))
+    })
     public NoNumberType getPassengersItem() {
         return XmlAdapterUtils.unmarshallSource(NoNumberType.class, this.getPassengers());
     }
 
     public void setPassengersItem(NoNumberType target) {
-        setPassengers(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "passengers"), AircraftCharacteristicType.class, target));
+        setPassengers(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class, new QName("http://www.aixm.aero/schema/5.2", "passengers"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "passengersinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "passengersinterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "passengersinterpretation", columnDefinition = "codevalueinterpretationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "passengersinterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeValueInterpretationType getPassengersInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeValueInterpretationType.class, this.getPassengersInterpretation());
     }
 
     public void setPassengersInterpretationItem(CodeValueInterpretationType target) {
-        setPassengersInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "passengersInterpretation"),
-                AircraftCharacteristicType.class, target));
+        setPassengersInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class, new QName("http://www.aixm.aero/schema/5.2", "passengersInterpretation"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "speed", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "speeduom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "speednilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "speed", columnDefinition = "valspeedbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "speeduom", columnDefinition = "uomspeed")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "speednilreason", columnDefinition = "nilreason"))
+    })
     public ValSpeedType getSpeedItem() {
         return XmlAdapterUtils.unmarshallSource(ValSpeedType.class, this.getSpeed());
     }
 
     public void setSpeedItem(ValSpeedType target) {
-        setSpeed(XmlAdapterUtils.marshallJAXBElement(ValSpeedType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "speed"), AircraftCharacteristicType.class, target));
+        setSpeed(XmlAdapterUtils.marshallJAXBElement(ValSpeedType.class, new QName("http://www.aixm.aero/schema/5.2", "speed"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "speedinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "speedinterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "speedinterpretation", columnDefinition = "codevalueinterpretationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "speedinterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeValueInterpretationType getSpeedInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeValueInterpretationType.class, this.getSpeedInterpretation());
     }
 
     public void setSpeedInterpretationItem(CodeValueInterpretationType target) {
-        setSpeedInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "speedInterpretation"), AircraftCharacteristicType.class,
-                target));
+        setSpeedInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class, new QName("http://www.aixm.aero/schema/5.2", "speedInterpretation"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "waketurbulence")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "waketurbulencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "waketurbulence", columnDefinition = "codewaketurbulencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "waketurbulencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeWakeTurbulenceType getWakeTurbulenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeWakeTurbulenceType.class, this.getWakeTurbulence());
     }
 
     public void setWakeTurbulenceItem(CodeWakeTurbulenceType target) {
-        setWakeTurbulence(XmlAdapterUtils.marshallJAXBElement(CodeWakeTurbulenceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "wakeTurbulence"), AircraftCharacteristicType.class,
-                target));
+        setWakeTurbulence(XmlAdapterUtils.marshallJAXBElement(CodeWakeTurbulenceType.class, new QName("http://www.aixm.aero/schema/5.2", "wakeTurbulence"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "navigationspecification")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "navigationspecificationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "navigationspecification", columnDefinition = "codenavigationspecificationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "navigationspecificationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeNavigationSpecificationType getNavigationSpecificationItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeNavigationSpecificationType.class,
-                this.getNavigationSpecification());
+        return XmlAdapterUtils.unmarshallSource(CodeNavigationSpecificationType.class, this.getNavigationSpecification());
     }
 
     public void setNavigationSpecificationItem(CodeNavigationSpecificationType target) {
-        setNavigationSpecification(XmlAdapterUtils.marshallJAXBElement(CodeNavigationSpecificationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "navigationSpecification"),
-                AircraftCharacteristicType.class, target));
+        setNavigationSpecification(XmlAdapterUtils.marshallJAXBElement(CodeNavigationSpecificationType.class, new QName("http://www.aixm.aero/schema/5.2", "navigationSpecification"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "verticalseparationcapability")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "verticalseparationcapabilitynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "verticalseparationcapability", columnDefinition = "codervsmbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "verticalseparationcapabilitynilreason", columnDefinition = "nilreason"))
+    })
     public CodeRVSMType getVerticalSeparationCapabilityItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRVSMType.class, this.getVerticalSeparationCapability());
     }
 
     public void setVerticalSeparationCapabilityItem(CodeRVSMType target) {
-        setVerticalSeparationCapability(XmlAdapterUtils.marshallJAXBElement(CodeRVSMType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "verticalSeparationCapability"),
-                AircraftCharacteristicType.class, target));
+        setVerticalSeparationCapability(XmlAdapterUtils.marshallJAXBElement(CodeRVSMType.class, new QName("http://www.aixm.aero/schema/5.2", "verticalSeparationCapability"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "anticollisionandseparationequipment")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "anticollisionandseparationequipmentnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "anticollisionandseparationequipment", columnDefinition = "codeequipmentanticollisionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "anticollisionandseparationequipmentnilreason", columnDefinition = "nilreason"))
+    })
     public CodeEquipmentAntiCollisionType getAntiCollisionAndSeparationEquipmentItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeEquipmentAntiCollisionType.class,
-                this.getAntiCollisionAndSeparationEquipment());
+        return XmlAdapterUtils.unmarshallSource(CodeEquipmentAntiCollisionType.class, this.getAntiCollisionAndSeparationEquipment());
     }
 
     public void setAntiCollisionAndSeparationEquipmentItem(CodeEquipmentAntiCollisionType target) {
-        setAntiCollisionAndSeparationEquipment(XmlAdapterUtils.marshallJAXBElement(CodeEquipmentAntiCollisionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "antiCollisionAndSeparationEquipment"),
-                AircraftCharacteristicType.class, target));
+        setAntiCollisionAndSeparationEquipment(XmlAdapterUtils.marshallJAXBElement(CodeEquipmentAntiCollisionType.class, new QName("http://www.aixm.aero/schema/5.2", "antiCollisionAndSeparationEquipment"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "communicationequipment")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "communicationequipmentnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "communicationequipment", columnDefinition = "codecommunicationmodebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "communicationequipmentnilreason", columnDefinition = "nilreason"))
+    })
     public CodeCommunicationModeType getCommunicationEquipmentItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCommunicationModeType.class, this.getCommunicationEquipment());
     }
 
     public void setCommunicationEquipmentItem(CodeCommunicationModeType target) {
-        setCommunicationEquipment(XmlAdapterUtils.marshallJAXBElement(CodeCommunicationModeType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "communicationEquipment"),
-                AircraftCharacteristicType.class, target));
+        setCommunicationEquipment(XmlAdapterUtils.marshallJAXBElement(CodeCommunicationModeType.class, new QName("http://www.aixm.aero/schema/5.2", "communicationEquipment"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "surveillanceequipment")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "surveillanceequipmentnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "surveillanceequipment", columnDefinition = "codetransponderbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "surveillanceequipmentnilreason", columnDefinition = "nilreason"))
+    })
     public CodeTransponderType getSurveillanceEquipmentItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTransponderType.class, this.getSurveillanceEquipment());
     }
 
     public void setSurveillanceEquipmentItem(CodeTransponderType target) {
-        setSurveillanceEquipment(XmlAdapterUtils.marshallJAXBElement(CodeTransponderType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "surveillanceEquipment"), AircraftCharacteristicType.class,
-                target));
+        setSurveillanceEquipment(XmlAdapterUtils.marshallJAXBElement(CodeTransponderType.class, new QName("http://www.aixm.aero/schema/5.2", "surveillanceEquipment"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "category")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "categorynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "category", columnDefinition = "codeaircraftcategorybase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "categorynilreason", columnDefinition = "nilreason"))
+    })
     public CodeAircraftCategoryType getCategoryItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAircraftCategoryType.class, this.getCategory());
     }
 
     public void setCategoryItem(CodeAircraftCategoryType target) {
-        setCategory(XmlAdapterUtils.marshallJAXBElement(CodeAircraftCategoryType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "category"), AircraftCharacteristicType.class, target));
+        setCategory(XmlAdapterUtils.marshallJAXBElement(CodeAircraftCategoryType.class, new QName("http://www.aixm.aero/schema/5.2", "category"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "navigationtype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "navigationtypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "navigationtype", columnDefinition = "codenavigationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "navigationtypenilreason", columnDefinition = "nilreason"))
+    })
     public CodeNavigationType getNavigationTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeNavigationType.class, this.getNavigationType());
     }
 
     public void setNavigationTypeItem(CodeNavigationType target) {
-        setNavigationType(XmlAdapterUtils.marshallJAXBElement(CodeNavigationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "navigationType"), AircraftCharacteristicType.class,
-                target));
+        setNavigationType(XmlAdapterUtils.marshallJAXBElement(CodeNavigationType.class, new QName("http://www.aixm.aero/schema/5.2", "navigationType"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "navigationaccuracy", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "navigationaccuracynilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "navigationaccuracy", columnDefinition = "valnavigationaccuracybase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "navigationaccuracynilreason", columnDefinition = "nilreason"))
+    })
     public ValNavigationAccuracyType getNavigationAccuracyItem() {
         return XmlAdapterUtils.unmarshallSource(ValNavigationAccuracyType.class, this.getNavigationAccuracy());
     }
 
     public void setNavigationAccuracyItem(ValNavigationAccuracyType target) {
-        setNavigationAccuracy(XmlAdapterUtils.marshallJAXBElement(ValNavigationAccuracyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "navigationAccuracy"), AircraftCharacteristicType.class,
-                target));
+        setNavigationAccuracy(XmlAdapterUtils.marshallJAXBElement(ValNavigationAccuracyType.class, new QName("http://www.aixm.aero/schema/5.2", "navigationAccuracy"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "dualfrequency")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "dualfrequencynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "dualfrequency", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "dualfrequencynilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getDualFrequencyItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getDualFrequency());
     }
 
     public void setDualFrequencyItem(CodeYesNoType target) {
-        setDualFrequency(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "dualFrequency"), AircraftCharacteristicType.class,
-                target));
+        setDualFrequency(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "dualFrequency"), AircraftCharacteristicType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "helicopterperformanceclass")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "helicopterperformanceclassnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "helicopterperformanceclass", columnDefinition = "codehelicopterperformanceclassbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "helicopterperformanceclassnilreason", columnDefinition = "nilreason"))
+    })
     public CodeHelicopterPerformanceClassType getHelicopterPerformanceClassItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeHelicopterPerformanceClassType.class,
-                this.getHelicopterPerformanceClass());
+        return XmlAdapterUtils.unmarshallSource(CodeHelicopterPerformanceClassType.class, this.getHelicopterPerformanceClass());
     }
 
     public void setHelicopterPerformanceClassItem(CodeHelicopterPerformanceClassType target) {
-        setHelicopterPerformanceClass(XmlAdapterUtils.marshallJAXBElement(CodeHelicopterPerformanceClassType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "helicopterPerformanceClass"),
-                AircraftCharacteristicType.class, target));
+        setHelicopterPerformanceClass(XmlAdapterUtils.marshallJAXBElement(CodeHelicopterPerformanceClassType.class, new QName("http://www.aixm.aero/schema/5.2", "helicopterPerformanceClass"), AircraftCharacteristicType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1376,45 +1385,6 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             return false;
         }
         final AircraftCharacteristicType that = ((AircraftCharacteristicType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetClassWingSpan();
-            boolean rhsFieldIsSet = that.isSetClassWingSpan();
-            JAXBElement<CodeAircraftWingspanClassType> lhsField;
-            lhsField = this.getClassWingSpan();
-            JAXBElement<CodeAircraftWingspanClassType> rhsField;
-            rhsField = that.getClassWingSpan();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classWingSpan", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classWingSpan", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNavigationAccuracy();
-            boolean rhsFieldIsSet = that.isSetNavigationAccuracy();
-            JAXBElement<ValNavigationAccuracyType> lhsField;
-            lhsField = this.getNavigationAccuracy();
-            JAXBElement<ValNavigationAccuracyType> rhsField;
-            rhsField = that.getNavigationAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPassengersInterpretation();
-            boolean rhsFieldIsSet = that.isSetPassengersInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getPassengersInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getPassengersInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengersInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengersInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetWingSpan();
             boolean rhsFieldIsSet = that.isSetWingSpan();
@@ -1429,79 +1399,27 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWeightInterpretation();
-            boolean rhsFieldIsSet = that.isSetWeightInterpretation();
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AircraftCharacteristicExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AircraftCharacteristicExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpeedInterpretation();
+            boolean rhsFieldIsSet = that.isSetSpeedInterpretation();
             JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getWeightInterpretation();
+            lhsField = this.getSpeedInterpretation();
             JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getWeightInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNumberEngine();
-            boolean rhsFieldIsSet = that.isSetNumberEngine();
-            JAXBElement<CodeAircraftEngineNumberType> lhsField;
-            lhsField = this.getNumberEngine();
-            JAXBElement<CodeAircraftEngineNumberType> rhsField;
-            rhsField = that.getNumberEngine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberEngine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberEngine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEngine();
-            boolean rhsFieldIsSet = that.isSetEngine();
-            JAXBElement<CodeAircraftEngineType> lhsField;
-            lhsField = this.getEngine();
-            JAXBElement<CodeAircraftEngineType> rhsField;
-            rhsField = that.getEngine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWingSpanInterpretation();
-            boolean rhsFieldIsSet = that.isSetWingSpanInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getWingSpanInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getWingSpanInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "wingSpanInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "wingSpanInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDualFrequency();
-            boolean rhsFieldIsSet = that.isSetDualFrequency();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getDualFrequency();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getDualFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dualFrequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dualFrequency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurveillanceEquipment();
-            boolean rhsFieldIsSet = that.isSetSurveillanceEquipment();
-            JAXBElement<CodeTransponderType> lhsField;
-            lhsField = this.getSurveillanceEquipment();
-            JAXBElement<CodeTransponderType> rhsField;
-            rhsField = that.getSurveillanceEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surveillanceEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surveillanceEquipment", rhsField);
+            rhsField = that.getSpeedInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1510,143 +1428,11 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAntiCollisionAndSeparationEquipment();
-            boolean rhsFieldIsSet = that.isSetAntiCollisionAndSeparationEquipment();
-            JAXBElement<CodeEquipmentAntiCollisionType> lhsField;
-            lhsField = this.getAntiCollisionAndSeparationEquipment();
-            JAXBElement<CodeEquipmentAntiCollisionType> rhsField;
-            rhsField = that.getAntiCollisionAndSeparationEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "antiCollisionAndSeparationEquipment",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "antiCollisionAndSeparationEquipment",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTypeAircraftICAO();
-            boolean rhsFieldIsSet = that.isSetTypeAircraftICAO();
-            JAXBElement<CodeAircraftICAOType> lhsField;
-            lhsField = this.getTypeAircraftICAO();
-            JAXBElement<CodeAircraftICAOType> rhsField;
-            rhsField = that.getTypeAircraftICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "typeAircraftICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "typeAircraftICAO", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPassengers();
-            boolean rhsFieldIsSet = that.isSetPassengers();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getPassengers();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getPassengers();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengers", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengers", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNavigationType();
-            boolean rhsFieldIsSet = that.isSetNavigationType();
-            JAXBElement<CodeNavigationType> lhsField;
-            lhsField = this.getNavigationType();
-            JAXBElement<CodeNavigationType> rhsField;
-            rhsField = that.getNavigationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AircraftCharacteristicExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AircraftCharacteristicExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHelicopterPerformanceClass();
-            boolean rhsFieldIsSet = that.isSetHelicopterPerformanceClass();
-            JAXBElement<CodeHelicopterPerformanceClassType> lhsField;
-            lhsField = this.getHelicopterPerformanceClass();
-            JAXBElement<CodeHelicopterPerformanceClassType> rhsField;
-            rhsField = that.getHelicopterPerformanceClass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "helicopterPerformanceClass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "helicopterPerformanceClass", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWeight();
-            boolean rhsFieldIsSet = that.isSetWeight();
-            JAXBElement<ValWeightType> lhsField;
-            lhsField = this.getWeight();
-            JAXBElement<ValWeightType> rhsField;
-            rhsField = that.getWeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCategory();
-            boolean rhsFieldIsSet = that.isSetCategory();
-            JAXBElement<CodeAircraftCategoryType> lhsField;
-            lhsField = this.getCategory();
-            JAXBElement<CodeAircraftCategoryType> rhsField;
-            rhsField = that.getCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraftLandingCategory();
-            boolean rhsFieldIsSet = that.isSetAircraftLandingCategory();
-            JAXBElement<CodeAircraftLandingCategoryType> lhsField;
-            lhsField = this.getAircraftLandingCategory();
-            JAXBElement<CodeAircraftLandingCategoryType> rhsField;
-            rhsField = that.getAircraftLandingCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftLandingCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftLandingCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadioNavigationEquipment();
-            boolean rhsFieldIsSet = that.isSetRadioNavigationEquipment();
-            List<AircraftNavigationEquipmentPropertyType> lhsField;
-            lhsField = (this.isSetRadioNavigationEquipment() ? this.getRadioNavigationEquipment() : null);
-            List<AircraftNavigationEquipmentPropertyType> rhsField;
-            rhsField = (that.isSetRadioNavigationEquipment() ? that.getRadioNavigationEquipment() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioNavigationEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioNavigationEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1678,29 +1464,248 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRadioNavigationEquipment();
+            boolean rhsFieldIsSet = that.isSetRadioNavigationEquipment();
+            List<AircraftNavigationEquipmentPropertyType> lhsField;
+            lhsField = (this.isSetRadioNavigationEquipment()?this.getRadioNavigationEquipment():null);
+            List<AircraftNavigationEquipmentPropertyType> rhsField;
+            rhsField = (that.isSetRadioNavigationEquipment()?that.getRadioNavigationEquipment():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioNavigationEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioNavigationEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurveillanceEquipment();
+            boolean rhsFieldIsSet = that.isSetSurveillanceEquipment();
+            JAXBElement<CodeTransponderType> lhsField;
+            lhsField = this.getSurveillanceEquipment();
+            JAXBElement<CodeTransponderType> rhsField;
+            rhsField = that.getSurveillanceEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surveillanceEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surveillanceEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPassengers();
+            boolean rhsFieldIsSet = that.isSetPassengers();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getPassengers();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getPassengers();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengers", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengers", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCategory();
+            boolean rhsFieldIsSet = that.isSetCategory();
+            JAXBElement<CodeAircraftCategoryType> lhsField;
+            lhsField = this.getCategory();
+            JAXBElement<CodeAircraftCategoryType> rhsField;
+            rhsField = that.getCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPassengersInterpretation();
+            boolean rhsFieldIsSet = that.isSetPassengersInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getPassengersInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getPassengersInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengersInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengersInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEngine();
+            boolean rhsFieldIsSet = that.isSetEngine();
+            JAXBElement<CodeAircraftEngineType> lhsField;
+            lhsField = this.getEngine();
+            JAXBElement<CodeAircraftEngineType> rhsField;
+            rhsField = that.getEngine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNavigationType();
+            boolean rhsFieldIsSet = that.isSetNavigationType();
+            JAXBElement<CodeNavigationType> lhsField;
+            lhsField = this.getNavigationType();
+            JAXBElement<CodeNavigationType> rhsField;
+            rhsField = that.getNavigationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNavigationAccuracy();
+            boolean rhsFieldIsSet = that.isSetNavigationAccuracy();
+            JAXBElement<ValNavigationAccuracyType> lhsField;
+            lhsField = this.getNavigationAccuracy();
+            JAXBElement<ValNavigationAccuracyType> rhsField;
+            rhsField = that.getNavigationAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHelicopterPerformanceClass();
+            boolean rhsFieldIsSet = that.isSetHelicopterPerformanceClass();
+            JAXBElement<CodeHelicopterPerformanceClassType> lhsField;
+            lhsField = this.getHelicopterPerformanceClass();
+            JAXBElement<CodeHelicopterPerformanceClassType> rhsField;
+            rhsField = that.getHelicopterPerformanceClass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "helicopterPerformanceClass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "helicopterPerformanceClass", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTypeAircraftICAO();
+            boolean rhsFieldIsSet = that.isSetTypeAircraftICAO();
+            JAXBElement<CodeAircraftICAOType> lhsField;
+            lhsField = this.getTypeAircraftICAO();
+            JAXBElement<CodeAircraftICAOType> rhsField;
+            rhsField = that.getTypeAircraftICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "typeAircraftICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "typeAircraftICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDualFrequency();
+            boolean rhsFieldIsSet = that.isSetDualFrequency();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getDualFrequency();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getDualFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dualFrequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dualFrequency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWingSpanInterpretation();
+            boolean rhsFieldIsSet = that.isSetWingSpanInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getWingSpanInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getWingSpanInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "wingSpanInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "wingSpanInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAircraftLandingCategory();
+            boolean rhsFieldIsSet = that.isSetAircraftLandingCategory();
+            JAXBElement<CodeAircraftLandingCategoryType> lhsField;
+            lhsField = this.getAircraftLandingCategory();
+            JAXBElement<CodeAircraftLandingCategoryType> rhsField;
+            rhsField = that.getAircraftLandingCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftLandingCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftLandingCategory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWeightInterpretation();
+            boolean rhsFieldIsSet = that.isSetWeightInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getWeightInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getWeightInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNumberEngine();
+            boolean rhsFieldIsSet = that.isSetNumberEngine();
+            JAXBElement<CodeAircraftEngineNumberType> lhsField;
+            lhsField = this.getNumberEngine();
+            JAXBElement<CodeAircraftEngineNumberType> rhsField;
+            rhsField = that.getNumberEngine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberEngine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberEngine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCommunicationEquipment();
+            boolean rhsFieldIsSet = that.isSetCommunicationEquipment();
+            JAXBElement<CodeCommunicationModeType> lhsField;
+            lhsField = this.getCommunicationEquipment();
+            JAXBElement<CodeCommunicationModeType> rhsField;
+            rhsField = that.getCommunicationEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWeight();
+            boolean rhsFieldIsSet = that.isSetWeight();
+            JAXBElement<ValWeightType> lhsField;
+            lhsField = this.getWeight();
+            JAXBElement<ValWeightType> rhsField;
+            rhsField = that.getWeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetVerticalSeparationCapability();
             boolean rhsFieldIsSet = that.isSetVerticalSeparationCapability();
             JAXBElement<CodeRVSMType> lhsField;
             lhsField = this.getVerticalSeparationCapability();
             JAXBElement<CodeRVSMType> rhsField;
             rhsField = that.getVerticalSeparationCapability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalSeparationCapability",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalSeparationCapability",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalSeparationCapability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalSeparationCapability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpeedInterpretation();
-            boolean rhsFieldIsSet = that.isSetSpeedInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getSpeedInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getSpeedInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedInterpretation", rhsField);
+            boolean lhsFieldIsSet = this.isSetClassWingSpan();
+            boolean rhsFieldIsSet = that.isSetClassWingSpan();
+            JAXBElement<CodeAircraftWingspanClassType> lhsField;
+            lhsField = this.getClassWingSpan();
+            JAXBElement<CodeAircraftWingspanClassType> rhsField;
+            rhsField = that.getClassWingSpan();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classWingSpan", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classWingSpan", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1719,14 +1724,14 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCommunicationEquipment();
-            boolean rhsFieldIsSet = that.isSetCommunicationEquipment();
-            JAXBElement<CodeCommunicationModeType> lhsField;
-            lhsField = this.getCommunicationEquipment();
-            JAXBElement<CodeCommunicationModeType> rhsField;
-            rhsField = that.getCommunicationEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationEquipment", rhsField);
+            boolean lhsFieldIsSet = this.isSetAntiCollisionAndSeparationEquipment();
+            boolean rhsFieldIsSet = that.isSetAntiCollisionAndSeparationEquipment();
+            JAXBElement<CodeEquipmentAntiCollisionType> lhsField;
+            lhsField = this.getAntiCollisionAndSeparationEquipment();
+            JAXBElement<CodeEquipmentAntiCollisionType> rhsField;
+            rhsField = that.getAntiCollisionAndSeparationEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "antiCollisionAndSeparationEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "antiCollisionAndSeparationEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1853,8 +1858,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetAntiCollisionAndSeparationEquipment();
             JAXBElement<CodeEquipmentAntiCollisionType> theField;
             theField = this.getAntiCollisionAndSeparationEquipment();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "antiCollisionAndSeparationEquipment",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "antiCollisionAndSeparationEquipment", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1874,7 +1878,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1916,14 +1920,14 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetRadioNavigationEquipment();
             List<AircraftNavigationEquipmentPropertyType> theField;
-            theField = (this.isSetRadioNavigationEquipment() ? this.getRadioNavigationEquipment() : null);
+            theField = (this.isSetRadioNavigationEquipment()?this.getRadioNavigationEquipment():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "radioNavigationEquipment", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AircraftCharacteristicExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2050,7 +2054,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -2086,13 +2090,13 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetRadioNavigationEquipment();
             List<AircraftNavigationEquipmentPropertyType> theField;
-            theField = (this.isSetRadioNavigationEquipment() ? this.getRadioNavigationEquipment() : null);
+            theField = (this.isSetRadioNavigationEquipment()?this.getRadioNavigationEquipment():null);
             strategy.appendField(locator, this, "radioNavigationEquipment", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AircraftCharacteristicExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

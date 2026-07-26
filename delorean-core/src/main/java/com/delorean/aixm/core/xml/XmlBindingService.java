@@ -21,23 +21,16 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.ValidationEvent;
-import jakarta.xml.bind.ValidationEventLocator;
-import javax.xml.transform.Source;
-import javax.xml.transform.dom.DOMSource;
 import javax.xml.validation.Validator;
-import org.xml.sax.SAXParseException;
-import org.xml.sax.ErrorHandler;
 import org.w3c.dom.Document;
 
 import com.delorean.aixm.core.DeloreanUtility;
 import com.delorean.aixm.core.inspection.InspectionBindingService;
 import com.delorean.aixm.core.inspection.ValidationSeverity;
 import com.delorean.aixm.core.inspection.InspectionSource;
-import com.delorean.aixm.core.log.ConsoleLogger;
-import com.delorean.aixm.core.log.LogLevel;
+import lombok.extern.slf4j.Slf4j;
 
-
-
+@Slf4j
 public class XmlBindingService<ROOT, FEATURE> {
     private final Class<ROOT> rootClass;
     private final Class<FEATURE> featureClass;
@@ -79,8 +72,17 @@ public class XmlBindingService<ROOT, FEATURE> {
             this.marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             this.marshaller.setEventHandler(this::marshallerEventHandler);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("Failed to initialize XmlBindingService for root class: " + root.getName() + " and feature class: " + feature.getName(), e);
         }
+        log.atDebug().setMessage("Initialized XmlBindingService");
+        log.atDebug().setMessage("Root class: {}").addArgument(() -> root.getName()).log();
+        log.atDebug().setMessage("Feature class: {}").addArgument(() -> feature.getName()).log();
+        log.atDebug().setMessage("CoreResourceAnchorsClass: {}").addArgument(() -> CoreResourceAnchorsClass.getName()).log();
+        log.atDebug().setMessage("AIXMResourceAnchorsClass: {}").addArgument(() -> AIXMResourceAnchorsClass.getName()).log();
+        log.atDebug().setMessage("Schema class: {}").addArgument(() -> schema.toString()).log();
+        log.atDebug().setMessage("Context class: {}").addArgument(() -> this.context.toString()).log();
+        log.atDebug().setMessage("Unmarshaller class: {}").addArgument(() -> this.unmarshaller.toString()).log();
+        log.atDebug().setMessage("Marshaller class: {}").addArgument(() -> this.marshaller.toString()).log();
     }
 
     public Unmarshaller getUnmarshaller() {
@@ -92,6 +94,7 @@ public class XmlBindingService<ROOT, FEATURE> {
     }
 
     public boolean unmarshallerEventHandler(ValidationEvent event) {
+        log.atDebug().setMessage("JAXB Validation Event: Severity={}, Message={}, LinkedException={}") .addArgument(() -> event.getSeverity()).addArgument(() -> event.getMessage()).addArgument(() -> event.getLinkedException()).log();
         switch (event.getSeverity()) {
             case ValidationEvent.WARNING:
                 InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.WARNING, "JAXB Validation", event);
@@ -111,6 +114,7 @@ public class XmlBindingService<ROOT, FEATURE> {
     }
 
     public boolean marshallerEventHandler(ValidationEvent event) {
+        log.atDebug().setMessage("JAXB Validation Event: Severity={}, Message={}, LinkedException={}") .addArgument(() -> event.getSeverity()).addArgument(() -> event.getMessage()).addArgument(() -> event.getLinkedException()).log();
         switch (event.getSeverity()) {
             case ValidationEvent.WARNING:
                 InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.WARNING, "JAXB Validation", event);
@@ -130,6 +134,7 @@ public class XmlBindingService<ROOT, FEATURE> {
     }
 
     public boolean saxInspect(Object object) {
+        log.atDebug().setMessage("Sax inspection of object: {}").addArgument(() -> object.getClass().getName()).log();
         if (this.schema == null) {
             throw new IllegalStateException("Cannot validate object because no XML Schema is set for this XmlBindingService.");
         }
@@ -155,8 +160,7 @@ public class XmlBindingService<ROOT, FEATURE> {
         validator.validate(source);
         return true;
         } catch (Exception e) {
-            ConsoleLogger.error("Validation failed", e);
-            return false;
+            throw new RuntimeException("SAX inspection failed for object of type: " + object.getClass().getName(), e);
         }
     }
 
@@ -208,13 +212,13 @@ public class XmlBindingService<ROOT, FEATURE> {
 
     @SuppressWarnings("unchecked")
     public ROOT unmarshal(InputStream xmlStream) {
-
+        log.atDebug().setMessage("Unmarshalling XML stream into ROOT class: {}").addArgument(() -> this.rootClass.getName()).log();
         // Unmarshal the XML content from the InputStream
         Object unmarshalledObject;
         try {
             unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
         } catch (JAXBException e) {
-            ConsoleLogger.error("JAXB exception during unmarshalling : " + e.getMessage());
+            log.error("JAXB exception during unmarshalling : " + e.getMessage());
             if (e.getLinkedException() != null) {
                 e.getLinkedException().printStackTrace(); 
             }
@@ -223,8 +227,7 @@ public class XmlBindingService<ROOT, FEATURE> {
             return null;
 
         } catch (Exception e) {
-            ConsoleLogger.error("General exception during unmarshalling : " + e.getMessage());
-            return null;
+            throw new RuntimeException("General exception during unmarshalling: " + e.getMessage(), e);
         }
 
         // Check if the root element is of type JAXBElement
@@ -232,8 +235,7 @@ public class XmlBindingService<ROOT, FEATURE> {
         if (unmarshalledObject instanceof JAXBElement<?>) {
             rootElement = (JAXBElement<?>) unmarshalledObject;
         } else {
-            ConsoleLogger.error("Unsuccessfully unmarshalled : Unknown root element type " + unmarshalledObject.getClass().getName());
-            return null;
+            throw new RuntimeException("Unknown root element type: " + unmarshalledObject.getClass().getName());
         }
 
         // Verify if the root element matches the expected type
@@ -243,24 +245,20 @@ public class XmlBindingService<ROOT, FEATURE> {
             return (ROOT) aixmElement.getValue();
 
         } else {
-            ConsoleLogger.error("Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
+            throw new RuntimeException("Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
         }
-
-        return null;
     }
     
     public void marshal(ROOT record, FileOutputStream outputStream, Class<ROOT> clazz, QName qName) {
+        log.atDebug().setMessage("Marshalling record of type: {} with QName: {}").addArgument(() -> clazz.getName()).addArgument(() -> qName.toString()).log();
         if (record == null) {
-            ConsoleLogger.error("Cannot marshal a null record of type: " + clazz.getName());
-            return;
+            throw new RuntimeException("Cannot marshal a null record of type: " + clazz.getName());
         }
         if (qName == null) {
-            ConsoleLogger.error("Cannot marshal with a null QName for type: " + clazz.getName());
-            return;
+            throw new RuntimeException("Cannot marshal with a null QName for type: " + clazz.getName());
         }
         if (outputStream == null) {
-            ConsoleLogger.error("Cannot marshal to a null OutputStream for type: " + clazz.getName());
-            return;
+            throw new RuntimeException("Cannot marshal to a null OutputStream for type: " + clazz.getName());
         }
 
         try {
@@ -273,11 +271,10 @@ public class XmlBindingService<ROOT, FEATURE> {
             customWriter.close();
 
         } catch (JAXBException e) {
-            ConsoleLogger.error("JAXB exception during marshalling: " + e.getMessage());
+            throw new RuntimeException("JAXB exception during marshalling: " + e.getMessage(), e);
         
         } catch (Exception e) {
-            ConsoleLogger.error("Error during marshalling: " + e.getMessage());
-
+            throw new RuntimeException("General exception during marshalling: " + e.getMessage(), e);
         }
     }
 

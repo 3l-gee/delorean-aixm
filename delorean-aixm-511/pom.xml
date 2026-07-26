@@ -24,6 +24,11 @@
             <artifactId>delorean-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.delorean-aixm</groupId>
+            <artifactId>post-jaxb</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
         <!-- JPA Dependencies -->
         <dependency>
@@ -55,11 +60,6 @@
             <artifactId>hisrc-hyperjaxb-opt-hibernate</artifactId>
             <version>${hisrc.version}</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>org.patrodyne.jvnet</groupId>
-            <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-            <version>${hisrc.version}</version>
-        </dependency> -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -120,12 +120,23 @@
             <version>6.0.0</version>
         </dependency>
 
-        <!-- SLF4J Implementation -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
+        <!-- Logging-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.classic}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- Test Dependencies -->
         <dependency>
@@ -323,9 +334,9 @@
                                         <argument>--config</argument>
                                         <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-config_a511.yaml</argument>
                                         <argument>--path_to_bmm</argument>
-                                        <argument>${project.basedir}/src/main/resources/sql/basic_message_member_ids.sql</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/query_basic_message_member_ids.sql</argument>
                                         <argument>--path_to_tsp</argument>
-                                        <argument>${project.basedir}/src/main/resources/sql/time_slice_property_ids.sql</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/query_time_slice_property_ids.sql</argument>
                                         <argument>--path_to_sfl</argument>
                                         <argument>${project.basedir}/src/main/resources/sql/schema_feature_list.txt</argument>
                                     </arguments>
@@ -334,14 +345,17 @@
                             
                             <!-- Post-JAXB generated code Fix -->
                             <execution>
-                                <id>postprocess aixm 511 bindings</id>
+                                <id>postprocess aixm 51 bindings</id>
                                 <phase>process-sources</phase>
                                 <goals>
-                                    <goal>java</goal>
+                                    <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <mainClass>com.delorean.aixm.postjaxb.PostJAXBRunner</mainClass>
+                                    <executable>java</executable>
                                     <arguments>
+                                        <argument>-classpath</argument>
+                                        <classpath/>
+                                        <argument>com.delorean.aixm.postjaxb.PostJAXBRunner</argument>
                                         <argument>${project.basedir}/src/main/post-jaxb/post-jaxb-config_a511.yaml</argument>
                                     </arguments>
                                 </configuration>
@@ -425,14 +439,6 @@
                     </plugin>
                 </plugins>
             </build>
-            <dependencies>
-                <dependency>
-                    <groupId>com.delorean-aixm</groupId>
-                    <artifactId>post-jaxb</artifactId>
-                    <version>${project.parent.version}</version>
-                    <scope>provided</scope>
-                </dependency>
-            </dependencies>
         </profile>
     </profiles>
 </project>

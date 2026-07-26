@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for OilPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for OilPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="OilPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1}Oil"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "OilPropertyType", propOrder = {"oil"})
+@XmlType(name = "OilPropertyType", propOrder = {
+    "oil"
+})
 @Entity(name = "OilPropertyType")
 @Table(name = "oil_p", schema = "service")
-public class OilPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class OilPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Oil", required = true)
@@ -57,11 +56,15 @@ public class OilPropertyType extends AbstractAIXMPropertyType implements Seriali
 
     /**
      * Gets the value of the oil property.
-     *
-     * @return possible object is {@link OilType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link OilType }
+     *     
      */
-    @OneToOne(targetEntity = OilType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = OilType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "oil_hjid", referencedColumnName = "hjid")
     public OilType getOil() {
         return oil;
@@ -69,10 +72,11 @@ public class OilPropertyType extends AbstractAIXMPropertyType implements Seriali
 
     /**
      * Sets the value of the oil property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link OilType }
-     *
+     *     allowed object is
+     *     {@link OilType }
+     *     
      */
     public void setOil(OilType value) {
         this.oil = value;
@@ -80,13 +84,12 @@ public class OilPropertyType extends AbstractAIXMPropertyType implements Seriali
 
     @Transient
     public boolean isSetOil() {
-        return (this.oil != null);
+        return (this.oil!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

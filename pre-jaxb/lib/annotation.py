@@ -126,12 +126,10 @@ class Property:
     def name(name):
         return f'<jaxb:property name="{name}"/>'
     
-    # element = '<jaxb:property generateElementProperty="false"/>'
     element = ''
 
     @staticmethod
     def name_element(name):
-        # return f'<jaxb:property name="{name}" generateElementProperty="false"/>'
         return f'<jaxb:property name="{name}"/>'
     
     @staticmethod
@@ -269,7 +267,7 @@ class HyperJAXB:
     def orm_join_table(schema, owning_table, target_table):
         owning_table_acronym = Config().generate_phonetic_acronym(owning_table)
         target_table_acronym = Config().generate_phonetic_acronym(target_table)
-        join_table_name = Util.snake_case_table([owning_table_acronym, target_table_acronym, "link"]).replace('"', '')
+        join_table_name = Util.snake_case_table([owning_table_acronym, target_table_acronym, "l"]).replace('"', '')
         owning_table = Util.snake_case_column(str(owning_table)).replace('"', '')
         target_table = Util.snake_case_column(str(target_table)).replace('"', '')
 
@@ -490,63 +488,7 @@ class Constraint:
         
         # Format the annotation string using f-strings
         return f'@jakarta.validation.constraints.Pattern(regexp = "{escaped_value}", message = "{message + " : " + escaped_value}")'
-
-# class Relation:
-
-#     @staticmethod
-#     def inhertiance():
-#         return f'<orm:inheritance strategy="JOINED" />'
-        
-#     @staticmethod
-#     def one_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
-#         return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch})'
     
-#     @staticmethod
-#     def one_to_one_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):   
-#         return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
-
-#     @staticmethod
-#     def one_to_many(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
-#         return f'@jakarta.persistence.OneToMany(cascade={cascade}, fetch={fetch})'
-    
-#     @staticmethod
-#     def one_to_many_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):   
-#         return f'@jakarta.persistence.OneToMany(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
-    
-#     @staticmethod
-#     def many_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):  
-#         return f'@jakarta.persistence.ManyToOne(cascade={cascade}, fetch={fetch})'
-
-#     @staticmethod
-#     def many_to_one_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):  
-#         return f'@jakarta.persistence.ManyToOne(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
-    
-#     @staticmethod
-#     def many_to_many(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):  
-#         return f'@jakarta.persistence.ManyToMany(cascade={cascade}, fetch={fetch})'
-    
-#     @staticmethod
-#     def many_to_many_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):  
-#         return f'@jakarta.persistence.ManyToMany(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
-    
-#     @staticmethod
-#     def join_column(name, referenced_column_name="id"):
-#         return f'@jakarta.persistence.JoinColumn(name="{Util.snake_case(str(name + "_id"))}", referencedColumnName="{referenced_column_name}")'
-    
-#     @staticmethod
-#     def join_table(name1, name2, join_columns, inverse_join_columns):
-#         return f'@jakarta.persistence.JoinTable(name = "{Util.snake_case_table([name1, name2])}", joinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(str(join_columns + "_id"))}"), inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(str(inverse_join_columns + "_id"))}"))'    
-#     @staticmethod
-#     def collection_element():
-#         return f'@jakarta.persistence.ElementCollection'
-    
-#     @staticmethod
-#     def collection_table(name, parent=None):
-#         if parent is None :
-#             return f'@jakarta.persistence.CollectionTable(name = "{Util.snake_case(str(name + "_col"))}")'
-#         else :
-#             return f'@jakarta.persistence.CollectionTable(name = "{Util.snake_case(name)}, joinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(parent)}_id"))'
-
 class Jpa:
     # relation = Relation
     constraint = Constraint
@@ -557,13 +499,17 @@ class Jpa:
     embeddable = '''<hj:embeddable/>'''
     embedded = '@jakarta.persistence.Embedded'
 
-    @staticmethod
-    def column(name, length=255, nullable=True, unique=False):
-        return f'@jakarta.persistence.Column(name = "{Util.snake_case_column(name)}", length = {length}, nullable = {Util.bool_str(nullable)}, unique = {Util.bool_str(unique)})'
+    # @staticmethod
+    # def column(name, length=255, nullable=True, unique=False):
+    #     print("\n--- Util.column called by: ---")
+    #     for line in traceback.format_stack()[:-1]:
+    #         if "Util.column" not in line:
+    #             print(line.strip())
+    #     return f'@jakarta.persistence.Column(name = "{Util.snake_case_column(name)}", length = {length}, nullable = {Util.bool_str(nullable)}, unique = {Util.bool_str(unique)})'
 
-    @staticmethod
-    def column_with_definition(name, columnDefinition, length=255, nullable=True, unique=False):
-        return f'@jakarta.persistence.Column(name = "{Util.snake_case_column(name)}", length = {length}, columnDefinition = "{columnDefinition}", nullable = {Util.bool_str(nullable)}, unique = {Util.bool_str(unique)})'
+    # @staticmethod
+    # def column_with_definition(name, columnDefinition, length=255, nullable=True, unique=False):
+    #     return f'@jakarta.persistence.Column(name = "{Util.snake_case_column(name)}", length = {length}, columnDefinition = "{columnDefinition}", nullable = {Util.bool_str(nullable)}, unique = {Util.bool_str(unique)})'
         
     @staticmethod
     def table(name, schema, prefix=None):

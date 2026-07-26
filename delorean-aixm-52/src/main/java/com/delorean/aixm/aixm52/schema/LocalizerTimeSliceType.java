@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,81 +31,47 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for LocalizerTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for LocalizerTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="LocalizerTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="designator" type=
-"{http://www.aixm.aero/schema/5.2}CodeNavaidDesignatorType" minOccurs="0"/>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="emissionClass" type=
-"{http://www.aixm.aero/schema/5.2}CodeRadioEmissionType" minOccurs="0"/>
- *         <element name="mobile" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="magneticVariation" type=
-"{http://www.aixm.aero/schema/5.2}ValMagneticVariationType" minOccurs="0"/>
- *         <element name="dateMagneticVariation" type=
-"{http://www.aixm.aero/schema/5.2}DateYearType" minOccurs="0"/>
- *         <element name="flightChecked" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.2}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="authority" type=
-"{http://www.aixm.aero/schema/5.2}AuthorityForNavaidEquipmentPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="monitoring" type=
-"{http://www.aixm.aero/schema/5.2}NavaidEquipmentMonitoringPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="availability" type=
-"{http://www.aixm.aero/schema/5.2}NavaidOperationalStatusPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="frequency" type=
-"{http://www.aixm.aero/schema/5.2}ValFrequencyType" minOccurs="0"/>
- *         <element name="magneticBearing" type=
-"{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
- *         <element name="trueBearing" type=
-"{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
- *         <element name="declination" type=
-"{http://www.aixm.aero/schema/5.2}ValMagneticVariationType" minOccurs="0"/>
- *         <element name="widthCourse" type=
-"{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
- *         <element name="backCourseUsable" type=
-"{http://www.aixm.aero/schema/5.2}CodeILSBackCourseType" minOccurs="0"/>
- *         <element name="signalPerformance" type=
-"{http://www.aixm.aero/schema/5.2}CodeSignalPerformanceILSType" minOccurs="0"/>
- *         <element name="courseQuality" type=
-"{http://www.aixm.aero/schema/5.2}CodeCourseQualityILSType" minOccurs="0"/>
- *         <element name="integrityLevel" type=
-"{http://www.aixm.aero/schema/5.2}CodeIntegrityLevelILSType" minOccurs="0"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.2}CodeNavaidDesignatorType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="emissionClass" type="{http://www.aixm.aero/schema/5.2}CodeRadioEmissionType" minOccurs="0"/>
+ *         <element name="mobile" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="magneticVariation" type="{http://www.aixm.aero/schema/5.2}ValMagneticVariationType" minOccurs="0"/>
+ *         <element name="dateMagneticVariation" type="{http://www.aixm.aero/schema/5.2}DateYearType" minOccurs="0"/>
+ *         <element name="flightChecked" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.2}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="authority" type="{http://www.aixm.aero/schema/5.2}AuthorityForNavaidEquipmentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="monitoring" type="{http://www.aixm.aero/schema/5.2}NavaidEquipmentMonitoringPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.2}NavaidOperationalStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="frequency" type="{http://www.aixm.aero/schema/5.2}ValFrequencyType" minOccurs="0"/>
+ *         <element name="magneticBearing" type="{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
+ *         <element name="trueBearing" type="{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
+ *         <element name="declination" type="{http://www.aixm.aero/schema/5.2}ValMagneticVariationType" minOccurs="0"/>
+ *         <element name="widthCourse" type="{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
+ *         <element name="backCourseUsable" type="{http://www.aixm.aero/schema/5.2}CodeILSBackCourseType" minOccurs="0"/>
+ *         <element name="signalPerformance" type="{http://www.aixm.aero/schema/5.2}CodeSignalPerformanceILSType" minOccurs="0"/>
+ *         <element name="courseQuality" type="{http://www.aixm.aero/schema/5.2}CodeCourseQualityILSType" minOccurs="0"/>
+ *         <element name="integrityLevel" type="{http://www.aixm.aero/schema/5.2}CodeIntegrityLevelILSType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractLocalizerExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractNavaidEquipmentExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractLocalizerExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractNavaidEquipmentExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -115,17 +81,40 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LocalizerTimeSliceType", propOrder = {"designator", "aixmName", "emissionClass", "mobile",
-        "magneticVariation", "dateMagneticVariation", "flightChecked", "location", "authority", "monitoring",
-        "availability", "annotation", "frequency", "magneticBearing", "trueBearing", "declination", "widthCourse",
-        "backCourseUsable", "signalPerformance", "courseQuality", "integrityLevel", "extension"})
+@XmlType(name = "LocalizerTimeSliceType", propOrder = {
+    "designator",
+    "aixmName",
+    "emissionClass",
+    "mobile",
+    "magneticVariation",
+    "dateMagneticVariation",
+    "flightChecked",
+    "location",
+    "authority",
+    "monitoring",
+    "availability",
+    "annotation",
+    "frequency",
+    "magneticBearing",
+    "trueBearing",
+    "declination",
+    "widthCourse",
+    "backCourseUsable",
+    "signalPerformance",
+    "courseQuality",
+    "integrityLevel",
+    "extension"
+})
 @Entity(name = "LocalizerTimeSliceType")
 @Table(name = "localizer_t", schema = "navaids_point")
-public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class LocalizerTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "designator", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -174,10 +163,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Gets the value of the designator property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeNavaidDesignatorType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeNavaidDesignatorType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeNavaidDesignatorType> getDesignator() {
@@ -186,11 +176,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the designator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeNavaidDesignatorType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeNavaidDesignatorType }{@code >}
+     *     
      */
     public void setDesignator(JAXBElement<CodeNavaidDesignatorType> value) {
         this.designator = value;
@@ -198,15 +188,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator != null);
+        return (this.designator!= null);
     }
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -215,11 +206,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -227,15 +218,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the emissionClass property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeRadioEmissionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeRadioEmissionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeRadioEmissionType> getEmissionClass() {
@@ -244,11 +236,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the emissionClass property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeRadioEmissionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeRadioEmissionType }{@code >}
+     *     
      */
     public void setEmissionClass(JAXBElement<CodeRadioEmissionType> value) {
         this.emissionClass = value;
@@ -256,15 +248,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetEmissionClass() {
-        return (this.emissionClass != null);
+        return (this.emissionClass!= null);
     }
 
     /**
      * Gets the value of the mobile property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getMobile() {
@@ -273,11 +266,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the mobile property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setMobile(JAXBElement<CodeYesNoType> value) {
         this.mobile = value;
@@ -285,15 +278,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetMobile() {
-        return (this.mobile != null);
+        return (this.mobile!= null);
     }
 
     /**
      * Gets the value of the magneticVariation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValMagneticVariationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValMagneticVariationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValMagneticVariationType> getMagneticVariation() {
@@ -302,11 +296,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the magneticVariation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValMagneticVariationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValMagneticVariationType }{@code >}
+     *     
      */
     public void setMagneticVariation(JAXBElement<ValMagneticVariationType> value) {
         this.magneticVariation = value;
@@ -314,15 +308,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetMagneticVariation() {
-        return (this.magneticVariation != null);
+        return (this.magneticVariation!= null);
     }
 
     /**
      * Gets the value of the dateMagneticVariation property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link DateYearType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DateYearType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DateYearType> getDateMagneticVariation() {
@@ -331,11 +326,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the dateMagneticVariation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link DateYearType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DateYearType }{@code >}
+     *     
      */
     public void setDateMagneticVariation(JAXBElement<DateYearType> value) {
         this.dateMagneticVariation = value;
@@ -343,15 +338,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetDateMagneticVariation() {
-        return (this.dateMagneticVariation != null);
+        return (this.dateMagneticVariation!= null);
     }
 
     /**
      * Gets the value of the flightChecked property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getFlightChecked() {
@@ -360,11 +356,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the flightChecked property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setFlightChecked(JAXBElement<CodeYesNoType> value) {
         this.flightChecked = value;
@@ -372,15 +368,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetFlightChecked() {
-        return (this.flightChecked != null);
+        return (this.flightChecked!= null);
     }
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getLocation() {
@@ -389,11 +386,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setLocation(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.location = value;
@@ -401,37 +398,39 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the authority property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the authority property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the authority property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAuthority().add(newItem);
+     *    getAuthority().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AuthorityForNavaidEquipmentPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AuthorityForNavaidEquipmentPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lclzrtmslctp_athrt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "authority_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lclzrtmslctp_athrt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "authority_hjid", referencedColumnName = "hjid")
+    })
     public List<AuthorityForNavaidEquipmentPropertyType> getAuthority() {
         if (authority == null) {
             authority = new ArrayList<>();
@@ -440,8 +439,8 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAuthority(List<AuthorityForNavaidEquipmentPropertyType> authority) {
         this.authority = authority;
@@ -449,7 +448,7 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetAuthority() {
-        return ((this.authority != null) && (!this.authority.isEmpty()));
+        return ((this.authority!= null)&&(!this.authority.isEmpty()));
     }
 
     public void unsetAuthority() {
@@ -458,32 +457,34 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Gets the value of the monitoring property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the monitoring property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the monitoring property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getMonitoring().add(newItem);
+     *    getMonitoring().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NavaidEquipmentMonitoringPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = NavaidEquipmentMonitoringPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lclzrtmslctp_mntrng_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "monitoring_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lclzrtmslctp_mntrng_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "monitoring_hjid", referencedColumnName = "hjid")
+    })
     public List<NavaidEquipmentMonitoringPropertyType> getMonitoring() {
         if (monitoring == null) {
             monitoring = new ArrayList<>();
@@ -492,8 +493,8 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setMonitoring(List<NavaidEquipmentMonitoringPropertyType> monitoring) {
         this.monitoring = monitoring;
@@ -501,7 +502,7 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetMonitoring() {
-        return ((this.monitoring != null) && (!this.monitoring.isEmpty()));
+        return ((this.monitoring!= null)&&(!this.monitoring.isEmpty()));
     }
 
     public void unsetMonitoring() {
@@ -510,32 +511,34 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NavaidOperationalStatusPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = NavaidOperationalStatusPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lclzrtmslctp_avlblt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lclzrtmslctp_avlblt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
+    })
     public List<NavaidOperationalStatusPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -544,8 +547,8 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<NavaidOperationalStatusPropertyType> availability) {
         this.availability = availability;
@@ -553,7 +556,7 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -562,31 +565,34 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lclzrtmslctp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lclzrtmslctp_annttn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -595,8 +601,8 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -604,7 +610,7 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -613,10 +619,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Gets the value of the frequency property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValFrequencyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValFrequencyType> getFrequency() {
@@ -625,11 +632,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the frequency property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValFrequencyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
+     *     
      */
     public void setFrequency(JAXBElement<ValFrequencyType> value) {
         this.frequency = value;
@@ -637,15 +644,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetFrequency() {
-        return (this.frequency != null);
+        return (this.frequency!= null);
     }
 
     /**
      * Gets the value of the magneticBearing property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getMagneticBearing() {
@@ -654,11 +662,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the magneticBearing property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setMagneticBearing(JAXBElement<ValBearingType> value) {
         this.magneticBearing = value;
@@ -666,15 +674,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetMagneticBearing() {
-        return (this.magneticBearing != null);
+        return (this.magneticBearing!= null);
     }
 
     /**
      * Gets the value of the trueBearing property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getTrueBearing() {
@@ -683,11 +692,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the trueBearing property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setTrueBearing(JAXBElement<ValBearingType> value) {
         this.trueBearing = value;
@@ -695,15 +704,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetTrueBearing() {
-        return (this.trueBearing != null);
+        return (this.trueBearing!= null);
     }
 
     /**
      * Gets the value of the declination property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValMagneticVariationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValMagneticVariationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValMagneticVariationType> getDeclination() {
@@ -712,11 +722,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the declination property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValMagneticVariationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValMagneticVariationType }{@code >}
+     *     
      */
     public void setDeclination(JAXBElement<ValMagneticVariationType> value) {
         this.declination = value;
@@ -724,15 +734,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetDeclination() {
-        return (this.declination != null);
+        return (this.declination!= null);
     }
 
     /**
      * Gets the value of the widthCourse property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getWidthCourse() {
@@ -741,11 +752,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the widthCourse property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setWidthCourse(JAXBElement<ValAngleType> value) {
         this.widthCourse = value;
@@ -753,15 +764,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetWidthCourse() {
-        return (this.widthCourse != null);
+        return (this.widthCourse!= null);
     }
 
     /**
      * Gets the value of the backCourseUsable property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeILSBackCourseType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeILSBackCourseType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeILSBackCourseType> getBackCourseUsable() {
@@ -770,11 +782,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the backCourseUsable property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeILSBackCourseType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeILSBackCourseType }{@code >}
+     *     
      */
     public void setBackCourseUsable(JAXBElement<CodeILSBackCourseType> value) {
         this.backCourseUsable = value;
@@ -782,15 +794,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetBackCourseUsable() {
-        return (this.backCourseUsable != null);
+        return (this.backCourseUsable!= null);
     }
 
     /**
      * Gets the value of the signalPerformance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSignalPerformanceILSType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSignalPerformanceILSType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSignalPerformanceILSType> getSignalPerformance() {
@@ -799,11 +812,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the signalPerformance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSignalPerformanceILSType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSignalPerformanceILSType }{@code >}
+     *     
      */
     public void setSignalPerformance(JAXBElement<CodeSignalPerformanceILSType> value) {
         this.signalPerformance = value;
@@ -811,15 +824,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetSignalPerformance() {
-        return (this.signalPerformance != null);
+        return (this.signalPerformance!= null);
     }
 
     /**
      * Gets the value of the courseQuality property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeCourseQualityILSType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeCourseQualityILSType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeCourseQualityILSType> getCourseQuality() {
@@ -828,11 +842,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the courseQuality property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeCourseQualityILSType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeCourseQualityILSType }{@code >}
+     *     
      */
     public void setCourseQuality(JAXBElement<CodeCourseQualityILSType> value) {
         this.courseQuality = value;
@@ -840,15 +854,16 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetCourseQuality() {
-        return (this.courseQuality != null);
+        return (this.courseQuality!= null);
     }
 
     /**
      * Gets the value of the integrityLevel property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeIntegrityLevelILSType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeIntegrityLevelILSType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeIntegrityLevelILSType> getIntegrityLevel() {
@@ -857,11 +872,11 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     /**
      * Sets the value of the integrityLevel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeIntegrityLevelILSType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeIntegrityLevelILSType }{@code >}
+     *     
      */
     public void setIntegrityLevel(JAXBElement<CodeIntegrityLevelILSType> value) {
         this.integrityLevel = value;
@@ -869,34 +884,34 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetIntegrityLevel() {
-        return (this.integrityLevel != null);
+        return (this.integrityLevel!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LocalizerTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = LocalizerTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "localizer_te_hjid", referencedColumnName = "hjid")
     public List<LocalizerTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -906,8 +921,8 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<LocalizerTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -915,7 +930,7 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -924,232 +939,237 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 4)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "alphanumeric")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason", columnDefinition = "nilreason"))
+    })
     public CodeNavaidDesignatorType getDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(CodeNavaidDesignatorType.class, this.getDesignator());
     }
 
     public void setDesignatorItem(CodeNavaidDesignatorType target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(CodeNavaidDesignatorType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "designator"), LocalizerTimeSliceType.class, target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(CodeNavaidDesignatorType.class, new QName("http://www.aixm.aero/schema/5.2", "designator"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "name"), LocalizerTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "emissionclass")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "emissionclassnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "emissionclass", columnDefinition = "coderadioemissionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "emissionclassnilreason", columnDefinition = "nilreason"))
+    })
     public CodeRadioEmissionType getEmissionClassItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRadioEmissionType.class, this.getEmissionClass());
     }
 
     public void setEmissionClassItem(CodeRadioEmissionType target) {
-        setEmissionClass(XmlAdapterUtils.marshallJAXBElement(CodeRadioEmissionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "emissionClass"), LocalizerTimeSliceType.class, target));
+        setEmissionClass(XmlAdapterUtils.marshallJAXBElement(CodeRadioEmissionType.class, new QName("http://www.aixm.aero/schema/5.2", "emissionClass"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "mobile")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "mobilenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "mobile", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "mobilenilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getMobileItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getMobile());
     }
 
     public void setMobileItem(CodeYesNoType target) {
-        setMobile(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "mobile"), LocalizerTimeSliceType.class, target));
+        setMobile(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "mobile"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "magneticvariation", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "magneticvariationaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "magneticvariation", columnDefinition = "valmagneticvariationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "magneticvariationaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValMagneticVariationType getMagneticVariationItem() {
         return XmlAdapterUtils.unmarshallSource(ValMagneticVariationType.class, this.getMagneticVariation());
     }
 
     public void setMagneticVariationItem(ValMagneticVariationType target) {
-        setMagneticVariation(XmlAdapterUtils.marshallJAXBElement(ValMagneticVariationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "magneticVariation"), LocalizerTimeSliceType.class,
-                target));
+        setMagneticVariation(XmlAdapterUtils.marshallJAXBElement(ValMagneticVariationType.class, new QName("http://www.aixm.aero/schema/5.2", "magneticVariation"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "datemagneticvariation", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "datemagneticvariationnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "datemagneticvariation", columnDefinition = "dateyearbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "datemagneticvariationnilreason", columnDefinition = "nilreason"))
+    })
     public DateYearType getDateMagneticVariationItem() {
         return XmlAdapterUtils.unmarshallSource(DateYearType.class, this.getDateMagneticVariation());
     }
 
     public void setDateMagneticVariationItem(DateYearType target) {
-        setDateMagneticVariation(XmlAdapterUtils.marshallJAXBElement(DateYearType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "dateMagneticVariation"), LocalizerTimeSliceType.class,
-                target));
+        setDateMagneticVariation(XmlAdapterUtils.marshallJAXBElement(DateYearType.class, new QName("http://www.aixm.aero/schema/5.2", "dateMagneticVariation"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "flightchecked")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "flightcheckednilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "flightchecked", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "flightcheckednilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getFlightCheckedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getFlightChecked());
     }
 
     public void setFlightCheckedItem(CodeYesNoType target) {
-        setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "flightChecked"), LocalizerTimeSliceType.class, target));
+        setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "flightChecked"), LocalizerTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lclzrtmslctp_lctn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lclzrtmslctp_lctn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
 
     public void setLocationItem(AIXMElevatedPointPropertyType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "location"), LocalizerTimeSliceType.class, target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "location"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "frequency", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "frequencyuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "frequencynilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "frequency", columnDefinition = "valfrequencybase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "frequencyuom", columnDefinition = "uomfrequency")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "frequencynilreason", columnDefinition = "nilreason"))
+    })
     public ValFrequencyType getFrequencyItem() {
         return XmlAdapterUtils.unmarshallSource(ValFrequencyType.class, this.getFrequency());
     }
 
     public void setFrequencyItem(ValFrequencyType target) {
-        setFrequency(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "frequency"), LocalizerTimeSliceType.class, target));
+        setFrequency(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class, new QName("http://www.aixm.aero/schema/5.2", "frequency"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "magneticbearing", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "magneticbearingnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "magneticbearingaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "magneticbearing", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "magneticbearingnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "magneticbearingaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValBearingType getMagneticBearingItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getMagneticBearing());
     }
 
     public void setMagneticBearingItem(ValBearingType target) {
-        setMagneticBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "magneticBearing"), LocalizerTimeSliceType.class, target));
+        setMagneticBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.2", "magneticBearing"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "truebearing", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "truebearingnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "truebearingaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "truebearing", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "truebearingnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "truebearingaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValBearingType getTrueBearingItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getTrueBearing());
     }
 
     public void setTrueBearingItem(ValBearingType target) {
-        setTrueBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "trueBearing"), LocalizerTimeSliceType.class, target));
+        setTrueBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.2", "trueBearing"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "declination", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "declinationnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "declinationaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "declination", columnDefinition = "valmagneticvariationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "declinationnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "declinationaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValMagneticVariationType getDeclinationItem() {
         return XmlAdapterUtils.unmarshallSource(ValMagneticVariationType.class, this.getDeclination());
     }
 
     public void setDeclinationItem(ValMagneticVariationType target) {
-        setDeclination(XmlAdapterUtils.marshallJAXBElement(ValMagneticVariationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "declination"), LocalizerTimeSliceType.class, target));
+        setDeclination(XmlAdapterUtils.marshallJAXBElement(ValMagneticVariationType.class, new QName("http://www.aixm.aero/schema/5.2", "declination"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "widthcourse", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "widthcoursenilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "widthcourseaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "widthcourse", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "widthcoursenilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "widthcourseaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValAngleType getWidthCourseItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getWidthCourse());
     }
 
     public void setWidthCourseItem(ValAngleType target) {
-        setWidthCourse(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "widthCourse"), LocalizerTimeSliceType.class, target));
+        setWidthCourse(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.2", "widthCourse"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "backcourseusable")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "backcourseusablenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "backcourseusable", columnDefinition = "codeilsbackcoursebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "backcourseusablenilreason", columnDefinition = "nilreason"))
+    })
     public CodeILSBackCourseType getBackCourseUsableItem() {
         return XmlAdapterUtils.unmarshallSource(CodeILSBackCourseType.class, this.getBackCourseUsable());
     }
 
     public void setBackCourseUsableItem(CodeILSBackCourseType target) {
-        setBackCourseUsable(XmlAdapterUtils.marshallJAXBElement(CodeILSBackCourseType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "backCourseUsable"), LocalizerTimeSliceType.class,
-                target));
+        setBackCourseUsable(XmlAdapterUtils.marshallJAXBElement(CodeILSBackCourseType.class, new QName("http://www.aixm.aero/schema/5.2", "backCourseUsable"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "signalperformance")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "signalperformancenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "signalperformance", columnDefinition = "codesignalperformanceilsbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "signalperformancenilreason", columnDefinition = "nilreason"))
+    })
     public CodeSignalPerformanceILSType getSignalPerformanceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSignalPerformanceILSType.class, this.getSignalPerformance());
     }
 
     public void setSignalPerformanceItem(CodeSignalPerformanceILSType target) {
-        setSignalPerformance(XmlAdapterUtils.marshallJAXBElement(CodeSignalPerformanceILSType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "signalPerformance"), LocalizerTimeSliceType.class,
-                target));
+        setSignalPerformance(XmlAdapterUtils.marshallJAXBElement(CodeSignalPerformanceILSType.class, new QName("http://www.aixm.aero/schema/5.2", "signalPerformance"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "coursequality")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "coursequalitynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "coursequality", columnDefinition = "codecoursequalityilsbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "coursequalitynilreason", columnDefinition = "nilreason"))
+    })
     public CodeCourseQualityILSType getCourseQualityItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCourseQualityILSType.class, this.getCourseQuality());
     }
 
     public void setCourseQualityItem(CodeCourseQualityILSType target) {
-        setCourseQuality(XmlAdapterUtils.marshallJAXBElement(CodeCourseQualityILSType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "courseQuality"), LocalizerTimeSliceType.class, target));
+        setCourseQuality(XmlAdapterUtils.marshallJAXBElement(CodeCourseQualityILSType.class, new QName("http://www.aixm.aero/schema/5.2", "courseQuality"), LocalizerTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "integritylevel")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "integritylevelnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "integritylevel", columnDefinition = "codeintegritylevelilsbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "integritylevelnilreason", columnDefinition = "nilreason"))
+    })
     public CodeIntegrityLevelILSType getIntegrityLevelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeIntegrityLevelILSType.class, this.getIntegrityLevel());
     }
 
     public void setIntegrityLevelItem(CodeIntegrityLevelILSType target) {
-        setIntegrityLevel(XmlAdapterUtils.marshallJAXBElement(CodeIntegrityLevelILSType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "integrityLevel"), LocalizerTimeSliceType.class, target));
+        setIntegrityLevel(XmlAdapterUtils.marshallJAXBElement(CodeIntegrityLevelILSType.class, new QName("http://www.aixm.aero/schema/5.2", "integrityLevel"), LocalizerTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1160,14 +1180,14 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
         }
         final LocalizerTimeSliceType that = ((LocalizerTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEmissionClass();
-            boolean rhsFieldIsSet = that.isSetEmissionClass();
-            JAXBElement<CodeRadioEmissionType> lhsField;
-            lhsField = this.getEmissionClass();
-            JAXBElement<CodeRadioEmissionType> rhsField;
-            rhsField = that.getEmissionClass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
+            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
+            JAXBElement<DateYearType> lhsField;
+            lhsField = this.getDateMagneticVariation();
+            JAXBElement<DateYearType> rhsField;
+            rhsField = that.getDateMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1186,105 +1206,14 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<LocalizerTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<LocalizerTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMagneticBearing();
-            boolean rhsFieldIsSet = that.isSetMagneticBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getMagneticBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getMagneticBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCourseQuality();
-            boolean rhsFieldIsSet = that.isSetCourseQuality();
-            JAXBElement<CodeCourseQualityILSType> lhsField;
-            lhsField = this.getCourseQuality();
-            JAXBElement<CodeCourseQualityILSType> rhsField;
-            rhsField = that.getCourseQuality();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseQuality", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseQuality", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAuthority();
-            boolean rhsFieldIsSet = that.isSetAuthority();
-            List<AuthorityForNavaidEquipmentPropertyType> lhsField;
-            lhsField = (this.isSetAuthority() ? this.getAuthority() : null);
-            List<AuthorityForNavaidEquipmentPropertyType> rhsField;
-            rhsField = (that.isSetAuthority() ? that.getAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWidthCourse();
-            boolean rhsFieldIsSet = that.isSetWidthCourse();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getWidthCourse();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getWidthCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "widthCourse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "widthCourse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMonitoring();
-            boolean rhsFieldIsSet = that.isSetMonitoring();
-            List<NavaidEquipmentMonitoringPropertyType> lhsField;
-            lhsField = (this.isSetMonitoring() ? this.getMonitoring() : null);
-            List<NavaidEquipmentMonitoringPropertyType> rhsField;
-            rhsField = (that.isSetMonitoring() ? that.getMonitoring() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitoring", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitoring", rhsField);
+            boolean lhsFieldIsSet = this.isSetMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetMagneticVariation();
+            JAXBElement<ValMagneticVariationType> lhsField;
+            lhsField = this.getMagneticVariation();
+            JAXBElement<ValMagneticVariationType> rhsField;
+            rhsField = that.getMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1303,53 +1232,14 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
-            JAXBElement<DateYearType> lhsField;
-            lhsField = this.getDateMagneticVariation();
-            JAXBElement<DateYearType> rhsField;
-            rhsField = that.getDateMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMobile();
-            boolean rhsFieldIsSet = that.isSetMobile();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMobile();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMobile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBackCourseUsable();
-            boolean rhsFieldIsSet = that.isSetBackCourseUsable();
-            JAXBElement<CodeILSBackCourseType> lhsField;
-            lhsField = this.getBackCourseUsable();
-            JAXBElement<CodeILSBackCourseType> rhsField;
-            rhsField = that.getBackCourseUsable();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "backCourseUsable", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "backCourseUsable", rhsField);
+            boolean lhsFieldIsSet = this.isSetIntegrityLevel();
+            boolean rhsFieldIsSet = that.isSetIntegrityLevel();
+            JAXBElement<CodeIntegrityLevelILSType> lhsField;
+            lhsField = this.getIntegrityLevel();
+            JAXBElement<CodeIntegrityLevelILSType> rhsField;
+            rhsField = that.getIntegrityLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integrityLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integrityLevel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1381,40 +1271,157 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<NavaidOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<NavaidOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetTrueBearing();
+            boolean rhsFieldIsSet = that.isSetTrueBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getTrueBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getTrueBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIntegrityLevel();
-            boolean rhsFieldIsSet = that.isSetIntegrityLevel();
-            JAXBElement<CodeIntegrityLevelILSType> lhsField;
-            lhsField = this.getIntegrityLevel();
-            JAXBElement<CodeIntegrityLevelILSType> rhsField;
-            rhsField = that.getIntegrityLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integrityLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integrityLevel", rhsField);
+            boolean lhsFieldIsSet = this.isSetCourseQuality();
+            boolean rhsFieldIsSet = that.isSetCourseQuality();
+            JAXBElement<CodeCourseQualityILSType> lhsField;
+            lhsField = this.getCourseQuality();
+            JAXBElement<CodeCourseQualityILSType> rhsField;
+            rhsField = that.getCourseQuality();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseQuality", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseQuality", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetMagneticVariation();
-            JAXBElement<ValMagneticVariationType> lhsField;
-            lhsField = this.getMagneticVariation();
-            JAXBElement<ValMagneticVariationType> rhsField;
-            rhsField = that.getMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariation", rhsField);
+            boolean lhsFieldIsSet = this.isSetMagneticBearing();
+            boolean rhsFieldIsSet = that.isSetMagneticBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getMagneticBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getMagneticBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEmissionClass();
+            boolean rhsFieldIsSet = that.isSetEmissionClass();
+            JAXBElement<CodeRadioEmissionType> lhsField;
+            lhsField = this.getEmissionClass();
+            JAXBElement<CodeRadioEmissionType> rhsField;
+            rhsField = that.getEmissionClass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBackCourseUsable();
+            boolean rhsFieldIsSet = that.isSetBackCourseUsable();
+            JAXBElement<CodeILSBackCourseType> lhsField;
+            lhsField = this.getBackCourseUsable();
+            JAXBElement<CodeILSBackCourseType> rhsField;
+            rhsField = that.getBackCourseUsable();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "backCourseUsable", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "backCourseUsable", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAuthority();
+            boolean rhsFieldIsSet = that.isSetAuthority();
+            List<AuthorityForNavaidEquipmentPropertyType> lhsField;
+            lhsField = (this.isSetAuthority()?this.getAuthority():null);
+            List<AuthorityForNavaidEquipmentPropertyType> rhsField;
+            rhsField = (that.isSetAuthority()?that.getAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWidthCourse();
+            boolean rhsFieldIsSet = that.isSetWidthCourse();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getWidthCourse();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getWidthCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "widthCourse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "widthCourse", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMobile();
+            boolean rhsFieldIsSet = that.isSetMobile();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMobile();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMobile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<LocalizerTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<LocalizerTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMonitoring();
+            boolean rhsFieldIsSet = that.isSetMonitoring();
+            List<NavaidEquipmentMonitoringPropertyType> lhsField;
+            lhsField = (this.isSetMonitoring()?this.getMonitoring():null);
+            List<NavaidEquipmentMonitoringPropertyType> rhsField;
+            rhsField = (that.isSetMonitoring()?that.getMonitoring():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitoring", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitoring", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1433,14 +1440,27 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTrueBearing();
-            boolean rhsFieldIsSet = that.isSetTrueBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getTrueBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getTrueBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<NavaidOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<NavaidOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1510,28 +1530,28 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
         {
             boolean theFieldIsSet = this.isSetAuthority();
             List<AuthorityForNavaidEquipmentPropertyType> theField;
-            theField = (this.isSetAuthority() ? this.getAuthority() : null);
+            theField = (this.isSetAuthority()?this.getAuthority():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "authority", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetMonitoring();
             List<NavaidEquipmentMonitoringPropertyType> theField;
-            theField = (this.isSetMonitoring() ? this.getMonitoring() : null);
+            theField = (this.isSetMonitoring()?this.getMonitoring():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "monitoring", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<NavaidOperationalStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1601,7 +1621,7 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<LocalizerTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1662,25 +1682,25 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
         {
             boolean theFieldIsSet = this.isSetAuthority();
             List<AuthorityForNavaidEquipmentPropertyType> theField;
-            theField = (this.isSetAuthority() ? this.getAuthority() : null);
+            theField = (this.isSetAuthority()?this.getAuthority():null);
             strategy.appendField(locator, this, "authority", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetMonitoring();
             List<NavaidEquipmentMonitoringPropertyType> theField;
-            theField = (this.isSetMonitoring() ? this.getMonitoring() : null);
+            theField = (this.isSetMonitoring()?this.getMonitoring():null);
             strategy.appendField(locator, this, "monitoring", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<NavaidOperationalStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1740,7 +1760,7 @@ public class LocalizerTimeSliceType extends AbstractAIXMTimeSliceType implements
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<LocalizerTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

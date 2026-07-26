@@ -21,6 +21,7 @@ import com.delorean.aixm.aixm51.schema.message.BasicMessageMemberAIXMPropertyTyp
 import com.delorean.aixm.core.container.Container;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 /*
 Simple lifecycle test for AIXM 5.1.1 Delorean container 
     - unmarshal XML
@@ -68,10 +69,10 @@ public class FilterAixm51E2E {
 
     @Test
     @Order(3)
-    void ContainerPruneDme() {
+    void ContainerPruneMatchAllIncludeDme() {
 
         //given
-        FeatureTypeSpecification spec = new FeatureTypeSpecification("DMEType");
+        FeatureTypeSpecification spec = new FeatureTypeSpecification("match all", "include", "DMEType");
         Aixm51FilterConfig config = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
         config.addFeatureFilter(spec);
 
@@ -83,10 +84,86 @@ public class FilterAixm51E2E {
 
     @Test
     @Order(4)
-    void ContainerPruneIndentifier() {
+    void ContainerPruneMatchAllExcludeDme() {
 
         //given
-        FeatureIdentifierSpecification spec = new FeatureIdentifierSpecification("e9240179-b707-4133-b49f-39725663e736");
+        FeatureTypeSpecification spec = new FeatureTypeSpecification("match all", "exclude", "DMEType");
+        Aixm51FilterConfig config = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
+        config.addFeatureFilter(spec);
+
+        // do
+        Container<?,?,?,?,?,?> newContainer = container.prune(config);
+        // check
+        assertThat(newContainer.getMessage()).isNotNull();
+    }
+
+    @Test
+    @Order(5)
+    void ContainerPruneMatchAllIncludeAirportHotSpot() {
+
+        //given
+        FeatureTypeSpecification spec = new FeatureTypeSpecification("match none", "include", "AirportHotSpotTypeType");
+        Aixm51FilterConfig config = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
+        config.addFeatureFilter(spec);
+
+        // do
+        Container<?,?,?,?,?,?> newContainer = container.prune(config);
+        // check
+        assertThat(newContainer.getMessage()).isNotNull();
+    }
+
+    @Test
+    @Order(6)
+    void ContainerPruneMatchAllExcludeAirportHotSpot() {
+
+        //given
+        FeatureTypeSpecification spec = new FeatureTypeSpecification("match none", "exclude", "AirportHotSpotType");
+        Aixm51FilterConfig config = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
+        config.addFeatureFilter(spec);
+
+        // do
+        Container<?,?,?,?,?,?> newContainer = container.prune(config);
+        // check
+        assertThat(newContainer.getMessage()).isNotNull();
+    }
+
+    @Test
+    @Order(7)
+    void containerPruneThrowExceptionIncludeDme() {
+        // given
+        FeatureTypeSpecification spec = new FeatureTypeSpecification("throw exception", "include", "DMEType");
+        Aixm51FilterConfig config = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
+        config.addFeatureFilter(spec);
+
+        // do
+        Container<?,?,?,?,?,?> newContainer = container.prune(config);
+        // check
+        assertThat(newContainer.getMessage()).isNotNull();
+    }
+
+
+    @Test
+    @Order(8)
+    void ContainerPruneMatchAllIncludeIndentifier() {
+
+        //given
+        FeatureIdentifierSpecification spec = new FeatureIdentifierSpecification("match all", "include", "e9240179-b707-4133-b49f-39725663e736");
+        Aixm51FilterConfig config = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
+        config.addFeatureFilter(spec);
+
+        // do
+        Container<?,?,?,?,?,?> newContainer = container.prune(config);
+        // check
+        assertThat(newContainer.getMessage()).isNotNull();
+        
+    }
+
+    @Test
+    @Order(9)
+    void ContainerPruneMatchAllExcludeIndentifier() {
+
+        //given
+        FeatureIdentifierSpecification spec = new FeatureIdentifierSpecification("match all", "exclude", "e9240179-b707-4133-b49f-39725663e736");
         Aixm51FilterConfig config = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
         config.addFeatureFilter(spec);
 
@@ -99,22 +176,60 @@ public class FilterAixm51E2E {
 
     @Test
     @Order(5)
-    void ContainerPruneTiemeSlice() {
+    void ContainerPruneMatchAllIncludeTiemeSlice() {
 
         // startingAfter
 
         //given
-        TimeSliceValidTimeSpecification startingAfterspec = TimeSliceValidTimeSpecification.startingAfter(Instant.parse("2017-07-01T11:00:00Z"));
+        TimeSliceValidTimeSpecification startingAfterspec = TimeSliceValidTimeSpecification.startingAfter("match all", "include", Instant.parse("2017-07-01T11:00:00Z"));
         Aixm51FilterConfig startingAfterconfig = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
         startingAfterconfig.addTimesliceFilter(startingAfterspec);
         Container<?,?,?,?,?,?> startingAfterContainer = container.prune(startingAfterconfig);
         // check
         assertThat(startingAfterContainer.getMessage()).isNotNull();
 
+    }
+
+    @Test
+    @Order(5)
+    void ContainerPruneMatchAllExcludeTiemeSlice() {
+
+        // startingAfter
+
+        //given
+        TimeSliceValidTimeSpecification startingAfterspec = TimeSliceValidTimeSpecification.startingAfter("match all", "exclude", Instant.parse("2017-07-01T11:00:00Z"));
+        Aixm51FilterConfig startingAfterconfig = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
+        startingAfterconfig.addTimesliceFilter(startingAfterspec);
+        Container<?,?,?,?,?,?> startingAfterContainer = container.prune(startingAfterconfig);
+        // check
+        assertThat(startingAfterContainer.getMessage()).isNotNull();
+
+    }
+
+    @Test
+    @Order(5)
+    void ContainerPruneThrowExceptionIncludeTiemeSlice() {
+
+        // startingAfter
+
+        //given
+        TimeSliceValidTimeSpecification startingAfterspec = TimeSliceValidTimeSpecification.endingAfter("throw exception", "include", Instant.parse("2017-07-01T11:00:00Z"));
+        Aixm51FilterConfig startingAfterconfig = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
+        startingAfterconfig.addTimesliceFilter(startingAfterspec);
+
+        // do & check
+        assertThrows(IllegalStateException.class, () -> container.prune(startingAfterconfig));
+
+    }
+
+    @Test
+    @Order(5)
+    void ContainerPruneMatchAllIncludeTiemeSliceList() {
+
         // startingAt
 
         //given
-        TimeSliceValidTimeSpecification startingAtpec = TimeSliceValidTimeSpecification.startingAt(Instant.parse("2017-07-01T12:00:00Z"));
+        TimeSliceValidTimeSpecification startingAtpec = TimeSliceValidTimeSpecification.startingAt("match all", "include", Instant.parse("2017-07-01T12:00:00Z"));
         Aixm51FilterConfig startingAtconfig = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
         startingAtconfig.addTimesliceFilter(startingAtpec);
         Container<?,?,?,?,?,?> startingAtContainer = container.prune(startingAtconfig);
@@ -124,7 +239,7 @@ public class FilterAixm51E2E {
         // startingBefore
 
         //given
-        TimeSliceValidTimeSpecification startingBeforespec = TimeSliceValidTimeSpecification.startingBefore(Instant.parse("2017-07-01T13:00:00Z"));
+        TimeSliceValidTimeSpecification startingBeforespec = TimeSliceValidTimeSpecification.startingBefore("match all", "include",Instant.parse("2017-07-01T13:00:00Z"));
         Aixm51FilterConfig startingBeforeconfig = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
         startingBeforeconfig.addTimesliceFilter(startingBeforespec);
         Container<?,?,?,?,?,?> startingBeforeContainer = container.prune(startingBeforeconfig);
@@ -134,7 +249,7 @@ public class FilterAixm51E2E {
         // endingAfter
 
         //given
-        TimeSliceValidTimeSpecification endingAfterpec = TimeSliceValidTimeSpecification.endingAfter(Instant.parse("2014-12-30T23:59:59Z"));
+        TimeSliceValidTimeSpecification endingAfterpec = TimeSliceValidTimeSpecification.endingAfter("match all", "include",Instant.parse("2014-12-30T23:59:59Z"));
         Aixm51FilterConfig endingAfterconfig = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
         endingAfterconfig.addTimesliceFilter(endingAfterpec);
         Container<?,?,?,?,?,?> endingAfterContainer = container.prune(endingAfterconfig);
@@ -144,7 +259,7 @@ public class FilterAixm51E2E {
         // endingAt
 
         //given
-        TimeSliceValidTimeSpecification endingAtspec = TimeSliceValidTimeSpecification.endingAt(Instant.parse("2014-12-31T23:59:59Z"));
+        TimeSliceValidTimeSpecification endingAtspec = TimeSliceValidTimeSpecification.endingAt("match all", "include",Instant.parse("2014-12-31T23:59:59Z"));
         Aixm51FilterConfig endingAtconfig = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
         endingAtconfig.addTimesliceFilter(endingAtspec);
         Container<?,?,?,?,?,?> endingAtContainer = container.prune(endingAtconfig);
@@ -154,7 +269,7 @@ public class FilterAixm51E2E {
         // endingBefore
 
         //given
-        TimeSliceValidTimeSpecification endingBeforespec = TimeSliceValidTimeSpecification.endingBefore(Instant.parse("2015-01-01T00:00:00Z"));
+        TimeSliceValidTimeSpecification endingBeforespec = TimeSliceValidTimeSpecification.endingBefore("match all", "include",Instant.parse("2015-01-01T00:00:00Z"));
         Aixm51FilterConfig endingBeforeconfig = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
         endingBeforeconfig.addTimesliceFilter(endingBeforespec);
         Container<?,?,?,?,?,?> endingBeforeContainer = container.prune(endingBeforeconfig);

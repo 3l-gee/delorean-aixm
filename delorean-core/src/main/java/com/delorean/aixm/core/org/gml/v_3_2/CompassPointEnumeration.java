@@ -4,22 +4,13 @@ package com.delorean.aixm.core.org.gml.v_3_2;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
+
 /**
- * These directions are necessarily approximate, giving direction with a
- * precision of 22.5°. It is thus generally unnecessary to specify the reference
- * frame, though this may be detailed in the definition of a GML application
- * language.
- *
- * <p>
- * Java class for CompassPointEnumeration
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * These directions are necessarily approximate, giving direction with a precision of 22.5°. It is thus generally unnecessary to specify the reference frame, though this may be detailed in the definition of a GML application language.
+ * 
+ * <p>Java class for CompassPointEnumeration</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  * <pre>{@code
  * <simpleType name="CompassPointEnumeration">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -42,13 +33,28 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- *
+ * 
  */
 @XmlType(name = "CompassPointEnumeration")
 @XmlEnum
 public enum CompassPointEnumeration {
 
-    N, NNE, NE, ENE, E, ESE, SE, SSE, S, SSW, SW, WSW, W, WNW, NW, NNW;
+    N,
+    NNE,
+    NE,
+    ENE,
+    E,
+    ESE,
+    SE,
+    SSE,
+    S,
+    SSW,
+    SW,
+    WSW,
+    W,
+    WNW,
+    NW,
+    NNW;
 
     public String value() {
         return name();

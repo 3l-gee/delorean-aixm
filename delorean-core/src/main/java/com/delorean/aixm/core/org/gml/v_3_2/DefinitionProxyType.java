@@ -1,28 +1,23 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for DefinitionProxyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DefinitionProxyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DefinitionProxyType">
  *   <complexContent>
@@ -34,12 +29,17 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DefinitionProxyType", propOrder = {"definitionRef"})
-public class DefinitionProxyType extends DefinitionType implements Serializable {
+@XmlType(name = "DefinitionProxyType", propOrder = {
+    "definitionRef"
+})
+public class DefinitionProxyType
+    extends DefinitionType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -47,9 +47,11 @@ public class DefinitionProxyType extends DefinitionType implements Serializable 
 
     /**
      * Gets the value of the definitionRef property.
-     *
-     * @return possible object is {@link ReferenceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ReferenceType }
+     *     
      */
     public ReferenceType getDefinitionRef() {
         return definitionRef;
@@ -57,23 +59,23 @@ public class DefinitionProxyType extends DefinitionType implements Serializable 
 
     /**
      * Sets the value of the definitionRef property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ReferenceType }
-     *
+     *     allowed object is
+     *     {@link ReferenceType }
+     *     
      */
     public void setDefinitionRef(ReferenceType value) {
         this.definitionRef = value;
     }
 
     public boolean isSetDefinitionRef() {
-        return (this.definitionRef != null);
+        return (this.definitionRef!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

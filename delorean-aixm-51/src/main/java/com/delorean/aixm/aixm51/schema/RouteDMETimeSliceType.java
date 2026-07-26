@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,44 +31,30 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for RouteDMETimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for RouteDMETimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="RouteDMETimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="criticalDME" type=
-"{http://www.aixm.aero/schema/5.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="satisfactory" type=
-"{http://www.aixm.aero/schema/5.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="referencedDME" type=
-"{http://www.aixm.aero/schema/5.1}DMEPropertyType" minOccurs="0"/>
- *         <element name="applicableRoutePortion" type=
-"{http://www.aixm.aero/schema/5.1}RoutePortionPropertyType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="criticalDME" type="{http://www.aixm.aero/schema/5.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="satisfactory" type="{http://www.aixm.aero/schema/5.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="referencedDME" type="{http://www.aixm.aero/schema/5.1}DMEPropertyType" minOccurs="0"/>
+ *         <element name="applicableRoutePortion" type="{http://www.aixm.aero/schema/5.1}RoutePortionPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractRouteDMEExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractRouteDMEExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -78,15 +64,24 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RouteDMETimeSliceType", propOrder = {"criticalDME", "satisfactory", "referencedDME",
-        "applicableRoutePortion", "annotation", "extension"})
+@XmlType(name = "RouteDMETimeSliceType", propOrder = {
+    "criticalDME",
+    "satisfactory",
+    "referencedDME",
+    "applicableRoutePortion",
+    "annotation",
+    "extension"
+})
 @Entity(name = "RouteDMETimeSliceType")
 @Table(name = "routedme_t", schema = "route")
-public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class RouteDMETimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "criticalDME", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -103,10 +98,11 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     /**
      * Gets the value of the criticalDME property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getCriticalDME() {
@@ -115,11 +111,11 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     /**
      * Sets the value of the criticalDME property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setCriticalDME(JAXBElement<CodeYesNoType> value) {
         this.criticalDME = value;
@@ -127,15 +123,16 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     @Transient
     public boolean isSetCriticalDME() {
-        return (this.criticalDME != null);
+        return (this.criticalDME!= null);
     }
 
     /**
      * Gets the value of the satisfactory property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getSatisfactory() {
@@ -144,11 +141,11 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     /**
      * Sets the value of the satisfactory property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setSatisfactory(JAXBElement<CodeYesNoType> value) {
         this.satisfactory = value;
@@ -156,15 +153,16 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     @Transient
     public boolean isSetSatisfactory() {
-        return (this.satisfactory != null);
+        return (this.satisfactory!= null);
     }
 
     /**
      * Gets the value of the referencedDME property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DMEPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DMEPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DMEPropertyType> getReferencedDME() {
@@ -173,11 +171,11 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     /**
      * Sets the value of the referencedDME property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DMEPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DMEPropertyType }{@code >}
+     *     
      */
     public void setReferencedDME(JAXBElement<DMEPropertyType> value) {
         this.referencedDME = value;
@@ -185,15 +183,16 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     @Transient
     public boolean isSetReferencedDME() {
-        return (this.referencedDME != null);
+        return (this.referencedDME!= null);
     }
 
     /**
      * Gets the value of the applicableRoutePortion property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RoutePortionPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RoutePortionPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RoutePortionPropertyType> getApplicableRoutePortion() {
@@ -202,11 +201,11 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     /**
      * Sets the value of the applicableRoutePortion property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RoutePortionPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RoutePortionPropertyType }{@code >}
+     *     
      */
     public void setApplicableRoutePortion(JAXBElement<RoutePortionPropertyType> value) {
         this.applicableRoutePortion = value;
@@ -214,36 +213,39 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     @Transient
     public boolean isSetApplicableRoutePortion() {
-        return (this.applicableRoutePortion != null);
+        return (this.applicableRoutePortion!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "rtdmetmslctp_annttn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtdmetmslctp_annttn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -252,8 +254,8 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -261,7 +263,7 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -270,29 +272,29 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RouteDMETimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = RouteDMETimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "routedme_te_hjid", referencedColumnName = "hjid")
     public List<RouteDMETimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -302,8 +304,8 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<RouteDMETimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -311,7 +313,7 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -319,60 +321,66 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "criticaldme")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "criticaldmenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "criticaldme", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "criticaldmenilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getCriticalDMEItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getCriticalDME());
     }
 
     public void setCriticalDMEItem(CodeYesNoType target) {
-        setCriticalDME(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "criticalDME"), RouteDMETimeSliceType.class, target));
+        setCriticalDME(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1", "criticalDME"), RouteDMETimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "satisfactory")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "satisfactorynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "satisfactory", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "satisfactorynilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getSatisfactoryItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getSatisfactory());
     }
 
     public void setSatisfactoryItem(CodeYesNoType target) {
-        setSatisfactory(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "satisfactory"), RouteDMETimeSliceType.class, target));
+        setSatisfactory(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1", "satisfactory"), RouteDMETimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = DMEPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "rtdmetmslctp_rfrncddme_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "referenceddme_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DMEPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtdmetmslctp_rfrncddme_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "referenceddme_hjid", referencedColumnName = "hjid")
+    })
     public DMEPropertyType getReferencedDMEItem() {
         return XmlAdapterUtils.unmarshallSource(DMEPropertyType.class, this.getReferencedDME());
     }
 
     public void setReferencedDMEItem(DMEPropertyType target) {
-        setReferencedDME(XmlAdapterUtils.marshallJAXBElement(DMEPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "referencedDME"), RouteDMETimeSliceType.class, target));
+        setReferencedDME(XmlAdapterUtils.marshallJAXBElement(DMEPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "referencedDME"), RouteDMETimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RoutePortionPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "rtdmetmslctp_applcblrtprtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "applicablerouteportion_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = RoutePortionPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtdmetmslctp_applcblrtprtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "applicablerouteportion_hjid", referencedColumnName = "hjid")
+    })
     public RoutePortionPropertyType getApplicableRoutePortionItem() {
         return XmlAdapterUtils.unmarshallSource(RoutePortionPropertyType.class, this.getApplicableRoutePortion());
     }
 
     public void setApplicableRoutePortionItem(RoutePortionPropertyType target) {
-        setApplicableRoutePortion(XmlAdapterUtils.marshallJAXBElement(RoutePortionPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "applicableRoutePortion"), RouteDMETimeSliceType.class,
-                target));
+        setApplicableRoutePortion(XmlAdapterUtils.marshallJAXBElement(RoutePortionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "applicableRoutePortion"), RouteDMETimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -382,45 +390,6 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
             return false;
         }
         final RouteDMETimeSliceType that = ((RouteDMETimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSatisfactory();
-            boolean rhsFieldIsSet = that.isSetSatisfactory();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSatisfactory();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSatisfactory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCriticalDME();
-            boolean rhsFieldIsSet = that.isSetCriticalDME();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCriticalDME();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCriticalDME();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetReferencedDME();
             boolean rhsFieldIsSet = that.isSetReferencedDME();
@@ -448,14 +417,53 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<RouteDMETimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<RouteDMETimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCriticalDME();
+            boolean rhsFieldIsSet = that.isSetCriticalDME();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCriticalDME();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCriticalDME();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSatisfactory();
+            boolean rhsFieldIsSet = that.isSetSatisfactory();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSatisfactory();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSatisfactory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -497,14 +505,14 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RouteDMETimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -541,13 +549,13 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RouteDMETimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

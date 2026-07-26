@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,104 +31,56 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for InstrumentApproachProcedureTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for InstrumentApproachProcedureTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="InstrumentApproachProcedureTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="communicationFailureInstruction" type=
-"{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
- *         <element name="instruction" type=
-"{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
- *         <element name="designCriteria" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeDesignStandardType" minOccurs="0"/>
- *         <element name="codingStandard" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeProcedureCodingStandardType" minOccurs=
-"0"/>
- *         <element name="flightChecked" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
- *         <element name="RNAV" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="availability" type=
-"{http://www.aixm.aero/schema/5.1.1}ProcedureAvailabilityPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="airportHeliport" type=
-"{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="aircraftCharacteristic" type=
-"{http://www.aixm.aero/schema/5.1.1}AircraftCharacteristicPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="flightTransition" type=
-"{http://www.aixm.aero/schema/5.1.1}ProcedureTransitionPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="communicationFailureInstruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="instruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="designCriteria" type="{http://www.aixm.aero/schema/5.1.1}CodeDesignStandardType" minOccurs="0"/>
+ *         <element name="codingStandard" type="{http://www.aixm.aero/schema/5.1.1}CodeProcedureCodingStandardType" minOccurs="0"/>
+ *         <element name="flightChecked" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="RNAV" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}ProcedureAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="airportHeliport" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="aircraftCharacteristic" type="{http://www.aixm.aero/schema/5.1.1}AircraftCharacteristicPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="flightTransition" type="{http://www.aixm.aero/schema/5.1.1}ProcedureTransitionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <choice>
- *           <element name="guidanceFacility_specialNavigationSystem" type=
-"{http://www.aixm.aero/schema/5.1.1}SpecialNavigationSystemPropertyType" minOccurs
-="0"/>
- *           <element name="guidanceFacility_radar" type=
-"{http://www.aixm.aero/schema/5.1.1}RadarSystemPropertyType" minOccurs="0"/>
- *           <element name="guidanceFacility_navaid" type=
-"{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="guidanceFacility_specialNavigationSystem" type="{http://www.aixm.aero/schema/5.1.1}SpecialNavigationSystemPropertyType" minOccurs="0"/>
+ *           <element name="guidanceFacility_radar" type="{http://www.aixm.aero/schema/5.1.1}RadarSystemPropertyType" minOccurs="0"/>
+ *           <element name="guidanceFacility_navaid" type="{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
  *         </choice>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="safeAltitude" type=
-"{http://www.aixm.aero/schema/5.1.1}SafeAltitudeAreaPropertyType" minOccurs=
-"0"/>
- *         <element name="approachPrefix" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeApproachPrefixType" minOccurs="0"/>
- *         <element name="approachType" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeApproachType" minOccurs="0"/>
- *         <element name="multipleIdentification" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeUpperAlphaType" minOccurs="0"/>
- *         <element name="copterTrack" type=
-"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="circlingIdentification" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeUpperAlphaType" minOccurs="0"/>
- *         <element name="courseReversalInstruction" type=
-"{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
- *         <element name="additionalEquipment" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeApproachEquipmentAdditionalType" minOccurs
-="0"/>
- *         <element name="channelGNSS" type=
-"{http://www.aixm.aero/schema/5.1.1}ValChannelNumberType" minOccurs="0"/>
- *         <element name="WAASReliable" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="landing" type=
-"{http://www.aixm.aero/schema/5.1.1}LandingTakeoffAreaCollectionPropertyType" minOccurs
-="0"/>
- *         <element name="missedInstruction" type=
-"{http://www.aixm.aero/schema/5.1.1}MissedApproachGroupPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="finalProfile" type=
-"{http://www.aixm.aero/schema/5.1.1}FinalProfilePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="safeAltitude" type="{http://www.aixm.aero/schema/5.1.1}SafeAltitudeAreaPropertyType" minOccurs="0"/>
+ *         <element name="approachPrefix" type="{http://www.aixm.aero/schema/5.1.1}CodeApproachPrefixType" minOccurs="0"/>
+ *         <element name="approachType" type="{http://www.aixm.aero/schema/5.1.1}CodeApproachType" minOccurs="0"/>
+ *         <element name="multipleIdentification" type="{http://www.aixm.aero/schema/5.1.1}CodeUpperAlphaType" minOccurs="0"/>
+ *         <element name="copterTrack" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="circlingIdentification" type="{http://www.aixm.aero/schema/5.1.1}CodeUpperAlphaType" minOccurs="0"/>
+ *         <element name="courseReversalInstruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="additionalEquipment" type="{http://www.aixm.aero/schema/5.1.1}CodeApproachEquipmentAdditionalType" minOccurs="0"/>
+ *         <element name="channelGNSS" type="{http://www.aixm.aero/schema/5.1.1}ValChannelNumberType" minOccurs="0"/>
+ *         <element name="WAASReliable" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="landing" type="{http://www.aixm.aero/schema/5.1.1}LandingTakeoffAreaCollectionPropertyType" minOccurs="0"/>
+ *         <element name="missedInstruction" type="{http://www.aixm.aero/schema/5.1.1}MissedApproachGroupPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="finalProfile" type="{http://www.aixm.aero/schema/5.1.1}FinalProfilePropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractInstrumentApproachProcedureExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractProcedureExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractInstrumentApproachProcedureExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractProcedureExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -138,20 +90,47 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InstrumentApproachProcedureTimeSliceType", propOrder = {"communicationFailureInstruction",
-        "instruction", "designCriteria", "codingStandard", "flightChecked", "aixmName", "rnav", "availability",
-        "airportHeliport", "aircraftCharacteristic", "flightTransition", "guidanceFacilitySpecialNavigationSystem",
-        "guidanceFacilityRadar", "guidanceFacilityNavaid", "annotation", "safeAltitude", "approachPrefix",
-        "approachType", "multipleIdentification", "copterTrack", "circlingIdentification", "courseReversalInstruction",
-        "additionalEquipment", "channelGNSS", "waasReliable", "landing", "missedInstruction", "finalProfile",
-        "extension"})
+@XmlType(name = "InstrumentApproachProcedureTimeSliceType", propOrder = {
+    "communicationFailureInstruction",
+    "instruction",
+    "designCriteria",
+    "codingStandard",
+    "flightChecked",
+    "aixmName",
+    "rnav",
+    "availability",
+    "airportHeliport",
+    "aircraftCharacteristic",
+    "flightTransition",
+    "guidanceFacilitySpecialNavigationSystem",
+    "guidanceFacilityRadar",
+    "guidanceFacilityNavaid",
+    "annotation",
+    "safeAltitude",
+    "approachPrefix",
+    "approachType",
+    "multipleIdentification",
+    "copterTrack",
+    "circlingIdentification",
+    "courseReversalInstruction",
+    "additionalEquipment",
+    "channelGNSS",
+    "waasReliable",
+    "landing",
+    "missedInstruction",
+    "finalProfile",
+    "extension"
+})
 @Entity(name = "InstrumentApproachProcedureTimeSliceType")
 @Table(name = "instrumentapproachprocedure_t", schema = "procedure")
-public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class InstrumentApproachProcedureTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "communicationFailureInstruction", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -214,10 +193,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Gets the value of the communicationFailureInstruction property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextInstructionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextInstructionType> getCommunicationFailureInstruction() {
@@ -226,11 +206,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the communicationFailureInstruction property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextInstructionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     public void setCommunicationFailureInstruction(JAXBElement<TextInstructionType> value) {
         this.communicationFailureInstruction = value;
@@ -238,15 +218,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetCommunicationFailureInstruction() {
-        return (this.communicationFailureInstruction != null);
+        return (this.communicationFailureInstruction!= null);
     }
 
     /**
      * Gets the value of the instruction property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextInstructionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextInstructionType> getInstruction() {
@@ -255,11 +236,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the instruction property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextInstructionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     public void setInstruction(JAXBElement<TextInstructionType> value) {
         this.instruction = value;
@@ -267,15 +248,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetInstruction() {
-        return (this.instruction != null);
+        return (this.instruction!= null);
     }
 
     /**
      * Gets the value of the designCriteria property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeDesignStandardType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeDesignStandardType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeDesignStandardType> getDesignCriteria() {
@@ -284,11 +266,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the designCriteria property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeDesignStandardType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeDesignStandardType }{@code >}
+     *     
      */
     public void setDesignCriteria(JAXBElement<CodeDesignStandardType> value) {
         this.designCriteria = value;
@@ -296,15 +278,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetDesignCriteria() {
-        return (this.designCriteria != null);
+        return (this.designCriteria!= null);
     }
 
     /**
      * Gets the value of the codingStandard property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeProcedureCodingStandardType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeProcedureCodingStandardType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeProcedureCodingStandardType> getCodingStandard() {
@@ -313,11 +296,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the codingStandard property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeProcedureCodingStandardType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeProcedureCodingStandardType }{@code >}
+     *     
      */
     public void setCodingStandard(JAXBElement<CodeProcedureCodingStandardType> value) {
         this.codingStandard = value;
@@ -325,15 +308,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetCodingStandard() {
-        return (this.codingStandard != null);
+        return (this.codingStandard!= null);
     }
 
     /**
      * Gets the value of the flightChecked property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getFlightChecked() {
@@ -342,11 +326,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the flightChecked property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setFlightChecked(JAXBElement<CodeYesNoType> value) {
         this.flightChecked = value;
@@ -354,15 +338,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetFlightChecked() {
-        return (this.flightChecked != null);
+        return (this.flightChecked!= null);
     }
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -371,11 +356,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -383,15 +368,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the rnav property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getRNAV() {
@@ -400,11 +386,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the rnav property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setRNAV(JAXBElement<CodeYesNoType> value) {
         this.rnav = value;
@@ -412,37 +398,39 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetRNAV() {
-        return (this.rnav != null);
+        return (this.rnav!= null);
     }
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProcedureAvailabilityPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ProcedureAvailabilityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_avlblt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_avlblt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
+    })
     public List<ProcedureAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -451,8 +439,8 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<ProcedureAvailabilityPropertyType> availability) {
         this.availability = availability;
@@ -460,7 +448,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -469,31 +457,34 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Gets the value of the airportHeliport property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the airportHeliport property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the airportHeliport property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAirportHeliport().add(newItem);
+     *    getAirportHeliport().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirportHeliportPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_arprthlprt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "airportheliport_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_arprthlprt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airportheliport_hjid", referencedColumnName = "hjid")
+    })
     public List<AirportHeliportPropertyType> getAirportHeliport() {
         if (airportHeliport == null) {
             airportHeliport = new ArrayList<>();
@@ -502,8 +493,8 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAirportHeliport(List<AirportHeliportPropertyType> airportHeliport) {
         this.airportHeliport = airportHeliport;
@@ -511,7 +502,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetAirportHeliport() {
-        return ((this.airportHeliport != null) && (!this.airportHeliport.isEmpty()));
+        return ((this.airportHeliport!= null)&&(!this.airportHeliport.isEmpty()));
     }
 
     public void unsetAirportHeliport() {
@@ -520,32 +511,34 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Gets the value of the aircraftCharacteristic property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the aircraftCharacteristic property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the aircraftCharacteristic property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAircraftCharacteristic().add(newItem);
+     *    getAircraftCharacteristic().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AircraftCharacteristicPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_arcrftchrctrstc_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "aircraftcharacteristic_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_arcrftchrctrstc_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "aircraftcharacteristic_hjid", referencedColumnName = "hjid")
+    })
     public List<AircraftCharacteristicPropertyType> getAircraftCharacteristic() {
         if (aircraftCharacteristic == null) {
             aircraftCharacteristic = new ArrayList<>();
@@ -554,8 +547,8 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAircraftCharacteristic(List<AircraftCharacteristicPropertyType> aircraftCharacteristic) {
         this.aircraftCharacteristic = aircraftCharacteristic;
@@ -563,7 +556,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetAircraftCharacteristic() {
-        return ((this.aircraftCharacteristic != null) && (!this.aircraftCharacteristic.isEmpty()));
+        return ((this.aircraftCharacteristic!= null)&&(!this.aircraftCharacteristic.isEmpty()));
     }
 
     public void unsetAircraftCharacteristic() {
@@ -572,32 +565,34 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Gets the value of the flightTransition property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the flightTransition property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the flightTransition property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getFlightTransition().add(newItem);
+     *    getFlightTransition().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProcedureTransitionPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ProcedureTransitionPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_flghttrnstn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flighttransition_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_flghttrnstn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flighttransition_hjid", referencedColumnName = "hjid")
+    })
     public List<ProcedureTransitionPropertyType> getFlightTransition() {
         if (flightTransition == null) {
             flightTransition = new ArrayList<>();
@@ -606,8 +601,8 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setFlightTransition(List<ProcedureTransitionPropertyType> flightTransition) {
         this.flightTransition = flightTransition;
@@ -615,7 +610,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetFlightTransition() {
-        return ((this.flightTransition != null) && (!this.flightTransition.isEmpty()));
+        return ((this.flightTransition!= null)&&(!this.flightTransition.isEmpty()));
     }
 
     public void unsetFlightTransition() {
@@ -624,10 +619,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Gets the value of the guidanceFacilitySpecialNavigationSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link SpecialNavigationSystemPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link SpecialNavigationSystemPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<SpecialNavigationSystemPropertyType> getGuidanceFacilitySpecialNavigationSystem() {
@@ -636,11 +632,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the guidanceFacilitySpecialNavigationSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link SpecialNavigationSystemPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link SpecialNavigationSystemPropertyType }{@code >}
+     *     
      */
     public void setGuidanceFacilitySpecialNavigationSystem(JAXBElement<SpecialNavigationSystemPropertyType> value) {
         this.guidanceFacilitySpecialNavigationSystem = value;
@@ -648,15 +644,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetGuidanceFacilitySpecialNavigationSystem() {
-        return (this.guidanceFacilitySpecialNavigationSystem != null);
+        return (this.guidanceFacilitySpecialNavigationSystem!= null);
     }
 
     /**
      * Gets the value of the guidanceFacilityRadar property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RadarSystemPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RadarSystemPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RadarSystemPropertyType> getGuidanceFacilityRadar() {
@@ -665,11 +662,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the guidanceFacilityRadar property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RadarSystemPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RadarSystemPropertyType }{@code >}
+     *     
      */
     public void setGuidanceFacilityRadar(JAXBElement<RadarSystemPropertyType> value) {
         this.guidanceFacilityRadar = value;
@@ -677,15 +674,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetGuidanceFacilityRadar() {
-        return (this.guidanceFacilityRadar != null);
+        return (this.guidanceFacilityRadar!= null);
     }
 
     /**
      * Gets the value of the guidanceFacilityNavaid property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getGuidanceFacilityNavaid() {
@@ -694,11 +692,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the guidanceFacilityNavaid property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setGuidanceFacilityNavaid(JAXBElement<NavaidPropertyType> value) {
         this.guidanceFacilityNavaid = value;
@@ -706,36 +704,39 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetGuidanceFacilityNavaid() {
-        return (this.guidanceFacilityNavaid != null);
+        return (this.guidanceFacilityNavaid!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_annttn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_annttn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -744,8 +745,8 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -753,7 +754,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -762,10 +763,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Gets the value of the safeAltitude property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link SafeAltitudeAreaPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link SafeAltitudeAreaPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<SafeAltitudeAreaPropertyType> getSafeAltitude() {
@@ -774,11 +776,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the safeAltitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link SafeAltitudeAreaPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link SafeAltitudeAreaPropertyType }{@code >}
+     *     
      */
     public void setSafeAltitude(JAXBElement<SafeAltitudeAreaPropertyType> value) {
         this.safeAltitude = value;
@@ -786,15 +788,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetSafeAltitude() {
-        return (this.safeAltitude != null);
+        return (this.safeAltitude!= null);
     }
 
     /**
      * Gets the value of the approachPrefix property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeApproachPrefixType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeApproachPrefixType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeApproachPrefixType> getApproachPrefix() {
@@ -803,11 +806,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the approachPrefix property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeApproachPrefixType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeApproachPrefixType }{@code >}
+     *     
      */
     public void setApproachPrefix(JAXBElement<CodeApproachPrefixType> value) {
         this.approachPrefix = value;
@@ -815,15 +818,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetApproachPrefix() {
-        return (this.approachPrefix != null);
+        return (this.approachPrefix!= null);
     }
 
     /**
      * Gets the value of the approachType property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeApproachType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeApproachType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeApproachType> getApproachType() {
@@ -832,11 +836,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the approachType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeApproachType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeApproachType }{@code >}
+     *     
      */
     public void setApproachType(JAXBElement<CodeApproachType> value) {
         this.approachType = value;
@@ -844,15 +848,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetApproachType() {
-        return (this.approachType != null);
+        return (this.approachType!= null);
     }
 
     /**
      * Gets the value of the multipleIdentification property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeUpperAlphaType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeUpperAlphaType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeUpperAlphaType> getMultipleIdentification() {
@@ -861,11 +866,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the multipleIdentification property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeUpperAlphaType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeUpperAlphaType }{@code >}
+     *     
      */
     public void setMultipleIdentification(JAXBElement<CodeUpperAlphaType> value) {
         this.multipleIdentification = value;
@@ -873,15 +878,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetMultipleIdentification() {
-        return (this.multipleIdentification != null);
+        return (this.multipleIdentification!= null);
     }
 
     /**
      * Gets the value of the copterTrack property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getCopterTrack() {
@@ -890,11 +896,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the copterTrack property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setCopterTrack(JAXBElement<ValBearingType> value) {
         this.copterTrack = value;
@@ -902,15 +908,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetCopterTrack() {
-        return (this.copterTrack != null);
+        return (this.copterTrack!= null);
     }
 
     /**
      * Gets the value of the circlingIdentification property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeUpperAlphaType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeUpperAlphaType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeUpperAlphaType> getCirclingIdentification() {
@@ -919,11 +926,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the circlingIdentification property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeUpperAlphaType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeUpperAlphaType }{@code >}
+     *     
      */
     public void setCirclingIdentification(JAXBElement<CodeUpperAlphaType> value) {
         this.circlingIdentification = value;
@@ -931,15 +938,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetCirclingIdentification() {
-        return (this.circlingIdentification != null);
+        return (this.circlingIdentification!= null);
     }
 
     /**
      * Gets the value of the courseReversalInstruction property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextInstructionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextInstructionType> getCourseReversalInstruction() {
@@ -948,11 +956,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the courseReversalInstruction property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextInstructionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     public void setCourseReversalInstruction(JAXBElement<TextInstructionType> value) {
         this.courseReversalInstruction = value;
@@ -960,15 +968,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetCourseReversalInstruction() {
-        return (this.courseReversalInstruction != null);
+        return (this.courseReversalInstruction!= null);
     }
 
     /**
      * Gets the value of the additionalEquipment property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeApproachEquipmentAdditionalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeApproachEquipmentAdditionalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeApproachEquipmentAdditionalType> getAdditionalEquipment() {
@@ -977,11 +986,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the additionalEquipment property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeApproachEquipmentAdditionalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeApproachEquipmentAdditionalType }{@code >}
+     *     
      */
     public void setAdditionalEquipment(JAXBElement<CodeApproachEquipmentAdditionalType> value) {
         this.additionalEquipment = value;
@@ -989,15 +998,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetAdditionalEquipment() {
-        return (this.additionalEquipment != null);
+        return (this.additionalEquipment!= null);
     }
 
     /**
      * Gets the value of the channelGNSS property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValChannelNumberType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValChannelNumberType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValChannelNumberType> getChannelGNSS() {
@@ -1006,11 +1016,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the channelGNSS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValChannelNumberType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValChannelNumberType }{@code >}
+     *     
      */
     public void setChannelGNSS(JAXBElement<ValChannelNumberType> value) {
         this.channelGNSS = value;
@@ -1018,15 +1028,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetChannelGNSS() {
-        return (this.channelGNSS != null);
+        return (this.channelGNSS!= null);
     }
 
     /**
      * Gets the value of the waasReliable property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getWAASReliable() {
@@ -1035,11 +1046,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the waasReliable property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setWAASReliable(JAXBElement<CodeYesNoType> value) {
         this.waasReliable = value;
@@ -1047,15 +1058,16 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetWAASReliable() {
-        return (this.waasReliable != null);
+        return (this.waasReliable!= null);
     }
 
     /**
      * Gets the value of the landing property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link LandingTakeoffAreaCollectionPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link LandingTakeoffAreaCollectionPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<LandingTakeoffAreaCollectionPropertyType> getLanding() {
@@ -1064,12 +1076,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the landing property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link LandingTakeoffAreaCollectionPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link LandingTakeoffAreaCollectionPropertyType }{@code >}
+     *     
      */
     public void setLanding(JAXBElement<LandingTakeoffAreaCollectionPropertyType> value) {
         this.landing = value;
@@ -1077,37 +1088,39 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetLanding() {
-        return (this.landing != null);
+        return (this.landing!= null);
     }
 
     /**
      * Gets the value of the missedInstruction property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the missedInstruction property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the missedInstruction property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getMissedInstruction().add(newItem);
+     *    getMissedInstruction().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MissedApproachGroupPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = MissedApproachGroupPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_mssdinstrctn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "missedinstruction_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_mssdinstrctn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "missedinstruction_hjid", referencedColumnName = "hjid")
+    })
     public List<MissedApproachGroupPropertyType> getMissedInstruction() {
         if (missedInstruction == null) {
             missedInstruction = new ArrayList<>();
@@ -1116,8 +1129,8 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setMissedInstruction(List<MissedApproachGroupPropertyType> missedInstruction) {
         this.missedInstruction = missedInstruction;
@@ -1125,7 +1138,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetMissedInstruction() {
-        return ((this.missedInstruction != null) && (!this.missedInstruction.isEmpty()));
+        return ((this.missedInstruction!= null)&&(!this.missedInstruction.isEmpty()));
     }
 
     public void unsetMissedInstruction() {
@@ -1134,10 +1147,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Gets the value of the finalProfile property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link FinalProfilePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link FinalProfilePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<FinalProfilePropertyType> getFinalProfile() {
@@ -1146,11 +1160,11 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     /**
      * Sets the value of the finalProfile property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link FinalProfilePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link FinalProfilePropertyType }{@code >}
+     *     
      */
     public void setFinalProfile(JAXBElement<FinalProfilePropertyType> value) {
         this.finalProfile = value;
@@ -1158,34 +1172,34 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetFinalProfile() {
-        return (this.finalProfile != null);
+        return (this.finalProfile!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InstrumentApproachProcedureTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = InstrumentApproachProcedureTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "instrumentapproachprocedure_te_hjid", referencedColumnName = "hjid")
     public List<InstrumentApproachProcedureTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -1195,8 +1209,8 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<InstrumentApproachProcedureTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -1204,7 +1218,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -1213,311 +1227,311 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "communicationfailureinstruction", columnDefinition = "TEXT", length = 10000)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "communicationfailureinstructionnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "communicationfailureinstruction", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "communicationfailureinstructionnilreason", columnDefinition = "nilreason"))
+    })
     public TextInstructionType getCommunicationFailureInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getCommunicationFailureInstruction());
     }
 
     public void setCommunicationFailureInstructionItem(TextInstructionType target) {
-        setCommunicationFailureInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "communicationFailureInstruction"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setCommunicationFailureInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "communicationFailureInstruction"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "TEXT", length = 10000)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "instructionnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "instructionnilreason", columnDefinition = "nilreason"))
+    })
     public TextInstructionType getInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getInstruction());
     }
 
     public void setInstructionItem(TextInstructionType target) {
-        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "instruction"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "instruction"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designcriteria")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designcriterianilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "designcriteria", columnDefinition = "codedesignstandardbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designcriterianilreason", columnDefinition = "nilreason"))
+    })
     public CodeDesignStandardType getDesignCriteriaItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDesignStandardType.class, this.getDesignCriteria());
     }
 
     public void setDesignCriteriaItem(CodeDesignStandardType target) {
-        setDesignCriteria(XmlAdapterUtils.marshallJAXBElement(CodeDesignStandardType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "designCriteria"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setDesignCriteria(XmlAdapterUtils.marshallJAXBElement(CodeDesignStandardType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designCriteria"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "codingstandard")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "codingstandardnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "codingstandard", columnDefinition = "codeprocedurecodingstandardbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "codingstandardnilreason", columnDefinition = "nilreason"))
+    })
     public CodeProcedureCodingStandardType getCodingStandardItem() {
         return XmlAdapterUtils.unmarshallSource(CodeProcedureCodingStandardType.class, this.getCodingStandard());
     }
 
     public void setCodingStandardItem(CodeProcedureCodingStandardType target) {
-        setCodingStandard(XmlAdapterUtils.marshallJAXBElement(CodeProcedureCodingStandardType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "codingStandard"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setCodingStandard(XmlAdapterUtils.marshallJAXBElement(CodeProcedureCodingStandardType.class, new QName("http://www.aixm.aero/schema/5.1.1", "codingStandard"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "flightchecked")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "flightcheckednilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "flightchecked", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "flightcheckednilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getFlightCheckedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getFlightChecked());
     }
 
     public void setFlightCheckedItem(CodeYesNoType target) {
-        setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "flightChecked"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "flightChecked"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character3")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "name"), InstrumentApproachProcedureTimeSliceType.class,
-                target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "name"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "rnav")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "rnavnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "rnav", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "rnavnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getRNAVItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getRNAV());
     }
 
     public void setRNAVItem(CodeYesNoType target) {
-        setRNAV(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "RNAV"), InstrumentApproachProcedureTimeSliceType.class,
-                target));
+        setRNAV(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "RNAV"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = SpecialNavigationSystemPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_gdncfcltspclnvgtnsstm_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "guidancefacilityspecialnavigationsystem_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_gdncfcltspclnvgtnsstm_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "guidancefacilityspecialnavigationsystem_hjid", referencedColumnName = "hjid")
+    })
     public SpecialNavigationSystemPropertyType getGuidanceFacilitySpecialNavigationSystemItem() {
-        return XmlAdapterUtils.unmarshallSource(SpecialNavigationSystemPropertyType.class,
-                this.getGuidanceFacilitySpecialNavigationSystem());
+        return XmlAdapterUtils.unmarshallSource(SpecialNavigationSystemPropertyType.class, this.getGuidanceFacilitySpecialNavigationSystem());
     }
 
     public void setGuidanceFacilitySpecialNavigationSystemItem(SpecialNavigationSystemPropertyType target) {
-        setGuidanceFacilitySpecialNavigationSystem(
-                XmlAdapterUtils.marshallJAXBElement(SpecialNavigationSystemPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_specialNavigationSystem"),
-                        InstrumentApproachProcedureTimeSliceType.class, target));
+        setGuidanceFacilitySpecialNavigationSystem(XmlAdapterUtils.marshallJAXBElement(SpecialNavigationSystemPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_specialNavigationSystem"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RadarSystemPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_gdncfcltrdr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "guidancefacilityradar_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = RadarSystemPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_gdncfcltrdr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "guidancefacilityradar_hjid", referencedColumnName = "hjid")
+    })
     public RadarSystemPropertyType getGuidanceFacilityRadarItem() {
         return XmlAdapterUtils.unmarshallSource(RadarSystemPropertyType.class, this.getGuidanceFacilityRadar());
     }
 
     public void setGuidanceFacilityRadarItem(RadarSystemPropertyType target) {
-        setGuidanceFacilityRadar(XmlAdapterUtils.marshallJAXBElement(RadarSystemPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_radar"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setGuidanceFacilityRadar(XmlAdapterUtils.marshallJAXBElement(RadarSystemPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_radar"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_gdncfcltnvd_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "guidancefacilitynavaid_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_gdncfcltnvd_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "guidancefacilitynavaid_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getGuidanceFacilityNavaidItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getGuidanceFacilityNavaid());
     }
 
     public void setGuidanceFacilityNavaidItem(NavaidPropertyType target) {
-        setGuidanceFacilityNavaid(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_navaid"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setGuidanceFacilityNavaid(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_navaid"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = SafeAltitudeAreaPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_sfalttd_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "safealtitude_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = SafeAltitudeAreaPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_sfalttd_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "safealtitude_hjid", referencedColumnName = "hjid")
+    })
     public SafeAltitudeAreaPropertyType getSafeAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(SafeAltitudeAreaPropertyType.class, this.getSafeAltitude());
     }
 
     public void setSafeAltitudeItem(SafeAltitudeAreaPropertyType target) {
-        setSafeAltitude(XmlAdapterUtils.marshallJAXBElement(SafeAltitudeAreaPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "safeAltitude"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setSafeAltitude(XmlAdapterUtils.marshallJAXBElement(SafeAltitudeAreaPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "safeAltitude"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "approachprefix")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "approachprefixnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "approachprefix", columnDefinition = "codeapproachprefixbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "approachprefixnilreason", columnDefinition = "nilreason"))
+    })
     public CodeApproachPrefixType getApproachPrefixItem() {
         return XmlAdapterUtils.unmarshallSource(CodeApproachPrefixType.class, this.getApproachPrefix());
     }
 
     public void setApproachPrefixItem(CodeApproachPrefixType target) {
-        setApproachPrefix(XmlAdapterUtils.marshallJAXBElement(CodeApproachPrefixType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "approachPrefix"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setApproachPrefix(XmlAdapterUtils.marshallJAXBElement(CodeApproachPrefixType.class, new QName("http://www.aixm.aero/schema/5.1.1", "approachPrefix"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "approachtype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "approachtypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "approachtype", columnDefinition = "codeapproachbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "approachtypenilreason", columnDefinition = "nilreason"))
+    })
     public CodeApproachType getApproachTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeApproachType.class, this.getApproachType());
     }
 
     public void setApproachTypeItem(CodeApproachType target) {
-        setApproachType(XmlAdapterUtils.marshallJAXBElement(CodeApproachType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "approachType"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setApproachType(XmlAdapterUtils.marshallJAXBElement(CodeApproachType.class, new QName("http://www.aixm.aero/schema/5.1.1", "approachType"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "multipleidentification")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "multipleidentificationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "multipleidentification", columnDefinition = "codeupperalphabase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "multipleidentificationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeUpperAlphaType getMultipleIdentificationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeUpperAlphaType.class, this.getMultipleIdentification());
     }
 
     public void setMultipleIdentificationItem(CodeUpperAlphaType target) {
-        setMultipleIdentification(XmlAdapterUtils.marshallJAXBElement(CodeUpperAlphaType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "multipleIdentification"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setMultipleIdentification(XmlAdapterUtils.marshallJAXBElement(CodeUpperAlphaType.class, new QName("http://www.aixm.aero/schema/5.1.1", "multipleIdentification"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "coptertrack", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "coptertracknilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "coptertrack", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "coptertracknilreason", columnDefinition = "nilreason"))
+    })
     public ValBearingType getCopterTrackItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getCopterTrack());
     }
 
     public void setCopterTrackItem(ValBearingType target) {
-        setCopterTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "copterTrack"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setCopterTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "copterTrack"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "circlingidentification")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "circlingidentificationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "circlingidentification", columnDefinition = "codeupperalphabase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "circlingidentificationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeUpperAlphaType getCirclingIdentificationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeUpperAlphaType.class, this.getCirclingIdentification());
     }
 
     public void setCirclingIdentificationItem(CodeUpperAlphaType target) {
-        setCirclingIdentification(XmlAdapterUtils.marshallJAXBElement(CodeUpperAlphaType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "circlingIdentification"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setCirclingIdentification(XmlAdapterUtils.marshallJAXBElement(CodeUpperAlphaType.class, new QName("http://www.aixm.aero/schema/5.1.1", "circlingIdentification"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "coursereversalinstruction", columnDefinition = "TEXT", length = 10000)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "coursereversalinstructionnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "coursereversalinstruction", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "coursereversalinstructionnilreason", columnDefinition = "nilreason"))
+    })
     public TextInstructionType getCourseReversalInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getCourseReversalInstruction());
     }
 
     public void setCourseReversalInstructionItem(TextInstructionType target) {
-        setCourseReversalInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "courseReversalInstruction"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
-    }
-
-    @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "additionalequipment")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "additionalequipmentnilreason"))})
-    public CodeApproachEquipmentAdditionalType getAdditionalEquipmentItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeApproachEquipmentAdditionalType.class,
-                this.getAdditionalEquipment());
-    }
-
-    public void setAdditionalEquipmentItem(CodeApproachEquipmentAdditionalType target) {
-        setAdditionalEquipment(XmlAdapterUtils.marshallJAXBElement(CodeApproachEquipmentAdditionalType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "additionalEquipment"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setCourseReversalInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "courseReversalInstruction"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "channelgnss", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "channelgnssnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "additionalequipment", columnDefinition = "codeapproachequipmentadditionalbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "additionalequipmentnilreason", columnDefinition = "nilreason"))
+    })
+    public CodeApproachEquipmentAdditionalType getAdditionalEquipmentItem() {
+        return XmlAdapterUtils.unmarshallSource(CodeApproachEquipmentAdditionalType.class, this.getAdditionalEquipment());
+    }
+
+    public void setAdditionalEquipmentItem(CodeApproachEquipmentAdditionalType target) {
+        setAdditionalEquipment(XmlAdapterUtils.marshallJAXBElement(CodeApproachEquipmentAdditionalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "additionalEquipment"), InstrumentApproachProcedureTimeSliceType.class, target));
+    }
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "channelgnss", columnDefinition = "valchannelnumberbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "channelgnssnilreason", columnDefinition = "nilreason"))
+    })
     public ValChannelNumberType getChannelGNSSItem() {
         return XmlAdapterUtils.unmarshallSource(ValChannelNumberType.class, this.getChannelGNSS());
     }
 
     public void setChannelGNSSItem(ValChannelNumberType target) {
-        setChannelGNSS(XmlAdapterUtils.marshallJAXBElement(ValChannelNumberType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "channelGNSS"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setChannelGNSS(XmlAdapterUtils.marshallJAXBElement(ValChannelNumberType.class, new QName("http://www.aixm.aero/schema/5.1.1", "channelGNSS"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "waasreliable")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "waasreliablenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "waasreliable", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "waasreliablenilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getWAASReliableItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getWAASReliable());
     }
 
     public void setWAASReliableItem(CodeYesNoType target) {
-        setWAASReliable(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "WAASReliable"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setWAASReliable(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "WAASReliable"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = LandingTakeoffAreaCollectionPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_lndng_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "landing_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_lndng_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "landing_hjid", referencedColumnName = "hjid")
+    })
     public LandingTakeoffAreaCollectionPropertyType getLandingItem() {
         return XmlAdapterUtils.unmarshallSource(LandingTakeoffAreaCollectionPropertyType.class, this.getLanding());
     }
 
     public void setLandingItem(LandingTakeoffAreaCollectionPropertyType target) {
-        setLanding(XmlAdapterUtils.marshallJAXBElement(LandingTakeoffAreaCollectionPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "landing"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setLanding(XmlAdapterUtils.marshallJAXBElement(LandingTakeoffAreaCollectionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "landing"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = FinalProfilePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "instrmntapprchprcdrtmslctp_fnlprfl_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "finalprofile_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = FinalProfilePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "instrmntapprchprcdrtmslctp_fnlprfl_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "finalprofile_hjid", referencedColumnName = "hjid")
+    })
     public FinalProfilePropertyType getFinalProfileItem() {
         return XmlAdapterUtils.unmarshallSource(FinalProfilePropertyType.class, this.getFinalProfile());
     }
 
     public void setFinalProfileItem(FinalProfilePropertyType target) {
-        setFinalProfile(XmlAdapterUtils.marshallJAXBElement(FinalProfilePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "finalProfile"),
-                InstrumentApproachProcedureTimeSliceType.class, target));
+        setFinalProfile(XmlAdapterUtils.marshallJAXBElement(FinalProfilePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "finalProfile"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1528,198 +1542,14 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         }
         final InstrumentApproachProcedureTimeSliceType that = ((InstrumentApproachProcedureTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMultipleIdentification();
-            boolean rhsFieldIsSet = that.isSetMultipleIdentification();
-            JAXBElement<CodeUpperAlphaType> lhsField;
-            lhsField = this.getMultipleIdentification();
-            JAXBElement<CodeUpperAlphaType> rhsField;
-            rhsField = that.getMultipleIdentification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multipleIdentification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multipleIdentification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGuidanceFacilityRadar();
-            boolean rhsFieldIsSet = that.isSetGuidanceFacilityRadar();
-            JAXBElement<RadarSystemPropertyType> lhsField;
-            lhsField = this.getGuidanceFacilityRadar();
-            JAXBElement<RadarSystemPropertyType> rhsField;
-            rhsField = that.getGuidanceFacilityRadar();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilityRadar", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilityRadar", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCopterTrack();
-            boolean rhsFieldIsSet = that.isSetCopterTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getCopterTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getCopterTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "copterTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "copterTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraftCharacteristic();
-            boolean rhsFieldIsSet = that.isSetAircraftCharacteristic();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraftCharacteristic() ? this.getAircraftCharacteristic() : null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraftCharacteristic() ? that.getAircraftCharacteristic() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCharacteristic", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCharacteristic", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRNAV();
-            boolean rhsFieldIsSet = that.isSetRNAV();
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getRNAV();
+            lhsField = this.getFlightChecked();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getRNAV();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rnav", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rnav", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignCriteria();
-            boolean rhsFieldIsSet = that.isSetDesignCriteria();
-            JAXBElement<CodeDesignStandardType> lhsField;
-            lhsField = this.getDesignCriteria();
-            JAXBElement<CodeDesignStandardType> rhsField;
-            rhsField = that.getDesignCriteria();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designCriteria", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designCriteria", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGuidanceFacilitySpecialNavigationSystem();
-            boolean rhsFieldIsSet = that.isSetGuidanceFacilitySpecialNavigationSystem();
-            JAXBElement<SpecialNavigationSystemPropertyType> lhsField;
-            lhsField = this.getGuidanceFacilitySpecialNavigationSystem();
-            JAXBElement<SpecialNavigationSystemPropertyType> rhsField;
-            rhsField = that.getGuidanceFacilitySpecialNavigationSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "guidanceFacilitySpecialNavigationSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "guidanceFacilitySpecialNavigationSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApproachType();
-            boolean rhsFieldIsSet = that.isSetApproachType();
-            JAXBElement<CodeApproachType> lhsField;
-            lhsField = this.getApproachType();
-            JAXBElement<CodeApproachType> rhsField;
-            rhsField = that.getApproachType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightTransition();
-            boolean rhsFieldIsSet = that.isSetFlightTransition();
-            List<ProcedureTransitionPropertyType> lhsField;
-            lhsField = (this.isSetFlightTransition() ? this.getFlightTransition() : null);
-            List<ProcedureTransitionPropertyType> rhsField;
-            rhsField = (that.isSetFlightTransition() ? that.getFlightTransition() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightTransition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightTransition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLanding();
-            boolean rhsFieldIsSet = that.isSetLanding();
-            JAXBElement<LandingTakeoffAreaCollectionPropertyType> lhsField;
-            lhsField = this.getLanding();
-            JAXBElement<LandingTakeoffAreaCollectionPropertyType> rhsField;
-            rhsField = that.getLanding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<InstrumentApproachProcedureTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<InstrumentApproachProcedureTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ProcedureAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<ProcedureAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCourseReversalInstruction();
-            boolean rhsFieldIsSet = that.isSetCourseReversalInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getCourseReversalInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getCourseReversalInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseReversalInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseReversalInstruction", rhsField);
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1738,14 +1568,14 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCodingStandard();
-            boolean rhsFieldIsSet = that.isSetCodingStandard();
-            JAXBElement<CodeProcedureCodingStandardType> lhsField;
-            lhsField = this.getCodingStandard();
-            JAXBElement<CodeProcedureCodingStandardType> rhsField;
-            rhsField = that.getCodingStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codingStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codingStandard", rhsField);
+            boolean lhsFieldIsSet = this.isSetGuidanceFacilitySpecialNavigationSystem();
+            boolean rhsFieldIsSet = that.isSetGuidanceFacilitySpecialNavigationSystem();
+            JAXBElement<SpecialNavigationSystemPropertyType> lhsField;
+            lhsField = this.getGuidanceFacilitySpecialNavigationSystem();
+            JAXBElement<SpecialNavigationSystemPropertyType> rhsField;
+            rhsField = that.getGuidanceFacilitySpecialNavigationSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilitySpecialNavigationSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilitySpecialNavigationSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1764,66 +1594,12 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAdditionalEquipment();
-            boolean rhsFieldIsSet = that.isSetAdditionalEquipment();
-            JAXBElement<CodeApproachEquipmentAdditionalType> lhsField;
-            lhsField = this.getAdditionalEquipment();
-            JAXBElement<CodeApproachEquipmentAdditionalType> rhsField;
-            rhsField = that.getAdditionalEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "additionalEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "additionalEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCommunicationFailureInstruction();
-            boolean rhsFieldIsSet = that.isSetCommunicationFailureInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getCommunicationFailureInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getCommunicationFailureInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationFailureInstruction",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationFailureInstruction",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetChannelGNSS();
-            boolean rhsFieldIsSet = that.isSetChannelGNSS();
-            JAXBElement<ValChannelNumberType> lhsField;
-            lhsField = this.getChannelGNSS();
-            JAXBElement<ValChannelNumberType> rhsField;
-            rhsField = that.getChannelGNSS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "channelGNSS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "channelGNSS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAirportHeliport();
             boolean rhsFieldIsSet = that.isSetAirportHeliport();
             List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetAirportHeliport() ? this.getAirportHeliport() : null);
+            lhsField = (this.isSetAirportHeliport()?this.getAirportHeliport():null);
             List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetAirportHeliport() ? that.getAirportHeliport() : null);
+            rhsField = (that.isSetAirportHeliport()?that.getAirportHeliport():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1844,27 +1620,79 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMissedInstruction();
-            boolean rhsFieldIsSet = that.isSetMissedInstruction();
-            List<MissedApproachGroupPropertyType> lhsField;
-            lhsField = (this.isSetMissedInstruction() ? this.getMissedInstruction() : null);
-            List<MissedApproachGroupPropertyType> rhsField;
-            rhsField = (that.isSetMissedInstruction() ? that.getMissedInstruction() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "missedInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "missedInstruction", rhsField);
+            boolean lhsFieldIsSet = this.isSetCommunicationFailureInstruction();
+            boolean rhsFieldIsSet = that.isSetCommunicationFailureInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getCommunicationFailureInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getCommunicationFailureInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationFailureInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationFailureInstruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFinalProfile();
-            boolean rhsFieldIsSet = that.isSetFinalProfile();
-            JAXBElement<FinalProfilePropertyType> lhsField;
-            lhsField = this.getFinalProfile();
-            JAXBElement<FinalProfilePropertyType> rhsField;
-            rhsField = that.getFinalProfile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "finalProfile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "finalProfile", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ProcedureAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ProcedureAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWAASReliable();
+            boolean rhsFieldIsSet = that.isSetWAASReliable();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getWAASReliable();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getWAASReliable();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waasReliable", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waasReliable", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGuidanceFacilityRadar();
+            boolean rhsFieldIsSet = that.isSetGuidanceFacilityRadar();
+            JAXBElement<RadarSystemPropertyType> lhsField;
+            lhsField = this.getGuidanceFacilityRadar();
+            JAXBElement<RadarSystemPropertyType> rhsField;
+            rhsField = that.getGuidanceFacilityRadar();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilityRadar", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilityRadar", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMissedInstruction();
+            boolean rhsFieldIsSet = that.isSetMissedInstruction();
+            List<MissedApproachGroupPropertyType> lhsField;
+            lhsField = (this.isSetMissedInstruction()?this.getMissedInstruction():null);
+            List<MissedApproachGroupPropertyType> rhsField;
+            rhsField = (that.isSetMissedInstruction()?that.getMissedInstruction():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "missedInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "missedInstruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1883,6 +1711,71 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRNAV();
+            boolean rhsFieldIsSet = that.isSetRNAV();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getRNAV();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getRNAV();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rnav", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rnav", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMultipleIdentification();
+            boolean rhsFieldIsSet = that.isSetMultipleIdentification();
+            JAXBElement<CodeUpperAlphaType> lhsField;
+            lhsField = this.getMultipleIdentification();
+            JAXBElement<CodeUpperAlphaType> rhsField;
+            rhsField = that.getMultipleIdentification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multipleIdentification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multipleIdentification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<InstrumentApproachProcedureTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<InstrumentApproachProcedureTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLanding();
+            boolean rhsFieldIsSet = that.isSetLanding();
+            JAXBElement<LandingTakeoffAreaCollectionPropertyType> lhsField;
+            lhsField = this.getLanding();
+            JAXBElement<LandingTakeoffAreaCollectionPropertyType> rhsField;
+            rhsField = that.getLanding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetGuidanceFacilityNavaid();
             boolean rhsFieldIsSet = that.isSetGuidanceFacilityNavaid();
             JAXBElement<NavaidPropertyType> lhsField;
@@ -1896,14 +1789,131 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWAASReliable();
-            boolean rhsFieldIsSet = that.isSetWAASReliable();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getWAASReliable();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getWAASReliable();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waasReliable", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waasReliable", rhsField);
+            boolean lhsFieldIsSet = this.isSetAdditionalEquipment();
+            boolean rhsFieldIsSet = that.isSetAdditionalEquipment();
+            JAXBElement<CodeApproachEquipmentAdditionalType> lhsField;
+            lhsField = this.getAdditionalEquipment();
+            JAXBElement<CodeApproachEquipmentAdditionalType> rhsField;
+            rhsField = that.getAdditionalEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "additionalEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "additionalEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightTransition();
+            boolean rhsFieldIsSet = that.isSetFlightTransition();
+            List<ProcedureTransitionPropertyType> lhsField;
+            lhsField = (this.isSetFlightTransition()?this.getFlightTransition():null);
+            List<ProcedureTransitionPropertyType> rhsField;
+            rhsField = (that.isSetFlightTransition()?that.getFlightTransition():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightTransition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightTransition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFinalProfile();
+            boolean rhsFieldIsSet = that.isSetFinalProfile();
+            JAXBElement<FinalProfilePropertyType> lhsField;
+            lhsField = this.getFinalProfile();
+            JAXBElement<FinalProfilePropertyType> rhsField;
+            rhsField = that.getFinalProfile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "finalProfile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "finalProfile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignCriteria();
+            boolean rhsFieldIsSet = that.isSetDesignCriteria();
+            JAXBElement<CodeDesignStandardType> lhsField;
+            lhsField = this.getDesignCriteria();
+            JAXBElement<CodeDesignStandardType> rhsField;
+            rhsField = that.getDesignCriteria();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designCriteria", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designCriteria", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCourseReversalInstruction();
+            boolean rhsFieldIsSet = that.isSetCourseReversalInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getCourseReversalInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getCourseReversalInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseReversalInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseReversalInstruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAircraftCharacteristic();
+            boolean rhsFieldIsSet = that.isSetAircraftCharacteristic();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraftCharacteristic()?this.getAircraftCharacteristic():null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraftCharacteristic()?that.getAircraftCharacteristic():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCharacteristic", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCharacteristic", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproachType();
+            boolean rhsFieldIsSet = that.isSetApproachType();
+            JAXBElement<CodeApproachType> lhsField;
+            lhsField = this.getApproachType();
+            JAXBElement<CodeApproachType> rhsField;
+            rhsField = that.getApproachType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetChannelGNSS();
+            boolean rhsFieldIsSet = that.isSetChannelGNSS();
+            JAXBElement<ValChannelNumberType> lhsField;
+            lhsField = this.getChannelGNSS();
+            JAXBElement<ValChannelNumberType> rhsField;
+            rhsField = that.getChannelGNSS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "channelGNSS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "channelGNSS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCodingStandard();
+            boolean rhsFieldIsSet = that.isSetCodingStandard();
+            JAXBElement<CodeProcedureCodingStandardType> lhsField;
+            lhsField = this.getCodingStandard();
+            JAXBElement<CodeProcedureCodingStandardType> rhsField;
+            rhsField = that.getCodingStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codingStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codingStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCopterTrack();
+            boolean rhsFieldIsSet = that.isSetCopterTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getCopterTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getCopterTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "copterTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "copterTrack", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1966,28 +1976,28 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<ProcedureAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAirportHeliport();
             List<AirportHeliportPropertyType> theField;
-            theField = (this.isSetAirportHeliport() ? this.getAirportHeliport() : null);
+            theField = (this.isSetAirportHeliport()?this.getAirportHeliport():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "airportHeliport", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAircraftCharacteristic();
             List<AircraftCharacteristicPropertyType> theField;
-            theField = (this.isSetAircraftCharacteristic() ? this.getAircraftCharacteristic() : null);
+            theField = (this.isSetAircraftCharacteristic()?this.getAircraftCharacteristic():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aircraftCharacteristic", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightTransition();
             List<ProcedureTransitionPropertyType> theField;
-            theField = (this.isSetFlightTransition() ? this.getFlightTransition() : null);
+            theField = (this.isSetFlightTransition()?this.getFlightTransition():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightTransition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1995,8 +2005,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
             boolean theFieldIsSet = this.isSetGuidanceFacilitySpecialNavigationSystem();
             JAXBElement<SpecialNavigationSystemPropertyType> theField;
             theField = this.getGuidanceFacilitySpecialNavigationSystem();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "guidanceFacilitySpecialNavigationSystem",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "guidanceFacilitySpecialNavigationSystem", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -2016,7 +2025,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2100,7 +2109,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         {
             boolean theFieldIsSet = this.isSetMissedInstruction();
             List<MissedApproachGroupPropertyType> theField;
-            theField = (this.isSetMissedInstruction() ? this.getMissedInstruction() : null);
+            theField = (this.isSetMissedInstruction()?this.getMissedInstruction():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "missedInstruction", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2114,7 +2123,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<InstrumentApproachProcedureTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2169,33 +2178,32 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<ProcedureAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAirportHeliport();
             List<AirportHeliportPropertyType> theField;
-            theField = (this.isSetAirportHeliport() ? this.getAirportHeliport() : null);
+            theField = (this.isSetAirportHeliport()?this.getAirportHeliport():null);
             strategy.appendField(locator, this, "airportHeliport", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAircraftCharacteristic();
             List<AircraftCharacteristicPropertyType> theField;
-            theField = (this.isSetAircraftCharacteristic() ? this.getAircraftCharacteristic() : null);
+            theField = (this.isSetAircraftCharacteristic()?this.getAircraftCharacteristic():null);
             strategy.appendField(locator, this, "aircraftCharacteristic", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightTransition();
             List<ProcedureTransitionPropertyType> theField;
-            theField = (this.isSetFlightTransition() ? this.getFlightTransition() : null);
+            theField = (this.isSetFlightTransition()?this.getFlightTransition():null);
             strategy.appendField(locator, this, "flightTransition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetGuidanceFacilitySpecialNavigationSystem();
             JAXBElement<SpecialNavigationSystemPropertyType> theField;
             theField = this.getGuidanceFacilitySpecialNavigationSystem();
-            strategy.appendField(locator, this, "guidanceFacilitySpecialNavigationSystem", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "guidanceFacilitySpecialNavigationSystem", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetGuidanceFacilityRadar();
@@ -2212,7 +2220,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -2284,7 +2292,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         {
             boolean theFieldIsSet = this.isSetMissedInstruction();
             List<MissedApproachGroupPropertyType> theField;
-            theField = (this.isSetMissedInstruction() ? this.getMissedInstruction() : null);
+            theField = (this.isSetMissedInstruction()?this.getMissedInstruction():null);
             strategy.appendField(locator, this, "missedInstruction", buffer, theField, theFieldIsSet);
         }
         {
@@ -2296,7 +2304,7 @@ public class InstrumentApproachProcedureTimeSliceType extends AbstractAIXMTimeSl
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<InstrumentApproachProcedureTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

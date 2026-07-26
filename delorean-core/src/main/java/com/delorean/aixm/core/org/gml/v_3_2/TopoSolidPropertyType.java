@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -10,7 +11,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,17 +24,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TopoSolidPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TopoSolidPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TopoSolidPropertyType">
  *   <complexContent>
@@ -42,31 +37,33 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <choice minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}TopoSolid"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TopoSolidPropertyType", propOrder = {"topoSolid"})
-public class TopoSolidPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "TopoSolidPropertyType", propOrder = {
+    "topoSolid"
+})
+public class TopoSolidPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:TopoSolid represents the 3-dimensional topology primitive. The
-     * topological boundary of a solid (gml:directedFace) consists of a set of
-     * directed faces. A solid may optionally be realised by a 3-dimensional
-     * geometric primitive (gml:solidProperty).
-     *
+     * gml:TopoSolid represents the 3-dimensional topology primitive. 
+     * The topological boundary of a solid (gml:directedFace) consists of a set of directed faces.
+     * A solid may optionally be realised by a 3-dimensional geometric primitive (gml:solidProperty).
+     * 
      */
     @XmlElement(name = "TopoSolid")
     protected TopoSolidType topoSolid;
+    @XmlAttribute(name = "owns")
+    protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
@@ -86,17 +83,16 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
-    @XmlAttribute(name = "owns")
-    protected java.lang.Boolean owns;
 
     /**
-     * gml:TopoSolid represents the 3-dimensional topology primitive. The
-     * topological boundary of a solid (gml:directedFace) consists of a set of
-     * directed faces. A solid may optionally be realised by a 3-dimensional
-     * geometric primitive (gml:solidProperty).
-     *
-     * @return possible object is {@link TopoSolidType }
-     *
+     * gml:TopoSolid represents the 3-dimensional topology primitive. 
+     * The topological boundary of a solid (gml:directedFace) consists of a set of directed faces.
+     * A solid may optionally be realised by a 3-dimensional geometric primitive (gml:solidProperty).
+     * 
+     * @return
+     *     possible object is
+     *     {@link TopoSolidType }
+     *     
      */
     public TopoSolidType getTopoSolid() {
         return topoSolid;
@@ -104,10 +100,11 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the topoSolid property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TopoSolidType }
-     *
+     *     allowed object is
+     *     {@link TopoSolidType }
+     *     
      * @see #getTopoSolid()
      */
     public void setTopoSolid(TopoSolidType value) {
@@ -115,214 +112,16 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
     }
 
     public boolean isSetTopoSolid() {
-        return (this.topoSolid != null);
-    }
-
-    /**
-     * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getNilReason() {
-        return nilReason;
-    }
-
-    /**
-     * Sets the value of the nilReason property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setNilReason(String value) {
-        this.nilReason = value;
-    }
-
-    public boolean isSetNilReason() {
-        return (this.nilReason != null);
-    }
-
-    /**
-     * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getRemoteSchema() {
-        return remoteSchema;
-    }
-
-    /**
-     * Sets the value of the remoteSchema property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setRemoteSchema(String value) {
-        this.remoteSchema = value;
-    }
-
-    public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
-    }
-
-    /**
-     * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getHref() {
-        return href;
-    }
-
-    /**
-     * Sets the value of the href property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setHref(String value) {
-        this.href = value;
-    }
-
-    public boolean isSetHref() {
-        return (this.href != null);
-    }
-
-    /**
-     * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * Sets the value of the role property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setRole(String value) {
-        this.role = value;
-    }
-
-    public boolean isSetRole() {
-        return (this.role != null);
-    }
-
-    /**
-     * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getArcrole() {
-        return arcrole;
-    }
-
-    /**
-     * Sets the value of the arcrole property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setArcrole(String value) {
-        this.arcrole = value;
-    }
-
-    public boolean isSetArcrole() {
-        return (this.arcrole != null);
-    }
-
-    /**
-     * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getSimpleLinkTitle() {
-        return simpleLinkTitle;
-    }
-
-    /**
-     * Sets the value of the simpleLinkTitle property.
-     *
-     * @param value
-     *            allowed object is {@link String }
-     *
-     */
-    public void setSimpleLinkTitle(String value) {
-        this.simpleLinkTitle = value;
-    }
-
-    public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
-    }
-
-    /**
-     * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
-     */
-    public ShowType getShow() {
-        return show;
-    }
-
-    /**
-     * Sets the value of the show property.
-     *
-     * @param value
-     *            allowed object is {@link ShowType }
-     *
-     */
-    public void setShow(ShowType value) {
-        this.show = value;
-    }
-
-    public boolean isSetShow() {
-        return (this.show != null);
-    }
-
-    /**
-     * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
-     */
-    public ActuateType getActuate() {
-        return actuate;
-    }
-
-    /**
-     * Sets the value of the actuate property.
-     *
-     * @param value
-     *            allowed object is {@link ActuateType }
-     *
-     */
-    public void setActuate(ActuateType value) {
-        this.actuate = value;
-    }
-
-    public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.topoSolid!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link java.lang.Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -334,21 +133,246 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Boolean }
-     *
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
         this.owns = null;
+    }
+
+    /**
+     * Gets the value of the nilReason property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNilReason() {
+        return nilReason;
+    }
+
+    /**
+     * Sets the value of the nilReason property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNilReason(String value) {
+        this.nilReason = value;
+    }
+
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
+    /**
+     * Gets the value of the remoteSchema property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRemoteSchema() {
+        return remoteSchema;
+    }
+
+    /**
+     * Sets the value of the remoteSchema property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRemoteSchema(String value) {
+        this.remoteSchema = value;
+    }
+
+    public boolean isSetRemoteSchema() {
+        return (this.remoteSchema!= null);
+    }
+
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
+    }
+
+    public boolean isSetHref() {
+        return (this.href!= null);
+    }
+
+    /**
+     * Gets the value of the role property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * Sets the value of the role property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRole(String value) {
+        this.role = value;
+    }
+
+    public boolean isSetRole() {
+        return (this.role!= null);
+    }
+
+    /**
+     * Gets the value of the arcrole property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getArcrole() {
+        return arcrole;
+    }
+
+    /**
+     * Sets the value of the arcrole property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setArcrole(String value) {
+        this.arcrole = value;
+    }
+
+    public boolean isSetArcrole() {
+        return (this.arcrole!= null);
+    }
+
+    /**
+     * Gets the value of the simpleLinkTitle property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSimpleLinkTitle() {
+        return simpleLinkTitle;
+    }
+
+    /**
+     * Sets the value of the simpleLinkTitle property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSimpleLinkTitle(String value) {
+        this.simpleLinkTitle = value;
+    }
+
+    public boolean isSetSimpleLinkTitle() {
+        return (this.simpleLinkTitle!= null);
+    }
+
+    /**
+     * Gets the value of the show property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
+     */
+    public ShowType getShow() {
+        return show;
+    }
+
+    /**
+     * Sets the value of the show property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ShowType }
+     *     
+     */
+    public void setShow(ShowType value) {
+        this.show = value;
+    }
+
+    public boolean isSetShow() {
+        return (this.show!= null);
+    }
+
+    /**
+     * Gets the value of the actuate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
+     */
+    public ActuateType getActuate() {
+        return actuate;
+    }
+
+    /**
+     * Sets the value of the actuate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
+     */
+    public void setActuate(ActuateType value) {
+        this.actuate = value;
+    }
+
+    public boolean isSetActuate() {
+        return (this.actuate!= null);
     }
 
     @Override
@@ -364,9 +388,8 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -374,27 +397,14 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
         }
         final TopoSolidPropertyType that = ((TopoSolidPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -413,14 +423,14 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getRole();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -439,14 +449,14 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getArcrole();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -465,19 +475,6 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetActuate();
             boolean rhsFieldIsSet = that.isSetActuate();
             ActuateType lhsField;
@@ -491,14 +488,40 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -524,6 +547,13 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
             TopoSolidType theField;
             theField = this.getTopoSolid();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "topoSolid", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -582,13 +612,6 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
         return currentHashCode;
     }
 
@@ -619,6 +642,12 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
             TopoSolidType theField;
             theField = this.getTopoSolid();
             strategy.appendField(locator, this, "topoSolid", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetNilReason();
@@ -667,12 +696,6 @@ public class TopoSolidPropertyType implements Serializable, Equals, HashCode, To
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

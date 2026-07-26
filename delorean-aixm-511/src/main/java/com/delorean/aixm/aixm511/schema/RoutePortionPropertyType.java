@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for RoutePortionPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for RoutePortionPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="RoutePortionPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}RoutePortion"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RoutePortionPropertyType", propOrder = {"routePortion"})
+@XmlType(name = "RoutePortionPropertyType", propOrder = {
+    "routePortion"
+})
 @Entity(name = "RoutePortionPropertyType")
 @Table(name = "routeportion_p", schema = "route")
-public class RoutePortionPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class RoutePortionPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "RoutePortion", required = true)
@@ -57,11 +56,15 @@ public class RoutePortionPropertyType extends AbstractAIXMPropertyType implement
 
     /**
      * Gets the value of the routePortion property.
-     *
-     * @return possible object is {@link RoutePortionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link RoutePortionType }
+     *     
      */
-    @OneToOne(targetEntity = RoutePortionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = RoutePortionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "routeportion_hjid", referencedColumnName = "hjid")
     public RoutePortionType getRoutePortion() {
         return routePortion;
@@ -69,10 +72,11 @@ public class RoutePortionPropertyType extends AbstractAIXMPropertyType implement
 
     /**
      * Sets the value of the routePortion property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link RoutePortionType }
-     *
+     *     allowed object is
+     *     {@link RoutePortionType }
+     *     
      */
     public void setRoutePortion(RoutePortionType value) {
         this.routePortion = value;
@@ -80,13 +84,12 @@ public class RoutePortionPropertyType extends AbstractAIXMPropertyType implement
 
     @Transient
     public boolean isSetRoutePortion() {
-        return (this.routePortion != null);
+        return (this.routePortion!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

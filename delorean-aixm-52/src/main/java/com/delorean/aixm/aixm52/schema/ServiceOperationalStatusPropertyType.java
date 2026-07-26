@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ServiceOperationalStatusPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ServiceOperationalStatusPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ServiceOperationalStatusPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}ServiceOperationalStatus"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}ServiceOperationalStatus"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ServiceOperationalStatusPropertyType", propOrder = {"serviceOperationalStatus"})
+@XmlType(name = "ServiceOperationalStatusPropertyType", propOrder = {
+    "serviceOperationalStatus"
+})
 @Entity(name = "ServiceOperationalStatusPropertyType")
 @Table(name = "serviceoperationalstatuspropertytype", schema = "service")
-public class ServiceOperationalStatusPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class ServiceOperationalStatusPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ServiceOperationalStatus", required = true)
@@ -58,11 +56,15 @@ public class ServiceOperationalStatusPropertyType extends AbstractAIXMPropertyTy
 
     /**
      * Gets the value of the serviceOperationalStatus property.
-     *
-     * @return possible object is {@link ServiceOperationalStatusType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ServiceOperationalStatusType }
+     *     
      */
-    @OneToOne(targetEntity = ServiceOperationalStatusType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ServiceOperationalStatusType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "serviceoperationalstatus_hjid", referencedColumnName = "hjid")
     public ServiceOperationalStatusType getServiceOperationalStatus() {
         return serviceOperationalStatus;
@@ -70,10 +72,11 @@ public class ServiceOperationalStatusPropertyType extends AbstractAIXMPropertyTy
 
     /**
      * Sets the value of the serviceOperationalStatus property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ServiceOperationalStatusType }
-     *
+     *     allowed object is
+     *     {@link ServiceOperationalStatusType }
+     *     
      */
     public void setServiceOperationalStatus(ServiceOperationalStatusType value) {
         this.serviceOperationalStatus = value;
@@ -81,13 +84,12 @@ public class ServiceOperationalStatusPropertyType extends AbstractAIXMPropertyTy
 
     @Transient
     public boolean isSetServiceOperationalStatus() {
-        return (this.serviceOperationalStatus != null);
+        return (this.serviceOperationalStatus!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

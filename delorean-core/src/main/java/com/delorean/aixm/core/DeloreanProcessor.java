@@ -1,12 +1,8 @@
 package com.delorean.aixm.core;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.delorean.aixm.core.container.Container;
-import com.delorean.aixm.core.container.ContainerWarehouse;
-import com.delorean.aixm.core.context.Context;
-
 
 public interface DeloreanProcessor {
     String getVersion();

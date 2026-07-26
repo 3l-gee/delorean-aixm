@@ -17,6 +17,11 @@ class OrmHandler:
         
         node = ["<!-- Embedable + orm -->"]
 
+        type = Config.generate_database_name(constraints.get("type"))
+
+        node.append(f'''<orm:column column-definition="{type}" />''')
+        return node
+
         if constraints["uber"] == "string":
             if constraints.get("length") is None and constraints.get("maxLength") is None :
                 length = 256
@@ -61,10 +66,22 @@ class OrmHandler:
         
         return []
 
-    def constraint_generator_attribute_override(type) -> dict:
+    def constraint_generator_attribute_override(xsdType) -> dict:
         POSTGRES_VARCHAR_LIMIT = 4000
 
-        constraints = Content().get_transposition(type)
+        constraints = Content().get_transposition(xsdType)
+        if not constraints:
+            return None
+            # raise ValueError(f"No transposition found for XSD type '{xsdType}'")
+
+        base_type = constraints.get("type")
+        if not base_type:
+            raise ValueError(
+                f"Transposition for '{type}' is missing a 'type' entry: {constraints}"
+            )
+
+        type = Config.generate_database_name(constraints.get("type"))
+        return f'''column-definition="{type}"'''
 
         if constraints is None:
             return None
@@ -125,15 +142,32 @@ class OrmHandler:
 
         embeded_fields = Config().get_embed_by_type(type)
         base_type = type.replace("Type","BaseType")
-        
+
         constraints = OrmHandler.constraint_generator_attribute_override(base_type)
         res.append(HyperJAXB.hj_embedded_start())
-
+    
         for key, value in embeded_fields.items():
+
             if key == "value" : 
+                type = value.get("type")
+                constraints = OrmHandler.constraint_generator_attribute_override(type)
                 res.append(HyperJAXB.attribute_override(key, str(name), constraints))
+
+            elif key == "uom" : 
+                type = value.get("type")
+                constraints = OrmHandler.constraint_generator_attribute_override(type)
+                res.append(HyperJAXB.attribute_override(key, str(name+  "_" + key), constraints))
+
+            elif key == "accuracy" : 
+                type = value.get("type")
+                constraints = OrmHandler.constraint_generator_attribute_override(type)
+                res.append(HyperJAXB.attribute_override(key, str(name+  "_" + key), constraints))
+
+            elif key == "nilReason" : 
+                res.append(HyperJAXB.attribute_override(key, str(name+  "_" + key), 'column-definition="nilreason"'))
+
             else:
-                res.append(HyperJAXB.attribute_override(key, str(name +  "_" + key)))
+                print(type, key, value)
             
         res.append(HyperJAXB.hj_embedded_end())
 

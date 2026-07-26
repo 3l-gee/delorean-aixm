@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,56 +31,34 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for SpecialNavigationStationTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SpecialNavigationStationTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SpecialNavigationStationTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.1}TextNameType" minOccurs="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.1}CodeSpecialNavigationStationType" minOccurs=
-"0"/>
- *         <element name="frequency" type=
-"{http://www.aixm.aero/schema/5.1}ValFrequencyType" minOccurs="0"/>
- *         <element name="emission" type=
-"{http://www.aixm.aero/schema/5.1}CodeRadioEmissionType" minOccurs="0"/>
- *         <element name="systemChain" type=
-"{http://www.aixm.aero/schema/5.1}SpecialNavigationSystemPropertyType" minOccurs
-="0"/>
- *         <element name="responsibleOrganisation" type=
-"{http://www.aixm.aero/schema/5.1}AuthorityForSpecialNavigationStationPropertyType" minOccurs
-="0"/>
- *         <element name="position" type=
-"{http://www.aixm.aero/schema/5.1}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="availability" type=
-"{http://www.aixm.aero/schema/5.1}SpecialNavigationStationStatusPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1}TextNameType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1}CodeSpecialNavigationStationType" minOccurs="0"/>
+ *         <element name="frequency" type="{http://www.aixm.aero/schema/5.1}ValFrequencyType" minOccurs="0"/>
+ *         <element name="emission" type="{http://www.aixm.aero/schema/5.1}CodeRadioEmissionType" minOccurs="0"/>
+ *         <element name="systemChain" type="{http://www.aixm.aero/schema/5.1}SpecialNavigationSystemPropertyType" minOccurs="0"/>
+ *         <element name="responsibleOrganisation" type="{http://www.aixm.aero/schema/5.1}AuthorityForSpecialNavigationStationPropertyType" minOccurs="0"/>
+ *         <element name="position" type="{http://www.aixm.aero/schema/5.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1}SpecialNavigationStationStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractSpecialNavigationStationExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractSpecialNavigationStationExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -90,15 +68,28 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SpecialNavigationStationTimeSliceType", propOrder = {"aixmName", "type", "frequency", "emission",
-        "systemChain", "responsibleOrganisation", "position", "availability", "annotation", "extension"})
+@XmlType(name = "SpecialNavigationStationTimeSliceType", propOrder = {
+    "aixmName",
+    "type",
+    "frequency",
+    "emission",
+    "systemChain",
+    "responsibleOrganisation",
+    "position",
+    "availability",
+    "annotation",
+    "extension"
+})
 @Entity(name = "SpecialNavigationStationTimeSliceType")
 @Table(name = "specialnavigationstation_t", schema = "navaids_point")
-public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class SpecialNavigationStationTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "name", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -123,10 +114,11 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -135,11 +127,11 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -147,15 +139,16 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSpecialNavigationStationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSpecialNavigationStationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSpecialNavigationStationType> getType() {
@@ -164,11 +157,11 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSpecialNavigationStationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSpecialNavigationStationType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeSpecialNavigationStationType> value) {
         this.type = value;
@@ -176,15 +169,16 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the frequency property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValFrequencyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValFrequencyType> getFrequency() {
@@ -193,11 +187,11 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Sets the value of the frequency property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValFrequencyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
+     *     
      */
     public void setFrequency(JAXBElement<ValFrequencyType> value) {
         this.frequency = value;
@@ -205,15 +199,16 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetFrequency() {
-        return (this.frequency != null);
+        return (this.frequency!= null);
     }
 
     /**
      * Gets the value of the emission property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeRadioEmissionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeRadioEmissionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeRadioEmissionType> getEmission() {
@@ -222,11 +217,11 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Sets the value of the emission property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeRadioEmissionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeRadioEmissionType }{@code >}
+     *     
      */
     public void setEmission(JAXBElement<CodeRadioEmissionType> value) {
         this.emission = value;
@@ -234,15 +229,16 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetEmission() {
-        return (this.emission != null);
+        return (this.emission!= null);
     }
 
     /**
      * Gets the value of the systemChain property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link SpecialNavigationSystemPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link SpecialNavigationSystemPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<SpecialNavigationSystemPropertyType> getSystemChain() {
@@ -251,11 +247,11 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Sets the value of the systemChain property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link SpecialNavigationSystemPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link SpecialNavigationSystemPropertyType }{@code >}
+     *     
      */
     public void setSystemChain(JAXBElement<SpecialNavigationSystemPropertyType> value) {
         this.systemChain = value;
@@ -263,16 +259,16 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetSystemChain() {
-        return (this.systemChain != null);
+        return (this.systemChain!= null);
     }
 
     /**
      * Gets the value of the responsibleOrganisation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AuthorityForSpecialNavigationStationPropertyType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AuthorityForSpecialNavigationStationPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AuthorityForSpecialNavigationStationPropertyType> getResponsibleOrganisation() {
@@ -281,12 +277,11 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Sets the value of the responsibleOrganisation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AuthorityForSpecialNavigationStationPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AuthorityForSpecialNavigationStationPropertyType }{@code >}
+     *     
      */
     public void setResponsibleOrganisation(JAXBElement<AuthorityForSpecialNavigationStationPropertyType> value) {
         this.responsibleOrganisation = value;
@@ -294,15 +289,16 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetResponsibleOrganisation() {
-        return (this.responsibleOrganisation != null);
+        return (this.responsibleOrganisation!= null);
     }
 
     /**
      * Gets the value of the position property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getPosition() {
@@ -311,11 +307,11 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Sets the value of the position property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setPosition(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.position = value;
@@ -323,37 +319,39 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetPosition() {
-        return (this.position != null);
+        return (this.position!= null);
     }
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SpecialNavigationStationStatusPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SpecialNavigationStationStatusPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "spclnvgtnsttntmslctp_avlblt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "spclnvgtnsttntmslctp_avlblt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
+    })
     public List<SpecialNavigationStationStatusPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -362,8 +360,8 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<SpecialNavigationStationStatusPropertyType> availability) {
         this.availability = availability;
@@ -371,7 +369,7 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -380,31 +378,34 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "spclnvgtnsttntmslctp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "spclnvgtnsttntmslctp_annttn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -413,8 +414,8 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -422,7 +423,7 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -431,29 +432,29 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SpecialNavigationStationTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SpecialNavigationStationTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "specialnavigationstation_te_hjid", referencedColumnName = "hjid")
     public List<SpecialNavigationStationTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -463,8 +464,8 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<SpecialNavigationStationTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -472,7 +473,7 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -481,109 +482,108 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character3")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "name"), SpecialNavigationStationTimeSliceType.class,
-                target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1", "name"), SpecialNavigationStationTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codespecialnavigationstationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeSpecialNavigationStationType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSpecialNavigationStationType.class, this.getType());
     }
 
     public void setTypeItem(CodeSpecialNavigationStationType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeSpecialNavigationStationType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "type"), SpecialNavigationStationTimeSliceType.class,
-                target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeSpecialNavigationStationType.class, new QName("http://www.aixm.aero/schema/5.1", "type"), SpecialNavigationStationTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "frequency", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "frequencyuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "frequencynilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "frequency", columnDefinition = "valfrequencybase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "frequencyuom", columnDefinition = "uomfrequency")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "frequencynilreason", columnDefinition = "nilreason"))
+    })
     public ValFrequencyType getFrequencyItem() {
         return XmlAdapterUtils.unmarshallSource(ValFrequencyType.class, this.getFrequency());
     }
 
     public void setFrequencyItem(ValFrequencyType target) {
-        setFrequency(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "frequency"), SpecialNavigationStationTimeSliceType.class,
-                target));
+        setFrequency(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class, new QName("http://www.aixm.aero/schema/5.1", "frequency"), SpecialNavigationStationTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "emission")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "emissionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "emission", columnDefinition = "coderadioemissionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "emissionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeRadioEmissionType getEmissionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRadioEmissionType.class, this.getEmission());
     }
 
     public void setEmissionItem(CodeRadioEmissionType target) {
-        setEmission(XmlAdapterUtils.marshallJAXBElement(CodeRadioEmissionType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "emission"), SpecialNavigationStationTimeSliceType.class,
-                target));
+        setEmission(XmlAdapterUtils.marshallJAXBElement(CodeRadioEmissionType.class, new QName("http://www.aixm.aero/schema/5.1", "emission"), SpecialNavigationStationTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = SpecialNavigationSystemPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "spclnvgtnsttntmslctp_sstmchn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "systemchain_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "spclnvgtnsttntmslctp_sstmchn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "systemchain_hjid", referencedColumnName = "hjid")
+    })
     public SpecialNavigationSystemPropertyType getSystemChainItem() {
         return XmlAdapterUtils.unmarshallSource(SpecialNavigationSystemPropertyType.class, this.getSystemChain());
     }
 
     public void setSystemChainItem(SpecialNavigationSystemPropertyType target) {
-        setSystemChain(XmlAdapterUtils.marshallJAXBElement(SpecialNavigationSystemPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "systemChain"),
-                SpecialNavigationStationTimeSliceType.class, target));
+        setSystemChain(XmlAdapterUtils.marshallJAXBElement(SpecialNavigationSystemPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "systemChain"), SpecialNavigationStationTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = AuthorityForSpecialNavigationStationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "spclnvgtnsttntmslctp_rspnsblorgnstn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "responsibleorganisation_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "spclnvgtnsttntmslctp_rspnsblorgnstn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "responsibleorganisation_hjid", referencedColumnName = "hjid")
+    })
     public AuthorityForSpecialNavigationStationPropertyType getResponsibleOrganisationItem() {
-        return XmlAdapterUtils.unmarshallSource(AuthorityForSpecialNavigationStationPropertyType.class,
-                this.getResponsibleOrganisation());
+        return XmlAdapterUtils.unmarshallSource(AuthorityForSpecialNavigationStationPropertyType.class, this.getResponsibleOrganisation());
     }
 
     public void setResponsibleOrganisationItem(AuthorityForSpecialNavigationStationPropertyType target) {
-        setResponsibleOrganisation(
-                XmlAdapterUtils.marshallJAXBElement(AuthorityForSpecialNavigationStationPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1", "responsibleOrganisation"),
-                        SpecialNavigationStationTimeSliceType.class, target));
+        setResponsibleOrganisation(XmlAdapterUtils.marshallJAXBElement(AuthorityForSpecialNavigationStationPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "responsibleOrganisation"), SpecialNavigationStationTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "spclnvgtnsttntmslctp_pstn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "position_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "spclnvgtnsttntmslctp_pstn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "specialnavigationstation_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "position_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getPosition());
     }
 
     public void setPositionItem(AIXMElevatedPointPropertyType target) {
-        setPosition(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "position"), SpecialNavigationStationTimeSliceType.class,
-                target));
+        setPosition(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "position"), SpecialNavigationStationTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -594,14 +594,27 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
         }
         final SpecialNavigationStationTimeSliceType that = ((SpecialNavigationStationTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFrequency();
-            boolean rhsFieldIsSet = that.isSetFrequency();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getFrequency();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
+            boolean lhsFieldIsSet = this.isSetPosition();
+            boolean rhsFieldIsSet = that.isSetPosition();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getPosition();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<SpecialNavigationStationStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<SpecialNavigationStationStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -620,40 +633,53 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFrequency();
+            boolean rhsFieldIsSet = that.isSetFrequency();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getFrequency();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeSpecialNavigationStationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeSpecialNavigationStationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEmission();
+            boolean rhsFieldIsSet = that.isSetEmission();
+            JAXBElement<CodeRadioEmissionType> lhsField;
+            lhsField = this.getEmission();
+            JAXBElement<CodeRadioEmissionType> rhsField;
+            rhsField = that.getEmission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<SpecialNavigationStationTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<SpecialNavigationStationTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPosition();
-            boolean rhsFieldIsSet = that.isSetPosition();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getPosition();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -685,40 +711,14 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEmission();
-            boolean rhsFieldIsSet = that.isSetEmission();
-            JAXBElement<CodeRadioEmissionType> lhsField;
-            lhsField = this.getEmission();
-            JAXBElement<CodeRadioEmissionType> rhsField;
-            rhsField = that.getEmission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emission", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<SpecialNavigationStationStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<SpecialNavigationStationStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeSpecialNavigationStationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeSpecialNavigationStationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -781,21 +781,21 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<SpecialNavigationStationStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SpecialNavigationStationTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -850,19 +850,19 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<SpecialNavigationStationStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SpecialNavigationStationTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,13 +1,13 @@
 
 package com.delorean.aixm.core.org.gco.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,33 +21,30 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for Binary_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for Binary_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="Binary_Type">
  *   <simpleContent>
  *     <extension base="<http://www.w3.org/2001/XMLSchema>string">
- *       <attribute name="src" type=
-"{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *       <attribute name="src" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Binary_Type", propOrder = {"value"})
-public class BinaryType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "Binary_Type", propOrder = {
+    "value"
+})
+public class BinaryType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -58,9 +55,11 @@ public class BinaryType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Gets the value of the value property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getValue() {
         return value;
@@ -68,24 +67,27 @@ public class BinaryType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setValue(String value) {
         this.value = value;
     }
 
     public boolean isSetValue() {
-        return (this.value != null);
+        return (this.value!= null);
     }
 
     /**
      * Gets the value of the src property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSrc() {
         return src;
@@ -93,17 +95,18 @@ public class BinaryType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the src property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSrc(String value) {
         this.src = value;
     }
 
     public boolean isSetSrc() {
-        return (this.src != null);
+        return (this.src!= null);
     }
 
     @Override
@@ -119,28 +122,14 @@ public class BinaryType implements Serializable, Equals, HashCode, ToString {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final BinaryType that = ((BinaryType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            String lhsField;
-            lhsField = this.getValue();
-            String rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetSrc();
             boolean rhsFieldIsSet = that.isSetSrc();
@@ -150,6 +139,19 @@ public class BinaryType implements Serializable, Equals, HashCode, ToString {
             rhsField = that.getSrc();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "src", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "src", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            String lhsField;
+            lhsField = this.getValue();
+            String rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

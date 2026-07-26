@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for StandardLevelPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for StandardLevelPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="StandardLevelPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1}StandardLevel"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StandardLevelPropertyType", propOrder = {"standardLevel"})
+@XmlType(name = "StandardLevelPropertyType", propOrder = {
+    "standardLevel"
+})
 @Entity(name = "StandardLevelPropertyType")
 @Table(name = "standardlevel_p", schema = "shared")
-public class StandardLevelPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class StandardLevelPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "StandardLevel", required = true)
@@ -57,11 +56,15 @@ public class StandardLevelPropertyType extends AbstractAIXMPropertyType implemen
 
     /**
      * Gets the value of the standardLevel property.
-     *
-     * @return possible object is {@link StandardLevelType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link StandardLevelType }
+     *     
      */
-    @OneToOne(targetEntity = StandardLevelType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = StandardLevelType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "standardlevel_hjid", referencedColumnName = "hjid")
     public StandardLevelType getStandardLevel() {
         return standardLevel;
@@ -69,10 +72,11 @@ public class StandardLevelPropertyType extends AbstractAIXMPropertyType implemen
 
     /**
      * Sets the value of the standardLevel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link StandardLevelType }
-     *
+     *     allowed object is
+     *     {@link StandardLevelType }
+     *     
      */
     public void setStandardLevel(StandardLevelType value) {
         this.standardLevel = value;
@@ -80,13 +84,12 @@ public class StandardLevelPropertyType extends AbstractAIXMPropertyType implemen
 
     @Transient
     public boolean isSetStandardLevel() {
-        return (this.standardLevel != null);
+        return (this.standardLevel!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

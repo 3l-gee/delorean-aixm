@@ -1,13 +1,13 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,17 +21,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for LanguageCode_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for LanguageCode_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="LanguageCode_PropertyType">
  *   <complexContent>
@@ -44,12 +39,15 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LanguageCode_PropertyType", propOrder = {"languageCode"})
-public class LanguageCodePropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "LanguageCode_PropertyType", propOrder = {
+    "languageCode"
+})
+public class LanguageCodePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "LanguageCode")
@@ -59,9 +57,11 @@ public class LanguageCodePropertyType implements Serializable, Equals, HashCode,
 
     /**
      * Gets the value of the languageCode property.
-     *
-     * @return possible object is {@link CodeListValueType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CodeListValueType }
+     *     
      */
     public CodeListValueType getLanguageCode() {
         return languageCode;
@@ -69,24 +69,27 @@ public class LanguageCodePropertyType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the languageCode property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CodeListValueType }
-     *
+     *     allowed object is
+     *     {@link CodeListValueType }
+     *     
      */
     public void setLanguageCode(CodeListValueType value) {
         this.languageCode = value;
     }
 
     public boolean isSetLanguageCode() {
-        return (this.languageCode != null);
+        return (this.languageCode!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -94,17 +97,18 @@ public class LanguageCodePropertyType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -120,9 +124,8 @@ public class LanguageCodePropertyType implements Serializable, Equals, HashCode,
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,51 +31,32 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for ApronTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ApronTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ApronTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="abandoned" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="surfaceProperties" type=
-"{http://www.aixm.aero/schema/5.2}SurfaceCharacteristicsPropertyType" minOccurs=
-"0"/>
- *         <element name="associatedAirportHeliport" type=
-"{http://www.aixm.aero/schema/5.2}AirportHeliportPropertyType" minOccurs="0"/>
- *         <element name="contaminant" type=
-"{http://www.aixm.aero/schema/5.2}ApronContaminationPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="availability" type=
-"{http://www.aixm.aero/schema/5.2}ApronAreaAvailabilityPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="abandoned" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="surfaceProperties" type="{http://www.aixm.aero/schema/5.2}SurfaceCharacteristicsPropertyType" minOccurs="0"/>
+ *         <element name="associatedAirportHeliport" type="{http://www.aixm.aero/schema/5.2}AirportHeliportPropertyType" minOccurs="0"/>
+ *         <element name="contaminant" type="{http://www.aixm.aero/schema/5.2}ApronContaminationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.2}ApronAreaAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractApronExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractApronExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -85,15 +66,26 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ApronTimeSliceType", propOrder = {"aixmName", "abandoned", "surfaceProperties",
-        "associatedAirportHeliport", "contaminant", "annotation", "availability", "extension"})
+@XmlType(name = "ApronTimeSliceType", propOrder = {
+    "aixmName",
+    "abandoned",
+    "surfaceProperties",
+    "associatedAirportHeliport",
+    "contaminant",
+    "annotation",
+    "availability",
+    "extension"
+})
 @Entity(name = "ApronTimeSliceType")
 @Table(name = "apron_t", schema = "airport_heliport")
-public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class ApronTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "name", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -114,10 +106,11 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -126,11 +119,11 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -138,15 +131,16 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the abandoned property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getAbandoned() {
@@ -155,11 +149,11 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     /**
      * Sets the value of the abandoned property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setAbandoned(JAXBElement<CodeYesNoType> value) {
         this.abandoned = value;
@@ -167,15 +161,16 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Transient
     public boolean isSetAbandoned() {
-        return (this.abandoned != null);
+        return (this.abandoned!= null);
     }
 
     /**
      * Gets the value of the surfaceProperties property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<SurfaceCharacteristicsPropertyType> getSurfaceProperties() {
@@ -184,11 +179,11 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     /**
      * Sets the value of the surfaceProperties property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
+     *     
      */
     public void setSurfaceProperties(JAXBElement<SurfaceCharacteristicsPropertyType> value) {
         this.surfaceProperties = value;
@@ -196,15 +191,16 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Transient
     public boolean isSetSurfaceProperties() {
-        return (this.surfaceProperties != null);
+        return (this.surfaceProperties!= null);
     }
 
     /**
      * Gets the value of the associatedAirportHeliport property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getAssociatedAirportHeliport() {
@@ -213,11 +209,11 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     /**
      * Sets the value of the associatedAirportHeliport property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setAssociatedAirportHeliport(JAXBElement<AirportHeliportPropertyType> value) {
         this.associatedAirportHeliport = value;
@@ -225,37 +221,39 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Transient
     public boolean isSetAssociatedAirportHeliport() {
-        return (this.associatedAirportHeliport != null);
+        return (this.associatedAirportHeliport!= null);
     }
 
     /**
      * Gets the value of the contaminant property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the contaminant property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the contaminant property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getContaminant().add(newItem);
+     *    getContaminant().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ApronContaminationPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ApronContaminationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "aprntmslctp_cntmnnt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "contaminant_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "aprntmslctp_cntmnnt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "contaminant_hjid", referencedColumnName = "hjid")
+    })
     public List<ApronContaminationPropertyType> getContaminant() {
         if (contaminant == null) {
             contaminant = new ArrayList<>();
@@ -264,8 +262,8 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setContaminant(List<ApronContaminationPropertyType> contaminant) {
         this.contaminant = contaminant;
@@ -273,7 +271,7 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Transient
     public boolean isSetContaminant() {
-        return ((this.contaminant != null) && (!this.contaminant.isEmpty()));
+        return ((this.contaminant!= null)&&(!this.contaminant.isEmpty()));
     }
 
     public void unsetContaminant() {
@@ -282,31 +280,34 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "aprntmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "aprntmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -315,8 +316,8 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -324,7 +325,7 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -333,32 +334,34 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ApronAreaAvailabilityPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ApronAreaAvailabilityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "aprntmslctp_avlblt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "aprntmslctp_avlblt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
+    })
     public List<ApronAreaAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -367,8 +370,8 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<ApronAreaAvailabilityPropertyType> availability) {
         this.availability = availability;
@@ -376,7 +379,7 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -385,28 +388,29 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ApronTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = ApronTimeSliceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = ApronTimeSliceExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "apron_te_hjid", referencedColumnName = "hjid")
     public List<ApronTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -416,8 +420,8 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<ApronTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -425,7 +429,7 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -434,61 +438,65 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "name"), ApronTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), ApronTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "abandoned")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "abandonednilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "abandoned", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "abandonednilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getAbandonedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getAbandoned());
     }
 
     public void setAbandonedItem(CodeYesNoType target) {
-        setAbandoned(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "abandoned"), ApronTimeSliceType.class, target));
+        setAbandoned(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "abandoned"), ApronTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "aprntmslctp_srfcprprts_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "surfaceproperties_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "aprntmslctp_srfcprprts_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "surfaceproperties_hjid", referencedColumnName = "hjid")
+    })
     public SurfaceCharacteristicsPropertyType getSurfacePropertiesItem() {
         return XmlAdapterUtils.unmarshallSource(SurfaceCharacteristicsPropertyType.class, this.getSurfaceProperties());
     }
 
     public void setSurfacePropertiesItem(SurfaceCharacteristicsPropertyType target) {
-        setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "surfaceProperties"), ApronTimeSliceType.class, target));
+        setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "surfaceProperties"), ApronTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "aprntmslctp_assctdarprthlprt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "associatedairportheliport_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "aprntmslctp_assctdarprthlprt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "apron_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "associatedairportheliport_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getAssociatedAirportHeliportItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getAssociatedAirportHeliport());
     }
 
     public void setAssociatedAirportHeliportItem(AirportHeliportPropertyType target) {
-        setAssociatedAirportHeliport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "associatedAirportHeliport"), ApronTimeSliceType.class,
-                target));
+        setAssociatedAirportHeliport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "associatedAirportHeliport"), ApronTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -499,14 +507,14 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
         }
         final ApronTimeSliceType that = ((ApronTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetContaminant();
-            boolean rhsFieldIsSet = that.isSetContaminant();
-            List<ApronContaminationPropertyType> lhsField;
-            lhsField = (this.isSetContaminant() ? this.getContaminant() : null);
-            List<ApronContaminationPropertyType> rhsField;
-            rhsField = (that.isSetContaminant() ? that.getContaminant() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contaminant", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contaminant", rhsField);
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -538,32 +546,6 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApronTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApronTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSurfaceProperties();
             boolean rhsFieldIsSet = that.isSetSurfaceProperties();
             JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
@@ -577,27 +559,53 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ApronAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<ApronAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApronTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ApronTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContaminant();
+            boolean rhsFieldIsSet = that.isSetContaminant();
+            List<ApronContaminationPropertyType> lhsField;
+            lhsField = (this.isSetContaminant()?this.getContaminant():null);
+            List<ApronContaminationPropertyType> rhsField;
+            rhsField = (that.isSetContaminant()?that.getContaminant():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contaminant", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contaminant", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ApronAreaAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ApronAreaAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -639,28 +647,28 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
         {
             boolean theFieldIsSet = this.isSetContaminant();
             List<ApronContaminationPropertyType> theField;
-            theField = (this.isSetContaminant() ? this.getContaminant() : null);
+            theField = (this.isSetContaminant()?this.getContaminant():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "contaminant", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<ApronAreaAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ApronTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -697,25 +705,25 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
         {
             boolean theFieldIsSet = this.isSetContaminant();
             List<ApronContaminationPropertyType> theField;
-            theField = (this.isSetContaminant() ? this.getContaminant() : null);
+            theField = (this.isSetContaminant()?this.getContaminant():null);
             strategy.appendField(locator, this, "contaminant", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<ApronAreaAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ApronTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

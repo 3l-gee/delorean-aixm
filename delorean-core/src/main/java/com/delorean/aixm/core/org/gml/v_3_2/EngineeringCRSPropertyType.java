@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -10,7 +11,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,21 +24,14 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * gml:EngineeringCRSPropertyType is a property type for association roles to an
- * engineering coordinate reference system, either referencing or containing the
- * definition of that reference system.
- *
- * <p>
- * Java class for EngineeringCRSPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * gml:EngineeringCRSPropertyType is a property type for association roles to an engineering coordinate reference system, either referencing or containing the definition of that reference system.
+ * 
+ * <p>Java class for EngineeringCRSPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="EngineeringCRSPropertyType">
  *   <complexContent>
@@ -46,27 +39,27 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}EngineeringCRS"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EngineeringCRSPropertyType", propOrder = {"engineeringCRS"})
-public class EngineeringCRSPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "EngineeringCRSPropertyType", propOrder = {
+    "engineeringCRS"
+})
+public class EngineeringCRSPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:EngineeringCRS is a contextually local coordinate reference system which
-     * can be divided into two broad categories: - earth-fixed systems applied to
-     * engineering activities on or near the surface of the earth; - CRSs on moving
-     * platforms such as road vehicles, vessels, aircraft, or spacecraft, see ISO
-     * 19111 8.3.
-     *
+     * gml:EngineeringCRS is a contextually local coordinate reference system which can be divided into two broad categories:
+     * -	earth-fixed systems applied to engineering activities on or near the surface of the earth;
+     * -	CRSs on moving platforms such as road vehicles, vessels, aircraft, or spacecraft, see ISO 19111 8.3.
+     * 
      */
     @XmlElement(name = "EngineeringCRS")
     protected EngineeringCRSType engineeringCRS;
@@ -91,14 +84,14 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
     protected ActuateType actuate;
 
     /**
-     * gml:EngineeringCRS is a contextually local coordinate reference system which
-     * can be divided into two broad categories: - earth-fixed systems applied to
-     * engineering activities on or near the surface of the earth; - CRSs on moving
-     * platforms such as road vehicles, vessels, aircraft, or spacecraft, see ISO
-     * 19111 8.3.
-     *
-     * @return possible object is {@link EngineeringCRSType }
-     *
+     * gml:EngineeringCRS is a contextually local coordinate reference system which can be divided into two broad categories:
+     * -	earth-fixed systems applied to engineering activities on or near the surface of the earth;
+     * -	CRSs on moving platforms such as road vehicles, vessels, aircraft, or spacecraft, see ISO 19111 8.3.
+     * 
+     * @return
+     *     possible object is
+     *     {@link EngineeringCRSType }
+     *     
      */
     public EngineeringCRSType getEngineeringCRS() {
         return engineeringCRS;
@@ -106,10 +99,11 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the engineeringCRS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link EngineeringCRSType }
-     *
+     *     allowed object is
+     *     {@link EngineeringCRSType }
+     *     
      * @see #getEngineeringCRS()
      */
     public void setEngineeringCRS(EngineeringCRSType value) {
@@ -117,14 +111,16 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
     }
 
     public boolean isSetEngineeringCRS() {
-        return (this.engineeringCRS != null);
+        return (this.engineeringCRS!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -132,24 +128,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -157,24 +156,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the remoteSchema property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
+        return (this.remoteSchema!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -182,24 +184,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -207,24 +212,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -232,24 +240,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -257,24 +268,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -282,24 +296,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -307,17 +324,18 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
@@ -333,9 +351,8 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -356,14 +373,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -395,14 +425,14 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEngineeringCRS();
-            boolean rhsFieldIsSet = that.isSetEngineeringCRS();
-            EngineeringCRSType lhsField;
-            lhsField = this.getEngineeringCRS();
-            EngineeringCRSType rhsField;
-            rhsField = that.getEngineeringCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engineeringCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engineeringCRS", rhsField);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -421,40 +451,27 @@ public class EngineeringCRSPropertyType implements Serializable, Equals, HashCod
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
+            boolean lhsFieldIsSet = this.isSetEngineeringCRS();
+            boolean rhsFieldIsSet = that.isSetEngineeringCRS();
+            EngineeringCRSType lhsField;
+            lhsField = this.getEngineeringCRS();
+            EngineeringCRSType rhsField;
+            rhsField = that.getEngineeringCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engineeringCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engineeringCRS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

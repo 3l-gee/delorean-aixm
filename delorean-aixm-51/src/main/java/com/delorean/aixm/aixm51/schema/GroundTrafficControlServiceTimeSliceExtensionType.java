@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,44 +35,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractGroundTrafficControlServiceExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractTrafficSeparationServiceExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractServiceExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AbstractGroundTrafficControlServiceExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AbstractTrafficSeparationServiceExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AbstractServiceExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractGroundTrafficControlServiceExtension",
-        "abstractTrafficSeparationServiceExtension", "abstractServiceExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractGroundTrafficControlServiceExtension",
+    "abstractTrafficSeparationServiceExtension",
+    "abstractServiceExtension"
+})
 @Entity(name = "GroundTrafficControlServiceTimeSliceExtensionType")
 @Table(name = "groundtrafficcontrolservice_te", schema = "service")
-public class GroundTrafficControlServiceTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString {
+public class GroundTrafficControlServiceTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractGroundTrafficControlServiceExtension")
@@ -90,11 +85,15 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     /**
      * Gets the value of the abstractGroundTrafficControlServiceExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractgroundtrafficcontrolserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundTrafficControlServiceExtension() {
         return abstractGroundTrafficControlServiceExtension;
@@ -102,10 +101,11 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     /**
      * Sets the value of the abstractGroundTrafficControlServiceExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractGroundTrafficControlServiceExtension(AbstractExtensionType value) {
         this.abstractGroundTrafficControlServiceExtension = value;
@@ -113,16 +113,20 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     @Transient
     public boolean isSetAbstractGroundTrafficControlServiceExtension() {
-        return (this.abstractGroundTrafficControlServiceExtension != null);
+        return (this.abstractGroundTrafficControlServiceExtension!= null);
     }
 
     /**
      * Gets the value of the abstractTrafficSeparationServiceExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstracttrafficseparationserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTrafficSeparationServiceExtension() {
         return abstractTrafficSeparationServiceExtension;
@@ -130,10 +134,11 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     /**
      * Sets the value of the abstractTrafficSeparationServiceExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractTrafficSeparationServiceExtension(AbstractExtensionType value) {
         this.abstractTrafficSeparationServiceExtension = value;
@@ -141,16 +146,20 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     @Transient
     public boolean isSetAbstractTrafficSeparationServiceExtension() {
-        return (this.abstractTrafficSeparationServiceExtension != null);
+        return (this.abstractTrafficSeparationServiceExtension!= null);
     }
 
     /**
      * Gets the value of the abstractServiceExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
@@ -158,10 +167,11 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     /**
      * Sets the value of the abstractServiceExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractServiceExtension(AbstractExtensionType value) {
         this.abstractServiceExtension = value;
@@ -169,14 +179,16 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     @Transient
     public boolean isSetAbstractServiceExtension() {
-        return (this.abstractServiceExtension != null);
+        return (this.abstractServiceExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -190,10 +202,11 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -201,7 +214,7 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -209,10 +222,12 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -223,21 +238,24 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -246,11 +264,12 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -269,9 +288,8 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -285,38 +303,8 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
             lhsField = this.getAbstractTrafficSeparationServiceExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractTrafficSeparationServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractTrafficSeparationServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractTrafficSeparationServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundTrafficControlServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundTrafficControlServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundTrafficControlServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractGroundTrafficControlServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractGroundTrafficControlServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTrafficSeparationServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTrafficSeparationServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -330,6 +318,32 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
             rhsField = that.getAbstractServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundTrafficControlServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGroundTrafficControlServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGroundTrafficControlServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundTrafficControlServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundTrafficControlServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -354,16 +368,14 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
             boolean theFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractGroundTrafficControlServiceExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
-                    "abstractGroundTrafficControlServiceExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGroundTrafficControlServiceExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractTrafficSeparationServiceExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractTrafficSeparationServiceExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractTrafficSeparationServiceExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractTrafficSeparationServiceExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -376,7 +388,7 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -409,15 +421,13 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
             boolean theFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractGroundTrafficControlServiceExtension();
-            strategy.appendField(locator, this, "abstractGroundTrafficControlServiceExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractGroundTrafficControlServiceExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractTrafficSeparationServiceExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractTrafficSeparationServiceExtension();
-            strategy.appendField(locator, this, "abstractTrafficSeparationServiceExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractTrafficSeparationServiceExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractServiceExtension();
@@ -428,7 +438,7 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

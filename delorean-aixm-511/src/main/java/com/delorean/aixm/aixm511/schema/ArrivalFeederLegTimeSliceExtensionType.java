@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,44 +35,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractArrivalFeederLegExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractApproachLegExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractSegmentLegExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractArrivalFeederLegExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractApproachLegExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractSegmentLegExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractArrivalFeederLegExtension", "abstractApproachLegExtension",
-        "abstractSegmentLegExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractArrivalFeederLegExtension",
+    "abstractApproachLegExtension",
+    "abstractSegmentLegExtension"
+})
 @Entity(name = "ArrivalFeederLegTimeSliceExtensionType")
 @Table(name = "arrivalfeederleg_te", schema = "procedure")
-public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString {
+public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractArrivalFeederLegExtension")
@@ -90,11 +85,15 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     /**
      * Gets the value of the abstractArrivalFeederLegExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractarrivalfeederlegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractArrivalFeederLegExtension() {
         return abstractArrivalFeederLegExtension;
@@ -102,10 +101,11 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     /**
      * Sets the value of the abstractArrivalFeederLegExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractArrivalFeederLegExtension(AbstractExtensionType value) {
         this.abstractArrivalFeederLegExtension = value;
@@ -113,16 +113,20 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     @Transient
     public boolean isSetAbstractArrivalFeederLegExtension() {
-        return (this.abstractArrivalFeederLegExtension != null);
+        return (this.abstractArrivalFeederLegExtension!= null);
     }
 
     /**
      * Gets the value of the abstractApproachLegExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractapproachlegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachLegExtension() {
         return abstractApproachLegExtension;
@@ -130,10 +134,11 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     /**
      * Sets the value of the abstractApproachLegExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractApproachLegExtension(AbstractExtensionType value) {
         this.abstractApproachLegExtension = value;
@@ -141,16 +146,20 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     @Transient
     public boolean isSetAbstractApproachLegExtension() {
-        return (this.abstractApproachLegExtension != null);
+        return (this.abstractApproachLegExtension!= null);
     }
 
     /**
      * Gets the value of the abstractSegmentLegExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractsegmentlegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentLegExtension() {
         return abstractSegmentLegExtension;
@@ -158,10 +167,11 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     /**
      * Sets the value of the abstractSegmentLegExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractSegmentLegExtension(AbstractExtensionType value) {
         this.abstractSegmentLegExtension = value;
@@ -169,14 +179,16 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     @Transient
     public boolean isSetAbstractSegmentLegExtension() {
-        return (this.abstractSegmentLegExtension != null);
+        return (this.abstractSegmentLegExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -190,10 +202,11 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -201,7 +214,7 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -209,10 +222,12 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -223,21 +238,24 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -246,11 +264,12 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -269,9 +288,8 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -279,40 +297,12 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
         }
         final ArrivalFeederLegTimeSliceExtensionType that = ((ArrivalFeederLegTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractArrivalFeederLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractArrivalFeederLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractArrivalFeederLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractArrivalFeederLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrivalFeederLegExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalFeederLegExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -326,10 +316,34 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
             lhsField = this.getAbstractApproachLegExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractApproachLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachLegExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachLegExtension",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachLegExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractArrivalFeederLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractArrivalFeederLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractArrivalFeederLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractArrivalFeederLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrivalFeederLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalFeederLegExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -354,8 +368,7 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
             boolean theFieldIsSet = this.isSetAbstractArrivalFeederLegExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractArrivalFeederLegExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractArrivalFeederLegExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractArrivalFeederLegExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -375,7 +388,7 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -425,7 +438,7 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

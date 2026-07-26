@@ -4,11 +4,10 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.hibernate.SessionFactory;
+import lombok.extern.slf4j.Slf4j;
 
-import com.delorean.aixm.core.log.ConsoleLogger;
-
+@Slf4j
 public abstract class AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
     public abstract void persistedMessageinspection(SessionFactory sessionFactory);
@@ -22,7 +21,7 @@ public abstract class AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT
 
     public String inputStreamToSQL(InputStream inputStream) {
         if (inputStream == null) {
-            ConsoleLogger.warn("SQL input stream is null");
+            log.warn("SQL input stream is null");
             return null;
         }
 
@@ -31,7 +30,7 @@ public abstract class AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT
                     .collect(Collectors.joining("\n"));
             return string;
         } catch (Exception e) {
-            ConsoleLogger.error("Error reading SQL resource stream", e);
+            log.error("Error reading SQL resource stream", e);
             return null;
         }
     }

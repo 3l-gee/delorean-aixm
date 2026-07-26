@@ -1,15 +1,15 @@
 
 package com.delorean.aixm.core.org.w3.xlink;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAnyElement;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlMixed;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,17 +24,12 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.w3c.dom.Element;
 
+
 /**
- * <p>
- * Java class for titleEltType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for titleEltType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="titleEltType">
  *   <complexContent>
@@ -45,12 +40,15 @@ import org.w3c.dom.Element;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "titleEltType", propOrder = {"content"})
-public class TitleEltType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "titleEltType", propOrder = {
+    "content"
+})
+public class TitleEltType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlMixed
@@ -59,35 +57,37 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     public static final TypeType TYPE = TypeType.TITLE;
     /**
-     * xml:lang is not required, but provides much of the motivation for title
-     * elements in addition to attributes, and so is provided here for convenience.
-     *
+     * xml:lang is not required, but provides much of the
+     *      motivation for title elements in addition to attributes, and so
+     *      is provided here for convenience.
+     * 
      */
     @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
     protected String lang;
 
     /**
      * Gets the value of the content property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the content property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the content property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getContent().add(newItem);
+     *    getContent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link Element }
-     * {@link Object } {@link String }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link Element }
+     * {@link Object }
+     * {@link String }
+     * 
+     * 
      */
     public List<Object> getContent() {
         if (content == null) {
@@ -97,15 +97,15 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setContent(List<Object> content) {
         this.content = content;
     }
 
     public boolean isSetContent() {
-        return ((this.content != null) && (!this.content.isEmpty()));
+        return ((this.content!= null)&&(!this.content.isEmpty()));
     }
 
     public void unsetContent() {
@@ -113,11 +113,14 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * xml:lang is not required, but provides much of the motivation for title
-     * elements in addition to attributes, and so is provided here for convenience.
-     *
-     * @return possible object is {@link String }
-     *
+     * xml:lang is not required, but provides much of the
+     *      motivation for title elements in addition to attributes, and so
+     *      is provided here for convenience.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getLang() {
         return lang;
@@ -125,10 +128,11 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the lang property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      * @see #getLang()
      */
     public void setLang(String value) {
@@ -136,7 +140,7 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
     }
 
     public boolean isSetLang() {
-        return (this.lang != null);
+        return (this.lang!= null);
     }
 
     @Override
@@ -152,9 +156,8 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -165,9 +168,9 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
             boolean lhsFieldIsSet = this.isSetContent();
             boolean rhsFieldIsSet = that.isSetContent();
             List<Object> lhsField;
-            lhsField = (this.isSetContent() ? this.getContent() : null);
+            lhsField = (this.isSetContent()?this.getContent():null);
             List<Object> rhsField;
-            rhsField = (that.isSetContent() ? that.getContent() : null);
+            rhsField = (that.isSetContent()?that.getContent():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -206,7 +209,7 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
         {
             boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (this.isSetContent() ? this.getContent() : null);
+            theField = (this.isSetContent()?this.getContent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "content", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -245,7 +248,7 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString {
         {
             boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (this.isSetContent() ? this.getContent() : null);
+            theField = (this.isSetContent()?this.getContent():null);
             strategy.appendField(locator, this, "content", buffer, theField, theFieldIsSet);
         }
         {

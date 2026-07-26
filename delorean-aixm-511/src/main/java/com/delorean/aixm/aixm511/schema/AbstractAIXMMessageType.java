@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
 import com.delorean.aixm.aixm511.schema.message.AIXMBasicMessageType;
 import com.delorean.aixm.core.org.gml.v_3_2.AggregationType;
 import jakarta.persistence.Basic;
@@ -14,43 +15,40 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AbstractAIXMMessageType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AbstractAIXMMessageType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractAIXMMessageType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMMessageBaseType">
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMMessageBaseType">
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractAIXMMessageType")
-@XmlSeeAlso({AIXMBasicMessageType.class})
+@XmlSeeAlso({
+    AIXMBasicMessageType.class
+})
 @MappedSuperclass
-public abstract class AbstractAIXMMessageType extends AbstractAIXMMessageBaseType implements Serializable {
+public abstract class AbstractAIXMMessageType
+    extends AbstractAIXMMessageBaseType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "aggregationType")
@@ -58,9 +56,11 @@ public abstract class AbstractAIXMMessageType extends AbstractAIXMMessageBaseTyp
 
     /**
      * Gets the value of the aggregationType property.
-     *
-     * @return possible object is {@link AggregationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AggregationType }
+     *     
      */
     @Basic
     @Column(name = "AGGREGATION_TYPE", length = 255)
@@ -71,10 +71,11 @@ public abstract class AbstractAIXMMessageType extends AbstractAIXMMessageBaseTyp
 
     /**
      * Sets the value of the aggregationType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AggregationType }
-     *
+     *     allowed object is
+     *     {@link AggregationType }
+     *     
      */
     public void setAggregationType(AggregationType value) {
         this.aggregationType = value;
@@ -82,13 +83,12 @@ public abstract class AbstractAIXMMessageType extends AbstractAIXMMessageBaseTyp
 
     @Transient
     public boolean isSetAggregationType() {
-        return (this.aggregationType != null);
+        return (this.aggregationType!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

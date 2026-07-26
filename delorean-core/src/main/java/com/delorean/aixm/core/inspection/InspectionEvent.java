@@ -2,10 +2,6 @@ package com.delorean.aixm.core.inspection;
 
 import org.xml.sax.SAXParseException;
 
-import com.delorean.aixm.core.inspection.InspectionSource;
-
-import javax.xml.bind.ValidationEventLocator;
-
 public class InspectionEvent {
     InspectionSource source;
     ValidationSeverity severity;

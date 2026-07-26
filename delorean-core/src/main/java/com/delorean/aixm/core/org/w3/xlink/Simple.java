@@ -1,15 +1,15 @@
 
 package com.delorean.aixm.core.org.w3.xlink;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAnyElement;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlMixed;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,20 +24,15 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.w3c.dom.Element;
 
+
 /**
- * Intended for use as the type of user-declared elements to make them simple
- * links.
- *
- * <p>
- * Java class for simple complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * Intended for use as the type of user-declared elements to make them
+ *     simple links.
+ * 
+ * <p>Java class for simple complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="simple">
  *   <complexContent>
@@ -48,12 +43,15 @@ import org.w3c.dom.Element;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "simple", propOrder = {"content"})
-public class Simple implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "simple", propOrder = {
+    "content"
+})
+public class Simple implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlMixed
@@ -75,28 +73,29 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
     protected ActuateType actuate;
 
     /**
-     * Intended for use as the type of user-declared elements to make them simple
-     * links.Gets the value of the content property.
-     *
+     * Intended for use as the type of user-declared elements to make them
+     *     simple links.Gets the value of the content property.
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the content property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the content property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getContent().add(newItem);
+     *    getContent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link Element }
-     * {@link Object } {@link String }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link Element }
+     * {@link Object }
+     * {@link String }
+     * 
+     * 
      */
     public List<Object> getContent() {
         if (content == null) {
@@ -106,16 +105,16 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     * Intended for use as the type of user-declared elements to make them simple
-     * links.
-     *
+     * Intended for use as the type of user-declared elements to make them
+     *     simple links.
+     * 
      */
     public void setContent(List<Object> content) {
         this.content = content;
     }
 
     public boolean isSetContent() {
-        return ((this.content != null) && (!this.content.isEmpty()));
+        return ((this.content!= null)&&(!this.content.isEmpty()));
     }
 
     public void unsetContent() {
@@ -124,9 +123,11 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -134,24 +135,27 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -159,24 +163,27 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -184,24 +191,27 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -209,24 +219,27 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -234,24 +247,27 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -259,17 +275,18 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
@@ -285,15 +302,53 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final Simple that = ((Simple) object);
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            List<Object> lhsField;
+            lhsField = (this.isSetContent()?this.getContent():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetContent()?that.getContent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
@@ -321,32 +376,6 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetActuate();
             boolean rhsFieldIsSet = that.isSetActuate();
             ActuateType lhsField;
@@ -360,27 +389,14 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContent();
-            boolean rhsFieldIsSet = that.isSetContent();
-            List<Object> lhsField;
-            lhsField = (this.isSetContent() ? this.getContent() : null);
-            List<Object> rhsField;
-            rhsField = (that.isSetContent() ? that.getContent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -404,7 +420,7 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
         {
             boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (this.isSetContent() ? this.getContent() : null);
+            theField = (this.isSetContent()?this.getContent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "content", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -478,7 +494,7 @@ public class Simple implements Serializable, Equals, HashCode, ToString {
         {
             boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (this.isSetContent() ? this.getContent() : null);
+            theField = (this.isSetContent()?this.getContent():null);
             strategy.appendField(locator, this, "content", buffer, theField, theFieldIsSet);
         }
         {

@@ -1,14 +1,14 @@
 
 package com.delorean.aixm.core.org.gco.v2007;
 
+import java.io.Serializable;
+import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import java.io.Serializable;
-import java.math.BigInteger;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -22,33 +22,30 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for UnlimitedInteger_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for UnlimitedInteger_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="UnlimitedInteger_Type">
  *   <simpleContent>
  *     <extension base="<http://www.w3.org/2001/XMLSchema>nonNegativeInteger">
- *       <attribute name="isInfinite" type=
-"{http://www.w3.org/2001/XMLSchema}boolean" />
+ *       <attribute name="isInfinite" type="{http://www.w3.org/2001/XMLSchema}boolean" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "UnlimitedInteger_Type", propOrder = {"value"})
-public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "UnlimitedInteger_Type", propOrder = {
+    "value"
+})
+public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -59,9 +56,11 @@ public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Gets the value of the value property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getValue() {
         return value;
@@ -69,24 +68,27 @@ public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setValue(BigInteger value) {
         this.value = value;
     }
 
     public boolean isSetValue() {
-        return (this.value != null);
+        return (this.value!= null);
     }
 
     /**
      * Gets the value of the isInfinite property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public boolean getIsInfinite() {
         return isInfinite;
@@ -94,17 +96,18 @@ public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the isInfinite property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setIsInfinite(boolean value) {
         this.isInfinite = value;
     }
 
     public boolean isSetIsInfinite() {
-        return (this.isInfinite != null);
+        return (this.isInfinite!= null);
     }
 
     public void unsetIsInfinite() {
@@ -124,28 +127,14 @@ public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToS
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final UnlimitedIntegerType that = ((UnlimitedIntegerType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetIsInfinite();
-            boolean rhsFieldIsSet = that.isSetIsInfinite();
-            boolean lhsField;
-            lhsField = (this.isSetIsInfinite() ? this.getIsInfinite() : false);
-            boolean rhsField;
-            rhsField = (that.isSetIsInfinite() ? that.getIsInfinite() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isInfinite", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isInfinite", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
@@ -155,6 +144,19 @@ public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToS
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsInfinite();
+            boolean rhsFieldIsSet = that.isSetIsInfinite();
+            boolean lhsField;
+            lhsField = (this.isSetIsInfinite()?this.getIsInfinite():false);
+            boolean rhsField;
+            rhsField = (that.isSetIsInfinite()?that.getIsInfinite():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isInfinite", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isInfinite", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -185,7 +187,7 @@ public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToS
         {
             boolean theFieldIsSet = this.isSetIsInfinite();
             boolean theField;
-            theField = (this.isSetIsInfinite() ? this.getIsInfinite() : false);
+            theField = (this.isSetIsInfinite()?this.getIsInfinite():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "isInfinite", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -223,7 +225,7 @@ public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToS
         {
             boolean theFieldIsSet = this.isSetIsInfinite();
             boolean theField;
-            theField = (this.isSetIsInfinite() ? this.getIsInfinite() : false);
+            theField = (this.isSetIsInfinite()?this.getIsInfinite():false);
             strategy.appendField(locator, this, "isInfinite", buffer, theField, theFieldIsSet);
         }
         return buffer;

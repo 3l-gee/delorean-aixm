@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import com.delorean.aixm.aixm52.metadata.adapter.MDMetadataTypeAdapter;
 import com.delorean.aixm.core.org.gmd.v2007.MDMetadataType;
 import com.delorean.aixm.core.org.gml.v_3_2.AbstractMetadataPropertyType;
@@ -20,45 +21,42 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for FeatureTimeSliceMetadataPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FeatureTimeSliceMetadataPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FeatureTimeSliceMetadataPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractMetadataPropertyType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractMetadataPropertyType">
  *       <sequence minOccurs="0">
- *         <element name="mdMetadata" type=
-"{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="mdMetadata" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FeatureTimeSliceMetadataPropertyType", propOrder = {"mdMetadata"})
+@XmlType(name = "FeatureTimeSliceMetadataPropertyType", propOrder = {
+    "mdMetadata"
+})
 @Entity(name = "FeatureTimeSliceMetadataPropertyType")
 @Table(name = "timeslice_metadata", schema = "aixm")
-public class FeatureTimeSliceMetadataPropertyType extends AbstractMetadataPropertyType implements Serializable {
+public class FeatureTimeSliceMetadataPropertyType
+    extends AbstractMetadataPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(type = MDMetadataType.class, name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd")
@@ -71,22 +69,25 @@ public class FeatureTimeSliceMetadataPropertyType extends AbstractMetadataProper
 
     /**
      * Gets the value of the mdMetadata property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
-    @jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")
+@org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
+@jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")
     public JsonNode getMdMetadata() {
         return mdMetadata;
     }
 
     /**
      * Sets the value of the mdMetadata property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setMdMetadata(JsonNode value) {
         this.mdMetadata = value;
@@ -94,14 +95,16 @@ public class FeatureTimeSliceMetadataPropertyType extends AbstractMetadataProper
 
     @Transient
     public boolean isSetMdMetadata() {
-        return (this.mdMetadata != null);
+        return (this.mdMetadata!= null);
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -112,21 +115,24 @@ public class FeatureTimeSliceMetadataPropertyType extends AbstractMetadataProper
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -135,20 +141,20 @@ public class FeatureTimeSliceMetadataPropertyType extends AbstractMetadataProper
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

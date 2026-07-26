@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for SpecialNavigationStationStatusPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SpecialNavigationStationStatusPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SpecialNavigationStationStatusPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}SpecialNavigationStationStatus"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}SpecialNavigationStationStatus"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SpecialNavigationStationStatusPropertyType", propOrder = {"specialNavigationStationStatus"})
+@XmlType(name = "SpecialNavigationStationStatusPropertyType", propOrder = {
+    "specialNavigationStationStatus"
+})
 @Entity(name = "SpecialNavigationStationStatusPropertyType")
 @Table(name = "specialnavigationstationstatuspropertytype", schema = "navaids_point")
-public class SpecialNavigationStationStatusPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class SpecialNavigationStationStatusPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "SpecialNavigationStationStatus", required = true)
@@ -58,12 +56,15 @@ public class SpecialNavigationStationStatusPropertyType extends AbstractAIXMProp
 
     /**
      * Gets the value of the specialNavigationStationStatus property.
-     *
-     * @return possible object is {@link SpecialNavigationStationStatusType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link SpecialNavigationStationStatusType }
+     *     
      */
     @OneToOne(targetEntity = SpecialNavigationStationStatusType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "specialnavigationstationstatus_hjid", referencedColumnName = "hjid")
     public SpecialNavigationStationStatusType getSpecialNavigationStationStatus() {
         return specialNavigationStationStatus;
@@ -71,10 +72,11 @@ public class SpecialNavigationStationStatusPropertyType extends AbstractAIXMProp
 
     /**
      * Sets the value of the specialNavigationStationStatus property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link SpecialNavigationStationStatusType }
-     *
+     *     allowed object is
+     *     {@link SpecialNavigationStationStatusType }
+     *     
      */
     public void setSpecialNavigationStationStatus(SpecialNavigationStationStatusType value) {
         this.specialNavigationStationStatus = value;
@@ -82,13 +84,12 @@ public class SpecialNavigationStationStatusPropertyType extends AbstractAIXMProp
 
     @Transient
     public boolean isSetSpecialNavigationStationStatus() {
-        return (this.specialNavigationStationStatus != null);
+        return (this.specialNavigationStationStatus!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -105,10 +106,8 @@ public class SpecialNavigationStationStatusPropertyType extends AbstractAIXMProp
             lhsField = this.getSpecialNavigationStationStatus();
             SpecialNavigationStationStatusType rhsField;
             rhsField = that.getSpecialNavigationStationStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialNavigationStationStatus",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialNavigationStationStatus",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialNavigationStationStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialNavigationStationStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

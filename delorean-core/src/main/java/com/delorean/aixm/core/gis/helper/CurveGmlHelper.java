@@ -50,14 +50,14 @@ import com.delorean.aixm.core.gis.type.gml.GmlPointType;
 import com.delorean.aixm.core.inspection.InspectionBindingService;
 import com.delorean.aixm.core.inspection.ValidationSeverity;
 import com.delorean.aixm.core.inspection.InspectionSource;
-import com.delorean.aixm.core.log.ConsoleLogger;
-import com.delorean.aixm.core.log.LogLevel;
 import com.delorean.aixm.core.gis.type.Arc;
 import com.delorean.aixm.core.gis.type.Circle;
 import com.delorean.aixm.core.gis.type.Geodesic;
 import com.delorean.aixm.core.gis.type.LineString;
 import com.delorean.aixm.core.gis.type.Segment;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class CurveGmlHelper {
 
     public static <T extends Curve> T parseGMLCurve(CurveType curve, Class<T> targetType) {

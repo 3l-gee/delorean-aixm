@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,52 +31,33 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for PointReferenceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for PointReferenceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="PointReferenceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="role" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeReferenceRoleType" minOccurs="0"/>
- *         <element name="priorFixTolerance" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceSignedType" minOccurs="0"/>
- *         <element name="postFixTolerance" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceSignedType" minOccurs="0"/>
- *         <element name="point" type=
-"{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
- *         <element name="facilityAngle" type=
-"{http://www.aixm.aero/schema/5.1.1}AngleUsePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="facilityDistance" type=
-"{http://www.aixm.aero/schema/5.1.1}DistanceIndicationPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="fixToleranceArea" type=
-"{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="role" type="{http://www.aixm.aero/schema/5.1.1}CodeReferenceRoleType" minOccurs="0"/>
+ *         <element name="priorFixTolerance" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceSignedType" minOccurs="0"/>
+ *         <element name="postFixTolerance" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceSignedType" minOccurs="0"/>
+ *         <element name="point" type="{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *         <element name="facilityAngle" type="{http://www.aixm.aero/schema/5.1.1}AngleUsePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="facilityDistance" type="{http://www.aixm.aero/schema/5.1.1}DistanceIndicationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="fixToleranceArea" type="{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPointReferenceExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPointReferenceExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -86,15 +67,27 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PointReferenceType", propOrder = {"role", "priorFixTolerance", "postFixTolerance", "point",
-        "facilityAngle", "facilityDistance", "fixToleranceArea", "annotation", "extension"})
+@XmlType(name = "PointReferenceType", propOrder = {
+    "role",
+    "priorFixTolerance",
+    "postFixTolerance",
+    "point",
+    "facilityAngle",
+    "facilityDistance",
+    "fixToleranceArea",
+    "annotation",
+    "extension"
+})
 @Entity(name = "PointReferenceType")
 @Table(name = "pointreference_o", schema = "navaids_point")
-public class PointReferenceType extends AbstractAIXMObjectType implements Serializable {
+public class PointReferenceType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "role", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -117,10 +110,11 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeReferenceRoleType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeReferenceRoleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeReferenceRoleType> getRole() {
@@ -129,11 +123,11 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeReferenceRoleType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeReferenceRoleType }{@code >}
+     *     
      */
     public void setRole(JAXBElement<CodeReferenceRoleType> value) {
         this.role = value;
@@ -141,15 +135,16 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the priorFixTolerance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceSignedType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceSignedType> getPriorFixTolerance() {
@@ -158,11 +153,11 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Sets the value of the priorFixTolerance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceSignedType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     *     
      */
     public void setPriorFixTolerance(JAXBElement<ValDistanceSignedType> value) {
         this.priorFixTolerance = value;
@@ -170,15 +165,16 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetPriorFixTolerance() {
-        return (this.priorFixTolerance != null);
+        return (this.priorFixTolerance!= null);
     }
 
     /**
      * Gets the value of the postFixTolerance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceSignedType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceSignedType> getPostFixTolerance() {
@@ -187,11 +183,11 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Sets the value of the postFixTolerance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceSignedType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     *     
      */
     public void setPostFixTolerance(JAXBElement<ValDistanceSignedType> value) {
         this.postFixTolerance = value;
@@ -199,15 +195,16 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetPostFixTolerance() {
-        return (this.postFixTolerance != null);
+        return (this.postFixTolerance!= null);
     }
 
     /**
      * Gets the value of the point property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getPoint() {
@@ -216,11 +213,11 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Sets the value of the point property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.point = value;
@@ -228,36 +225,39 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetPoint() {
-        return (this.point != null);
+        return (this.point!= null);
     }
 
     /**
      * Gets the value of the facilityAngle property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the facilityAngle property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the facilityAngle property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getFacilityAngle().add(newItem);
+     *    getFacilityAngle().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AngleUsePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AngleUsePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "pntrfrnctp_fcltangl_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "facilityangle_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = AngleUsePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "pntrfrnctp_fcltangl_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "facilityangle_hjid", referencedColumnName = "hjid")
+    })
     public List<AngleUsePropertyType> getFacilityAngle() {
         if (facilityAngle == null) {
             facilityAngle = new ArrayList<>();
@@ -266,8 +266,8 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setFacilityAngle(List<AngleUsePropertyType> facilityAngle) {
         this.facilityAngle = facilityAngle;
@@ -275,7 +275,7 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetFacilityAngle() {
-        return ((this.facilityAngle != null) && (!this.facilityAngle.isEmpty()));
+        return ((this.facilityAngle!= null)&&(!this.facilityAngle.isEmpty()));
     }
 
     public void unsetFacilityAngle() {
@@ -284,32 +284,34 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Gets the value of the facilityDistance property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the facilityDistance property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the facilityDistance property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getFacilityDistance().add(newItem);
+     *    getFacilityDistance().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DistanceIndicationPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = DistanceIndicationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "pntrfrnctp_fcltdstnc_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "facilitydistance_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "pntrfrnctp_fcltdstnc_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "facilitydistance_hjid", referencedColumnName = "hjid")
+    })
     public List<DistanceIndicationPropertyType> getFacilityDistance() {
         if (facilityDistance == null) {
             facilityDistance = new ArrayList<>();
@@ -318,8 +320,8 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setFacilityDistance(List<DistanceIndicationPropertyType> facilityDistance) {
         this.facilityDistance = facilityDistance;
@@ -327,7 +329,7 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetFacilityDistance() {
-        return ((this.facilityDistance != null) && (!this.facilityDistance.isEmpty()));
+        return ((this.facilityDistance!= null)&&(!this.facilityDistance.isEmpty()));
     }
 
     public void unsetFacilityDistance() {
@@ -336,10 +338,11 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Gets the value of the fixToleranceArea property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMSurfacePropertyType> getFixToleranceArea() {
@@ -348,11 +351,11 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Sets the value of the fixToleranceArea property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
      */
     public void setFixToleranceArea(JAXBElement<AIXMSurfacePropertyType> value) {
         this.fixToleranceArea = value;
@@ -360,36 +363,39 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetFixToleranceArea() {
-        return (this.fixToleranceArea != null);
+        return (this.fixToleranceArea!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "pntrfrnctp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "pntrfrnctp_annttn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -398,8 +404,8 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -407,7 +413,7 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -416,28 +422,29 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PointReferenceExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = PointReferenceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = PointReferenceExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointreference_oe_hjid", referencedColumnName = "hjid")
     public List<PointReferenceExtensionType> getExtension() {
         if (extension == null) {
@@ -447,8 +454,8 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<PointReferenceExtensionType> extension) {
         this.extension = extension;
@@ -456,7 +463,7 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -464,75 +471,81 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "role")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "rolenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "role", columnDefinition = "codereferencerolebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "rolenilreason", columnDefinition = "nilreason"))
+    })
     public CodeReferenceRoleType getRoleItem() {
         return XmlAdapterUtils.unmarshallSource(CodeReferenceRoleType.class, this.getRole());
     }
 
     public void setRoleItem(CodeReferenceRoleType target) {
-        setRole(XmlAdapterUtils.marshallJAXBElement(CodeReferenceRoleType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "role"), PointReferenceType.class, target));
+        setRole(XmlAdapterUtils.marshallJAXBElement(CodeReferenceRoleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "role"), PointReferenceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "priorfixtolerance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "priorfixtoleranceuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "priorfixtolerancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "priorfixtolerance", columnDefinition = "valdistancesignedbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "priorfixtoleranceuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "priorfixtolerancenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceSignedType getPriorFixToleranceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceSignedType.class, this.getPriorFixTolerance());
     }
 
     public void setPriorFixToleranceItem(ValDistanceSignedType target) {
-        setPriorFixTolerance(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "priorFixTolerance"), PointReferenceType.class, target));
+        setPriorFixTolerance(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.1.1", "priorFixTolerance"), PointReferenceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "postfixtolerance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "postfixtoleranceuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "postfixtolerancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "postfixtolerance", columnDefinition = "valdistancesignedbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "postfixtoleranceuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "postfixtolerancenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceSignedType getPostFixToleranceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceSignedType.class, this.getPostFixTolerance());
     }
 
     public void setPostFixToleranceItem(ValDistanceSignedType target) {
-        setPostFixTolerance(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "postFixTolerance"), PointReferenceType.class, target));
+        setPostFixTolerance(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.1.1", "postFixTolerance"), PointReferenceType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "pntrfrnctp_pnt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "point_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "pntrfrnctp_pnt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "point_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getPoint());
     }
 
     public void setPointItem(DesignatedPointPropertyType target) {
-        setPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "point"), PointReferenceType.class, target));
+        setPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "point"), PointReferenceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "pntrfrnctp_fxtlrncar_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "fixtolerancearea_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "pntrfrnctp_fxtlrncar_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "fixtolerancearea_hjid", referencedColumnName = "hjid")
+    })
     public AIXMSurfacePropertyType getFixToleranceAreaItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getFixToleranceArea());
     }
 
     public void setFixToleranceAreaItem(AIXMSurfacePropertyType target) {
-        setFixToleranceArea(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "fixToleranceArea"), PointReferenceType.class, target));
+        setFixToleranceArea(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "fixToleranceArea"), PointReferenceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -556,14 +569,14 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<PointReferenceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<PointReferenceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetFixToleranceArea();
+            boolean rhsFieldIsSet = that.isSetFixToleranceArea();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getFixToleranceArea();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getFixToleranceArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -582,6 +595,45 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFacilityAngle();
+            boolean rhsFieldIsSet = that.isSetFacilityAngle();
+            List<AngleUsePropertyType> lhsField;
+            lhsField = (this.isSetFacilityAngle()?this.getFacilityAngle():null);
+            List<AngleUsePropertyType> rhsField;
+            rhsField = (that.isSetFacilityAngle()?that.getFacilityAngle():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<PointReferenceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<PointReferenceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             JAXBElement<CodeReferenceRoleType> lhsField;
@@ -595,6 +647,19 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFacilityDistance();
+            boolean rhsFieldIsSet = that.isSetFacilityDistance();
+            List<DistanceIndicationPropertyType> lhsField;
+            lhsField = (this.isSetFacilityDistance()?this.getFacilityDistance():null);
+            List<DistanceIndicationPropertyType> rhsField;
+            rhsField = (that.isSetFacilityDistance()?that.getFacilityDistance():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPriorFixTolerance();
             boolean rhsFieldIsSet = that.isSetPriorFixTolerance();
             JAXBElement<ValDistanceSignedType> lhsField;
@@ -603,58 +668,6 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
             rhsField = that.getPriorFixTolerance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorFixTolerance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorFixTolerance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFacilityAngle();
-            boolean rhsFieldIsSet = that.isSetFacilityAngle();
-            List<AngleUsePropertyType> lhsField;
-            lhsField = (this.isSetFacilityAngle() ? this.getFacilityAngle() : null);
-            List<AngleUsePropertyType> rhsField;
-            rhsField = (that.isSetFacilityAngle() ? that.getFacilityAngle() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityAngle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFacilityDistance();
-            boolean rhsFieldIsSet = that.isSetFacilityDistance();
-            List<DistanceIndicationPropertyType> lhsField;
-            lhsField = (this.isSetFacilityDistance() ? this.getFacilityDistance() : null);
-            List<DistanceIndicationPropertyType> rhsField;
-            rhsField = (that.isSetFacilityDistance() ? that.getFacilityDistance() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFixToleranceArea();
-            boolean rhsFieldIsSet = that.isSetFixToleranceArea();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getFixToleranceArea();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getFixToleranceArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -696,14 +709,14 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
         {
             boolean theFieldIsSet = this.isSetFacilityAngle();
             List<AngleUsePropertyType> theField;
-            theField = (this.isSetFacilityAngle() ? this.getFacilityAngle() : null);
+            theField = (this.isSetFacilityAngle()?this.getFacilityAngle():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "facilityAngle", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFacilityDistance();
             List<DistanceIndicationPropertyType> theField;
-            theField = (this.isSetFacilityDistance() ? this.getFacilityDistance() : null);
+            theField = (this.isSetFacilityDistance()?this.getFacilityDistance():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "facilityDistance", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -717,14 +730,14 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<PointReferenceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -761,13 +774,13 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
         {
             boolean theFieldIsSet = this.isSetFacilityAngle();
             List<AngleUsePropertyType> theField;
-            theField = (this.isSetFacilityAngle() ? this.getFacilityAngle() : null);
+            theField = (this.isSetFacilityAngle()?this.getFacilityAngle():null);
             strategy.appendField(locator, this, "facilityAngle", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFacilityDistance();
             List<DistanceIndicationPropertyType> theField;
-            theField = (this.isSetFacilityDistance() ? this.getFacilityDistance() : null);
+            theField = (this.isSetFacilityDistance()?this.getFacilityDistance():null);
             strategy.appendField(locator, this, "facilityDistance", buffer, theField, theFieldIsSet);
         }
         {
@@ -779,13 +792,13 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<PointReferenceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,9 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -11,48 +14,41 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for DynamicFeatureMemberType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DynamicFeatureMemberType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DynamicFeatureMemberType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractFeatureMemberType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractFeatureMemberType">
  *       <sequence>
- *         <element ref=
-"{http://www.opengis.net/gml/3.2}DynamicFeature" maxOccurs="unbounded" minOccurs
-="0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}DynamicFeature" maxOccurs="unbounded" minOccurs="0"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DynamicFeatureMemberType", propOrder = {"dynamicFeature"})
-public class DynamicFeatureMemberType extends AbstractFeatureMemberType implements Serializable {
+@XmlType(name = "DynamicFeatureMemberType", propOrder = {
+    "dynamicFeature"
+})
+public class DynamicFeatureMemberType
+    extends AbstractFeatureMemberType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "DynamicFeature", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
@@ -78,33 +74,28 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
     protected ActuateType actuate;
 
     /**
-     * States are captured by time-stamped instances of a feature. The content model
-     * extends the standard gml:AbstractFeatureType with the gml:dynamicProperties
-     * model group. Each time-stamped instance represents a 'snapshot' of a feature.
-     * The dynamic feature classes will normally be extended to suit particular
-     * applications. A dynamic feature bears either a time stamp or a history.Gets
-     * the value of the dynamicFeature property.
-     *
+     * States are captured by time-stamped instances of a feature. The content model extends the standard gml:AbstractFeatureType with the gml:dynamicProperties model group.
+     * Each time-stamped instance represents a 'snapshot' of a feature. The dynamic feature classes will normally be extended to suit particular applications.  A dynamic feature bears either a time stamp or a history.Gets the value of the dynamicFeature property.
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the dynamicFeature property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the dynamicFeature property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getDynamicFeature().add(newItem);
+     *    getDynamicFeature().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link JAXBElement
-     * }{@code <}{@link DynamicFeatureCollectionType }{@code >} {@link JAXBElement
-     * }{@code <}{@link DynamicFeatureType }{@code >}
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link JAXBElement }{@code <}{@link DynamicFeatureCollectionType }{@code >}
+     * {@link JAXBElement }{@code <}{@link DynamicFeatureType }{@code >}
+     * 
+     * 
      */
     public List<JAXBElement<? extends DynamicFeatureType>> getDynamicFeature() {
         if (dynamicFeature == null) {
@@ -114,19 +105,16 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
     }
 
     /**
-     * States are captured by time-stamped instances of a feature. The content model
-     * extends the standard gml:AbstractFeatureType with the gml:dynamicProperties
-     * model group. Each time-stamped instance represents a 'snapshot' of a feature.
-     * The dynamic feature classes will normally be extended to suit particular
-     * applications. A dynamic feature bears either a time stamp or a history.
-     *
+     * States are captured by time-stamped instances of a feature. The content model extends the standard gml:AbstractFeatureType with the gml:dynamicProperties model group.
+     * Each time-stamped instance represents a 'snapshot' of a feature. The dynamic feature classes will normally be extended to suit particular applications.  A dynamic feature bears either a time stamp or a history.
+     * 
      */
     public void setDynamicFeature(List<JAXBElement<? extends DynamicFeatureType>> dynamicFeature) {
         this.dynamicFeature = dynamicFeature;
     }
 
     public boolean isSetDynamicFeature() {
-        return ((this.dynamicFeature != null) && (!this.dynamicFeature.isEmpty()));
+        return ((this.dynamicFeature!= null)&&(!this.dynamicFeature.isEmpty()));
     }
 
     public void unsetDynamicFeature() {
@@ -135,9 +123,11 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -145,24 +135,27 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -170,24 +163,27 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Sets the value of the remoteSchema property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
+        return (this.remoteSchema!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -195,24 +191,27 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -220,24 +219,27 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -245,24 +247,27 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -270,24 +275,27 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -295,24 +303,27 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -320,23 +331,23 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -373,6 +384,19 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRemoteSchema();
             boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
@@ -381,45 +405,6 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
             rhsField = that.getRemoteSchema();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDynamicFeature();
-            boolean rhsFieldIsSet = that.isSetDynamicFeature();
-            List<JAXBElement<? extends DynamicFeatureType>> lhsField;
-            lhsField = (this.isSetDynamicFeature() ? this.getDynamicFeature() : null);
-            List<JAXBElement<? extends DynamicFeatureType>> rhsField;
-            rhsField = (that.isSetDynamicFeature() ? that.getDynamicFeature() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dynamicFeature", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dynamicFeature", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -438,6 +423,45 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDynamicFeature();
+            boolean rhsFieldIsSet = that.isSetDynamicFeature();
+            List<JAXBElement<? extends DynamicFeatureType>> lhsField;
+            lhsField = (this.isSetDynamicFeature()?this.getDynamicFeature():null);
+            List<JAXBElement<? extends DynamicFeatureType>> rhsField;
+            rhsField = (that.isSetDynamicFeature()?that.getDynamicFeature():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dynamicFeature", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dynamicFeature", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
             boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
@@ -446,19 +470,6 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
             rhsField = that.getSimpleLinkTitle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -472,7 +483,7 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
         {
             boolean theFieldIsSet = this.isSetDynamicFeature();
             List<JAXBElement<? extends DynamicFeatureType>> theField;
-            theField = (this.isSetDynamicFeature() ? this.getDynamicFeature() : null);
+            theField = (this.isSetDynamicFeature()?this.getDynamicFeature():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dynamicFeature", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -541,7 +552,7 @@ public class DynamicFeatureMemberType extends AbstractFeatureMemberType implemen
         {
             boolean theFieldIsSet = this.isSetDynamicFeature();
             List<JAXBElement<? extends DynamicFeatureType>> theField;
-            theField = (this.isSetDynamicFeature() ? this.getDynamicFeature() : null);
+            theField = (this.isSetDynamicFeature()?this.getDynamicFeature():null);
             strategy.appendField(locator, this, "dynamicFeature", buffer, theField, theFieldIsSet);
         }
         {

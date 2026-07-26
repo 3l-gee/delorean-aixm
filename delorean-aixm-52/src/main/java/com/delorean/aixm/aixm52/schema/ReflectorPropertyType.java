@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ReflectorPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ReflectorPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ReflectorPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.2}Reflector"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ReflectorPropertyType", propOrder = {"reflector"})
+@XmlType(name = "ReflectorPropertyType", propOrder = {
+    "reflector"
+})
 @Entity(name = "ReflectorPropertyType")
 @Table(name = "reflectorpropertytype", schema = "surveillance")
-public class ReflectorPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class ReflectorPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Reflector", required = true)
@@ -57,11 +56,15 @@ public class ReflectorPropertyType extends AbstractAIXMPropertyType implements S
 
     /**
      * Gets the value of the reflector property.
-     *
-     * @return possible object is {@link ReflectorType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ReflectorType }
+     *     
      */
-    @OneToOne(targetEntity = ReflectorType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ReflectorType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "reflector_hjid", referencedColumnName = "hjid")
     public ReflectorType getReflector() {
         return reflector;
@@ -69,10 +72,11 @@ public class ReflectorPropertyType extends AbstractAIXMPropertyType implements S
 
     /**
      * Sets the value of the reflector property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ReflectorType }
-     *
+     *     allowed object is
+     *     {@link ReflectorType }
+     *     
      */
     public void setReflector(ReflectorType value) {
         this.reflector = value;
@@ -80,13 +84,12 @@ public class ReflectorPropertyType extends AbstractAIXMPropertyType implements S
 
     @Transient
     public boolean isSetReflector() {
-        return (this.reflector != null);
+        return (this.reflector!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

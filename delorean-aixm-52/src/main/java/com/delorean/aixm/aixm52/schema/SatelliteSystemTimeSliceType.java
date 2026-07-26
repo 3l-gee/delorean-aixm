@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,51 +31,32 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for SatelliteSystemTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SatelliteSystemTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SatelliteSystemTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.2}CodeSatelliteSystemType" minOccurs="0"/>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="designator" type=
-"{http://www.aixm.aero/schema/5.2}TextDesignatorType" minOccurs="0"/>
- *         <element name="augmentedSystem" type=
-"{http://www.aixm.aero/schema/5.2}SatelliteSystemPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="operator" type=
-"{http://www.aixm.aero/schema/5.2}OrganisationAuthorityPropertyType" minOccurs=
-"0"/>
- *         <element name="emission" type=
-"{http://www.aixm.aero/schema/5.2}RadioFrequencyPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.2}CodeSatelliteSystemType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.2}TextDesignatorType" minOccurs="0"/>
+ *         <element name="augmentedSystem" type="{http://www.aixm.aero/schema/5.2}SatelliteSystemPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="operator" type="{http://www.aixm.aero/schema/5.2}OrganisationAuthorityPropertyType" minOccurs="0"/>
+ *         <element name="emission" type="{http://www.aixm.aero/schema/5.2}RadioFrequencyPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractSatelliteSystemExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractSatelliteSystemExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -85,15 +66,26 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SatelliteSystemTimeSliceType", propOrder = {"type", "aixmName", "designator", "augmentedSystem",
-        "operator", "emission", "annotation", "extension"})
+@XmlType(name = "SatelliteSystemTimeSliceType", propOrder = {
+    "type",
+    "aixmName",
+    "designator",
+    "augmentedSystem",
+    "operator",
+    "emission",
+    "annotation",
+    "extension"
+})
 @Entity(name = "SatelliteSystemTimeSliceType")
 @Table(name = "satellitesystem_t", schema = "navaids_point")
-public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class SatelliteSystemTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -114,10 +106,11 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSatelliteSystemType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSatelliteSystemType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSatelliteSystemType> getType() {
@@ -126,11 +119,11 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSatelliteSystemType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSatelliteSystemType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeSatelliteSystemType> value) {
         this.type = value;
@@ -138,15 +131,16 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -155,11 +149,11 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -167,15 +161,16 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the designator property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextDesignatorType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextDesignatorType> getDesignator() {
@@ -184,11 +179,11 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     /**
      * Sets the value of the designator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextDesignatorType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
+     *     
      */
     public void setDesignator(JAXBElement<TextDesignatorType> value) {
         this.designator = value;
@@ -196,36 +191,39 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator != null);
+        return (this.designator!= null);
     }
 
     /**
      * Gets the value of the augmentedSystem property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the augmentedSystem property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the augmentedSystem property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAugmentedSystem().add(newItem);
+     *    getAugmentedSystem().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SatelliteSystemPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = SatelliteSystemPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsstmtmslctp_agmntdsstm_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "satellitesystem_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "augmentedsystem_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = SatelliteSystemPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "stlltsstmtmslctp_agmntdsstm_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "satellitesystem_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "augmentedsystem_hjid", referencedColumnName = "hjid")
+    })
     public List<SatelliteSystemPropertyType> getAugmentedSystem() {
         if (augmentedSystem == null) {
             augmentedSystem = new ArrayList<>();
@@ -234,8 +232,8 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAugmentedSystem(List<SatelliteSystemPropertyType> augmentedSystem) {
         this.augmentedSystem = augmentedSystem;
@@ -243,7 +241,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     @Transient
     public boolean isSetAugmentedSystem() {
-        return ((this.augmentedSystem != null) && (!this.augmentedSystem.isEmpty()));
+        return ((this.augmentedSystem!= null)&&(!this.augmentedSystem.isEmpty()));
     }
 
     public void unsetAugmentedSystem() {
@@ -252,10 +250,11 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     /**
      * Gets the value of the operator property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<OrganisationAuthorityPropertyType> getOperator() {
@@ -264,11 +263,11 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     /**
      * Sets the value of the operator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
+     *     
      */
     public void setOperator(JAXBElement<OrganisationAuthorityPropertyType> value) {
         this.operator = value;
@@ -276,36 +275,39 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     @Transient
     public boolean isSetOperator() {
-        return (this.operator != null);
+        return (this.operator!= null);
     }
 
     /**
      * Gets the value of the emission property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the emission property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the emission property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getEmission().add(newItem);
+     *    getEmission().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RadioFrequencyPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = RadioFrequencyPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsstmtmslctp_emssn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "satellitesystem_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "emission_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = RadioFrequencyPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "stlltsstmtmslctp_emssn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "satellitesystem_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "emission_hjid", referencedColumnName = "hjid")
+    })
     public List<RadioFrequencyPropertyType> getEmission() {
         if (emission == null) {
             emission = new ArrayList<>();
@@ -314,8 +316,8 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setEmission(List<RadioFrequencyPropertyType> emission) {
         this.emission = emission;
@@ -323,7 +325,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     @Transient
     public boolean isSetEmission() {
-        return ((this.emission != null) && (!this.emission.isEmpty()));
+        return ((this.emission!= null)&&(!this.emission.isEmpty()));
     }
 
     public void unsetEmission() {
@@ -332,31 +334,34 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsstmtmslctp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "satellitesystem_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "stlltsstmtmslctp_annttn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "satellitesystem_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -365,8 +370,8 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -374,7 +379,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -383,29 +388,29 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SatelliteSystemTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SatelliteSystemTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "satellitesystem_te_hjid", referencedColumnName = "hjid")
     public List<SatelliteSystemTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -415,8 +420,8 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<SatelliteSystemTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -424,7 +429,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -432,62 +437,63 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codesatellitesystembase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeSatelliteSystemType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSatelliteSystemType.class, this.getType());
     }
 
     public void setTypeItem(CodeSatelliteSystemType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeSatelliteSystemType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "type"), SatelliteSystemTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeSatelliteSystemType.class, new QName("http://www.aixm.aero/schema/5.2", "type"), SatelliteSystemTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "name"), SatelliteSystemTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), SatelliteSystemTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 16)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "character3")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason", columnDefinition = "nilreason"))
+    })
     public TextDesignatorType getDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(TextDesignatorType.class, this.getDesignator());
     }
 
     public void setDesignatorItem(TextDesignatorType target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "designator"), SatelliteSystemTimeSliceType.class,
-                target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class, new QName("http://www.aixm.aero/schema/5.2", "designator"), SatelliteSystemTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsstmtmslctp_oprtr_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "satellitesystem_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "operator_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "stlltsstmtmslctp_oprtr_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "satellitesystem_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "operator_hjid", referencedColumnName = "hjid")
+    })
     public OrganisationAuthorityPropertyType getOperatorItem() {
         return XmlAdapterUtils.unmarshallSource(OrganisationAuthorityPropertyType.class, this.getOperator());
     }
 
     public void setOperatorItem(OrganisationAuthorityPropertyType target) {
-        setOperator(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "operator"), SatelliteSystemTimeSliceType.class, target));
+        setOperator(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "operator"), SatelliteSystemTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -498,45 +504,6 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final SatelliteSystemTimeSliceType that = ((SatelliteSystemTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperator();
-            boolean rhsFieldIsSet = that.isSetOperator();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getOperator();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getOperator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SatelliteSystemTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SatelliteSystemTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDesignator();
             boolean rhsFieldIsSet = that.isSetDesignator();
             JAXBElement<TextDesignatorType> lhsField;
@@ -545,6 +512,19 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = that.getDesignator();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAugmentedSystem();
+            boolean rhsFieldIsSet = that.isSetAugmentedSystem();
+            List<SatelliteSystemPropertyType> lhsField;
+            lhsField = (this.isSetAugmentedSystem()?this.getAugmentedSystem():null);
+            List<SatelliteSystemPropertyType> rhsField;
+            rhsField = (that.isSetAugmentedSystem()?that.getAugmentedSystem():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentedSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentedSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -563,14 +543,27 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAugmentedSystem();
-            boolean rhsFieldIsSet = that.isSetAugmentedSystem();
-            List<SatelliteSystemPropertyType> lhsField;
-            lhsField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
-            List<SatelliteSystemPropertyType> rhsField;
-            rhsField = (that.isSetAugmentedSystem() ? that.getAugmentedSystem() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentedSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentedSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SatelliteSystemTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SatelliteSystemTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -592,11 +585,24 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
             boolean lhsFieldIsSet = this.isSetEmission();
             boolean rhsFieldIsSet = that.isSetEmission();
             List<RadioFrequencyPropertyType> lhsField;
-            lhsField = (this.isSetEmission() ? this.getEmission() : null);
+            lhsField = (this.isSetEmission()?this.getEmission():null);
             List<RadioFrequencyPropertyType> rhsField;
-            rhsField = (that.isSetEmission() ? that.getEmission() : null);
+            rhsField = (that.isSetEmission()?that.getEmission():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emission", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperator();
+            boolean rhsFieldIsSet = that.isSetOperator();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getOperator();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getOperator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -631,7 +637,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         {
             boolean theFieldIsSet = this.isSetAugmentedSystem();
             List<SatelliteSystemPropertyType> theField;
-            theField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
+            theField = (this.isSetAugmentedSystem()?this.getAugmentedSystem():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "augmentedSystem", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -645,21 +651,21 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         {
             boolean theFieldIsSet = this.isSetEmission();
             List<RadioFrequencyPropertyType> theField;
-            theField = (this.isSetEmission() ? this.getEmission() : null);
+            theField = (this.isSetEmission()?this.getEmission():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "emission", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SatelliteSystemTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -690,7 +696,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         {
             boolean theFieldIsSet = this.isSetAugmentedSystem();
             List<SatelliteSystemPropertyType> theField;
-            theField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
+            theField = (this.isSetAugmentedSystem()?this.getAugmentedSystem():null);
             strategy.appendField(locator, this, "augmentedSystem", buffer, theField, theFieldIsSet);
         }
         {
@@ -702,19 +708,19 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         {
             boolean theFieldIsSet = this.isSetEmission();
             List<RadioFrequencyPropertyType> theField;
-            theField = (this.isSetEmission() ? this.getEmission() : null);
+            theField = (this.isSetEmission()?this.getEmission():null);
             strategy.appendField(locator, this, "emission", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SatelliteSystemTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -19,10 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,72 +30,43 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for SurfaceCharacteristicsType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SurfaceCharacteristicsType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SurfaceCharacteristicsType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="composition" type=
-"{http://www.aixm.aero/schema/5.2}CodeSurfaceCompositionType" minOccurs="0"/>
- *         <element name="preparation" type=
-"{http://www.aixm.aero/schema/5.2}CodeSurfacePreparationType" minOccurs="0"/>
- *         <element name="surfaceCondition" type=
-"{http://www.aixm.aero/schema/5.2}CodeSurfaceConditionType" minOccurs="0"/>
- *         <element name="classPCN" type=
-"{http://www.aixm.aero/schema/5.2}ValPavementStrengthType" minOccurs="0"/>
- *         <element name="pavementTypePCN" type=
-"{http://www.aixm.aero/schema/5.2}CodePavementBehaviourType" minOccurs="0"/>
- *         <element name="pavementSubgradePCN" type=
-"{http://www.aixm.aero/schema/5.2}CodePavementSubgradeType" minOccurs="0"/>
- *         <element name="maxTyrePressurePCN" type=
-"{http://www.aixm.aero/schema/5.2}CodeTyrePressureType" minOccurs="0"/>
- *         <element name="evaluationMethodPCN" type=
-"{http://www.aixm.aero/schema/5.2}CodePavementStrengthMethodType" minOccurs=
-"0"/>
- *         <element name="classLCN" type=
-"{http://www.aixm.aero/schema/5.2}ValLCNType" minOccurs="0"/>
- *         <element name="weightSIWL" type=
-"{http://www.aixm.aero/schema/5.2}ValWeightType" minOccurs="0"/>
- *         <element name="tyrePressureSIWL" type=
-"{http://www.aixm.aero/schema/5.2}ValPressureType" minOccurs="0"/>
- *         <element name="weightAUW" type=
-"{http://www.aixm.aero/schema/5.2}ValWeightType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="classPCR" type=
-"{http://www.aixm.aero/schema/5.2}ValPavementStrengthType" minOccurs="0"/>
- *         <element name="pavementTypePCR" type=
-"{http://www.aixm.aero/schema/5.2}CodePavementBehaviourType" minOccurs="0"/>
- *         <element name="pavementSubgradePCR" type=
-"{http://www.aixm.aero/schema/5.2}CodePavementSubgradeType" minOccurs="0"/>
- *         <element name="maxTyrePressurePCR" type=
-"{http://www.aixm.aero/schema/5.2}CodeTyrePressureType" minOccurs="0"/>
- *         <element name="evaluationMethodPCR" type=
-"{http://www.aixm.aero/schema/5.2}CodePavementStrengthMethodType" minOccurs=
-"0"/>
+ *         <element name="composition" type="{http://www.aixm.aero/schema/5.2}CodeSurfaceCompositionType" minOccurs="0"/>
+ *         <element name="preparation" type="{http://www.aixm.aero/schema/5.2}CodeSurfacePreparationType" minOccurs="0"/>
+ *         <element name="surfaceCondition" type="{http://www.aixm.aero/schema/5.2}CodeSurfaceConditionType" minOccurs="0"/>
+ *         <element name="classPCN" type="{http://www.aixm.aero/schema/5.2}ValPavementStrengthType" minOccurs="0"/>
+ *         <element name="pavementTypePCN" type="{http://www.aixm.aero/schema/5.2}CodePavementBehaviourType" minOccurs="0"/>
+ *         <element name="pavementSubgradePCN" type="{http://www.aixm.aero/schema/5.2}CodePavementSubgradeType" minOccurs="0"/>
+ *         <element name="maxTyrePressurePCN" type="{http://www.aixm.aero/schema/5.2}CodeTyrePressureType" minOccurs="0"/>
+ *         <element name="evaluationMethodPCN" type="{http://www.aixm.aero/schema/5.2}CodePavementStrengthMethodType" minOccurs="0"/>
+ *         <element name="classLCN" type="{http://www.aixm.aero/schema/5.2}ValLCNType" minOccurs="0"/>
+ *         <element name="weightSIWL" type="{http://www.aixm.aero/schema/5.2}ValWeightType" minOccurs="0"/>
+ *         <element name="tyrePressureSIWL" type="{http://www.aixm.aero/schema/5.2}ValPressureType" minOccurs="0"/>
+ *         <element name="weightAUW" type="{http://www.aixm.aero/schema/5.2}ValWeightType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="classPCR" type="{http://www.aixm.aero/schema/5.2}ValPavementStrengthType" minOccurs="0"/>
+ *         <element name="pavementTypePCR" type="{http://www.aixm.aero/schema/5.2}CodePavementBehaviourType" minOccurs="0"/>
+ *         <element name="pavementSubgradePCR" type="{http://www.aixm.aero/schema/5.2}CodePavementSubgradeType" minOccurs="0"/>
+ *         <element name="maxTyrePressurePCR" type="{http://www.aixm.aero/schema/5.2}CodeTyrePressureType" minOccurs="0"/>
+ *         <element name="evaluationMethodPCR" type="{http://www.aixm.aero/schema/5.2}CodePavementStrengthMethodType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractSurfaceCharacteristicsExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractSurfaceCharacteristicsExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -105,17 +76,37 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SurfaceCharacteristicsType", propOrder = {"composition", "preparation", "surfaceCondition", "classPCN",
-        "pavementTypePCN", "pavementSubgradePCN", "maxTyrePressurePCN", "evaluationMethodPCN", "classLCN", "weightSIWL",
-        "tyrePressureSIWL", "weightAUW", "annotation", "classPCR", "pavementTypePCR", "pavementSubgradePCR",
-        "maxTyrePressurePCR", "evaluationMethodPCR", "extension"})
+@XmlType(name = "SurfaceCharacteristicsType", propOrder = {
+    "composition",
+    "preparation",
+    "surfaceCondition",
+    "classPCN",
+    "pavementTypePCN",
+    "pavementSubgradePCN",
+    "maxTyrePressurePCN",
+    "evaluationMethodPCN",
+    "classLCN",
+    "weightSIWL",
+    "tyrePressureSIWL",
+    "weightAUW",
+    "annotation",
+    "classPCR",
+    "pavementTypePCR",
+    "pavementSubgradePCR",
+    "maxTyrePressurePCR",
+    "evaluationMethodPCR",
+    "extension"
+})
 @Entity(name = "SurfaceCharacteristicsType")
 @Table(name = "surfacecharacteristics_o", schema = "airport_heliport")
-public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implements Serializable {
+public class SurfaceCharacteristicsType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "composition", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -158,10 +149,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the composition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSurfaceCompositionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSurfaceCompositionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSurfaceCompositionType> getComposition() {
@@ -170,11 +162,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the composition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSurfaceCompositionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSurfaceCompositionType }{@code >}
+     *     
      */
     public void setComposition(JAXBElement<CodeSurfaceCompositionType> value) {
         this.composition = value;
@@ -182,15 +174,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetComposition() {
-        return (this.composition != null);
+        return (this.composition!= null);
     }
 
     /**
      * Gets the value of the preparation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSurfacePreparationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSurfacePreparationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSurfacePreparationType> getPreparation() {
@@ -199,11 +192,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the preparation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSurfacePreparationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSurfacePreparationType }{@code >}
+     *     
      */
     public void setPreparation(JAXBElement<CodeSurfacePreparationType> value) {
         this.preparation = value;
@@ -211,15 +204,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetPreparation() {
-        return (this.preparation != null);
+        return (this.preparation!= null);
     }
 
     /**
      * Gets the value of the surfaceCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSurfaceConditionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSurfaceConditionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSurfaceConditionType> getSurfaceCondition() {
@@ -228,11 +222,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the surfaceCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSurfaceConditionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSurfaceConditionType }{@code >}
+     *     
      */
     public void setSurfaceCondition(JAXBElement<CodeSurfaceConditionType> value) {
         this.surfaceCondition = value;
@@ -240,15 +234,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSurfaceCondition() {
-        return (this.surfaceCondition != null);
+        return (this.surfaceCondition!= null);
     }
 
     /**
      * Gets the value of the classPCN property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValPavementStrengthType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValPavementStrengthType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValPavementStrengthType> getClassPCN() {
@@ -257,11 +252,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the classPCN property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValPavementStrengthType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValPavementStrengthType }{@code >}
+     *     
      */
     public void setClassPCN(JAXBElement<ValPavementStrengthType> value) {
         this.classPCN = value;
@@ -269,15 +264,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetClassPCN() {
-        return (this.classPCN != null);
+        return (this.classPCN!= null);
     }
 
     /**
      * Gets the value of the pavementTypePCN property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodePavementBehaviourType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementBehaviourType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodePavementBehaviourType> getPavementTypePCN() {
@@ -286,11 +282,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the pavementTypePCN property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodePavementBehaviourType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementBehaviourType }{@code >}
+     *     
      */
     public void setPavementTypePCN(JAXBElement<CodePavementBehaviourType> value) {
         this.pavementTypePCN = value;
@@ -298,15 +294,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetPavementTypePCN() {
-        return (this.pavementTypePCN != null);
+        return (this.pavementTypePCN!= null);
     }
 
     /**
      * Gets the value of the pavementSubgradePCN property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodePavementSubgradeType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementSubgradeType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodePavementSubgradeType> getPavementSubgradePCN() {
@@ -315,11 +312,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the pavementSubgradePCN property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodePavementSubgradeType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementSubgradeType }{@code >}
+     *     
      */
     public void setPavementSubgradePCN(JAXBElement<CodePavementSubgradeType> value) {
         this.pavementSubgradePCN = value;
@@ -327,15 +324,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetPavementSubgradePCN() {
-        return (this.pavementSubgradePCN != null);
+        return (this.pavementSubgradePCN!= null);
     }
 
     /**
      * Gets the value of the maxTyrePressurePCN property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeTyrePressureType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeTyrePressureType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeTyrePressureType> getMaxTyrePressurePCN() {
@@ -344,11 +342,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the maxTyrePressurePCN property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeTyrePressureType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeTyrePressureType }{@code >}
+     *     
      */
     public void setMaxTyrePressurePCN(JAXBElement<CodeTyrePressureType> value) {
         this.maxTyrePressurePCN = value;
@@ -356,15 +354,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetMaxTyrePressurePCN() {
-        return (this.maxTyrePressurePCN != null);
+        return (this.maxTyrePressurePCN!= null);
     }
 
     /**
      * Gets the value of the evaluationMethodPCN property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodePavementStrengthMethodType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementStrengthMethodType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodePavementStrengthMethodType> getEvaluationMethodPCN() {
@@ -373,11 +372,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the evaluationMethodPCN property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodePavementStrengthMethodType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementStrengthMethodType }{@code >}
+     *     
      */
     public void setEvaluationMethodPCN(JAXBElement<CodePavementStrengthMethodType> value) {
         this.evaluationMethodPCN = value;
@@ -385,15 +384,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetEvaluationMethodPCN() {
-        return (this.evaluationMethodPCN != null);
+        return (this.evaluationMethodPCN!= null);
     }
 
     /**
      * Gets the value of the classLCN property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValLCNType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValLCNType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValLCNType> getClassLCN() {
@@ -402,11 +402,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the classLCN property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValLCNType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValLCNType }{@code >}
+     *     
      */
     public void setClassLCN(JAXBElement<ValLCNType> value) {
         this.classLCN = value;
@@ -414,15 +414,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetClassLCN() {
-        return (this.classLCN != null);
+        return (this.classLCN!= null);
     }
 
     /**
      * Gets the value of the weightSIWL property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValWeightType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValWeightType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValWeightType> getWeightSIWL() {
@@ -431,11 +432,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the weightSIWL property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValWeightType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValWeightType }{@code >}
+     *     
      */
     public void setWeightSIWL(JAXBElement<ValWeightType> value) {
         this.weightSIWL = value;
@@ -443,15 +444,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetWeightSIWL() {
-        return (this.weightSIWL != null);
+        return (this.weightSIWL!= null);
     }
 
     /**
      * Gets the value of the tyrePressureSIWL property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValPressureType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValPressureType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValPressureType> getTyrePressureSIWL() {
@@ -460,11 +462,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the tyrePressureSIWL property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValPressureType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValPressureType }{@code >}
+     *     
      */
     public void setTyrePressureSIWL(JAXBElement<ValPressureType> value) {
         this.tyrePressureSIWL = value;
@@ -472,15 +474,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetTyrePressureSIWL() {
-        return (this.tyrePressureSIWL != null);
+        return (this.tyrePressureSIWL!= null);
     }
 
     /**
      * Gets the value of the weightAUW property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValWeightType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValWeightType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValWeightType> getWeightAUW() {
@@ -489,11 +492,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the weightAUW property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValWeightType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValWeightType }{@code >}
+     *     
      */
     public void setWeightAUW(JAXBElement<ValWeightType> value) {
         this.weightAUW = value;
@@ -501,36 +504,39 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetWeightAUW() {
-        return (this.weightAUW != null);
+        return (this.weightAUW!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srfcchrctrstcstp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "surfacecharacteristics_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srfcchrctrstcstp_annttn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "surfacecharacteristics_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -539,8 +545,8 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -548,7 +554,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -557,10 +563,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the classPCR property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValPavementStrengthType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValPavementStrengthType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValPavementStrengthType> getClassPCR() {
@@ -569,11 +576,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the classPCR property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValPavementStrengthType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValPavementStrengthType }{@code >}
+     *     
      */
     public void setClassPCR(JAXBElement<ValPavementStrengthType> value) {
         this.classPCR = value;
@@ -581,15 +588,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetClassPCR() {
-        return (this.classPCR != null);
+        return (this.classPCR!= null);
     }
 
     /**
      * Gets the value of the pavementTypePCR property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodePavementBehaviourType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementBehaviourType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodePavementBehaviourType> getPavementTypePCR() {
@@ -598,11 +606,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the pavementTypePCR property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodePavementBehaviourType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementBehaviourType }{@code >}
+     *     
      */
     public void setPavementTypePCR(JAXBElement<CodePavementBehaviourType> value) {
         this.pavementTypePCR = value;
@@ -610,15 +618,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetPavementTypePCR() {
-        return (this.pavementTypePCR != null);
+        return (this.pavementTypePCR!= null);
     }
 
     /**
      * Gets the value of the pavementSubgradePCR property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodePavementSubgradeType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementSubgradeType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodePavementSubgradeType> getPavementSubgradePCR() {
@@ -627,11 +636,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the pavementSubgradePCR property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodePavementSubgradeType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementSubgradeType }{@code >}
+     *     
      */
     public void setPavementSubgradePCR(JAXBElement<CodePavementSubgradeType> value) {
         this.pavementSubgradePCR = value;
@@ -639,15 +648,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetPavementSubgradePCR() {
-        return (this.pavementSubgradePCR != null);
+        return (this.pavementSubgradePCR!= null);
     }
 
     /**
      * Gets the value of the maxTyrePressurePCR property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeTyrePressureType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeTyrePressureType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeTyrePressureType> getMaxTyrePressurePCR() {
@@ -656,11 +666,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the maxTyrePressurePCR property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeTyrePressureType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeTyrePressureType }{@code >}
+     *     
      */
     public void setMaxTyrePressurePCR(JAXBElement<CodeTyrePressureType> value) {
         this.maxTyrePressurePCR = value;
@@ -668,15 +678,16 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetMaxTyrePressurePCR() {
-        return (this.maxTyrePressurePCR != null);
+        return (this.maxTyrePressurePCR!= null);
     }
 
     /**
      * Gets the value of the evaluationMethodPCR property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodePavementStrengthMethodType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementStrengthMethodType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodePavementStrengthMethodType> getEvaluationMethodPCR() {
@@ -685,11 +696,11 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the evaluationMethodPCR property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodePavementStrengthMethodType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodePavementStrengthMethodType }{@code >}
+     *     
      */
     public void setEvaluationMethodPCR(JAXBElement<CodePavementStrengthMethodType> value) {
         this.evaluationMethodPCR = value;
@@ -697,34 +708,34 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetEvaluationMethodPCR() {
-        return (this.evaluationMethodPCR != null);
+        return (this.evaluationMethodPCR!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SurfaceCharacteristicsExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SurfaceCharacteristicsExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "surfacecharacteristics_oe_hjid", referencedColumnName = "hjid")
     public List<SurfaceCharacteristicsExtensionType> getExtension() {
         if (extension == null) {
@@ -734,8 +745,8 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<SurfaceCharacteristicsExtensionType> extension) {
         this.extension = extension;
@@ -743,7 +754,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -751,232 +762,232 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "composition")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "compositionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "composition", columnDefinition = "codesurfacecompositionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "compositionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeSurfaceCompositionType getCompositionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSurfaceCompositionType.class, this.getComposition());
     }
 
     public void setCompositionItem(CodeSurfaceCompositionType target) {
-        setComposition(XmlAdapterUtils.marshallJAXBElement(CodeSurfaceCompositionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "composition"), SurfaceCharacteristicsType.class, target));
+        setComposition(XmlAdapterUtils.marshallJAXBElement(CodeSurfaceCompositionType.class, new QName("http://www.aixm.aero/schema/5.2", "composition"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "preparation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "preparationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "preparation", columnDefinition = "codesurfacepreparationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "preparationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeSurfacePreparationType getPreparationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSurfacePreparationType.class, this.getPreparation());
     }
 
     public void setPreparationItem(CodeSurfacePreparationType target) {
-        setPreparation(XmlAdapterUtils.marshallJAXBElement(CodeSurfacePreparationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "preparation"), SurfaceCharacteristicsType.class, target));
+        setPreparation(XmlAdapterUtils.marshallJAXBElement(CodeSurfacePreparationType.class, new QName("http://www.aixm.aero/schema/5.2", "preparation"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "surfacecondition")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "surfaceconditionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "surfacecondition", columnDefinition = "codesurfaceconditionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "surfaceconditionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeSurfaceConditionType getSurfaceConditionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSurfaceConditionType.class, this.getSurfaceCondition());
     }
 
     public void setSurfaceConditionItem(CodeSurfaceConditionType target) {
-        setSurfaceCondition(XmlAdapterUtils.marshallJAXBElement(CodeSurfaceConditionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "surfaceCondition"), SurfaceCharacteristicsType.class,
-                target));
+        setSurfaceCondition(XmlAdapterUtils.marshallJAXBElement(CodeSurfaceConditionType.class, new QName("http://www.aixm.aero/schema/5.2", "surfaceCondition"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "classpcn", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "classpcnnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "classpcn", columnDefinition = "valpavementstrengthbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "classpcnnilreason", columnDefinition = "nilreason"))
+    })
     public ValPavementStrengthType getClassPCNItem() {
         return XmlAdapterUtils.unmarshallSource(ValPavementStrengthType.class, this.getClassPCN());
     }
 
     public void setClassPCNItem(ValPavementStrengthType target) {
-        setClassPCN(XmlAdapterUtils.marshallJAXBElement(ValPavementStrengthType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "classPCN"), SurfaceCharacteristicsType.class, target));
+        setClassPCN(XmlAdapterUtils.marshallJAXBElement(ValPavementStrengthType.class, new QName("http://www.aixm.aero/schema/5.2", "classPCN"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "pavementtypepcn")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "pavementtypepcnnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "pavementtypepcn", columnDefinition = "codepavementbehaviourbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "pavementtypepcnnilreason", columnDefinition = "nilreason"))
+    })
     public CodePavementBehaviourType getPavementTypePCNItem() {
         return XmlAdapterUtils.unmarshallSource(CodePavementBehaviourType.class, this.getPavementTypePCN());
     }
 
     public void setPavementTypePCNItem(CodePavementBehaviourType target) {
-        setPavementTypePCN(XmlAdapterUtils.marshallJAXBElement(CodePavementBehaviourType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "pavementTypePCN"), SurfaceCharacteristicsType.class,
-                target));
+        setPavementTypePCN(XmlAdapterUtils.marshallJAXBElement(CodePavementBehaviourType.class, new QName("http://www.aixm.aero/schema/5.2", "pavementTypePCN"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "pavementsubgradepcn")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "pavementsubgradepcnnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "pavementsubgradepcn", columnDefinition = "codepavementsubgradebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "pavementsubgradepcnnilreason", columnDefinition = "nilreason"))
+    })
     public CodePavementSubgradeType getPavementSubgradePCNItem() {
         return XmlAdapterUtils.unmarshallSource(CodePavementSubgradeType.class, this.getPavementSubgradePCN());
     }
 
     public void setPavementSubgradePCNItem(CodePavementSubgradeType target) {
-        setPavementSubgradePCN(XmlAdapterUtils.marshallJAXBElement(CodePavementSubgradeType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "pavementSubgradePCN"), SurfaceCharacteristicsType.class,
-                target));
+        setPavementSubgradePCN(XmlAdapterUtils.marshallJAXBElement(CodePavementSubgradeType.class, new QName("http://www.aixm.aero/schema/5.2", "pavementSubgradePCN"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "maxtyrepressurepcn")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "maxtyrepressurepcnnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "maxtyrepressurepcn", columnDefinition = "codetyrepressurebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "maxtyrepressurepcnnilreason", columnDefinition = "nilreason"))
+    })
     public CodeTyrePressureType getMaxTyrePressurePCNItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTyrePressureType.class, this.getMaxTyrePressurePCN());
     }
 
     public void setMaxTyrePressurePCNItem(CodeTyrePressureType target) {
-        setMaxTyrePressurePCN(XmlAdapterUtils.marshallJAXBElement(CodeTyrePressureType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "maxTyrePressurePCN"), SurfaceCharacteristicsType.class,
-                target));
+        setMaxTyrePressurePCN(XmlAdapterUtils.marshallJAXBElement(CodeTyrePressureType.class, new QName("http://www.aixm.aero/schema/5.2", "maxTyrePressurePCN"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "evaluationmethodpcn")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "evaluationmethodpcnnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "evaluationmethodpcn", columnDefinition = "codepavementstrengthmethodbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "evaluationmethodpcnnilreason", columnDefinition = "nilreason"))
+    })
     public CodePavementStrengthMethodType getEvaluationMethodPCNItem() {
         return XmlAdapterUtils.unmarshallSource(CodePavementStrengthMethodType.class, this.getEvaluationMethodPCN());
     }
 
     public void setEvaluationMethodPCNItem(CodePavementStrengthMethodType target) {
-        setEvaluationMethodPCN(XmlAdapterUtils.marshallJAXBElement(CodePavementStrengthMethodType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "evaluationMethodPCN"), SurfaceCharacteristicsType.class,
-                target));
+        setEvaluationMethodPCN(XmlAdapterUtils.marshallJAXBElement(CodePavementStrengthMethodType.class, new QName("http://www.aixm.aero/schema/5.2", "evaluationMethodPCN"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "classlcn", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "classlcnnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "classlcn", columnDefinition = "vallcnbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "classlcnnilreason", columnDefinition = "nilreason"))
+    })
     public ValLCNType getClassLCNItem() {
         return XmlAdapterUtils.unmarshallSource(ValLCNType.class, this.getClassLCN());
     }
 
     public void setClassLCNItem(ValLCNType target) {
-        setClassLCN(XmlAdapterUtils.marshallJAXBElement(ValLCNType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "classLCN"), SurfaceCharacteristicsType.class, target));
+        setClassLCN(XmlAdapterUtils.marshallJAXBElement(ValLCNType.class, new QName("http://www.aixm.aero/schema/5.2", "classLCN"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "weightsiwl", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "weightsiwluom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "weightsiwlnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "weightsiwl", columnDefinition = "valweightbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "weightsiwluom", columnDefinition = "uomweight")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "weightsiwlnilreason", columnDefinition = "nilreason"))
+    })
     public ValWeightType getWeightSIWLItem() {
         return XmlAdapterUtils.unmarshallSource(ValWeightType.class, this.getWeightSIWL());
     }
 
     public void setWeightSIWLItem(ValWeightType target) {
-        setWeightSIWL(XmlAdapterUtils.marshallJAXBElement(ValWeightType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "weightSIWL"), SurfaceCharacteristicsType.class, target));
+        setWeightSIWL(XmlAdapterUtils.marshallJAXBElement(ValWeightType.class, new QName("http://www.aixm.aero/schema/5.2", "weightSIWL"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "tyrepressuresiwl", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "tyrepressuresiwluom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "tyrepressuresiwlnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "tyrepressuresiwl", columnDefinition = "valpressurebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "tyrepressuresiwluom", columnDefinition = "uompressure")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "tyrepressuresiwlnilreason", columnDefinition = "nilreason"))
+    })
     public ValPressureType getTyrePressureSIWLItem() {
         return XmlAdapterUtils.unmarshallSource(ValPressureType.class, this.getTyrePressureSIWL());
     }
 
     public void setTyrePressureSIWLItem(ValPressureType target) {
-        setTyrePressureSIWL(XmlAdapterUtils.marshallJAXBElement(ValPressureType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "tyrePressureSIWL"), SurfaceCharacteristicsType.class,
-                target));
+        setTyrePressureSIWL(XmlAdapterUtils.marshallJAXBElement(ValPressureType.class, new QName("http://www.aixm.aero/schema/5.2", "tyrePressureSIWL"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "weightauw", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "weightauwuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "weightauwnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "weightauw", columnDefinition = "valweightbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "weightauwuom", columnDefinition = "uomweight")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "weightauwnilreason", columnDefinition = "nilreason"))
+    })
     public ValWeightType getWeightAUWItem() {
         return XmlAdapterUtils.unmarshallSource(ValWeightType.class, this.getWeightAUW());
     }
 
     public void setWeightAUWItem(ValWeightType target) {
-        setWeightAUW(XmlAdapterUtils.marshallJAXBElement(ValWeightType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "weightAUW"), SurfaceCharacteristicsType.class, target));
+        setWeightAUW(XmlAdapterUtils.marshallJAXBElement(ValWeightType.class, new QName("http://www.aixm.aero/schema/5.2", "weightAUW"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "classpcr", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "classpcrnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "classpcr", columnDefinition = "valpavementstrengthbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "classpcrnilreason", columnDefinition = "nilreason"))
+    })
     public ValPavementStrengthType getClassPCRItem() {
         return XmlAdapterUtils.unmarshallSource(ValPavementStrengthType.class, this.getClassPCR());
     }
 
     public void setClassPCRItem(ValPavementStrengthType target) {
-        setClassPCR(XmlAdapterUtils.marshallJAXBElement(ValPavementStrengthType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "classPCR"), SurfaceCharacteristicsType.class, target));
+        setClassPCR(XmlAdapterUtils.marshallJAXBElement(ValPavementStrengthType.class, new QName("http://www.aixm.aero/schema/5.2", "classPCR"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "pavementtypepcr")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "pavementtypepcrnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "pavementtypepcr", columnDefinition = "codepavementbehaviourbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "pavementtypepcrnilreason", columnDefinition = "nilreason"))
+    })
     public CodePavementBehaviourType getPavementTypePCRItem() {
         return XmlAdapterUtils.unmarshallSource(CodePavementBehaviourType.class, this.getPavementTypePCR());
     }
 
     public void setPavementTypePCRItem(CodePavementBehaviourType target) {
-        setPavementTypePCR(XmlAdapterUtils.marshallJAXBElement(CodePavementBehaviourType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "pavementTypePCR"), SurfaceCharacteristicsType.class,
-                target));
+        setPavementTypePCR(XmlAdapterUtils.marshallJAXBElement(CodePavementBehaviourType.class, new QName("http://www.aixm.aero/schema/5.2", "pavementTypePCR"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "pavementsubgradepcr")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "pavementsubgradepcrnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "pavementsubgradepcr", columnDefinition = "codepavementsubgradebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "pavementsubgradepcrnilreason", columnDefinition = "nilreason"))
+    })
     public CodePavementSubgradeType getPavementSubgradePCRItem() {
         return XmlAdapterUtils.unmarshallSource(CodePavementSubgradeType.class, this.getPavementSubgradePCR());
     }
 
     public void setPavementSubgradePCRItem(CodePavementSubgradeType target) {
-        setPavementSubgradePCR(XmlAdapterUtils.marshallJAXBElement(CodePavementSubgradeType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "pavementSubgradePCR"), SurfaceCharacteristicsType.class,
-                target));
+        setPavementSubgradePCR(XmlAdapterUtils.marshallJAXBElement(CodePavementSubgradeType.class, new QName("http://www.aixm.aero/schema/5.2", "pavementSubgradePCR"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "maxtyrepressurepcr")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "maxtyrepressurepcrnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "maxtyrepressurepcr", columnDefinition = "codetyrepressurebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "maxtyrepressurepcrnilreason", columnDefinition = "nilreason"))
+    })
     public CodeTyrePressureType getMaxTyrePressurePCRItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTyrePressureType.class, this.getMaxTyrePressurePCR());
     }
 
     public void setMaxTyrePressurePCRItem(CodeTyrePressureType target) {
-        setMaxTyrePressurePCR(XmlAdapterUtils.marshallJAXBElement(CodeTyrePressureType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "maxTyrePressurePCR"), SurfaceCharacteristicsType.class,
-                target));
+        setMaxTyrePressurePCR(XmlAdapterUtils.marshallJAXBElement(CodeTyrePressureType.class, new QName("http://www.aixm.aero/schema/5.2", "maxTyrePressurePCR"), SurfaceCharacteristicsType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "evaluationmethodpcr")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "evaluationmethodpcrnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "evaluationmethodpcr", columnDefinition = "codepavementstrengthmethodbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "evaluationmethodpcrnilreason", columnDefinition = "nilreason"))
+    })
     public CodePavementStrengthMethodType getEvaluationMethodPCRItem() {
         return XmlAdapterUtils.unmarshallSource(CodePavementStrengthMethodType.class, this.getEvaluationMethodPCR());
     }
 
     public void setEvaluationMethodPCRItem(CodePavementStrengthMethodType target) {
-        setEvaluationMethodPCR(XmlAdapterUtils.marshallJAXBElement(CodePavementStrengthMethodType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "evaluationMethodPCR"), SurfaceCharacteristicsType.class,
-                target));
+        setEvaluationMethodPCR(XmlAdapterUtils.marshallJAXBElement(CodePavementStrengthMethodType.class, new QName("http://www.aixm.aero/schema/5.2", "evaluationMethodPCR"), SurfaceCharacteristicsType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -987,118 +998,14 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
         }
         final SurfaceCharacteristicsType that = ((SurfaceCharacteristicsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetClassPCN();
-            boolean rhsFieldIsSet = that.isSetClassPCN();
-            JAXBElement<ValPavementStrengthType> lhsField;
-            lhsField = this.getClassPCN();
-            JAXBElement<ValPavementStrengthType> rhsField;
-            rhsField = that.getClassPCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classPCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classPCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEvaluationMethodPCN();
-            boolean rhsFieldIsSet = that.isSetEvaluationMethodPCN();
-            JAXBElement<CodePavementStrengthMethodType> lhsField;
-            lhsField = this.getEvaluationMethodPCN();
-            JAXBElement<CodePavementStrengthMethodType> rhsField;
-            rhsField = that.getEvaluationMethodPCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodPCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodPCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceCondition();
-            boolean rhsFieldIsSet = that.isSetSurfaceCondition();
-            JAXBElement<CodeSurfaceConditionType> lhsField;
-            lhsField = this.getSurfaceCondition();
-            JAXBElement<CodeSurfaceConditionType> rhsField;
-            rhsField = that.getSurfaceCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPavementSubgradePCN();
-            boolean rhsFieldIsSet = that.isSetPavementSubgradePCN();
-            JAXBElement<CodePavementSubgradeType> lhsField;
-            lhsField = this.getPavementSubgradePCN();
-            JAXBElement<CodePavementSubgradeType> rhsField;
-            rhsField = that.getPavementSubgradePCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pavementSubgradePCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pavementSubgradePCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTyrePressureSIWL();
-            boolean rhsFieldIsSet = that.isSetTyrePressureSIWL();
-            JAXBElement<ValPressureType> lhsField;
-            lhsField = this.getTyrePressureSIWL();
-            JAXBElement<ValPressureType> rhsField;
-            rhsField = that.getTyrePressureSIWL();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tyrePressureSIWL", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tyrePressureSIWL", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWeightAUW();
-            boolean rhsFieldIsSet = that.isSetWeightAUW();
-            JAXBElement<ValWeightType> lhsField;
-            lhsField = this.getWeightAUW();
-            JAXBElement<ValWeightType> rhsField;
-            rhsField = that.getWeightAUW();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightAUW", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightAUW", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<SurfaceCharacteristicsExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<SurfaceCharacteristicsExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetComposition();
-            boolean rhsFieldIsSet = that.isSetComposition();
-            JAXBElement<CodeSurfaceCompositionType> lhsField;
-            lhsField = this.getComposition();
-            JAXBElement<CodeSurfaceCompositionType> rhsField;
-            rhsField = that.getComposition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1117,27 +1024,40 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMaxTyrePressurePCN();
-            boolean rhsFieldIsSet = that.isSetMaxTyrePressurePCN();
-            JAXBElement<CodeTyrePressureType> lhsField;
-            lhsField = this.getMaxTyrePressurePCN();
-            JAXBElement<CodeTyrePressureType> rhsField;
-            rhsField = that.getMaxTyrePressurePCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxTyrePressurePCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxTyrePressurePCN", rhsField);
+            boolean lhsFieldIsSet = this.isSetPavementTypePCR();
+            boolean rhsFieldIsSet = that.isSetPavementTypePCR();
+            JAXBElement<CodePavementBehaviourType> lhsField;
+            lhsField = this.getPavementTypePCR();
+            JAXBElement<CodePavementBehaviourType> rhsField;
+            rhsField = that.getPavementTypePCR();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pavementTypePCR", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pavementTypePCR", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEvaluationMethodPCR();
-            boolean rhsFieldIsSet = that.isSetEvaluationMethodPCR();
-            JAXBElement<CodePavementStrengthMethodType> lhsField;
-            lhsField = this.getEvaluationMethodPCR();
-            JAXBElement<CodePavementStrengthMethodType> rhsField;
-            rhsField = that.getEvaluationMethodPCR();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodPCR", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodPCR", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClassPCN();
+            boolean rhsFieldIsSet = that.isSetClassPCN();
+            JAXBElement<ValPavementStrengthType> lhsField;
+            lhsField = this.getClassPCN();
+            JAXBElement<ValPavementStrengthType> rhsField;
+            rhsField = that.getClassPCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classPCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classPCN", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1156,6 +1076,71 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetEvaluationMethodPCR();
+            boolean rhsFieldIsSet = that.isSetEvaluationMethodPCR();
+            JAXBElement<CodePavementStrengthMethodType> lhsField;
+            lhsField = this.getEvaluationMethodPCR();
+            JAXBElement<CodePavementStrengthMethodType> rhsField;
+            rhsField = that.getEvaluationMethodPCR();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodPCR", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodPCR", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceCondition();
+            boolean rhsFieldIsSet = that.isSetSurfaceCondition();
+            JAXBElement<CodeSurfaceConditionType> lhsField;
+            lhsField = this.getSurfaceCondition();
+            JAXBElement<CodeSurfaceConditionType> rhsField;
+            rhsField = that.getSurfaceCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEvaluationMethodPCN();
+            boolean rhsFieldIsSet = that.isSetEvaluationMethodPCN();
+            JAXBElement<CodePavementStrengthMethodType> lhsField;
+            lhsField = this.getEvaluationMethodPCN();
+            JAXBElement<CodePavementStrengthMethodType> rhsField;
+            rhsField = that.getEvaluationMethodPCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodPCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodPCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWeightAUW();
+            boolean rhsFieldIsSet = that.isSetWeightAUW();
+            JAXBElement<ValWeightType> lhsField;
+            lhsField = this.getWeightAUW();
+            JAXBElement<ValWeightType> rhsField;
+            rhsField = that.getWeightAUW();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightAUW", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightAUW", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMaxTyrePressurePCN();
+            boolean rhsFieldIsSet = that.isSetMaxTyrePressurePCN();
+            JAXBElement<CodeTyrePressureType> lhsField;
+            lhsField = this.getMaxTyrePressurePCN();
+            JAXBElement<CodeTyrePressureType> rhsField;
+            rhsField = that.getMaxTyrePressurePCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxTyrePressurePCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxTyrePressurePCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMaxTyrePressurePCR();
             boolean rhsFieldIsSet = that.isSetMaxTyrePressurePCR();
             JAXBElement<CodeTyrePressureType> lhsField;
@@ -1169,6 +1154,45 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetPreparation();
+            boolean rhsFieldIsSet = that.isSetPreparation();
+            JAXBElement<CodeSurfacePreparationType> lhsField;
+            lhsField = this.getPreparation();
+            JAXBElement<CodeSurfacePreparationType> rhsField;
+            rhsField = that.getPreparation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "preparation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "preparation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetComposition();
+            boolean rhsFieldIsSet = that.isSetComposition();
+            JAXBElement<CodeSurfaceCompositionType> lhsField;
+            lhsField = this.getComposition();
+            JAXBElement<CodeSurfaceCompositionType> rhsField;
+            rhsField = that.getComposition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPavementSubgradePCN();
+            boolean rhsFieldIsSet = that.isSetPavementSubgradePCN();
+            JAXBElement<CodePavementSubgradeType> lhsField;
+            lhsField = this.getPavementSubgradePCN();
+            JAXBElement<CodePavementSubgradeType> rhsField;
+            rhsField = that.getPavementSubgradePCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pavementSubgradePCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pavementSubgradePCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetClassPCR();
             boolean rhsFieldIsSet = that.isSetClassPCR();
             JAXBElement<ValPavementStrengthType> lhsField;
@@ -1177,6 +1201,19 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             rhsField = that.getClassPCR();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classPCR", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classPCR", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTyrePressureSIWL();
+            boolean rhsFieldIsSet = that.isSetTyrePressureSIWL();
+            JAXBElement<ValPressureType> lhsField;
+            lhsField = this.getTyrePressureSIWL();
+            JAXBElement<ValPressureType> rhsField;
+            rhsField = that.getTyrePressureSIWL();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tyrePressureSIWL", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tyrePressureSIWL", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1203,32 +1240,6 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             rhsField = that.getPavementSubgradePCR();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pavementSubgradePCR", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pavementSubgradePCR", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPavementTypePCR();
-            boolean rhsFieldIsSet = that.isSetPavementTypePCR();
-            JAXBElement<CodePavementBehaviourType> lhsField;
-            lhsField = this.getPavementTypePCR();
-            JAXBElement<CodePavementBehaviourType> rhsField;
-            rhsField = that.getPavementTypePCR();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pavementTypePCR", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pavementTypePCR", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPreparation();
-            boolean rhsFieldIsSet = that.isSetPreparation();
-            JAXBElement<CodeSurfacePreparationType> lhsField;
-            lhsField = this.getPreparation();
-            JAXBElement<CodeSurfacePreparationType> rhsField;
-            rhsField = that.getPreparation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "preparation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "preparation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1326,7 +1337,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1368,7 +1379,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SurfaceCharacteristicsExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1453,7 +1464,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1489,7 +1500,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SurfaceCharacteristicsExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

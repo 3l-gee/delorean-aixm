@@ -1,6 +1,9 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import com.delorean.aixm.core.org.gco.v2007.BooleanPropertyType;
 import com.delorean.aixm.core.org.gco.v2007.IntegerPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -8,56 +11,52 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
  * Types and numbers of raster spatial objects in the dataset
- *
- * <p>
- * Java class for MD_GridSpatialRepresentation_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * 
+ * <p>Java class for MD_GridSpatialRepresentation_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MD_GridSpatialRepresentation_Type">
  *   <complexContent>
- *     <extension base=
-"{http://www.isotc211.org/2005/gmd}AbstractMD_SpatialRepresentation_Type">
+ *     <extension base="{http://www.isotc211.org/2005/gmd}AbstractMD_SpatialRepresentation_Type">
  *       <sequence>
- *         <element name="numberOfDimensions" type=
-"{http://www.isotc211.org/2005/gco}Integer_PropertyType"/>
- *         <element name="axisDimensionProperties" type=
-"{http://www.isotc211.org/2005/gmd}MD_Dimension_PropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="cellGeometry" type=
-"{http://www.isotc211.org/2005/gmd}MD_CellGeometryCode_PropertyType"/>
- *         <element name="transformationParameterAvailability" type=
-"{http://www.isotc211.org/2005/gco}Boolean_PropertyType"/>
+ *         <element name="numberOfDimensions" type="{http://www.isotc211.org/2005/gco}Integer_PropertyType"/>
+ *         <element name="axisDimensionProperties" type="{http://www.isotc211.org/2005/gmd}MD_Dimension_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="cellGeometry" type="{http://www.isotc211.org/2005/gmd}MD_CellGeometryCode_PropertyType"/>
+ *         <element name="transformationParameterAvailability" type="{http://www.isotc211.org/2005/gco}Boolean_PropertyType"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_GridSpatialRepresentation_Type", propOrder = {"numberOfDimensions", "axisDimensionProperties",
-        "cellGeometry", "transformationParameterAvailability"})
-@XmlSeeAlso({MDGeoreferenceableType.class, MDGeorectifiedType.class})
-public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresentationType implements Serializable {
+@XmlType(name = "MD_GridSpatialRepresentation_Type", propOrder = {
+    "numberOfDimensions",
+    "axisDimensionProperties",
+    "cellGeometry",
+    "transformationParameterAvailability"
+})
+@XmlSeeAlso({
+    MDGeoreferenceableType.class,
+    MDGeorectifiedType.class
+})
+public class MDGridSpatialRepresentationType
+    extends AbstractMDSpatialRepresentationType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -70,9 +69,11 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
 
     /**
      * Gets the value of the numberOfDimensions property.
-     *
-     * @return possible object is {@link IntegerPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link IntegerPropertyType }
+     *     
      */
     public IntegerPropertyType getNumberOfDimensions() {
         return numberOfDimensions;
@@ -80,41 +81,41 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
 
     /**
      * Sets the value of the numberOfDimensions property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link IntegerPropertyType }
-     *
+     *     allowed object is
+     *     {@link IntegerPropertyType }
+     *     
      */
     public void setNumberOfDimensions(IntegerPropertyType value) {
         this.numberOfDimensions = value;
     }
 
     public boolean isSetNumberOfDimensions() {
-        return (this.numberOfDimensions != null);
+        return (this.numberOfDimensions!= null);
     }
 
     /**
      * Gets the value of the axisDimensionProperties property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the axisDimensionProperties property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the axisDimensionProperties property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAxisDimensionProperties().add(newItem);
+     *    getAxisDimensionProperties().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MDDimensionPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<MDDimensionPropertyType> getAxisDimensionProperties() {
         if (axisDimensionProperties == null) {
@@ -124,15 +125,15 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAxisDimensionProperties(List<MDDimensionPropertyType> axisDimensionProperties) {
         this.axisDimensionProperties = axisDimensionProperties;
     }
 
     public boolean isSetAxisDimensionProperties() {
-        return ((this.axisDimensionProperties != null) && (!this.axisDimensionProperties.isEmpty()));
+        return ((this.axisDimensionProperties!= null)&&(!this.axisDimensionProperties.isEmpty()));
     }
 
     public void unsetAxisDimensionProperties() {
@@ -141,9 +142,11 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
 
     /**
      * Gets the value of the cellGeometry property.
-     *
-     * @return possible object is {@link MDCellGeometryCodePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link MDCellGeometryCodePropertyType }
+     *     
      */
     public MDCellGeometryCodePropertyType getCellGeometry() {
         return cellGeometry;
@@ -151,24 +154,27 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
 
     /**
      * Sets the value of the cellGeometry property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MDCellGeometryCodePropertyType }
-     *
+     *     allowed object is
+     *     {@link MDCellGeometryCodePropertyType }
+     *     
      */
     public void setCellGeometry(MDCellGeometryCodePropertyType value) {
         this.cellGeometry = value;
     }
 
     public boolean isSetCellGeometry() {
-        return (this.cellGeometry != null);
+        return (this.cellGeometry!= null);
     }
 
     /**
      * Gets the value of the transformationParameterAvailability property.
-     *
-     * @return possible object is {@link BooleanPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BooleanPropertyType }
+     *     
      */
     public BooleanPropertyType getTransformationParameterAvailability() {
         return transformationParameterAvailability;
@@ -176,23 +182,23 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
 
     /**
      * Sets the value of the transformationParameterAvailability property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BooleanPropertyType }
-     *
+     *     allowed object is
+     *     {@link BooleanPropertyType }
+     *     
      */
     public void setTransformationParameterAvailability(BooleanPropertyType value) {
         this.transformationParameterAvailability = value;
     }
 
     public boolean isSetTransformationParameterAvailability() {
-        return (this.transformationParameterAvailability != null);
+        return (this.transformationParameterAvailability!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -209,10 +215,8 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
             lhsField = this.getTransformationParameterAvailability();
             BooleanPropertyType rhsField;
             rhsField = that.getTransformationParameterAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationParameterAvailability",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationParameterAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -234,9 +238,9 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
             boolean lhsFieldIsSet = this.isSetAxisDimensionProperties();
             boolean rhsFieldIsSet = that.isSetAxisDimensionProperties();
             List<MDDimensionPropertyType> lhsField;
-            lhsField = (this.isSetAxisDimensionProperties() ? this.getAxisDimensionProperties() : null);
+            lhsField = (this.isSetAxisDimensionProperties()?this.getAxisDimensionProperties():null);
             List<MDDimensionPropertyType> rhsField;
-            rhsField = (that.isSetAxisDimensionProperties() ? that.getAxisDimensionProperties() : null);
+            rhsField = (that.isSetAxisDimensionProperties()?that.getAxisDimensionProperties():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDimensionProperties", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDimensionProperties", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -272,7 +276,7 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
         {
             boolean theFieldIsSet = this.isSetAxisDimensionProperties();
             List<MDDimensionPropertyType> theField;
-            theField = (this.isSetAxisDimensionProperties() ? this.getAxisDimensionProperties() : null);
+            theField = (this.isSetAxisDimensionProperties()?this.getAxisDimensionProperties():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisDimensionProperties", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -287,8 +291,7 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
             boolean theFieldIsSet = this.isSetTransformationParameterAvailability();
             BooleanPropertyType theField;
             theField = this.getTransformationParameterAvailability();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "transformationParameterAvailability",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "transformationParameterAvailability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;
@@ -306,7 +309,7 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
         {
             boolean theFieldIsSet = this.isSetAxisDimensionProperties();
             List<MDDimensionPropertyType> theField;
-            theField = (this.isSetAxisDimensionProperties() ? this.getAxisDimensionProperties() : null);
+            theField = (this.isSetAxisDimensionProperties()?this.getAxisDimensionProperties():null);
             strategy.appendField(locator, this, "axisDimensionProperties", buffer, theField, theFieldIsSet);
         }
         {

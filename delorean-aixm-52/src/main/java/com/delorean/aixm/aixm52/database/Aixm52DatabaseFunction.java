@@ -13,7 +13,6 @@ import com.delorean.aixm.core.database.HibernateHelper;
 import com.delorean.aixm.core.database.MessageMemberLink;
 import com.delorean.aixm.core.database.MutationFeatureTimeslice;
 import com.delorean.aixm.core.log.ConsoleLogger;
-import com.delorean.aixm.core.log.LogLevel;
 import com.delorean.aixm.core.database.TimeSliceAction;
 import com.delorean.aixm.core.database.BasicMessage;
 import com.delorean.aixm.core.org.gml.v_3_2.StringOrRefType;
@@ -25,7 +24,9 @@ import com.delorean.aixm.aixm52.schema.AbstractAIXMObjectType;
 import com.delorean.aixm.aixm52.schema.message.AIXMBasicMessageType;
 import com.delorean.aixm.aixm52.schema.message.BasicMessageMemberAIXMPropertyType;
 import com.delorean.aixm.aixm52.schema.AbstractAIXMTimeSliceType;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Aixm52DatabaseFunction extends
         AbstractDatabaseFunctions<AIXMBasicMessageType, AbstractAIXMFeatureType, AbstractAIXMTimeSliceType, AbstractAIXMObjectType> {
 
@@ -163,10 +164,6 @@ public class Aixm52DatabaseFunction extends
 
     /**
      * Gets and logs all persisted AIXMBasicMessageType instances from the database.
-     * This method opens a Hibernate session, retrieves all AIXMBasicMessageType
-     * instances using a simple HQL query, and iterates through the results to log
-     * key properties of each message, including its HJID, ID, description, and the
-     * count of its members. Finally, the session is closed to free up resources.
      * 
      * @param sessionFactory The Hibernate SessionFactory to use for database
      *                       operations.
@@ -187,9 +184,12 @@ public class Aixm52DatabaseFunction extends
             StringOrRefType description = m.getDescription();
             int memberCount = m.getHasMember() != null ? m.getHasMember().size() : 0;
 
-            ConsoleLogger.info(String.format("HJID: %d | ID: %s | Members: %d | Salt: %s | Description: %s",
-                    hjid, id, memberCount, salt != null ? salt : "N/A (Non hashed IDs)",
-                    description != null ? description.getValue() : "N/A"));
+            log.info("HJID: {} ID: {} Members: {} Salt: {} Description: {}",
+                hjid, 
+                id, 
+                memberCount, 
+                salt != null ? salt : "N/A (Non hashed IDs)",
+                description != null ? description.getValue() : "N/A");
         }
 
         session.close();
@@ -197,12 +197,7 @@ public class Aixm52DatabaseFunction extends
 
     /**
      * Persists an AIXMBasicMessageType instance along with its associated
-     * BasicMessageMemberAIXMPropertyType instances. This method first persists the
-     * message itself, then iterates through the list of
-     * BasicMessageMemberAIXMPropertyType instances, persisting each one and
-     * creating a link between the message and its members in the database. The
-     * method uses batching to optimize performance when persisting a large number
-     * of members.
+     * BasicMessageMemberAIXMPropertyType instances.
      * 
      * @param message        The AIXMBasicMessageType instance to persist.
      * @param sessionFactory The Hibernate SessionFactory to use for database
@@ -263,10 +258,7 @@ public class Aixm52DatabaseFunction extends
     /**
      * Retrieves an AIXMBasicMessageType instance from the database, along with its
      * associated BasicMessageMemberAIXMPropertyType instances that are valid for a
-     * given timeslice. This method uses Hibernate filters to efficiently retrieve
-     * only the relevant members based on the provided BasicMessageMemberIds and
-     * TimeslicePropertyIds. The method returns the AIXMBasicMessageType instance
-     * with its valid members populated.
+     * given timeslice.
      * 
      * @param BasicMessageMemberIds A list of IDs for
      *                              BasicMessageMemberAIXMPropertyType instances to
@@ -309,14 +301,7 @@ public class Aixm52DatabaseFunction extends
 
     /**
      * Merges an AIXMBasicMessageType instance with the existing data in the
-     * database. This method first retrieves the current top timeslice for each
-     * feature from the database, then iterates through the members of the provided
-     * message, comparing them with the existing timeslices to determine if they
-     * represent a new version, a correction, or no change. Based on this
-     * comparison, the method updates the database accordingly, either by persisting
-     * new members or by applying changes to existing features. Finally, it links
-     * the new BasicMessageMemberAIXMPropertyType instances to the current message
-     * in the database.
+     * database.
      * 
      * @param message        The AIXMBasicMessageType instance to merge.
      * @param sessionFactory The Hibernate SessionFactory to use for database
@@ -408,13 +393,7 @@ public class Aixm52DatabaseFunction extends
 
     /**
      * Extracts the timeslice from a BasicMessageMemberAIXMPropertyType instance and
-     * merges it with the existing timeslice data in the database. This method uses
-     * reflection to access the timeslice information from the feature associated
-     * with the BasicMessageMemberAIXMPropertyType, then compares it with the
-     * existing timeslice data to determine if it represents a new version, a
-     * correction, or no change. Based on this comparison, the method updates the
-     * MutationFeatureTimeslice instance accordingly, which will later be used to
-     * apply changes to the database.
+     * merges it with the existing timeslice data in the database.
      * 
      * @param <T>                The type of the feature being processed, extends
      *                           AbstractAIXMFeatureType.
@@ -461,13 +440,7 @@ public class Aixm52DatabaseFunction extends
     }
 
     /**
-     * Merges a new timeslice with the existing timeslice data for a feature. This
-     * method compares the sequence number and correction number of the incoming
-     * timeslice with the existing timeslice data to determine if it represents a
-     * new version, a correction, or no change. Based on this comparison, the method
-     * updates the MutationFeatureTimeslice instance accordingly, setting the
-     * appropriate action (VERSION, CORRECTION, NOTHING) and preparing it for later
-     * application to the database.
+     * Merges a new timeslice with the existing timeslice data for a feature.
      * 
      * @param timeSlice          The incoming timeslice to merge.
      * @param timeSliceProperty  The property representing the timeslice.
@@ -488,9 +461,7 @@ public class Aixm52DatabaseFunction extends
             Session session) {
         // 1. malformed timeslice are ignored
         if (timeSlice == null) {
-            ConsoleLogger.warn("Malformed timeslice for feature [" + feature.getClass().getSimpleName() + "] : "
-                    + feature.getIdentifier());
-            return existing;
+throw new IllegalArgumentException("Malformed timeslice for feature [" + feature.getClass().getSimpleName() + "] : "+ feature.getIdentifier());
         }
 
         int incomingSeq = timeSlice.getSequenceNumber().intValue();
@@ -503,17 +474,21 @@ public class Aixm52DatabaseFunction extends
                 s.persist(basicMessageMember);
                 return null;
             });
-            ConsoleLogger.debug("New feature [" + feature.getClass().getSimpleName() + "] with identifier: "
-                    + feature.getIdentifier());
+            log.atDebug().setMessage("New feature: {} with identifier: {}")
+            .addArgument(() -> feature.getClass().getSimpleName())
+            .addArgument(() -> feature.getIdentifier())
+            .log();
             return existing;
 
             // 3. new changes are merged on the existing feature
         } else if (incomingSeq > existing.getSequenceNumber()) {
             // 3.a missing timeslice result in an error
             if (incomingSeq != existing.getSequenceNumber() + 1) {
-                ConsoleLogger.warn("Missing Timeslice for feature [" + feature.getClass().getSimpleName() + "] : "
-                        + existing.getIdentifier() + " between sequence numbers: " + existing.getSequenceNumber()
-                        + " and " + incomingSeq);
+                log.warn("Missing Timeslice for feature: {} with identifier: {} between sequence numbers: {} and {}",
+                    feature.getClass().getSimpleName(),
+                    feature.getIdentifier(),
+                    existing.getSequenceNumber(),
+                    incomingSeq);
             }
             HibernateHelper.doWithoutTransaction(session, s -> {
                 s.persist(timeSliceProperty);
@@ -522,8 +497,10 @@ public class Aixm52DatabaseFunction extends
             existing.setAction(TimeSliceAction.VERSION);
             existing.setTimeSlicePropertyObject(timeSliceProperty);
             existing.setNewTimeSliceStart(timeSlice.getValidTime().getBeginPosition());
-            ConsoleLogger.debug("Version change for feature [" + feature.getClass().getSimpleName()
-                    + "] with identifier: " + feature.getIdentifier());
+            log.atDebug().setMessage("New version for feature: {} with identifier: {}")
+                .addArgument(() -> feature.getClass().getSimpleName())
+                .addArgument(() -> feature.getIdentifier())
+                .log();
             return existing;
 
             // 4. correction changes are merged on the existing feature
@@ -534,27 +511,27 @@ public class Aixm52DatabaseFunction extends
             });
             existing.setAction(TimeSliceAction.CORRECTION);
             existing.setTimeSlicePropertyObject(timeSliceProperty);
-            ConsoleLogger.debug("Correction change for feature [" + feature.getClass().getSimpleName()
-                    + "] with identifier: " + feature.getIdentifier());
+            log.atDebug().setMessage("New correction for feature: {} with identifier: {}")
+                .addArgument(() -> feature.getClass().getSimpleName())
+                .addArgument(() -> feature.getIdentifier())
+                .log();
             return existing;
 
         } else {
             existing.setAction(TimeSliceAction.NOTHING);
-            ConsoleLogger.info("No change for feature [" + feature.getClass().getSimpleName() + "] with identifier: "
-                    + feature.getIdentifier());
+            log.atDebug().setMessage("No change for feature: {} with identifier: {}")
+                .addArgument(() -> feature.getClass().getSimpleName())
+                .addArgument(() -> feature.getIdentifier())
+                .log();
             return existing;
 
         }
     }
 
+
     /**
      * Generates a list of MutationFeatureTimeslice instances representing the
-     * current top timeslice for each feature in the database. This method iterates
-     * through a predefined list of feature schema names, constructs and executes a
-     * SQL query to retrieve the relevant timeslice information for each feature,
-     * and maps the results to MutationFeatureTimeslice instances. The resulting
-     * list provides a snapshot of the current state of each feature's timeslice
-     * data, which can be used for comparison during the merge process.
+     * current top timeslice for each feature in the database.
      * 
      * @param session     The Hibernate session
      * @param featureList A list of feature schema names to query for timeslice
@@ -584,11 +561,7 @@ public class Aixm52DatabaseFunction extends
 
     /**
      * Constructs a SQL query to retrieve the current top timeslice information for
-     * a given feature schema name. The query joins the relevant tables to extract
-     * the feature identifier, sequence number, correction number, and associated
-     * timeslice property ID for each feature instance. The results are ordered by
-     * identifier and timeslice information to ensure that the top timeslice is
-     * retrieved for each feature.
+     * a given feature schema name. 
      * 
      * @param featureSchemaName The schema name of the feature for which to
      *                          construct the query, in the format "schema.feature".

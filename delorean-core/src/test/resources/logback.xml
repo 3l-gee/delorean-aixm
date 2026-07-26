@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <variable name="CORE_LEVEL" value="${app.log.level:-INFO}" />
+    <variable name="MODULE_LEVEL" value="${app.log.level:-WARN}" />
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dict HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex</pattern>
         </encoder>
     </appender>
 
+    <!-- GLOBAL ROOT LEVEL -->
     <root level="INFO">
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="STDOUT" />
     </root>
 
+    <!-- STEER MODULES LOGS -->
+    <logger name="com.delorean" level="${CORE_LEVEL}" />
+    <logger name="org.hibernate" level="${MODULE_LEVEL}" />
+    <logger name="jakarta.xml" level="${MODULE_LEVEL}" />
+    <logger name="jakarta.persistence" level="${MODULE_LEVEL}" />
+    <logger name="org.jvnet" level="${MODULE_LEVEL}" />
 </configuration>

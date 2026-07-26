@@ -1,47 +1,49 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AbstractGeometricAggregateType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AbstractGeometricAggregateType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractGeometricAggregateType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGeometryType">
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractGeometricAggregateType")
-@XmlSeeAlso({MultiGeometryType.class, MultiPointType.class, MultiCurveType.class, MultiSurfaceType.class,
-        MultiSolidType.class})
-public abstract class AbstractGeometricAggregateType extends AbstractGeometryType implements Serializable {
+@XmlSeeAlso({
+    MultiGeometryType.class,
+    MultiPointType.class,
+    MultiCurveType.class,
+    MultiSurfaceType.class,
+    MultiSolidType.class
+})
+public abstract class AbstractGeometricAggregateType
+    extends AbstractGeometryType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "aggregationType")
@@ -49,9 +51,11 @@ public abstract class AbstractGeometricAggregateType extends AbstractGeometryTyp
 
     /**
      * Gets the value of the aggregationType property.
-     *
-     * @return possible object is {@link AggregationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AggregationType }
+     *     
      */
     public AggregationType getAggregationType() {
         return aggregationType;
@@ -59,23 +63,23 @@ public abstract class AbstractGeometricAggregateType extends AbstractGeometryTyp
 
     /**
      * Sets the value of the aggregationType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AggregationType }
-     *
+     *     allowed object is
+     *     {@link AggregationType }
+     *     
      */
     public void setAggregationType(AggregationType value) {
         this.aggregationType = value;
     }
 
     public boolean isSetAggregationType() {
-        return (this.aggregationType != null);
+        return (this.aggregationType!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

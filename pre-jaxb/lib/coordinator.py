@@ -92,8 +92,8 @@ class Coordinator:
         return res[:-1]
 
     def export_xjb(self, verbose: bool = False) -> None:
-        os.makedirs(os.path.dirname(Config().get_output_path()), exist_ok=True)
-        with open(Config().get_output_path(), 'w') as f:
+        os.makedirs(os.path.dirname(Config().get_output_path_xjb()), exist_ok=True)
+        with open(Config().get_output_path_xjb(), 'w', encoding='utf-8') as f:
             f.write(Jaxb.start)
             for xjb in self.xjb:
                 for annotation in self.xjb[xjb]["start"]:
@@ -118,7 +118,34 @@ class Coordinator:
 
             f.write(Jaxb.end)
 
-        self.format_xml(Config().get_output_path())
+        self.format_xml(Config().get_output_path_xjb())
+
+    def export_sql(self, verbose: bool = False) -> None:
+        os.makedirs(os.path.dirname(Config().get_output_path_domain_check()), exist_ok=True)
+        with open(Config().get_output_path_domain_check(), 'w', encoding='utf-8') as f:
+            f.write("-- ========================================================\n")
+            f.write(f"-- Phase 2a : Domain registered with checks\n")
+            f.write("-- ========================================================\n\n")
+            for sql_key, sql_data in Content().postgresql_domain_type_check.items():
+                f.write(sql_data + "\n")
+
+        os.makedirs(os.path.dirname(Config().get_output_path_domain_checkless()), exist_ok=True)
+        with open(Config().get_output_path_domain_checkless(), 'w', encoding='utf-8') as f:
+            f.write("-- ========================================================\n")
+            f.write(f"-- Phase 2b : Domain registered wihout checks (checkless)\n")
+            f.write("-- ========================================================\n\n")
+            for sql_key, sql_data in Content().postgresql_domain_type_checkless.items():
+                f.write(sql_data + "\n")
+
+        os.makedirs(os.path.dirname(Config().get_output_path_postgresql_comments()), exist_ok=True)
+        with open(Config().get_output_path_postgresql_comments(), 'w', encoding='utf-8') as f:
+            f.write("-- ========================================================\n")
+            f.write(f"-- Phase 3 : PostgreSQL comments\n")
+            f.write("-- ========================================================\n\n")
+            for sql_key, sql_data in Content().postgresql_comments.items():
+                f.write(sql_data + "\n")
+
+
 
     def format_xml(self, file_path) -> None:
         main = etree.XMLParser(remove_blank_text=True, huge_tree=True)

@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -8,32 +12,22 @@ import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlList;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ParameterValueType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ParameterValueType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ParameterValueType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractGeneralParameterValueType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGeneralParameterValueType">
  *       <sequence>
  *         <choice>
  *           <element ref="{http://www.opengis.net/gml/3.2}value"/>
@@ -51,77 +45,76 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ParameterValueType", propOrder = {"value", "dmsAngleValue", "stringValue", "integerValue",
-        "booleanValue", "valueList", "integerValueList", "valueFile", "operationParameter"})
-public class ParameterValueType extends AbstractGeneralParameterValueType implements Serializable {
+@XmlType(name = "ParameterValueType", propOrder = {
+    "value",
+    "dmsAngleValue",
+    "stringValue",
+    "integerValue",
+    "booleanValue",
+    "valueList",
+    "integerValueList",
+    "valueFile",
+    "operationParameter"
+})
+public class ParameterValueType
+    extends AbstractGeneralParameterValueType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:value is a numeric value of an operation parameter, with its associated
-     * unit of measure.
-     *
+     * gml:value is a numeric value of an operation parameter, with its associated unit of measure.
+     * 
      */
     protected MeasureType value;
     protected DMSAngleType dmsAngleValue;
     /**
-     * gml:stringValue is a character string value of an operation parameter. A
-     * string value does not have an associated unit of measure.
-     *
+     * gml:stringValue is a character string value of an operation parameter. A string value does not have an associated unit of measure.
+     * 
      */
     protected String stringValue;
     /**
-     * gml:integerValue is a positive integer value of an operation parameter,
-     * usually used for a count. An integer value does not have an associated unit
-     * of measure.
-     *
+     * gml:integerValue is a positive integer value of an operation parameter, usually used for a count. An integer value does not have an associated unit of measure.
+     * 
      */
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger integerValue;
     /**
-     * gml:booleanValue is a boolean value of an operation parameter. A Boolean
-     * value does not have an associated unit of measure.
-     *
+     * gml:booleanValue is a boolean value of an operation parameter. A Boolean value does not have an associated unit of measure.
+     * 
      */
     protected java.lang.Boolean booleanValue;
     /**
-     * gml:valueList is an ordered sequence of two or more numeric values of an
-     * operation parameter list, where each value has the same associated unit of
-     * measure. An element of this type contains a space-separated sequence of
-     * double values.
-     *
+     * gml:valueList is an ordered sequence of two or more numeric values of an operation parameter list, where each value has the same associated unit of measure. An element of this type contains a space-separated sequence of double values.
+     * 
      */
     protected MeasureListType valueList;
     @XmlList
     protected List<BigInteger> integerValueList;
     /**
-     * gml:valueFile is a reference to a file or a part of a file containing one or
-     * more parameter values, each numeric value with its associated unit of
-     * measure. When referencing a part of a file, that file shall contain multiple
-     * identified parts, such as an XML encoded document. Furthermore, the
-     * referenced file or part of a file may reference another part of the same or
-     * different files, as allowed in XML documents.
-     *
+     * gml:valueFile is a reference to a file or a part of a file containing one or more parameter values, each numeric value with its associated unit of measure. When referencing a part of a file, that file shall contain multiple identified parts, such as an XML encoded document. Furthermore, the referenced file or part of a file may reference another part of the same or different files, as allowed in XML documents.
+     * 
      */
     @XmlSchemaType(name = "anyURI")
     protected String valueFile;
     /**
-     * gml:operationParameter is an association role to the operation parameter of
-     * which this is a value.
-     *
+     * gml:operationParameter is an association role to the operation parameter of which this is a value.
+     * 
      */
     @XmlElementRef(name = "operationParameter", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<OperationParameterPropertyType> operationParameter;
 
     /**
-     * gml:value is a numeric value of an operation parameter, with its associated
-     * unit of measure.
-     *
-     * @return possible object is {@link MeasureType }
-     *
+     * gml:value is a numeric value of an operation parameter, with its associated unit of measure.
+     * 
+     * @return
+     *     possible object is
+     *     {@link MeasureType }
+     *     
      */
     public MeasureType getValue() {
         return value;
@@ -129,10 +122,11 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MeasureType }
-     *
+     *     allowed object is
+     *     {@link MeasureType }
+     *     
      * @see #getValue()
      */
     public void setValue(MeasureType value) {
@@ -140,14 +134,16 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     public boolean isSetValue() {
-        return (this.value != null);
+        return (this.value!= null);
     }
 
     /**
      * Gets the value of the dmsAngleValue property.
-     *
-     * @return possible object is {@link DMSAngleType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link DMSAngleType }
+     *     
      */
     public DMSAngleType getDmsAngleValue() {
         return dmsAngleValue;
@@ -155,25 +151,27 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
 
     /**
      * Sets the value of the dmsAngleValue property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link DMSAngleType }
-     *
+     *     allowed object is
+     *     {@link DMSAngleType }
+     *     
      */
     public void setDmsAngleValue(DMSAngleType value) {
         this.dmsAngleValue = value;
     }
 
     public boolean isSetDmsAngleValue() {
-        return (this.dmsAngleValue != null);
+        return (this.dmsAngleValue!= null);
     }
 
     /**
-     * gml:stringValue is a character string value of an operation parameter. A
-     * string value does not have an associated unit of measure.
-     *
-     * @return possible object is {@link String }
-     *
+     * gml:stringValue is a character string value of an operation parameter. A string value does not have an associated unit of measure.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getStringValue() {
         return stringValue;
@@ -181,10 +179,11 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
 
     /**
      * Sets the value of the stringValue property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      * @see #getStringValue()
      */
     public void setStringValue(String value) {
@@ -192,16 +191,16 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     public boolean isSetStringValue() {
-        return (this.stringValue != null);
+        return (this.stringValue!= null);
     }
 
     /**
-     * gml:integerValue is a positive integer value of an operation parameter,
-     * usually used for a count. An integer value does not have an associated unit
-     * of measure.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * gml:integerValue is a positive integer value of an operation parameter, usually used for a count. An integer value does not have an associated unit of measure.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getIntegerValue() {
         return integerValue;
@@ -209,10 +208,11 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
 
     /**
      * Sets the value of the integerValue property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      * @see #getIntegerValue()
      */
     public void setIntegerValue(BigInteger value) {
@@ -220,15 +220,16 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     public boolean isSetIntegerValue() {
-        return (this.integerValue != null);
+        return (this.integerValue!= null);
     }
 
     /**
-     * gml:booleanValue is a boolean value of an operation parameter. A Boolean
-     * value does not have an associated unit of measure.
-     *
-     * @return possible object is {@link java.lang.Boolean }
-     *
+     * gml:booleanValue is a boolean value of an operation parameter. A Boolean value does not have an associated unit of measure.
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
      */
     public java.lang.Boolean getBooleanValue() {
         return booleanValue;
@@ -236,10 +237,11 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
 
     /**
      * Sets the value of the booleanValue property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Boolean }
-     *
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
      * @see #getBooleanValue()
      */
     public void setBooleanValue(java.lang.Boolean value) {
@@ -247,17 +249,16 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     public boolean isSetBooleanValue() {
-        return (this.booleanValue != null);
+        return (this.booleanValue!= null);
     }
 
     /**
-     * gml:valueList is an ordered sequence of two or more numeric values of an
-     * operation parameter list, where each value has the same associated unit of
-     * measure. An element of this type contains a space-separated sequence of
-     * double values.
-     *
-     * @return possible object is {@link MeasureListType }
-     *
+     * gml:valueList is an ordered sequence of two or more numeric values of an operation parameter list, where each value has the same associated unit of measure. An element of this type contains a space-separated sequence of double values.
+     * 
+     * @return
+     *     possible object is
+     *     {@link MeasureListType }
+     *     
      */
     public MeasureListType getValueList() {
         return valueList;
@@ -265,10 +266,11 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
 
     /**
      * Sets the value of the valueList property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MeasureListType }
-     *
+     *     allowed object is
+     *     {@link MeasureListType }
+     *     
      * @see #getValueList()
      */
     public void setValueList(MeasureListType value) {
@@ -276,34 +278,30 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     public boolean isSetValueList() {
-        return (this.valueList != null);
+        return (this.valueList!= null);
     }
 
     /**
-     * gml:integerValueList is an ordered sequence of two or more integer values of
-     * an operation parameter list, usually used for counts. These integer values do
-     * not have an associated unit of measure. An element of this type contains a
-     * space-separated sequence of integer values.Gets the value of the
-     * integerValueList property.
-     *
+     * gml:integerValueList is an ordered sequence of two or more integer values of an operation parameter list, usually used for counts. These integer values do not have an associated unit of measure. An element of this type contains a space-separated sequence of integer values.Gets the value of the integerValueList property.
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the integerValueList property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the integerValueList property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getIntegerValueList().add(newItem);
+     *    getIntegerValueList().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link BigInteger }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link BigInteger }
+     * 
+     * 
      */
     public List<BigInteger> getIntegerValueList() {
         if (integerValueList == null) {
@@ -313,18 +311,15 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     /**
-     * gml:integerValueList is an ordered sequence of two or more integer values of
-     * an operation parameter list, usually used for counts. These integer values do
-     * not have an associated unit of measure. An element of this type contains a
-     * space-separated sequence of integer values.
-     *
+     * gml:integerValueList is an ordered sequence of two or more integer values of an operation parameter list, usually used for counts. These integer values do not have an associated unit of measure. An element of this type contains a space-separated sequence of integer values.
+     * 
      */
     public void setIntegerValueList(List<BigInteger> integerValueList) {
         this.integerValueList = integerValueList;
     }
 
     public boolean isSetIntegerValueList() {
-        return ((this.integerValueList != null) && (!this.integerValueList.isEmpty()));
+        return ((this.integerValueList!= null)&&(!this.integerValueList.isEmpty()));
     }
 
     public void unsetIntegerValueList() {
@@ -332,15 +327,12 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     /**
-     * gml:valueFile is a reference to a file or a part of a file containing one or
-     * more parameter values, each numeric value with its associated unit of
-     * measure. When referencing a part of a file, that file shall contain multiple
-     * identified parts, such as an XML encoded document. Furthermore, the
-     * referenced file or part of a file may reference another part of the same or
-     * different files, as allowed in XML documents.
-     *
-     * @return possible object is {@link String }
-     *
+     * gml:valueFile is a reference to a file or a part of a file containing one or more parameter values, each numeric value with its associated unit of measure. When referencing a part of a file, that file shall contain multiple identified parts, such as an XML encoded document. Furthermore, the referenced file or part of a file may reference another part of the same or different files, as allowed in XML documents.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getValueFile() {
         return valueFile;
@@ -348,10 +340,11 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
 
     /**
      * Sets the value of the valueFile property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      * @see #getValueFile()
      */
     public void setValueFile(String value) {
@@ -359,18 +352,17 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     public boolean isSetValueFile() {
-        return (this.valueFile != null);
+        return (this.valueFile!= null);
     }
 
     /**
-     * gml:operationParameter is an association role to the operation parameter of
-     * which this is a value.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link OperationParameterPropertyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link OperationParameterPropertyType
-     *         }{@code >}
-     *
+     * gml:operationParameter is an association role to the operation parameter of which this is a value.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *     
      */
     public JAXBElement<OperationParameterPropertyType> getOperationParameter() {
         return operationParameter;
@@ -378,13 +370,12 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
 
     /**
      * Sets the value of the operationParameter property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link OperationParameterPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link OperationParameterPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *     
      * @see #getOperationParameter()
      */
     public void setOperationParameter(JAXBElement<OperationParameterPropertyType> value) {
@@ -392,13 +383,12 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
     }
 
     public boolean isSetOperationParameter() {
-        return (this.operationParameter != null);
+        return (this.operationParameter!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -409,27 +399,40 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
         }
         final ParameterValueType that = ((ParameterValueType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStringValue();
-            boolean rhsFieldIsSet = that.isSetStringValue();
-            String lhsField;
-            lhsField = this.getStringValue();
-            String rhsField;
-            rhsField = that.getStringValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stringValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stringValue", rhsField);
+            boolean lhsFieldIsSet = this.isSetValueList();
+            boolean rhsFieldIsSet = that.isSetValueList();
+            MeasureListType lhsField;
+            lhsField = this.getValueList();
+            MeasureListType rhsField;
+            rhsField = that.getValueList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperationParameter();
-            boolean rhsFieldIsSet = that.isSetOperationParameter();
-            JAXBElement<OperationParameterPropertyType> lhsField;
-            lhsField = this.getOperationParameter();
-            JAXBElement<OperationParameterPropertyType> rhsField;
-            rhsField = that.getOperationParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationParameter", rhsField);
+            boolean lhsFieldIsSet = this.isSetDmsAngleValue();
+            boolean rhsFieldIsSet = that.isSetDmsAngleValue();
+            DMSAngleType lhsField;
+            lhsField = this.getDmsAngleValue();
+            DMSAngleType rhsField;
+            rhsField = that.getDmsAngleValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dmsAngleValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dmsAngleValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            MeasureType lhsField;
+            lhsField = this.getValue();
+            MeasureType rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -451,24 +454,11 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
             boolean lhsFieldIsSet = this.isSetIntegerValueList();
             boolean rhsFieldIsSet = that.isSetIntegerValueList();
             List<BigInteger> lhsField;
-            lhsField = (this.isSetIntegerValueList() ? this.getIntegerValueList() : null);
+            lhsField = (this.isSetIntegerValueList()?this.getIntegerValueList():null);
             List<BigInteger> rhsField;
-            rhsField = (that.isSetIntegerValueList() ? that.getIntegerValueList() : null);
+            rhsField = (that.isSetIntegerValueList()?that.getIntegerValueList():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integerValueList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integerValueList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetValueList();
-            boolean rhsFieldIsSet = that.isSetValueList();
-            MeasureListType lhsField;
-            lhsField = this.getValueList();
-            MeasureListType rhsField;
-            rhsField = that.getValueList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -487,27 +477,14 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            MeasureType lhsField;
-            lhsField = this.getValue();
-            MeasureType rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDmsAngleValue();
-            boolean rhsFieldIsSet = that.isSetDmsAngleValue();
-            DMSAngleType lhsField;
-            lhsField = this.getDmsAngleValue();
-            DMSAngleType rhsField;
-            rhsField = that.getDmsAngleValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dmsAngleValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dmsAngleValue", rhsField);
+            boolean lhsFieldIsSet = this.isSetOperationParameter();
+            boolean rhsFieldIsSet = that.isSetOperationParameter();
+            JAXBElement<OperationParameterPropertyType> lhsField;
+            lhsField = this.getOperationParameter();
+            JAXBElement<OperationParameterPropertyType> rhsField;
+            rhsField = that.getOperationParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationParameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationParameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -521,6 +498,19 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
             rhsField = that.getValueFile();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueFile", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueFile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStringValue();
+            boolean rhsFieldIsSet = that.isSetStringValue();
+            String lhsField;
+            lhsField = this.getStringValue();
+            String rhsField;
+            rhsField = that.getStringValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stringValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stringValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -576,7 +566,7 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
         {
             boolean theFieldIsSet = this.isSetIntegerValueList();
             List<BigInteger> theField;
-            theField = (this.isSetIntegerValueList() ? this.getIntegerValueList() : null);
+            theField = (this.isSetIntegerValueList()?this.getIntegerValueList():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "integerValueList", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -639,7 +629,7 @@ public class ParameterValueType extends AbstractGeneralParameterValueType implem
         {
             boolean theFieldIsSet = this.isSetIntegerValueList();
             List<BigInteger> theField;
-            theField = (this.isSetIntegerValueList() ? this.getIntegerValueList() : null);
+            theField = (this.isSetIntegerValueList()?this.getIntegerValueList():null);
             strategy.appendField(locator, this, "integerValueList", buffer, theField, theFieldIsSet);
         }
         {

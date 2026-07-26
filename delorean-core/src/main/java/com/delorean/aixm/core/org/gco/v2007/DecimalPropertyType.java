@@ -1,13 +1,13 @@
 
 package com.delorean.aixm.core.org.gco.v2007;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigDecimal;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,17 +21,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for Decimal_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for Decimal_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="Decimal_PropertyType">
  *   <complexContent>
@@ -44,12 +39,15 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Decimal_PropertyType", propOrder = {"decimal"})
-public class DecimalPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "Decimal_PropertyType", propOrder = {
+    "decimal"
+})
+public class DecimalPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Decimal")
@@ -59,9 +57,11 @@ public class DecimalPropertyType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Gets the value of the decimal property.
-     *
-     * @return possible object is {@link BigDecimal }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigDecimal }
+     *     
      */
     public BigDecimal getDecimal() {
         return decimal;
@@ -69,24 +69,27 @@ public class DecimalPropertyType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the decimal property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigDecimal }
-     *
+     *     allowed object is
+     *     {@link BigDecimal }
+     *     
      */
     public void setDecimal(BigDecimal value) {
         this.decimal = value;
     }
 
     public boolean isSetDecimal() {
-        return (this.decimal != null);
+        return (this.decimal!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -94,17 +97,18 @@ public class DecimalPropertyType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -120,28 +124,14 @@ public class DecimalPropertyType implements Serializable, Equals, HashCode, ToSt
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final DecimalPropertyType that = ((DecimalPropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetDecimal();
             boolean rhsFieldIsSet = that.isSetDecimal();
@@ -151,6 +141,19 @@ public class DecimalPropertyType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getDecimal();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

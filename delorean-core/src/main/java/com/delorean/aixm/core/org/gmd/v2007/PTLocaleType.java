@@ -1,51 +1,50 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for PT_Locale_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for PT_Locale_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="PT_Locale_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="languageCode" type=
-"{http://www.isotc211.org/2005/gmd}LanguageCode_PropertyType"/>
- *         <element name="country" type=
-"{http://www.isotc211.org/2005/gmd}Country_PropertyType" minOccurs="0"/>
- *         <element name="characterEncoding" type=
-"{http://www.isotc211.org/2005/gmd}MD_CharacterSetCode_PropertyType"/>
+ *         <element name="languageCode" type="{http://www.isotc211.org/2005/gmd}LanguageCode_PropertyType"/>
+ *         <element name="country" type="{http://www.isotc211.org/2005/gmd}Country_PropertyType" minOccurs="0"/>
+ *         <element name="characterEncoding" type="{http://www.isotc211.org/2005/gmd}MD_CharacterSetCode_PropertyType"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PT_Locale_Type", propOrder = {"languageCode", "country", "characterEncoding"})
-public class PTLocaleType extends AbstractObjectType implements Serializable {
+@XmlType(name = "PT_Locale_Type", propOrder = {
+    "languageCode",
+    "country",
+    "characterEncoding"
+})
+public class PTLocaleType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -56,9 +55,11 @@ public class PTLocaleType extends AbstractObjectType implements Serializable {
 
     /**
      * Gets the value of the languageCode property.
-     *
-     * @return possible object is {@link LanguageCodePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link LanguageCodePropertyType }
+     *     
      */
     public LanguageCodePropertyType getLanguageCode() {
         return languageCode;
@@ -66,24 +67,27 @@ public class PTLocaleType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the languageCode property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link LanguageCodePropertyType }
-     *
+     *     allowed object is
+     *     {@link LanguageCodePropertyType }
+     *     
      */
     public void setLanguageCode(LanguageCodePropertyType value) {
         this.languageCode = value;
     }
 
     public boolean isSetLanguageCode() {
-        return (this.languageCode != null);
+        return (this.languageCode!= null);
     }
 
     /**
      * Gets the value of the country property.
-     *
-     * @return possible object is {@link CountryPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CountryPropertyType }
+     *     
      */
     public CountryPropertyType getCountry() {
         return country;
@@ -91,24 +95,27 @@ public class PTLocaleType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the country property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CountryPropertyType }
-     *
+     *     allowed object is
+     *     {@link CountryPropertyType }
+     *     
      */
     public void setCountry(CountryPropertyType value) {
         this.country = value;
     }
 
     public boolean isSetCountry() {
-        return (this.country != null);
+        return (this.country!= null);
     }
 
     /**
      * Gets the value of the characterEncoding property.
-     *
-     * @return possible object is {@link MDCharacterSetCodePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link MDCharacterSetCodePropertyType }
+     *     
      */
     public MDCharacterSetCodePropertyType getCharacterEncoding() {
         return characterEncoding;
@@ -116,23 +123,23 @@ public class PTLocaleType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the characterEncoding property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MDCharacterSetCodePropertyType }
-     *
+     *     allowed object is
+     *     {@link MDCharacterSetCodePropertyType }
+     *     
      */
     public void setCharacterEncoding(MDCharacterSetCodePropertyType value) {
         this.characterEncoding = value;
     }
 
     public boolean isSetCharacterEncoding() {
-        return (this.characterEncoding != null);
+        return (this.characterEncoding!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -142,19 +149,6 @@ public class PTLocaleType extends AbstractObjectType implements Serializable {
             return false;
         }
         final PTLocaleType that = ((PTLocaleType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetCountry();
-            boolean rhsFieldIsSet = that.isSetCountry();
-            CountryPropertyType lhsField;
-            lhsField = this.getCountry();
-            CountryPropertyType rhsField;
-            rhsField = that.getCountry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetLanguageCode();
             boolean rhsFieldIsSet = that.isSetLanguageCode();
@@ -177,6 +171,19 @@ public class PTLocaleType extends AbstractObjectType implements Serializable {
             rhsField = that.getCharacterEncoding();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterEncoding", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterEncoding", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCountry();
+            boolean rhsFieldIsSet = that.isSetCountry();
+            CountryPropertyType lhsField;
+            lhsField = this.getCountry();
+            CountryPropertyType rhsField;
+            rhsField = that.getCountry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

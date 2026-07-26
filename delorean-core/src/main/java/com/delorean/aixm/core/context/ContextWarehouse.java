@@ -6,7 +6,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.delorean.aixm.core.log.ConsoleLogger;
 import com.delorean.aixm.core.log.LogLevel;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 /**
  * The {@code ContextWarehouse} serves as the central registry and coordinator
  * for GML id lifecycle management.
@@ -38,8 +40,7 @@ public class ContextWarehouse {
         Context ctx = new Context(id, UUID.randomUUID().toString(), description);
         contexts.put(id, ctx);
         ContextWarehouse.activeContext = ctx;
-        ConsoleLogger.info("Active Context Ref: " + ctx.getRef() + " Hash: " + ctx.getSalt() + " Description: "
-                + ctx.getDescription());
+        log.info("Active Context Ref: {} Hash: {} Description: {}", ctx.getRef(), ctx.getSalt(), ctx.getDescription());
     }
 
     public void registerContext(String salt, String description) {
@@ -47,8 +48,7 @@ public class ContextWarehouse {
         Context ctx = new Context(id, salt, description);
         contexts.put(id, ctx);
         ContextWarehouse.activeContext = ctx;
-        ConsoleLogger.info("Active Context Ref: " + ctx.getRef() + " Hash: " + ctx.getSalt() + " Description: "
-                + ctx.getDescription());
+        log.info("Active Context Ref: {} Hash: {} Description: {}", ctx.getRef(), ctx.getSalt(), ctx.getDescription());
     }
 
     public void switchContext(String ref) {
@@ -56,9 +56,8 @@ public class ContextWarehouse {
         if (ctx == null) {
             throw new IllegalArgumentException("Context Ref: " + ref + " not found");
         }
-        activeContext = ctx;
-        ConsoleLogger.info("Switched to Context Ref: " + ctx.getRef() + " Hash: " + ctx.getSalt() + " Description: "
-                + ctx.getDescription());
+        ContextWarehouse.activeContext = ctx;
+        log.info("Switched to Context Ref: {} Hash: {} Description: {}",ctx.getRef(), ctx.getSalt(), ctx.getDescription());
     }
 
     public Context getActive() {
@@ -88,8 +87,7 @@ public class ContextWarehouse {
 
     public void getActiveInfo() {
         Context current = getActive();
-        ConsoleLogger.info("Active Context Ref: " + current.getRef() + " Salt: " + current.getSalt() + " Description: "
-                + current.getDescription());
+        log.info("Active Context Ref: {} Hash: {} Description: {}", current.getRef(), current.getSalt(), current.getDescription());
     }
 
     public String getSalt() {
@@ -104,12 +102,12 @@ public class ContextWarehouse {
         contexts.clear();
         activeContext = null;
 
-        ConsoleLogger.info("All contexts cleared");
+        log.info("All contexts cleared");
     }
 
     public void unSetActiveContext() {
         activeContext = null;
 
-        ConsoleLogger.info("Active context unset");
+        log.info("No Active context");
     }
 }

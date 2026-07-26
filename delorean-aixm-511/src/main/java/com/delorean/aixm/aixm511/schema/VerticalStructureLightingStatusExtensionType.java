@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,42 +35,37 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractVerticalStructureLightingStatusExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractVerticalStructureLightingStatusExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractPropertiesWithScheduleExtension",
-        "abstractVerticalStructureLightingStatusExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractPropertiesWithScheduleExtension",
+    "abstractVerticalStructureLightingStatusExtension"
+})
 @Entity(name = "VerticalStructureLightingStatusExtensionType")
 @Table(name = "verticalstructurelightingstatus_oe", schema = "obstacle")
-public class VerticalStructureLightingStatusExtensionType implements Serializable, Equals, HashCode, ToString {
+public class VerticalStructureLightingStatusExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractPropertiesWithScheduleExtension")
@@ -86,11 +81,15 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
 
     /**
      * Gets the value of the abstractPropertiesWithScheduleExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
@@ -98,10 +97,11 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
 
     /**
      * Sets the value of the abstractPropertiesWithScheduleExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractPropertiesWithScheduleExtension(AbstractExtensionType value) {
         this.abstractPropertiesWithScheduleExtension = value;
@@ -109,29 +109,32 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
 
     @Transient
     public boolean isSetAbstractPropertiesWithScheduleExtension() {
-        return (this.abstractPropertiesWithScheduleExtension != null);
+        return (this.abstractPropertiesWithScheduleExtension!= null);
     }
 
     /**
-     * Gets the value of the abstractVerticalStructureLightingStatusExtension
-     * property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * Gets the value of the abstractVerticalStructureLightingStatusExtension property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractverticalstructurelightingstatusextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractVerticalStructureLightingStatusExtension() {
         return abstractVerticalStructureLightingStatusExtension;
     }
 
     /**
-     * Sets the value of the abstractVerticalStructureLightingStatusExtension
-     * property.
-     *
+     * Sets the value of the abstractVerticalStructureLightingStatusExtension property.
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractVerticalStructureLightingStatusExtension(AbstractExtensionType value) {
         this.abstractVerticalStructureLightingStatusExtension = value;
@@ -139,14 +142,16 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
 
     @Transient
     public boolean isSetAbstractVerticalStructureLightingStatusExtension() {
-        return (this.abstractVerticalStructureLightingStatusExtension != null);
+        return (this.abstractVerticalStructureLightingStatusExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -160,10 +165,11 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -171,7 +177,7 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -179,10 +185,12 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -193,21 +201,24 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -216,11 +227,12 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -239,9 +251,8 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -249,31 +260,14 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
         }
         final VerticalStructureLightingStatusExtensionType that = ((VerticalStructureLightingStatusExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractVerticalStructureLightingStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVerticalStructureLightingStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVerticalStructureLightingStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVerticalStructureLightingStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractVerticalStructureLightingStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractVerticalStructureLightingStatusExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
             lhsField = this.getAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractPropertiesWithScheduleExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -282,11 +276,24 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractVerticalStructureLightingStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVerticalStructureLightingStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractVerticalStructureLightingStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractVerticalStructureLightingStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVerticalStructureLightingStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVerticalStructureLightingStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -311,22 +318,20 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
             boolean theFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractPropertiesWithScheduleExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractPropertiesWithScheduleExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractVerticalStructureLightingStatusExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractVerticalStructureLightingStatusExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
-                    "abstractVerticalStructureLightingStatusExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractVerticalStructureLightingStatusExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -359,20 +364,18 @@ public class VerticalStructureLightingStatusExtensionType implements Serializabl
             boolean theFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractPropertiesWithScheduleExtension();
-            strategy.appendField(locator, this, "abstractPropertiesWithScheduleExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractPropertiesWithScheduleExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractVerticalStructureLightingStatusExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractVerticalStructureLightingStatusExtension();
-            strategy.appendField(locator, this, "abstractVerticalStructureLightingStatusExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractVerticalStructureLightingStatusExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

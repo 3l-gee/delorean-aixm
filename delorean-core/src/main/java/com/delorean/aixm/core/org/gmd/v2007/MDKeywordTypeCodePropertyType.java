@@ -1,13 +1,13 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,17 +21,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for MD_KeywordTypeCode_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MD_KeywordTypeCode_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MD_KeywordTypeCode_PropertyType">
  *   <complexContent>
@@ -44,12 +39,15 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_KeywordTypeCode_PropertyType", propOrder = {"mdKeywordTypeCode"})
-public class MDKeywordTypeCodePropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "MD_KeywordTypeCode_PropertyType", propOrder = {
+    "mdKeywordTypeCode"
+})
+public class MDKeywordTypeCodePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_KeywordTypeCode")
@@ -59,9 +57,11 @@ public class MDKeywordTypeCodePropertyType implements Serializable, Equals, Hash
 
     /**
      * Gets the value of the mdKeywordTypeCode property.
-     *
-     * @return possible object is {@link CodeListValueType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CodeListValueType }
+     *     
      */
     public CodeListValueType getMDKeywordTypeCode() {
         return mdKeywordTypeCode;
@@ -69,24 +69,27 @@ public class MDKeywordTypeCodePropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the mdKeywordTypeCode property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CodeListValueType }
-     *
+     *     allowed object is
+     *     {@link CodeListValueType }
+     *     
      */
     public void setMDKeywordTypeCode(CodeListValueType value) {
         this.mdKeywordTypeCode = value;
     }
 
     public boolean isSetMDKeywordTypeCode() {
-        return (this.mdKeywordTypeCode != null);
+        return (this.mdKeywordTypeCode!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -94,17 +97,18 @@ public class MDKeywordTypeCodePropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -120,28 +124,14 @@ public class MDKeywordTypeCodePropertyType implements Serializable, Equals, Hash
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final MDKeywordTypeCodePropertyType that = ((MDKeywordTypeCodePropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetMDKeywordTypeCode();
-            boolean rhsFieldIsSet = that.isSetMDKeywordTypeCode();
-            CodeListValueType lhsField;
-            lhsField = this.getMDKeywordTypeCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDKeywordTypeCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdKeywordTypeCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdKeywordTypeCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
@@ -151,6 +141,19 @@ public class MDKeywordTypeCodePropertyType implements Serializable, Equals, Hash
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDKeywordTypeCode();
+            boolean rhsFieldIsSet = that.isSetMDKeywordTypeCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDKeywordTypeCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDKeywordTypeCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdKeywordTypeCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdKeywordTypeCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

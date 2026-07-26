@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,41 +38,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for MinimumAltitudeAreaTimeSlicePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MinimumAltitudeAreaTimeSlicePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MinimumAltitudeAreaTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}MinimumAltitudeAreaTimeSlice"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}MinimumAltitudeAreaTimeSlice"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MinimumAltitudeAreaTimeSlicePropertyType", propOrder = {"minimumAltitudeAreaTimeSlice"})
-@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "MinimumAltitudeAreaTimeSlicePropertyType", propOrder = {
+    "minimumAltitudeAreaTimeSlice"
+})
+@FilterDef(name = "TPHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "MinimumAltitudeAreaTimeSlicePropertyType")
 @Table(name = "minimumaltitudearea_tp", schema = "procedure")
-public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
+public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MinimumAltitudeAreaTimeSlice", required = true)
@@ -86,12 +84,15 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
 
     /**
      * Gets the value of the minimumAltitudeAreaTimeSlice property.
-     *
-     * @return possible object is {@link MinimumAltitudeAreaTimeSliceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link MinimumAltitudeAreaTimeSliceType }
+     *     
      */
     @OneToOne(targetEntity = MinimumAltitudeAreaTimeSliceType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "minimumaltitudeareatimeslice_hjid", referencedColumnName = "hjid")
     public MinimumAltitudeAreaTimeSliceType getMinimumAltitudeAreaTimeSlice() {
         return minimumAltitudeAreaTimeSlice;
@@ -99,10 +100,11 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
 
     /**
      * Sets the value of the minimumAltitudeAreaTimeSlice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MinimumAltitudeAreaTimeSliceType }
-     *
+     *     allowed object is
+     *     {@link MinimumAltitudeAreaTimeSliceType }
+     *     
      */
     public void setMinimumAltitudeAreaTimeSlice(MinimumAltitudeAreaTimeSliceType value) {
         this.minimumAltitudeAreaTimeSlice = value;
@@ -110,14 +112,16 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
 
     @Transient
     public boolean isSetMinimumAltitudeAreaTimeSlice() {
-        return (this.minimumAltitudeAreaTimeSlice != null);
+        return (this.minimumAltitudeAreaTimeSlice!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -131,10 +135,11 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -142,7 +147,7 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -150,10 +155,12 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -164,21 +171,24 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -187,11 +197,12 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -210,9 +221,8 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -220,29 +230,27 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
         }
         final MinimumAltitudeAreaTimeSlicePropertyType that = ((MinimumAltitudeAreaTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMinimumAltitudeAreaTimeSlice();
             boolean rhsFieldIsSet = that.isSetMinimumAltitudeAreaTimeSlice();
             MinimumAltitudeAreaTimeSliceType lhsField;
             lhsField = this.getMinimumAltitudeAreaTimeSlice();
             MinimumAltitudeAreaTimeSliceType rhsField;
             rhsField = that.getMinimumAltitudeAreaTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumAltitudeAreaTimeSlice",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumAltitudeAreaTimeSlice",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumAltitudeAreaTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumAltitudeAreaTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -273,7 +281,7 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -311,7 +319,7 @@ public class MinimumAltitudeAreaTimeSlicePropertyType implements Serializable, E
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

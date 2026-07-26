@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for GuidanceLineDirectionPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for GuidanceLineDirectionPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="GuidanceLineDirectionPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}GuidanceLineDirection"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}GuidanceLineDirection"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GuidanceLineDirectionPropertyType", propOrder = {"guidanceLineDirection"})
+@XmlType(name = "GuidanceLineDirectionPropertyType", propOrder = {
+    "guidanceLineDirection"
+})
 @Entity(name = "GuidanceLineDirectionPropertyType")
 @Table(name = "guidancelinedirectionpropertytype", schema = "airport_heliport")
-public class GuidanceLineDirectionPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class GuidanceLineDirectionPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "GuidanceLineDirection", required = true)
@@ -58,11 +56,15 @@ public class GuidanceLineDirectionPropertyType extends AbstractAIXMPropertyType 
 
     /**
      * Gets the value of the guidanceLineDirection property.
-     *
-     * @return possible object is {@link GuidanceLineDirectionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link GuidanceLineDirectionType }
+     *     
      */
-    @OneToOne(targetEntity = GuidanceLineDirectionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = GuidanceLineDirectionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "guidancelinedirection_hjid", referencedColumnName = "hjid")
     public GuidanceLineDirectionType getGuidanceLineDirection() {
         return guidanceLineDirection;
@@ -70,10 +72,11 @@ public class GuidanceLineDirectionPropertyType extends AbstractAIXMPropertyType 
 
     /**
      * Sets the value of the guidanceLineDirection property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link GuidanceLineDirectionType }
-     *
+     *     allowed object is
+     *     {@link GuidanceLineDirectionType }
+     *     
      */
     public void setGuidanceLineDirection(GuidanceLineDirectionType value) {
         this.guidanceLineDirection = value;
@@ -81,13 +84,12 @@ public class GuidanceLineDirectionPropertyType extends AbstractAIXMPropertyType 
 
     @Transient
     public boolean isSetGuidanceLineDirection() {
-        return (this.guidanceLineDirection != null);
+        return (this.guidanceLineDirection!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Basic;
@@ -21,10 +25,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,47 +32,31 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for MarkingBuoyTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MarkingBuoyTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MarkingBuoyTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="designator" type=
-"{http://www.aixm.aero/schema/5.1}AlphanumericType" minOccurs="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.1}CodeBuoyType" minOccurs="0"/>
- *         <element name="colour" type=
-"{http://www.aixm.aero/schema/5.1}CodeColourType" minOccurs="0"/>
- *         <element name="theSeaplaneLandingArea" type=
-"{http://www.aixm.aero/schema/5.1}SeaplaneLandingAreaPropertyType" minOccurs=
-"0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.1}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.1}AlphanumericType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1}CodeBuoyType" minOccurs="0"/>
+ *         <element name="colour" type="{http://www.aixm.aero/schema/5.1}CodeColourType" minOccurs="0"/>
+ *         <element name="theSeaplaneLandingArea" type="{http://www.aixm.aero/schema/5.1}SeaplaneLandingAreaPropertyType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractMarkingBuoyExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractMarkingBuoyExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -82,15 +66,25 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MarkingBuoyTimeSliceType", propOrder = {"designator", "type", "colour", "theSeaplaneLandingArea",
-        "location", "annotation", "extension"})
+@XmlType(name = "MarkingBuoyTimeSliceType", propOrder = {
+    "designator",
+    "type",
+    "colour",
+    "theSeaplaneLandingArea",
+    "location",
+    "annotation",
+    "extension"
+})
 @Entity(name = "MarkingBuoyTimeSliceType")
 @Table(name = "markingbuoy_t", schema = "airport_heliport")
-public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class MarkingBuoyTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "designator", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -109,10 +103,11 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Gets the value of the designator property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link String
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<String> getDesignator() {
@@ -121,11 +116,11 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the designator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link String
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     
      */
     public void setDesignator(JAXBElement<String> value) {
         this.designator = value;
@@ -133,15 +128,16 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator != null);
+        return (this.designator!= null);
     }
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeBuoyType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeBuoyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeBuoyType> getType() {
@@ -150,11 +146,11 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link CodeBuoyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeBuoyType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeBuoyType> value) {
         this.type = value;
@@ -162,15 +158,16 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the colour property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeColourType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeColourType> getColour() {
@@ -179,11 +176,11 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the colour property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeColourType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
+     *     
      */
     public void setColour(JAXBElement<CodeColourType> value) {
         this.colour = value;
@@ -191,15 +188,16 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetColour() {
-        return (this.colour != null);
+        return (this.colour!= null);
     }
 
     /**
      * Gets the value of the theSeaplaneLandingArea property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link SeaplaneLandingAreaPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link SeaplaneLandingAreaPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<SeaplaneLandingAreaPropertyType> getTheSeaplaneLandingArea() {
@@ -208,11 +206,11 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the theSeaplaneLandingArea property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link SeaplaneLandingAreaPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link SeaplaneLandingAreaPropertyType }{@code >}
+     *     
      */
     public void setTheSeaplaneLandingArea(JAXBElement<SeaplaneLandingAreaPropertyType> value) {
         this.theSeaplaneLandingArea = value;
@@ -220,15 +218,16 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetTheSeaplaneLandingArea() {
-        return (this.theSeaplaneLandingArea != null);
+        return (this.theSeaplaneLandingArea!= null);
     }
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getLocation() {
@@ -237,11 +236,11 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setLocation(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.location = value;
@@ -249,36 +248,39 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "mrkngbtmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "mrkngbtmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -287,8 +289,8 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -296,7 +298,7 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -305,29 +307,29 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MarkingBuoyTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = MarkingBuoyTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "markingbuoy_te_hjid", referencedColumnName = "hjid")
     public List<MarkingBuoyTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -337,8 +339,8 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<MarkingBuoyTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -346,7 +348,7 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -360,67 +362,70 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
     }
 
     public void setDesignatorItem(String target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(String.class,
-                new QName("http://www.aixm.aero/schema/5.1", "designator"), MarkingBuoyTimeSliceType.class, target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(String.class, new QName("http://www.aixm.aero/schema/5.1", "designator"), MarkingBuoyTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codebuoybase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeBuoyType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeBuoyType.class, this.getType());
     }
 
     public void setTypeItem(CodeBuoyType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeBuoyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "type"), MarkingBuoyTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeBuoyType.class, new QName("http://www.aixm.aero/schema/5.1", "type"), MarkingBuoyTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "colour")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "colournilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "colour", columnDefinition = "codecolourbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "colournilreason", columnDefinition = "nilreason"))
+    })
     public CodeColourType getColourItem() {
         return XmlAdapterUtils.unmarshallSource(CodeColourType.class, this.getColour());
     }
 
     public void setColourItem(CodeColourType target) {
-        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "colour"), MarkingBuoyTimeSliceType.class, target));
+        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class, new QName("http://www.aixm.aero/schema/5.1", "colour"), MarkingBuoyTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = SeaplaneLandingAreaPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "mrkngbtmslctp_thsplnlndngar_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "theseaplanelandingarea_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "mrkngbtmslctp_thsplnlndngar_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "theseaplanelandingarea_hjid", referencedColumnName = "hjid")
+    })
     public SeaplaneLandingAreaPropertyType getTheSeaplaneLandingAreaItem() {
-        return XmlAdapterUtils.unmarshallSource(SeaplaneLandingAreaPropertyType.class,
-                this.getTheSeaplaneLandingArea());
+        return XmlAdapterUtils.unmarshallSource(SeaplaneLandingAreaPropertyType.class, this.getTheSeaplaneLandingArea());
     }
 
     public void setTheSeaplaneLandingAreaItem(SeaplaneLandingAreaPropertyType target) {
-        setTheSeaplaneLandingArea(XmlAdapterUtils.marshallJAXBElement(SeaplaneLandingAreaPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "theSeaplaneLandingArea"), MarkingBuoyTimeSliceType.class,
-                target));
+        setTheSeaplaneLandingArea(XmlAdapterUtils.marshallJAXBElement(SeaplaneLandingAreaPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "theSeaplaneLandingArea"), MarkingBuoyTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "mrkngbtmslctp_lctn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "mrkngbtmslctp_lctn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
 
     public void setLocationItem(AIXMElevatedPointPropertyType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "location"), MarkingBuoyTimeSliceType.class, target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "location"), MarkingBuoyTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -430,19 +435,6 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
             return false;
         }
         final MarkingBuoyTimeSliceType that = ((MarkingBuoyTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetTheSeaplaneLandingArea();
             boolean rhsFieldIsSet = that.isSetTheSeaplaneLandingArea();
@@ -470,14 +462,14 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<MarkingBuoyTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<MarkingBuoyTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -496,6 +488,32 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<MarkingBuoyTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<MarkingBuoyTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLocation();
             boolean rhsFieldIsSet = that.isSetLocation();
             JAXBElement<AIXMElevatedPointPropertyType> lhsField;
@@ -504,19 +522,6 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = that.getLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -565,14 +570,14 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<MarkingBuoyTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -615,13 +620,13 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<MarkingBuoyTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

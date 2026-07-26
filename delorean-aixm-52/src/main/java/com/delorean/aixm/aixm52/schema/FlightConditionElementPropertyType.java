@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for FlightConditionElementPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FlightConditionElementPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FlightConditionElementPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}FlightConditionElement"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}FlightConditionElement"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FlightConditionElementPropertyType", propOrder = {"flightConditionElement"})
+@XmlType(name = "FlightConditionElementPropertyType", propOrder = {
+    "flightConditionElement"
+})
 @Entity(name = "FlightConditionElementPropertyType")
 @Table(name = "flightconditionelementpropertytype", schema = "route")
-public class FlightConditionElementPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class FlightConditionElementPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "FlightConditionElement", required = true)
@@ -58,11 +56,15 @@ public class FlightConditionElementPropertyType extends AbstractAIXMPropertyType
 
     /**
      * Gets the value of the flightConditionElement property.
-     *
-     * @return possible object is {@link FlightConditionElementType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link FlightConditionElementType }
+     *     
      */
-    @OneToOne(targetEntity = FlightConditionElementType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = FlightConditionElementType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "flightconditionelement_hjid", referencedColumnName = "hjid")
     public FlightConditionElementType getFlightConditionElement() {
         return flightConditionElement;
@@ -70,10 +72,11 @@ public class FlightConditionElementPropertyType extends AbstractAIXMPropertyType
 
     /**
      * Sets the value of the flightConditionElement property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link FlightConditionElementType }
-     *
+     *     allowed object is
+     *     {@link FlightConditionElementType }
+     *     
      */
     public void setFlightConditionElement(FlightConditionElementType value) {
         this.flightConditionElement = value;
@@ -81,13 +84,12 @@ public class FlightConditionElementPropertyType extends AbstractAIXMPropertyType
 
     @Transient
     public boolean isSetFlightConditionElement() {
-        return (this.flightConditionElement != null);
+        return (this.flightConditionElement!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

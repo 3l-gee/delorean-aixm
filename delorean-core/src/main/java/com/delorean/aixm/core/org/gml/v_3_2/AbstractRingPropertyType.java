@@ -1,12 +1,12 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -20,20 +20,14 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * A property with the content model of gml:AbstractRingPropertyType
- * encapsulates a ring to represent the surface boundary property of a surface.
- *
- * <p>
- * Java class for AbstractRingPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * A property with the content model of gml:AbstractRingPropertyType encapsulates a ring to represent the surface boundary property of a surface.
+ * 
+ * <p>Java class for AbstractRingPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractRingPropertyType">
  *   <complexContent>
@@ -45,33 +39,35 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractRingPropertyType", propOrder = {"abstractRing"})
-public class AbstractRingPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "AbstractRingPropertyType", propOrder = {
+    "abstractRing"
+})
+public class AbstractRingPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * An abstraction of a ring to support surface boundaries of different
-     * complexity. The AbstractRing element is the abstract head of the
-     * substituition group for all closed boundaries of a surface patch.
-     *
+     * An abstraction of a ring to support surface boundaries of different complexity.
+     * The AbstractRing element is the abstract head of the substituition group for all closed boundaries of a surface patch.
+     * 
      */
     @XmlElementRef(name = "AbstractRing", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<? extends AbstractRingType> abstractRing;
 
     /**
-     * An abstraction of a ring to support surface boundaries of different
-     * complexity. The AbstractRing element is the abstract head of the
-     * substituition group for all closed boundaries of a surface patch.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractRingType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link LinearRingType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link RingType }{@code >}
-     *
+     * An abstraction of a ring to support surface boundaries of different complexity.
+     * The AbstractRing element is the abstract head of the substituition group for all closed boundaries of a surface patch.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractRingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LinearRingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RingType }{@code >}
+     *     
      */
     public JAXBElement<? extends AbstractRingType> getAbstractRing() {
         return abstractRing;
@@ -79,13 +75,13 @@ public class AbstractRingPropertyType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the abstractRing property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractRingType }{@code >} {@link JAXBElement
-     *            }{@code <}{@link LinearRingType }{@code >} {@link JAXBElement
-     *            }{@code <}{@link RingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractRingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LinearRingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RingType }{@code >}
+     *     
      * @see #getAbstractRing()
      */
     public void setAbstractRing(JAXBElement<? extends AbstractRingType> value) {
@@ -93,7 +89,7 @@ public class AbstractRingPropertyType implements Serializable, Equals, HashCode,
     }
 
     public boolean isSetAbstractRing() {
-        return (this.abstractRing != null);
+        return (this.abstractRing!= null);
     }
 
     @Override
@@ -109,9 +105,8 @@ public class AbstractRingPropertyType implements Serializable, Equals, HashCode,
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

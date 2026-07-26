@@ -5,20 +5,13 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
+
 /**
- * High-level geospatial data thematic classification to assist in the grouping
- * and search of available geospatial datasets
- *
- * <p>
- * Java class for MD_TopicCategoryCode_Type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * High-level geospatial data thematic classification to assist in the grouping and search of available geospatial datasets
+ * 
+ * <p>Java class for MD_TopicCategoryCode_Type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  * <pre>{@code
  * <simpleType name="MD_TopicCategoryCode_Type">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -44,31 +37,49 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- *
+ * 
  */
 @XmlType(name = "MD_TopicCategoryCode_Type")
 @XmlEnum
 public enum MDTopicCategoryCodeType {
 
     @XmlEnumValue("farming")
-    FARMING("farming"), @XmlEnumValue("biota")
-    BIOTA("biota"), @XmlEnumValue("boundaries")
-    BOUNDARIES("boundaries"), @XmlEnumValue("climatologyMeteorologyAtmosphere")
-    CLIMATOLOGY_METEOROLOGY_ATMOSPHERE("climatologyMeteorologyAtmosphere"), @XmlEnumValue("economy")
-    ECONOMY("economy"), @XmlEnumValue("elevation")
-    ELEVATION("elevation"), @XmlEnumValue("environment")
-    ENVIRONMENT("environment"), @XmlEnumValue("geoscientificInformation")
-    GEOSCIENTIFIC_INFORMATION("geoscientificInformation"), @XmlEnumValue("health")
-    HEALTH("health"), @XmlEnumValue("imageryBaseMapsEarthCover")
-    IMAGERY_BASE_MAPS_EARTH_COVER("imageryBaseMapsEarthCover"), @XmlEnumValue("intelligenceMilitary")
-    INTELLIGENCE_MILITARY("intelligenceMilitary"), @XmlEnumValue("inlandWaters")
-    INLAND_WATERS("inlandWaters"), @XmlEnumValue("location")
-    LOCATION("location"), @XmlEnumValue("oceans")
-    OCEANS("oceans"), @XmlEnumValue("planningCadastre")
-    PLANNING_CADASTRE("planningCadastre"), @XmlEnumValue("society")
-    SOCIETY("society"), @XmlEnumValue("structure")
-    STRUCTURE("structure"), @XmlEnumValue("transportation")
-    TRANSPORTATION("transportation"), @XmlEnumValue("utilitiesCommunication")
+    FARMING("farming"),
+    @XmlEnumValue("biota")
+    BIOTA("biota"),
+    @XmlEnumValue("boundaries")
+    BOUNDARIES("boundaries"),
+    @XmlEnumValue("climatologyMeteorologyAtmosphere")
+    CLIMATOLOGY_METEOROLOGY_ATMOSPHERE("climatologyMeteorologyAtmosphere"),
+    @XmlEnumValue("economy")
+    ECONOMY("economy"),
+    @XmlEnumValue("elevation")
+    ELEVATION("elevation"),
+    @XmlEnumValue("environment")
+    ENVIRONMENT("environment"),
+    @XmlEnumValue("geoscientificInformation")
+    GEOSCIENTIFIC_INFORMATION("geoscientificInformation"),
+    @XmlEnumValue("health")
+    HEALTH("health"),
+    @XmlEnumValue("imageryBaseMapsEarthCover")
+    IMAGERY_BASE_MAPS_EARTH_COVER("imageryBaseMapsEarthCover"),
+    @XmlEnumValue("intelligenceMilitary")
+    INTELLIGENCE_MILITARY("intelligenceMilitary"),
+    @XmlEnumValue("inlandWaters")
+    INLAND_WATERS("inlandWaters"),
+    @XmlEnumValue("location")
+    LOCATION("location"),
+    @XmlEnumValue("oceans")
+    OCEANS("oceans"),
+    @XmlEnumValue("planningCadastre")
+    PLANNING_CADASTRE("planningCadastre"),
+    @XmlEnumValue("society")
+    SOCIETY("society"),
+    @XmlEnumValue("structure")
+    STRUCTURE("structure"),
+    @XmlEnumValue("transportation")
+    TRANSPORTATION("transportation"),
+    @XmlEnumValue("utilitiesCommunication")
     UTILITIES_COMMUNICATION("utilitiesCommunication");
     private final String value;
 
@@ -78,8 +89,9 @@ public enum MDTopicCategoryCodeType {
 
     /**
      * Gets the value associated to the enum constant.
-     *
-     * @return The value linked to the enum.
+     * 
+     * @return
+     *     The value linked to the enum.
      */
     public String value() {
         return value;
@@ -87,15 +99,16 @@ public enum MDTopicCategoryCodeType {
 
     /**
      * Gets the enum associated to the value passed as parameter.
-     *
+     * 
      * @param v
-     *            The value to get the enum from.
-     * @return The enum which corresponds to the value, if it exists.
+     *     The value to get the enum from.
+     * @return
+     *     The enum which corresponds to the value, if it exists.
      * @throws IllegalArgumentException
-     *             If no value matches in the enum declaration.
+     *     If no value matches in the enum declaration.
      */
     public static MDTopicCategoryCodeType fromValue(String v) {
-        for (MDTopicCategoryCodeType c : MDTopicCategoryCodeType.values()) {
+        for (MDTopicCategoryCodeType c: MDTopicCategoryCodeType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

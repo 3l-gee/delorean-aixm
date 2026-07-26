@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,82 +31,46 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AerialRefuellingTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AerialRefuellingTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AerialRefuellingTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="designatorPrefix" type=
-"{http://www.aixm.aero/schema/5.2}CodeAerialRefuellingPrefixType" minOccurs=
-"0"/>
- *         <element name="designatorNumber" type=
-"{http://www.aixm.aero/schema/5.2}NoNumberType" minOccurs="0"/>
- *         <element name="designatorSuffix" type=
-"{http://www.aixm.aero/schema/5.2}TextDesignatorType" minOccurs="0"/>
- *         <element name="designatorDirection" type=
-"{http://www.aixm.aero/schema/5.2}CodeCardinalDirectionType" minOccurs="0"/>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.2}CodeAerialRefuellingType" minOccurs="0"/>
- *         <element name="radarBeaconSetting" type=
-"{http://www.aixm.aero/schema/5.2}NoNumberType" minOccurs="0"/>
- *         <element name="xbandRadarSetting" type=
-"{http://www.aixm.aero/schema/5.2}NoNumberType" minOccurs="0"/>
- *         <element name="tankerChannel" type=
-"{http://www.aixm.aero/schema/5.2}CodeTACANChannelType" minOccurs="0"/>
- *         <element name="receiverChannel" type=
-"{http://www.aixm.aero/schema/5.2}CodeTACANChannelType" minOccurs="0"/>
- *         <element name="helicopterRoute" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="specialRefuelling" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="bidirectionalUse" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="reverseDirectionTurn" type=
-"{http://www.aixm.aero/schema/5.2}CodeDirectionTurnType" minOccurs="0"/>
- *         <element name="availability" type=
-"{http://www.aixm.aero/schema/5.2}RouteAvailabilityPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="protectingAirspace" type=
-"{http://www.aixm.aero/schema/5.2}AirspacePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="track" type=
-"{http://www.aixm.aero/schema/5.2}AerialRefuellingTrackPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="anchor" type=
-"{http://www.aixm.aero/schema/5.2}AerialRefuellingAnchorPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="oppositeTrack" type=
-"{http://www.aixm.aero/schema/5.2}AerialRefuellingPropertyType" minOccurs="0"/>
- *         <element name="managingOrganisation" type=
-"{http://www.aixm.aero/schema/5.2}AuthorityForAerialRefuellingPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="designatorPrefix" type="{http://www.aixm.aero/schema/5.2}CodeAerialRefuellingPrefixType" minOccurs="0"/>
+ *         <element name="designatorNumber" type="{http://www.aixm.aero/schema/5.2}NoNumberType" minOccurs="0"/>
+ *         <element name="designatorSuffix" type="{http://www.aixm.aero/schema/5.2}TextDesignatorType" minOccurs="0"/>
+ *         <element name="designatorDirection" type="{http://www.aixm.aero/schema/5.2}CodeCardinalDirectionType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.2}CodeAerialRefuellingType" minOccurs="0"/>
+ *         <element name="radarBeaconSetting" type="{http://www.aixm.aero/schema/5.2}NoNumberType" minOccurs="0"/>
+ *         <element name="xbandRadarSetting" type="{http://www.aixm.aero/schema/5.2}NoNumberType" minOccurs="0"/>
+ *         <element name="tankerChannel" type="{http://www.aixm.aero/schema/5.2}CodeTACANChannelType" minOccurs="0"/>
+ *         <element name="receiverChannel" type="{http://www.aixm.aero/schema/5.2}CodeTACANChannelType" minOccurs="0"/>
+ *         <element name="helicopterRoute" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="specialRefuelling" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="bidirectionalUse" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="reverseDirectionTurn" type="{http://www.aixm.aero/schema/5.2}CodeDirectionTurnType" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.2}RouteAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="protectingAirspace" type="{http://www.aixm.aero/schema/5.2}AirspacePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="track" type="{http://www.aixm.aero/schema/5.2}AerialRefuellingTrackPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="anchor" type="{http://www.aixm.aero/schema/5.2}AerialRefuellingAnchorPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="oppositeTrack" type="{http://www.aixm.aero/schema/5.2}AerialRefuellingPropertyType" minOccurs="0"/>
+ *         <element name="managingOrganisation" type="{http://www.aixm.aero/schema/5.2}AuthorityForAerialRefuellingPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractAerialRefuellingExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractAerialRefuellingExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -116,18 +80,40 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AerialRefuellingTimeSliceType", propOrder = {"designatorPrefix", "designatorNumber",
-        "designatorSuffix", "designatorDirection", "aixmName", "type", "radarBeaconSetting", "xbandRadarSetting",
-        "tankerChannel", "receiverChannel", "helicopterRoute", "specialRefuelling", "bidirectionalUse",
-        "reverseDirectionTurn", "availability", "protectingAirspace", "track", "anchor", "oppositeTrack",
-        "managingOrganisation", "annotation", "extension"})
+@XmlType(name = "AerialRefuellingTimeSliceType", propOrder = {
+    "designatorPrefix",
+    "designatorNumber",
+    "designatorSuffix",
+    "designatorDirection",
+    "aixmName",
+    "type",
+    "radarBeaconSetting",
+    "xbandRadarSetting",
+    "tankerChannel",
+    "receiverChannel",
+    "helicopterRoute",
+    "specialRefuelling",
+    "bidirectionalUse",
+    "reverseDirectionTurn",
+    "availability",
+    "protectingAirspace",
+    "track",
+    "anchor",
+    "oppositeTrack",
+    "managingOrganisation",
+    "annotation",
+    "extension"
+})
 @Entity(name = "AerialRefuellingTimeSliceType")
 @Table(name = "aerialrefuelling_t", schema = "aerial_refuelling")
-public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class AerialRefuellingTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "designatorPrefix", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -176,10 +162,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the designatorPrefix property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAerialRefuellingPrefixType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAerialRefuellingPrefixType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAerialRefuellingPrefixType> getDesignatorPrefix() {
@@ -188,11 +175,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the designatorPrefix property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAerialRefuellingPrefixType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAerialRefuellingPrefixType }{@code >}
+     *     
      */
     public void setDesignatorPrefix(JAXBElement<CodeAerialRefuellingPrefixType> value) {
         this.designatorPrefix = value;
@@ -200,15 +187,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetDesignatorPrefix() {
-        return (this.designatorPrefix != null);
+        return (this.designatorPrefix!= null);
     }
 
     /**
      * Gets the value of the designatorNumber property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link NoNumberType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NoNumberType> getDesignatorNumber() {
@@ -217,11 +205,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the designatorNumber property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link NoNumberType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
+     *     
      */
     public void setDesignatorNumber(JAXBElement<NoNumberType> value) {
         this.designatorNumber = value;
@@ -229,15 +217,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetDesignatorNumber() {
-        return (this.designatorNumber != null);
+        return (this.designatorNumber!= null);
     }
 
     /**
      * Gets the value of the designatorSuffix property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextDesignatorType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextDesignatorType> getDesignatorSuffix() {
@@ -246,11 +235,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the designatorSuffix property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextDesignatorType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
+     *     
      */
     public void setDesignatorSuffix(JAXBElement<TextDesignatorType> value) {
         this.designatorSuffix = value;
@@ -258,15 +247,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetDesignatorSuffix() {
-        return (this.designatorSuffix != null);
+        return (this.designatorSuffix!= null);
     }
 
     /**
      * Gets the value of the designatorDirection property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeCardinalDirectionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeCardinalDirectionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeCardinalDirectionType> getDesignatorDirection() {
@@ -275,11 +265,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the designatorDirection property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeCardinalDirectionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeCardinalDirectionType }{@code >}
+     *     
      */
     public void setDesignatorDirection(JAXBElement<CodeCardinalDirectionType> value) {
         this.designatorDirection = value;
@@ -287,15 +277,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetDesignatorDirection() {
-        return (this.designatorDirection != null);
+        return (this.designatorDirection!= null);
     }
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -304,11 +295,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -316,15 +307,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAerialRefuellingType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAerialRefuellingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAerialRefuellingType> getType() {
@@ -333,11 +325,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAerialRefuellingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAerialRefuellingType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeAerialRefuellingType> value) {
         this.type = value;
@@ -345,15 +337,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the radarBeaconSetting property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link NoNumberType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NoNumberType> getRadarBeaconSetting() {
@@ -362,11 +355,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the radarBeaconSetting property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link NoNumberType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
+     *     
      */
     public void setRadarBeaconSetting(JAXBElement<NoNumberType> value) {
         this.radarBeaconSetting = value;
@@ -374,15 +367,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetRadarBeaconSetting() {
-        return (this.radarBeaconSetting != null);
+        return (this.radarBeaconSetting!= null);
     }
 
     /**
      * Gets the value of the xbandRadarSetting property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link NoNumberType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NoNumberType> getXbandRadarSetting() {
@@ -391,11 +385,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the xbandRadarSetting property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link NoNumberType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
+     *     
      */
     public void setXbandRadarSetting(JAXBElement<NoNumberType> value) {
         this.xbandRadarSetting = value;
@@ -403,15 +397,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetXbandRadarSetting() {
-        return (this.xbandRadarSetting != null);
+        return (this.xbandRadarSetting!= null);
     }
 
     /**
      * Gets the value of the tankerChannel property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeTACANChannelType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeTACANChannelType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeTACANChannelType> getTankerChannel() {
@@ -420,11 +415,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the tankerChannel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeTACANChannelType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeTACANChannelType }{@code >}
+     *     
      */
     public void setTankerChannel(JAXBElement<CodeTACANChannelType> value) {
         this.tankerChannel = value;
@@ -432,15 +427,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetTankerChannel() {
-        return (this.tankerChannel != null);
+        return (this.tankerChannel!= null);
     }
 
     /**
      * Gets the value of the receiverChannel property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeTACANChannelType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeTACANChannelType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeTACANChannelType> getReceiverChannel() {
@@ -449,11 +445,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the receiverChannel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeTACANChannelType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeTACANChannelType }{@code >}
+     *     
      */
     public void setReceiverChannel(JAXBElement<CodeTACANChannelType> value) {
         this.receiverChannel = value;
@@ -461,15 +457,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetReceiverChannel() {
-        return (this.receiverChannel != null);
+        return (this.receiverChannel!= null);
     }
 
     /**
      * Gets the value of the helicopterRoute property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getHelicopterRoute() {
@@ -478,11 +475,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the helicopterRoute property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setHelicopterRoute(JAXBElement<CodeYesNoType> value) {
         this.helicopterRoute = value;
@@ -490,15 +487,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetHelicopterRoute() {
-        return (this.helicopterRoute != null);
+        return (this.helicopterRoute!= null);
     }
 
     /**
      * Gets the value of the specialRefuelling property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getSpecialRefuelling() {
@@ -507,11 +505,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the specialRefuelling property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setSpecialRefuelling(JAXBElement<CodeYesNoType> value) {
         this.specialRefuelling = value;
@@ -519,15 +517,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetSpecialRefuelling() {
-        return (this.specialRefuelling != null);
+        return (this.specialRefuelling!= null);
     }
 
     /**
      * Gets the value of the bidirectionalUse property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getBidirectionalUse() {
@@ -536,11 +535,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the bidirectionalUse property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setBidirectionalUse(JAXBElement<CodeYesNoType> value) {
         this.bidirectionalUse = value;
@@ -548,15 +547,16 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetBidirectionalUse() {
-        return (this.bidirectionalUse != null);
+        return (this.bidirectionalUse!= null);
     }
 
     /**
      * Gets the value of the reverseDirectionTurn property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeDirectionTurnType> getReverseDirectionTurn() {
@@ -565,11 +565,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the reverseDirectionTurn property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *     
      */
     public void setReverseDirectionTurn(JAXBElement<CodeDirectionTurnType> value) {
         this.reverseDirectionTurn = value;
@@ -577,36 +577,39 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetReverseDirectionTurn() {
-        return (this.reverseDirectionTurn != null);
+        return (this.reverseDirectionTurn!= null);
     }
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RouteAvailabilityPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = RouteAvailabilityPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllngtmslctp_avlblt_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = RouteAvailabilityPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllngtmslctp_avlblt_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
+    })
     public List<RouteAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -615,8 +618,8 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<RouteAvailabilityPropertyType> availability) {
         this.availability = availability;
@@ -624,7 +627,7 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -633,31 +636,34 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the protectingAirspace property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the protectingAirspace property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the protectingAirspace property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getProtectingAirspace().add(newItem);
+     *    getProtectingAirspace().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspacePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AirspacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllngtmslctp_prtctngarspc_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "protectingairspace_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = AirspacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllngtmslctp_prtctngarspc_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "protectingairspace_hjid", referencedColumnName = "hjid")
+    })
     public List<AirspacePropertyType> getProtectingAirspace() {
         if (protectingAirspace == null) {
             protectingAirspace = new ArrayList<>();
@@ -666,8 +672,8 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setProtectingAirspace(List<AirspacePropertyType> protectingAirspace) {
         this.protectingAirspace = protectingAirspace;
@@ -675,7 +681,7 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetProtectingAirspace() {
-        return ((this.protectingAirspace != null) && (!this.protectingAirspace.isEmpty()));
+        return ((this.protectingAirspace!= null)&&(!this.protectingAirspace.isEmpty()));
     }
 
     public void unsetProtectingAirspace() {
@@ -684,32 +690,34 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the track property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the track property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the track property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getTrack().add(newItem);
+     *    getTrack().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AerialRefuellingTrackPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AerialRefuellingTrackPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllngtmslctp_trck_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "track_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllngtmslctp_trck_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "track_hjid", referencedColumnName = "hjid")
+    })
     public List<AerialRefuellingTrackPropertyType> getTrack() {
         if (track == null) {
             track = new ArrayList<>();
@@ -718,8 +726,8 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setTrack(List<AerialRefuellingTrackPropertyType> track) {
         this.track = track;
@@ -727,7 +735,7 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetTrack() {
-        return ((this.track != null) && (!this.track.isEmpty()));
+        return ((this.track!= null)&&(!this.track.isEmpty()));
     }
 
     public void unsetTrack() {
@@ -736,32 +744,34 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the anchor property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the anchor property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the anchor property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnchor().add(newItem);
+     *    getAnchor().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AerialRefuellingAnchorPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AerialRefuellingAnchorPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllngtmslctp_anchr_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "anchor_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllngtmslctp_anchr_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "anchor_hjid", referencedColumnName = "hjid")
+    })
     public List<AerialRefuellingAnchorPropertyType> getAnchor() {
         if (anchor == null) {
             anchor = new ArrayList<>();
@@ -770,8 +780,8 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnchor(List<AerialRefuellingAnchorPropertyType> anchor) {
         this.anchor = anchor;
@@ -779,7 +789,7 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetAnchor() {
-        return ((this.anchor != null) && (!this.anchor.isEmpty()));
+        return ((this.anchor!= null)&&(!this.anchor.isEmpty()));
     }
 
     public void unsetAnchor() {
@@ -788,10 +798,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the oppositeTrack property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AerialRefuellingPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AerialRefuellingPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AerialRefuellingPropertyType> getOppositeTrack() {
@@ -800,11 +811,11 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the oppositeTrack property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AerialRefuellingPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AerialRefuellingPropertyType }{@code >}
+     *     
      */
     public void setOppositeTrack(JAXBElement<AerialRefuellingPropertyType> value) {
         this.oppositeTrack = value;
@@ -812,37 +823,39 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetOppositeTrack() {
-        return (this.oppositeTrack != null);
+        return (this.oppositeTrack!= null);
     }
 
     /**
      * Gets the value of the managingOrganisation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the managingOrganisation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the managingOrganisation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getManagingOrganisation().add(newItem);
+     *    getManagingOrganisation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AuthorityForAerialRefuellingPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AuthorityForAerialRefuellingPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllngtmslctp_mngngorgnstn_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "managingorganisation_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllngtmslctp_mngngorgnstn_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "managingorganisation_hjid", referencedColumnName = "hjid")
+    })
     public List<AuthorityForAerialRefuellingPropertyType> getManagingOrganisation() {
         if (managingOrganisation == null) {
             managingOrganisation = new ArrayList<>();
@@ -851,8 +864,8 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setManagingOrganisation(List<AuthorityForAerialRefuellingPropertyType> managingOrganisation) {
         this.managingOrganisation = managingOrganisation;
@@ -860,7 +873,7 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetManagingOrganisation() {
-        return ((this.managingOrganisation != null) && (!this.managingOrganisation.isEmpty()));
+        return ((this.managingOrganisation!= null)&&(!this.managingOrganisation.isEmpty()));
     }
 
     public void unsetManagingOrganisation() {
@@ -869,31 +882,34 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllngtmslctp_annttn_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllngtmslctp_annttn_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -902,8 +918,8 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -911,7 +927,7 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -920,29 +936,29 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AerialRefuellingTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AerialRefuellingTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "aerialrefuelling_te_hjid", referencedColumnName = "hjid")
     public List<AerialRefuellingTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -952,8 +968,8 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AerialRefuellingTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -961,7 +977,7 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -969,205 +985,206 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designatorprefix")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatorprefixnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "designatorprefix", columnDefinition = "codeaerialrefuellingprefixbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatorprefixnilreason", columnDefinition = "nilreason"))
+    })
     public CodeAerialRefuellingPrefixType getDesignatorPrefixItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAerialRefuellingPrefixType.class, this.getDesignatorPrefix());
     }
 
     public void setDesignatorPrefixItem(CodeAerialRefuellingPrefixType target) {
-        setDesignatorPrefix(XmlAdapterUtils.marshallJAXBElement(CodeAerialRefuellingPrefixType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "designatorPrefix"), AerialRefuellingTimeSliceType.class,
-                target));
+        setDesignatorPrefix(XmlAdapterUtils.marshallJAXBElement(CodeAerialRefuellingPrefixType.class, new QName("http://www.aixm.aero/schema/5.2", "designatorPrefix"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designatornumber")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornumbernilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "designatornumber", columnDefinition = "nonumberbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatornumbernilreason", columnDefinition = "nilreason"))
+    })
     public NoNumberType getDesignatorNumberItem() {
         return XmlAdapterUtils.unmarshallSource(NoNumberType.class, this.getDesignatorNumber());
     }
 
     public void setDesignatorNumberItem(NoNumberType target) {
-        setDesignatorNumber(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "designatorNumber"), AerialRefuellingTimeSliceType.class,
-                target));
+        setDesignatorNumber(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class, new QName("http://www.aixm.aero/schema/5.2", "designatorNumber"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "designatorsuffix", columnDefinition = "VARCHAR", length = 16)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatorsuffixnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "designatorsuffix", columnDefinition = "character3")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatorsuffixnilreason", columnDefinition = "nilreason"))
+    })
     public TextDesignatorType getDesignatorSuffixItem() {
         return XmlAdapterUtils.unmarshallSource(TextDesignatorType.class, this.getDesignatorSuffix());
     }
 
     public void setDesignatorSuffixItem(TextDesignatorType target) {
-        setDesignatorSuffix(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "designatorSuffix"), AerialRefuellingTimeSliceType.class,
-                target));
+        setDesignatorSuffix(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class, new QName("http://www.aixm.aero/schema/5.2", "designatorSuffix"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designatordirection")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatordirectionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "designatordirection", columnDefinition = "codecardinaldirectionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatordirectionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeCardinalDirectionType getDesignatorDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCardinalDirectionType.class, this.getDesignatorDirection());
     }
 
     public void setDesignatorDirectionItem(CodeCardinalDirectionType target) {
-        setDesignatorDirection(XmlAdapterUtils.marshallJAXBElement(CodeCardinalDirectionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "designatorDirection"),
-                AerialRefuellingTimeSliceType.class, target));
+        setDesignatorDirection(XmlAdapterUtils.marshallJAXBElement(CodeCardinalDirectionType.class, new QName("http://www.aixm.aero/schema/5.2", "designatorDirection"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "name"), AerialRefuellingTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codeaerialrefuellingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeAerialRefuellingType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAerialRefuellingType.class, this.getType());
     }
 
     public void setTypeItem(CodeAerialRefuellingType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeAerialRefuellingType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "type"), AerialRefuellingTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeAerialRefuellingType.class, new QName("http://www.aixm.aero/schema/5.2", "type"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "radarbeaconsetting")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "radarbeaconsettingnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "radarbeaconsetting", columnDefinition = "nonumberbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "radarbeaconsettingnilreason", columnDefinition = "nilreason"))
+    })
     public NoNumberType getRadarBeaconSettingItem() {
         return XmlAdapterUtils.unmarshallSource(NoNumberType.class, this.getRadarBeaconSetting());
     }
 
     public void setRadarBeaconSettingItem(NoNumberType target) {
-        setRadarBeaconSetting(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "radarBeaconSetting"), AerialRefuellingTimeSliceType.class,
-                target));
+        setRadarBeaconSetting(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class, new QName("http://www.aixm.aero/schema/5.2", "radarBeaconSetting"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "xbandradarsetting")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "xbandradarsettingnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "xbandradarsetting", columnDefinition = "nonumberbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "xbandradarsettingnilreason", columnDefinition = "nilreason"))
+    })
     public NoNumberType getXbandRadarSettingItem() {
         return XmlAdapterUtils.unmarshallSource(NoNumberType.class, this.getXbandRadarSetting());
     }
 
     public void setXbandRadarSettingItem(NoNumberType target) {
-        setXbandRadarSetting(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "xbandRadarSetting"), AerialRefuellingTimeSliceType.class,
-                target));
+        setXbandRadarSetting(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class, new QName("http://www.aixm.aero/schema/5.2", "xbandRadarSetting"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "tankerchannel")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "tankerchannelnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "tankerchannel", columnDefinition = "codetacanchannelbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "tankerchannelnilreason", columnDefinition = "nilreason"))
+    })
     public CodeTACANChannelType getTankerChannelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTACANChannelType.class, this.getTankerChannel());
     }
 
     public void setTankerChannelItem(CodeTACANChannelType target) {
-        setTankerChannel(XmlAdapterUtils.marshallJAXBElement(CodeTACANChannelType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "tankerChannel"), AerialRefuellingTimeSliceType.class,
-                target));
+        setTankerChannel(XmlAdapterUtils.marshallJAXBElement(CodeTACANChannelType.class, new QName("http://www.aixm.aero/schema/5.2", "tankerChannel"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "receiverchannel")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "receiverchannelnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "receiverchannel", columnDefinition = "codetacanchannelbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "receiverchannelnilreason", columnDefinition = "nilreason"))
+    })
     public CodeTACANChannelType getReceiverChannelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTACANChannelType.class, this.getReceiverChannel());
     }
 
     public void setReceiverChannelItem(CodeTACANChannelType target) {
-        setReceiverChannel(XmlAdapterUtils.marshallJAXBElement(CodeTACANChannelType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "receiverChannel"), AerialRefuellingTimeSliceType.class,
-                target));
+        setReceiverChannel(XmlAdapterUtils.marshallJAXBElement(CodeTACANChannelType.class, new QName("http://www.aixm.aero/schema/5.2", "receiverChannel"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "helicopterroute")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "helicopterroutenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "helicopterroute", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "helicopterroutenilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getHelicopterRouteItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getHelicopterRoute());
     }
 
     public void setHelicopterRouteItem(CodeYesNoType target) {
-        setHelicopterRoute(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "helicopterRoute"), AerialRefuellingTimeSliceType.class,
-                target));
+        setHelicopterRoute(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "helicopterRoute"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "specialrefuelling")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "specialrefuellingnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "specialrefuelling", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "specialrefuellingnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getSpecialRefuellingItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getSpecialRefuelling());
     }
 
     public void setSpecialRefuellingItem(CodeYesNoType target) {
-        setSpecialRefuelling(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "specialRefuelling"), AerialRefuellingTimeSliceType.class,
-                target));
+        setSpecialRefuelling(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "specialRefuelling"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "bidirectionaluse")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "bidirectionalusenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "bidirectionaluse", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "bidirectionalusenilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getBidirectionalUseItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getBidirectionalUse());
     }
 
     public void setBidirectionalUseItem(CodeYesNoType target) {
-        setBidirectionalUse(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "bidirectionalUse"), AerialRefuellingTimeSliceType.class,
-                target));
+        setBidirectionalUse(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "bidirectionalUse"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "reversedirectionturn")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "reversedirectionturnnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "reversedirectionturn", columnDefinition = "codedirectionturnbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "reversedirectionturnnilreason", columnDefinition = "nilreason"))
+    })
     public CodeDirectionTurnType getReverseDirectionTurnItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDirectionTurnType.class, this.getReverseDirectionTurn());
     }
 
     public void setReverseDirectionTurnItem(CodeDirectionTurnType target) {
-        setReverseDirectionTurn(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "reverseDirectionTurn"),
-                AerialRefuellingTimeSliceType.class, target));
+        setReverseDirectionTurn(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class, new QName("http://www.aixm.aero/schema/5.2", "reverseDirectionTurn"), AerialRefuellingTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllngtmslctp_oppsttrck_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "oppositetrack_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllngtmslctp_oppsttrck_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "oppositetrack_hjid", referencedColumnName = "hjid")
+    })
     public AerialRefuellingPropertyType getOppositeTrackItem() {
         return XmlAdapterUtils.unmarshallSource(AerialRefuellingPropertyType.class, this.getOppositeTrack());
     }
 
     public void setOppositeTrackItem(AerialRefuellingPropertyType target) {
-        setOppositeTrack(XmlAdapterUtils.marshallJAXBElement(AerialRefuellingPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "oppositeTrack"), AerialRefuellingTimeSliceType.class,
-                target));
+        setOppositeTrack(XmlAdapterUtils.marshallJAXBElement(AerialRefuellingPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "oppositeTrack"), AerialRefuellingTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1178,14 +1195,118 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         final AerialRefuellingTimeSliceType that = ((AerialRefuellingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDesignatorNumber();
-            boolean rhsFieldIsSet = that.isSetDesignatorNumber();
+            boolean lhsFieldIsSet = this.isSetOppositeTrack();
+            boolean rhsFieldIsSet = that.isSetOppositeTrack();
+            JAXBElement<AerialRefuellingPropertyType> lhsField;
+            lhsField = this.getOppositeTrack();
+            JAXBElement<AerialRefuellingPropertyType> rhsField;
+            rhsField = that.getOppositeTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "oppositeTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "oppositeTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProtectingAirspace();
+            boolean rhsFieldIsSet = that.isSetProtectingAirspace();
+            List<AirspacePropertyType> lhsField;
+            lhsField = (this.isSetProtectingAirspace()?this.getProtectingAirspace():null);
+            List<AirspacePropertyType> rhsField;
+            rhsField = (that.isSetProtectingAirspace()?that.getProtectingAirspace():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectingAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectingAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AerialRefuellingTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AerialRefuellingTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrack();
+            boolean rhsFieldIsSet = that.isSetTrack();
+            List<AerialRefuellingTrackPropertyType> lhsField;
+            lhsField = (this.isSetTrack()?this.getTrack():null);
+            List<AerialRefuellingTrackPropertyType> rhsField;
+            rhsField = (that.isSetTrack()?that.getTrack():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "track", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "track", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnchor();
+            boolean rhsFieldIsSet = that.isSetAnchor();
+            List<AerialRefuellingAnchorPropertyType> lhsField;
+            lhsField = (this.isSetAnchor()?this.getAnchor():null);
+            List<AerialRefuellingAnchorPropertyType> rhsField;
+            rhsField = (that.isSetAnchor()?that.getAnchor():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "anchor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "anchor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetXbandRadarSetting();
+            boolean rhsFieldIsSet = that.isSetXbandRadarSetting();
             JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getDesignatorNumber();
+            lhsField = this.getXbandRadarSetting();
             JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getDesignatorNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorNumber", rhsField);
+            rhsField = that.getXbandRadarSetting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "xbandRadarSetting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "xbandRadarSetting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorPrefix();
+            boolean rhsFieldIsSet = that.isSetDesignatorPrefix();
+            JAXBElement<CodeAerialRefuellingPrefixType> lhsField;
+            lhsField = this.getDesignatorPrefix();
+            JAXBElement<CodeAerialRefuellingPrefixType> rhsField;
+            rhsField = that.getDesignatorPrefix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorPrefix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorPrefix", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetManagingOrganisation();
+            boolean rhsFieldIsSet = that.isSetManagingOrganisation();
+            List<AuthorityForAerialRefuellingPropertyType> lhsField;
+            lhsField = (this.isSetManagingOrganisation()?this.getManagingOrganisation():null);
+            List<AuthorityForAerialRefuellingPropertyType> rhsField;
+            rhsField = (that.isSetManagingOrganisation()?that.getManagingOrganisation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "managingOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "managingOrganisation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1230,84 +1351,6 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignatorDirection();
-            boolean rhsFieldIsSet = that.isSetDesignatorDirection();
-            JAXBElement<CodeCardinalDirectionType> lhsField;
-            lhsField = this.getDesignatorDirection();
-            JAXBElement<CodeCardinalDirectionType> rhsField;
-            rhsField = that.getDesignatorDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOppositeTrack();
-            boolean rhsFieldIsSet = that.isSetOppositeTrack();
-            JAXBElement<AerialRefuellingPropertyType> lhsField;
-            lhsField = this.getOppositeTrack();
-            JAXBElement<AerialRefuellingPropertyType> rhsField;
-            rhsField = that.getOppositeTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "oppositeTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "oppositeTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReverseDirectionTurn();
-            boolean rhsFieldIsSet = that.isSetReverseDirectionTurn();
-            JAXBElement<CodeDirectionTurnType> lhsField;
-            lhsField = this.getReverseDirectionTurn();
-            JAXBElement<CodeDirectionTurnType> rhsField;
-            rhsField = that.getReverseDirectionTurn();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseDirectionTurn", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseDirectionTurn", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignatorPrefix();
-            boolean rhsFieldIsSet = that.isSetDesignatorPrefix();
-            JAXBElement<CodeAerialRefuellingPrefixType> lhsField;
-            lhsField = this.getDesignatorPrefix();
-            JAXBElement<CodeAerialRefuellingPrefixType> rhsField;
-            rhsField = that.getDesignatorPrefix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorPrefix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorPrefix", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetManagingOrganisation();
-            boolean rhsFieldIsSet = that.isSetManagingOrganisation();
-            List<AuthorityForAerialRefuellingPropertyType> lhsField;
-            lhsField = (this.isSetManagingOrganisation() ? this.getManagingOrganisation() : null);
-            List<AuthorityForAerialRefuellingPropertyType> rhsField;
-            rhsField = (that.isSetManagingOrganisation() ? that.getManagingOrganisation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "managingOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "managingOrganisation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetXbandRadarSetting();
-            boolean rhsFieldIsSet = that.isSetXbandRadarSetting();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getXbandRadarSetting();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getXbandRadarSetting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "xbandRadarSetting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "xbandRadarSetting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetBidirectionalUse();
             boolean rhsFieldIsSet = that.isSetBidirectionalUse();
             JAXBElement<CodeYesNoType> lhsField;
@@ -1316,110 +1359,6 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
             rhsField = that.getBidirectionalUse();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bidirectionalUse", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bidirectionalUse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignatorSuffix();
-            boolean rhsFieldIsSet = that.isSetDesignatorSuffix();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getDesignatorSuffix();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getDesignatorSuffix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSuffix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSuffix", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrack();
-            boolean rhsFieldIsSet = that.isSetTrack();
-            List<AerialRefuellingTrackPropertyType> lhsField;
-            lhsField = (this.isSetTrack() ? this.getTrack() : null);
-            List<AerialRefuellingTrackPropertyType> rhsField;
-            rhsField = (that.isSetTrack() ? that.getTrack() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "track", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "track", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AerialRefuellingTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AerialRefuellingTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHelicopterRoute();
-            boolean rhsFieldIsSet = that.isSetHelicopterRoute();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getHelicopterRoute();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getHelicopterRoute();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "helicopterRoute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "helicopterRoute", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProtectingAirspace();
-            boolean rhsFieldIsSet = that.isSetProtectingAirspace();
-            List<AirspacePropertyType> lhsField;
-            lhsField = (this.isSetProtectingAirspace() ? this.getProtectingAirspace() : null);
-            List<AirspacePropertyType> rhsField;
-            rhsField = (that.isSetProtectingAirspace() ? that.getProtectingAirspace() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectingAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectingAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnchor();
-            boolean rhsFieldIsSet = that.isSetAnchor();
-            List<AerialRefuellingAnchorPropertyType> lhsField;
-            lhsField = (this.isSetAnchor() ? this.getAnchor() : null);
-            List<AerialRefuellingAnchorPropertyType> rhsField;
-            rhsField = (that.isSetAnchor() ? that.getAnchor() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "anchor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "anchor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<RouteAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<RouteAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1438,14 +1377,14 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<RouteAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<RouteAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1459,6 +1398,84 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
             rhsField = that.getRadarBeaconSetting();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarBeaconSetting", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarBeaconSetting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReverseDirectionTurn();
+            boolean rhsFieldIsSet = that.isSetReverseDirectionTurn();
+            JAXBElement<CodeDirectionTurnType> lhsField;
+            lhsField = this.getReverseDirectionTurn();
+            JAXBElement<CodeDirectionTurnType> rhsField;
+            rhsField = that.getReverseDirectionTurn();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseDirectionTurn", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseDirectionTurn", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHelicopterRoute();
+            boolean rhsFieldIsSet = that.isSetHelicopterRoute();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getHelicopterRoute();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getHelicopterRoute();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "helicopterRoute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "helicopterRoute", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorDirection();
+            boolean rhsFieldIsSet = that.isSetDesignatorDirection();
+            JAXBElement<CodeCardinalDirectionType> lhsField;
+            lhsField = this.getDesignatorDirection();
+            JAXBElement<CodeCardinalDirectionType> rhsField;
+            rhsField = that.getDesignatorDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorSuffix();
+            boolean rhsFieldIsSet = that.isSetDesignatorSuffix();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getDesignatorSuffix();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getDesignatorSuffix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSuffix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSuffix", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorNumber();
+            boolean rhsFieldIsSet = that.isSetDesignatorNumber();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getDesignatorNumber();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getDesignatorNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1570,28 +1587,28 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<RouteAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetProtectingAirspace();
             List<AirspacePropertyType> theField;
-            theField = (this.isSetProtectingAirspace() ? this.getProtectingAirspace() : null);
+            theField = (this.isSetProtectingAirspace()?this.getProtectingAirspace():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "protectingAirspace", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetTrack();
             List<AerialRefuellingTrackPropertyType> theField;
-            theField = (this.isSetTrack() ? this.getTrack() : null);
+            theField = (this.isSetTrack()?this.getTrack():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "track", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnchor();
             List<AerialRefuellingAnchorPropertyType> theField;
-            theField = (this.isSetAnchor() ? this.getAnchor() : null);
+            theField = (this.isSetAnchor()?this.getAnchor():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "anchor", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1605,21 +1622,21 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
         {
             boolean theFieldIsSet = this.isSetManagingOrganisation();
             List<AuthorityForAerialRefuellingPropertyType> theField;
-            theField = (this.isSetManagingOrganisation() ? this.getManagingOrganisation() : null);
+            theField = (this.isSetManagingOrganisation()?this.getManagingOrganisation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "managingOrganisation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AerialRefuellingTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1716,25 +1733,25 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<RouteAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetProtectingAirspace();
             List<AirspacePropertyType> theField;
-            theField = (this.isSetProtectingAirspace() ? this.getProtectingAirspace() : null);
+            theField = (this.isSetProtectingAirspace()?this.getProtectingAirspace():null);
             strategy.appendField(locator, this, "protectingAirspace", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetTrack();
             List<AerialRefuellingTrackPropertyType> theField;
-            theField = (this.isSetTrack() ? this.getTrack() : null);
+            theField = (this.isSetTrack()?this.getTrack():null);
             strategy.appendField(locator, this, "track", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnchor();
             List<AerialRefuellingAnchorPropertyType> theField;
-            theField = (this.isSetAnchor() ? this.getAnchor() : null);
+            theField = (this.isSetAnchor()?this.getAnchor():null);
             strategy.appendField(locator, this, "anchor", buffer, theField, theFieldIsSet);
         }
         {
@@ -1746,19 +1763,19 @@ public class AerialRefuellingTimeSliceType extends AbstractAIXMTimeSliceType imp
         {
             boolean theFieldIsSet = this.isSetManagingOrganisation();
             List<AuthorityForAerialRefuellingPropertyType> theField;
-            theField = (this.isSetManagingOrganisation() ? this.getManagingOrganisation() : null);
+            theField = (this.isSetManagingOrganisation()?this.getManagingOrganisation():null);
             strategy.appendField(locator, this, "managingOrganisation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AerialRefuellingTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

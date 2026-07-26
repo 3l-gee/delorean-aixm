@@ -1,6 +1,9 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import com.delorean.aixm.core.org.gco.v2007.CharacterStringPropertyType;
 import com.delorean.aixm.core.org.gco.v2007.DateTimePropertyType;
@@ -8,54 +11,48 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
  * Brief description of ways in which the dataset is currently used.
- *
- * <p>
- * Java class for MD_Usage_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * 
+ * <p>Java class for MD_Usage_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MD_Usage_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="specificUsage" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType"/>
- *         <element name="usageDateTime" type=
-"{http://www.isotc211.org/2005/gco}DateTime_PropertyType" minOccurs="0"/>
- *         <element name="userDeterminedLimitations" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="userContactInfo" type=
-"{http://www.isotc211.org/2005/gmd}CI_ResponsibleParty_PropertyType" maxOccurs=
-"unbounded"/>
+ *         <element name="specificUsage" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType"/>
+ *         <element name="usageDateTime" type="{http://www.isotc211.org/2005/gco}DateTime_PropertyType" minOccurs="0"/>
+ *         <element name="userDeterminedLimitations" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="userContactInfo" type="{http://www.isotc211.org/2005/gmd}CI_ResponsibleParty_PropertyType" maxOccurs="unbounded"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_Usage_Type", propOrder = {"specificUsage", "usageDateTime", "userDeterminedLimitations",
-        "userContactInfo"})
-public class MDUsageType extends AbstractObjectType implements Serializable {
+@XmlType(name = "MD_Usage_Type", propOrder = {
+    "specificUsage",
+    "usageDateTime",
+    "userDeterminedLimitations",
+    "userContactInfo"
+})
+public class MDUsageType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -67,9 +64,11 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
 
     /**
      * Gets the value of the specificUsage property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getSpecificUsage() {
         return specificUsage;
@@ -77,24 +76,27 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the specificUsage property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setSpecificUsage(CharacterStringPropertyType value) {
         this.specificUsage = value;
     }
 
     public boolean isSetSpecificUsage() {
-        return (this.specificUsage != null);
+        return (this.specificUsage!= null);
     }
 
     /**
      * Gets the value of the usageDateTime property.
-     *
-     * @return possible object is {@link DateTimePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link DateTimePropertyType }
+     *     
      */
     public DateTimePropertyType getUsageDateTime() {
         return usageDateTime;
@@ -102,24 +104,27 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the usageDateTime property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link DateTimePropertyType }
-     *
+     *     allowed object is
+     *     {@link DateTimePropertyType }
+     *     
      */
     public void setUsageDateTime(DateTimePropertyType value) {
         this.usageDateTime = value;
     }
 
     public boolean isSetUsageDateTime() {
-        return (this.usageDateTime != null);
+        return (this.usageDateTime!= null);
     }
 
     /**
      * Gets the value of the userDeterminedLimitations property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getUserDeterminedLimitations() {
         return userDeterminedLimitations;
@@ -127,41 +132,41 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the userDeterminedLimitations property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setUserDeterminedLimitations(CharacterStringPropertyType value) {
         this.userDeterminedLimitations = value;
     }
 
     public boolean isSetUserDeterminedLimitations() {
-        return (this.userDeterminedLimitations != null);
+        return (this.userDeterminedLimitations!= null);
     }
 
     /**
      * Gets the value of the userContactInfo property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the userContactInfo property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the userContactInfo property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getUserContactInfo().add(newItem);
+     *    getUserContactInfo().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CIResponsiblePartyPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<CIResponsiblePartyPropertyType> getUserContactInfo() {
         if (userContactInfo == null) {
@@ -171,15 +176,15 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setUserContactInfo(List<CIResponsiblePartyPropertyType> userContactInfo) {
         this.userContactInfo = userContactInfo;
     }
 
     public boolean isSetUserContactInfo() {
-        return ((this.userContactInfo != null) && (!this.userContactInfo.isEmpty()));
+        return ((this.userContactInfo!= null)&&(!this.userContactInfo.isEmpty()));
     }
 
     public void unsetUserContactInfo() {
@@ -187,9 +192,8 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -216,24 +220,11 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
             boolean lhsFieldIsSet = this.isSetUserContactInfo();
             boolean rhsFieldIsSet = that.isSetUserContactInfo();
             List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (this.isSetUserContactInfo() ? this.getUserContactInfo() : null);
+            lhsField = (this.isSetUserContactInfo()?this.getUserContactInfo():null);
             List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (that.isSetUserContactInfo() ? that.getUserContactInfo() : null);
+            rhsField = (that.isSetUserContactInfo()?that.getUserContactInfo():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userContactInfo", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userContactInfo", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUsageDateTime();
-            boolean rhsFieldIsSet = that.isSetUsageDateTime();
-            DateTimePropertyType lhsField;
-            lhsField = this.getUsageDateTime();
-            DateTimePropertyType rhsField;
-            rhsField = that.getUsageDateTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usageDateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usageDateTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -247,6 +238,19 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
             rhsField = that.getSpecificUsage();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specificUsage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specificUsage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsageDateTime();
+            boolean rhsFieldIsSet = that.isSetUsageDateTime();
+            DateTimePropertyType lhsField;
+            lhsField = this.getUsageDateTime();
+            DateTimePropertyType rhsField;
+            rhsField = that.getUsageDateTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usageDateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usageDateTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -281,7 +285,7 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetUserContactInfo();
             List<CIResponsiblePartyPropertyType> theField;
-            theField = (this.isSetUserContactInfo() ? this.getUserContactInfo() : null);
+            theField = (this.isSetUserContactInfo()?this.getUserContactInfo():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "userContactInfo", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +316,7 @@ public class MDUsageType extends AbstractObjectType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetUserContactInfo();
             List<CIResponsiblePartyPropertyType> theField;
-            theField = (this.isSetUserContactInfo() ? this.getUserContactInfo() : null);
+            theField = (this.isSetUserContactInfo()?this.getUserContactInfo():null);
             strategy.appendField(locator, this, "userContactInfo", buffer, theField, theFieldIsSet);
         }
         return buffer;

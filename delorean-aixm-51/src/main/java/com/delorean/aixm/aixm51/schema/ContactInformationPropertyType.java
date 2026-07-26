@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ContactInformationPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ContactInformationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ContactInformationPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1}ContactInformation"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ContactInformationPropertyType", propOrder = {"contactInformation"})
+@XmlType(name = "ContactInformationPropertyType", propOrder = {
+    "contactInformation"
+})
 @Entity(name = "ContactInformationPropertyType")
 @Table(name = "contactinformation_p", schema = "shared")
-public class ContactInformationPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class ContactInformationPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ContactInformation", required = true)
@@ -57,11 +56,15 @@ public class ContactInformationPropertyType extends AbstractAIXMPropertyType imp
 
     /**
      * Gets the value of the contactInformation property.
-     *
-     * @return possible object is {@link ContactInformationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ContactInformationType }
+     *     
      */
-    @OneToOne(targetEntity = ContactInformationType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ContactInformationType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "contactinformation_hjid", referencedColumnName = "hjid")
     public ContactInformationType getContactInformation() {
         return contactInformation;
@@ -69,10 +72,11 @@ public class ContactInformationPropertyType extends AbstractAIXMPropertyType imp
 
     /**
      * Sets the value of the contactInformation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ContactInformationType }
-     *
+     *     allowed object is
+     *     {@link ContactInformationType }
+     *     
      */
     public void setContactInformation(ContactInformationType value) {
         this.contactInformation = value;
@@ -80,13 +84,12 @@ public class ContactInformationPropertyType extends AbstractAIXMPropertyType imp
 
     @Transient
     public boolean isSetContactInformation() {
-        return (this.contactInformation != null);
+        return (this.contactInformation!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

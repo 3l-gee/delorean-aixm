@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AircraftNavigationEquipmentPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AircraftNavigationEquipmentPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AircraftNavigationEquipmentPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AircraftNavigationEquipment"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AircraftNavigationEquipment"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AircraftNavigationEquipmentPropertyType", propOrder = {"aircraftNavigationEquipment"})
+@XmlType(name = "AircraftNavigationEquipmentPropertyType", propOrder = {
+    "aircraftNavigationEquipment"
+})
 @Entity(name = "AircraftNavigationEquipmentPropertyType")
 @Table(name = "aircraftnavigationequipmentpropertytype", schema = "shared")
-public class AircraftNavigationEquipmentPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class AircraftNavigationEquipmentPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AircraftNavigationEquipment", required = true)
@@ -58,12 +56,15 @@ public class AircraftNavigationEquipmentPropertyType extends AbstractAIXMPropert
 
     /**
      * Gets the value of the aircraftNavigationEquipment property.
-     *
-     * @return possible object is {@link AircraftNavigationEquipmentType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AircraftNavigationEquipmentType }
+     *     
      */
     @OneToOne(targetEntity = AircraftNavigationEquipmentType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "aircraftnavigationequipment_hjid", referencedColumnName = "hjid")
     public AircraftNavigationEquipmentType getAircraftNavigationEquipment() {
         return aircraftNavigationEquipment;
@@ -71,10 +72,11 @@ public class AircraftNavigationEquipmentPropertyType extends AbstractAIXMPropert
 
     /**
      * Sets the value of the aircraftNavigationEquipment property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AircraftNavigationEquipmentType }
-     *
+     *     allowed object is
+     *     {@link AircraftNavigationEquipmentType }
+     *     
      */
     public void setAircraftNavigationEquipment(AircraftNavigationEquipmentType value) {
         this.aircraftNavigationEquipment = value;
@@ -82,13 +84,12 @@ public class AircraftNavigationEquipmentPropertyType extends AbstractAIXMPropert
 
     @Transient
     public boolean isSetAircraftNavigationEquipment() {
-        return (this.aircraftNavigationEquipment != null);
+        return (this.aircraftNavigationEquipment!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

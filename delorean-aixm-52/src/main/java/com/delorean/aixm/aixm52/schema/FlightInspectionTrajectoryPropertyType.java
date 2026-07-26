@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for FlightInspectionTrajectoryPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FlightInspectionTrajectoryPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FlightInspectionTrajectoryPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}FlightInspectionTrajectory"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}FlightInspectionTrajectory"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FlightInspectionTrajectoryPropertyType", propOrder = {"flightInspectionTrajectory"})
+@XmlType(name = "FlightInspectionTrajectoryPropertyType", propOrder = {
+    "flightInspectionTrajectory"
+})
 @Entity(name = "FlightInspectionTrajectoryPropertyType")
 @Table(name = "flightinspectiontrajectorypropertytype", schema = "navaids_point")
-public class FlightInspectionTrajectoryPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class FlightInspectionTrajectoryPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "FlightInspectionTrajectory", required = true)
@@ -58,11 +56,15 @@ public class FlightInspectionTrajectoryPropertyType extends AbstractAIXMProperty
 
     /**
      * Gets the value of the flightInspectionTrajectory property.
-     *
-     * @return possible object is {@link FlightInspectionTrajectoryType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link FlightInspectionTrajectoryType }
+     *     
      */
-    @OneToOne(targetEntity = FlightInspectionTrajectoryType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = FlightInspectionTrajectoryType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "flightinspectiontrajectory_hjid", referencedColumnName = "hjid")
     public FlightInspectionTrajectoryType getFlightInspectionTrajectory() {
         return flightInspectionTrajectory;
@@ -70,10 +72,11 @@ public class FlightInspectionTrajectoryPropertyType extends AbstractAIXMProperty
 
     /**
      * Sets the value of the flightInspectionTrajectory property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link FlightInspectionTrajectoryType }
-     *
+     *     allowed object is
+     *     {@link FlightInspectionTrajectoryType }
+     *     
      */
     public void setFlightInspectionTrajectory(FlightInspectionTrajectoryType value) {
         this.flightInspectionTrajectory = value;
@@ -81,13 +84,12 @@ public class FlightInspectionTrajectoryPropertyType extends AbstractAIXMProperty
 
     @Transient
     public boolean isSetFlightInspectionTrajectory() {
-        return (this.flightInspectionTrajectory != null);
+        return (this.flightInspectionTrajectory!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,41 +35,37 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractAzimuthExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractNavaidEquipmentExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractAzimuthExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractNavaidEquipmentExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractAzimuthExtension", "abstractNavaidEquipmentExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractAzimuthExtension",
+    "abstractNavaidEquipmentExtension"
+})
 @Entity(name = "AzimuthTimeSliceExtensionType")
 @Table(name = "azimuth_te", schema = "navaids_point")
-public class AzimuthTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString {
+public class AzimuthTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractAzimuthExtension")
@@ -85,11 +81,15 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
 
     /**
      * Gets the value of the abstractAzimuthExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractazimuthextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAzimuthExtension() {
         return abstractAzimuthExtension;
@@ -97,10 +97,11 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the abstractAzimuthExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractAzimuthExtension(AbstractExtensionType value) {
         this.abstractAzimuthExtension = value;
@@ -108,16 +109,20 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
 
     @Transient
     public boolean isSetAbstractAzimuthExtension() {
-        return (this.abstractAzimuthExtension != null);
+        return (this.abstractAzimuthExtension!= null);
     }
 
     /**
      * Gets the value of the abstractNavaidEquipmentExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractnavaidequipmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
@@ -125,10 +130,11 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the abstractNavaidEquipmentExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractNavaidEquipmentExtension(AbstractExtensionType value) {
         this.abstractNavaidEquipmentExtension = value;
@@ -136,14 +142,16 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
 
     @Transient
     public boolean isSetAbstractNavaidEquipmentExtension() {
-        return (this.abstractNavaidEquipmentExtension != null);
+        return (this.abstractNavaidEquipmentExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -157,10 +165,11 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -168,7 +177,7 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -176,10 +185,12 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -190,21 +201,24 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -213,11 +227,12 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -236,9 +251,8 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -252,10 +266,8 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
             lhsField = this.getAbstractNavaidEquipmentExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -277,9 +289,9 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -313,14 +325,13 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
             boolean theFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractNavaidEquipmentExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractNavaidEquipmentExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractNavaidEquipmentExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -364,7 +375,7 @@ public class AzimuthTimeSliceExtensionType implements Serializable, Equals, Hash
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,9 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import com.delorean.aixm.core.org.gco.v2007.BooleanPropertyType;
 import com.delorean.aixm.core.org.gco.v2007.CharacterStringPropertyType;
 import com.delorean.aixm.core.org.gco.v2007.RecordPropertyType;
@@ -8,55 +11,48 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for MD_Georeferenceable_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MD_Georeferenceable_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MD_Georeferenceable_Type">
  *   <complexContent>
- *     <extension base=
-"{http://www.isotc211.org/2005/gmd}MD_GridSpatialRepresentation_Type">
+ *     <extension base="{http://www.isotc211.org/2005/gmd}MD_GridSpatialRepresentation_Type">
  *       <sequence>
- *         <element name="controlPointAvailability" type=
-"{http://www.isotc211.org/2005/gco}Boolean_PropertyType"/>
- *         <element name="orientationParameterAvailability" type=
-"{http://www.isotc211.org/2005/gco}Boolean_PropertyType"/>
- *         <element name="orientationParameterDescription" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="georeferencedParameters" type=
-"{http://www.isotc211.org/2005/gco}Record_PropertyType"/>
- *         <element name="parameterCitation" type=
-"{http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="controlPointAvailability" type="{http://www.isotc211.org/2005/gco}Boolean_PropertyType"/>
+ *         <element name="orientationParameterAvailability" type="{http://www.isotc211.org/2005/gco}Boolean_PropertyType"/>
+ *         <element name="orientationParameterDescription" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="georeferencedParameters" type="{http://www.isotc211.org/2005/gco}Record_PropertyType"/>
+ *         <element name="parameterCitation" type="{http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_Georeferenceable_Type", propOrder = {"controlPointAvailability", "orientationParameterAvailability",
-        "orientationParameterDescription", "georeferencedParameters", "parameterCitation"})
-public class MDGeoreferenceableType extends MDGridSpatialRepresentationType implements Serializable {
+@XmlType(name = "MD_Georeferenceable_Type", propOrder = {
+    "controlPointAvailability",
+    "orientationParameterAvailability",
+    "orientationParameterDescription",
+    "georeferencedParameters",
+    "parameterCitation"
+})
+public class MDGeoreferenceableType
+    extends MDGridSpatialRepresentationType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -70,9 +66,11 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
 
     /**
      * Gets the value of the controlPointAvailability property.
-     *
-     * @return possible object is {@link BooleanPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BooleanPropertyType }
+     *     
      */
     public BooleanPropertyType getControlPointAvailability() {
         return controlPointAvailability;
@@ -80,24 +78,27 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
 
     /**
      * Sets the value of the controlPointAvailability property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BooleanPropertyType }
-     *
+     *     allowed object is
+     *     {@link BooleanPropertyType }
+     *     
      */
     public void setControlPointAvailability(BooleanPropertyType value) {
         this.controlPointAvailability = value;
     }
 
     public boolean isSetControlPointAvailability() {
-        return (this.controlPointAvailability != null);
+        return (this.controlPointAvailability!= null);
     }
 
     /**
      * Gets the value of the orientationParameterAvailability property.
-     *
-     * @return possible object is {@link BooleanPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BooleanPropertyType }
+     *     
      */
     public BooleanPropertyType getOrientationParameterAvailability() {
         return orientationParameterAvailability;
@@ -105,24 +106,27 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
 
     /**
      * Sets the value of the orientationParameterAvailability property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BooleanPropertyType }
-     *
+     *     allowed object is
+     *     {@link BooleanPropertyType }
+     *     
      */
     public void setOrientationParameterAvailability(BooleanPropertyType value) {
         this.orientationParameterAvailability = value;
     }
 
     public boolean isSetOrientationParameterAvailability() {
-        return (this.orientationParameterAvailability != null);
+        return (this.orientationParameterAvailability!= null);
     }
 
     /**
      * Gets the value of the orientationParameterDescription property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getOrientationParameterDescription() {
         return orientationParameterDescription;
@@ -130,24 +134,27 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
 
     /**
      * Sets the value of the orientationParameterDescription property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setOrientationParameterDescription(CharacterStringPropertyType value) {
         this.orientationParameterDescription = value;
     }
 
     public boolean isSetOrientationParameterDescription() {
-        return (this.orientationParameterDescription != null);
+        return (this.orientationParameterDescription!= null);
     }
 
     /**
      * Gets the value of the georeferencedParameters property.
-     *
-     * @return possible object is {@link RecordPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link RecordPropertyType }
+     *     
      */
     public RecordPropertyType getGeoreferencedParameters() {
         return georeferencedParameters;
@@ -155,41 +162,41 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
 
     /**
      * Sets the value of the georeferencedParameters property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link RecordPropertyType }
-     *
+     *     allowed object is
+     *     {@link RecordPropertyType }
+     *     
      */
     public void setGeoreferencedParameters(RecordPropertyType value) {
         this.georeferencedParameters = value;
     }
 
     public boolean isSetGeoreferencedParameters() {
-        return (this.georeferencedParameters != null);
+        return (this.georeferencedParameters!= null);
     }
 
     /**
      * Gets the value of the parameterCitation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the parameterCitation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the parameterCitation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getParameterCitation().add(newItem);
+     *    getParameterCitation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CICitationPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<CICitationPropertyType> getParameterCitation() {
         if (parameterCitation == null) {
@@ -199,15 +206,15 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setParameterCitation(List<CICitationPropertyType> parameterCitation) {
         this.parameterCitation = parameterCitation;
     }
 
     public boolean isSetParameterCitation() {
-        return ((this.parameterCitation != null) && (!this.parameterCitation.isEmpty()));
+        return ((this.parameterCitation!= null)&&(!this.parameterCitation.isEmpty()));
     }
 
     public void unsetParameterCitation() {
@@ -215,9 +222,8 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -247,23 +253,8 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
             lhsField = this.getOrientationParameterAvailability();
             BooleanPropertyType rhsField;
             rhsField = that.getOrientationParameterAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterAvailability",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterAvailability",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetParameterCitation();
-            boolean rhsFieldIsSet = that.isSetParameterCitation();
-            List<CICitationPropertyType> lhsField;
-            lhsField = (this.isSetParameterCitation() ? this.getParameterCitation() : null);
-            List<CICitationPropertyType> rhsField;
-            rhsField = (that.isSetParameterCitation() ? that.getParameterCitation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterCitation", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -288,10 +279,21 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
             lhsField = this.getOrientationParameterDescription();
             CharacterStringPropertyType rhsField;
             rhsField = that.getOrientationParameterDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterDescription",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterDescription",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetParameterCitation();
+            boolean rhsFieldIsSet = that.isSetParameterCitation();
+            List<CICitationPropertyType> lhsField;
+            lhsField = (this.isSetParameterCitation()?this.getParameterCitation():null);
+            List<CICitationPropertyType> rhsField;
+            rhsField = (that.isSetParameterCitation()?that.getParameterCitation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterCitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -313,8 +315,7 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
             boolean theFieldIsSet = this.isSetOrientationParameterAvailability();
             BooleanPropertyType theField;
             theField = this.getOrientationParameterAvailability();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "orientationParameterAvailability",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "orientationParameterAvailability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -334,7 +335,7 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
         {
             boolean theFieldIsSet = this.isSetParameterCitation();
             List<CICitationPropertyType> theField;
-            theField = (this.isSetParameterCitation() ? this.getParameterCitation() : null);
+            theField = (this.isSetParameterCitation()?this.getParameterCitation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "parameterCitation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -371,7 +372,7 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
         {
             boolean theFieldIsSet = this.isSetParameterCitation();
             List<CICitationPropertyType> theField;
-            theField = (this.isSetParameterCitation() ? this.getParameterCitation() : null);
+            theField = (this.isSetParameterCitation()?this.getParameterCitation():null);
             strategy.appendField(locator, this, "parameterCitation", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -22,7 +22,9 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeParseException;
 
 import javax.xml.namespace.QName;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class TimeSliceHelper {
 
     /**
@@ -49,6 +51,7 @@ public class TimeSliceHelper {
         } else if (abstractTimePrimitive.getValue() instanceof TimeInstantType) {
             result = parseTimePeriodType((TimeInstantType) abstractTimePrimitive.getValue());
             InspectionBindingService.recordEvent(InspectionSource.DELOREAN, ValidationSeverity.INFO, "ParseValidTime", "Converted TimeInstant to TimeSlice", abstractTimePrimitive.getValue().getId());
+            
 
         } else if (abstractTimePrimitive.getValue() instanceof TimeNodeType) {
             throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
@@ -60,6 +63,7 @@ public class TimeSliceHelper {
             throw new IllegalArgumentException("Unsupported type " + abstractTimePrimitive.getValue().getClass().getName());
         }
 
+        log.debug("Parsed DeloreanTimeSliceType: {}", result);
         return result;
     }
 
@@ -269,6 +273,7 @@ public class TimeSliceHelper {
     }
 
     public static Instant parseTimeString(String timeString) {
+        log.debug("Parsing timeString: {}", timeString);
         if (timeString == null || timeString.isBlank()) {
             return null;
         }
@@ -277,19 +282,25 @@ public class TimeSliceHelper {
 
         try {
             // Full date-time with zone
-            return Instant.parse(s);
+            Instant instant = Instant.parse(s);
+            log.debug("Parsed as Full date-time with zone: {}", instant);
+            return instant;
         } catch (DateTimeParseException ignored) {
         }
 
         try {
             // Date-time without zone → assume UTC
-            return LocalDateTime.parse(s).toInstant(ZoneOffset.UTC);
+            Instant instant = LocalDateTime.parse(s).toInstant(ZoneOffset.UTC);
+            log.debug("Parsed as Date-time without zone: {}", instant);
+            return instant;
         } catch (DateTimeParseException ignored) {
         }
 
         try {
             // Date-only → start of day UTC (AIXM convention)
-            return LocalDate.parse(s).atStartOfDay(ZoneOffset.UTC).toInstant();
+            Instant instant = LocalDate.parse(s).atStartOfDay(ZoneOffset.UTC).toInstant();
+            log.debug("Parsed as Date-only: {}", instant);
+            return instant;
         } catch (DateTimeParseException ignored) {
         }
 

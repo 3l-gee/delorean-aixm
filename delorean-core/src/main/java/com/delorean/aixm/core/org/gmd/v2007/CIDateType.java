@@ -1,50 +1,49 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import com.delorean.aixm.core.org.gco.v2007.DatePropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for CI_Date_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for CI_Date_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CI_Date_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="date" type=
-"{http://www.isotc211.org/2005/gco}Date_PropertyType"/>
- *         <element name="dateType" type=
-"{http://www.isotc211.org/2005/gmd}CI_DateTypeCode_PropertyType"/>
+ *         <element name="date" type="{http://www.isotc211.org/2005/gco}Date_PropertyType"/>
+ *         <element name="dateType" type="{http://www.isotc211.org/2005/gmd}CI_DateTypeCode_PropertyType"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CI_Date_Type", propOrder = {"date", "dateType"})
-public class CIDateType extends AbstractObjectType implements Serializable {
+@XmlType(name = "CI_Date_Type", propOrder = {
+    "date",
+    "dateType"
+})
+public class CIDateType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -54,9 +53,11 @@ public class CIDateType extends AbstractObjectType implements Serializable {
 
     /**
      * Gets the value of the date property.
-     *
-     * @return possible object is {@link DatePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link DatePropertyType }
+     *     
      */
     public DatePropertyType getDate() {
         return date;
@@ -64,24 +65,27 @@ public class CIDateType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the date property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link DatePropertyType }
-     *
+     *     allowed object is
+     *     {@link DatePropertyType }
+     *     
      */
     public void setDate(DatePropertyType value) {
         this.date = value;
     }
 
     public boolean isSetDate() {
-        return (this.date != null);
+        return (this.date!= null);
     }
 
     /**
      * Gets the value of the dateType property.
-     *
-     * @return possible object is {@link CIDateTypeCodePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CIDateTypeCodePropertyType }
+     *     
      */
     public CIDateTypeCodePropertyType getDateType() {
         return dateType;
@@ -89,23 +93,23 @@ public class CIDateType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the dateType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CIDateTypeCodePropertyType }
-     *
+     *     allowed object is
+     *     {@link CIDateTypeCodePropertyType }
+     *     
      */
     public void setDateType(CIDateTypeCodePropertyType value) {
         this.dateType = value;
     }
 
     public boolean isSetDateType() {
-        return (this.dateType != null);
+        return (this.dateType!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

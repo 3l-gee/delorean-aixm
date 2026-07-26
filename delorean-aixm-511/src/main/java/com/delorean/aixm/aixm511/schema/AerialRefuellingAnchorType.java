@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,62 +31,38 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AerialRefuellingAnchorType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AerialRefuellingAnchorType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AerialRefuellingAnchorType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="outboundCourse" type=
-"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="outboundCourseType" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeCourseType" minOccurs="0"/>
- *         <element name="inboundCourse" type=
-"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="turnDirection" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
- *         <element name="speedLimit" type=
-"{http://www.aixm.aero/schema/5.1.1}ValSpeedType" minOccurs="0"/>
- *         <element name="legSeparation" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="legLength" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="refuellingBaseLevel" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="refuellingBaseLevelReference" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="extent" type=
-"{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
- *         <element name="verticalExtent" type=
-"{http://www.aixm.aero/schema/5.1.1}AirspaceLayerPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="point" type=
-"{http://www.aixm.aero/schema/5.1.1}AerialRefuellingPointPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="outboundCourse" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="outboundCourseType" type="{http://www.aixm.aero/schema/5.1.1}CodeCourseType" minOccurs="0"/>
+ *         <element name="inboundCourse" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="turnDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
+ *         <element name="speedLimit" type="{http://www.aixm.aero/schema/5.1.1}ValSpeedType" minOccurs="0"/>
+ *         <element name="legSeparation" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="legLength" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="refuellingBaseLevel" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="refuellingBaseLevelReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="verticalExtent" type="{http://www.aixm.aero/schema/5.1.1}AirspaceLayerPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="point" type="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingPointPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAerialRefuellingAnchorExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAerialRefuellingAnchorExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -96,16 +72,32 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AerialRefuellingAnchorType", propOrder = {"outboundCourse", "outboundCourseType", "inboundCourse",
-        "turnDirection", "speedLimit", "legSeparation", "legLength", "refuellingBaseLevel",
-        "refuellingBaseLevelReference", "extent", "verticalExtent", "point", "annotation", "extension"})
+@XmlType(name = "AerialRefuellingAnchorType", propOrder = {
+    "outboundCourse",
+    "outboundCourseType",
+    "inboundCourse",
+    "turnDirection",
+    "speedLimit",
+    "legSeparation",
+    "legLength",
+    "refuellingBaseLevel",
+    "refuellingBaseLevelReference",
+    "extent",
+    "verticalExtent",
+    "point",
+    "annotation",
+    "extension"
+})
 @Entity(name = "AerialRefuellingAnchorType")
 @Table(name = "aerialrefuellinganchor_o", schema = "aerial_refuelling")
-public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implements Serializable {
+public class AerialRefuellingAnchorType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "outboundCourse", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -138,10 +130,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the outboundCourse property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getOutboundCourse() {
@@ -150,11 +143,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the outboundCourse property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setOutboundCourse(JAXBElement<ValBearingType> value) {
         this.outboundCourse = value;
@@ -162,15 +155,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetOutboundCourse() {
-        return (this.outboundCourse != null);
+        return (this.outboundCourse!= null);
     }
 
     /**
      * Gets the value of the outboundCourseType property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeCourseType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeCourseType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeCourseType> getOutboundCourseType() {
@@ -179,11 +173,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the outboundCourseType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeCourseType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeCourseType }{@code >}
+     *     
      */
     public void setOutboundCourseType(JAXBElement<CodeCourseType> value) {
         this.outboundCourseType = value;
@@ -191,15 +185,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetOutboundCourseType() {
-        return (this.outboundCourseType != null);
+        return (this.outboundCourseType!= null);
     }
 
     /**
      * Gets the value of the inboundCourse property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getInboundCourse() {
@@ -208,11 +203,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the inboundCourse property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setInboundCourse(JAXBElement<ValBearingType> value) {
         this.inboundCourse = value;
@@ -220,15 +215,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetInboundCourse() {
-        return (this.inboundCourse != null);
+        return (this.inboundCourse!= null);
     }
 
     /**
      * Gets the value of the turnDirection property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeDirectionTurnType> getTurnDirection() {
@@ -237,11 +233,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the turnDirection property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *     
      */
     public void setTurnDirection(JAXBElement<CodeDirectionTurnType> value) {
         this.turnDirection = value;
@@ -249,15 +245,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetTurnDirection() {
-        return (this.turnDirection != null);
+        return (this.turnDirection!= null);
     }
 
     /**
      * Gets the value of the speedLimit property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValSpeedType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValSpeedType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValSpeedType> getSpeedLimit() {
@@ -266,11 +263,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the speedLimit property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValSpeedType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValSpeedType }{@code >}
+     *     
      */
     public void setSpeedLimit(JAXBElement<ValSpeedType> value) {
         this.speedLimit = value;
@@ -278,15 +275,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSpeedLimit() {
-        return (this.speedLimit != null);
+        return (this.speedLimit!= null);
     }
 
     /**
      * Gets the value of the legSeparation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getLegSeparation() {
@@ -295,11 +293,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the legSeparation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setLegSeparation(JAXBElement<ValDistanceType> value) {
         this.legSeparation = value;
@@ -307,15 +305,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetLegSeparation() {
-        return (this.legSeparation != null);
+        return (this.legSeparation!= null);
     }
 
     /**
      * Gets the value of the legLength property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getLegLength() {
@@ -324,11 +323,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the legLength property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setLegLength(JAXBElement<ValDistanceType> value) {
         this.legLength = value;
@@ -336,15 +335,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetLegLength() {
-        return (this.legLength != null);
+        return (this.legLength!= null);
     }
 
     /**
      * Gets the value of the refuellingBaseLevel property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getRefuellingBaseLevel() {
@@ -353,11 +353,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the refuellingBaseLevel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setRefuellingBaseLevel(JAXBElement<ValDistanceVerticalType> value) {
         this.refuellingBaseLevel = value;
@@ -365,15 +365,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetRefuellingBaseLevel() {
-        return (this.refuellingBaseLevel != null);
+        return (this.refuellingBaseLevel!= null);
     }
 
     /**
      * Gets the value of the refuellingBaseLevelReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getRefuellingBaseLevelReference() {
@@ -382,11 +383,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the refuellingBaseLevelReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setRefuellingBaseLevelReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.refuellingBaseLevelReference = value;
@@ -394,15 +395,16 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetRefuellingBaseLevelReference() {
-        return (this.refuellingBaseLevelReference != null);
+        return (this.refuellingBaseLevelReference!= null);
     }
 
     /**
      * Gets the value of the extent property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMSurfacePropertyType> getExtent() {
@@ -411,11 +413,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the extent property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
      */
     public void setExtent(JAXBElement<AIXMSurfacePropertyType> value) {
         this.extent = value;
@@ -423,36 +425,39 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetExtent() {
-        return (this.extent != null);
+        return (this.extent!= null);
     }
 
     /**
      * Gets the value of the verticalExtent property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the verticalExtent property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the verticalExtent property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getVerticalExtent().add(newItem);
+     *    getVerticalExtent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceLayerPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_vrtclextnt_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "verticalextent_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllnganchrtp_vrtclextnt_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "verticalextent_hjid", referencedColumnName = "hjid")
+    })
     public List<AirspaceLayerPropertyType> getVerticalExtent() {
         if (verticalExtent == null) {
             verticalExtent = new ArrayList<>();
@@ -461,8 +466,8 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setVerticalExtent(List<AirspaceLayerPropertyType> verticalExtent) {
         this.verticalExtent = verticalExtent;
@@ -470,7 +475,7 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetVerticalExtent() {
-        return ((this.verticalExtent != null) && (!this.verticalExtent.isEmpty()));
+        return ((this.verticalExtent!= null)&&(!this.verticalExtent.isEmpty()));
     }
 
     public void unsetVerticalExtent() {
@@ -479,32 +484,34 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the point property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the point property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the point property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getPoint().add(newItem);
+     *    getPoint().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AerialRefuellingPointPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AerialRefuellingPointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_pnt_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "point_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllnganchrtp_pnt_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "point_hjid", referencedColumnName = "hjid")
+    })
     public List<AerialRefuellingPointPropertyType> getPoint() {
         if (point == null) {
             point = new ArrayList<>();
@@ -513,8 +520,8 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setPoint(List<AerialRefuellingPointPropertyType> point) {
         this.point = point;
@@ -522,7 +529,7 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetPoint() {
-        return ((this.point != null) && (!this.point.isEmpty()));
+        return ((this.point!= null)&&(!this.point.isEmpty()));
     }
 
     public void unsetPoint() {
@@ -531,31 +538,34 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_annttn_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllnganchrtp_annttn_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -564,8 +574,8 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -573,7 +583,7 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -582,29 +592,29 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AerialRefuellingAnchorExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AerialRefuellingAnchorExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "aerialrefuellinganchor_oe_hjid", referencedColumnName = "hjid")
     public List<AerialRefuellingAnchorExtensionType> getExtension() {
         if (extension == null) {
@@ -614,8 +624,8 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AerialRefuellingAnchorExtensionType> extension) {
         this.extension = extension;
@@ -623,7 +633,7 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -632,148 +642,144 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "outboundcourse", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "outboundcoursenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "outboundcourse", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "outboundcoursenilreason", columnDefinition = "nilreason"))
+    })
     public ValBearingType getOutboundCourseItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getOutboundCourse());
     }
 
     public void setOutboundCourseItem(ValBearingType target) {
-        setOutboundCourse(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "outboundCourse"), AerialRefuellingAnchorType.class,
-                target));
+        setOutboundCourse(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "outboundCourse"), AerialRefuellingAnchorType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "outboundcoursetype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "outboundcoursetypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "outboundcoursetype", columnDefinition = "codecoursebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "outboundcoursetypenilreason", columnDefinition = "nilreason"))
+    })
     public CodeCourseType getOutboundCourseTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCourseType.class, this.getOutboundCourseType());
     }
 
     public void setOutboundCourseTypeItem(CodeCourseType target) {
-        setOutboundCourseType(XmlAdapterUtils.marshallJAXBElement(CodeCourseType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "outboundCourseType"), AerialRefuellingAnchorType.class,
-                target));
+        setOutboundCourseType(XmlAdapterUtils.marshallJAXBElement(CodeCourseType.class, new QName("http://www.aixm.aero/schema/5.1.1", "outboundCourseType"), AerialRefuellingAnchorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "inboundcourse", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "inboundcoursenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "inboundcourse", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "inboundcoursenilreason", columnDefinition = "nilreason"))
+    })
     public ValBearingType getInboundCourseItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getInboundCourse());
     }
 
     public void setInboundCourseItem(ValBearingType target) {
-        setInboundCourse(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "inboundCourse"), AerialRefuellingAnchorType.class,
-                target));
+        setInboundCourse(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "inboundCourse"), AerialRefuellingAnchorType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "turndirection")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "turndirectionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "turndirection", columnDefinition = "codedirectionturnbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "turndirectionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeDirectionTurnType getTurnDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDirectionTurnType.class, this.getTurnDirection());
     }
 
     public void setTurnDirectionItem(CodeDirectionTurnType target) {
-        setTurnDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "turnDirection"), AerialRefuellingAnchorType.class,
-                target));
+        setTurnDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class, new QName("http://www.aixm.aero/schema/5.1.1", "turnDirection"), AerialRefuellingAnchorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "speedlimit", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "speedlimituom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "speedlimitnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "speedlimit", columnDefinition = "valspeedbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "speedlimituom", columnDefinition = "uomspeed")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "speedlimitnilreason", columnDefinition = "nilreason"))
+    })
     public ValSpeedType getSpeedLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValSpeedType.class, this.getSpeedLimit());
     }
 
     public void setSpeedLimitItem(ValSpeedType target) {
-        setSpeedLimit(XmlAdapterUtils.marshallJAXBElement(ValSpeedType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "speedLimit"), AerialRefuellingAnchorType.class,
-                target));
+        setSpeedLimit(XmlAdapterUtils.marshallJAXBElement(ValSpeedType.class, new QName("http://www.aixm.aero/schema/5.1.1", "speedLimit"), AerialRefuellingAnchorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "legseparation", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "legseparationuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "legseparationnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "legseparation", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "legseparationuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "legseparationnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getLegSeparationItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getLegSeparation());
     }
 
     public void setLegSeparationItem(ValDistanceType target) {
-        setLegSeparation(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "legSeparation"), AerialRefuellingAnchorType.class,
-                target));
+        setLegSeparation(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "legSeparation"), AerialRefuellingAnchorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "leglength", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "leglengthuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "leglengthnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "leglength", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "leglengthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "leglengthnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getLegLengthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getLegLength());
     }
 
     public void setLegLengthItem(ValDistanceType target) {
-        setLegLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "legLength"), AerialRefuellingAnchorType.class, target));
+        setLegLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "legLength"), AerialRefuellingAnchorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "refuellingbaselevel", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "refuellingbaseleveluom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "refuellingbaselevelnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "refuellingbaselevel", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "refuellingbaseleveluom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "refuellingbaselevelnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getRefuellingBaseLevelItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getRefuellingBaseLevel());
     }
 
     public void setRefuellingBaseLevelItem(ValDistanceVerticalType target) {
-        setRefuellingBaseLevel(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "refuellingBaseLevel"), AerialRefuellingAnchorType.class,
-                target));
+        setRefuellingBaseLevel(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "refuellingBaseLevel"), AerialRefuellingAnchorType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "refuellingbaselevelreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "refuellingbaselevelreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "refuellingbaselevelreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "refuellingbaselevelreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getRefuellingBaseLevelReferenceItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class,
-                this.getRefuellingBaseLevelReference());
+        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getRefuellingBaseLevelReference());
     }
 
     public void setRefuellingBaseLevelReferenceItem(CodeVerticalReferenceType target) {
-        setRefuellingBaseLevelReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "refuellingBaseLevelReference"),
-                AerialRefuellingAnchorType.class, target));
+        setRefuellingBaseLevelReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "refuellingBaseLevelReference"), AerialRefuellingAnchorType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_extnt_link", schema = "aerial_refuelling", joinColumns = {
-            @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arlrfllnganchrtp_extnt_l", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMSurfacePropertyType getExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getExtent());
     }
 
     public void setExtentItem(AIXMSurfacePropertyType target) {
-        setExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "extent"), AerialRefuellingAnchorType.class, target));
+        setExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent"), AerialRefuellingAnchorType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -784,6 +790,19 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
         }
         final AerialRefuellingAnchorType that = ((AerialRefuellingAnchorType) object);
         {
+            boolean lhsFieldIsSet = this.isSetVerticalExtent();
+            boolean rhsFieldIsSet = that.isSetVerticalExtent();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetVerticalExtent()?this.getVerticalExtent():null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetVerticalExtent()?that.getVerticalExtent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTurnDirection();
             boolean rhsFieldIsSet = that.isSetTurnDirection();
             JAXBElement<CodeDirectionTurnType> lhsField;
@@ -792,6 +811,19 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             rhsField = that.getTurnDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -823,6 +855,45 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRefuellingBaseLevel();
+            boolean rhsFieldIsSet = that.isSetRefuellingBaseLevel();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getRefuellingBaseLevel();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getRefuellingBaseLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refuellingBaseLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refuellingBaseLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRefuellingBaseLevelReference();
+            boolean rhsFieldIsSet = that.isSetRefuellingBaseLevelReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getRefuellingBaseLevelReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getRefuellingBaseLevelReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refuellingBaseLevelReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refuellingBaseLevelReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPoint();
+            boolean rhsFieldIsSet = that.isSetPoint();
+            List<AerialRefuellingPointPropertyType> lhsField;
+            lhsField = (this.isSetPoint()?this.getPoint():null);
+            List<AerialRefuellingPointPropertyType> rhsField;
+            rhsField = (that.isSetPoint()?that.getPoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOutboundCourse();
             boolean rhsFieldIsSet = that.isSetOutboundCourse();
             JAXBElement<ValBearingType> lhsField;
@@ -839,24 +910,11 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AerialRefuellingAnchorExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<AerialRefuellingAnchorExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVerticalExtent();
-            boolean rhsFieldIsSet = that.isSetVerticalExtent();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetVerticalExtent() ? this.getVerticalExtent() : null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetVerticalExtent() ? that.getVerticalExtent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -875,47 +933,6 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRefuellingBaseLevelReference();
-            boolean rhsFieldIsSet = that.isSetRefuellingBaseLevelReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getRefuellingBaseLevelReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getRefuellingBaseLevelReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refuellingBaseLevelReference",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refuellingBaseLevelReference",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpeedLimit();
-            boolean rhsFieldIsSet = that.isSetSpeedLimit();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeedLimit();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeedLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOutboundCourseType();
             boolean rhsFieldIsSet = that.isSetOutboundCourseType();
             JAXBElement<CodeCourseType> lhsField;
@@ -924,19 +941,6 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             rhsField = that.getOutboundCourseType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourseType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourseType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPoint();
-            boolean rhsFieldIsSet = that.isSetPoint();
-            List<AerialRefuellingPointPropertyType> lhsField;
-            lhsField = (this.isSetPoint() ? this.getPoint() : null);
-            List<AerialRefuellingPointPropertyType> rhsField;
-            rhsField = (that.isSetPoint() ? that.getPoint() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -955,14 +959,14 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRefuellingBaseLevel();
-            boolean rhsFieldIsSet = that.isSetRefuellingBaseLevel();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getRefuellingBaseLevel();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getRefuellingBaseLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refuellingBaseLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refuellingBaseLevel", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeedLimit();
+            boolean rhsFieldIsSet = that.isSetSpeedLimit();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeedLimit();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeedLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1046,28 +1050,28 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetVerticalExtent();
             List<AirspaceLayerPropertyType> theField;
-            theField = (this.isSetVerticalExtent() ? this.getVerticalExtent() : null);
+            theField = (this.isSetVerticalExtent()?this.getVerticalExtent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "verticalExtent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetPoint();
             List<AerialRefuellingPointPropertyType> theField;
-            theField = (this.isSetPoint() ? this.getPoint() : null);
+            theField = (this.isSetPoint()?this.getPoint():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "point", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AerialRefuellingAnchorExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1140,25 +1144,25 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetVerticalExtent();
             List<AirspaceLayerPropertyType> theField;
-            theField = (this.isSetVerticalExtent() ? this.getVerticalExtent() : null);
+            theField = (this.isSetVerticalExtent()?this.getVerticalExtent():null);
             strategy.appendField(locator, this, "verticalExtent", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetPoint();
             List<AerialRefuellingPointPropertyType> theField;
-            theField = (this.isSetPoint() ? this.getPoint() : null);
+            theField = (this.isSetPoint()?this.getPoint():null);
             strategy.appendField(locator, this, "point", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AerialRefuellingAnchorExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

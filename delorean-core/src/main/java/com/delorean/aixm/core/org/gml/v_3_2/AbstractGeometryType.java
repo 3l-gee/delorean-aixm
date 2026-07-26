@@ -1,42 +1,33 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * All geometry elements are derived directly or indirectly from this abstract
- * supertype. A geometry element may have an identifying attribute (gml:id), one
- * or more names (elements identifier and name) and a description (elements
- * description and descriptionReference) . It may be associated with a spatial
- * reference system (attribute group gml:SRSReferenceGroup). The following rules
- * shall be adhered to: - Every geometry type shall derive from this abstract
- * type. - Every geometry element (i.e. an element of a geometry type) shall be
- * directly or indirectly in the substitution group of AbstractGeometry.
- *
- * <p>
- * Java class for AbstractGeometryType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * All geometry elements are derived directly or indirectly from this abstract supertype. A geometry element may have an identifying attribute (gml:id), one or more names (elements identifier and name) and a description (elements description and descriptionReference) . It may be associated with a spatial reference system (attribute group gml:SRSReferenceGroup).
+ * The following rules shall be adhered to:
+ * -	Every geometry type shall derive from this abstract type.
+ * -	Every geometry element (i.e. an element of a geometry type) shall be directly or indirectly in the substitution group of AbstractGeometry.
+ * 
+ * <p>Java class for AbstractGeometryType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractGeometryType">
  *   <complexContent>
@@ -46,14 +37,21 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractGeometryType")
-@XmlSeeAlso({AbstractGeometricAggregateType.class, GeometricComplexType.class, AbstractGeometricPrimitiveType.class,
-        GridType.class})
-public abstract class AbstractGeometryType extends AbstractGMLType implements Serializable {
+@XmlSeeAlso({
+    AbstractGeometricAggregateType.class,
+    GeometricComplexType.class,
+    AbstractGeometricPrimitiveType.class,
+    GridType.class
+})
+public abstract class AbstractGeometryType
+    extends AbstractGMLType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "srsName")
@@ -69,9 +67,11 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
 
     /**
      * Gets the value of the srsName property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSrsName() {
         return srsName;
@@ -79,24 +79,27 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
 
     /**
      * Sets the value of the srsName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSrsName(String value) {
         this.srsName = value;
     }
 
     public boolean isSetSrsName() {
-        return (this.srsName != null);
+        return (this.srsName!= null);
     }
 
     /**
      * Gets the value of the srsDimension property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getSrsDimension() {
         return srsDimension;
@@ -104,40 +107,41 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
 
     /**
      * Sets the value of the srsDimension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setSrsDimension(BigInteger value) {
         this.srsDimension = value;
     }
 
     public boolean isSetSrsDimension() {
-        return (this.srsDimension != null);
+        return (this.srsDimension!= null);
     }
 
     /**
      * Gets the value of the axisLabels property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the axisLabels property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the axisLabels property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAxisLabels().add(newItem);
+     *    getAxisLabels().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link String }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
      */
     public List<String> getAxisLabels() {
         if (axisLabels == null) {
@@ -147,15 +151,15 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAxisLabels(List<String> axisLabels) {
         this.axisLabels = axisLabels;
     }
 
     public boolean isSetAxisLabels() {
-        return ((this.axisLabels != null) && (!this.axisLabels.isEmpty()));
+        return ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
     }
 
     public void unsetAxisLabels() {
@@ -164,25 +168,25 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
 
     /**
      * Gets the value of the uomLabels property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the uomLabels property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the uomLabels property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getUomLabels().add(newItem);
+     *    getUomLabels().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link String }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
      */
     public List<String> getUomLabels() {
         if (uomLabels == null) {
@@ -192,15 +196,15 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setUomLabels(List<String> uomLabels) {
         this.uomLabels = uomLabels;
     }
 
     public boolean isSetUomLabels() {
-        return ((this.uomLabels != null) && (!this.uomLabels.isEmpty()));
+        return ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
     }
 
     public void unsetUomLabels() {
@@ -208,9 +212,8 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -224,9 +227,9 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
             boolean lhsFieldIsSet = this.isSetUomLabels();
             boolean rhsFieldIsSet = that.isSetUomLabels();
             List<String> lhsField;
-            lhsField = (this.isSetUomLabels() ? this.getUomLabels() : null);
+            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
             List<String> rhsField;
-            rhsField = (that.isSetUomLabels() ? that.getUomLabels() : null);
+            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -250,9 +253,9 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
             boolean lhsFieldIsSet = this.isSetAxisLabels();
             boolean rhsFieldIsSet = that.isSetAxisLabels();
             List<String> lhsField;
-            lhsField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
+            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             List<String> rhsField;
-            rhsField = (that.isSetAxisLabels() ? that.getAxisLabels() : null);
+            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -295,14 +298,14 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
         {
             boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
+            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (this.isSetUomLabels() ? this.getUomLabels() : null);
+            theField = (this.isSetUomLabels()?this.getUomLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uomLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -327,13 +330,13 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
         {
             boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
+            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             strategy.appendField(locator, this, "axisLabels", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (this.isSetUomLabels() ? this.getUomLabels() : null);
+            theField = (this.isSetUomLabels()?this.getUomLabels():null);
             strategy.appendField(locator, this, "uomLabels", buffer, theField, theFieldIsSet);
         }
         return buffer;

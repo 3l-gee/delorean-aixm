@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,41 +38,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TouchDownLiftOffSafeAreaTimeSlicePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TouchDownLiftOffSafeAreaTimeSlicePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TouchDownLiftOffSafeAreaTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}TouchDownLiftOffSafeAreaTimeSlice"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}TouchDownLiftOffSafeAreaTimeSlice"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TouchDownLiftOffSafeAreaTimeSlicePropertyType", propOrder = {"touchDownLiftOffSafeAreaTimeSlice"})
-@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "TouchDownLiftOffSafeAreaTimeSlicePropertyType", propOrder = {
+    "touchDownLiftOffSafeAreaTimeSlice"
+})
+@FilterDef(name = "TPHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "TouchDownLiftOffSafeAreaTimeSlicePropertyType")
 @Table(name = "touchdownliftoffsafearea_tp", schema = "airport_heliport")
-public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
+public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "TouchDownLiftOffSafeAreaTimeSlice", required = true)
@@ -86,12 +84,15 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
 
     /**
      * Gets the value of the touchDownLiftOffSafeAreaTimeSlice property.
-     *
-     * @return possible object is {@link TouchDownLiftOffSafeAreaTimeSliceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link TouchDownLiftOffSafeAreaTimeSliceType }
+     *     
      */
     @OneToOne(targetEntity = TouchDownLiftOffSafeAreaTimeSliceType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "touchdownliftoffsafeareatimeslice_hjid", referencedColumnName = "hjid")
     public TouchDownLiftOffSafeAreaTimeSliceType getTouchDownLiftOffSafeAreaTimeSlice() {
         return touchDownLiftOffSafeAreaTimeSlice;
@@ -99,10 +100,11 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
 
     /**
      * Sets the value of the touchDownLiftOffSafeAreaTimeSlice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TouchDownLiftOffSafeAreaTimeSliceType }
-     *
+     *     allowed object is
+     *     {@link TouchDownLiftOffSafeAreaTimeSliceType }
+     *     
      */
     public void setTouchDownLiftOffSafeAreaTimeSlice(TouchDownLiftOffSafeAreaTimeSliceType value) {
         this.touchDownLiftOffSafeAreaTimeSlice = value;
@@ -110,14 +112,16 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
 
     @Transient
     public boolean isSetTouchDownLiftOffSafeAreaTimeSlice() {
-        return (this.touchDownLiftOffSafeAreaTimeSlice != null);
+        return (this.touchDownLiftOffSafeAreaTimeSlice!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -131,10 +135,11 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -142,7 +147,7 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -150,10 +155,12 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -164,21 +171,24 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -187,11 +197,12 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -210,9 +221,8 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -226,10 +236,8 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
             lhsField = this.getTouchDownLiftOffSafeAreaTimeSlice();
             TouchDownLiftOffSafeAreaTimeSliceType rhsField;
             rhsField = that.getTouchDownLiftOffSafeAreaTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchDownLiftOffSafeAreaTimeSlice",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchDownLiftOffSafeAreaTimeSlice",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchDownLiftOffSafeAreaTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchDownLiftOffSafeAreaTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -238,9 +246,9 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -267,14 +275,13 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
             boolean theFieldIsSet = this.isSetTouchDownLiftOffSafeAreaTimeSlice();
             TouchDownLiftOffSafeAreaTimeSliceType theField;
             theField = this.getTouchDownLiftOffSafeAreaTimeSlice();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "touchDownLiftOffSafeAreaTimeSlice",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "touchDownLiftOffSafeAreaTimeSlice", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +319,7 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

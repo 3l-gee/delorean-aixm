@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -19,10 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,47 +30,31 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for LightGroupType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for LightGroupType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="LightGroupType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="fromDistance" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="toDistance" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="colour" type=
-"{http://www.aixm.aero/schema/5.2}CodeColourType" minOccurs="0"/>
- *         <element name="direction" type=
-"{http://www.aixm.aero/schema/5.2}CodeLightDirectionType" minOccurs="0"/>
- *         <element name="element" type=
-"{http://www.aixm.aero/schema/5.2}LightElementPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="fromDistance" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="toDistance" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="colour" type="{http://www.aixm.aero/schema/5.2}CodeColourType" minOccurs="0"/>
+ *         <element name="direction" type="{http://www.aixm.aero/schema/5.2}CodeLightDirectionType" minOccurs="0"/>
+ *         <element name="element" type="{http://www.aixm.aero/schema/5.2}LightElementPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractLightGroupExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractLightGroupExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -80,15 +64,25 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LightGroupType", propOrder = {"fromDistance", "toDistance", "colour", "direction", "element",
-        "annotation", "extension"})
+@XmlType(name = "LightGroupType", propOrder = {
+    "fromDistance",
+    "toDistance",
+    "colour",
+    "direction",
+    "element",
+    "annotation",
+    "extension"
+})
 @Entity(name = "LightGroupType")
 @Table(name = "lightgroup_o", schema = "airport_heliport")
-public class LightGroupType extends AbstractAIXMObjectType implements Serializable {
+public class LightGroupType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "fromDistance", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -107,10 +101,11 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Gets the value of the fromDistance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getFromDistance() {
@@ -119,11 +114,11 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the fromDistance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setFromDistance(JAXBElement<ValDistanceType> value) {
         this.fromDistance = value;
@@ -131,15 +126,16 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetFromDistance() {
-        return (this.fromDistance != null);
+        return (this.fromDistance!= null);
     }
 
     /**
      * Gets the value of the toDistance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getToDistance() {
@@ -148,11 +144,11 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the toDistance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setToDistance(JAXBElement<ValDistanceType> value) {
         this.toDistance = value;
@@ -160,15 +156,16 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetToDistance() {
-        return (this.toDistance != null);
+        return (this.toDistance!= null);
     }
 
     /**
      * Gets the value of the colour property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeColourType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeColourType> getColour() {
@@ -177,11 +174,11 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the colour property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeColourType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
+     *     
      */
     public void setColour(JAXBElement<CodeColourType> value) {
         this.colour = value;
@@ -189,15 +186,16 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetColour() {
-        return (this.colour != null);
+        return (this.colour!= null);
     }
 
     /**
      * Gets the value of the direction property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeLightDirectionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightDirectionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeLightDirectionType> getDirection() {
@@ -206,11 +204,11 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the direction property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeLightDirectionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightDirectionType }{@code >}
+     *     
      */
     public void setDirection(JAXBElement<CodeLightDirectionType> value) {
         this.direction = value;
@@ -218,36 +216,39 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetDirection() {
-        return (this.direction != null);
+        return (this.direction!= null);
     }
 
     /**
      * Gets the value of the element property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the element property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the element property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getElement().add(newItem);
+     *    getElement().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LightElementPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = LightElementPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lghtgrptp_elmnt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "lightgroup_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "element_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = LightElementPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lghtgrptp_elmnt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "lightgroup_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "element_hjid", referencedColumnName = "hjid")
+    })
     public List<LightElementPropertyType> getElement() {
         if (element == null) {
             element = new ArrayList<>();
@@ -256,8 +257,8 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setElement(List<LightElementPropertyType> element) {
         this.element = element;
@@ -265,7 +266,7 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetElement() {
-        return ((this.element != null) && (!this.element.isEmpty()));
+        return ((this.element!= null)&&(!this.element.isEmpty()));
     }
 
     public void unsetElement() {
@@ -274,31 +275,34 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lghtgrptp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "lightgroup_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lghtgrptp_annttn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "lightgroup_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -307,8 +311,8 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -316,7 +320,7 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -325,28 +329,29 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LightGroupExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = LightGroupExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = LightGroupExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "lightgroup_oe_hjid", referencedColumnName = "hjid")
     public List<LightGroupExtensionType> getExtension() {
         if (extension == null) {
@@ -356,8 +361,8 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<LightGroupExtensionType> extension) {
         this.extension = extension;
@@ -365,7 +370,7 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -374,62 +379,63 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "fromdistance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "fromdistanceuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "fromdistanceaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "fromdistancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "fromdistance", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "fromdistanceuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "fromdistanceaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "fromdistancenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getFromDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getFromDistance());
     }
 
     public void setFromDistanceItem(ValDistanceType target) {
-        setFromDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "fromDistance"), LightGroupType.class, target));
+        setFromDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "fromDistance"), LightGroupType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "todistance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "todistanceuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "todistanceaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "todistancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "todistance", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "todistanceuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "todistanceaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "todistancenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getToDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getToDistance());
     }
 
     public void setToDistanceItem(ValDistanceType target) {
-        setToDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "toDistance"), LightGroupType.class, target));
+        setToDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "toDistance"), LightGroupType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "colour")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "colournilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "colour", columnDefinition = "codecolourbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "colournilreason", columnDefinition = "nilreason"))
+    })
     public CodeColourType getColourItem() {
         return XmlAdapterUtils.unmarshallSource(CodeColourType.class, this.getColour());
     }
 
     public void setColourItem(CodeColourType target) {
-        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "colour"), LightGroupType.class, target));
+        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class, new QName("http://www.aixm.aero/schema/5.2", "colour"), LightGroupType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "direction")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "directionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "direction", columnDefinition = "codelightdirectionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "directionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeLightDirectionType getDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLightDirectionType.class, this.getDirection());
     }
 
     public void setDirectionItem(CodeLightDirectionType target) {
-        setDirection(XmlAdapterUtils.marshallJAXBElement(CodeLightDirectionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "direction"), LightGroupType.class, target));
+        setDirection(XmlAdapterUtils.marshallJAXBElement(CodeLightDirectionType.class, new QName("http://www.aixm.aero/schema/5.2", "direction"), LightGroupType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -439,32 +445,6 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
             return false;
         }
         final LightGroupType that = ((LightGroupType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetToDistance();
-            boolean rhsFieldIsSet = that.isSetToDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getToDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getToDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "toDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "toDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFromDistance();
-            boolean rhsFieldIsSet = that.isSetFromDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getFromDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getFromDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetColour();
             boolean rhsFieldIsSet = that.isSetColour();
@@ -482,11 +462,24 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
             boolean lhsFieldIsSet = this.isSetElement();
             boolean rhsFieldIsSet = that.isSetElement();
             List<LightElementPropertyType> lhsField;
-            lhsField = (this.isSetElement() ? this.getElement() : null);
+            lhsField = (this.isSetElement()?this.getElement():null);
             List<LightElementPropertyType> rhsField;
-            rhsField = (that.isSetElement() ? that.getElement() : null);
+            rhsField = (that.isSetElement()?that.getElement():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<LightGroupExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<LightGroupExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -495,9 +488,9 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -518,14 +511,27 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<LightGroupExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<LightGroupExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetFromDistance();
+            boolean rhsFieldIsSet = that.isSetFromDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getFromDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getFromDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetToDistance();
+            boolean rhsFieldIsSet = that.isSetToDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getToDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getToDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "toDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "toDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -567,21 +573,21 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
         {
             boolean theFieldIsSet = this.isSetElement();
             List<LightElementPropertyType> theField;
-            theField = (this.isSetElement() ? this.getElement() : null);
+            theField = (this.isSetElement()?this.getElement():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "element", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<LightGroupExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -618,19 +624,19 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
         {
             boolean theFieldIsSet = this.isSetElement();
             List<LightElementPropertyType> theField;
-            theField = (this.isSetElement() ? this.getElement() : null);
+            theField = (this.isSetElement()?this.getElement():null);
             strategy.appendField(locator, this, "element", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<LightGroupExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,76 +31,45 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for EnRouteSegmentPointType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for EnRouteSegmentPointType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="EnRouteSegmentPointType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractSegmentPointType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractSegmentPointType">
  *       <sequence>
- *         <element name="reportingATC" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeATCReportingType" minOccurs="0"/>
- *         <element name="flyOver" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="waypoint" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="radarGuidance" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="facilityMakeup" type=
-"{http://www.aixm.aero/schema/5.1.1}PointReferencePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="reportingATC" type="{http://www.aixm.aero/schema/5.1.1}CodeATCReportingType" minOccurs="0"/>
+ *         <element name="flyOver" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="waypoint" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="radarGuidance" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="facilityMakeup" type="{http://www.aixm.aero/schema/5.1.1}PointReferencePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <choice>
- *           <element name="pointChoice_fixDesignatedPoint" type=
-"{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
- *           <element name="pointChoice_navaidSystem" type=
-"{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
- *           <element name="pointChoice_position" type=
-"{http://www.aixm.aero/schema/5.1.1}PointPropertyType" minOccurs="0"/>
- *           <element name="pointChoice_runwayPoint" type=
-"{http://www.aixm.aero/schema/5.1.1}RunwayCentrelinePointPropertyType" minOccurs
-="0"/>
- *           <element name="pointChoice_aimingPoint" type=
-"{http://www.aixm.aero/schema/5.1.1}TouchDownLiftOffPropertyType" minOccurs=
-"0"/>
- *           <element name="pointChoice_airportReferencePoint" type=
-"{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_navaidSystem" type="{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_position" type="{http://www.aixm.aero/schema/5.1.1}PointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_runwayPoint" type="{http://www.aixm.aero/schema/5.1.1}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_aimingPoint" type="{http://www.aixm.aero/schema/5.1.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_airportReferencePoint" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
  *         </choice>
- *         <element name="extendedServiceVolume" type=
-"{http://www.aixm.aero/schema/5.1.1}RadioFrequencyAreaPropertyType" minOccurs=
-"0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="roleFreeFlight" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeFreeFlightType" minOccurs="0"/>
- *         <element name="roleRVSM" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeRVSMPointRoleType" minOccurs="0"/>
- *         <element name="turnRadius" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="roleMilitaryTraining" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeMilitaryRoutePointType" minOccurs="0"/>
+ *         <element name="extendedServiceVolume" type="{http://www.aixm.aero/schema/5.1.1}RadioFrequencyAreaPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="roleFreeFlight" type="{http://www.aixm.aero/schema/5.1.1}CodeFreeFlightType" minOccurs="0"/>
+ *         <element name="roleRVSM" type="{http://www.aixm.aero/schema/5.1.1}CodeRVSMPointRoleType" minOccurs="0"/>
+ *         <element name="turnRadius" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="roleMilitaryTraining" type="{http://www.aixm.aero/schema/5.1.1}CodeMilitaryRoutePointType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractSegmentPointExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractEnRouteSegmentPointExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractSegmentPointExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractEnRouteSegmentPointExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -110,17 +79,36 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EnRouteSegmentPointType", propOrder = {"reportingATC", "flyOver", "waypoint", "radarGuidance",
-        "facilityMakeup", "pointChoiceFixDesignatedPoint", "pointChoiceNavaidSystem", "pointChoicePosition",
-        "pointChoiceRunwayPoint", "pointChoiceAimingPoint", "pointChoiceAirportReferencePoint", "extendedServiceVolume",
-        "annotation", "roleFreeFlight", "roleRVSM", "turnRadius", "roleMilitaryTraining", "extension"})
+@XmlType(name = "EnRouteSegmentPointType", propOrder = {
+    "reportingATC",
+    "flyOver",
+    "waypoint",
+    "radarGuidance",
+    "facilityMakeup",
+    "pointChoiceFixDesignatedPoint",
+    "pointChoiceNavaidSystem",
+    "pointChoicePosition",
+    "pointChoiceRunwayPoint",
+    "pointChoiceAimingPoint",
+    "pointChoiceAirportReferencePoint",
+    "extendedServiceVolume",
+    "annotation",
+    "roleFreeFlight",
+    "roleRVSM",
+    "turnRadius",
+    "roleMilitaryTraining",
+    "extension"
+})
 @Entity(name = "EnRouteSegmentPointType")
 @Table(name = "enroutesegmentpoint_o", schema = "navaids_point")
-public class EnRouteSegmentPointType extends AbstractSegmentPointType implements Serializable {
+public class EnRouteSegmentPointType
+    extends AbstractSegmentPointType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "reportingATC", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -161,10 +149,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Gets the value of the reportingATC property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeATCReportingType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeATCReportingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeATCReportingType> getReportingATC() {
@@ -173,11 +162,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the reportingATC property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeATCReportingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeATCReportingType }{@code >}
+     *     
      */
     public void setReportingATC(JAXBElement<CodeATCReportingType> value) {
         this.reportingATC = value;
@@ -185,15 +174,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetReportingATC() {
-        return (this.reportingATC != null);
+        return (this.reportingATC!= null);
     }
 
     /**
      * Gets the value of the flyOver property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getFlyOver() {
@@ -202,11 +192,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the flyOver property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setFlyOver(JAXBElement<CodeYesNoType> value) {
         this.flyOver = value;
@@ -214,15 +204,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetFlyOver() {
-        return (this.flyOver != null);
+        return (this.flyOver!= null);
     }
 
     /**
      * Gets the value of the waypoint property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getWaypoint() {
@@ -231,11 +222,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the waypoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setWaypoint(JAXBElement<CodeYesNoType> value) {
         this.waypoint = value;
@@ -243,15 +234,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetWaypoint() {
-        return (this.waypoint != null);
+        return (this.waypoint!= null);
     }
 
     /**
      * Gets the value of the radarGuidance property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getRadarGuidance() {
@@ -260,11 +252,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the radarGuidance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setRadarGuidance(JAXBElement<CodeYesNoType> value) {
         this.radarGuidance = value;
@@ -272,36 +264,39 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetRadarGuidance() {
-        return (this.radarGuidance != null);
+        return (this.radarGuidance!= null);
     }
 
     /**
      * Gets the value of the facilityMakeup property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the facilityMakeup property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the facilityMakeup property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getFacilityMakeup().add(newItem);
+     *    getFacilityMakeup().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PointReferencePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = PointReferencePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_fcltmkp_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "facilitymakeup_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = PointReferencePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_fcltmkp_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "facilitymakeup_hjid", referencedColumnName = "hjid")
+    })
     public List<PointReferencePropertyType> getFacilityMakeup() {
         if (facilityMakeup == null) {
             facilityMakeup = new ArrayList<>();
@@ -310,8 +305,8 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setFacilityMakeup(List<PointReferencePropertyType> facilityMakeup) {
         this.facilityMakeup = facilityMakeup;
@@ -319,7 +314,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetFacilityMakeup() {
-        return ((this.facilityMakeup != null) && (!this.facilityMakeup.isEmpty()));
+        return ((this.facilityMakeup!= null)&&(!this.facilityMakeup.isEmpty()));
     }
 
     public void unsetFacilityMakeup() {
@@ -328,10 +323,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Gets the value of the pointChoiceFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getPointChoiceFixDesignatedPoint() {
@@ -340,11 +336,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the pointChoiceFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.pointChoiceFixDesignatedPoint = value;
@@ -352,15 +348,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetPointChoiceFixDesignatedPoint() {
-        return (this.pointChoiceFixDesignatedPoint != null);
+        return (this.pointChoiceFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the pointChoiceNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getPointChoiceNavaidSystem() {
@@ -369,11 +366,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the pointChoiceNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.pointChoiceNavaidSystem = value;
@@ -381,15 +378,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetPointChoiceNavaidSystem() {
-        return (this.pointChoiceNavaidSystem != null);
+        return (this.pointChoiceNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the pointChoicePosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getPointChoicePosition() {
@@ -398,11 +396,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the pointChoicePosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setPointChoicePosition(JAXBElement<AIXMPointPropertyType> value) {
         this.pointChoicePosition = value;
@@ -410,15 +408,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetPointChoicePosition() {
-        return (this.pointChoicePosition != null);
+        return (this.pointChoicePosition!= null);
     }
 
     /**
      * Gets the value of the pointChoiceRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getPointChoiceRunwayPoint() {
@@ -427,11 +426,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the pointChoiceRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.pointChoiceRunwayPoint = value;
@@ -439,15 +438,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetPointChoiceRunwayPoint() {
-        return (this.pointChoiceRunwayPoint != null);
+        return (this.pointChoiceRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the pointChoiceAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getPointChoiceAimingPoint() {
@@ -456,11 +456,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the pointChoiceAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.pointChoiceAimingPoint = value;
@@ -468,15 +468,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetPointChoiceAimingPoint() {
-        return (this.pointChoiceAimingPoint != null);
+        return (this.pointChoiceAimingPoint!= null);
     }
 
     /**
      * Gets the value of the pointChoiceAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getPointChoiceAirportReferencePoint() {
@@ -485,11 +486,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the pointChoiceAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.pointChoiceAirportReferencePoint = value;
@@ -497,15 +498,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetPointChoiceAirportReferencePoint() {
-        return (this.pointChoiceAirportReferencePoint != null);
+        return (this.pointChoiceAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the extendedServiceVolume property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RadioFrequencyAreaPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RadioFrequencyAreaPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RadioFrequencyAreaPropertyType> getExtendedServiceVolume() {
@@ -514,11 +516,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the extendedServiceVolume property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RadioFrequencyAreaPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RadioFrequencyAreaPropertyType }{@code >}
+     *     
      */
     public void setExtendedServiceVolume(JAXBElement<RadioFrequencyAreaPropertyType> value) {
         this.extendedServiceVolume = value;
@@ -526,36 +528,39 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetExtendedServiceVolume() {
-        return (this.extendedServiceVolume != null);
+        return (this.extendedServiceVolume!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_annttn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -564,8 +569,8 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -573,7 +578,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -582,10 +587,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Gets the value of the roleFreeFlight property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeFreeFlightType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeFreeFlightType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeFreeFlightType> getRoleFreeFlight() {
@@ -594,11 +600,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the roleFreeFlight property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeFreeFlightType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeFreeFlightType }{@code >}
+     *     
      */
     public void setRoleFreeFlight(JAXBElement<CodeFreeFlightType> value) {
         this.roleFreeFlight = value;
@@ -606,15 +612,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetRoleFreeFlight() {
-        return (this.roleFreeFlight != null);
+        return (this.roleFreeFlight!= null);
     }
 
     /**
      * Gets the value of the roleRVSM property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeRVSMPointRoleType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeRVSMPointRoleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeRVSMPointRoleType> getRoleRVSM() {
@@ -623,11 +630,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the roleRVSM property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeRVSMPointRoleType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeRVSMPointRoleType }{@code >}
+     *     
      */
     public void setRoleRVSM(JAXBElement<CodeRVSMPointRoleType> value) {
         this.roleRVSM = value;
@@ -635,15 +642,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetRoleRVSM() {
-        return (this.roleRVSM != null);
+        return (this.roleRVSM!= null);
     }
 
     /**
      * Gets the value of the turnRadius property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getTurnRadius() {
@@ -652,11 +660,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the turnRadius property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setTurnRadius(JAXBElement<ValDistanceType> value) {
         this.turnRadius = value;
@@ -664,15 +672,16 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetTurnRadius() {
-        return (this.turnRadius != null);
+        return (this.turnRadius!= null);
     }
 
     /**
      * Gets the value of the roleMilitaryTraining property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeMilitaryRoutePointType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeMilitaryRoutePointType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeMilitaryRoutePointType> getRoleMilitaryTraining() {
@@ -681,11 +690,11 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     /**
      * Sets the value of the roleMilitaryTraining property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeMilitaryRoutePointType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeMilitaryRoutePointType }{@code >}
+     *     
      */
     public void setRoleMilitaryTraining(JAXBElement<CodeMilitaryRoutePointType> value) {
         this.roleMilitaryTraining = value;
@@ -693,34 +702,34 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetRoleMilitaryTraining() {
-        return (this.roleMilitaryTraining != null);
+        return (this.roleMilitaryTraining!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link EnRouteSegmentPointExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = EnRouteSegmentPointExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "enroutesegmentpoint_oe_hjid", referencedColumnName = "hjid")
     public List<EnRouteSegmentPointExtensionType> getExtension() {
         if (extension == null) {
@@ -730,8 +739,8 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<EnRouteSegmentPointExtensionType> extension) {
         this.extension = extension;
@@ -739,7 +748,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -747,212 +756,225 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "reportingatc")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "reportingatcnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "reportingatc", columnDefinition = "codeatcreportingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "reportingatcnilreason", columnDefinition = "nilreason"))
+    })
     public CodeATCReportingType getReportingATCItem() {
         return XmlAdapterUtils.unmarshallSource(CodeATCReportingType.class, this.getReportingATC());
     }
 
     public void setReportingATCItem(CodeATCReportingType target) {
-        setReportingATC(XmlAdapterUtils.marshallJAXBElement(CodeATCReportingType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "reportingATC"), EnRouteSegmentPointType.class, target));
+        setReportingATC(XmlAdapterUtils.marshallJAXBElement(CodeATCReportingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reportingATC"), EnRouteSegmentPointType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "flyover")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "flyovernilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "flyover", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "flyovernilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getFlyOverItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getFlyOver());
     }
 
     public void setFlyOverItem(CodeYesNoType target) {
-        setFlyOver(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "flyOver"), EnRouteSegmentPointType.class, target));
+        setFlyOver(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "flyOver"), EnRouteSegmentPointType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "waypoint")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "waypointnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "waypoint", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "waypointnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getWaypointItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getWaypoint());
     }
 
     public void setWaypointItem(CodeYesNoType target) {
-        setWaypoint(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "waypoint"), EnRouteSegmentPointType.class, target));
+        setWaypoint(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "waypoint"), EnRouteSegmentPointType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "radarguidance")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "radarguidancenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "radarguidance", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "radarguidancenilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getRadarGuidanceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getRadarGuidance());
     }
 
     public void setRadarGuidanceItem(CodeYesNoType target) {
-        setRadarGuidance(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "radarGuidance"), EnRouteSegmentPointType.class,
-                target));
+        setRadarGuidance(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "radarGuidance"), EnRouteSegmentPointType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_pntchcfxdsgntdpnt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "pointchoicefixdesignatedpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_pntchcfxdsgntdpnt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoicefixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getPointChoiceFixDesignatedPointItem() {
-        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class,
-                this.getPointChoiceFixDesignatedPoint());
+        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getPointChoiceFixDesignatedPoint());
     }
 
     public void setPointChoiceFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setPointChoiceFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_fixDesignatedPoint"),
-                EnRouteSegmentPointType.class, target));
+        setPointChoiceFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_fixDesignatedPoint"), EnRouteSegmentPointType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_pntchcnvdsstm_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "pointchoicenavaidsystem_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_pntchcnvdsstm_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoicenavaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getPointChoiceNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getPointChoiceNavaidSystem());
     }
 
     public void setPointChoiceNavaidSystemItem(NavaidPropertyType target) {
-        setPointChoiceNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_navaidSystem"),
-                EnRouteSegmentPointType.class, target));
+        setPointChoiceNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_navaidSystem"), EnRouteSegmentPointType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_pntchcpstn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "pointchoiceposition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_pntchcpstn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoiceposition_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getPointChoicePositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getPointChoicePosition());
     }
 
     public void setPointChoicePositionItem(AIXMPointPropertyType target) {
-        setPointChoicePosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_position"), EnRouteSegmentPointType.class,
-                target));
+        setPointChoicePosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_position"), EnRouteSegmentPointType.class, target));
     }
 
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_pntchcrnwpnt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "pointchoicerunwaypoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_pntchcrnwpnt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoicerunwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getPointChoiceRunwayPointItem() {
-        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class,
-                this.getPointChoiceRunwayPoint());
+        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getPointChoiceRunwayPoint());
     }
 
     public void setPointChoiceRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setPointChoiceRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_runwayPoint"),
-                EnRouteSegmentPointType.class, target));
+        setPointChoiceRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_runwayPoint"), EnRouteSegmentPointType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_pntchcamngpnt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "pointchoiceaimingpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_pntchcamngpnt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoiceaimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getPointChoiceAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getPointChoiceAimingPoint());
     }
 
     public void setPointChoiceAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setPointChoiceAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_aimingPoint"),
-                EnRouteSegmentPointType.class, target));
+        setPointChoiceAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_aimingPoint"), EnRouteSegmentPointType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_pntchcarprtrfrncpnt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "pointchoiceairportreferencepoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_pntchcarprtrfrncpnt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoiceairportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getPointChoiceAirportReferencePointItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class,
-                this.getPointChoiceAirportReferencePoint());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getPointChoiceAirportReferencePoint());
     }
 
     public void setPointChoiceAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setPointChoiceAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_airportReferencePoint"),
-                EnRouteSegmentPointType.class, target));
+        setPointChoiceAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_airportReferencePoint"), EnRouteSegmentPointType.class, target));
     }
 
-    @OneToOne(targetEntity = RadioFrequencyAreaPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "enrtsgmntpnttp_extnddsrvcvlm_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "extendedservicevolume_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = RadioFrequencyAreaPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "enrtsgmntpnttp_extnddsrvcvlm_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "enroutesegmentpoint_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extendedservicevolume_hjid", referencedColumnName = "hjid")
+    })
     public RadioFrequencyAreaPropertyType getExtendedServiceVolumeItem() {
         return XmlAdapterUtils.unmarshallSource(RadioFrequencyAreaPropertyType.class, this.getExtendedServiceVolume());
     }
 
     public void setExtendedServiceVolumeItem(RadioFrequencyAreaPropertyType target) {
-        setExtendedServiceVolume(XmlAdapterUtils.marshallJAXBElement(RadioFrequencyAreaPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "extendedServiceVolume"), EnRouteSegmentPointType.class,
-                target));
+        setExtendedServiceVolume(XmlAdapterUtils.marshallJAXBElement(RadioFrequencyAreaPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extendedServiceVolume"), EnRouteSegmentPointType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "rolefreeflight")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "rolefreeflightnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "rolefreeflight", columnDefinition = "codefreeflightbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "rolefreeflightnilreason", columnDefinition = "nilreason"))
+    })
     public CodeFreeFlightType getRoleFreeFlightItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFreeFlightType.class, this.getRoleFreeFlight());
     }
 
     public void setRoleFreeFlightItem(CodeFreeFlightType target) {
-        setRoleFreeFlight(XmlAdapterUtils.marshallJAXBElement(CodeFreeFlightType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "roleFreeFlight"), EnRouteSegmentPointType.class,
-                target));
+        setRoleFreeFlight(XmlAdapterUtils.marshallJAXBElement(CodeFreeFlightType.class, new QName("http://www.aixm.aero/schema/5.1.1", "roleFreeFlight"), EnRouteSegmentPointType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "rolervsm")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "rolervsmnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "rolervsm", columnDefinition = "codervsmpointrolebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "rolervsmnilreason", columnDefinition = "nilreason"))
+    })
     public CodeRVSMPointRoleType getRoleRVSMItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRVSMPointRoleType.class, this.getRoleRVSM());
     }
 
     public void setRoleRVSMItem(CodeRVSMPointRoleType target) {
-        setRoleRVSM(XmlAdapterUtils.marshallJAXBElement(CodeRVSMPointRoleType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "roleRVSM"), EnRouteSegmentPointType.class, target));
+        setRoleRVSM(XmlAdapterUtils.marshallJAXBElement(CodeRVSMPointRoleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "roleRVSM"), EnRouteSegmentPointType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "turnradius", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "turnradiusuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "turnradiusnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "turnradius", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "turnradiusuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "turnradiusnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getTurnRadiusItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getTurnRadius());
     }
 
     public void setTurnRadiusItem(ValDistanceType target) {
-        setTurnRadius(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "turnRadius"), EnRouteSegmentPointType.class, target));
+        setTurnRadius(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "turnRadius"), EnRouteSegmentPointType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "rolemilitarytraining")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "rolemilitarytrainingnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "rolemilitarytraining", columnDefinition = "codemilitaryroutepointbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "rolemilitarytrainingnilreason", columnDefinition = "nilreason"))
+    })
     public CodeMilitaryRoutePointType getRoleMilitaryTrainingItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMilitaryRoutePointType.class, this.getRoleMilitaryTraining());
     }
 
     public void setRoleMilitaryTrainingItem(CodeMilitaryRoutePointType target) {
-        setRoleMilitaryTraining(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryRoutePointType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "roleMilitaryTraining"), EnRouteSegmentPointType.class,
-                target));
+        setRoleMilitaryTraining(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryRoutePointType.class, new QName("http://www.aixm.aero/schema/5.1.1", "roleMilitaryTraining"), EnRouteSegmentPointType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -963,64 +985,12 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
         }
         final EnRouteSegmentPointType that = ((EnRouteSegmentPointType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRadarGuidance();
-            boolean rhsFieldIsSet = that.isSetRadarGuidance();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getRadarGuidance();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getRadarGuidance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarGuidance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarGuidance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRoleFreeFlight();
-            boolean rhsFieldIsSet = that.isSetRoleFreeFlight();
-            JAXBElement<CodeFreeFlightType> lhsField;
-            lhsField = this.getRoleFreeFlight();
-            JAXBElement<CodeFreeFlightType> rhsField;
-            rhsField = that.getRoleFreeFlight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roleFreeFlight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roleFreeFlight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getPointChoiceAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFacilityMakeup();
             boolean rhsFieldIsSet = that.isSetFacilityMakeup();
             List<PointReferencePropertyType> lhsField;
-            lhsField = (this.isSetFacilityMakeup() ? this.getFacilityMakeup() : null);
+            lhsField = (this.isSetFacilityMakeup()?this.getFacilityMakeup():null);
             List<PointReferencePropertyType> rhsField;
-            rhsField = (that.isSetFacilityMakeup() ? that.getFacilityMakeup() : null);
+            rhsField = (that.isSetFacilityMakeup()?that.getFacilityMakeup():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityMakeup", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityMakeup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1028,29 +998,14 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getPointChoiceFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getPointChoiceRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getPointChoiceRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getPointChoiceAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getPointChoiceAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1069,45 +1024,6 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoicePosition();
-            boolean rhsFieldIsSet = that.isSetPointChoicePosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getPointChoicePosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getPointChoicePosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoicePosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoicePosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointChoiceNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRoleRVSM();
-            boolean rhsFieldIsSet = that.isSetRoleRVSM();
-            JAXBElement<CodeRVSMPointRoleType> lhsField;
-            lhsField = this.getRoleRVSM();
-            JAXBElement<CodeRVSMPointRoleType> rhsField;
-            rhsField = that.getRoleRVSM();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roleRVSM", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roleRVSM", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtendedServiceVolume();
             boolean rhsFieldIsSet = that.isSetExtendedServiceVolume();
             JAXBElement<RadioFrequencyAreaPropertyType> lhsField;
@@ -1121,42 +1037,14 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getPointChoiceAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getPointChoiceAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTurnRadius();
-            boolean rhsFieldIsSet = that.isSetTurnRadius();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getTurnRadius();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getTurnRadius();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnRadius", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnRadius", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRoleMilitaryTraining();
-            boolean rhsFieldIsSet = that.isSetRoleMilitaryTraining();
-            JAXBElement<CodeMilitaryRoutePointType> lhsField;
-            lhsField = this.getRoleMilitaryTraining();
-            JAXBElement<CodeMilitaryRoutePointType> rhsField;
-            rhsField = that.getRoleMilitaryTraining();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roleMilitaryTraining", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roleMilitaryTraining", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1165,9 +1053,9 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<EnRouteSegmentPointExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<EnRouteSegmentPointExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1188,6 +1076,19 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRoleRVSM();
+            boolean rhsFieldIsSet = that.isSetRoleRVSM();
+            JAXBElement<CodeRVSMPointRoleType> lhsField;
+            lhsField = this.getRoleRVSM();
+            JAXBElement<CodeRVSMPointRoleType> rhsField;
+            rhsField = that.getRoleRVSM();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roleRVSM", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roleRVSM", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetWaypoint();
             boolean rhsFieldIsSet = that.isSetWaypoint();
             JAXBElement<CodeYesNoType> lhsField;
@@ -1196,6 +1097,123 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
             rhsField = that.getWaypoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waypoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waypoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadarGuidance();
+            boolean rhsFieldIsSet = that.isSetRadarGuidance();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getRadarGuidance();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getRadarGuidance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarGuidance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarGuidance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRoleMilitaryTraining();
+            boolean rhsFieldIsSet = that.isSetRoleMilitaryTraining();
+            JAXBElement<CodeMilitaryRoutePointType> lhsField;
+            lhsField = this.getRoleMilitaryTraining();
+            JAXBElement<CodeMilitaryRoutePointType> rhsField;
+            rhsField = that.getRoleMilitaryTraining();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roleMilitaryTraining", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roleMilitaryTraining", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRoleFreeFlight();
+            boolean rhsFieldIsSet = that.isSetRoleFreeFlight();
+            JAXBElement<CodeFreeFlightType> lhsField;
+            lhsField = this.getRoleFreeFlight();
+            JAXBElement<CodeFreeFlightType> rhsField;
+            rhsField = that.getRoleFreeFlight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roleFreeFlight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roleFreeFlight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getPointChoiceRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getPointChoiceRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoicePosition();
+            boolean rhsFieldIsSet = that.isSetPointChoicePosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getPointChoicePosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getPointChoicePosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoicePosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoicePosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTurnRadius();
+            boolean rhsFieldIsSet = that.isSetTurnRadius();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getTurnRadius();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getTurnRadius();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnRadius", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnRadius", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getPointChoiceFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getPointChoiceFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointChoiceNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getPointChoiceAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1237,7 +1255,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
         {
             boolean theFieldIsSet = this.isSetFacilityMakeup();
             List<PointReferencePropertyType> theField;
-            theField = (this.isSetFacilityMakeup() ? this.getFacilityMakeup() : null);
+            theField = (this.isSetFacilityMakeup()?this.getFacilityMakeup():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "facilityMakeup", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1280,8 +1298,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
             boolean theFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getPointChoiceAirportReferencePoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pointChoiceAirportReferencePoint",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pointChoiceAirportReferencePoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1294,7 +1311,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1329,7 +1346,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<EnRouteSegmentPointExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1366,7 +1383,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
         {
             boolean theFieldIsSet = this.isSetFacilityMakeup();
             List<PointReferencePropertyType> theField;
-            theField = (this.isSetFacilityMakeup() ? this.getFacilityMakeup() : null);
+            theField = (this.isSetFacilityMakeup()?this.getFacilityMakeup():null);
             strategy.appendField(locator, this, "facilityMakeup", buffer, theField, theFieldIsSet);
         }
         {
@@ -1414,7 +1431,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1444,7 +1461,7 @@ public class EnRouteSegmentPointType extends AbstractSegmentPointType implements
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<EnRouteSegmentPointExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

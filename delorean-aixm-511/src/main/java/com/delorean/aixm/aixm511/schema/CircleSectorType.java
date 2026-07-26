@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -19,10 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,58 +30,37 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for CircleSectorType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for CircleSectorType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CircleSectorType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="arcDirection" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeArcDirectionType" minOccurs="0"/>
- *         <element name="fromAngle" type=
-"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="toAngle" type=
-"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="angleType" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeBearingType" minOccurs="0"/>
- *         <element name="angleDirectionReference" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeDirectionReferenceType" minOccurs="0"/>
- *         <element name="innerDistance" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="outerDistance" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="upperLimit" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="upperLimitReference" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="lowerLimit" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="lowerLimitReference" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="arcDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeArcDirectionType" minOccurs="0"/>
+ *         <element name="fromAngle" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="toAngle" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="angleType" type="{http://www.aixm.aero/schema/5.1.1}CodeBearingType" minOccurs="0"/>
+ *         <element name="angleDirectionReference" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionReferenceType" minOccurs="0"/>
+ *         <element name="innerDistance" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="outerDistance" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="upperLimit" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="upperLimitReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="lowerLimit" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="lowerLimitReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractCircleSectorExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractCircleSectorExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -91,16 +70,31 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CircleSectorType", propOrder = {"arcDirection", "fromAngle", "toAngle", "angleType",
-        "angleDirectionReference", "innerDistance", "outerDistance", "upperLimit", "upperLimitReference", "lowerLimit",
-        "lowerLimitReference", "annotation", "extension"})
+@XmlType(name = "CircleSectorType", propOrder = {
+    "arcDirection",
+    "fromAngle",
+    "toAngle",
+    "angleType",
+    "angleDirectionReference",
+    "innerDistance",
+    "outerDistance",
+    "upperLimit",
+    "upperLimitReference",
+    "lowerLimit",
+    "lowerLimitReference",
+    "annotation",
+    "extension"
+})
 @Entity(name = "CircleSectorType")
 @Table(name = "circlesector_o", schema = "shared")
-public class CircleSectorType extends AbstractAIXMObjectType implements Serializable {
+public class CircleSectorType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "arcDirection", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -131,10 +125,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Gets the value of the arcDirection property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeArcDirectionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeArcDirectionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeArcDirectionType> getArcDirection() {
@@ -143,11 +138,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the arcDirection property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeArcDirectionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeArcDirectionType }{@code >}
+     *     
      */
     public void setArcDirection(JAXBElement<CodeArcDirectionType> value) {
         this.arcDirection = value;
@@ -155,15 +150,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetArcDirection() {
-        return (this.arcDirection != null);
+        return (this.arcDirection!= null);
     }
 
     /**
      * Gets the value of the fromAngle property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getFromAngle() {
@@ -172,11 +168,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the fromAngle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setFromAngle(JAXBElement<ValBearingType> value) {
         this.fromAngle = value;
@@ -184,15 +180,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetFromAngle() {
-        return (this.fromAngle != null);
+        return (this.fromAngle!= null);
     }
 
     /**
      * Gets the value of the toAngle property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getToAngle() {
@@ -201,11 +198,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the toAngle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setToAngle(JAXBElement<ValBearingType> value) {
         this.toAngle = value;
@@ -213,15 +210,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetToAngle() {
-        return (this.toAngle != null);
+        return (this.toAngle!= null);
     }
 
     /**
      * Gets the value of the angleType property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeBearingType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeBearingType> getAngleType() {
@@ -230,11 +228,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the angleType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeBearingType }{@code >}
+     *     
      */
     public void setAngleType(JAXBElement<CodeBearingType> value) {
         this.angleType = value;
@@ -242,15 +240,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetAngleType() {
-        return (this.angleType != null);
+        return (this.angleType!= null);
     }
 
     /**
      * Gets the value of the angleDirectionReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeDirectionReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeDirectionReferenceType> getAngleDirectionReference() {
@@ -259,11 +258,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the angleDirectionReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeDirectionReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionReferenceType }{@code >}
+     *     
      */
     public void setAngleDirectionReference(JAXBElement<CodeDirectionReferenceType> value) {
         this.angleDirectionReference = value;
@@ -271,15 +270,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetAngleDirectionReference() {
-        return (this.angleDirectionReference != null);
+        return (this.angleDirectionReference!= null);
     }
 
     /**
      * Gets the value of the innerDistance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getInnerDistance() {
@@ -288,11 +288,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the innerDistance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setInnerDistance(JAXBElement<ValDistanceType> value) {
         this.innerDistance = value;
@@ -300,15 +300,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetInnerDistance() {
-        return (this.innerDistance != null);
+        return (this.innerDistance!= null);
     }
 
     /**
      * Gets the value of the outerDistance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getOuterDistance() {
@@ -317,11 +318,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the outerDistance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setOuterDistance(JAXBElement<ValDistanceType> value) {
         this.outerDistance = value;
@@ -329,15 +330,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetOuterDistance() {
-        return (this.outerDistance != null);
+        return (this.outerDistance!= null);
     }
 
     /**
      * Gets the value of the upperLimit property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getUpperLimit() {
@@ -346,11 +348,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the upperLimit property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setUpperLimit(JAXBElement<ValDistanceVerticalType> value) {
         this.upperLimit = value;
@@ -358,15 +360,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetUpperLimit() {
-        return (this.upperLimit != null);
+        return (this.upperLimit!= null);
     }
 
     /**
      * Gets the value of the upperLimitReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getUpperLimitReference() {
@@ -375,11 +378,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the upperLimitReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setUpperLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.upperLimitReference = value;
@@ -387,15 +390,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetUpperLimitReference() {
-        return (this.upperLimitReference != null);
+        return (this.upperLimitReference!= null);
     }
 
     /**
      * Gets the value of the lowerLimit property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getLowerLimit() {
@@ -404,11 +408,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the lowerLimit property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setLowerLimit(JAXBElement<ValDistanceVerticalType> value) {
         this.lowerLimit = value;
@@ -416,15 +420,16 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetLowerLimit() {
-        return (this.lowerLimit != null);
+        return (this.lowerLimit!= null);
     }
 
     /**
      * Gets the value of the lowerLimitReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getLowerLimitReference() {
@@ -433,11 +438,11 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the lowerLimitReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setLowerLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.lowerLimitReference = value;
@@ -445,36 +450,39 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetLowerLimitReference() {
-        return (this.lowerLimitReference != null);
+        return (this.lowerLimitReference!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "crclsctrtp_annttn_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "circlesector_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "crclsctrtp_annttn_l", schema = "shared", joinColumns = {
+        @JoinColumn(name = "circlesector_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -483,8 +491,8 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -492,7 +500,7 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -501,28 +509,29 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CircleSectorExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = CircleSectorExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = CircleSectorExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "circlesector_oe_hjid", referencedColumnName = "hjid")
     public List<CircleSectorExtensionType> getExtension() {
         if (extension == null) {
@@ -532,8 +541,8 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<CircleSectorExtensionType> extension) {
         this.extension = extension;
@@ -541,7 +550,7 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -549,152 +558,155 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "arcdirection")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "arcdirectionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "arcdirection", columnDefinition = "codearcdirectionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "arcdirectionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeArcDirectionType getArcDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeArcDirectionType.class, this.getArcDirection());
     }
 
     public void setArcDirectionItem(CodeArcDirectionType target) {
-        setArcDirection(XmlAdapterUtils.marshallJAXBElement(CodeArcDirectionType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "arcDirection"), CircleSectorType.class, target));
+        setArcDirection(XmlAdapterUtils.marshallJAXBElement(CodeArcDirectionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "arcDirection"), CircleSectorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "fromangle", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "fromanglenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "fromangle", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "fromanglenilreason", columnDefinition = "nilreason"))
+    })
     public ValBearingType getFromAngleItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getFromAngle());
     }
 
     public void setFromAngleItem(ValBearingType target) {
-        setFromAngle(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "fromAngle"), CircleSectorType.class, target));
+        setFromAngle(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "fromAngle"), CircleSectorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "toangle", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "toanglenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "toangle", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "toanglenilreason", columnDefinition = "nilreason"))
+    })
     public ValBearingType getToAngleItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getToAngle());
     }
 
     public void setToAngleItem(ValBearingType target) {
-        setToAngle(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "toAngle"), CircleSectorType.class, target));
+        setToAngle(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "toAngle"), CircleSectorType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "angletype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "angletypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "angletype", columnDefinition = "codebearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "angletypenilreason", columnDefinition = "nilreason"))
+    })
     public CodeBearingType getAngleTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeBearingType.class, this.getAngleType());
     }
 
     public void setAngleTypeItem(CodeBearingType target) {
-        setAngleType(XmlAdapterUtils.marshallJAXBElement(CodeBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "angleType"), CircleSectorType.class, target));
+        setAngleType(XmlAdapterUtils.marshallJAXBElement(CodeBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "angleType"), CircleSectorType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "angledirectionreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "angledirectionreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "angledirectionreference", columnDefinition = "codedirectionreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "angledirectionreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeDirectionReferenceType getAngleDirectionReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDirectionReferenceType.class, this.getAngleDirectionReference());
     }
 
     public void setAngleDirectionReferenceItem(CodeDirectionReferenceType target) {
-        setAngleDirectionReference(XmlAdapterUtils.marshallJAXBElement(CodeDirectionReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "angleDirectionReference"), CircleSectorType.class,
-                target));
+        setAngleDirectionReference(XmlAdapterUtils.marshallJAXBElement(CodeDirectionReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "angleDirectionReference"), CircleSectorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "innerdistance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "innerdistanceuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "innerdistancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "innerdistance", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "innerdistanceuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "innerdistancenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getInnerDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getInnerDistance());
     }
 
     public void setInnerDistanceItem(ValDistanceType target) {
-        setInnerDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "innerDistance"), CircleSectorType.class, target));
+        setInnerDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "innerDistance"), CircleSectorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "outerdistance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "outerdistanceuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "outerdistancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "outerdistance", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "outerdistanceuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "outerdistancenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getOuterDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getOuterDistance());
     }
 
     public void setOuterDistanceItem(ValDistanceType target) {
-        setOuterDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "outerDistance"), CircleSectorType.class, target));
+        setOuterDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "outerDistance"), CircleSectorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "upperlimit", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "upperlimituom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimit", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "upperlimituom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getUpperLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getUpperLimit());
     }
 
     public void setUpperLimitItem(ValDistanceVerticalType target) {
-        setUpperLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "upperLimit"), CircleSectorType.class, target));
+        setUpperLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "upperLimit"), CircleSectorType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "upperlimitreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimitreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getUpperLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getUpperLimitReference());
     }
 
     public void setUpperLimitReferenceItem(CodeVerticalReferenceType target) {
-        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "upperLimitReference"), CircleSectorType.class, target));
+        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "upperLimitReference"), CircleSectorType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "lowerlimit", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "lowerlimituom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimit", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "lowerlimituom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getLowerLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getLowerLimit());
     }
 
     public void setLowerLimitItem(ValDistanceVerticalType target) {
-        setLowerLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimit"), CircleSectorType.class, target));
+        setLowerLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimit"), CircleSectorType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getLowerLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getLowerLimitReference());
     }
 
     public void setLowerLimitReferenceItem(CodeVerticalReferenceType target) {
-        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimitReference"), CircleSectorType.class, target));
+        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimitReference"), CircleSectorType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -705,14 +717,14 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
         }
         final CircleSectorType that = ((CircleSectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOuterDistance();
-            boolean rhsFieldIsSet = that.isSetOuterDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getOuterDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getOuterDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outerDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outerDistance", rhsField);
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -731,66 +743,40 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFromAngle();
-            boolean rhsFieldIsSet = that.isSetFromAngle();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getFromAngle();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getFromAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromAngle", rhsField);
+            boolean lhsFieldIsSet = this.isSetInnerDistance();
+            boolean rhsFieldIsSet = that.isSetInnerDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getInnerDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getInnerDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "innerDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "innerDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAngleDirectionReference();
+            boolean rhsFieldIsSet = that.isSetAngleDirectionReference();
+            JAXBElement<CodeDirectionReferenceType> lhsField;
+            lhsField = this.getAngleDirectionReference();
+            JAXBElement<CodeDirectionReferenceType> rhsField;
+            rhsField = that.getAngleDirectionReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleDirectionReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleDirectionReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<CircleSectorExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<CircleSectorExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcDirection();
-            boolean rhsFieldIsSet = that.isSetArcDirection();
-            JAXBElement<CodeArcDirectionType> lhsField;
-            lhsField = this.getArcDirection();
-            JAXBElement<CodeArcDirectionType> rhsField;
-            rhsField = that.getArcDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAngleType();
-            boolean rhsFieldIsSet = that.isSetAngleType();
-            JAXBElement<CodeBearingType> lhsField;
-            lhsField = this.getAngleType();
-            JAXBElement<CodeBearingType> rhsField;
-            rhsField = that.getAngleType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
+            boolean lhsFieldIsSet = this.isSetOuterDistance();
+            boolean rhsFieldIsSet = that.isSetOuterDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getOuterDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getOuterDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outerDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outerDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -822,6 +808,19 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<CircleSectorExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<CircleSectorExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUpperLimitReference();
             boolean rhsFieldIsSet = that.isSetUpperLimitReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -835,40 +834,53 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngleDirectionReference();
-            boolean rhsFieldIsSet = that.isSetAngleDirectionReference();
-            JAXBElement<CodeDirectionReferenceType> lhsField;
-            lhsField = this.getAngleDirectionReference();
-            JAXBElement<CodeDirectionReferenceType> rhsField;
-            rhsField = that.getAngleDirectionReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleDirectionReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleDirectionReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetArcDirection();
+            boolean rhsFieldIsSet = that.isSetArcDirection();
+            JAXBElement<CodeArcDirectionType> lhsField;
+            lhsField = this.getArcDirection();
+            JAXBElement<CodeArcDirectionType> rhsField;
+            rhsField = that.getArcDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetFromAngle();
+            boolean rhsFieldIsSet = that.isSetFromAngle();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getFromAngle();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getFromAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInnerDistance();
-            boolean rhsFieldIsSet = that.isSetInnerDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getInnerDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getInnerDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "innerDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "innerDistance", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngleType();
+            boolean rhsFieldIsSet = that.isSetAngleType();
+            JAXBElement<CodeBearingType> lhsField;
+            lhsField = this.getAngleType();
+            JAXBElement<CodeBearingType> rhsField;
+            rhsField = that.getAngleType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -959,14 +971,14 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<CircleSectorExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1045,13 +1057,13 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<CircleSectorExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

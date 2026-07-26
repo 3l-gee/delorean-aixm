@@ -1,10 +1,10 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -18,19 +18,14 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
  * Direction vectors are specified by providing components of a vector.
- *
- * <p>
- * Java class for DirectionVectorType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * 
+ * <p>Java class for DirectionVectorType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DirectionVectorType">
  *   <complexContent>
@@ -38,22 +33,25 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <choice>
  *         <element ref="{http://www.opengis.net/gml/3.2}vector"/>
  *         <sequence>
- *           <element name="horizontalAngle" type=
-"{http://www.opengis.net/gml/3.2}AngleType"/>
- *           <element name="verticalAngle" type=
-"{http://www.opengis.net/gml/3.2}AngleType"/>
+ *           <element name="horizontalAngle" type="{http://www.opengis.net/gml/3.2}AngleType"/>
+ *           <element name="verticalAngle" type="{http://www.opengis.net/gml/3.2}AngleType"/>
  *         </sequence>
  *       </choice>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DirectionVectorType", propOrder = {"vector", "horizontalAngle", "verticalAngle"})
-public class DirectionVectorType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "DirectionVectorType", propOrder = {
+    "vector",
+    "horizontalAngle",
+    "verticalAngle"
+})
+public class DirectionVectorType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     protected VectorType vector;
@@ -62,9 +60,11 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Gets the value of the vector property.
-     *
-     * @return possible object is {@link VectorType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link VectorType }
+     *     
      */
     public VectorType getVector() {
         return vector;
@@ -72,24 +72,27 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the vector property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link VectorType }
-     *
+     *     allowed object is
+     *     {@link VectorType }
+     *     
      */
     public void setVector(VectorType value) {
         this.vector = value;
     }
 
     public boolean isSetVector() {
-        return (this.vector != null);
+        return (this.vector!= null);
     }
 
     /**
      * Gets the value of the horizontalAngle property.
-     *
-     * @return possible object is {@link AngleType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AngleType }
+     *     
      */
     public AngleType getHorizontalAngle() {
         return horizontalAngle;
@@ -97,24 +100,27 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the horizontalAngle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AngleType }
-     *
+     *     allowed object is
+     *     {@link AngleType }
+     *     
      */
     public void setHorizontalAngle(AngleType value) {
         this.horizontalAngle = value;
     }
 
     public boolean isSetHorizontalAngle() {
-        return (this.horizontalAngle != null);
+        return (this.horizontalAngle!= null);
     }
 
     /**
      * Gets the value of the verticalAngle property.
-     *
-     * @return possible object is {@link AngleType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AngleType }
+     *     
      */
     public AngleType getVerticalAngle() {
         return verticalAngle;
@@ -122,17 +128,18 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the verticalAngle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AngleType }
-     *
+     *     allowed object is
+     *     {@link AngleType }
+     *     
      */
     public void setVerticalAngle(AngleType value) {
         this.verticalAngle = value;
     }
 
     public boolean isSetVerticalAngle() {
-        return (this.verticalAngle != null);
+        return (this.verticalAngle!= null);
     }
 
     @Override
@@ -148,9 +155,8 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -158,14 +164,14 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
         }
         final DirectionVectorType that = ((DirectionVectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVector();
-            boolean rhsFieldIsSet = that.isSetVector();
-            VectorType lhsField;
-            lhsField = this.getVector();
-            VectorType rhsField;
-            rhsField = that.getVector();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vector", rhsField);
+            boolean lhsFieldIsSet = this.isSetHorizontalAngle();
+            boolean rhsFieldIsSet = that.isSetHorizontalAngle();
+            AngleType lhsField;
+            lhsField = this.getHorizontalAngle();
+            AngleType rhsField;
+            rhsField = that.getHorizontalAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -184,14 +190,14 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHorizontalAngle();
-            boolean rhsFieldIsSet = that.isSetHorizontalAngle();
-            AngleType lhsField;
-            lhsField = this.getHorizontalAngle();
-            AngleType rhsField;
-            rhsField = that.getHorizontalAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAngle", rhsField);
+            boolean lhsFieldIsSet = this.isSetVector();
+            boolean rhsFieldIsSet = that.isSetVector();
+            VectorType lhsField;
+            lhsField = this.getVector();
+            VectorType rhsField;
+            rhsField = that.getVector();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vector", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

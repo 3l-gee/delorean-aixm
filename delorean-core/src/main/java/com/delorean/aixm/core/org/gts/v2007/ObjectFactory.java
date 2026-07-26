@@ -1,42 +1,44 @@
 
 package com.delorean.aixm.core.org.gts.v2007;
 
+import javax.xml.datatype.Duration;
+import javax.xml.namespace.QName;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
-import javax.xml.datatype.Duration;
-import javax.xml.namespace.QName;
+
 
 /**
- * This object contains factory methods for each Java content interface and Java
- * element interface generated in the com.delorean.aixm.core.org.gts.v2007
- * package.
- * <p>
- * An ObjectFactory allows you to programmatically construct new instances of
- * the Java representation for XML content. The Java representation of XML
- * content can consist of schema derived interfaces and classes representing the
- * binding of schema type definitions, element declarations and model groups.
- * Factory methods for each of these are provided in this class.
- *
+ * This object contains factory methods for each 
+ * Java content interface and Java element interface 
+ * generated in the com.delorean.aixm.core.org.gts.v2007 package. 
+ * <p>An ObjectFactory allows you to programmatically 
+ * construct new instances of the Java representation 
+ * for XML content. The Java representation of XML 
+ * content can consist of schema derived interfaces 
+ * and classes representing the binding of schema 
+ * type definitions, element declarations and model 
+ * groups.  Factory methods for each of these are 
+ * provided in this class.
+ * 
  */
 @XmlRegistry
 public class ObjectFactory {
 
-    private static final QName _TMPeriodDuration_QNAME = new QName("http://www.isotc211.org/2005/gts",
-            "TM_PeriodDuration");
+    private static final QName _TMPeriodDuration_QNAME = new QName("http://www.isotc211.org/2005/gts", "TM_PeriodDuration");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema
-     * derived classes for package: com.delorean.aixm.core.org.gts.v2007
-     *
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.delorean.aixm.core.org.gts.v2007
+     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link TMPrimitivePropertyType }
-     *
-     * @return the new instance of {@link TMPrimitivePropertyType }
+     * 
+     * @return
+     *     the new instance of {@link TMPrimitivePropertyType }
      */
     public TMPrimitivePropertyType createTMPrimitivePropertyType() {
         return new TMPrimitivePropertyType();
@@ -44,8 +46,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMPeriodDurationPropertyType }
-     *
-     * @return the new instance of {@link TMPeriodDurationPropertyType }
+     * 
+     * @return
+     *     the new instance of {@link TMPeriodDurationPropertyType }
      */
     public TMPeriodDurationPropertyType createTMPeriodDurationPropertyType() {
         return new TMPeriodDurationPropertyType();
@@ -53,11 +56,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Duration }{@code >}
-     *
+     * 
      * @param value
-     *            Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link Duration
-     *         }{@code >}
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Duration }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gts", name = "TM_PeriodDuration")
     public JAXBElement<Duration> createTMPeriodDuration(Duration value) {

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,41 +38,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for HoldingAssessmentTimeSlicePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for HoldingAssessmentTimeSlicePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="HoldingAssessmentTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}HoldingAssessmentTimeSlice"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}HoldingAssessmentTimeSlice"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "HoldingAssessmentTimeSlicePropertyType", propOrder = {"holdingAssessmentTimeSlice"})
-@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "HoldingAssessmentTimeSlicePropertyType", propOrder = {
+    "holdingAssessmentTimeSlice"
+})
+@FilterDef(name = "TPHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "HoldingAssessmentTimeSlicePropertyType")
 @Table(name = "holdingassessment_tp", schema = "shared")
-public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
+public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "HoldingAssessmentTimeSlice", required = true)
@@ -86,11 +84,15 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
 
     /**
      * Gets the value of the holdingAssessmentTimeSlice property.
-     *
-     * @return possible object is {@link HoldingAssessmentTimeSliceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link HoldingAssessmentTimeSliceType }
+     *     
      */
-    @OneToOne(targetEntity = HoldingAssessmentTimeSliceType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = HoldingAssessmentTimeSliceType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "holdingassessmenttimeslice_hjid", referencedColumnName = "hjid")
     public HoldingAssessmentTimeSliceType getHoldingAssessmentTimeSlice() {
         return holdingAssessmentTimeSlice;
@@ -98,10 +100,11 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
 
     /**
      * Sets the value of the holdingAssessmentTimeSlice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link HoldingAssessmentTimeSliceType }
-     *
+     *     allowed object is
+     *     {@link HoldingAssessmentTimeSliceType }
+     *     
      */
     public void setHoldingAssessmentTimeSlice(HoldingAssessmentTimeSliceType value) {
         this.holdingAssessmentTimeSlice = value;
@@ -109,14 +112,16 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
 
     @Transient
     public boolean isSetHoldingAssessmentTimeSlice() {
-        return (this.holdingAssessmentTimeSlice != null);
+        return (this.holdingAssessmentTimeSlice!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -130,10 +135,11 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -141,7 +147,7 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -149,10 +155,12 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -163,21 +171,24 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -186,11 +197,12 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -209,9 +221,8 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -235,9 +246,9 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -270,7 +281,7 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -308,7 +319,7 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

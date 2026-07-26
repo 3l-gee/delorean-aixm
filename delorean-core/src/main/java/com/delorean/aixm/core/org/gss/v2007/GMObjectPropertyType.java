@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gss.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gml.v_3_2.AbstractCurveType;
 import com.delorean.aixm.core.org.gml.v_3_2.AbstractGeometricAggregateType;
 import com.delorean.aixm.core.org.gml.v_3_2.AbstractGeometricPrimitiveType;
@@ -36,7 +37,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -50,17 +50,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for GM_Object_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for GM_Object_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="GM_Object_PropertyType">
  *   <complexContent>
@@ -74,21 +69,20 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GM_Object_PropertyType", propOrder = {"abstractGeometry"})
-public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "GM_Object_PropertyType", propOrder = {
+    "abstractGeometry"
+})
+public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The AbstractGeometry element is the abstract head of the substitution group
-     * for all geometry elements of GML. This includes pre-defined and user-defined
-     * geometry elements. Any geometry element shall be a direct or indirect
-     * extension/restriction of AbstractGeometryType and shall be directly or
-     * indirectly in the substitution group of AbstractGeometry.
-     *
+     * The AbstractGeometry element is the abstract head of the substitution group for all geometry elements of GML. This includes pre-defined and user-defined geometry elements. Any geometry element shall be a direct or indirect extension/restriction of AbstractGeometryType and shall be directly or indirectly in the substitution group of AbstractGeometry.
+     * 
      */
     @XmlElementRef(name = "AbstractGeometry", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractGeometryType> abstractGeometry;
@@ -112,43 +106,40 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
     protected ActuateType actuate;
 
     /**
-     * The AbstractGeometry element is the abstract head of the substitution group
-     * for all geometry elements of GML. This includes pre-defined and user-defined
-     * geometry elements. Any geometry element shall be a direct or indirect
-     * extension/restriction of AbstractGeometryType and shall be directly or
-     * indirectly in the substitution group of AbstractGeometry.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractCurveType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractGeometryType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractGeometryType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractSolidType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractSurfaceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeCurveType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeSolidType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeSurfaceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SolidType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     *
+     * The AbstractGeometry element is the abstract head of the substitution group for all geometry elements of GML. This includes pre-defined and user-defined geometry elements. Any geometry element shall be a direct or indirect extension/restriction of AbstractGeometryType and shall be directly or indirectly in the substitution group of AbstractGeometry.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GridType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *     
      */
     public JAXBElement<? extends AbstractGeometryType> getAbstractGeometry() {
         return abstractGeometry;
@@ -156,41 +147,39 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the abstractGeometry property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractCurveType }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractGeometryType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractGeometryType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AbstractSolidType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AbstractSurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link CompositeCurveType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link CompositeSolidType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link CompositeSurfaceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GeometricComplexType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link OrientableSurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link PointType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link PolygonType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link RectifiedGridType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SolidType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GridType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *     
      * @see #getAbstractGeometry()
      */
     public void setAbstractGeometry(JAXBElement<? extends AbstractGeometryType> value) {
@@ -198,14 +187,16 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
     }
 
     public boolean isSetAbstractGeometry() {
-        return (this.abstractGeometry != null);
+        return (this.abstractGeometry!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -213,24 +204,27 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the uuidref property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getUuidref() {
         return uuidref;
@@ -238,24 +232,27 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the uuidref property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setUuidref(String value) {
         this.uuidref = value;
     }
 
     public boolean isSetUuidref() {
-        return (this.uuidref != null);
+        return (this.uuidref!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -263,24 +260,27 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -288,24 +288,27 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -313,24 +316,27 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -338,24 +344,27 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -363,24 +372,27 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -388,17 +400,18 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
@@ -414,28 +427,14 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final GMObjectPropertyType that = ((GMObjectPropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
@@ -445,32 +444,6 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUuidref();
-            boolean rhsFieldIsSet = that.isSetUuidref();
-            String lhsField;
-            lhsField = this.getUuidref();
-            String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -489,27 +462,14 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGeometry();
-            boolean rhsFieldIsSet = that.isSetAbstractGeometry();
-            JAXBElement<? extends AbstractGeometryType> lhsField;
-            lhsField = this.getAbstractGeometry();
-            JAXBElement<? extends AbstractGeometryType> rhsField;
-            rhsField = that.getAbstractGeometry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometry", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometry", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
-            lhsField = this.getArcrole();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -528,6 +488,32 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetUuidref();
+            boolean rhsFieldIsSet = that.isSetUuidref();
+            String lhsField;
+            lhsField = this.getUuidref();
+            String rhsField;
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -536,6 +522,32 @@ public class GMObjectPropertyType implements Serializable, Equals, HashCode, ToS
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGeometry();
+            boolean rhsFieldIsSet = that.isSetAbstractGeometry();
+            JAXBElement<? extends AbstractGeometryType> lhsField;
+            lhsField = this.getAbstractGeometry();
+            JAXBElement<? extends AbstractGeometryType> rhsField;
+            rhsField = that.getAbstractGeometry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometry", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometry", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -13,7 +14,6 @@ import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -27,17 +27,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for LocationPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for LocationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="LocationPropertyType">
  *   <complexContent>
@@ -50,28 +45,31 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *           <element ref="{http://www.opengis.net/gml/3.2}Null"/>
  *         </choice>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LocationPropertyType", propOrder = {"abstractGeometry", "locationKeyWord", "locationString", "_null"})
-@XmlSeeAlso({PriorityLocationPropertyType.class})
-public class LocationPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "LocationPropertyType", propOrder = {
+    "abstractGeometry",
+    "locationKeyWord",
+    "locationString",
+    "_null"
+})
+@XmlSeeAlso({
+    PriorityLocationPropertyType.class
+})
+public class LocationPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The AbstractGeometry element is the abstract head of the substitution group
-     * for all geometry elements of GML. This includes pre-defined and user-defined
-     * geometry elements. Any geometry element shall be a direct or indirect
-     * extension/restriction of AbstractGeometryType and shall be directly or
-     * indirectly in the substitution group of AbstractGeometry.
-     *
+     * The AbstractGeometry element is the abstract head of the substitution group for all geometry elements of GML. This includes pre-defined and user-defined geometry elements. Any geometry element shall be a direct or indirect extension/restriction of AbstractGeometryType and shall be directly or indirectly in the substitution group of AbstractGeometry.
+     * 
      */
     @XmlElementRef(name = "AbstractGeometry", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractGeometryType> abstractGeometry;
@@ -102,43 +100,40 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
     protected ActuateType actuate;
 
     /**
-     * The AbstractGeometry element is the abstract head of the substitution group
-     * for all geometry elements of GML. This includes pre-defined and user-defined
-     * geometry elements. Any geometry element shall be a direct or indirect
-     * extension/restriction of AbstractGeometryType and shall be directly or
-     * indirectly in the substitution group of AbstractGeometry.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractCurveType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractGeometryType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractGeometryType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractSolidType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractSurfaceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeCurveType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeSolidType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeSurfaceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SolidType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     *
+     * The AbstractGeometry element is the abstract head of the substitution group for all geometry elements of GML. This includes pre-defined and user-defined geometry elements. Any geometry element shall be a direct or indirect extension/restriction of AbstractGeometryType and shall be directly or indirectly in the substitution group of AbstractGeometry.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GridType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *     
      */
     public JAXBElement<? extends AbstractGeometryType> getAbstractGeometry() {
         return abstractGeometry;
@@ -146,41 +141,39 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the abstractGeometry property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractCurveType }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractGeometryType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractGeometryType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AbstractSolidType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AbstractSurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link CompositeCurveType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link CompositeSolidType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link CompositeSurfaceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GeometricComplexType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link OrientableSurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link PointType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link PolygonType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link RectifiedGridType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SolidType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GridType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SolidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *     
      * @see #getAbstractGeometry()
      */
     public void setAbstractGeometry(JAXBElement<? extends AbstractGeometryType> value) {
@@ -188,14 +181,16 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
     }
 
     public boolean isSetAbstractGeometry() {
-        return (this.abstractGeometry != null);
+        return (this.abstractGeometry!= null);
     }
 
     /**
      * Gets the value of the locationKeyWord property.
-     *
-     * @return possible object is {@link CodeType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CodeType }
+     *     
      */
     public CodeType getLocationKeyWord() {
         return locationKeyWord;
@@ -203,24 +198,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the locationKeyWord property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CodeType }
-     *
+     *     allowed object is
+     *     {@link CodeType }
+     *     
      */
     public void setLocationKeyWord(CodeType value) {
         this.locationKeyWord = value;
     }
 
     public boolean isSetLocationKeyWord() {
-        return (this.locationKeyWord != null);
+        return (this.locationKeyWord!= null);
     }
 
     /**
      * Gets the value of the locationString property.
-     *
-     * @return possible object is {@link StringOrRefType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link StringOrRefType }
+     *     
      */
     public StringOrRefType getLocationString() {
         return locationString;
@@ -228,24 +226,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the locationString property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link StringOrRefType }
-     *
+     *     allowed object is
+     *     {@link StringOrRefType }
+     *     
      */
     public void setLocationString(StringOrRefType value) {
         this.locationString = value;
     }
 
     public boolean isSetLocationString() {
-        return (this.locationString != null);
+        return (this.locationString!= null);
     }
 
     /**
      * Gets the value of the null property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNull() {
         return _null;
@@ -253,24 +254,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the null property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNull(String value) {
         this._null = value;
     }
 
     public boolean isSetNull() {
-        return (this._null != null);
+        return (this._null!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -278,24 +282,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -303,24 +310,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the remoteSchema property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
+        return (this.remoteSchema!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -328,24 +338,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -353,24 +366,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -378,24 +394,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -403,24 +422,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -428,24 +450,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -453,17 +478,18 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
@@ -479,9 +505,8 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -489,40 +514,14 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
         }
         final LocationPropertyType that = ((LocationPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocationString();
-            boolean rhsFieldIsSet = that.isSetLocationString();
-            StringOrRefType lhsField;
-            lhsField = this.getLocationString();
-            StringOrRefType rhsField;
-            rhsField = that.getLocationString();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationString", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationString", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
+            boolean lhsFieldIsSet = this.isSetNull();
+            boolean rhsFieldIsSet = that.isSetNull();
             String lhsField;
-            lhsField = this.getRole();
+            lhsField = this.getNull();
             String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            rhsField = that.getNull();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "_null", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "_null", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -541,66 +540,27 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getArcrole();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNull();
-            boolean rhsFieldIsSet = that.isSetNull();
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
-            lhsField = this.getNull();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getNull();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "_null", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "_null", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -632,14 +592,79 @@ public class LocationPropertyType implements Serializable, Equals, HashCode, ToS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocationString();
+            boolean rhsFieldIsSet = that.isSetLocationString();
+            StringOrRefType lhsField;
+            lhsField = this.getLocationString();
+            StringOrRefType rhsField;
+            rhsField = that.getLocationString();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationString", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationString", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

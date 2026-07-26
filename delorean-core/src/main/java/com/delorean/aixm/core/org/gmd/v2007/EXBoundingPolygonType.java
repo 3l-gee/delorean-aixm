@@ -1,54 +1,50 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import com.delorean.aixm.core.org.gss.v2007.GMObjectPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * Boundary enclosing the dataset expressed as the closed set of (x,y)
- * coordinates of the polygon (last point replicates first point)
- *
- * <p>
- * Java class for EX_BoundingPolygon_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * Boundary enclosing the dataset expressed as the closed set of (x,y) coordinates of the polygon (last point replicates first point)
+ * 
+ * <p>Java class for EX_BoundingPolygon_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="EX_BoundingPolygon_Type">
  *   <complexContent>
- *     <extension base=
-"{http://www.isotc211.org/2005/gmd}AbstractEX_GeographicExtent_Type">
+ *     <extension base="{http://www.isotc211.org/2005/gmd}AbstractEX_GeographicExtent_Type">
  *       <sequence>
- *         <element name="polygon" type=
-"{http://www.isotc211.org/2005/gss}GM_Object_PropertyType" maxOccurs=
-"unbounded"/>
+ *         <element name="polygon" type="{http://www.isotc211.org/2005/gss}GM_Object_PropertyType" maxOccurs="unbounded"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EX_BoundingPolygon_Type", propOrder = {"polygon"})
-public class EXBoundingPolygonType extends AbstractEXGeographicExtentType implements Serializable {
+@XmlType(name = "EX_BoundingPolygon_Type", propOrder = {
+    "polygon"
+})
+public class EXBoundingPolygonType
+    extends AbstractEXGeographicExtentType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -56,26 +52,25 @@ public class EXBoundingPolygonType extends AbstractEXGeographicExtentType implem
 
     /**
      * Gets the value of the polygon property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the polygon property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the polygon property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getPolygon().add(newItem);
+     *    getPolygon().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link GMObjectPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<GMObjectPropertyType> getPolygon() {
         if (polygon == null) {
@@ -85,15 +80,15 @@ public class EXBoundingPolygonType extends AbstractEXGeographicExtentType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setPolygon(List<GMObjectPropertyType> polygon) {
         this.polygon = polygon;
     }
 
     public boolean isSetPolygon() {
-        return ((this.polygon != null) && (!this.polygon.isEmpty()));
+        return ((this.polygon!= null)&&(!this.polygon.isEmpty()));
     }
 
     public void unsetPolygon() {
@@ -101,9 +96,8 @@ public class EXBoundingPolygonType extends AbstractEXGeographicExtentType implem
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -117,9 +111,9 @@ public class EXBoundingPolygonType extends AbstractEXGeographicExtentType implem
             boolean lhsFieldIsSet = this.isSetPolygon();
             boolean rhsFieldIsSet = that.isSetPolygon();
             List<GMObjectPropertyType> lhsField;
-            lhsField = (this.isSetPolygon() ? this.getPolygon() : null);
+            lhsField = (this.isSetPolygon()?this.getPolygon():null);
             List<GMObjectPropertyType> rhsField;
-            rhsField = (that.isSetPolygon() ? that.getPolygon() : null);
+            rhsField = (that.isSetPolygon()?that.getPolygon():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "polygon", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "polygon", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -135,7 +129,7 @@ public class EXBoundingPolygonType extends AbstractEXGeographicExtentType implem
         {
             boolean theFieldIsSet = this.isSetPolygon();
             List<GMObjectPropertyType> theField;
-            theField = (this.isSetPolygon() ? this.getPolygon() : null);
+            theField = (this.isSetPolygon()?this.getPolygon():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "polygon", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -148,7 +142,7 @@ public class EXBoundingPolygonType extends AbstractEXGeographicExtentType implem
         {
             boolean theFieldIsSet = this.isSetPolygon();
             List<GMObjectPropertyType> theField;
-            theField = (this.isSetPolygon() ? this.getPolygon() : null);
+            theField = (this.isSetPolygon()?this.getPolygon():null);
             strategy.appendField(locator, this, "polygon", buffer, theField, theFieldIsSet);
         }
         return buffer;

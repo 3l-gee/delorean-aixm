@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,41 +38,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AirportClearanceServiceTimeSlicePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirportClearanceServiceTimeSlicePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirportClearanceServiceTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AirportClearanceServiceTimeSlice"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AirportClearanceServiceTimeSlice"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirportClearanceServiceTimeSlicePropertyType", propOrder = {"airportClearanceServiceTimeSlice"})
-@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "AirportClearanceServiceTimeSlicePropertyType", propOrder = {
+    "airportClearanceServiceTimeSlice"
+})
+@FilterDef(name = "TPHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AirportClearanceServiceTimeSlicePropertyType")
 @Table(name = "airportclearanceservice_tp", schema = "service")
-public class AirportClearanceServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
+public class AirportClearanceServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AirportClearanceServiceTimeSlice", required = true)
@@ -86,12 +84,15 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
 
     /**
      * Gets the value of the airportClearanceServiceTimeSlice property.
-     *
-     * @return possible object is {@link AirportClearanceServiceTimeSliceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AirportClearanceServiceTimeSliceType }
+     *     
      */
     @OneToOne(targetEntity = AirportClearanceServiceTimeSliceType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airportclearanceservicetimeslice_hjid", referencedColumnName = "hjid")
     public AirportClearanceServiceTimeSliceType getAirportClearanceServiceTimeSlice() {
         return airportClearanceServiceTimeSlice;
@@ -99,10 +100,11 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
 
     /**
      * Sets the value of the airportClearanceServiceTimeSlice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AirportClearanceServiceTimeSliceType }
-     *
+     *     allowed object is
+     *     {@link AirportClearanceServiceTimeSliceType }
+     *     
      */
     public void setAirportClearanceServiceTimeSlice(AirportClearanceServiceTimeSliceType value) {
         this.airportClearanceServiceTimeSlice = value;
@@ -110,14 +112,16 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
 
     @Transient
     public boolean isSetAirportClearanceServiceTimeSlice() {
-        return (this.airportClearanceServiceTimeSlice != null);
+        return (this.airportClearanceServiceTimeSlice!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -131,10 +135,11 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -142,7 +147,7 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -150,10 +155,12 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -164,21 +171,24 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -187,11 +197,12 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -210,9 +221,8 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -223,9 +233,9 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -239,10 +249,8 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
             lhsField = this.getAirportClearanceServiceTimeSlice();
             AirportClearanceServiceTimeSliceType rhsField;
             rhsField = that.getAirportClearanceServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportClearanceServiceTimeSlice",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportClearanceServiceTimeSlice",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportClearanceServiceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportClearanceServiceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -267,14 +275,13 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
             boolean theFieldIsSet = this.isSetAirportClearanceServiceTimeSlice();
             AirportClearanceServiceTimeSliceType theField;
             theField = this.getAirportClearanceServiceTimeSlice();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "airportClearanceServiceTimeSlice",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "airportClearanceServiceTimeSlice", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +319,7 @@ public class AirportClearanceServiceTimeSlicePropertyType implements Serializabl
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema.message;
 
+import java.io.Serializable;
 import com.delorean.aixm.aixm52.schema.AbstractAIXMFeatureType;
 import com.delorean.aixm.aixm52.schema.AbstractAirportGroundServiceType;
 import com.delorean.aixm.aixm52.schema.AbstractAirportHeliportProtectionAreaType;
@@ -172,7 +173,6 @@ import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -183,46 +183,46 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 
+
 /**
- * <p>
- * Java class for BasicMessageMemberAIXMPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for BasicMessageMemberAIXMPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="BasicMessageMemberAIXMPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractFeatureMemberType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractFeatureMemberType">
  *       <choice>
  *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractAIXMFeature"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BasicMessageMemberAIXMPropertyType", propOrder = {"abstractAIXMFeature"})
-@FilterDef(name = "BMMHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "BasicMessageMemberAIXMPropertyType", propOrder = {
+    "abstractAIXMFeature"
+})
+@FilterDef(name = "BMMHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "BMMHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "BasicMessageMemberAIXMPropertyType")
 @Table(name = "message_member", schema = "aixm")
-public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberType implements Serializable {
+public class BasicMessageMemberAIXMPropertyType
+    extends AbstractFeatureMemberType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
      * Substitution head for AIXM features.
-     *
+     * 
      */
     @XmlElementRef(name = "AbstractAIXMFeature", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractAIXMFeatureType> abstractAIXMFeature;
@@ -252,179 +252,154 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Substitution head for AIXM features.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractAIXMFeatureType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractAirportGroundServiceType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractAirportHeliportProtectionAreaType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractApproachLegType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractGroundLightSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractMarkingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractNavaidEquipmentType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractNavigationSystemCheckpointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractProcedureType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractRadarEquipmentType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractSegmentLegType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractServiceType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractSurveillanceRadarType }{@code >}
-     *         {@link JAXBElement
-     *         }{@code <}{@link AbstractTrafficSeparationServiceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AerialRefuellingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AeronauticalGroundLightType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AirTrafficControlServiceType }{@code >}
-     *         {@link JAXBElement
-     *         }{@code <}{@link AirTrafficFlowManagementServiceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AircraftGroundServiceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AircraftStandType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AirportClearanceServiceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AirportHeliportCollocationType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AirportHeliportType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AirportHotSpotType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AirportProtectionAreaMarkingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AirportSignType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AirportSuppliesServiceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AirspaceType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AltimeterCheckpointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link ApproachLightingSystemType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link ApronElementType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link ApronLightSystemType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link ApronMarkingType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link ApronType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link ArrestingGearType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link ArrivalFeederLegType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link ArrivalLegType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AuthorityForAirspaceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link AzimuthType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link ChangeOverPointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link CheckpointINSType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link CheckpointVORType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link CirclingAreaType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DMEType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DeicingAreaMarkingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DeicingAreaType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DepartureLegType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DesignatedPointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DirectionFinderType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link ElevationType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link FinalLegType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link FireFightingServiceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link FlightRestrictionType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link FloatingDockSiteType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link GBASServiceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link GBASType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GangwayType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GeoBorderType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GlidepathType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GroundTrafficControlServiceType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link GuidanceLineLightSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link GuidanceLineMarkingType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link GuidanceLineType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link HoldingAssessmentType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link HoldingPatternType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link InformationServiceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link InitialLegType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link InstrumentApproachProcedureType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link IntermediateLegType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link LocalizerType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MarkerBeaconType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MarkingBuoyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link MinimumAltitudeAreaType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link MissedApproachLegType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link NDBType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link NavaidType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link NavigationAreaRestrictionType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link NavigationAreaType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link NonMovementAreaType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link ObstacleAreaType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link OrganisationAuthorityType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link PassengerLoadingBridgeType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link PassengerServiceType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link PilotControlledLightingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link PrecisionApproachRadarType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link PrimarySurveillanceRadarType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link ProcedureDMEType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RadarSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RadioCommunicationChannelType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link RadioFrequencyAreaType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link RoadType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RouteDMEType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RouteSegmentType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RouteType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RulesProceduresType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RunwayBlastPadType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RunwayCentrelinePointType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link RunwayDirectionLightSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RunwayDirectionType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RunwayElementType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RunwayMarkingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RunwayProtectAreaLightSystemType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link RunwayProtectAreaType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link RunwayType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link RunwayVisualRangeEquipmentType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link SDFType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SatelliteServiceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SatelliteSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SeaplaneLandingAreaType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link SeaplaneRampSiteType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link SearchRescueServiceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SecondarySurveillanceRadarType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link SignificantPointInAirspaceType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SpecialDateType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SpecialNavigationStationType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link SpecialNavigationSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link StandMarkingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link StandardInstrumentArrivalType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link StandardInstrumentDepartureType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link StandardLevelColumnType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link StandardLevelSectorType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link StandardLevelTableType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SurveyControlPointType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TACANType }{@code >}
-     *         {@link JAXBElement
-     *         }{@code <}{@link TaxiHoldingPositionLightSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TaxiHoldingPositionMarkingType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link TaxiHoldingPositionType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TaxiwayElementType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TaxiwayLightSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TaxiwayMarkingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TaxiwayType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TerminalArrivalAreaType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffLightSystemType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TouchDownLiftOffMarkingType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffSafeAreaType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TouchDownLiftOffType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link UnitType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link UnplannedHoldingType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link VORType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link VerticalStructureType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link VisualGlideSlopeIndicatorType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link WaterBodyType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link WeatherSourceType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link WorkAreaType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractAIXMFeatureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractAirportGroundServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractAirportHeliportProtectionAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractApproachLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGroundLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractNavaidEquipmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractNavigationSystemCheckpointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractProcedureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractRadarEquipmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSegmentLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSurveillanceRadarType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractTrafficSeparationServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AerialRefuellingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AeronauticalGroundLightType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirTrafficControlServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirTrafficFlowManagementServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AircraftGroundServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AircraftStandType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportClearanceServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportCollocationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportHotSpotType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportProtectionAreaMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportSignType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportSuppliesServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirspaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AltimeterCheckpointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApproachLightingSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronElementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ArrestingGearType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ArrivalFeederLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ArrivalLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AuthorityForAirspaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AzimuthType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ChangeOverPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CheckpointINSType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CheckpointVORType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CirclingAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DMEType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DeicingAreaMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DeicingAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DepartureLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DirectionFinderType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FinalLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FireFightingServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FlightRestrictionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FloatingDockSiteType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GBASServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GBASType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GangwayType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GeoBorderType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GlidepathType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GroundTrafficControlServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GuidanceLineLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GuidanceLineMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GuidanceLineType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link HoldingAssessmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link HoldingPatternType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link InformationServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link InitialLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link InstrumentApproachProcedureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link IntermediateLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LocalizerType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MarkerBeaconType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MarkingBuoyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MinimumAltitudeAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MissedApproachLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NDBType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NavaidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NavigationAreaRestrictionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NavigationAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NonMovementAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ObstacleAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PassengerLoadingBridgeType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PassengerServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PilotControlledLightingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PrecisionApproachRadarType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PrimarySurveillanceRadarType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ProcedureDMEType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RadarSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RadioCommunicationChannelType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RadioFrequencyAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RoadType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RouteDMEType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RouteSegmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RouteType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RulesProceduresType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayBlastPadType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayDirectionLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayDirectionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayElementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayProtectAreaLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayProtectAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayVisualRangeEquipmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SDFType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SatelliteServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SatelliteSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SeaplaneLandingAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SeaplaneRampSiteType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SearchRescueServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SecondarySurveillanceRadarType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SignificantPointInAirspaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SpecialDateType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SpecialNavigationStationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SpecialNavigationSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentArrivalType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentDepartureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardLevelColumnType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardLevelSectorType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardLevelTableType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurveyControlPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TACANType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiHoldingPositionLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiHoldingPositionMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiHoldingPositionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiwayElementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiwayLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiwayMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiwayType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TerminalArrivalAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffSafeAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link UnitType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link UnplannedHoldingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link VORType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link VerticalStructureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link VisualGlideSlopeIndicatorType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link WaterBodyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link WeatherSourceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link WorkAreaType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<? extends AbstractAIXMFeatureType> getAbstractAIXMFeature() {
@@ -433,196 +408,154 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the abstractAIXMFeature property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractAIXMFeatureType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link AbstractAirportGroundServiceType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link AbstractAirportHeliportProtectionAreaType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractApproachLegType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractGroundLightSystemType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AbstractMarkingType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractNavaidEquipmentType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link AbstractNavigationSystemCheckpointType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractProcedureType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractRadarEquipmentType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractSegmentLegType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AbstractServiceType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractSurveillanceRadarType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link AbstractTrafficSeparationServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AerialRefuellingType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AeronauticalGroundLightType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AirTrafficControlServiceType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AirTrafficFlowManagementServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AircraftGroundServiceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AircraftStandType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AirportClearanceServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AirportHeliportCollocationType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AirportHeliportType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AirportHotSpotType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AirportProtectionAreaMarkingType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AirportSignType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AirportSuppliesServiceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link AirspaceType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AltimeterCheckpointType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link ApproachLightingSystemType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link ApronElementType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link ApronLightSystemType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link ApronMarkingType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link ApronType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link ArrestingGearType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link ArrivalFeederLegType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link ArrivalLegType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AuthorityForAirspaceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AzimuthType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link ChangeOverPointType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link CheckpointINSType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link CheckpointVORType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link CirclingAreaType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link DMEType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link DeicingAreaMarkingType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link DeicingAreaType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link DepartureLegType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link DesignatedPointType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link DirectionFinderType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link ElevationType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link FinalLegType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link FireFightingServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link FlightRestrictionType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link FloatingDockSiteType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GBASServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GBASType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GangwayType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GeoBorderType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GlidepathType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link GroundTrafficControlServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GuidanceLineLightSystemType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link GuidanceLineMarkingType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link GuidanceLineType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link HoldingAssessmentType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link HoldingPatternType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link InformationServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link InitialLegType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link InstrumentApproachProcedureType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link IntermediateLegType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link LocalizerType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MarkerBeaconType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MarkingBuoyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link MinimumAltitudeAreaType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link MissedApproachLegType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link NDBType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link NavaidType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link NavigationAreaRestrictionType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link NavigationAreaType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link NonMovementAreaType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link ObstacleAreaType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link OrganisationAuthorityType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link PassengerLoadingBridgeType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link PassengerServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link PilotControlledLightingType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link PrecisionApproachRadarType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link PrimarySurveillanceRadarType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link ProcedureDMEType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link RadarSystemType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link RadioCommunicationChannelType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RadioFrequencyAreaType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link RoadType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RouteDMEType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RouteSegmentType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RouteType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RulesProceduresType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RunwayBlastPadType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RunwayCentrelinePointType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link RunwayDirectionLightSystemType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RunwayDirectionType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RunwayElementType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RunwayMarkingType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link RunwayProtectAreaLightSystemType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link RunwayProtectAreaType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link RunwayType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link RunwayVisualRangeEquipmentType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link SDFType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link SatelliteServiceType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link SatelliteSystemType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link SeaplaneLandingAreaType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link SeaplaneRampSiteType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link SearchRescueServiceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link SecondarySurveillanceRadarType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link SignificantPointInAirspaceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link SpecialDateType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link SpecialNavigationStationType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link SpecialNavigationSystemType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link StandMarkingType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link StandardInstrumentArrivalType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link StandardInstrumentDepartureType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link StandardLevelColumnType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link StandardLevelSectorType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link StandardLevelTableType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link SurveyControlPointType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link TACANType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link TaxiHoldingPositionLightSystemType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link TaxiHoldingPositionMarkingType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link TaxiHoldingPositionType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link TaxiwayElementType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link TaxiwayLightSystemType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link TaxiwayMarkingType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link TaxiwayType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link TerminalArrivalAreaType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffLightSystemType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link TouchDownLiftOffMarkingType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffSafeAreaType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link TouchDownLiftOffType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link UnitType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link UnplannedHoldingType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link VORType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link VerticalStructureType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link VisualGlideSlopeIndicatorType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link WaterBodyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link WeatherSourceType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link WorkAreaType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractAIXMFeatureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractAirportGroundServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractAirportHeliportProtectionAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractApproachLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGroundLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractNavaidEquipmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractNavigationSystemCheckpointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractProcedureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractRadarEquipmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSegmentLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractSurveillanceRadarType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractTrafficSeparationServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AerialRefuellingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AeronauticalGroundLightType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirTrafficControlServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirTrafficFlowManagementServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AircraftGroundServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AircraftStandType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportClearanceServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportCollocationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportHotSpotType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportProtectionAreaMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportSignType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportSuppliesServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirspaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AltimeterCheckpointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApproachLightingSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronElementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ArrestingGearType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ArrivalFeederLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ArrivalLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AuthorityForAirspaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AzimuthType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ChangeOverPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CheckpointINSType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CheckpointVORType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CirclingAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DMEType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DeicingAreaMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DeicingAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DepartureLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DirectionFinderType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FinalLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FireFightingServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FlightRestrictionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link FloatingDockSiteType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GBASServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GBASType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GangwayType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GeoBorderType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GlidepathType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GroundTrafficControlServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GuidanceLineLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GuidanceLineMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link GuidanceLineType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link HoldingAssessmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link HoldingPatternType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link InformationServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link InitialLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link InstrumentApproachProcedureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link IntermediateLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link LocalizerType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MarkerBeaconType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MarkingBuoyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MinimumAltitudeAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link MissedApproachLegType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NDBType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NavaidType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NavigationAreaRestrictionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NavigationAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link NonMovementAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ObstacleAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PassengerLoadingBridgeType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PassengerServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PilotControlledLightingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PrecisionApproachRadarType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PrimarySurveillanceRadarType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ProcedureDMEType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RadarSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RadioCommunicationChannelType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RadioFrequencyAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RoadType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RouteDMEType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RouteSegmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RouteType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RulesProceduresType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayBlastPadType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayDirectionLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayDirectionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayElementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayProtectAreaLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayProtectAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link RunwayVisualRangeEquipmentType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SDFType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SatelliteServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SatelliteSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SeaplaneLandingAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SeaplaneRampSiteType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SearchRescueServiceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SecondarySurveillanceRadarType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SignificantPointInAirspaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SpecialDateType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SpecialNavigationStationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SpecialNavigationSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentArrivalType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentDepartureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardLevelColumnType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardLevelSectorType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link StandardLevelTableType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SurveyControlPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TACANType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiHoldingPositionLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiHoldingPositionMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiHoldingPositionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiwayElementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiwayLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiwayMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TaxiwayType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TerminalArrivalAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffLightSystemType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffMarkingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffSafeAreaType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link UnitType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link UnplannedHoldingType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link VORType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link VerticalStructureType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link VisualGlideSlopeIndicatorType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link WaterBodyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link WeatherSourceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link WorkAreaType }{@code >}
+     *     
      * @see #getAbstractAIXMFeature()
      */
     public void setAbstractAIXMFeature(JAXBElement<? extends AbstractAIXMFeatureType> value) {
@@ -631,14 +564,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetAbstractAIXMFeature() {
-        return (this.abstractAIXMFeature != null);
+        return (this.abstractAIXMFeature!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "NIL_REASON", length = 255)
@@ -648,10 +583,11 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
@@ -659,14 +595,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Transient
     public String getRemoteSchema() {
@@ -675,10 +613,11 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the remoteSchema property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
@@ -686,14 +625,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
+        return (this.remoteSchema!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "HREF")
@@ -703,10 +644,11 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
@@ -714,14 +656,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "ROLE_")
@@ -731,10 +675,11 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
@@ -742,14 +687,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "ARCROLE")
@@ -759,10 +706,11 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
@@ -770,14 +718,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "SIMPLE_LINK_TITLE", length = 255)
@@ -787,10 +737,11 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
@@ -798,14 +749,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     @Basic
     @Column(name = "SHOW_", length = 255)
@@ -816,10 +769,11 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
@@ -827,14 +781,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     @Basic
     @Column(name = "ACTUATE", length = 255)
@@ -845,10 +801,11 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
@@ -856,14 +813,16 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
 
     @Transient
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -874,21 +833,24 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -897,11 +859,12 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -918,13 +881,14 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
     }
 
     public void setAbstractAIXMFeatureName(String target) {
-        if (target != null) {
-            setAbstractAIXMFeature(
-                    JAXBElementUtils.wrap(this.getAbstractAIXMFeature(), target, AbstractAIXMFeatureType.class));
+        if (target!= null) {
+            setAbstractAIXMFeature(JAXBElementUtils.wrap(this.getAbstractAIXMFeature(), target, AbstractAIXMFeatureType.class));
         }
     }
 
-    @ManyToOne(targetEntity = AbstractAIXMFeatureType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AbstractAIXMFeatureType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @jakarta.persistence.JoinColumn(name = "feature_hjid", referencedColumnName = "hjid")
     public AbstractAIXMFeatureType getAbstractAIXMFeatureValue() {
         if (this.getAbstractAIXMFeature() instanceof JAXBElement) {
@@ -935,15 +899,14 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
     }
 
     public void setAbstractAIXMFeatureValue(AbstractAIXMFeatureType target) {
-        if (target != null) {
+        if (target!= null) {
             setAbstractAIXMFeature(JAXBElementUtils.wrap(this.getAbstractAIXMFeature(), target));
         }
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -953,32 +916,6 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
             return false;
         }
         final BasicMessageMemberAIXMPropertyType that = ((BasicMessageMemberAIXMPropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetActuate();
             boolean rhsFieldIsSet = that.isSetActuate();
@@ -993,53 +930,14 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAIXMFeature();
-            boolean rhsFieldIsSet = that.isSetAbstractAIXMFeature();
-            JAXBElement<? extends AbstractAIXMFeatureType> lhsField;
-            lhsField = this.getAbstractAIXMFeature();
-            JAXBElement<? extends AbstractAIXMFeatureType> rhsField;
-            rhsField = that.getAbstractAIXMFeature();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAIXMFeature", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAIXMFeature", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
-            lhsField = this.getRemoteSchema();
+            lhsField = this.getRole();
             String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1058,6 +956,58 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAbstractAIXMFeature();
+            boolean rhsFieldIsSet = that.isSetAbstractAIXMFeature();
+            JAXBElement<? extends AbstractAIXMFeatureType> lhsField;
+            lhsField = this.getAbstractAIXMFeature();
+            JAXBElement<? extends AbstractAIXMFeatureType> rhsField;
+            rhsField = that.getAbstractAIXMFeature();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAIXMFeature", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAIXMFeature", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetArcrole();
             boolean rhsFieldIsSet = that.isSetArcrole();
             String lhsField;
@@ -1066,6 +1016,19 @@ public class BasicMessageMemberAIXMPropertyType extends AbstractFeatureMemberTyp
             rhsField = that.getArcrole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

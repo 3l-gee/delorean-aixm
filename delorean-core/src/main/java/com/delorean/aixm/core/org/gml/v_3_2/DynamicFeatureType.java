@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -9,24 +10,18 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for DynamicFeatureType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DynamicFeatureType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DynamicFeatureType">
  *   <complexContent>
@@ -36,14 +31,24 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DynamicFeatureType", propOrder = {"validTime", "history", "dataSource", "dataSourceReference"})
-@XmlSeeAlso({DynamicFeatureCollectionType.class})
+@XmlType(name = "DynamicFeatureType", propOrder = {
+    "validTime",
+    "history",
+    "dataSource",
+    "dataSourceReference"
+})
+@XmlSeeAlso({
+    DynamicFeatureCollectionType.class
+})
 @MappedSuperclass
-public class DynamicFeatureType extends AbstractFeatureType implements Serializable {
+public class DynamicFeatureType
+    extends AbstractFeatureType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected TimePrimitivePropertyType validTime;
@@ -54,9 +59,11 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     /**
      * Gets the value of the validTime property.
-     *
-     * @return possible object is {@link TimePrimitivePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link TimePrimitivePropertyType }
+     *     
      */
     @Transient
     public TimePrimitivePropertyType getValidTime() {
@@ -65,10 +72,11 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     /**
      * Sets the value of the validTime property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TimePrimitivePropertyType }
-     *
+     *     allowed object is
+     *     {@link TimePrimitivePropertyType }
+     *     
      */
     public void setValidTime(TimePrimitivePropertyType value) {
         this.validTime = value;
@@ -76,16 +84,17 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     @Transient
     public boolean isSetValidTime() {
-        return (this.validTime != null);
+        return (this.validTime!= null);
     }
 
     /**
      * Gets the value of the history property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link HistoryPropertyType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link HistoryPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link HistoryPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link HistoryPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<HistoryPropertyType> getHistory() {
@@ -94,12 +103,12 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     /**
      * Sets the value of the history property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link HistoryPropertyType }{@code >} {@link JAXBElement
-     *            }{@code <}{@link HistoryPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link HistoryPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link HistoryPropertyType }{@code >}
+     *     
      */
     public void setHistory(JAXBElement<HistoryPropertyType> value) {
         this.history = value;
@@ -107,14 +116,16 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     @Transient
     public boolean isSetHistory() {
-        return (this.history != null);
+        return (this.history!= null);
     }
 
     /**
      * Gets the value of the dataSource property.
-     *
-     * @return possible object is {@link StringOrRefType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link StringOrRefType }
+     *     
      */
     @Transient
     public StringOrRefType getDataSource() {
@@ -123,10 +134,11 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     /**
      * Sets the value of the dataSource property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link StringOrRefType }
-     *
+     *     allowed object is
+     *     {@link StringOrRefType }
+     *     
      */
     public void setDataSource(StringOrRefType value) {
         this.dataSource = value;
@@ -134,14 +146,16 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     @Transient
     public boolean isSetDataSource() {
-        return (this.dataSource != null);
+        return (this.dataSource!= null);
     }
 
     /**
      * Gets the value of the dataSourceReference property.
-     *
-     * @return possible object is {@link ReferenceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ReferenceType }
+     *     
      */
     @Transient
     public ReferenceType getDataSourceReference() {
@@ -150,10 +164,11 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     /**
      * Sets the value of the dataSourceReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ReferenceType }
-     *
+     *     allowed object is
+     *     {@link ReferenceType }
+     *     
      */
     public void setDataSourceReference(ReferenceType value) {
         this.dataSourceReference = value;
@@ -161,13 +176,12 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
 
     @Transient
     public boolean isSetDataSourceReference() {
-        return (this.dataSourceReference != null);
+        return (this.dataSourceReference!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -178,6 +192,19 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
         }
         final DynamicFeatureType that = ((DynamicFeatureType) object);
         {
+            boolean lhsFieldIsSet = this.isSetHistory();
+            boolean rhsFieldIsSet = that.isSetHistory();
+            JAXBElement<HistoryPropertyType> lhsField;
+            lhsField = this.getHistory();
+            JAXBElement<HistoryPropertyType> rhsField;
+            rhsField = that.getHistory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "history", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "history", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDataSourceReference();
             boolean rhsFieldIsSet = that.isSetDataSourceReference();
             ReferenceType lhsField;
@@ -186,19 +213,6 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
             rhsField = that.getDataSourceReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDataSource();
-            boolean rhsFieldIsSet = that.isSetDataSource();
-            StringOrRefType lhsField;
-            lhsField = this.getDataSource();
-            StringOrRefType rhsField;
-            rhsField = that.getDataSource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -217,14 +231,14 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHistory();
-            boolean rhsFieldIsSet = that.isSetHistory();
-            JAXBElement<HistoryPropertyType> lhsField;
-            lhsField = this.getHistory();
-            JAXBElement<HistoryPropertyType> rhsField;
-            rhsField = that.getHistory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "history", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "history", rhsField);
+            boolean lhsFieldIsSet = this.isSetDataSource();
+            boolean rhsFieldIsSet = that.isSetDataSource();
+            StringOrRefType lhsField;
+            lhsField = this.getDataSource();
+            StringOrRefType rhsField;
+            rhsField = that.getDataSource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

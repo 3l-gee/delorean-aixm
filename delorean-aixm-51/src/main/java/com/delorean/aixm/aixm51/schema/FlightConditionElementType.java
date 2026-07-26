@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,97 +31,52 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for FlightConditionElementType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FlightConditionElementType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FlightConditionElementType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="index" type=
-"{http://www.aixm.aero/schema/5.1}NoSequenceType" minOccurs="0"/>
+ *         <element name="index" type="{http://www.aixm.aero/schema/5.1}NoSequenceType" minOccurs="0"/>
  *         <choice>
- *           <element name="flightCondition_airportHeliportCondition" type=
-"{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
- *           <element name=
-"flightCondition_standardInstrumentDepartureCondition" type=
-"{http://www.aixm.aero/schema/5.1}StandardInstrumentDeparturePropertyType" minOccurs
-="0"/>
- *           <element name="flightCondition_routePortionCondition" type=
-"{http://www.aixm.aero/schema/5.1}RoutePortionPropertyType" minOccurs="0"/>
- *           <element name="flightCondition_organisationCondition" type=
-"{http://www.aixm.aero/schema/5.1}OrganisationAuthorityPropertyType" minOccurs=
-"0"/>
+ *           <element name="flightCondition_airportHeliportCondition" type="{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_standardInstrumentDepartureCondition" type="{http://www.aixm.aero/schema/5.1}StandardInstrumentDeparturePropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_routePortionCondition" type="{http://www.aixm.aero/schema/5.1}RoutePortionPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_organisationCondition" type="{http://www.aixm.aero/schema/5.1}OrganisationAuthorityPropertyType" minOccurs="0"/>
  *           <choice>
- *             <element name="significantPointCondition_fixDesignatedPoint" type
-="{http://www.aixm.aero/schema/5.1}DesignatedPointPropertyType" minOccurs="0"/>
- *             <element name="significantPointCondition_navaidSystem" type=
-"{http://www.aixm.aero/schema/5.1}NavaidPropertyType" minOccurs="0"/>
- *             <element name="significantPointCondition_aimingPoint" type=
-"{http://www.aixm.aero/schema/5.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
- *             <element name="significantPointCondition_runwayPoint" type=
-"{http://www.aixm.aero/schema/5.1}RunwayCentrelinePointPropertyType" minOccurs=
-"0"/>
- *             <element name=
-"significantPointCondition_airportReferencePoint" type=
-"{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
- *             <element name="significantPointCondition_position" type=
-"{http://www.aixm.aero/schema/5.1}PointPropertyType" minOccurs="0"/>
+ *             <element name="significantPointCondition_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *             <element name="significantPointCondition_navaidSystem" type="{http://www.aixm.aero/schema/5.1}NavaidPropertyType" minOccurs="0"/>
+ *             <element name="significantPointCondition_aimingPoint" type="{http://www.aixm.aero/schema/5.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *             <element name="significantPointCondition_runwayPoint" type="{http://www.aixm.aero/schema/5.1}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *             <element name="significantPointCondition_airportReferencePoint" type="{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *             <element name="significantPointCondition_position" type="{http://www.aixm.aero/schema/5.1}PointPropertyType" minOccurs="0"/>
  *           </choice>
- *           <element name="flightCondition_directFlightCondition" type=
-"{http://www.aixm.aero/schema/5.1}DirectFlightPropertyType" minOccurs="0"/>
- *           <element name="flightCondition_aircraft" type=
-"{http://www.aixm.aero/schema/5.1}AircraftCharacteristicPropertyType" minOccurs=
-"0"/>
- *           <element name="flightCondition_borderCrossingCondition" type=
-"{http://www.aixm.aero/schema/5.1}AirspaceBorderCrossingPropertyType" minOccurs=
-"0"/>
- *           <element name="flightCondition_airspaceCondition" type=
-"{http://www.aixm.aero/schema/5.1}AirspacePropertyType" minOccurs="0"/>
- *           <element name="flightCondition_flight" type=
-"{http://www.aixm.aero/schema/5.1}FlightCharacteristicPropertyType" minOccurs=
-"0"/>
- *           <element name=
-"flightCondition_standardInstrumentArrivalCondition" type=
-"{http://www.aixm.aero/schema/5.1}StandardInstrumentArrivalPropertyType" minOccurs
-="0"/>
- *           <element name="flightCondition_operand" type=
-"{http://www.aixm.aero/schema/5.1}FlightConditionCombinationPropertyType" minOccurs
-="0"/>
- *           <element name="flightCondition_weather" type=
-"{http://www.aixm.aero/schema/5.1}MeteorologyPropertyType" minOccurs="0"/>
- *           <element name="flightCondition_aerialRefuellingCondition" type=
-"{http://www.aixm.aero/schema/5.1}AerialRefuellingPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_directFlightCondition" type="{http://www.aixm.aero/schema/5.1}DirectFlightPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_aircraft" type="{http://www.aixm.aero/schema/5.1}AircraftCharacteristicPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_borderCrossingCondition" type="{http://www.aixm.aero/schema/5.1}AirspaceBorderCrossingPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_airspaceCondition" type="{http://www.aixm.aero/schema/5.1}AirspacePropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_flight" type="{http://www.aixm.aero/schema/5.1}FlightCharacteristicPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_standardInstrumentArrivalCondition" type="{http://www.aixm.aero/schema/5.1}StandardInstrumentArrivalPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_operand" type="{http://www.aixm.aero/schema/5.1}FlightConditionCombinationPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_weather" type="{http://www.aixm.aero/schema/5.1}MeteorologyPropertyType" minOccurs="0"/>
+ *           <element name="flightCondition_aerialRefuellingCondition" type="{http://www.aixm.aero/schema/5.1}AerialRefuellingPropertyType" minOccurs="0"/>
  *         </choice>
- *         <element name="operationalCondition" type=
-"{http://www.aixm.aero/schema/5.1}FlightConditionCircumstancePropertyType" minOccurs
-="0"/>
- *         <element name="flightLevel" type=
-"{http://www.aixm.aero/schema/5.1}FlightRestrictionLevelPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="operationalCondition" type="{http://www.aixm.aero/schema/5.1}FlightConditionCircumstancePropertyType" minOccurs="0"/>
+ *         <element name="flightLevel" type="{http://www.aixm.aero/schema/5.1}FlightRestrictionLevelPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractFlightConditionElementExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractFlightConditionElementExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -131,22 +86,42 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FlightConditionElementType", propOrder = {"index", "flightConditionAirportHeliportCondition",
-        "flightConditionStandardInstrumentDepartureCondition", "flightConditionRoutePortionCondition",
-        "flightConditionOrganisationCondition", "significantPointConditionFixDesignatedPoint",
-        "significantPointConditionNavaidSystem", "significantPointConditionAimingPoint",
-        "significantPointConditionRunwayPoint", "significantPointConditionAirportReferencePoint",
-        "significantPointConditionPosition", "flightConditionDirectFlightCondition", "flightConditionAircraft",
-        "flightConditionBorderCrossingCondition", "flightConditionAirspaceCondition", "flightConditionFlight",
-        "flightConditionStandardInstrumentArrivalCondition", "flightConditionOperand", "flightConditionWeather",
-        "flightConditionAerialRefuellingCondition", "operationalCondition", "flightLevel", "annotation", "extension"})
+@XmlType(name = "FlightConditionElementType", propOrder = {
+    "index",
+    "flightConditionAirportHeliportCondition",
+    "flightConditionStandardInstrumentDepartureCondition",
+    "flightConditionRoutePortionCondition",
+    "flightConditionOrganisationCondition",
+    "significantPointConditionFixDesignatedPoint",
+    "significantPointConditionNavaidSystem",
+    "significantPointConditionAimingPoint",
+    "significantPointConditionRunwayPoint",
+    "significantPointConditionAirportReferencePoint",
+    "significantPointConditionPosition",
+    "flightConditionDirectFlightCondition",
+    "flightConditionAircraft",
+    "flightConditionBorderCrossingCondition",
+    "flightConditionAirspaceCondition",
+    "flightConditionFlight",
+    "flightConditionStandardInstrumentArrivalCondition",
+    "flightConditionOperand",
+    "flightConditionWeather",
+    "flightConditionAerialRefuellingCondition",
+    "operationalCondition",
+    "flightLevel",
+    "annotation",
+    "extension"
+})
 @Entity(name = "FlightConditionElementType")
 @Table(name = "flightconditionelement_o", schema = "route")
-public class FlightConditionElementType extends AbstractAIXMObjectType implements Serializable {
+public class FlightConditionElementType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "index", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -199,10 +174,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the index property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link NoSequenceType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NoSequenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NoSequenceType> getIndex() {
@@ -211,11 +187,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the index property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NoSequenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NoSequenceType }{@code >}
+     *     
      */
     public void setIndex(JAXBElement<NoSequenceType> value) {
         this.index = value;
@@ -223,15 +199,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetIndex() {
-        return (this.index != null);
+        return (this.index!= null);
     }
 
     /**
      * Gets the value of the flightConditionAirportHeliportCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getFlightConditionAirportHeliportCondition() {
@@ -240,11 +217,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionAirportHeliportCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionAirportHeliportCondition(JAXBElement<AirportHeliportPropertyType> value) {
         this.flightConditionAirportHeliportCondition = value;
@@ -252,16 +229,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionAirportHeliportCondition() {
-        return (this.flightConditionAirportHeliportCondition != null);
+        return (this.flightConditionAirportHeliportCondition!= null);
     }
 
     /**
-     * Gets the value of the flightConditionStandardInstrumentDepartureCondition
-     * property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link StandardInstrumentDeparturePropertyType }{@code >}
-     *
+     * Gets the value of the flightConditionStandardInstrumentDepartureCondition property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentDeparturePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<StandardInstrumentDeparturePropertyType> getFlightConditionStandardInstrumentDepartureCondition() {
@@ -269,31 +246,29 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
     }
 
     /**
-     * Sets the value of the flightConditionStandardInstrumentDepartureCondition
-     * property.
-     *
+     * Sets the value of the flightConditionStandardInstrumentDepartureCondition property.
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link StandardInstrumentDeparturePropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentDeparturePropertyType }{@code >}
+     *     
      */
-    public void setFlightConditionStandardInstrumentDepartureCondition(
-            JAXBElement<StandardInstrumentDeparturePropertyType> value) {
+    public void setFlightConditionStandardInstrumentDepartureCondition(JAXBElement<StandardInstrumentDeparturePropertyType> value) {
         this.flightConditionStandardInstrumentDepartureCondition = value;
     }
 
     @Transient
     public boolean isSetFlightConditionStandardInstrumentDepartureCondition() {
-        return (this.flightConditionStandardInstrumentDepartureCondition != null);
+        return (this.flightConditionStandardInstrumentDepartureCondition!= null);
     }
 
     /**
      * Gets the value of the flightConditionRoutePortionCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RoutePortionPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RoutePortionPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RoutePortionPropertyType> getFlightConditionRoutePortionCondition() {
@@ -302,11 +277,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionRoutePortionCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RoutePortionPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RoutePortionPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionRoutePortionCondition(JAXBElement<RoutePortionPropertyType> value) {
         this.flightConditionRoutePortionCondition = value;
@@ -314,15 +289,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionRoutePortionCondition() {
-        return (this.flightConditionRoutePortionCondition != null);
+        return (this.flightConditionRoutePortionCondition!= null);
     }
 
     /**
      * Gets the value of the flightConditionOrganisationCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<OrganisationAuthorityPropertyType> getFlightConditionOrganisationCondition() {
@@ -331,11 +307,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionOrganisationCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionOrganisationCondition(JAXBElement<OrganisationAuthorityPropertyType> value) {
         this.flightConditionOrganisationCondition = value;
@@ -343,15 +319,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionOrganisationCondition() {
-        return (this.flightConditionOrganisationCondition != null);
+        return (this.flightConditionOrganisationCondition!= null);
     }
 
     /**
      * Gets the value of the significantPointConditionFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getSignificantPointConditionFixDesignatedPoint() {
@@ -360,11 +337,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the significantPointConditionFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setSignificantPointConditionFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.significantPointConditionFixDesignatedPoint = value;
@@ -372,15 +349,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSignificantPointConditionFixDesignatedPoint() {
-        return (this.significantPointConditionFixDesignatedPoint != null);
+        return (this.significantPointConditionFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the significantPointConditionNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getSignificantPointConditionNavaidSystem() {
@@ -389,11 +367,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the significantPointConditionNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setSignificantPointConditionNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.significantPointConditionNavaidSystem = value;
@@ -401,15 +379,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSignificantPointConditionNavaidSystem() {
-        return (this.significantPointConditionNavaidSystem != null);
+        return (this.significantPointConditionNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the significantPointConditionAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getSignificantPointConditionAimingPoint() {
@@ -418,11 +397,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the significantPointConditionAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setSignificantPointConditionAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.significantPointConditionAimingPoint = value;
@@ -430,15 +409,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSignificantPointConditionAimingPoint() {
-        return (this.significantPointConditionAimingPoint != null);
+        return (this.significantPointConditionAimingPoint!= null);
     }
 
     /**
      * Gets the value of the significantPointConditionRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getSignificantPointConditionRunwayPoint() {
@@ -447,11 +427,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the significantPointConditionRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setSignificantPointConditionRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.significantPointConditionRunwayPoint = value;
@@ -459,16 +439,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSignificantPointConditionRunwayPoint() {
-        return (this.significantPointConditionRunwayPoint != null);
+        return (this.significantPointConditionRunwayPoint!= null);
     }
 
     /**
-     * Gets the value of the significantPointConditionAirportReferencePoint
-     * property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * Gets the value of the significantPointConditionAirportReferencePoint property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getSignificantPointConditionAirportReferencePoint() {
@@ -476,13 +456,12 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
     }
 
     /**
-     * Sets the value of the significantPointConditionAirportReferencePoint
-     * property.
-     *
+     * Sets the value of the significantPointConditionAirportReferencePoint property.
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setSignificantPointConditionAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.significantPointConditionAirportReferencePoint = value;
@@ -490,15 +469,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSignificantPointConditionAirportReferencePoint() {
-        return (this.significantPointConditionAirportReferencePoint != null);
+        return (this.significantPointConditionAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the significantPointConditionPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getSignificantPointConditionPosition() {
@@ -507,11 +487,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the significantPointConditionPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setSignificantPointConditionPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.significantPointConditionPosition = value;
@@ -519,15 +499,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetSignificantPointConditionPosition() {
-        return (this.significantPointConditionPosition != null);
+        return (this.significantPointConditionPosition!= null);
     }
 
     /**
      * Gets the value of the flightConditionDirectFlightCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DirectFlightPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DirectFlightPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DirectFlightPropertyType> getFlightConditionDirectFlightCondition() {
@@ -536,11 +517,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionDirectFlightCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DirectFlightPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DirectFlightPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionDirectFlightCondition(JAXBElement<DirectFlightPropertyType> value) {
         this.flightConditionDirectFlightCondition = value;
@@ -548,15 +529,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionDirectFlightCondition() {
-        return (this.flightConditionDirectFlightCondition != null);
+        return (this.flightConditionDirectFlightCondition!= null);
     }
 
     /**
      * Gets the value of the flightConditionAircraft property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AircraftCharacteristicPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AircraftCharacteristicPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AircraftCharacteristicPropertyType> getFlightConditionAircraft() {
@@ -565,11 +547,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionAircraft property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AircraftCharacteristicPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AircraftCharacteristicPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionAircraft(JAXBElement<AircraftCharacteristicPropertyType> value) {
         this.flightConditionAircraft = value;
@@ -577,15 +559,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionAircraft() {
-        return (this.flightConditionAircraft != null);
+        return (this.flightConditionAircraft!= null);
     }
 
     /**
      * Gets the value of the flightConditionBorderCrossingCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirspaceBorderCrossingPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirspaceBorderCrossingPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirspaceBorderCrossingPropertyType> getFlightConditionBorderCrossingCondition() {
@@ -594,11 +577,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionBorderCrossingCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirspaceBorderCrossingPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirspaceBorderCrossingPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionBorderCrossingCondition(JAXBElement<AirspaceBorderCrossingPropertyType> value) {
         this.flightConditionBorderCrossingCondition = value;
@@ -606,15 +589,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionBorderCrossingCondition() {
-        return (this.flightConditionBorderCrossingCondition != null);
+        return (this.flightConditionBorderCrossingCondition!= null);
     }
 
     /**
      * Gets the value of the flightConditionAirspaceCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirspacePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirspacePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirspacePropertyType> getFlightConditionAirspaceCondition() {
@@ -623,11 +607,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionAirspaceCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirspacePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirspacePropertyType }{@code >}
+     *     
      */
     public void setFlightConditionAirspaceCondition(JAXBElement<AirspacePropertyType> value) {
         this.flightConditionAirspaceCondition = value;
@@ -635,15 +619,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionAirspaceCondition() {
-        return (this.flightConditionAirspaceCondition != null);
+        return (this.flightConditionAirspaceCondition!= null);
     }
 
     /**
      * Gets the value of the flightConditionFlight property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link FlightCharacteristicPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link FlightCharacteristicPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<FlightCharacteristicPropertyType> getFlightConditionFlight() {
@@ -652,11 +637,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionFlight property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link FlightCharacteristicPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link FlightCharacteristicPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionFlight(JAXBElement<FlightCharacteristicPropertyType> value) {
         this.flightConditionFlight = value;
@@ -664,16 +649,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionFlight() {
-        return (this.flightConditionFlight != null);
+        return (this.flightConditionFlight!= null);
     }
 
     /**
-     * Gets the value of the flightConditionStandardInstrumentArrivalCondition
-     * property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link StandardInstrumentArrivalPropertyType }{@code >}
-     *
+     * Gets the value of the flightConditionStandardInstrumentArrivalCondition property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentArrivalPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<StandardInstrumentArrivalPropertyType> getFlightConditionStandardInstrumentArrivalCondition() {
@@ -681,30 +666,29 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
     }
 
     /**
-     * Sets the value of the flightConditionStandardInstrumentArrivalCondition
-     * property.
-     *
+     * Sets the value of the flightConditionStandardInstrumentArrivalCondition property.
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link StandardInstrumentArrivalPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentArrivalPropertyType }{@code >}
+     *     
      */
-    public void setFlightConditionStandardInstrumentArrivalCondition(
-            JAXBElement<StandardInstrumentArrivalPropertyType> value) {
+    public void setFlightConditionStandardInstrumentArrivalCondition(JAXBElement<StandardInstrumentArrivalPropertyType> value) {
         this.flightConditionStandardInstrumentArrivalCondition = value;
     }
 
     @Transient
     public boolean isSetFlightConditionStandardInstrumentArrivalCondition() {
-        return (this.flightConditionStandardInstrumentArrivalCondition != null);
+        return (this.flightConditionStandardInstrumentArrivalCondition!= null);
     }
 
     /**
      * Gets the value of the flightConditionOperand property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link FlightConditionCombinationPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link FlightConditionCombinationPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<FlightConditionCombinationPropertyType> getFlightConditionOperand() {
@@ -713,11 +697,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionOperand property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link FlightConditionCombinationPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link FlightConditionCombinationPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionOperand(JAXBElement<FlightConditionCombinationPropertyType> value) {
         this.flightConditionOperand = value;
@@ -725,15 +709,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionOperand() {
-        return (this.flightConditionOperand != null);
+        return (this.flightConditionOperand!= null);
     }
 
     /**
      * Gets the value of the flightConditionWeather property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link MeteorologyPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link MeteorologyPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<MeteorologyPropertyType> getFlightConditionWeather() {
@@ -742,11 +727,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionWeather property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link MeteorologyPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link MeteorologyPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionWeather(JAXBElement<MeteorologyPropertyType> value) {
         this.flightConditionWeather = value;
@@ -754,15 +739,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionWeather() {
-        return (this.flightConditionWeather != null);
+        return (this.flightConditionWeather!= null);
     }
 
     /**
      * Gets the value of the flightConditionAerialRefuellingCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AerialRefuellingPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AerialRefuellingPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AerialRefuellingPropertyType> getFlightConditionAerialRefuellingCondition() {
@@ -771,11 +757,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the flightConditionAerialRefuellingCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AerialRefuellingPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AerialRefuellingPropertyType }{@code >}
+     *     
      */
     public void setFlightConditionAerialRefuellingCondition(JAXBElement<AerialRefuellingPropertyType> value) {
         this.flightConditionAerialRefuellingCondition = value;
@@ -783,15 +769,16 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightConditionAerialRefuellingCondition() {
-        return (this.flightConditionAerialRefuellingCondition != null);
+        return (this.flightConditionAerialRefuellingCondition!= null);
     }
 
     /**
      * Gets the value of the operationalCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link FlightConditionCircumstancePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link FlightConditionCircumstancePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<FlightConditionCircumstancePropertyType> getOperationalCondition() {
@@ -800,12 +787,11 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Sets the value of the operationalCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link FlightConditionCircumstancePropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link FlightConditionCircumstancePropertyType }{@code >}
+     *     
      */
     public void setOperationalCondition(JAXBElement<FlightConditionCircumstancePropertyType> value) {
         this.operationalCondition = value;
@@ -813,37 +799,39 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetOperationalCondition() {
-        return (this.operationalCondition != null);
+        return (this.operationalCondition!= null);
     }
 
     /**
      * Gets the value of the flightLevel property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the flightLevel property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the flightLevel property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getFlightLevel().add(newItem);
+     *    getFlightLevel().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FlightRestrictionLevelPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = FlightRestrictionLevelPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtlvl_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightlevel_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtlvl_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightlevel_hjid", referencedColumnName = "hjid")
+    })
     public List<FlightRestrictionLevelPropertyType> getFlightLevel() {
         if (flightLevel == null) {
             flightLevel = new ArrayList<>();
@@ -852,8 +840,8 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setFlightLevel(List<FlightRestrictionLevelPropertyType> flightLevel) {
         this.flightLevel = flightLevel;
@@ -861,7 +849,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetFlightLevel() {
-        return ((this.flightLevel != null) && (!this.flightLevel.isEmpty()));
+        return ((this.flightLevel!= null)&&(!this.flightLevel.isEmpty()));
     }
 
     public void unsetFlightLevel() {
@@ -870,31 +858,34 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_annttn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_annttn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -903,8 +894,8 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -912,7 +903,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -921,29 +912,29 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FlightConditionElementExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = FlightConditionElementExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "flightconditionelement_oe_hjid", referencedColumnName = "hjid")
     public List<FlightConditionElementExtensionType> getExtension() {
         if (extension == null) {
@@ -953,8 +944,8 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<FlightConditionElementExtensionType> extension) {
         this.extension = extension;
@@ -962,7 +953,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -970,340 +961,341 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "index")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "indexnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "index", columnDefinition = "nosequencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "indexnilreason", columnDefinition = "nilreason"))
+    })
     public NoSequenceType getIndexItem() {
         return XmlAdapterUtils.unmarshallSource(NoSequenceType.class, this.getIndex());
     }
 
     public void setIndexItem(NoSequenceType target) {
-        setIndex(XmlAdapterUtils.marshallJAXBElement(NoSequenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "index"), FlightConditionElementType.class, target));
+        setIndex(XmlAdapterUtils.marshallJAXBElement(NoSequenceType.class, new QName("http://www.aixm.aero/schema/5.1", "index"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarprthlprtcndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionairportheliportcondition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarprthlprtcndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionairportheliportcondition_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getFlightConditionAirportHeliportConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class,
-                this.getFlightConditionAirportHeliportCondition());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getFlightConditionAirportHeliportCondition());
     }
 
     public void setFlightConditionAirportHeliportConditionItem(AirportHeliportPropertyType target) {
-        setFlightConditionAirportHeliportCondition(
-                XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1", "flightCondition_airportHeliportCondition"),
-                        FlightConditionElementType.class, target));
+        setFlightConditionAirportHeliportCondition(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_airportHeliportCondition"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = StandardInstrumentDeparturePropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnstndrdinstrmntdprtrcndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionstandardinstrumentdeparturecondition_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnstndrdinstrmntdprtrcndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionstandardinstrumentdeparturecondition_hjid", referencedColumnName = "hjid")
+    })
     public StandardInstrumentDeparturePropertyType getFlightConditionStandardInstrumentDepartureConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(StandardInstrumentDeparturePropertyType.class,
-                this.getFlightConditionStandardInstrumentDepartureCondition());
+        return XmlAdapterUtils.unmarshallSource(StandardInstrumentDeparturePropertyType.class, this.getFlightConditionStandardInstrumentDepartureCondition());
     }
 
-    public void setFlightConditionStandardInstrumentDepartureConditionItem(
-            StandardInstrumentDeparturePropertyType target) {
-        setFlightConditionStandardInstrumentDepartureCondition(
-                XmlAdapterUtils.marshallJAXBElement(StandardInstrumentDeparturePropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1",
-                                "flightCondition_standardInstrumentDepartureCondition"),
-                        FlightConditionElementType.class, target));
+    public void setFlightConditionStandardInstrumentDepartureConditionItem(StandardInstrumentDeparturePropertyType target) {
+        setFlightConditionStandardInstrumentDepartureCondition(XmlAdapterUtils.marshallJAXBElement(StandardInstrumentDeparturePropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_standardInstrumentDepartureCondition"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = RoutePortionPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnrtprtncndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionrouteportioncondition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = RoutePortionPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnrtprtncndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionrouteportioncondition_hjid", referencedColumnName = "hjid")
+    })
     public RoutePortionPropertyType getFlightConditionRoutePortionConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(RoutePortionPropertyType.class,
-                this.getFlightConditionRoutePortionCondition());
+        return XmlAdapterUtils.unmarshallSource(RoutePortionPropertyType.class, this.getFlightConditionRoutePortionCondition());
     }
 
     public void setFlightConditionRoutePortionConditionItem(RoutePortionPropertyType target) {
-        setFlightConditionRoutePortionCondition(XmlAdapterUtils.marshallJAXBElement(RoutePortionPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "flightCondition_routePortionCondition"),
-                FlightConditionElementType.class, target));
+        setFlightConditionRoutePortionCondition(XmlAdapterUtils.marshallJAXBElement(RoutePortionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_routePortionCondition"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnorgnstncndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionorganisationcondition_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnorgnstncndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionorganisationcondition_hjid", referencedColumnName = "hjid")
+    })
     public OrganisationAuthorityPropertyType getFlightConditionOrganisationConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(OrganisationAuthorityPropertyType.class,
-                this.getFlightConditionOrganisationCondition());
+        return XmlAdapterUtils.unmarshallSource(OrganisationAuthorityPropertyType.class, this.getFlightConditionOrganisationCondition());
     }
 
     public void setFlightConditionOrganisationConditionItem(OrganisationAuthorityPropertyType target) {
-        setFlightConditionOrganisationCondition(
-                XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1", "flightCondition_organisationCondition"),
-                        FlightConditionElementType.class, target));
+        setFlightConditionOrganisationCondition(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_organisationCondition"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnfxdsgntdpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "significantpointconditionfixdesignatedpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnfxdsgntdpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "significantpointconditionfixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getSignificantPointConditionFixDesignatedPointItem() {
-        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class,
-                this.getSignificantPointConditionFixDesignatedPoint());
+        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getSignificantPointConditionFixDesignatedPoint());
     }
 
     public void setSignificantPointConditionFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setSignificantPointConditionFixDesignatedPoint(
-                XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_fixDesignatedPoint"),
-                        FlightConditionElementType.class, target));
+        setSignificantPointConditionFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_fixDesignatedPoint"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnnvdsstm_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "significantpointconditionnavaidsystem_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnnvdsstm_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "significantpointconditionnavaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getSignificantPointConditionNavaidSystemItem() {
-        return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class,
-                this.getSignificantPointConditionNavaidSystem());
+        return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getSignificantPointConditionNavaidSystem());
     }
 
     public void setSignificantPointConditionNavaidSystemItem(NavaidPropertyType target) {
-        setSignificantPointConditionNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_navaidSystem"),
-                FlightConditionElementType.class, target));
+        setSignificantPointConditionNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_navaidSystem"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnamngpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "significantpointconditionaimingpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnamngpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "significantpointconditionaimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getSignificantPointConditionAimingPointItem() {
-        return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class,
-                this.getSignificantPointConditionAimingPoint());
+        return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getSignificantPointConditionAimingPoint());
     }
 
     public void setSignificantPointConditionAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setSignificantPointConditionAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_aimingPoint"),
-                FlightConditionElementType.class, target));
+        setSignificantPointConditionAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_aimingPoint"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnrnwpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "significantpointconditionrunwaypoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnrnwpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "significantpointconditionrunwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getSignificantPointConditionRunwayPointItem() {
-        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class,
-                this.getSignificantPointConditionRunwayPoint());
+        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getSignificantPointConditionRunwayPoint());
     }
 
     public void setSignificantPointConditionRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setSignificantPointConditionRunwayPoint(
-                XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_runwayPoint"),
-                        FlightConditionElementType.class, target));
+        setSignificantPointConditionRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_runwayPoint"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnarprtrfrncpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "significantpointconditionairportreferencepoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnarprtrfrncpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "significantpointconditionairportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getSignificantPointConditionAirportReferencePointItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class,
-                this.getSignificantPointConditionAirportReferencePoint());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getSignificantPointConditionAirportReferencePoint());
     }
 
     public void setSignificantPointConditionAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setSignificantPointConditionAirportReferencePoint(
-                XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_airportReferencePoint"),
-                        FlightConditionElementType.class, target));
+        setSignificantPointConditionAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_airportReferencePoint"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnpstn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "significantpointconditionposition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnpstn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "significantpointconditionposition_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getSignificantPointConditionPositionItem() {
-        return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class,
-                this.getSignificantPointConditionPosition());
+        return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getSignificantPointConditionPosition());
     }
 
     public void setSignificantPointConditionPositionItem(AIXMPointPropertyType target) {
-        setSignificantPointConditionPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_position"),
-                FlightConditionElementType.class, target));
+        setSignificantPointConditionPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "significantPointCondition_position"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = DirectFlightPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtndrctflghtcndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditiondirectflightcondition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DirectFlightPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtndrctflghtcndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditiondirectflightcondition_hjid", referencedColumnName = "hjid")
+    })
     public DirectFlightPropertyType getFlightConditionDirectFlightConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(DirectFlightPropertyType.class,
-                this.getFlightConditionDirectFlightCondition());
+        return XmlAdapterUtils.unmarshallSource(DirectFlightPropertyType.class, this.getFlightConditionDirectFlightCondition());
     }
 
     public void setFlightConditionDirectFlightConditionItem(DirectFlightPropertyType target) {
-        setFlightConditionDirectFlightCondition(XmlAdapterUtils.marshallJAXBElement(DirectFlightPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "flightCondition_directFlightCondition"),
-                FlightConditionElementType.class, target));
+        setFlightConditionDirectFlightCondition(XmlAdapterUtils.marshallJAXBElement(DirectFlightPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_directFlightCondition"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarcrft_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionaircraft_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarcrft_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionaircraft_hjid", referencedColumnName = "hjid")
+    })
     public AircraftCharacteristicPropertyType getFlightConditionAircraftItem() {
-        return XmlAdapterUtils.unmarshallSource(AircraftCharacteristicPropertyType.class,
-                this.getFlightConditionAircraft());
+        return XmlAdapterUtils.unmarshallSource(AircraftCharacteristicPropertyType.class, this.getFlightConditionAircraft());
     }
 
     public void setFlightConditionAircraftItem(AircraftCharacteristicPropertyType target) {
-        setFlightConditionAircraft(XmlAdapterUtils.marshallJAXBElement(AircraftCharacteristicPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "flightCondition_aircraft"),
-                FlightConditionElementType.class, target));
+        setFlightConditionAircraft(XmlAdapterUtils.marshallJAXBElement(AircraftCharacteristicPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_aircraft"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = AirspaceBorderCrossingPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnbrdrcrssngcndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionbordercrossingcondition_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnbrdrcrssngcndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionbordercrossingcondition_hjid", referencedColumnName = "hjid")
+    })
     public AirspaceBorderCrossingPropertyType getFlightConditionBorderCrossingConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(AirspaceBorderCrossingPropertyType.class,
-                this.getFlightConditionBorderCrossingCondition());
+        return XmlAdapterUtils.unmarshallSource(AirspaceBorderCrossingPropertyType.class, this.getFlightConditionBorderCrossingCondition());
     }
 
     public void setFlightConditionBorderCrossingConditionItem(AirspaceBorderCrossingPropertyType target) {
-        setFlightConditionBorderCrossingCondition(
-                XmlAdapterUtils.marshallJAXBElement(AirspaceBorderCrossingPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1", "flightCondition_borderCrossingCondition"),
-                        FlightConditionElementType.class, target));
+        setFlightConditionBorderCrossingCondition(XmlAdapterUtils.marshallJAXBElement(AirspaceBorderCrossingPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_borderCrossingCondition"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarspccndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionairspacecondition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarspccndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionairspacecondition_hjid", referencedColumnName = "hjid")
+    })
     public AirspacePropertyType getFlightConditionAirspaceConditionItem() {
         return XmlAdapterUtils.unmarshallSource(AirspacePropertyType.class, this.getFlightConditionAirspaceCondition());
     }
 
     public void setFlightConditionAirspaceConditionItem(AirspacePropertyType target) {
-        setFlightConditionAirspaceCondition(XmlAdapterUtils.marshallJAXBElement(AirspacePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "flightCondition_airspaceCondition"),
-                FlightConditionElementType.class, target));
+        setFlightConditionAirspaceCondition(XmlAdapterUtils.marshallJAXBElement(AirspacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_airspaceCondition"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = FlightCharacteristicPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnflght_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionflight_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnflght_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionflight_hjid", referencedColumnName = "hjid")
+    })
     public FlightCharacteristicPropertyType getFlightConditionFlightItem() {
-        return XmlAdapterUtils.unmarshallSource(FlightCharacteristicPropertyType.class,
-                this.getFlightConditionFlight());
+        return XmlAdapterUtils.unmarshallSource(FlightCharacteristicPropertyType.class, this.getFlightConditionFlight());
     }
 
     public void setFlightConditionFlightItem(FlightCharacteristicPropertyType target) {
-        setFlightConditionFlight(XmlAdapterUtils.marshallJAXBElement(FlightCharacteristicPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "flightCondition_flight"),
-                FlightConditionElementType.class, target));
+        setFlightConditionFlight(XmlAdapterUtils.marshallJAXBElement(FlightCharacteristicPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_flight"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = StandardInstrumentArrivalPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnstndrdinstrmntarrvlcndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionstandardinstrumentarrivalcondition_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnstndrdinstrmntarrvlcndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionstandardinstrumentarrivalcondition_hjid", referencedColumnName = "hjid")
+    })
     public StandardInstrumentArrivalPropertyType getFlightConditionStandardInstrumentArrivalConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(StandardInstrumentArrivalPropertyType.class,
-                this.getFlightConditionStandardInstrumentArrivalCondition());
+        return XmlAdapterUtils.unmarshallSource(StandardInstrumentArrivalPropertyType.class, this.getFlightConditionStandardInstrumentArrivalCondition());
     }
 
     public void setFlightConditionStandardInstrumentArrivalConditionItem(StandardInstrumentArrivalPropertyType target) {
-        setFlightConditionStandardInstrumentArrivalCondition(
-                XmlAdapterUtils.marshallJAXBElement(StandardInstrumentArrivalPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1",
-                                "flightCondition_standardInstrumentArrivalCondition"),
-                        FlightConditionElementType.class, target));
+        setFlightConditionStandardInstrumentArrivalCondition(XmlAdapterUtils.marshallJAXBElement(StandardInstrumentArrivalPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_standardInstrumentArrivalCondition"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = FlightConditionCombinationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnoprnd_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionoperand_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnoprnd_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionoperand_hjid", referencedColumnName = "hjid")
+    })
     public FlightConditionCombinationPropertyType getFlightConditionOperandItem() {
-        return XmlAdapterUtils.unmarshallSource(FlightConditionCombinationPropertyType.class,
-                this.getFlightConditionOperand());
+        return XmlAdapterUtils.unmarshallSource(FlightConditionCombinationPropertyType.class, this.getFlightConditionOperand());
     }
 
     public void setFlightConditionOperandItem(FlightConditionCombinationPropertyType target) {
-        setFlightConditionOperand(XmlAdapterUtils.marshallJAXBElement(FlightConditionCombinationPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "flightCondition_operand"),
-                FlightConditionElementType.class, target));
+        setFlightConditionOperand(XmlAdapterUtils.marshallJAXBElement(FlightConditionCombinationPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_operand"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = MeteorologyPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnwthr_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionweather_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = MeteorologyPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnwthr_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionweather_hjid", referencedColumnName = "hjid")
+    })
     public MeteorologyPropertyType getFlightConditionWeatherItem() {
         return XmlAdapterUtils.unmarshallSource(MeteorologyPropertyType.class, this.getFlightConditionWeather());
     }
 
     public void setFlightConditionWeatherItem(MeteorologyPropertyType target) {
-        setFlightConditionWeather(XmlAdapterUtils.marshallJAXBElement(MeteorologyPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "flightCondition_weather"),
-                FlightConditionElementType.class, target));
+        setFlightConditionWeather(XmlAdapterUtils.marshallJAXBElement(MeteorologyPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_weather"), FlightConditionElementType.class, target));
     }
 
-    @OneToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarlrfllngcndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flightconditionaerialrefuellingcondition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarlrfllngcndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightconditionaerialrefuellingcondition_hjid", referencedColumnName = "hjid")
+    })
     public AerialRefuellingPropertyType getFlightConditionAerialRefuellingConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(AerialRefuellingPropertyType.class,
-                this.getFlightConditionAerialRefuellingCondition());
+        return XmlAdapterUtils.unmarshallSource(AerialRefuellingPropertyType.class, this.getFlightConditionAerialRefuellingCondition());
     }
 
     public void setFlightConditionAerialRefuellingConditionItem(AerialRefuellingPropertyType target) {
-        setFlightConditionAerialRefuellingCondition(
-                XmlAdapterUtils.marshallJAXBElement(AerialRefuellingPropertyType.class,
-                        new QName("http://www.aixm.aero/schema/5.1", "flightCondition_aerialRefuellingCondition"),
-                        FlightConditionElementType.class, target));
+        setFlightConditionAerialRefuellingCondition(XmlAdapterUtils.marshallJAXBElement(AerialRefuellingPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flightCondition_aerialRefuellingCondition"), FlightConditionElementType.class, target));
     }
 
     @OneToOne(targetEntity = FlightConditionCircumstancePropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_oprtnlcndtn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "operationalcondition_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtnelmnttp_oprtnlcndtn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "operationalcondition_hjid", referencedColumnName = "hjid")
+    })
     public FlightConditionCircumstancePropertyType getOperationalConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(FlightConditionCircumstancePropertyType.class,
-                this.getOperationalCondition());
+        return XmlAdapterUtils.unmarshallSource(FlightConditionCircumstancePropertyType.class, this.getOperationalCondition());
     }
 
     public void setOperationalConditionItem(FlightConditionCircumstancePropertyType target) {
-        setOperationalCondition(XmlAdapterUtils.marshallJAXBElement(FlightConditionCircumstancePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "operationalCondition"), FlightConditionElementType.class,
-                target));
+        setOperationalCondition(XmlAdapterUtils.marshallJAXBElement(FlightConditionCircumstancePropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "operationalCondition"), FlightConditionElementType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1314,85 +1306,27 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
         }
         final FlightConditionElementType that = ((FlightConditionElementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionFlight();
-            boolean rhsFieldIsSet = that.isSetFlightConditionFlight();
-            JAXBElement<FlightCharacteristicPropertyType> lhsField;
-            lhsField = this.getFlightConditionFlight();
-            JAXBElement<FlightCharacteristicPropertyType> rhsField;
-            rhsField = that.getFlightConditionFlight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionFlight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionFlight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionOrganisationCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionOrganisationCondition();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getFlightConditionOrganisationCondition();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getFlightConditionOrganisationCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionOrganisationCondition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionOrganisationCondition",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSignificantPointConditionFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetSignificantPointConditionFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getSignificantPointConditionFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getSignificantPointConditionFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "significantPointConditionFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "significantPointConditionFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFlightConditionAerialRefuellingCondition();
             boolean rhsFieldIsSet = that.isSetFlightConditionAerialRefuellingCondition();
             JAXBElement<AerialRefuellingPropertyType> lhsField;
             lhsField = this.getFlightConditionAerialRefuellingCondition();
             JAXBElement<AerialRefuellingPropertyType> rhsField;
             rhsField = that.getFlightConditionAerialRefuellingCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "flightConditionAerialRefuellingCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "flightConditionAerialRefuellingCondition", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAerialRefuellingCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAerialRefuellingCondition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionAircraft();
-            boolean rhsFieldIsSet = that.isSetFlightConditionAircraft();
-            JAXBElement<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = this.getFlightConditionAircraft();
-            JAXBElement<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = that.getFlightConditionAircraft();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAircraft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAircraft", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditionBorderCrossingCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionBorderCrossingCondition();
+            JAXBElement<AirspaceBorderCrossingPropertyType> lhsField;
+            lhsField = this.getFlightConditionBorderCrossingCondition();
+            JAXBElement<AirspaceBorderCrossingPropertyType> rhsField;
+            rhsField = that.getFlightConditionBorderCrossingCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionBorderCrossingCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionBorderCrossingCondition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1411,44 +1345,40 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionAirportHeliportCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionAirportHeliportCondition();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getFlightConditionAirportHeliportCondition();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getFlightConditionAirportHeliportCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "flightConditionAirportHeliportCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "flightConditionAirportHeliportCondition", rhsField);
+            boolean lhsFieldIsSet = this.isSetSignificantPointConditionPosition();
+            boolean rhsFieldIsSet = that.isSetSignificantPointConditionPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getSignificantPointConditionPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getSignificantPointConditionPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionDirectFlightCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionDirectFlightCondition();
-            JAXBElement<DirectFlightPropertyType> lhsField;
-            lhsField = this.getFlightConditionDirectFlightCondition();
-            JAXBElement<DirectFlightPropertyType> rhsField;
-            rhsField = that.getFlightConditionDirectFlightCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionDirectFlightCondition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionDirectFlightCondition",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetSignificantPointConditionFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetSignificantPointConditionFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getSignificantPointConditionFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getSignificantPointConditionFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionFixDesignatedPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightLevel();
-            boolean rhsFieldIsSet = that.isSetFlightLevel();
-            List<FlightRestrictionLevelPropertyType> lhsField;
-            lhsField = (this.isSetFlightLevel() ? this.getFlightLevel() : null);
-            List<FlightRestrictionLevelPropertyType> rhsField;
-            rhsField = (that.isSetFlightLevel() ? that.getFlightLevel() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightLevel", rhsField);
+            boolean lhsFieldIsSet = this.isSetSignificantPointConditionNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetSignificantPointConditionNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getSignificantPointConditionNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getSignificantPointConditionNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1460,10 +1390,34 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             lhsField = this.getSignificantPointConditionRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
             rhsField = that.getSignificantPointConditionRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionRunwayPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionRunwayPoint",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperationalCondition();
+            boolean rhsFieldIsSet = that.isSetOperationalCondition();
+            JAXBElement<FlightConditionCircumstancePropertyType> lhsField;
+            lhsField = this.getOperationalCondition();
+            JAXBElement<FlightConditionCircumstancePropertyType> rhsField;
+            rhsField = that.getOperationalCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1472,9 +1426,9 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<FlightConditionElementExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<FlightConditionElementExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1482,104 +1436,14 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionOperand();
-            boolean rhsFieldIsSet = that.isSetFlightConditionOperand();
-            JAXBElement<FlightConditionCombinationPropertyType> lhsField;
-            lhsField = this.getFlightConditionOperand();
-            JAXBElement<FlightConditionCombinationPropertyType> rhsField;
-            rhsField = that.getFlightConditionOperand();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionOperand", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionOperand", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionStandardInstrumentDepartureCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionStandardInstrumentDepartureCondition();
-            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
-            lhsField = this.getFlightConditionStandardInstrumentDepartureCondition();
-            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
-            rhsField = that.getFlightConditionStandardInstrumentDepartureCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "flightConditionStandardInstrumentDepartureCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "flightConditionStandardInstrumentDepartureCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSignificantPointConditionAimingPoint();
-            boolean rhsFieldIsSet = that.isSetSignificantPointConditionAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getSignificantPointConditionAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getSignificantPointConditionAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionAimingPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionAimingPoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionAirspaceCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionAirspaceCondition();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getFlightConditionAirspaceCondition();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getFlightConditionAirspaceCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAirspaceCondition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAirspaceCondition",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionStandardInstrumentArrivalCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionStandardInstrumentArrivalCondition();
-            JAXBElement<StandardInstrumentArrivalPropertyType> lhsField;
-            lhsField = this.getFlightConditionStandardInstrumentArrivalCondition();
-            JAXBElement<StandardInstrumentArrivalPropertyType> rhsField;
-            rhsField = that.getFlightConditionStandardInstrumentArrivalCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "flightConditionStandardInstrumentArrivalCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "flightConditionStandardInstrumentArrivalCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSignificantPointConditionAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetSignificantPointConditionAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getSignificantPointConditionAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getSignificantPointConditionAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "significantPointConditionAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "significantPointConditionAirportReferencePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionRoutePortionCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionRoutePortionCondition();
-            JAXBElement<RoutePortionPropertyType> lhsField;
-            lhsField = this.getFlightConditionRoutePortionCondition();
-            JAXBElement<RoutePortionPropertyType> rhsField;
-            rhsField = that.getFlightConditionRoutePortionCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionRoutePortionCondition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionRoutePortionCondition",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditionOrganisationCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionOrganisationCondition();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getFlightConditionOrganisationCondition();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getFlightConditionOrganisationCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionOrganisationCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionOrganisationCondition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1598,59 +1462,157 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSignificantPointConditionPosition();
-            boolean rhsFieldIsSet = that.isSetSignificantPointConditionPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getSignificantPointConditionPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getSignificantPointConditionPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionPosition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionPosition",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditionAirportHeliportCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionAirportHeliportCondition();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getFlightConditionAirportHeliportCondition();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getFlightConditionAirportHeliportCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAirportHeliportCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAirportHeliportCondition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionBorderCrossingCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionBorderCrossingCondition();
-            JAXBElement<AirspaceBorderCrossingPropertyType> lhsField;
-            lhsField = this.getFlightConditionBorderCrossingCondition();
-            JAXBElement<AirspaceBorderCrossingPropertyType> rhsField;
-            rhsField = that.getFlightConditionBorderCrossingCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionBorderCrossingCondition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionBorderCrossingCondition",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditionStandardInstrumentDepartureCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionStandardInstrumentDepartureCondition();
+            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
+            lhsField = this.getFlightConditionStandardInstrumentDepartureCondition();
+            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
+            rhsField = that.getFlightConditionStandardInstrumentDepartureCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionStandardInstrumentDepartureCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionStandardInstrumentDepartureCondition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSignificantPointConditionNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetSignificantPointConditionNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getSignificantPointConditionNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getSignificantPointConditionNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionNavaidSystem",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionNavaidSystem",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditionAircraft();
+            boolean rhsFieldIsSet = that.isSetFlightConditionAircraft();
+            JAXBElement<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = this.getFlightConditionAircraft();
+            JAXBElement<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = that.getFlightConditionAircraft();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAircraft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAircraft", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperationalCondition();
-            boolean rhsFieldIsSet = that.isSetOperationalCondition();
-            JAXBElement<FlightConditionCircumstancePropertyType> lhsField;
-            lhsField = this.getOperationalCondition();
-            JAXBElement<FlightConditionCircumstancePropertyType> rhsField;
-            rhsField = that.getOperationalCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalCondition", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightLevel();
+            boolean rhsFieldIsSet = that.isSetFlightLevel();
+            List<FlightRestrictionLevelPropertyType> lhsField;
+            lhsField = (this.isSetFlightLevel()?this.getFlightLevel():null);
+            List<FlightRestrictionLevelPropertyType> rhsField;
+            rhsField = (that.isSetFlightLevel()?that.getFlightLevel():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionFlight();
+            boolean rhsFieldIsSet = that.isSetFlightConditionFlight();
+            JAXBElement<FlightCharacteristicPropertyType> lhsField;
+            lhsField = this.getFlightConditionFlight();
+            JAXBElement<FlightCharacteristicPropertyType> rhsField;
+            rhsField = that.getFlightConditionFlight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionFlight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionFlight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSignificantPointConditionAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetSignificantPointConditionAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getSignificantPointConditionAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getSignificantPointConditionAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSignificantPointConditionAimingPoint();
+            boolean rhsFieldIsSet = that.isSetSignificantPointConditionAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getSignificantPointConditionAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getSignificantPointConditionAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionDirectFlightCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionDirectFlightCondition();
+            JAXBElement<DirectFlightPropertyType> lhsField;
+            lhsField = this.getFlightConditionDirectFlightCondition();
+            JAXBElement<DirectFlightPropertyType> rhsField;
+            rhsField = that.getFlightConditionDirectFlightCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionDirectFlightCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionDirectFlightCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionStandardInstrumentArrivalCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionStandardInstrumentArrivalCondition();
+            JAXBElement<StandardInstrumentArrivalPropertyType> lhsField;
+            lhsField = this.getFlightConditionStandardInstrumentArrivalCondition();
+            JAXBElement<StandardInstrumentArrivalPropertyType> rhsField;
+            rhsField = that.getFlightConditionStandardInstrumentArrivalCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionStandardInstrumentArrivalCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionStandardInstrumentArrivalCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionOperand();
+            boolean rhsFieldIsSet = that.isSetFlightConditionOperand();
+            JAXBElement<FlightConditionCombinationPropertyType> lhsField;
+            lhsField = this.getFlightConditionOperand();
+            JAXBElement<FlightConditionCombinationPropertyType> rhsField;
+            rhsField = that.getFlightConditionOperand();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionOperand", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionOperand", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionAirspaceCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionAirspaceCondition();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getFlightConditionAirspaceCondition();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getFlightConditionAirspaceCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAirspaceCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAirspaceCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionRoutePortionCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionRoutePortionCondition();
+            JAXBElement<RoutePortionPropertyType> lhsField;
+            lhsField = this.getFlightConditionRoutePortionCondition();
+            JAXBElement<RoutePortionPropertyType> rhsField;
+            rhsField = that.getFlightConditionRoutePortionCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionRoutePortionCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionRoutePortionCondition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1672,88 +1634,77 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionAirportHeliportCondition();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getFlightConditionAirportHeliportCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionAirportHeliportCondition",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionAirportHeliportCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionStandardInstrumentDepartureCondition();
             JAXBElement<StandardInstrumentDeparturePropertyType> theField;
             theField = this.getFlightConditionStandardInstrumentDepartureCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
-                    "flightConditionStandardInstrumentDepartureCondition", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionStandardInstrumentDepartureCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionRoutePortionCondition();
             JAXBElement<RoutePortionPropertyType> theField;
             theField = this.getFlightConditionRoutePortionCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionRoutePortionCondition",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionRoutePortionCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionOrganisationCondition();
             JAXBElement<OrganisationAuthorityPropertyType> theField;
             theField = this.getFlightConditionOrganisationCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionOrganisationCondition",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionOrganisationCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> theField;
             theField = this.getSignificantPointConditionFixDesignatedPoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
-                    "significantPointConditionFixDesignatedPoint", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionFixDesignatedPoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionNavaidSystem();
             JAXBElement<NavaidPropertyType> theField;
             theField = this.getSignificantPointConditionNavaidSystem();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionNavaidSystem",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionNavaidSystem", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionAimingPoint();
             JAXBElement<TouchDownLiftOffPropertyType> theField;
             theField = this.getSignificantPointConditionAimingPoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionAimingPoint",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionAimingPoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> theField;
             theField = this.getSignificantPointConditionRunwayPoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionRunwayPoint",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionRunwayPoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getSignificantPointConditionAirportReferencePoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
-                    "significantPointConditionAirportReferencePoint", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionAirportReferencePoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionPosition();
             JAXBElement<AIXMPointPropertyType> theField;
             theField = this.getSignificantPointConditionPosition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionPosition",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantPointConditionPosition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionDirectFlightCondition();
             JAXBElement<DirectFlightPropertyType> theField;
             theField = this.getFlightConditionDirectFlightCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionDirectFlightCondition",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionDirectFlightCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1767,16 +1718,14 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionBorderCrossingCondition();
             JAXBElement<AirspaceBorderCrossingPropertyType> theField;
             theField = this.getFlightConditionBorderCrossingCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionBorderCrossingCondition",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionBorderCrossingCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionAirspaceCondition();
             JAXBElement<AirspacePropertyType> theField;
             theField = this.getFlightConditionAirspaceCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionAirspaceCondition",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionAirspaceCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1790,8 +1739,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionStandardInstrumentArrivalCondition();
             JAXBElement<StandardInstrumentArrivalPropertyType> theField;
             theField = this.getFlightConditionStandardInstrumentArrivalCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
-                    "flightConditionStandardInstrumentArrivalCondition", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionStandardInstrumentArrivalCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1812,8 +1760,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionAerialRefuellingCondition();
             JAXBElement<AerialRefuellingPropertyType> theField;
             theField = this.getFlightConditionAerialRefuellingCondition();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionAerialRefuellingCondition",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightConditionAerialRefuellingCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1826,21 +1773,21 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetFlightLevel();
             List<FlightRestrictionLevelPropertyType> theField;
-            theField = (this.isSetFlightLevel() ? this.getFlightLevel() : null);
+            theField = (this.isSetFlightLevel()?this.getFlightLevel():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flightLevel", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<FlightConditionElementExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1860,64 +1807,55 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionAirportHeliportCondition();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getFlightConditionAirportHeliportCondition();
-            strategy.appendField(locator, this, "flightConditionAirportHeliportCondition", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "flightConditionAirportHeliportCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionStandardInstrumentDepartureCondition();
             JAXBElement<StandardInstrumentDeparturePropertyType> theField;
             theField = this.getFlightConditionStandardInstrumentDepartureCondition();
-            strategy.appendField(locator, this, "flightConditionStandardInstrumentDepartureCondition", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "flightConditionStandardInstrumentDepartureCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionRoutePortionCondition();
             JAXBElement<RoutePortionPropertyType> theField;
             theField = this.getFlightConditionRoutePortionCondition();
-            strategy.appendField(locator, this, "flightConditionRoutePortionCondition", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "flightConditionRoutePortionCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionOrganisationCondition();
             JAXBElement<OrganisationAuthorityPropertyType> theField;
             theField = this.getFlightConditionOrganisationCondition();
-            strategy.appendField(locator, this, "flightConditionOrganisationCondition", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "flightConditionOrganisationCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> theField;
             theField = this.getSignificantPointConditionFixDesignatedPoint();
-            strategy.appendField(locator, this, "significantPointConditionFixDesignatedPoint", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "significantPointConditionFixDesignatedPoint", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionNavaidSystem();
             JAXBElement<NavaidPropertyType> theField;
             theField = this.getSignificantPointConditionNavaidSystem();
-            strategy.appendField(locator, this, "significantPointConditionNavaidSystem", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "significantPointConditionNavaidSystem", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionAimingPoint();
             JAXBElement<TouchDownLiftOffPropertyType> theField;
             theField = this.getSignificantPointConditionAimingPoint();
-            strategy.appendField(locator, this, "significantPointConditionAimingPoint", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "significantPointConditionAimingPoint", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> theField;
             theField = this.getSignificantPointConditionRunwayPoint();
-            strategy.appendField(locator, this, "significantPointConditionRunwayPoint", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "significantPointConditionRunwayPoint", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getSignificantPointConditionAirportReferencePoint();
-            strategy.appendField(locator, this, "significantPointConditionAirportReferencePoint", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "significantPointConditionAirportReferencePoint", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSignificantPointConditionPosition();
@@ -1929,8 +1867,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionDirectFlightCondition();
             JAXBElement<DirectFlightPropertyType> theField;
             theField = this.getFlightConditionDirectFlightCondition();
-            strategy.appendField(locator, this, "flightConditionDirectFlightCondition", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "flightConditionDirectFlightCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionAircraft();
@@ -1942,8 +1879,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionBorderCrossingCondition();
             JAXBElement<AirspaceBorderCrossingPropertyType> theField;
             theField = this.getFlightConditionBorderCrossingCondition();
-            strategy.appendField(locator, this, "flightConditionBorderCrossingCondition", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "flightConditionBorderCrossingCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionAirspaceCondition();
@@ -1961,8 +1897,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionStandardInstrumentArrivalCondition();
             JAXBElement<StandardInstrumentArrivalPropertyType> theField;
             theField = this.getFlightConditionStandardInstrumentArrivalCondition();
-            strategy.appendField(locator, this, "flightConditionStandardInstrumentArrivalCondition", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "flightConditionStandardInstrumentArrivalCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlightConditionOperand();
@@ -1980,8 +1915,7 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
             boolean theFieldIsSet = this.isSetFlightConditionAerialRefuellingCondition();
             JAXBElement<AerialRefuellingPropertyType> theField;
             theField = this.getFlightConditionAerialRefuellingCondition();
-            strategy.appendField(locator, this, "flightConditionAerialRefuellingCondition", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "flightConditionAerialRefuellingCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOperationalCondition();
@@ -1992,19 +1926,19 @@ public class FlightConditionElementType extends AbstractAIXMObjectType implement
         {
             boolean theFieldIsSet = this.isSetFlightLevel();
             List<FlightRestrictionLevelPropertyType> theField;
-            theField = (this.isSetFlightLevel() ? this.getFlightLevel() : null);
+            theField = (this.isSetFlightLevel()?this.getFlightLevel():null);
             strategy.appendField(locator, this, "flightLevel", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<FlightConditionElementExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

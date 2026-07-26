@@ -1,51 +1,50 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import com.delorean.aixm.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for CI_Series_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for CI_Series_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CI_Series_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="name" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="issueIdentification" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="page" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="issueIdentification" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="page" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CI_Series_Type", propOrder = {"name", "issueIdentification", "page"})
-public class CISeriesType extends AbstractObjectType implements Serializable {
+@XmlType(name = "CI_Series_Type", propOrder = {
+    "name",
+    "issueIdentification",
+    "page"
+})
+public class CISeriesType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType name;
@@ -54,9 +53,11 @@ public class CISeriesType extends AbstractObjectType implements Serializable {
 
     /**
      * Gets the value of the name property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getName() {
         return name;
@@ -64,24 +65,27 @@ public class CISeriesType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the name property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setName(CharacterStringPropertyType value) {
         this.name = value;
     }
 
     public boolean isSetName() {
-        return (this.name != null);
+        return (this.name!= null);
     }
 
     /**
      * Gets the value of the issueIdentification property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getIssueIdentification() {
         return issueIdentification;
@@ -89,24 +93,27 @@ public class CISeriesType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the issueIdentification property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setIssueIdentification(CharacterStringPropertyType value) {
         this.issueIdentification = value;
     }
 
     public boolean isSetIssueIdentification() {
-        return (this.issueIdentification != null);
+        return (this.issueIdentification!= null);
     }
 
     /**
      * Gets the value of the page property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getPage() {
         return page;
@@ -114,23 +121,23 @@ public class CISeriesType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the page property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setPage(CharacterStringPropertyType value) {
         this.page = value;
     }
 
     public boolean isSetPage() {
-        return (this.page != null);
+        return (this.page!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -140,6 +147,19 @@ public class CISeriesType extends AbstractObjectType implements Serializable {
             return false;
         }
         final CISeriesType that = ((CISeriesType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetIssueIdentification();
             boolean rhsFieldIsSet = that.isSetIssueIdentification();
@@ -162,19 +182,6 @@ public class CISeriesType extends AbstractObjectType implements Serializable {
             rhsField = that.getPage();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "page", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "page", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

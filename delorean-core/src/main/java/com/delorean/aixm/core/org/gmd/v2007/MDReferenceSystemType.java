@@ -1,55 +1,56 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for MD_ReferenceSystem_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MD_ReferenceSystem_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MD_ReferenceSystem_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="referenceSystemIdentifier" type=
-"{http://www.isotc211.org/2005/gmd}RS_Identifier_PropertyType" minOccurs="0"/>
+ *         <element name="referenceSystemIdentifier" type="{http://www.isotc211.org/2005/gmd}RS_Identifier_PropertyType" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_ReferenceSystem_Type", propOrder = {"referenceSystemIdentifier"})
-public class MDReferenceSystemType extends AbstractObjectType implements Serializable {
+@XmlType(name = "MD_ReferenceSystem_Type", propOrder = {
+    "referenceSystemIdentifier"
+})
+public class MDReferenceSystemType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected RSIdentifierPropertyType referenceSystemIdentifier;
 
     /**
      * Gets the value of the referenceSystemIdentifier property.
-     *
-     * @return possible object is {@link RSIdentifierPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link RSIdentifierPropertyType }
+     *     
      */
     public RSIdentifierPropertyType getReferenceSystemIdentifier() {
         return referenceSystemIdentifier;
@@ -57,23 +58,23 @@ public class MDReferenceSystemType extends AbstractObjectType implements Seriali
 
     /**
      * Sets the value of the referenceSystemIdentifier property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link RSIdentifierPropertyType }
-     *
+     *     allowed object is
+     *     {@link RSIdentifierPropertyType }
+     *     
      */
     public void setReferenceSystemIdentifier(RSIdentifierPropertyType value) {
         this.referenceSystemIdentifier = value;
     }
 
     public boolean isSetReferenceSystemIdentifier() {
-        return (this.referenceSystemIdentifier != null);
+        return (this.referenceSystemIdentifier!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

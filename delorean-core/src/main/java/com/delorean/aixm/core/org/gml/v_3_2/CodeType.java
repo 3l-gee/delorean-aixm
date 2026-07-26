@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
@@ -12,7 +13,6 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -26,40 +26,38 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * gml:CodeType is a generalized type to be used for a term, keyword or name. It
- * adds a XML attribute codeSpace to a term, where the value of the codeSpace
- * attribute (if present) shall indicate a dictionary, thesaurus, classification
- * scheme, authority, or pattern for the term.
- *
- * <p>
- * Java class for CodeType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * gml:CodeType is a generalized type to be used for a term, keyword or name.
+ * It adds a XML attribute codeSpace to a term, where the value of the codeSpace attribute (if present) shall indicate a dictionary, thesaurus, classification scheme, authority, or pattern for the term.
+ * 
+ * <p>Java class for CodeType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CodeType">
  *   <simpleContent>
  *     <extension base="<http://www.w3.org/2001/XMLSchema>string">
- *       <attribute name="codeSpace" type=
-"{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *       <attribute name="codeSpace" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CodeType", propOrder = {"value"})
-@XmlSeeAlso({CodeWithAuthorityType.class, Category.class})
+@XmlType(name = "CodeType", propOrder = {
+    "value"
+})
+@XmlSeeAlso({
+    CodeWithAuthorityType.class,
+    Category.class
+})
 @MappedSuperclass
-public class CodeType implements Serializable, Equals, HashCode, ToString {
+public class CodeType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -70,9 +68,11 @@ public class CodeType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Gets the value of the value property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "VALUE_", length = 255)
@@ -82,10 +82,11 @@ public class CodeType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setValue(String value) {
         this.value = value;
@@ -93,14 +94,16 @@ public class CodeType implements Serializable, Equals, HashCode, ToString {
 
     @Transient
     public boolean isSetValue() {
-        return (this.value != null);
+        return (this.value!= null);
     }
 
     /**
      * Gets the value of the codeSpace property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "CODE_SPACE")
@@ -110,10 +113,11 @@ public class CodeType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the codeSpace property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCodeSpace(String value) {
         this.codeSpace = value;
@@ -121,7 +125,7 @@ public class CodeType implements Serializable, Equals, HashCode, ToString {
 
     @Transient
     public boolean isSetCodeSpace() {
-        return (this.codeSpace != null);
+        return (this.codeSpace!= null);
     }
 
     @Override
@@ -137,9 +141,8 @@ public class CodeType implements Serializable, Equals, HashCode, ToString {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,10 +1,10 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -18,37 +18,34 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for MappingRuleType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MappingRuleType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MappingRuleType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element name="ruleDefinition" type=
-"{http://www.w3.org/2001/XMLSchema}string"/>
- *         <element name="ruleReference" type=
-"{http://www.opengis.net/gml/3.2}ReferenceType"/>
+ *         <element name="ruleDefinition" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="ruleReference" type="{http://www.opengis.net/gml/3.2}ReferenceType"/>
  *       </choice>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MappingRuleType", propOrder = {"ruleDefinition", "ruleReference"})
-public class MappingRuleType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "MappingRuleType", propOrder = {
+    "ruleDefinition",
+    "ruleReference"
+})
+public class MappingRuleType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     protected String ruleDefinition;
@@ -56,9 +53,11 @@ public class MappingRuleType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the ruleDefinition property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRuleDefinition() {
         return ruleDefinition;
@@ -66,24 +65,27 @@ public class MappingRuleType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the ruleDefinition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRuleDefinition(String value) {
         this.ruleDefinition = value;
     }
 
     public boolean isSetRuleDefinition() {
-        return (this.ruleDefinition != null);
+        return (this.ruleDefinition!= null);
     }
 
     /**
      * Gets the value of the ruleReference property.
-     *
-     * @return possible object is {@link ReferenceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ReferenceType }
+     *     
      */
     public ReferenceType getRuleReference() {
         return ruleReference;
@@ -91,17 +93,18 @@ public class MappingRuleType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the ruleReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ReferenceType }
-     *
+     *     allowed object is
+     *     {@link ReferenceType }
+     *     
      */
     public void setRuleReference(ReferenceType value) {
         this.ruleReference = value;
     }
 
     public boolean isSetRuleReference() {
-        return (this.ruleReference != null);
+        return (this.ruleReference!= null);
     }
 
     @Override
@@ -117,28 +120,14 @@ public class MappingRuleType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final MappingRuleType that = ((MappingRuleType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetRuleDefinition();
-            boolean rhsFieldIsSet = that.isSetRuleDefinition();
-            String lhsField;
-            lhsField = this.getRuleDefinition();
-            String rhsField;
-            rhsField = that.getRuleDefinition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ruleDefinition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ruleDefinition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetRuleReference();
             boolean rhsFieldIsSet = that.isSetRuleReference();
@@ -148,6 +137,19 @@ public class MappingRuleType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getRuleReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ruleReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ruleReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRuleDefinition();
+            boolean rhsFieldIsSet = that.isSetRuleDefinition();
+            String lhsField;
+            lhsField = this.getRuleDefinition();
+            String rhsField;
+            rhsField = that.getRuleDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ruleDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ruleDefinition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

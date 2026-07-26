@@ -13,10 +13,10 @@ import com.delorean.aixm.core.database.DatabaseBindingFactory;
 import com.delorean.aixm.core.xml.XMLBindingFactory;
 import com.delorean.aixm.core.engine.AbstractEngine;
 import com.delorean.aixm.core.filter.AbstractFilterConfig;
-import com.delorean.aixm.core.log.ConsoleLogger;
-import com.delorean.aixm.core.log.LogLevel;
 import com.delorean.aixm.core.database.AbstractDatabaseFunctions;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> {
     protected String name;
     protected final Class<ROOT> rootClass;
@@ -33,7 +33,6 @@ public class ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARC
     protected String lastUsedContainerId; 
     protected final Class<?> CoreResourceAnchorsClass;
     protected final Class<?> AIXMResourceAnchorsClass;
-
 
     public ContainerWarehouse(
         String name, 
@@ -63,6 +62,15 @@ public class ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARC
         this.deloreanEngine = deloreanEngine;
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
+
+        log.info("Successfully initialized ContainerWarehouse : {}", name);
+        log.atDebug().setMessage("Root class: {}").addArgument(() -> rootClass.getName()).log();
+        log.atDebug().setMessage("Feature class: {}").addArgument(() -> featureClass.getName()).log();
+        log.atDebug().setMessage("TimeSlice class: {}").addArgument(() -> timeSliceClass.getName()).log();
+        log.atDebug().setMessage("Object class: {}").addArgument(() -> objectClass.getName()).log();
+        log.atDebug().setMessage("Qname value: {}").addArgument(() -> qName.getNamespaceURI()).log();
+        log.atDebug().setMessage("CoreResourceAnchorsClass: {}").addArgument(() -> CoreResourceAnchorsClass.getName()).log();
+        log.atDebug().setMessage("AIXMResourceAnchorsClass: {}").addArgument(() -> AIXMResourceAnchorsClass.getName()).log();
     }
 
     public void createNewContainer() {
@@ -173,8 +181,7 @@ public class ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARC
         this.createNewContainer();
         Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = this.getLastUsedContainer();
         newContainer.setMessage(filteredMessage);
-        ConsoleLogger.info("Prune from " + sourceContainer.getId() +  " to " + newContainer.getId() + " applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
-
+        log.info("Prune from " + sourceContainer.getId() +  " to " + newContainer.getId() + " applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
     }
 
     public void prune(String sourceContainerName, String outputContainerName, AbstractFilterConfig config) {
@@ -189,7 +196,6 @@ public class ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARC
         Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = this.getLastUsedContainer();
         newContainer.setMessage(filteredMessage);
         newContainer.setName(outputContainerName);
-        ConsoleLogger.info("Prune from " + sourceContainer.getId() +  " to " + newContainer.getId() + " applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
-
+        log.info("Prune from " + sourceContainer.getId() +  " to " + newContainer.getId() + " applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
     }
 }

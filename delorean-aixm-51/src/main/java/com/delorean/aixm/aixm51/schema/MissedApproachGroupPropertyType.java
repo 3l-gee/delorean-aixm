@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for MissedApproachGroupPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MissedApproachGroupPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MissedApproachGroupPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1}MissedApproachGroup"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MissedApproachGroupPropertyType", propOrder = {"missedApproachGroup"})
+@XmlType(name = "MissedApproachGroupPropertyType", propOrder = {
+    "missedApproachGroup"
+})
 @Entity(name = "MissedApproachGroupPropertyType")
 @Table(name = "missedapproachgroup_p", schema = "procedure")
-public class MissedApproachGroupPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class MissedApproachGroupPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MissedApproachGroup", required = true)
@@ -57,11 +56,15 @@ public class MissedApproachGroupPropertyType extends AbstractAIXMPropertyType im
 
     /**
      * Gets the value of the missedApproachGroup property.
-     *
-     * @return possible object is {@link MissedApproachGroupType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link MissedApproachGroupType }
+     *     
      */
-    @OneToOne(targetEntity = MissedApproachGroupType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = MissedApproachGroupType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "missedapproachgroup_hjid", referencedColumnName = "hjid")
     public MissedApproachGroupType getMissedApproachGroup() {
         return missedApproachGroup;
@@ -69,10 +72,11 @@ public class MissedApproachGroupPropertyType extends AbstractAIXMPropertyType im
 
     /**
      * Sets the value of the missedApproachGroup property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MissedApproachGroupType }
-     *
+     *     allowed object is
+     *     {@link MissedApproachGroupType }
+     *     
      */
     public void setMissedApproachGroup(MissedApproachGroupType value) {
         this.missedApproachGroup = value;
@@ -80,13 +84,12 @@ public class MissedApproachGroupPropertyType extends AbstractAIXMPropertyType im
 
     @Transient
     public boolean isSetMissedApproachGroup() {
-        return (this.missedApproachGroup != null);
+        return (this.missedApproachGroup!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -8,10 +8,9 @@ import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+import lombok.extern.slf4j.Slf4j;
 
-import com.delorean.aixm.core.log.ConsoleLogger;
-import com.delorean.aixm.core.log.LogLevel;
-
+@Slf4j
 public class XMLBindingFactory<ROOT, FEATURE> {
         protected final Class<ROOT> rootClass;
         protected final Class<FEATURE> featureClass;
@@ -29,6 +28,14 @@ public class XMLBindingFactory<ROOT, FEATURE> {
         this.schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         this.schemaFactory.setResourceResolver(new ResourceResolver("schema", AIXMResourceAnchorsClass));
         this.schema = getSchemaFromPath(path, this.schemaFactory);
+
+        log.atDebug().setMessage("Successfully initialized XMLBindingFactory");
+        log.atDebug().setMessage("Root class: {}").addArgument(() -> root.getName()).log();
+        log.atDebug().setMessage("Feature class: {}").addArgument(() -> feature.getName()).log();
+        log.atDebug().setMessage("CoreResourceAnchorsClass: {}").addArgument(() -> CoreResourceAnchorsClass.getName()).log();
+        log.atDebug().setMessage("AIXMResourceAnchorsClass: {}").addArgument(() -> AIXMResourceAnchorsClass.getName()).log();
+        log.atDebug().setMessage("Schema path: {}").addArgument(() -> path).log();
+        log.atDebug().setMessage("Schema: {}").addArgument(() -> this.schema).log();
     }
 
     public Schema getSchema() {
@@ -74,7 +81,7 @@ public class XMLBindingFactory<ROOT, FEATURE> {
         try {
             return schemaFactory.newSchema(schemaSource);
         } catch (Exception e) {
-            ConsoleLogger.error("Failed to load XML Schema from path: " + path + " - " + e.getMessage());
+            log.error("Failed to load XML Schema from path: " + path + " - " + e.getMessage());
             return null;
         }
     }

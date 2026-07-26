@@ -1,29 +1,24 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for GeodeticDatumType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for GeodeticDatumType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="GeodeticDatumType">
  *   <complexContent>
@@ -36,38 +31,41 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeodeticDatumType", propOrder = {"primeMeridian", "ellipsoid"})
-public class GeodeticDatumType extends AbstractDatumType implements Serializable {
+@XmlType(name = "GeodeticDatumType", propOrder = {
+    "primeMeridian",
+    "ellipsoid"
+})
+public class GeodeticDatumType
+    extends AbstractDatumType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:primeMeridian is an association role to the prime meridian used by this
-     * geodetic datum.
-     *
+     * gml:primeMeridian is an association role to the prime meridian used by this geodetic datum.
+     * 
      */
     @XmlElementRef(name = "primeMeridian", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<PrimeMeridianPropertyType> primeMeridian;
     /**
-     * gml:ellipsoid is an association role to the ellipsoid used by this geodetic
-     * datum.
-     *
+     * gml:ellipsoid is an association role to the ellipsoid used by this geodetic datum.
+     * 
      */
     @XmlElementRef(name = "ellipsoid", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<EllipsoidPropertyType> ellipsoid;
 
     /**
-     * gml:primeMeridian is an association role to the prime meridian used by this
-     * geodetic datum.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link PrimeMeridianPropertyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType
-     *         }{@code >}
-     *
+     * gml:primeMeridian is an association role to the prime meridian used by this geodetic datum.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *     
      */
     public JAXBElement<PrimeMeridianPropertyType> getPrimeMeridian() {
         return primeMeridian;
@@ -75,13 +73,12 @@ public class GeodeticDatumType extends AbstractDatumType implements Serializable
 
     /**
      * Sets the value of the primeMeridian property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link PrimeMeridianPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *     
      * @see #getPrimeMeridian()
      */
     public void setPrimeMeridian(JAXBElement<PrimeMeridianPropertyType> value) {
@@ -89,17 +86,17 @@ public class GeodeticDatumType extends AbstractDatumType implements Serializable
     }
 
     public boolean isSetPrimeMeridian() {
-        return (this.primeMeridian != null);
+        return (this.primeMeridian!= null);
     }
 
     /**
-     * gml:ellipsoid is an association role to the ellipsoid used by this geodetic
-     * datum.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link EllipsoidPropertyType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link EllipsoidPropertyType }{@code >}
-     *
+     * gml:ellipsoid is an association role to the ellipsoid used by this geodetic datum.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *     
      */
     public JAXBElement<EllipsoidPropertyType> getEllipsoid() {
         return ellipsoid;
@@ -107,13 +104,12 @@ public class GeodeticDatumType extends AbstractDatumType implements Serializable
 
     /**
      * Sets the value of the ellipsoid property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link EllipsoidPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link EllipsoidPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *     
      * @see #getEllipsoid()
      */
     public void setEllipsoid(JAXBElement<EllipsoidPropertyType> value) {
@@ -121,13 +117,12 @@ public class GeodeticDatumType extends AbstractDatumType implements Serializable
     }
 
     public boolean isSetEllipsoid() {
-        return (this.ellipsoid != null);
+        return (this.ellipsoid!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

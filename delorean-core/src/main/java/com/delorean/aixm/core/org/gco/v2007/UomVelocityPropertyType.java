@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gml.v_3_2.BaseUnitType;
 import com.delorean.aixm.core.org.gml.v_3_2.ConventionalUnitType;
 import com.delorean.aixm.core.org.gml.v_3_2.DerivedUnitType;
@@ -14,7 +15,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -28,17 +28,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for UomVelocity_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for UomVelocity_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="UomVelocity_PropertyType">
  *   <complexContent>
@@ -52,24 +47,22 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "UomVelocity_PropertyType", propOrder = {"unitDefinition"})
-public class UomVelocityPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "UomVelocity_PropertyType", propOrder = {
+    "unitDefinition"
+})
+public class UomVelocityPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * A gml:UnitDefinition is a general definition of a unit of measure. This
-     * generic element is used only for units for which no relationship with other
-     * units or units systems is known. The content model of gml:UnitDefinition adds
-     * three additional properties to gml:Definition, gml:quantityType,
-     * gml:quantityTypeReference and gml:catalogSymbol. The gml:catalogSymbol
-     * property optionally gives the short symbol used for this unit. This element
-     * is usually used when the relationship of this unit to other units or units
-     * systems is unknown.
-     *
+     * A gml:UnitDefinition is a general definition of a unit of measure. This generic element is used only for units for which no relationship with other units or units systems is known.
+     * The content model of gml:UnitDefinition adds three additional properties to gml:Definition, gml:quantityType, gml:quantityTypeReference and gml:catalogSymbol.  
+     * The gml:catalogSymbol property optionally gives the short symbol used for this unit. This element is usually used when the relationship of this unit to other units or units systems is unknown.
+     * 
      */
     @XmlElementRef(name = "UnitDefinition", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends UnitDefinitionType> unitDefinition;
@@ -93,21 +86,17 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
     protected ActuateType actuate;
 
     /**
-     * A gml:UnitDefinition is a general definition of a unit of measure. This
-     * generic element is used only for units for which no relationship with other
-     * units or units systems is known. The content model of gml:UnitDefinition adds
-     * three additional properties to gml:Definition, gml:quantityType,
-     * gml:quantityTypeReference and gml:catalogSymbol. The gml:catalogSymbol
-     * property optionally gives the short symbol used for this unit. This element
-     * is usually used when the relationship of this unit to other units or units
-     * systems is unknown.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link BaseUnitType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link ConventionalUnitType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link DerivedUnitType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link UnitDefinitionType
-     *         }{@code >}
-     *
+     * A gml:UnitDefinition is a general definition of a unit of measure. This generic element is used only for units for which no relationship with other units or units systems is known.
+     * The content model of gml:UnitDefinition adds three additional properties to gml:Definition, gml:quantityType, gml:quantityTypeReference and gml:catalogSymbol.  
+     * The gml:catalogSymbol property optionally gives the short symbol used for this unit. This element is usually used when the relationship of this unit to other units or units systems is unknown.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link BaseUnitType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ConventionalUnitType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DerivedUnitType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link UnitDefinitionType }{@code >}
+     *     
      */
     public JAXBElement<? extends UnitDefinitionType> getUnitDefinition() {
         return unitDefinition;
@@ -115,14 +104,14 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the unitDefinition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link BaseUnitType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link ConventionalUnitType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link DerivedUnitType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link UnitDefinitionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link BaseUnitType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ConventionalUnitType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DerivedUnitType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link UnitDefinitionType }{@code >}
+     *     
      * @see #getUnitDefinition()
      */
     public void setUnitDefinition(JAXBElement<? extends UnitDefinitionType> value) {
@@ -130,14 +119,16 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
     }
 
     public boolean isSetUnitDefinition() {
-        return (this.unitDefinition != null);
+        return (this.unitDefinition!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -145,24 +136,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the uuidref property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getUuidref() {
         return uuidref;
@@ -170,24 +164,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the uuidref property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setUuidref(String value) {
         this.uuidref = value;
     }
 
     public boolean isSetUuidref() {
-        return (this.uuidref != null);
+        return (this.uuidref!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -195,24 +192,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -220,24 +220,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -245,24 +248,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -270,24 +276,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -295,24 +304,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -320,17 +332,18 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
@@ -346,9 +359,8 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -356,14 +368,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
         }
         final UomVelocityPropertyType that = ((UomVelocityPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getArcrole();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -382,27 +407,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
+            boolean lhsFieldIsSet = this.isSetUuidref();
+            boolean rhsFieldIsSet = that.isSetUuidref();
             String lhsField;
-            lhsField = this.getRole();
+            lhsField = this.getUuidref();
             String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -434,40 +459,27 @@ public class UomVelocityPropertyType implements Serializable, Equals, HashCode, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUuidref();
-            boolean rhsFieldIsSet = that.isSetUuidref();
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
-            lhsField = this.getUuidref();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for NitrogenPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for NitrogenPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="NitrogenPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.2}Nitrogen"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NitrogenPropertyType", propOrder = {"nitrogen"})
+@XmlType(name = "NitrogenPropertyType", propOrder = {
+    "nitrogen"
+})
 @Entity(name = "NitrogenPropertyType")
-@Table(name = "nitrogenpropertytype", schema = "service")
-public class NitrogenPropertyType extends AbstractAIXMPropertyType implements Serializable {
+@Table(name = "nitrogen_p", schema = "service")
+public class NitrogenPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Nitrogen", required = true)
@@ -57,11 +56,15 @@ public class NitrogenPropertyType extends AbstractAIXMPropertyType implements Se
 
     /**
      * Gets the value of the nitrogen property.
-     *
-     * @return possible object is {@link NitrogenType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link NitrogenType }
+     *     
      */
-    @OneToOne(targetEntity = NitrogenType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = NitrogenType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "nitrogen_hjid", referencedColumnName = "hjid")
     public NitrogenType getNitrogen() {
         return nitrogen;
@@ -69,10 +72,11 @@ public class NitrogenPropertyType extends AbstractAIXMPropertyType implements Se
 
     /**
      * Sets the value of the nitrogen property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link NitrogenType }
-     *
+     *     allowed object is
+     *     {@link NitrogenType }
+     *     
      */
     public void setNitrogen(NitrogenType value) {
         this.nitrogen = value;
@@ -80,13 +84,12 @@ public class NitrogenPropertyType extends AbstractAIXMPropertyType implements Se
 
     @Transient
     public boolean isSetNitrogen() {
-        return (this.nitrogen != null);
+        return (this.nitrogen!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

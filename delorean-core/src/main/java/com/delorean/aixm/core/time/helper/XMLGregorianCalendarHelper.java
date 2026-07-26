@@ -8,7 +8,9 @@ import java.time.format.ResolverStyle;
 import javax.xml.datatype.DatatypeConstants;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class XMLGregorianCalendarHelper {
 
     // ISO 8601 : "yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]"
@@ -31,7 +33,9 @@ public class XMLGregorianCalendarHelper {
         String text = value.toXMLFormat();
 
         try {
-            return OffsetDateTime.parse(text, ISO);
+            OffsetDateTime parsedDateTime = OffsetDateTime.parse(text, ISO);
+            log.debug("Parsed XMLGregorianCalendar '{}' into OffsetDateTime '{}'", text, parsedDateTime);
+            return parsedDateTime;
         } catch (DateTimeParseException e) {
             throw new IllegalArgumentException("Invalid ISO 8601 datetime format or value: " + text, e);
         }

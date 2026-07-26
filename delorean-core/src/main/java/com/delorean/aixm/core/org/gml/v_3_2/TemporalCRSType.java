@@ -1,29 +1,24 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TemporalCRSType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TemporalCRSType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TemporalCRSType">
  *   <complexContent>
@@ -39,38 +34,43 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TemporalCRSType", propOrder = {"timeCS", "usesTemporalCS", "temporalDatum"})
-public class TemporalCRSType extends AbstractCRSType implements Serializable {
+@XmlType(name = "TemporalCRSType", propOrder = {
+    "timeCS",
+    "usesTemporalCS",
+    "temporalDatum"
+})
+public class TemporalCRSType
+    extends AbstractCRSType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:timeCS is an association role to the time coordinate system used by this
-     * CRS.
-     *
+     * gml:timeCS is an association role to the time coordinate system used by this CRS.
+     * 
      */
     @XmlElementRef(name = "timeCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<TimeCSPropertyType> timeCS;
     protected TemporalCSPropertyType usesTemporalCS;
     /**
-     * gml:temporalDatum is an association role to the temporal datum used by this
-     * CRS.
-     *
+     * gml:temporalDatum is an association role to the temporal datum used by this CRS.
+     * 
      */
     @XmlElementRef(name = "temporalDatum", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<TemporalDatumPropertyType> temporalDatum;
 
     /**
-     * gml:timeCS is an association role to the time coordinate system used by this
-     * CRS.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TimeCSPropertyType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link TimeCSPropertyType }{@code >}
-     *
+     * gml:timeCS is an association role to the time coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TimeCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TimeCSPropertyType }{@code >}
+     *     
      */
     public JAXBElement<TimeCSPropertyType> getTimeCS() {
         return timeCS;
@@ -78,12 +78,12 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
 
     /**
      * Sets the value of the timeCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TimeCSPropertyType }{@code >} {@link JAXBElement
-     *            }{@code <}{@link TimeCSPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TimeCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TimeCSPropertyType }{@code >}
+     *     
      * @see #getTimeCS()
      */
     public void setTimeCS(JAXBElement<TimeCSPropertyType> value) {
@@ -91,14 +91,16 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
     }
 
     public boolean isSetTimeCS() {
-        return (this.timeCS != null);
+        return (this.timeCS!= null);
     }
 
     /**
      * Gets the value of the usesTemporalCS property.
-     *
-     * @return possible object is {@link TemporalCSPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link TemporalCSPropertyType }
+     *     
      */
     public TemporalCSPropertyType getUsesTemporalCS() {
         return usesTemporalCS;
@@ -106,28 +108,28 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
 
     /**
      * Sets the value of the usesTemporalCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TemporalCSPropertyType }
-     *
+     *     allowed object is
+     *     {@link TemporalCSPropertyType }
+     *     
      */
     public void setUsesTemporalCS(TemporalCSPropertyType value) {
         this.usesTemporalCS = value;
     }
 
     public boolean isSetUsesTemporalCS() {
-        return (this.usesTemporalCS != null);
+        return (this.usesTemporalCS!= null);
     }
 
     /**
-     * gml:temporalDatum is an association role to the temporal datum used by this
-     * CRS.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TemporalDatumPropertyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType
-     *         }{@code >}
-     *
+     * gml:temporalDatum is an association role to the temporal datum used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *     
      */
     public JAXBElement<TemporalDatumPropertyType> getTemporalDatum() {
         return temporalDatum;
@@ -135,13 +137,12 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
 
     /**
      * Sets the value of the temporalDatum property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TemporalDatumPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *     
      * @see #getTemporalDatum()
      */
     public void setTemporalDatum(JAXBElement<TemporalDatumPropertyType> value) {
@@ -149,13 +150,12 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
     }
 
     public boolean isSetTemporalDatum() {
-        return (this.temporalDatum != null);
+        return (this.temporalDatum!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -166,14 +166,14 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
         }
         final TemporalCRSType that = ((TemporalCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUsesTemporalCS();
-            boolean rhsFieldIsSet = that.isSetUsesTemporalCS();
-            TemporalCSPropertyType lhsField;
-            lhsField = this.getUsesTemporalCS();
-            TemporalCSPropertyType rhsField;
-            rhsField = that.getUsesTemporalCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesTemporalCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesTemporalCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetTemporalDatum();
+            boolean rhsFieldIsSet = that.isSetTemporalDatum();
+            JAXBElement<TemporalDatumPropertyType> lhsField;
+            lhsField = this.getTemporalDatum();
+            JAXBElement<TemporalDatumPropertyType> rhsField;
+            rhsField = that.getTemporalDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "temporalDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "temporalDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -192,14 +192,14 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTemporalDatum();
-            boolean rhsFieldIsSet = that.isSetTemporalDatum();
-            JAXBElement<TemporalDatumPropertyType> lhsField;
-            lhsField = this.getTemporalDatum();
-            JAXBElement<TemporalDatumPropertyType> rhsField;
-            rhsField = that.getTemporalDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "temporalDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "temporalDatum", rhsField);
+            boolean lhsFieldIsSet = this.isSetUsesTemporalCS();
+            boolean rhsFieldIsSet = that.isSetUsesTemporalCS();
+            TemporalCSPropertyType lhsField;
+            lhsField = this.getUsesTemporalCS();
+            TemporalCSPropertyType rhsField;
+            rhsField = that.getUsesTemporalCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesTemporalCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesTemporalCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

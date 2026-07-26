@@ -1,7 +1,5 @@
 package com.delorean.aixm.core.inspection;
 
-import jakarta.xml.bind.JAXB;
-
 public enum InspectionSource {
     DELOREAN,
     SAX,

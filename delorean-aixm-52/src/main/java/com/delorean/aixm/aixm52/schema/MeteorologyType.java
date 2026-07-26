@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -19,10 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,46 +30,31 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for MeteorologyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for MeteorologyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MeteorologyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="flightConditions" type=
-"{http://www.aixm.aero/schema/5.2}CodeMeteoConditionsType" minOccurs="0"/>
- *         <element name="visibility" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="visibilityInterpretation" type=
-"{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
- *         <element name="runwayVisualRange" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="runwayVisualRangeInterpretation" type=
-"{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="flightConditions" type="{http://www.aixm.aero/schema/5.2}CodeMeteoConditionsType" minOccurs="0"/>
+ *         <element name="visibility" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="visibilityInterpretation" type="{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
+ *         <element name="runwayVisualRange" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="runwayVisualRangeInterpretation" type="{http://www.aixm.aero/schema/5.2}CodeValueInterpretationType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractMeteorologyExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractMeteorologyExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -79,15 +64,25 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MeteorologyType", propOrder = {"flightConditions", "visibility", "visibilityInterpretation",
-        "runwayVisualRange", "runwayVisualRangeInterpretation", "annotation", "extension"})
+@XmlType(name = "MeteorologyType", propOrder = {
+    "flightConditions",
+    "visibility",
+    "visibilityInterpretation",
+    "runwayVisualRange",
+    "runwayVisualRangeInterpretation",
+    "annotation",
+    "extension"
+})
 @Entity(name = "MeteorologyType")
 @Table(name = "meteorology_o", schema = "shared")
-public class MeteorologyType extends AbstractAIXMObjectType implements Serializable {
+public class MeteorologyType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "flightConditions", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -106,10 +101,11 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     /**
      * Gets the value of the flightConditions property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeMeteoConditionsType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeMeteoConditionsType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeMeteoConditionsType> getFlightConditions() {
@@ -118,11 +114,11 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     /**
      * Sets the value of the flightConditions property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeMeteoConditionsType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeMeteoConditionsType }{@code >}
+     *     
      */
     public void setFlightConditions(JAXBElement<CodeMeteoConditionsType> value) {
         this.flightConditions = value;
@@ -130,15 +126,16 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     @Transient
     public boolean isSetFlightConditions() {
-        return (this.flightConditions != null);
+        return (this.flightConditions!= null);
     }
 
     /**
      * Gets the value of the visibility property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getVisibility() {
@@ -147,11 +144,11 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     /**
      * Sets the value of the visibility property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setVisibility(JAXBElement<ValDistanceType> value) {
         this.visibility = value;
@@ -159,15 +156,16 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     @Transient
     public boolean isSetVisibility() {
-        return (this.visibility != null);
+        return (this.visibility!= null);
     }
 
     /**
      * Gets the value of the visibilityInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeValueInterpretationType> getVisibilityInterpretation() {
@@ -176,11 +174,11 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     /**
      * Sets the value of the visibilityInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     public void setVisibilityInterpretation(JAXBElement<CodeValueInterpretationType> value) {
         this.visibilityInterpretation = value;
@@ -188,15 +186,16 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     @Transient
     public boolean isSetVisibilityInterpretation() {
-        return (this.visibilityInterpretation != null);
+        return (this.visibilityInterpretation!= null);
     }
 
     /**
      * Gets the value of the runwayVisualRange property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getRunwayVisualRange() {
@@ -205,11 +204,11 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     /**
      * Sets the value of the runwayVisualRange property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setRunwayVisualRange(JAXBElement<ValDistanceType> value) {
         this.runwayVisualRange = value;
@@ -217,15 +216,16 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     @Transient
     public boolean isSetRunwayVisualRange() {
-        return (this.runwayVisualRange != null);
+        return (this.runwayVisualRange!= null);
     }
 
     /**
      * Gets the value of the runwayVisualRangeInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeValueInterpretationType> getRunwayVisualRangeInterpretation() {
@@ -234,11 +234,11 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     /**
      * Sets the value of the runwayVisualRangeInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeValueInterpretationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeValueInterpretationType }{@code >}
+     *     
      */
     public void setRunwayVisualRangeInterpretation(JAXBElement<CodeValueInterpretationType> value) {
         this.runwayVisualRangeInterpretation = value;
@@ -246,36 +246,39 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     @Transient
     public boolean isSetRunwayVisualRangeInterpretation() {
-        return (this.runwayVisualRangeInterpretation != null);
+        return (this.runwayVisualRangeInterpretation!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "mtrlgtp_annttn_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "meteorology_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "mtrlgtp_annttn_l", schema = "shared", joinColumns = {
+        @JoinColumn(name = "meteorology_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -284,8 +287,8 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -293,7 +296,7 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -302,28 +305,29 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MeteorologyExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = MeteorologyExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = MeteorologyExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "meteorology_oe_hjid", referencedColumnName = "hjid")
     public List<MeteorologyExtensionType> getExtension() {
         if (extension == null) {
@@ -333,8 +337,8 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<MeteorologyExtensionType> extension) {
         this.extension = extension;
@@ -342,7 +346,7 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -350,78 +354,77 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "flightconditions")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "flightconditionsnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "flightconditions", columnDefinition = "codemeteoconditionsbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "flightconditionsnilreason", columnDefinition = "nilreason"))
+    })
     public CodeMeteoConditionsType getFlightConditionsItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMeteoConditionsType.class, this.getFlightConditions());
     }
 
     public void setFlightConditionsItem(CodeMeteoConditionsType target) {
-        setFlightConditions(XmlAdapterUtils.marshallJAXBElement(CodeMeteoConditionsType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "flightConditions"), MeteorologyType.class, target));
+        setFlightConditions(XmlAdapterUtils.marshallJAXBElement(CodeMeteoConditionsType.class, new QName("http://www.aixm.aero/schema/5.2", "flightConditions"), MeteorologyType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "visibility", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "visibilityuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "visibilityaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "visibilitynilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "visibility", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "visibilityuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "visibilityaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "visibilitynilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getVisibilityItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getVisibility());
     }
 
     public void setVisibilityItem(ValDistanceType target) {
-        setVisibility(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "visibility"), MeteorologyType.class, target));
+        setVisibility(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "visibility"), MeteorologyType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "visibilityinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "visibilityinterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "visibilityinterpretation", columnDefinition = "codevalueinterpretationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "visibilityinterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeValueInterpretationType getVisibilityInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeValueInterpretationType.class, this.getVisibilityInterpretation());
     }
 
     public void setVisibilityInterpretationItem(CodeValueInterpretationType target) {
-        setVisibilityInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "visibilityInterpretation"), MeteorologyType.class,
-                target));
+        setVisibilityInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class, new QName("http://www.aixm.aero/schema/5.2", "visibilityInterpretation"), MeteorologyType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "runwayvisualrange", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "runwayvisualrangeuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "runwayvisualrangeaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "runwayvisualrangenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "runwayvisualrange", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "runwayvisualrangeuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "runwayvisualrangeaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "runwayvisualrangenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getRunwayVisualRangeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getRunwayVisualRange());
     }
 
     public void setRunwayVisualRangeItem(ValDistanceType target) {
-        setRunwayVisualRange(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "runwayVisualRange"), MeteorologyType.class, target));
+        setRunwayVisualRange(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "runwayVisualRange"), MeteorologyType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "runwayvisualrangeinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "runwayvisualrangeinterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "runwayvisualrangeinterpretation", columnDefinition = "codevalueinterpretationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "runwayvisualrangeinterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeValueInterpretationType getRunwayVisualRangeInterpretationItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeValueInterpretationType.class,
-                this.getRunwayVisualRangeInterpretation());
+        return XmlAdapterUtils.unmarshallSource(CodeValueInterpretationType.class, this.getRunwayVisualRangeInterpretation());
     }
 
     public void setRunwayVisualRangeInterpretationItem(CodeValueInterpretationType target) {
-        setRunwayVisualRangeInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "runwayVisualRangeInterpretation"), MeteorologyType.class,
-                target));
+        setRunwayVisualRangeInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeValueInterpretationType.class, new QName("http://www.aixm.aero/schema/5.2", "runwayVisualRangeInterpretation"), MeteorologyType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -445,14 +448,14 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditions();
-            boolean rhsFieldIsSet = that.isSetFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> lhsField;
-            lhsField = this.getFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> rhsField;
-            rhsField = that.getFlightConditions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
+            boolean lhsFieldIsSet = this.isSetRunwayVisualRangeInterpretation();
+            boolean rhsFieldIsSet = that.isSetRunwayVisualRangeInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getRunwayVisualRangeInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getRunwayVisualRangeInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRangeInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRangeInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -461,37 +464,11 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVisibilityInterpretation();
-            boolean rhsFieldIsSet = that.isSetVisibilityInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getVisibilityInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getVisibilityInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<MeteorologyExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<MeteorologyExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -510,16 +487,40 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRunwayVisualRangeInterpretation();
-            boolean rhsFieldIsSet = that.isSetRunwayVisualRangeInterpretation();
+            boolean lhsFieldIsSet = this.isSetFlightConditions();
+            boolean rhsFieldIsSet = that.isSetFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> lhsField;
+            lhsField = this.getFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> rhsField;
+            rhsField = that.getFlightConditions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<MeteorologyExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<MeteorologyExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVisibilityInterpretation();
+            boolean rhsFieldIsSet = that.isSetVisibilityInterpretation();
             JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getRunwayVisualRangeInterpretation();
+            lhsField = this.getVisibilityInterpretation();
             JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getRunwayVisualRangeInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRangeInterpretation",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRangeInterpretation",
-                    rhsField);
+            rhsField = that.getVisibilityInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -568,14 +569,14 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<MeteorologyExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -618,13 +619,13 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<MeteorologyExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

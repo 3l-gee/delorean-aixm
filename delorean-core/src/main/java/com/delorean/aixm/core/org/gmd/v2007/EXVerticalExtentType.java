@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import com.delorean.aixm.core.org.gco.v2007.RealPropertyType;
 import com.delorean.aixm.core.org.gsr.v2007.SCCRSPropertyType;
@@ -8,48 +9,46 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
  * Vertical domain of dataset
- *
- * <p>
- * Java class for EX_VerticalExtent_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * 
+ * <p>Java class for EX_VerticalExtent_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="EX_VerticalExtent_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="minimumValue" type=
-"{http://www.isotc211.org/2005/gco}Real_PropertyType"/>
- *         <element name="maximumValue" type=
-"{http://www.isotc211.org/2005/gco}Real_PropertyType"/>
- *         <element name="verticalCRS" type=
-"{http://www.isotc211.org/2005/gsr}SC_CRS_PropertyType"/>
+ *         <element name="minimumValue" type="{http://www.isotc211.org/2005/gco}Real_PropertyType"/>
+ *         <element name="maximumValue" type="{http://www.isotc211.org/2005/gco}Real_PropertyType"/>
+ *         <element name="verticalCRS" type="{http://www.isotc211.org/2005/gsr}SC_CRS_PropertyType"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EX_VerticalExtent_Type", propOrder = {"minimumValue", "maximumValue", "verticalCRS"})
-public class EXVerticalExtentType extends AbstractObjectType implements Serializable {
+@XmlType(name = "EX_VerticalExtent_Type", propOrder = {
+    "minimumValue",
+    "maximumValue",
+    "verticalCRS"
+})
+public class EXVerticalExtentType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -61,9 +60,11 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
 
     /**
      * Gets the value of the minimumValue property.
-     *
-     * @return possible object is {@link RealPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link RealPropertyType }
+     *     
      */
     public RealPropertyType getMinimumValue() {
         return minimumValue;
@@ -71,24 +72,27 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
 
     /**
      * Sets the value of the minimumValue property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link RealPropertyType }
-     *
+     *     allowed object is
+     *     {@link RealPropertyType }
+     *     
      */
     public void setMinimumValue(RealPropertyType value) {
         this.minimumValue = value;
     }
 
     public boolean isSetMinimumValue() {
-        return (this.minimumValue != null);
+        return (this.minimumValue!= null);
     }
 
     /**
      * Gets the value of the maximumValue property.
-     *
-     * @return possible object is {@link RealPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link RealPropertyType }
+     *     
      */
     public RealPropertyType getMaximumValue() {
         return maximumValue;
@@ -96,24 +100,27 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
 
     /**
      * Sets the value of the maximumValue property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link RealPropertyType }
-     *
+     *     allowed object is
+     *     {@link RealPropertyType }
+     *     
      */
     public void setMaximumValue(RealPropertyType value) {
         this.maximumValue = value;
     }
 
     public boolean isSetMaximumValue() {
-        return (this.maximumValue != null);
+        return (this.maximumValue!= null);
     }
 
     /**
      * Gets the value of the verticalCRS property.
-     *
-     * @return possible object is {@link SCCRSPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link SCCRSPropertyType }
+     *     
      */
     public SCCRSPropertyType getVerticalCRS() {
         return verticalCRS;
@@ -121,23 +128,23 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
 
     /**
      * Sets the value of the verticalCRS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link SCCRSPropertyType }
-     *
+     *     allowed object is
+     *     {@link SCCRSPropertyType }
+     *     
      */
     public void setVerticalCRS(SCCRSPropertyType value) {
         this.verticalCRS = value;
     }
 
     public boolean isSetVerticalCRS() {
-        return (this.verticalCRS != null);
+        return (this.verticalCRS!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -161,19 +168,6 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumValue();
-            boolean rhsFieldIsSet = that.isSetMinimumValue();
-            RealPropertyType lhsField;
-            lhsField = this.getMinimumValue();
-            RealPropertyType rhsField;
-            rhsField = that.getMinimumValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalCRS();
             boolean rhsFieldIsSet = that.isSetVerticalCRS();
             SCCRSPropertyType lhsField;
@@ -182,6 +176,19 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
             rhsField = that.getVerticalCRS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCRS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCRS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumValue();
+            boolean rhsFieldIsSet = that.isSetMinimumValue();
+            RealPropertyType lhsField;
+            lhsField = this.getMinimumValue();
+            RealPropertyType rhsField;
+            rhsField = that.getMinimumValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -112,7 +112,7 @@ public class MergeAixm511E2E {
         AContainer.getDatabaseBinding().setHbm2ddl("create");
 
         // do
-        AContainer.startup();
+        AContainer.startup(false);
 
         // check that 
         // the dbconfig is of the right dbconfig 
@@ -210,7 +210,7 @@ public class MergeAixm511E2E {
         BContainer.getDatabaseBinding().setHbm2ddl("none");
 
         // do
-        BContainer.startup();
+        BContainer.startup(false);
 
         // check that 
         // the dbconfig is of the right dbconfig 

@@ -5,20 +5,13 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
+
 /**
- * gml:CurveInterpolationType is a list of codes that may be used to identify
- * the interpolation mechanisms specified by an application schema.
- *
- * <p>
- * Java class for CurveInterpolationType
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * gml:CurveInterpolationType is a list of codes that may be used to identify the interpolation mechanisms specified by an application schema.
+ * 
+ * <p>Java class for CurveInterpolationType</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  * <pre>{@code
  * <simpleType name="CurveInterpolationType">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -36,23 +29,33 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- *
+ * 
  */
 @XmlType(name = "CurveInterpolationType")
 @XmlEnum
 public enum CurveInterpolationType {
 
     @XmlEnumValue("linear")
-    LINEAR("linear"), @XmlEnumValue("geodesic")
-    GEODESIC("geodesic"), @XmlEnumValue("circularArc3Points")
-    CIRCULAR_ARC_3_POINTS("circularArc3Points"), @XmlEnumValue("circularArc2PointWithBulge")
-    CIRCULAR_ARC_2_POINT_WITH_BULGE("circularArc2PointWithBulge"), @XmlEnumValue("circularArcCenterPointWithRadius")
-    CIRCULAR_ARC_CENTER_POINT_WITH_RADIUS("circularArcCenterPointWithRadius"), @XmlEnumValue("elliptical")
-    ELLIPTICAL("elliptical"), @XmlEnumValue("clothoid")
-    CLOTHOID("clothoid"), @XmlEnumValue("conic")
-    CONIC("conic"), @XmlEnumValue("polynomialSpline")
-    POLYNOMIAL_SPLINE("polynomialSpline"), @XmlEnumValue("cubicSpline")
-    CUBIC_SPLINE("cubicSpline"), @XmlEnumValue("rationalSpline")
+    LINEAR("linear"),
+    @XmlEnumValue("geodesic")
+    GEODESIC("geodesic"),
+    @XmlEnumValue("circularArc3Points")
+    CIRCULAR_ARC_3_POINTS("circularArc3Points"),
+    @XmlEnumValue("circularArc2PointWithBulge")
+    CIRCULAR_ARC_2_POINT_WITH_BULGE("circularArc2PointWithBulge"),
+    @XmlEnumValue("circularArcCenterPointWithRadius")
+    CIRCULAR_ARC_CENTER_POINT_WITH_RADIUS("circularArcCenterPointWithRadius"),
+    @XmlEnumValue("elliptical")
+    ELLIPTICAL("elliptical"),
+    @XmlEnumValue("clothoid")
+    CLOTHOID("clothoid"),
+    @XmlEnumValue("conic")
+    CONIC("conic"),
+    @XmlEnumValue("polynomialSpline")
+    POLYNOMIAL_SPLINE("polynomialSpline"),
+    @XmlEnumValue("cubicSpline")
+    CUBIC_SPLINE("cubicSpline"),
+    @XmlEnumValue("rationalSpline")
     RATIONAL_SPLINE("rationalSpline");
     private final String value;
 
@@ -62,8 +65,9 @@ public enum CurveInterpolationType {
 
     /**
      * Gets the value associated to the enum constant.
-     *
-     * @return The value linked to the enum.
+     * 
+     * @return
+     *     The value linked to the enum.
      */
     public String value() {
         return value;
@@ -71,15 +75,16 @@ public enum CurveInterpolationType {
 
     /**
      * Gets the enum associated to the value passed as parameter.
-     *
+     * 
      * @param v
-     *            The value to get the enum from.
-     * @return The enum which corresponds to the value, if it exists.
+     *     The value to get the enum from.
+     * @return
+     *     The enum which corresponds to the value, if it exists.
      * @throws IllegalArgumentException
-     *             If no value matches in the enum declaration.
+     *     If no value matches in the enum declaration.
      */
     public static CurveInterpolationType fromValue(String v) {
-        for (CurveInterpolationType c : CurveInterpolationType.values()) {
+        for (CurveInterpolationType c: CurveInterpolationType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

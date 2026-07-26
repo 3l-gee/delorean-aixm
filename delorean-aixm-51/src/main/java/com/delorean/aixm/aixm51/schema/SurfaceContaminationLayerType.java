@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -19,10 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,43 +30,29 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for SurfaceContaminationLayerType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SurfaceContaminationLayerType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SurfaceContaminationLayerType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="layerOrder" type=
-"{http://www.aixm.aero/schema/5.1}NoSequenceType" minOccurs="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.1}CodeContaminationType" minOccurs="0"/>
- *         <element name="extent" type=
-"{http://www.aixm.aero/schema/5.1}ElevatedSurfacePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="layerOrder" type="{http://www.aixm.aero/schema/5.1}NoSequenceType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1}CodeContaminationType" minOccurs="0"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1}ElevatedSurfacePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractSurfaceContaminationLayerExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractSurfaceContaminationLayerExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -76,15 +62,23 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SurfaceContaminationLayerType", propOrder = {"layerOrder", "type", "extent", "annotation",
-        "extension"})
+@XmlType(name = "SurfaceContaminationLayerType", propOrder = {
+    "layerOrder",
+    "type",
+    "extent",
+    "annotation",
+    "extension"
+})
 @Entity(name = "SurfaceContaminationLayerType")
 @Table(name = "surfacecontaminationlayer_o", schema = "airport_heliport")
-public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implements Serializable {
+public class SurfaceContaminationLayerType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "layerOrder", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -99,10 +93,11 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     /**
      * Gets the value of the layerOrder property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link NoSequenceType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NoSequenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NoSequenceType> getLayerOrder() {
@@ -111,11 +106,11 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     /**
      * Sets the value of the layerOrder property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NoSequenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NoSequenceType }{@code >}
+     *     
      */
     public void setLayerOrder(JAXBElement<NoSequenceType> value) {
         this.layerOrder = value;
@@ -123,15 +118,16 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetLayerOrder() {
-        return (this.layerOrder != null);
+        return (this.layerOrder!= null);
     }
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeContaminationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeContaminationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeContaminationType> getType() {
@@ -140,11 +136,11 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeContaminationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeContaminationType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeContaminationType> value) {
         this.type = value;
@@ -152,37 +148,39 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the extent property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extent property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extent property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtent().add(newItem);
+     *    getExtent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AIXMElevatedSurfacePropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srfccntmntnlrtp_extnt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "surfacecontaminationlayer_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srfccntmntnlrtp_extnt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "surfacecontaminationlayer_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
     public List<AIXMElevatedSurfacePropertyType> getExtent() {
         if (extent == null) {
             extent = new ArrayList<>();
@@ -191,8 +189,8 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtent(List<AIXMElevatedSurfacePropertyType> extent) {
         this.extent = extent;
@@ -200,7 +198,7 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetExtent() {
-        return ((this.extent != null) && (!this.extent.isEmpty()));
+        return ((this.extent!= null)&&(!this.extent.isEmpty()));
     }
 
     public void unsetExtent() {
@@ -209,31 +207,34 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srfccntmntnlrtp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "surfacecontaminationlayer_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srfccntmntnlrtp_annttn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "surfacecontaminationlayer_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -242,8 +243,8 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -251,7 +252,7 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -260,29 +261,29 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SurfaceContaminationLayerExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SurfaceContaminationLayerExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "surfacecontaminationlayer_oe_hjid", referencedColumnName = "hjid")
     public List<SurfaceContaminationLayerExtensionType> getExtension() {
         if (extension == null) {
@@ -292,8 +293,8 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<SurfaceContaminationLayerExtensionType> extension) {
         this.extension = extension;
@@ -301,7 +302,7 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -309,34 +310,34 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "layerorder")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "layerordernilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "layerorder", columnDefinition = "nosequencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "layerordernilreason", columnDefinition = "nilreason"))
+    })
     public NoSequenceType getLayerOrderItem() {
         return XmlAdapterUtils.unmarshallSource(NoSequenceType.class, this.getLayerOrder());
     }
 
     public void setLayerOrderItem(NoSequenceType target) {
-        setLayerOrder(XmlAdapterUtils.marshallJAXBElement(NoSequenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "layerOrder"), SurfaceContaminationLayerType.class,
-                target));
+        setLayerOrder(XmlAdapterUtils.marshallJAXBElement(NoSequenceType.class, new QName("http://www.aixm.aero/schema/5.1", "layerOrder"), SurfaceContaminationLayerType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codecontaminationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeContaminationType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeContaminationType.class, this.getType());
     }
 
     public void setTypeItem(CodeContaminationType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeContaminationType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "type"), SurfaceContaminationLayerType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeContaminationType.class, new QName("http://www.aixm.aero/schema/5.1", "type"), SurfaceContaminationLayerType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -347,12 +348,38 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
         }
         final SurfaceContaminationLayerType that = ((SurfaceContaminationLayerType) object);
         {
+            boolean lhsFieldIsSet = this.isSetLayerOrder();
+            boolean rhsFieldIsSet = that.isSetLayerOrder();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getLayerOrder();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getLayerOrder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            List<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = (this.isSetExtent()?this.getExtent():null);
+            List<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = (that.isSetExtent()?that.getExtent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -373,40 +400,14 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            List<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = (this.isSetExtent() ? this.getExtent() : null);
-            List<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = (that.isSetExtent() ? that.getExtent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<SurfaceContaminationLayerExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<SurfaceContaminationLayerExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLayerOrder();
-            boolean rhsFieldIsSet = that.isSetLayerOrder();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getLayerOrder();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getLayerOrder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -434,21 +435,21 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
         {
             boolean theFieldIsSet = this.isSetExtent();
             List<AIXMElevatedSurfacePropertyType> theField;
-            theField = (this.isSetExtent() ? this.getExtent() : null);
+            theField = (this.isSetExtent()?this.getExtent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SurfaceContaminationLayerExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -473,19 +474,19 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
         {
             boolean theFieldIsSet = this.isSetExtent();
             List<AIXMElevatedSurfacePropertyType> theField;
-            theField = (this.isSetExtent() ? this.getExtent() : null);
+            theField = (this.isSetExtent()?this.getExtent():null);
             strategy.appendField(locator, this, "extent", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SurfaceContaminationLayerExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

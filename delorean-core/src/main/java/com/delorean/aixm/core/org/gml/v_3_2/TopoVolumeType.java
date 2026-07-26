@@ -1,51 +1,49 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TopoVolumeType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TopoVolumeType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TopoVolumeType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractTopologyType">
  *       <sequence>
- *         <element ref=
-"{http://www.opengis.net/gml/3.2}directedTopoSolid" maxOccurs="unbounded"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}directedTopoSolid" maxOccurs="unbounded"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TopoVolumeType", propOrder = {"directedTopoSolid"})
-public class TopoVolumeType extends AbstractTopologyType implements Serializable {
+@XmlType(name = "TopoVolumeType", propOrder = {
+    "directedTopoSolid"
+})
+public class TopoVolumeType
+    extends AbstractTopologyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -54,32 +52,26 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
     protected AggregationType aggregationType;
 
     /**
-     * The gml:directedSolid property element describes the coBoundary of topology
-     * faces and is used in the support of volume features via the gml:TopoVolume
-     * expression, see below. The orientation attribute of type gml:SignType
-     * expresses the sense in which the included solid appears in the face
-     * coboundary. In the context of a gml:TopoVolume the orientation attribute has
-     * no meaning.Gets the value of the directedTopoSolid property.
-     *
+     * The gml:directedSolid property element describes the coBoundary of topology faces and is used in the support of volume features via the gml:TopoVolume expression, see below. The orientation attribute of type gml:SignType expresses the sense in which the included solid appears in the face coboundary. In the context of a gml:TopoVolume the orientation attribute has no meaning.Gets the value of the directedTopoSolid property.
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the directedTopoSolid property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the directedTopoSolid property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getDirectedTopoSolid().add(newItem);
+     *    getDirectedTopoSolid().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DirectedTopoSolidPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<DirectedTopoSolidPropertyType> getDirectedTopoSolid() {
         if (directedTopoSolid == null) {
@@ -89,20 +81,15 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
     }
 
     /**
-     * The gml:directedSolid property element describes the coBoundary of topology
-     * faces and is used in the support of volume features via the gml:TopoVolume
-     * expression, see below. The orientation attribute of type gml:SignType
-     * expresses the sense in which the included solid appears in the face
-     * coboundary. In the context of a gml:TopoVolume the orientation attribute has
-     * no meaning.
-     *
+     * The gml:directedSolid property element describes the coBoundary of topology faces and is used in the support of volume features via the gml:TopoVolume expression, see below. The orientation attribute of type gml:SignType expresses the sense in which the included solid appears in the face coboundary. In the context of a gml:TopoVolume the orientation attribute has no meaning.
+     * 
      */
     public void setDirectedTopoSolid(List<DirectedTopoSolidPropertyType> directedTopoSolid) {
         this.directedTopoSolid = directedTopoSolid;
     }
 
     public boolean isSetDirectedTopoSolid() {
-        return ((this.directedTopoSolid != null) && (!this.directedTopoSolid.isEmpty()));
+        return ((this.directedTopoSolid!= null)&&(!this.directedTopoSolid.isEmpty()));
     }
 
     public void unsetDirectedTopoSolid() {
@@ -111,9 +98,11 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
 
     /**
      * Gets the value of the aggregationType property.
-     *
-     * @return possible object is {@link AggregationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AggregationType }
+     *     
      */
     public AggregationType getAggregationType() {
         return aggregationType;
@@ -121,23 +110,23 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
 
     /**
      * Sets the value of the aggregationType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AggregationType }
-     *
+     *     allowed object is
+     *     {@link AggregationType }
+     *     
      */
     public void setAggregationType(AggregationType value) {
         this.aggregationType = value;
     }
 
     public boolean isSetAggregationType() {
-        return (this.aggregationType != null);
+        return (this.aggregationType!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -147,6 +136,19 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
             return false;
         }
         final TopoVolumeType that = ((TopoVolumeType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetDirectedTopoSolid();
+            boolean rhsFieldIsSet = that.isSetDirectedTopoSolid();
+            List<DirectedTopoSolidPropertyType> lhsField;
+            lhsField = (this.isSetDirectedTopoSolid()?this.getDirectedTopoSolid():null);
+            List<DirectedTopoSolidPropertyType> rhsField;
+            rhsField = (that.isSetDirectedTopoSolid()?that.getDirectedTopoSolid():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetAggregationType();
             boolean rhsFieldIsSet = that.isSetAggregationType();
@@ -160,19 +162,6 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
                 return false;
             }
         }
-        {
-            boolean lhsFieldIsSet = this.isSetDirectedTopoSolid();
-            boolean rhsFieldIsSet = that.isSetDirectedTopoSolid();
-            List<DirectedTopoSolidPropertyType> lhsField;
-            lhsField = (this.isSetDirectedTopoSolid() ? this.getDirectedTopoSolid() : null);
-            List<DirectedTopoSolidPropertyType> rhsField;
-            rhsField = (that.isSetDirectedTopoSolid() ? that.getDirectedTopoSolid() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         return true;
     }
 
@@ -182,7 +171,7 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
         {
             boolean theFieldIsSet = this.isSetDirectedTopoSolid();
             List<DirectedTopoSolidPropertyType> theField;
-            theField = (this.isSetDirectedTopoSolid() ? this.getDirectedTopoSolid() : null);
+            theField = (this.isSetDirectedTopoSolid()?this.getDirectedTopoSolid():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedTopoSolid", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -202,7 +191,7 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
         {
             boolean theFieldIsSet = this.isSetDirectedTopoSolid();
             List<DirectedTopoSolidPropertyType> theField;
-            theField = (this.isSetDirectedTopoSolid() ? this.getDirectedTopoSolid() : null);
+            theField = (this.isSetDirectedTopoSolid()?this.getDirectedTopoSolid():null);
             strategy.appendField(locator, this, "directedTopoSolid", buffer, theField, theFieldIsSet);
         }
         {

@@ -1,13 +1,13 @@
 
 package com.delorean.aixm.core.org.gco.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,37 +21,32 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for CodeListValue_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for CodeListValue_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CodeListValue_Type">
  *   <simpleContent>
  *     <extension base="<http://www.w3.org/2001/XMLSchema>string">
- *       <attribute name="codeList" use="required" type=
-"{http://www.w3.org/2001/XMLSchema}anyURI" />
- *       <attribute name="codeListValue" use="required" type=
-"{http://www.w3.org/2001/XMLSchema}anyURI" />
- *       <attribute name="codeSpace" type=
-"{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *       <attribute name="codeList" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *       <attribute name="codeListValue" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *       <attribute name="codeSpace" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CodeListValue_Type", propOrder = {"value"})
-public class CodeListValueType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "CodeListValue_Type", propOrder = {
+    "value"
+})
+public class CodeListValueType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -68,9 +63,11 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Gets the value of the value property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getValue() {
         return value;
@@ -78,24 +75,27 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setValue(String value) {
         this.value = value;
     }
 
     public boolean isSetValue() {
-        return (this.value != null);
+        return (this.value!= null);
     }
 
     /**
      * Gets the value of the codeList property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCodeList() {
         return codeList;
@@ -103,24 +103,27 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the codeList property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCodeList(String value) {
         this.codeList = value;
     }
 
     public boolean isSetCodeList() {
-        return (this.codeList != null);
+        return (this.codeList!= null);
     }
 
     /**
      * Gets the value of the codeListValue property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCodeListValue() {
         return codeListValue;
@@ -128,24 +131,27 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the codeListValue property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCodeListValue(String value) {
         this.codeListValue = value;
     }
 
     public boolean isSetCodeListValue() {
-        return (this.codeListValue != null);
+        return (this.codeListValue!= null);
     }
 
     /**
      * Gets the value of the codeSpace property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCodeSpace() {
         return codeSpace;
@@ -153,17 +159,18 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the codeSpace property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCodeSpace(String value) {
         this.codeSpace = value;
     }
 
     public boolean isSetCodeSpace() {
-        return (this.codeSpace != null);
+        return (this.codeSpace!= null);
     }
 
     @Override
@@ -179,9 +186,8 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -189,14 +195,14 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
         }
         final CodeListValueType that = ((CodeListValueType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCodeList();
-            boolean rhsFieldIsSet = that.isSetCodeList();
+            boolean lhsFieldIsSet = this.isSetCodeListValue();
+            boolean rhsFieldIsSet = that.isSetCodeListValue();
             String lhsField;
-            lhsField = this.getCodeList();
+            lhsField = this.getCodeListValue();
             String rhsField;
-            rhsField = that.getCodeList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeList", rhsField);
+            rhsField = that.getCodeListValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeListValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeListValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -228,14 +234,14 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCodeListValue();
-            boolean rhsFieldIsSet = that.isSetCodeListValue();
+            boolean lhsFieldIsSet = this.isSetCodeList();
+            boolean rhsFieldIsSet = that.isSetCodeList();
             String lhsField;
-            lhsField = this.getCodeListValue();
+            lhsField = this.getCodeList();
             String rhsField;
-            rhsField = that.getCodeListValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeListValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeListValue", rhsField);
+            rhsField = that.getCodeList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

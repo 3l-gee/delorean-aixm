@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,41 +38,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for GeoBorderTimeSlicePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for GeoBorderTimeSlicePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="GeoBorderTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}GeoBorderTimeSlice"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}GeoBorderTimeSlice"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeoBorderTimeSlicePropertyType", propOrder = {"geoBorderTimeSlice"})
-@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "GeoBorderTimeSlicePropertyType", propOrder = {
+    "geoBorderTimeSlice"
+})
+@FilterDef(name = "TPHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "GeoBorderTimeSlicePropertyType")
 @Table(name = "geoborder_tp", schema = "airspace")
-public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
+public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "GeoBorderTimeSlice", required = true)
@@ -86,11 +84,15 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
 
     /**
      * Gets the value of the geoBorderTimeSlice property.
-     *
-     * @return possible object is {@link GeoBorderTimeSliceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link GeoBorderTimeSliceType }
+     *     
      */
-    @OneToOne(targetEntity = GeoBorderTimeSliceType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = GeoBorderTimeSliceType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "geobordertimeslice_hjid", referencedColumnName = "hjid")
     public GeoBorderTimeSliceType getGeoBorderTimeSlice() {
         return geoBorderTimeSlice;
@@ -98,10 +100,11 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
 
     /**
      * Sets the value of the geoBorderTimeSlice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link GeoBorderTimeSliceType }
-     *
+     *     allowed object is
+     *     {@link GeoBorderTimeSliceType }
+     *     
      */
     public void setGeoBorderTimeSlice(GeoBorderTimeSliceType value) {
         this.geoBorderTimeSlice = value;
@@ -109,14 +112,16 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
 
     @Transient
     public boolean isSetGeoBorderTimeSlice() {
-        return (this.geoBorderTimeSlice != null);
+        return (this.geoBorderTimeSlice!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -130,10 +135,11 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -141,7 +147,7 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -149,10 +155,12 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -163,21 +171,24 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -186,11 +197,12 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -209,15 +221,27 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final GeoBorderTimeSlicePropertyType that = ((GeoBorderTimeSlicePropertyType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetGeoBorderTimeSlice();
             boolean rhsFieldIsSet = that.isSetGeoBorderTimeSlice();
@@ -227,19 +251,6 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
             rhsField = that.getGeoBorderTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoBorderTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoBorderTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -270,7 +281,7 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -308,7 +319,7 @@ public class GeoBorderTimeSlicePropertyType implements Serializable, Equals, Has
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

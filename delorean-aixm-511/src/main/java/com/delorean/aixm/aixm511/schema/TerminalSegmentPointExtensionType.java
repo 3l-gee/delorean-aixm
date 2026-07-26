@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,41 +35,37 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractSegmentPointExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractTerminalSegmentPointExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractSegmentPointExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractTerminalSegmentPointExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractSegmentPointExtension", "abstractTerminalSegmentPointExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractSegmentPointExtension",
+    "abstractTerminalSegmentPointExtension"
+})
 @Entity(name = "TerminalSegmentPointExtensionType")
 @Table(name = "terminalsegmentpoint_oe", schema = "navaids_point")
-public class TerminalSegmentPointExtensionType implements Serializable, Equals, HashCode, ToString {
+public class TerminalSegmentPointExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractSegmentPointExtension")
@@ -85,11 +81,15 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
 
     /**
      * Gets the value of the abstractSegmentPointExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractsegmentpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentPointExtension() {
         return abstractSegmentPointExtension;
@@ -97,10 +97,11 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
 
     /**
      * Sets the value of the abstractSegmentPointExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractSegmentPointExtension(AbstractExtensionType value) {
         this.abstractSegmentPointExtension = value;
@@ -108,16 +109,20 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
 
     @Transient
     public boolean isSetAbstractSegmentPointExtension() {
-        return (this.abstractSegmentPointExtension != null);
+        return (this.abstractSegmentPointExtension!= null);
     }
 
     /**
      * Gets the value of the abstractTerminalSegmentPointExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractterminalsegmentpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTerminalSegmentPointExtension() {
         return abstractTerminalSegmentPointExtension;
@@ -125,10 +130,11 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
 
     /**
      * Sets the value of the abstractTerminalSegmentPointExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractTerminalSegmentPointExtension(AbstractExtensionType value) {
         this.abstractTerminalSegmentPointExtension = value;
@@ -136,14 +142,16 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
 
     @Transient
     public boolean isSetAbstractTerminalSegmentPointExtension() {
-        return (this.abstractTerminalSegmentPointExtension != null);
+        return (this.abstractTerminalSegmentPointExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -157,10 +165,11 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -168,7 +177,7 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -176,10 +185,12 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -190,21 +201,24 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -213,11 +227,12 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -236,9 +251,8 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -246,16 +260,27 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
         }
         final TerminalSegmentPointExtensionType that = ((TerminalSegmentPointExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
             AbstractExtensionType lhsField;
             lhsField = this.getAbstractSegmentPointExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -267,23 +292,8 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
             lhsField = this.getAbstractTerminalSegmentPointExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractTerminalSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTerminalSegmentPointExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTerminalSegmentPointExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTerminalSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTerminalSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -315,14 +325,13 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
             boolean theFieldIsSet = this.isSetAbstractTerminalSegmentPointExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractTerminalSegmentPointExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractTerminalSegmentPointExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractTerminalSegmentPointExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -361,13 +370,12 @@ public class TerminalSegmentPointExtensionType implements Serializable, Equals, 
             boolean theFieldIsSet = this.isSetAbstractTerminalSegmentPointExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractTerminalSegmentPointExtension();
-            strategy.appendField(locator, this, "abstractTerminalSegmentPointExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractTerminalSegmentPointExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

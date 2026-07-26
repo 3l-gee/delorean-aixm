@@ -1,13 +1,13 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,36 +21,33 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for DS_InitiativeTypeCode_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DS_InitiativeTypeCode_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DS_InitiativeTypeCode_PropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref=
-"{http://www.isotc211.org/2005/gmd}DS_InitiativeTypeCode"/>
+ *         <element ref="{http://www.isotc211.org/2005/gmd}DS_InitiativeTypeCode"/>
  *       </sequence>
  *       <attribute ref="{http://www.isotc211.org/2005/gco}nilReason"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DS_InitiativeTypeCode_PropertyType", propOrder = {"dsInitiativeTypeCode"})
-public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "DS_InitiativeTypeCode_PropertyType", propOrder = {
+    "dsInitiativeTypeCode"
+})
+public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DS_InitiativeTypeCode")
@@ -60,9 +57,11 @@ public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, H
 
     /**
      * Gets the value of the dsInitiativeTypeCode property.
-     *
-     * @return possible object is {@link CodeListValueType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CodeListValueType }
+     *     
      */
     public CodeListValueType getDSInitiativeTypeCode() {
         return dsInitiativeTypeCode;
@@ -70,24 +69,27 @@ public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, H
 
     /**
      * Sets the value of the dsInitiativeTypeCode property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CodeListValueType }
-     *
+     *     allowed object is
+     *     {@link CodeListValueType }
+     *     
      */
     public void setDSInitiativeTypeCode(CodeListValueType value) {
         this.dsInitiativeTypeCode = value;
     }
 
     public boolean isSetDSInitiativeTypeCode() {
-        return (this.dsInitiativeTypeCode != null);
+        return (this.dsInitiativeTypeCode!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -95,17 +97,18 @@ public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, H
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -121,28 +124,14 @@ public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, H
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final DSInitiativeTypeCodePropertyType that = ((DSInitiativeTypeCodePropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetDSInitiativeTypeCode();
             boolean rhsFieldIsSet = that.isSetDSInitiativeTypeCode();
@@ -152,6 +141,19 @@ public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, H
             rhsField = that.getDSInitiativeTypeCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dsInitiativeTypeCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dsInitiativeTypeCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

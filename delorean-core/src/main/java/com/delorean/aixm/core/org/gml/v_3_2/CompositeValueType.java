@@ -1,89 +1,86 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for CompositeValueType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for CompositeValueType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CompositeValueType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGMLType">
  *       <sequence>
- *         <element ref=
-"{http://www.opengis.net/gml/3.2}valueComponent" maxOccurs="unbounded" minOccurs
-="0"/>
- *         <element ref=
-"{http://www.opengis.net/gml/3.2}valueComponents" minOccurs="0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}valueComponent" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}valueComponents" minOccurs="0"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CompositeValueType", propOrder = {"valueComponent", "valueComponents"})
-@XmlSeeAlso({ValueArrayType.class})
-public class CompositeValueType extends AbstractGMLType implements Serializable {
+@XmlType(name = "CompositeValueType", propOrder = {
+    "valueComponent",
+    "valueComponents"
+})
+@XmlSeeAlso({
+    ValueArrayType.class
+})
+public class CompositeValueType
+    extends AbstractGMLType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected List<ValuePropertyType> valueComponent;
     /**
      * Property that contains Values.
-     *
+     * 
      */
     protected ValueArrayPropertyType valueComponents;
     @XmlAttribute(name = "aggregationType")
     protected AggregationType aggregationType;
 
     /**
-     * Property that refers to, or contains, a Value.Gets the value of the
-     * valueComponent property.
-     *
+     * Property that refers to, or contains, a Value.Gets the value of the valueComponent property.
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the valueComponent property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the valueComponent property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getValueComponent().add(newItem);
+     *    getValueComponent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ValuePropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<ValuePropertyType> getValueComponent() {
         if (valueComponent == null) {
@@ -94,14 +91,14 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
 
     /**
      * Property that refers to, or contains, a Value.
-     *
+     * 
      */
     public void setValueComponent(List<ValuePropertyType> valueComponent) {
         this.valueComponent = valueComponent;
     }
 
     public boolean isSetValueComponent() {
-        return ((this.valueComponent != null) && (!this.valueComponent.isEmpty()));
+        return ((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()));
     }
 
     public void unsetValueComponent() {
@@ -110,9 +107,11 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
 
     /**
      * Property that contains Values.
-     *
-     * @return possible object is {@link ValueArrayPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ValueArrayPropertyType }
+     *     
      */
     public ValueArrayPropertyType getValueComponents() {
         return valueComponents;
@@ -120,10 +119,11 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
 
     /**
      * Sets the value of the valueComponents property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ValueArrayPropertyType }
-     *
+     *     allowed object is
+     *     {@link ValueArrayPropertyType }
+     *     
      * @see #getValueComponents()
      */
     public void setValueComponents(ValueArrayPropertyType value) {
@@ -131,14 +131,16 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
     }
 
     public boolean isSetValueComponents() {
-        return (this.valueComponents != null);
+        return (this.valueComponents!= null);
     }
 
     /**
      * Gets the value of the aggregationType property.
-     *
-     * @return possible object is {@link AggregationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AggregationType }
+     *     
      */
     public AggregationType getAggregationType() {
         return aggregationType;
@@ -146,23 +148,23 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
 
     /**
      * Sets the value of the aggregationType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AggregationType }
-     *
+     *     allowed object is
+     *     {@link AggregationType }
+     *     
      */
     public void setAggregationType(AggregationType value) {
         this.aggregationType = value;
     }
 
     public boolean isSetAggregationType() {
-        return (this.aggregationType != null);
+        return (this.aggregationType!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -173,14 +175,14 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
         }
         final CompositeValueType that = ((CompositeValueType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValueComponent();
-            boolean rhsFieldIsSet = that.isSetValueComponent();
-            List<ValuePropertyType> lhsField;
-            lhsField = (this.isSetValueComponent() ? this.getValueComponent() : null);
-            List<ValuePropertyType> rhsField;
-            rhsField = (that.isSetValueComponent() ? that.getValueComponent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponent", rhsField);
+            boolean lhsFieldIsSet = this.isSetValueComponents();
+            boolean rhsFieldIsSet = that.isSetValueComponents();
+            ValueArrayPropertyType lhsField;
+            lhsField = this.getValueComponents();
+            ValueArrayPropertyType rhsField;
+            rhsField = that.getValueComponents();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponents", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponents", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -199,14 +201,14 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetValueComponents();
-            boolean rhsFieldIsSet = that.isSetValueComponents();
-            ValueArrayPropertyType lhsField;
-            lhsField = this.getValueComponents();
-            ValueArrayPropertyType rhsField;
-            rhsField = that.getValueComponents();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponents", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponents", rhsField);
+            boolean lhsFieldIsSet = this.isSetValueComponent();
+            boolean rhsFieldIsSet = that.isSetValueComponent();
+            List<ValuePropertyType> lhsField;
+            lhsField = (this.isSetValueComponent()?this.getValueComponent():null);
+            List<ValuePropertyType> rhsField;
+            rhsField = (that.isSetValueComponent()?that.getValueComponent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -220,7 +222,7 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
         {
             boolean theFieldIsSet = this.isSetValueComponent();
             List<ValuePropertyType> theField;
-            theField = (this.isSetValueComponent() ? this.getValueComponent() : null);
+            theField = (this.isSetValueComponent()?this.getValueComponent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "valueComponent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -247,7 +249,7 @@ public class CompositeValueType extends AbstractGMLType implements Serializable 
         {
             boolean theFieldIsSet = this.isSetValueComponent();
             List<ValuePropertyType> theField;
-            theField = (this.isSetValueComponent() ? this.getValueComponent() : null);
+            theField = (this.isSetValueComponent()?this.getValueComponent():null);
             strategy.appendField(locator, this, "valueComponent", buffer, theField, theFieldIsSet);
         }
         {

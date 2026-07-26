@@ -1,58 +1,55 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.datatype.XMLGregorianCalendar;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.datatype.XMLGregorianCalendar;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TimeClockType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TimeClockType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TimeClockType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}TimeReferenceSystemType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}TimeReferenceSystemType">
  *       <sequence>
- *         <element name="referenceEvent" type=
-"{http://www.opengis.net/gml/3.2}StringOrRefType"/>
- *         <element name="referenceTime" type=
-"{http://www.w3.org/2001/XMLSchema}time"/>
- *         <element name="utcReference" type=
-"{http://www.w3.org/2001/XMLSchema}time"/>
- *         <element name="dateBasis" type=
-"{http://www.opengis.net/gml/3.2}TimeCalendarPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="referenceEvent" type="{http://www.opengis.net/gml/3.2}StringOrRefType"/>
+ *         <element name="referenceTime" type="{http://www.w3.org/2001/XMLSchema}time"/>
+ *         <element name="utcReference" type="{http://www.w3.org/2001/XMLSchema}time"/>
+ *         <element name="dateBasis" type="{http://www.opengis.net/gml/3.2}TimeCalendarPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TimeClockType", propOrder = {"referenceEvent", "referenceTime", "utcReference", "dateBasis"})
-public class TimeClockType extends TimeReferenceSystemType implements Serializable {
+@XmlType(name = "TimeClockType", propOrder = {
+    "referenceEvent",
+    "referenceTime",
+    "utcReference",
+    "dateBasis"
+})
+public class TimeClockType
+    extends TimeReferenceSystemType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -67,9 +64,11 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
 
     /**
      * Gets the value of the referenceEvent property.
-     *
-     * @return possible object is {@link StringOrRefType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link StringOrRefType }
+     *     
      */
     public StringOrRefType getReferenceEvent() {
         return referenceEvent;
@@ -77,24 +76,27 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
 
     /**
      * Sets the value of the referenceEvent property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link StringOrRefType }
-     *
+     *     allowed object is
+     *     {@link StringOrRefType }
+     *     
      */
     public void setReferenceEvent(StringOrRefType value) {
         this.referenceEvent = value;
     }
 
     public boolean isSetReferenceEvent() {
-        return (this.referenceEvent != null);
+        return (this.referenceEvent!= null);
     }
 
     /**
      * Gets the value of the referenceTime property.
-     *
-     * @return possible object is {@link XMLGregorianCalendar }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getReferenceTime() {
         return referenceTime;
@@ -102,24 +104,27 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
 
     /**
      * Sets the value of the referenceTime property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link XMLGregorianCalendar }
-     *
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setReferenceTime(XMLGregorianCalendar value) {
         this.referenceTime = value;
     }
 
     public boolean isSetReferenceTime() {
-        return (this.referenceTime != null);
+        return (this.referenceTime!= null);
     }
 
     /**
      * Gets the value of the utcReference property.
-     *
-     * @return possible object is {@link XMLGregorianCalendar }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getUtcReference() {
         return utcReference;
@@ -127,41 +132,41 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
 
     /**
      * Sets the value of the utcReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link XMLGregorianCalendar }
-     *
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setUtcReference(XMLGregorianCalendar value) {
         this.utcReference = value;
     }
 
     public boolean isSetUtcReference() {
-        return (this.utcReference != null);
+        return (this.utcReference!= null);
     }
 
     /**
      * Gets the value of the dateBasis property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the dateBasis property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the dateBasis property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getDateBasis().add(newItem);
+     *    getDateBasis().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TimeCalendarPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<TimeCalendarPropertyType> getDateBasis() {
         if (dateBasis == null) {
@@ -171,15 +176,15 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setDateBasis(List<TimeCalendarPropertyType> dateBasis) {
         this.dateBasis = dateBasis;
     }
 
     public boolean isSetDateBasis() {
-        return ((this.dateBasis != null) && (!this.dateBasis.isEmpty()));
+        return ((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()));
     }
 
     public void unsetDateBasis() {
@@ -187,9 +192,8 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -199,19 +203,6 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
             return false;
         }
         final TimeClockType that = ((TimeClockType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetDateBasis();
-            boolean rhsFieldIsSet = that.isSetDateBasis();
-            List<TimeCalendarPropertyType> lhsField;
-            lhsField = (this.isSetDateBasis() ? this.getDateBasis() : null);
-            List<TimeCalendarPropertyType> rhsField;
-            rhsField = (that.isSetDateBasis() ? that.getDateBasis() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateBasis", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateBasis", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetReferenceEvent();
             boolean rhsFieldIsSet = that.isSetReferenceEvent();
@@ -226,14 +217,14 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUtcReference();
-            boolean rhsFieldIsSet = that.isSetUtcReference();
-            XMLGregorianCalendar lhsField;
-            lhsField = this.getUtcReference();
-            XMLGregorianCalendar rhsField;
-            rhsField = that.getUtcReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "utcReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "utcReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetDateBasis();
+            boolean rhsFieldIsSet = that.isSetDateBasis();
+            List<TimeCalendarPropertyType> lhsField;
+            lhsField = (this.isSetDateBasis()?this.getDateBasis():null);
+            List<TimeCalendarPropertyType> rhsField;
+            rhsField = (that.isSetDateBasis()?that.getDateBasis():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateBasis", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateBasis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -247,6 +238,19 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
             rhsField = that.getReferenceTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUtcReference();
+            boolean rhsFieldIsSet = that.isSetUtcReference();
+            XMLGregorianCalendar lhsField;
+            lhsField = this.getUtcReference();
+            XMLGregorianCalendar rhsField;
+            rhsField = that.getUtcReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "utcReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "utcReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -281,7 +285,7 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
         {
             boolean theFieldIsSet = this.isSetDateBasis();
             List<TimeCalendarPropertyType> theField;
-            theField = (this.isSetDateBasis() ? this.getDateBasis() : null);
+            theField = (this.isSetDateBasis()?this.getDateBasis():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dateBasis", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +316,7 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
         {
             boolean theFieldIsSet = this.isSetDateBasis();
             List<TimeCalendarPropertyType> theField;
-            theField = (this.isSetDateBasis() ? this.getDateBasis() : null);
+            theField = (this.isSetDateBasis()?this.getDateBasis():null);
             strategy.appendField(locator, this, "dateBasis", buffer, theField, theFieldIsSet);
         }
         return buffer;

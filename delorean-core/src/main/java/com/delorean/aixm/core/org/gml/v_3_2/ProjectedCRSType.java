@@ -1,34 +1,28 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ProjectedCRSType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ProjectedCRSType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ProjectedCRSType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractGeneralDerivedCRSType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGeneralDerivedCRSType">
  *       <sequence>
  *         <choice>
  *           <element ref="{http://www.opengis.net/gml/3.2}baseGeodeticCRS"/>
@@ -40,35 +34,41 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ProjectedCRSType", propOrder = {"baseGeodeticCRS", "baseGeographicCRS", "cartesianCS"})
-public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements Serializable {
+@XmlType(name = "ProjectedCRSType", propOrder = {
+    "baseGeodeticCRS",
+    "baseGeographicCRS",
+    "cartesianCS"
+})
+public class ProjectedCRSType
+    extends AbstractGeneralDerivedCRSType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:baseGeodeticCRS is an association role to the geodetic coordinate
-     * reference system used by this projected CRS.
-     *
+     * gml:baseGeodeticCRS is an association role to the geodetic coordinate reference system used by this projected CRS.
+     * 
      */
     protected GeodeticCRSPropertyType baseGeodeticCRS;
     protected GeographicCRSPropertyType baseGeographicCRS;
     /**
-     * gml:cartesianCS is an association role to the Cartesian coordinate system
-     * used by this CRS.
-     *
+     * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
+     * 
      */
     @XmlElementRef(name = "cartesianCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<CartesianCSPropertyType> cartesianCS;
 
     /**
-     * gml:baseGeodeticCRS is an association role to the geodetic coordinate
-     * reference system used by this projected CRS.
-     *
-     * @return possible object is {@link GeodeticCRSPropertyType }
-     *
+     * gml:baseGeodeticCRS is an association role to the geodetic coordinate reference system used by this projected CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link GeodeticCRSPropertyType }
+     *     
      */
     public GeodeticCRSPropertyType getBaseGeodeticCRS() {
         return baseGeodeticCRS;
@@ -76,10 +76,11 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
 
     /**
      * Sets the value of the baseGeodeticCRS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link GeodeticCRSPropertyType }
-     *
+     *     allowed object is
+     *     {@link GeodeticCRSPropertyType }
+     *     
      * @see #getBaseGeodeticCRS()
      */
     public void setBaseGeodeticCRS(GeodeticCRSPropertyType value) {
@@ -87,14 +88,16 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
     }
 
     public boolean isSetBaseGeodeticCRS() {
-        return (this.baseGeodeticCRS != null);
+        return (this.baseGeodeticCRS!= null);
     }
 
     /**
      * Gets the value of the baseGeographicCRS property.
-     *
-     * @return possible object is {@link GeographicCRSPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link GeographicCRSPropertyType }
+     *     
      */
     public GeographicCRSPropertyType getBaseGeographicCRS() {
         return baseGeographicCRS;
@@ -102,28 +105,28 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
 
     /**
      * Sets the value of the baseGeographicCRS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link GeographicCRSPropertyType }
-     *
+     *     allowed object is
+     *     {@link GeographicCRSPropertyType }
+     *     
      */
     public void setBaseGeographicCRS(GeographicCRSPropertyType value) {
         this.baseGeographicCRS = value;
     }
 
     public boolean isSetBaseGeographicCRS() {
-        return (this.baseGeographicCRS != null);
+        return (this.baseGeographicCRS!= null);
     }
 
     /**
-     * gml:cartesianCS is an association role to the Cartesian coordinate system
-     * used by this CRS.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link CartesianCSPropertyType
-     *         }{@code >}
-     *
+     * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *     
      */
     public JAXBElement<CartesianCSPropertyType> getCartesianCS() {
         return cartesianCS;
@@ -131,13 +134,12 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
 
     /**
      * Sets the value of the cartesianCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link CartesianCSPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *     
      * @see #getCartesianCS()
      */
     public void setCartesianCS(JAXBElement<CartesianCSPropertyType> value) {
@@ -145,13 +147,12 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
     }
 
     public boolean isSetCartesianCS() {
-        return (this.cartesianCS != null);
+        return (this.cartesianCS!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -162,19 +163,6 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
         }
         final ProjectedCRSType that = ((ProjectedCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBaseGeodeticCRS();
-            boolean rhsFieldIsSet = that.isSetBaseGeodeticCRS();
-            GeodeticCRSPropertyType lhsField;
-            lhsField = this.getBaseGeodeticCRS();
-            GeodeticCRSPropertyType rhsField;
-            rhsField = that.getBaseGeodeticCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseGeodeticCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseGeodeticCRS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCartesianCS();
             boolean rhsFieldIsSet = that.isSetCartesianCS();
             JAXBElement<CartesianCSPropertyType> lhsField;
@@ -183,6 +171,19 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
             rhsField = that.getCartesianCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBaseGeodeticCRS();
+            boolean rhsFieldIsSet = that.isSetBaseGeodeticCRS();
+            GeodeticCRSPropertyType lhsField;
+            lhsField = this.getBaseGeodeticCRS();
+            GeodeticCRSPropertyType rhsField;
+            rhsField = that.getBaseGeodeticCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseGeodeticCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseGeodeticCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

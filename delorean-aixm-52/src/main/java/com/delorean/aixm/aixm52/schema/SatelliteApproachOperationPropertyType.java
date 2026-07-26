@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for SatelliteApproachOperationPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SatelliteApproachOperationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SatelliteApproachOperationPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}SatelliteApproachOperation"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}SatelliteApproachOperation"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SatelliteApproachOperationPropertyType", propOrder = {"satelliteApproachOperation"})
+@XmlType(name = "SatelliteApproachOperationPropertyType", propOrder = {
+    "satelliteApproachOperation"
+})
 @Entity(name = "SatelliteApproachOperationPropertyType")
 @Table(name = "satelliteapproachoperationpropertytype", schema = "navaids_point")
-public class SatelliteApproachOperationPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class SatelliteApproachOperationPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "SatelliteApproachOperation", required = true)
@@ -58,11 +56,15 @@ public class SatelliteApproachOperationPropertyType extends AbstractAIXMProperty
 
     /**
      * Gets the value of the satelliteApproachOperation property.
-     *
-     * @return possible object is {@link SatelliteApproachOperationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link SatelliteApproachOperationType }
+     *     
      */
-    @OneToOne(targetEntity = SatelliteApproachOperationType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = SatelliteApproachOperationType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "satelliteapproachoperation_hjid", referencedColumnName = "hjid")
     public SatelliteApproachOperationType getSatelliteApproachOperation() {
         return satelliteApproachOperation;
@@ -70,10 +72,11 @@ public class SatelliteApproachOperationPropertyType extends AbstractAIXMProperty
 
     /**
      * Sets the value of the satelliteApproachOperation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link SatelliteApproachOperationType }
-     *
+     *     allowed object is
+     *     {@link SatelliteApproachOperationType }
+     *     
      */
     public void setSatelliteApproachOperation(SatelliteApproachOperationType value) {
         this.satelliteApproachOperation = value;
@@ -81,13 +84,12 @@ public class SatelliteApproachOperationPropertyType extends AbstractAIXMProperty
 
     @Transient
     public boolean isSetSatelliteApproachOperation() {
-        return (this.satelliteApproachOperation != null);
+        return (this.satelliteApproachOperation!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

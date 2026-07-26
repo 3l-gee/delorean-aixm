@@ -1,49 +1,52 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TimeReferenceSystemType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TimeReferenceSystemType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TimeReferenceSystemType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}DefinitionType">
  *       <sequence>
- *         <element name="domainOfValidity" type=
-"{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="domainOfValidity" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TimeReferenceSystemType", propOrder = {"domainOfValidity"})
-@XmlSeeAlso({TimeCoordinateSystemType.class, TimeCalendarType.class, TimeClockType.class,
-        TimeOrdinalReferenceSystemType.class})
-public class TimeReferenceSystemType extends DefinitionType implements Serializable {
+@XmlType(name = "TimeReferenceSystemType", propOrder = {
+    "domainOfValidity"
+})
+@XmlSeeAlso({
+    TimeCoordinateSystemType.class,
+    TimeCalendarType.class,
+    TimeClockType.class,
+    TimeOrdinalReferenceSystemType.class
+})
+public class TimeReferenceSystemType
+    extends DefinitionType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -51,9 +54,11 @@ public class TimeReferenceSystemType extends DefinitionType implements Serializa
 
     /**
      * Gets the value of the domainOfValidity property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDomainOfValidity() {
         return domainOfValidity;
@@ -61,23 +66,23 @@ public class TimeReferenceSystemType extends DefinitionType implements Serializa
 
     /**
      * Sets the value of the domainOfValidity property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDomainOfValidity(String value) {
         this.domainOfValidity = value;
     }
 
     public boolean isSetDomainOfValidity() {
-        return (this.domainOfValidity != null);
+        return (this.domainOfValidity!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

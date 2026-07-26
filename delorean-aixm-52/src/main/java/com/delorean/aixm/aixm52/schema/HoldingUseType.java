@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,46 +31,31 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for HoldingUseType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for HoldingUseType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="HoldingUseType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="holdingUse" type=
-"{http://www.aixm.aero/schema/5.2}CodeHoldingUseType" minOccurs="0"/>
- *         <element name="instruction" type=
-"{http://www.aixm.aero/schema/5.2}TextInstructionType" minOccurs="0"/>
- *         <element name="instructedAltitude" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="instructionAltitudeReference" type=
-"{http://www.aixm.aero/schema/5.2}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="theHoldingPattern" type=
-"{http://www.aixm.aero/schema/5.2}HoldingPatternPropertyType" minOccurs="0"/>
+ *         <element name="holdingUse" type="{http://www.aixm.aero/schema/5.2}CodeHoldingUseType" minOccurs="0"/>
+ *         <element name="instruction" type="{http://www.aixm.aero/schema/5.2}TextInstructionType" minOccurs="0"/>
+ *         <element name="instructedAltitude" type="{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="instructionAltitudeReference" type="{http://www.aixm.aero/schema/5.2}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="theHoldingPattern" type="{http://www.aixm.aero/schema/5.2}HoldingPatternPropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractHoldingUseExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractHoldingUseExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -80,15 +65,25 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "HoldingUseType", propOrder = {"holdingUse", "instruction", "instructedAltitude",
-        "instructionAltitudeReference", "annotation", "theHoldingPattern", "extension"})
+@XmlType(name = "HoldingUseType", propOrder = {
+    "holdingUse",
+    "instruction",
+    "instructedAltitude",
+    "instructionAltitudeReference",
+    "annotation",
+    "theHoldingPattern",
+    "extension"
+})
 @Entity(name = "HoldingUseType")
 @Table(name = "holdinguse_o", schema = "procedure")
-public class HoldingUseType extends AbstractAIXMObjectType implements Serializable {
+public class HoldingUseType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "holdingUse", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -107,10 +102,11 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Gets the value of the holdingUse property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeHoldingUseType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeHoldingUseType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeHoldingUseType> getHoldingUse() {
@@ -119,11 +115,11 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the holdingUse property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeHoldingUseType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeHoldingUseType }{@code >}
+     *     
      */
     public void setHoldingUse(JAXBElement<CodeHoldingUseType> value) {
         this.holdingUse = value;
@@ -131,15 +127,16 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetHoldingUse() {
-        return (this.holdingUse != null);
+        return (this.holdingUse!= null);
     }
 
     /**
      * Gets the value of the instruction property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextInstructionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextInstructionType> getInstruction() {
@@ -148,11 +145,11 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the instruction property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextInstructionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     public void setInstruction(JAXBElement<TextInstructionType> value) {
         this.instruction = value;
@@ -160,15 +157,16 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetInstruction() {
-        return (this.instruction != null);
+        return (this.instruction!= null);
     }
 
     /**
      * Gets the value of the instructedAltitude property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getInstructedAltitude() {
@@ -177,11 +175,11 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the instructedAltitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setInstructedAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.instructedAltitude = value;
@@ -189,15 +187,16 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetInstructedAltitude() {
-        return (this.instructedAltitude != null);
+        return (this.instructedAltitude!= null);
     }
 
     /**
      * Gets the value of the instructionAltitudeReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getInstructionAltitudeReference() {
@@ -206,11 +205,11 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the instructionAltitudeReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setInstructionAltitudeReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.instructionAltitudeReference = value;
@@ -218,36 +217,39 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetInstructionAltitudeReference() {
-        return (this.instructionAltitudeReference != null);
+        return (this.instructionAltitudeReference!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "hldngustp_annttn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "holdinguse_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "hldngustp_annttn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "holdinguse_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -256,8 +258,8 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -265,7 +267,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -274,10 +276,11 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Gets the value of the theHoldingPattern property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link HoldingPatternPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link HoldingPatternPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<HoldingPatternPropertyType> getTheHoldingPattern() {
@@ -286,11 +289,11 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     /**
      * Sets the value of the theHoldingPattern property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link HoldingPatternPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link HoldingPatternPropertyType }{@code >}
+     *     
      */
     public void setTheHoldingPattern(JAXBElement<HoldingPatternPropertyType> value) {
         this.theHoldingPattern = value;
@@ -298,33 +301,34 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetTheHoldingPattern() {
-        return (this.theHoldingPattern != null);
+        return (this.theHoldingPattern!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link HoldingUseExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = HoldingUseExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = HoldingUseExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "holdinguse_oe_hjid", referencedColumnName = "hjid")
     public List<HoldingUseExtensionType> getExtension() {
         if (extension == null) {
@@ -334,8 +338,8 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<HoldingUseExtensionType> extension) {
         this.extension = extension;
@@ -343,7 +347,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -351,76 +355,78 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "holdinguse")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "holdingusenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "holdinguse", columnDefinition = "codeholdingusebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "holdingusenilreason", columnDefinition = "nilreason"))
+    })
     public CodeHoldingUseType getHoldingUseItem() {
         return XmlAdapterUtils.unmarshallSource(CodeHoldingUseType.class, this.getHoldingUse());
     }
 
     public void setHoldingUseItem(CodeHoldingUseType target) {
-        setHoldingUse(XmlAdapterUtils.marshallJAXBElement(CodeHoldingUseType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "holdingUse"), HoldingUseType.class, target));
+        setHoldingUse(XmlAdapterUtils.marshallJAXBElement(CodeHoldingUseType.class, new QName("http://www.aixm.aero/schema/5.2", "holdingUse"), HoldingUseType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "TEXT", length = 10000)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "instructionnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "instructionnilreason", columnDefinition = "nilreason"))
+    })
     public TextInstructionType getInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getInstruction());
     }
 
     public void setInstructionItem(TextInstructionType target) {
-        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "instruction"), HoldingUseType.class, target));
+        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.2", "instruction"), HoldingUseType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "instructedaltitude", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "instructedaltitudeuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "instructedaltitudeaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "instructedaltitudenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "instructedaltitude", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "instructedaltitudeuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "instructedaltitudeaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "instructedaltitudenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getInstructedAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getInstructedAltitude());
     }
 
     public void setInstructedAltitudeItem(ValDistanceVerticalType target) {
-        setInstructedAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "instructedAltitude"), HoldingUseType.class, target));
+        setInstructedAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "instructedAltitude"), HoldingUseType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "instructionaltitudereference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "instructionaltitudereferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "instructionaltitudereference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "instructionaltitudereferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getInstructionAltitudeReferenceItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class,
-                this.getInstructionAltitudeReference());
+        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getInstructionAltitudeReference());
     }
 
     public void setInstructionAltitudeReferenceItem(CodeVerticalReferenceType target) {
-        setInstructionAltitudeReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "instructionAltitudeReference"), HoldingUseType.class,
-                target));
+        setInstructionAltitudeReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.2", "instructionAltitudeReference"), HoldingUseType.class, target));
     }
 
-    @OneToOne(targetEntity = HoldingPatternPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "hldngustp_thhldngpttrn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "holdinguse_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "theholdingpattern_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = HoldingPatternPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "hldngustp_thhldngpttrn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "holdinguse_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "theholdingpattern_hjid", referencedColumnName = "hjid")
+    })
     public HoldingPatternPropertyType getTheHoldingPatternItem() {
         return XmlAdapterUtils.unmarshallSource(HoldingPatternPropertyType.class, this.getTheHoldingPattern());
     }
 
     public void setTheHoldingPatternItem(HoldingPatternPropertyType target) {
-        setTheHoldingPattern(XmlAdapterUtils.marshallJAXBElement(HoldingPatternPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "theHoldingPattern"), HoldingUseType.class, target));
+        setTheHoldingPattern(XmlAdapterUtils.marshallJAXBElement(HoldingPatternPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "theHoldingPattern"), HoldingUseType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -431,27 +437,12 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
         }
         final HoldingUseType that = ((HoldingUseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetInstructionAltitudeReference();
-            boolean rhsFieldIsSet = that.isSetInstructionAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getInstructionAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getInstructionAltitudeReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instructionAltitudeReference",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructionAltitudeReference",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<HoldingUseExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<HoldingUseExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -472,14 +463,14 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHoldingUse();
-            boolean rhsFieldIsSet = that.isSetHoldingUse();
-            JAXBElement<CodeHoldingUseType> lhsField;
-            lhsField = this.getHoldingUse();
-            JAXBElement<CodeHoldingUseType> rhsField;
-            rhsField = that.getHoldingUse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingUse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingUse", rhsField);
+            boolean lhsFieldIsSet = this.isSetInstructionAltitudeReference();
+            boolean rhsFieldIsSet = that.isSetInstructionAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getInstructionAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getInstructionAltitudeReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instructionAltitudeReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructionAltitudeReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -501,9 +492,9 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -519,6 +510,19 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
             rhsField = that.getTheHoldingPattern();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theHoldingPattern", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theHoldingPattern", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHoldingUse();
+            boolean rhsFieldIsSet = that.isSetHoldingUse();
+            JAXBElement<CodeHoldingUseType> lhsField;
+            lhsField = this.getHoldingUse();
+            JAXBElement<CodeHoldingUseType> rhsField;
+            rhsField = that.getHoldingUse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingUse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingUse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -560,7 +564,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -574,7 +578,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<HoldingUseExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -611,7 +615,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -623,7 +627,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<HoldingUseExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

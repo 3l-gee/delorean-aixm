@@ -1,9 +1,13 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -11,7 +15,6 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -19,38 +22,36 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 
+
 /**
- * <p>
- * Java class for UsageConditionPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for UsageConditionPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="UsageConditionPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractUsageCondition"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractUsageCondition"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "UsageConditionPropertyType", propOrder = {"abstractUsageCondition"})
+@XmlType(name = "UsageConditionPropertyType", propOrder = {
+    "abstractUsageCondition"
+})
 @Entity(name = "UsageConditionPropertyType")
 @Table(name = "usageconditionpropertytype", schema = "airport_heliport")
-public class UsageConditionPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class UsageConditionPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractUsageCondition", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class)
@@ -58,14 +59,14 @@ public class UsageConditionPropertyType extends AbstractAIXMPropertyType impleme
 
     /**
      * Gets the value of the abstractUsageCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractUsageConditionType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AirportHeliportUsageType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link ApronAreaUsageType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link ManoeuvringAreaUsageType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractUsageConditionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportUsageType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronAreaUsageType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ManoeuvringAreaUsageType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<? extends AbstractUsageConditionType> getAbstractUsageCondition() {
@@ -74,15 +75,14 @@ public class UsageConditionPropertyType extends AbstractAIXMPropertyType impleme
 
     /**
      * Sets the value of the abstractUsageCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractUsageConditionType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AirportHeliportUsageType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link ApronAreaUsageType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link ManoeuvringAreaUsageType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractUsageConditionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportUsageType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ApronAreaUsageType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ManoeuvringAreaUsageType }{@code >}
+     *     
      */
     public void setAbstractUsageCondition(JAXBElement<? extends AbstractUsageConditionType> value) {
         this.abstractUsageCondition = value;
@@ -90,7 +90,7 @@ public class UsageConditionPropertyType extends AbstractAIXMPropertyType impleme
 
     @Transient
     public boolean isSetAbstractUsageCondition() {
-        return (this.abstractUsageCondition != null);
+        return (this.abstractUsageCondition!= null);
     }
 
     @Basic
@@ -104,14 +104,13 @@ public class UsageConditionPropertyType extends AbstractAIXMPropertyType impleme
     }
 
     public void setAbstractUsageConditionName(String target) {
-        if (target != null) {
-            setAbstractUsageCondition(
-                    JAXBElementUtils.wrap(this.getAbstractUsageCondition(), target, AbstractUsageConditionType.class));
+        if (target!= null) {
+            setAbstractUsageCondition(JAXBElementUtils.wrap(this.getAbstractUsageCondition(), target, AbstractUsageConditionType.class));
         }
     }
 
-    @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-    @jakarta.persistence.JoinColumn(name = "usage_condition_hjid", referencedColumnName = "hjid")
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "usage_condition_hjid", referencedColumnName = "hjid")
     public AbstractUsageConditionType getAbstractUsageConditionValue() {
         if (this.getAbstractUsageCondition() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractUsageConditionType.class, this.getAbstractUsageCondition());
@@ -121,15 +120,14 @@ public class UsageConditionPropertyType extends AbstractAIXMPropertyType impleme
     }
 
     public void setAbstractUsageConditionValue(AbstractUsageConditionType target) {
-        if (target != null) {
+        if (target!= null) {
             setAbstractUsageCondition(JAXBElementUtils.wrap(this.getAbstractUsageCondition(), target));
         }
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

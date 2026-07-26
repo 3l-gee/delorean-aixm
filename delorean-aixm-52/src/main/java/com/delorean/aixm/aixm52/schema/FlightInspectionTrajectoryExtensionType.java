@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,39 +35,35 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractFlightInspectionTrajectoryExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractFlightInspectionTrajectoryExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractFlightInspectionTrajectoryExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractFlightInspectionTrajectoryExtension"
+})
 @Entity(name = "FlightInspectionTrajectoryExtensionType")
 @Table(name = "flightinspectiontrajectory_oe", schema = "navaids_point")
-public class FlightInspectionTrajectoryExtensionType implements Serializable, Equals, HashCode, ToString {
+public class FlightInspectionTrajectoryExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractFlightInspectionTrajectoryExtension")
@@ -81,11 +77,15 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
 
     /**
      * Gets the value of the abstractFlightInspectionTrajectoryExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractflightinspectiontrajectoryextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightInspectionTrajectoryExtension() {
         return abstractFlightInspectionTrajectoryExtension;
@@ -93,10 +93,11 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
 
     /**
      * Sets the value of the abstractFlightInspectionTrajectoryExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractFlightInspectionTrajectoryExtension(AbstractExtensionType value) {
         this.abstractFlightInspectionTrajectoryExtension = value;
@@ -104,14 +105,16 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
 
     @Transient
     public boolean isSetAbstractFlightInspectionTrajectoryExtension() {
-        return (this.abstractFlightInspectionTrajectoryExtension != null);
+        return (this.abstractFlightInspectionTrajectoryExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -125,10 +128,11 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -136,7 +140,7 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -144,10 +148,12 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -158,21 +164,24 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -181,11 +190,12 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -204,9 +214,8 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -220,10 +229,8 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
             lhsField = this.getAbstractFlightInspectionTrajectoryExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractFlightInspectionTrajectoryExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractFlightInspectionTrajectoryExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractFlightInspectionTrajectoryExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightInspectionTrajectoryExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightInspectionTrajectoryExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -232,9 +239,9 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -261,14 +268,13 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
             boolean theFieldIsSet = this.isSetAbstractFlightInspectionTrajectoryExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractFlightInspectionTrajectoryExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
-                    "abstractFlightInspectionTrajectoryExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractFlightInspectionTrajectoryExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -301,13 +307,12 @@ public class FlightInspectionTrajectoryExtensionType implements Serializable, Eq
             boolean theFieldIsSet = this.isSetAbstractFlightInspectionTrajectoryExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractFlightInspectionTrajectoryExtension();
-            strategy.appendField(locator, this, "abstractFlightInspectionTrajectoryExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractFlightInspectionTrajectoryExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

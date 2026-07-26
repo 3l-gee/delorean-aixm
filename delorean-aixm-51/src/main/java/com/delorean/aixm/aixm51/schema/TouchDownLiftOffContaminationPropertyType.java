@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TouchDownLiftOffContaminationPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TouchDownLiftOffContaminationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TouchDownLiftOffContaminationPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}TouchDownLiftOffContamination"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}TouchDownLiftOffContamination"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TouchDownLiftOffContaminationPropertyType", propOrder = {"touchDownLiftOffContamination"})
+@XmlType(name = "TouchDownLiftOffContaminationPropertyType", propOrder = {
+    "touchDownLiftOffContamination"
+})
 @Entity(name = "TouchDownLiftOffContaminationPropertyType")
 @Table(name = "touchdownliftoffcontamination_p", schema = "airport_heliport")
-public class TouchDownLiftOffContaminationPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class TouchDownLiftOffContaminationPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "TouchDownLiftOffContamination", required = true)
@@ -58,12 +56,15 @@ public class TouchDownLiftOffContaminationPropertyType extends AbstractAIXMPrope
 
     /**
      * Gets the value of the touchDownLiftOffContamination property.
-     *
-     * @return possible object is {@link TouchDownLiftOffContaminationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link TouchDownLiftOffContaminationType }
+     *     
      */
     @OneToOne(targetEntity = TouchDownLiftOffContaminationType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "touchdownliftoffcontamination_hjid", referencedColumnName = "hjid")
     public TouchDownLiftOffContaminationType getTouchDownLiftOffContamination() {
         return touchDownLiftOffContamination;
@@ -71,10 +72,11 @@ public class TouchDownLiftOffContaminationPropertyType extends AbstractAIXMPrope
 
     /**
      * Sets the value of the touchDownLiftOffContamination property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TouchDownLiftOffContaminationType }
-     *
+     *     allowed object is
+     *     {@link TouchDownLiftOffContaminationType }
+     *     
      */
     public void setTouchDownLiftOffContamination(TouchDownLiftOffContaminationType value) {
         this.touchDownLiftOffContamination = value;
@@ -82,13 +84,12 @@ public class TouchDownLiftOffContaminationPropertyType extends AbstractAIXMPrope
 
     @Transient
     public boolean isSetTouchDownLiftOffContamination() {
-        return (this.touchDownLiftOffContamination != null);
+        return (this.touchDownLiftOffContamination!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -105,10 +106,8 @@ public class TouchDownLiftOffContaminationPropertyType extends AbstractAIXMPrope
             lhsField = this.getTouchDownLiftOffContamination();
             TouchDownLiftOffContaminationType rhsField;
             rhsField = that.getTouchDownLiftOffContamination();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchDownLiftOffContamination",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchDownLiftOffContamination",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchDownLiftOffContamination", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchDownLiftOffContamination", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

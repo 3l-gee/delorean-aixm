@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,46 +31,31 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for FlightInspectionTrajectoryType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FlightInspectionTrajectoryType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FlightInspectionTrajectoryType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="elevation" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="elevationReference" type=
-"{http://www.aixm.aero/schema/5.2}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="arcRadius" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="groundTrajectory" type=
-"{http://www.aixm.aero/schema/5.2}CurvePropertyType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="elevation" type="{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="elevationReference" type="{http://www.aixm.aero/schema/5.2}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="arcRadius" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="groundTrajectory" type="{http://www.aixm.aero/schema/5.2}CurvePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractFlightInspectionTrajectoryExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractFlightInspectionTrajectoryExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -80,15 +65,25 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FlightInspectionTrajectoryType", propOrder = {"aixmName", "elevation", "elevationReference",
-        "arcRadius", "groundTrajectory", "annotation", "extension"})
+@XmlType(name = "FlightInspectionTrajectoryType", propOrder = {
+    "aixmName",
+    "elevation",
+    "elevationReference",
+    "arcRadius",
+    "groundTrajectory",
+    "annotation",
+    "extension"
+})
 @Entity(name = "FlightInspectionTrajectoryType")
 @Table(name = "flightinspectiontrajectory_o", schema = "navaids_point")
-public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType implements Serializable {
+public class FlightInspectionTrajectoryType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "name", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -107,10 +102,11 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -119,11 +115,11 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -131,15 +127,16 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the elevation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getElevation() {
@@ -148,11 +145,11 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     /**
      * Sets the value of the elevation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setElevation(JAXBElement<ValDistanceVerticalType> value) {
         this.elevation = value;
@@ -160,15 +157,16 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     @Transient
     public boolean isSetElevation() {
-        return (this.elevation != null);
+        return (this.elevation!= null);
     }
 
     /**
      * Gets the value of the elevationReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getElevationReference() {
@@ -177,11 +175,11 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     /**
      * Sets the value of the elevationReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setElevationReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.elevationReference = value;
@@ -189,15 +187,16 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     @Transient
     public boolean isSetElevationReference() {
-        return (this.elevationReference != null);
+        return (this.elevationReference!= null);
     }
 
     /**
      * Gets the value of the arcRadius property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getArcRadius() {
@@ -206,11 +205,11 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     /**
      * Sets the value of the arcRadius property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setArcRadius(JAXBElement<ValDistanceType> value) {
         this.arcRadius = value;
@@ -218,15 +217,16 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     @Transient
     public boolean isSetArcRadius() {
-        return (this.arcRadius != null);
+        return (this.arcRadius!= null);
     }
 
     /**
      * Gets the value of the groundTrajectory property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMCurvePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMCurvePropertyType> getGroundTrajectory() {
@@ -235,11 +235,11 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     /**
      * Sets the value of the groundTrajectory property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMCurvePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *     
      */
     public void setGroundTrajectory(JAXBElement<AIXMCurvePropertyType> value) {
         this.groundTrajectory = value;
@@ -247,36 +247,39 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     @Transient
     public boolean isSetGroundTrajectory() {
-        return (this.groundTrajectory != null);
+        return (this.groundTrajectory!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtinspctntrjctrtp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "flightinspectiontrajectory_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtinspctntrjctrtp_annttn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "flightinspectiontrajectory_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -285,8 +288,8 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -294,7 +297,7 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -303,29 +306,29 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FlightInspectionTrajectoryExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = FlightInspectionTrajectoryExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "flightinspectiontrajectory_oe_hjid", referencedColumnName = "hjid")
     public List<FlightInspectionTrajectoryExtensionType> getExtension() {
         if (extension == null) {
@@ -335,8 +338,8 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<FlightInspectionTrajectoryExtensionType> extension) {
         this.extension = extension;
@@ -344,7 +347,7 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -353,80 +356,79 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "name"), FlightInspectionTrajectoryType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), FlightInspectionTrajectoryType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "elevation", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "elevationuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "elevationaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "elevationnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "elevation", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "elevationuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "elevationaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "elevationnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getElevationItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getElevation());
     }
 
     public void setElevationItem(ValDistanceVerticalType target) {
-        setElevation(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "elevation"), FlightInspectionTrajectoryType.class,
-                target));
+        setElevation(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "elevation"), FlightInspectionTrajectoryType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "elevationreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "elevationreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "elevationreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "elevationreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getElevationReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getElevationReference());
     }
 
     public void setElevationReferenceItem(CodeVerticalReferenceType target) {
-        setElevationReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "elevationReference"),
-                FlightInspectionTrajectoryType.class, target));
+        setElevationReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.2", "elevationReference"), FlightInspectionTrajectoryType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "arcradius", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "arcradiusuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "arcradiusaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "arcradiusnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "arcradius", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "arcradiusuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "arcradiusaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "arcradiusnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getArcRadiusItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getArcRadius());
     }
 
     public void setArcRadiusItem(ValDistanceType target) {
-        setArcRadius(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "arcRadius"), FlightInspectionTrajectoryType.class,
-                target));
+        setArcRadius(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "arcRadius"), FlightInspectionTrajectoryType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtinspctntrjctrtp_grndtrjctr_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "flightinspectiontrajectory_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "groundtrajectory_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtinspctntrjctrtp_grndtrjctr_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "flightinspectiontrajectory_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "groundtrajectory_hjid", referencedColumnName = "hjid")
+    })
     public AIXMCurvePropertyType getGroundTrajectoryItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMCurvePropertyType.class, this.getGroundTrajectory());
     }
 
     public void setGroundTrajectoryItem(AIXMCurvePropertyType target) {
-        setGroundTrajectory(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "groundTrajectory"), FlightInspectionTrajectoryType.class,
-                target));
+        setGroundTrajectory(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "groundTrajectory"), FlightInspectionTrajectoryType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -436,6 +438,19 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
             return false;
         }
         final FlightInspectionTrajectoryType that = ((FlightInspectionTrajectoryType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetElevationReference();
             boolean rhsFieldIsSet = that.isSetElevationReference();
@@ -450,14 +465,27 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcRadius();
-            boolean rhsFieldIsSet = that.isSetArcRadius();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getArcRadius();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getArcRadius();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcRadius", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcRadius", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightInspectionTrajectoryExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FlightInspectionTrajectoryExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -476,27 +504,14 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetArcRadius();
+            boolean rhsFieldIsSet = that.isSetArcRadius();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getArcRadius();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getArcRadius();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcRadius", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcRadius", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -510,19 +525,6 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
             rhsField = that.getGroundTrajectory();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "groundTrajectory", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "groundTrajectory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightInspectionTrajectoryExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightInspectionTrajectoryExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -571,14 +573,14 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<FlightInspectionTrajectoryExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -621,13 +623,13 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<FlightInspectionTrajectoryExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

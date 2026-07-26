@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -11,7 +12,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,47 +25,40 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * gml:SingleOperationPropertyType is a property type for association roles to a
- * single operation, either referencing or containing the definition of that
- * single operation.
- *
- * <p>
- * Java class for SingleOperationPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * gml:SingleOperationPropertyType is a property type for association roles to a single operation, either referencing or containing the definition of that single operation.
+ * 
+ * <p>Java class for SingleOperationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SingleOperationPropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref=
-"{http://www.opengis.net/gml/3.2}AbstractSingleOperation"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}AbstractSingleOperation"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SingleOperationPropertyType", propOrder = {"abstractSingleOperation"})
-public class SingleOperationPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "SingleOperationPropertyType", propOrder = {
+    "abstractSingleOperation"
+})
+public class SingleOperationPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:AbstractSingleOperation is a single (not concatenated) coordinate
-     * operation.
-     *
+     * gml:AbstractSingleOperation is a single (not concatenated) coordinate operation.
+     * 
      */
     @XmlElementRef(name = "AbstractSingleOperation", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractCoordinateOperationType> abstractSingleOperation;
@@ -90,20 +83,18 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
     protected ActuateType actuate;
 
     /**
-     * gml:AbstractSingleOperation is a single (not concatenated) coordinate
-     * operation.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractCoordinateOperationType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractGeneralConversionType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractGeneralTransformationType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link ConversionType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link PassThroughOperationType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link TransformationType }{@code >}
-     *
+     * gml:AbstractSingleOperation is a single (not concatenated) coordinate operation.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeneralConversionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeneralTransformationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PassThroughOperationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TransformationType }{@code >}
+     *     
      */
     public JAXBElement<? extends AbstractCoordinateOperationType> getAbstractSingleOperation() {
         return abstractSingleOperation;
@@ -111,20 +102,17 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the abstractSingleOperation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractCoordinateOperationType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link AbstractCoordinateOperationType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractGeneralConversionType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractGeneralTransformationType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link PassThroughOperationType
-     *            }{@code >} {@link JAXBElement }{@code <}{@link TransformationType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeneralConversionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractGeneralTransformationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link PassThroughOperationType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TransformationType }{@code >}
+     *     
      * @see #getAbstractSingleOperation()
      */
     public void setAbstractSingleOperation(JAXBElement<? extends AbstractCoordinateOperationType> value) {
@@ -132,14 +120,16 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
     }
 
     public boolean isSetAbstractSingleOperation() {
-        return (this.abstractSingleOperation != null);
+        return (this.abstractSingleOperation!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -147,24 +137,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -172,24 +165,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the remoteSchema property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema != null);
+        return (this.remoteSchema!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -197,24 +193,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -222,24 +221,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -247,24 +249,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -272,24 +277,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -297,24 +305,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -322,17 +333,18 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
@@ -348,9 +360,8 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -358,14 +369,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
         }
         final SingleOperationPropertyType that = ((SingleOperationPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSingleOperation();
-            boolean rhsFieldIsSet = that.isSetAbstractSingleOperation();
-            JAXBElement<? extends AbstractCoordinateOperationType> lhsField;
-            lhsField = this.getAbstractSingleOperation();
-            JAXBElement<? extends AbstractCoordinateOperationType> rhsField;
-            rhsField = that.getAbstractSingleOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSingleOperation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSingleOperation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -397,32 +421,6 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetShow();
             boolean rhsFieldIsSet = that.isSetShow();
             ShowType lhsField;
@@ -436,14 +434,27 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getArcrole();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSingleOperation();
+            boolean rhsFieldIsSet = that.isSetAbstractSingleOperation();
+            JAXBElement<? extends AbstractCoordinateOperationType> lhsField;
+            lhsField = this.getAbstractSingleOperation();
+            JAXBElement<? extends AbstractCoordinateOperationType> rhsField;
+            rhsField = that.getAbstractSingleOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSingleOperation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSingleOperation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -462,14 +473,14 @@ public class SingleOperationPropertyType implements Serializable, Equals, HashCo
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

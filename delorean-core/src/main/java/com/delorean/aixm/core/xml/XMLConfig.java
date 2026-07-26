@@ -17,7 +17,9 @@ import java.io.Reader;
 import java.util.Objects;
 import java.net.URI;
 import java.net.URL;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public enum XMLConfig {
 
     // The arguments are: (version, entryPointXsd, xsdBaseDirectory)
@@ -87,7 +89,7 @@ public enum XMLConfig {
         // Construct the full classpath resource path for the entry point XSD
         String fullPath = baseDir.endsWith("/") ? baseDir + entryPointXsd : baseDir + "/" + entryPointXsd;
         
-        ConsoleLogger.debug("Loading schema from classpath: " + fullPath);
+        log.atDebug().setMessage("Loading schema from classpath: ").addArgument(() -> fullPath).log();;
 
         try (InputStream is = getClass().getClassLoader().getResourceAsStream(fullPath)) {
             if (is == null) {

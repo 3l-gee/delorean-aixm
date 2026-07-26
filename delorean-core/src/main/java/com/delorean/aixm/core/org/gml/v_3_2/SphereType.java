@@ -1,48 +1,41 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 
+
 /**
- * <p>
- * Java class for SphereType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SphereType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SphereType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractGriddedSurfaceType">
- *       <attribute name="horizontalCurveType" type=
-"{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed=
-"circularArc3Points" />
- *       <attribute name="verticalCurveType" type=
-"{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed=
-"circularArc3Points" />
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGriddedSurfaceType">
+ *       <attribute name="horizontalCurveType" type="{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed="circularArc3Points" />
+ *       <attribute name="verticalCurveType" type="{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed="circularArc3Points" />
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SphereType")
-public class SphereType extends AbstractGriddedSurfaceType implements Serializable {
+public class SphereType
+    extends AbstractGriddedSurfaceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "horizontalCurveType")
@@ -51,9 +44,8 @@ public class SphereType extends AbstractGriddedSurfaceType implements Serializab
     public static final CurveInterpolationType VERTICAL_CURVE_TYPE = CurveInterpolationType.CIRCULAR_ARC_3_POINTS;
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,10 +20,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -27,68 +27,43 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for DirectFlightSegmentType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DirectFlightSegmentType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DirectFlightSegmentType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractDirectFlightType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractDirectFlightType">
  *       <sequence>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <choice>
- *           <element name="end_fixDesignatedPoint" type=
-"{http://www.aixm.aero/schema/5.1}DesignatedPointPropertyType" minOccurs="0"/>
- *           <element name="end_navaidSystem" type=
-"{http://www.aixm.aero/schema/5.1}NavaidPropertyType" minOccurs="0"/>
- *           <element name="end_aimingPoint" type=
-"{http://www.aixm.aero/schema/5.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
- *           <element name="end_runwayPoint" type=
-"{http://www.aixm.aero/schema/5.1}RunwayCentrelinePointPropertyType" minOccurs=
-"0"/>
- *           <element name="end_airportReferencePoint" type=
-"{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
- *           <element name="end_position" type=
-"{http://www.aixm.aero/schema/5.1}PointPropertyType" minOccurs="0"/>
+ *           <element name="end_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *           <element name="end_navaidSystem" type="{http://www.aixm.aero/schema/5.1}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="end_aimingPoint" type="{http://www.aixm.aero/schema/5.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *           <element name="end_runwayPoint" type="{http://www.aixm.aero/schema/5.1}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *           <element name="end_airportReferencePoint" type="{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *           <element name="end_position" type="{http://www.aixm.aero/schema/5.1}PointPropertyType" minOccurs="0"/>
  *         </choice>
  *         <choice>
- *           <element name="start_fixDesignatedPoint" type=
-"{http://www.aixm.aero/schema/5.1}DesignatedPointPropertyType" minOccurs="0"/>
- *           <element name="start_navaidSystem" type=
-"{http://www.aixm.aero/schema/5.1}NavaidPropertyType" minOccurs="0"/>
- *           <element name="start_aimingPoint" type=
-"{http://www.aixm.aero/schema/5.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
- *           <element name="start_runwayPoint" type=
-"{http://www.aixm.aero/schema/5.1}RunwayCentrelinePointPropertyType" minOccurs=
-"0"/>
- *           <element name="start_airportReferencePoint" type=
-"{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
- *           <element name="start_position" type=
-"{http://www.aixm.aero/schema/5.1}PointPropertyType" minOccurs="0"/>
+ *           <element name="start_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *           <element name="start_navaidSystem" type="{http://www.aixm.aero/schema/5.1}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="start_aimingPoint" type="{http://www.aixm.aero/schema/5.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *           <element name="start_runwayPoint" type="{http://www.aixm.aero/schema/5.1}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *           <element name="start_airportReferencePoint" type="{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *           <element name="start_position" type="{http://www.aixm.aero/schema/5.1}PointPropertyType" minOccurs="0"/>
  *         </choice>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractDirectFlightExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractDirectFlightSegmentExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractDirectFlightExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractDirectFlightSegmentExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -98,17 +73,32 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DirectFlightSegmentType", propOrder = {"annotation", "endFixDesignatedPoint", "endNavaidSystem",
-        "endAimingPoint", "endRunwayPoint", "endAirportReferencePoint", "endPosition", "startFixDesignatedPoint",
-        "startNavaidSystem", "startAimingPoint", "startRunwayPoint", "startAirportReferencePoint", "startPosition",
-        "extension"})
+@XmlType(name = "DirectFlightSegmentType", propOrder = {
+    "annotation",
+    "endFixDesignatedPoint",
+    "endNavaidSystem",
+    "endAimingPoint",
+    "endRunwayPoint",
+    "endAirportReferencePoint",
+    "endPosition",
+    "startFixDesignatedPoint",
+    "startNavaidSystem",
+    "startAimingPoint",
+    "startRunwayPoint",
+    "startAirportReferencePoint",
+    "startPosition",
+    "extension"
+})
 @Entity(name = "DirectFlightSegmentType")
 @Table(name = "directflightsegment_o", schema = "route")
-public class DirectFlightSegmentType extends AbstractDirectFlightType implements Serializable {
+public class DirectFlightSegmentType
+    extends AbstractDirectFlightType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(nillable = true)
@@ -141,31 +131,34 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_annttn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_annttn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -174,8 +167,8 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -183,7 +176,7 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -192,10 +185,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Gets the value of the endFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getEndFixDesignatedPoint() {
@@ -204,11 +198,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the endFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setEndFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.endFixDesignatedPoint = value;
@@ -216,15 +210,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetEndFixDesignatedPoint() {
-        return (this.endFixDesignatedPoint != null);
+        return (this.endFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the endNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getEndNavaidSystem() {
@@ -233,11 +228,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the endNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setEndNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.endNavaidSystem = value;
@@ -245,15 +240,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetEndNavaidSystem() {
-        return (this.endNavaidSystem != null);
+        return (this.endNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the endAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getEndAimingPoint() {
@@ -262,11 +258,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the endAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setEndAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.endAimingPoint = value;
@@ -274,15 +270,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetEndAimingPoint() {
-        return (this.endAimingPoint != null);
+        return (this.endAimingPoint!= null);
     }
 
     /**
      * Gets the value of the endRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getEndRunwayPoint() {
@@ -291,11 +288,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the endRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setEndRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.endRunwayPoint = value;
@@ -303,15 +300,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetEndRunwayPoint() {
-        return (this.endRunwayPoint != null);
+        return (this.endRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the endAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getEndAirportReferencePoint() {
@@ -320,11 +318,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the endAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setEndAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.endAirportReferencePoint = value;
@@ -332,15 +330,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetEndAirportReferencePoint() {
-        return (this.endAirportReferencePoint != null);
+        return (this.endAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the endPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getEndPosition() {
@@ -349,11 +348,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the endPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setEndPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.endPosition = value;
@@ -361,15 +360,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetEndPosition() {
-        return (this.endPosition != null);
+        return (this.endPosition!= null);
     }
 
     /**
      * Gets the value of the startFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getStartFixDesignatedPoint() {
@@ -378,11 +378,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the startFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setStartFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.startFixDesignatedPoint = value;
@@ -390,15 +390,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetStartFixDesignatedPoint() {
-        return (this.startFixDesignatedPoint != null);
+        return (this.startFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the startNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getStartNavaidSystem() {
@@ -407,11 +408,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the startNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setStartNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.startNavaidSystem = value;
@@ -419,15 +420,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetStartNavaidSystem() {
-        return (this.startNavaidSystem != null);
+        return (this.startNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the startAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getStartAimingPoint() {
@@ -436,11 +438,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the startAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setStartAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.startAimingPoint = value;
@@ -448,15 +450,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetStartAimingPoint() {
-        return (this.startAimingPoint != null);
+        return (this.startAimingPoint!= null);
     }
 
     /**
      * Gets the value of the startRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getStartRunwayPoint() {
@@ -465,11 +468,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the startRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setStartRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.startRunwayPoint = value;
@@ -477,15 +480,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetStartRunwayPoint() {
-        return (this.startRunwayPoint != null);
+        return (this.startRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the startAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getStartAirportReferencePoint() {
@@ -494,11 +498,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the startAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setStartAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.startAirportReferencePoint = value;
@@ -506,15 +510,16 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetStartAirportReferencePoint() {
-        return (this.startAirportReferencePoint != null);
+        return (this.startAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the startPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getStartPosition() {
@@ -523,11 +528,11 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     /**
      * Sets the value of the startPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setStartPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.startPosition = value;
@@ -535,34 +540,34 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetStartPosition() {
-        return (this.startPosition != null);
+        return (this.startPosition!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DirectFlightSegmentExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = DirectFlightSegmentExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "directflightsegment_oe_hjid", referencedColumnName = "hjid")
     public List<DirectFlightSegmentExtensionType> getExtension() {
         if (extension == null) {
@@ -572,8 +577,8 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<DirectFlightSegmentExtensionType> extension) {
         this.extension = extension;
@@ -581,186 +586,208 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
         this.extension = null;
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_endfxdsgntdpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "endfixdesignatedpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_endfxdsgntdpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "endfixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getEndFixDesignatedPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getEndFixDesignatedPoint());
     }
 
     public void setEndFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setEndFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "end_fixDesignatedPoint"), DirectFlightSegmentType.class,
-                target));
+        setEndFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "end_fixDesignatedPoint"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_endnvdsstm_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "endnavaidsystem_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_endnvdsstm_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "endnavaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getEndNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getEndNavaidSystem());
     }
 
     public void setEndNavaidSystemItem(NavaidPropertyType target) {
-        setEndNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "end_navaidSystem"), DirectFlightSegmentType.class,
-                target));
+        setEndNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "end_navaidSystem"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_endamngpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "endaimingpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_endamngpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "endaimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getEndAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getEndAimingPoint());
     }
 
     public void setEndAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setEndAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "end_aimingPoint"), DirectFlightSegmentType.class,
-                target));
+        setEndAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "end_aimingPoint"), DirectFlightSegmentType.class, target));
     }
 
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_endrnwpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "endrunwaypoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_endrnwpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "endrunwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getEndRunwayPointItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getEndRunwayPoint());
     }
 
     public void setEndRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setEndRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "end_runwayPoint"), DirectFlightSegmentType.class,
-                target));
+        setEndRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "end_runwayPoint"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_endarprtrfrncpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "endairportreferencepoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_endarprtrfrncpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "endairportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getEndAirportReferencePointItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getEndAirportReferencePoint());
     }
 
     public void setEndAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setEndAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "end_airportReferencePoint"),
-                DirectFlightSegmentType.class, target));
+        setEndAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "end_airportReferencePoint"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_endpstn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "endposition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_endpstn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "endposition_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getEndPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getEndPosition());
     }
 
     public void setEndPositionItem(AIXMPointPropertyType target) {
-        setEndPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "end_position"), DirectFlightSegmentType.class, target));
+        setEndPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "end_position"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_strtfxdsgntdpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "startfixdesignatedpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_strtfxdsgntdpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "startfixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getStartFixDesignatedPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getStartFixDesignatedPoint());
     }
 
     public void setStartFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setStartFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "start_fixDesignatedPoint"), DirectFlightSegmentType.class,
-                target));
+        setStartFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "start_fixDesignatedPoint"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_strtnvdsstm_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "startnavaidsystem_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_strtnvdsstm_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "startnavaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getStartNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getStartNavaidSystem());
     }
 
     public void setStartNavaidSystemItem(NavaidPropertyType target) {
-        setStartNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "start_navaidSystem"), DirectFlightSegmentType.class,
-                target));
+        setStartNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "start_navaidSystem"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_strtamngpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "startaimingpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_strtamngpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "startaimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getStartAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getStartAimingPoint());
     }
 
     public void setStartAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setStartAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "start_aimingPoint"), DirectFlightSegmentType.class,
-                target));
+        setStartAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "start_aimingPoint"), DirectFlightSegmentType.class, target));
     }
 
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_strtrnwpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "startrunwaypoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_strtrnwpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "startrunwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getStartRunwayPointItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getStartRunwayPoint());
     }
 
     public void setStartRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setStartRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "start_runwayPoint"), DirectFlightSegmentType.class,
-                target));
+        setStartRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "start_runwayPoint"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_strtarprtrfrncpnt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "startairportreferencepoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_strtarprtrfrncpnt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "startairportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getStartAirportReferencePointItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class,
-                this.getStartAirportReferencePoint());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getStartAirportReferencePoint());
     }
 
     public void setStartAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setStartAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "start_airportReferencePoint"),
-                DirectFlightSegmentType.class, target));
+        setStartAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "start_airportReferencePoint"), DirectFlightSegmentType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtsgmnttp_strtpstn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "startposition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "drctflghtsgmnttp_strtpstn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "directflightsegment_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "startposition_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getStartPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getStartPosition());
     }
 
     public void setStartPositionItem(AIXMPointPropertyType target) {
-        setStartPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "start_position"), DirectFlightSegmentType.class, target));
+        setStartPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "start_position"), DirectFlightSegmentType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -771,40 +798,27 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
         }
         final DirectFlightSegmentType that = ((DirectFlightSegmentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<DirectFlightSegmentExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<DirectFlightSegmentExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetStartNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getStartNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getStartNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetEndRunwayPoint();
+            boolean lhsFieldIsSet = this.isSetStartRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetStartRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getEndRunwayPoint();
+            lhsField = this.getStartRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getEndRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endRunwayPoint", rhsField);
+            rhsField = that.getStartRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndPosition();
+            boolean rhsFieldIsSet = that.isSetEndPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getEndPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getEndPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -836,32 +850,6 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStartAimingPoint();
-            boolean rhsFieldIsSet = that.isSetStartAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getStartAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getStartAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetStartRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getStartRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getStartRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEndAirportReferencePoint();
             boolean rhsFieldIsSet = that.isSetEndAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> lhsField;
@@ -870,19 +858,6 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
             rhsField = that.getEndAirportReferencePoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endAirportReferencePoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endAirportReferencePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetStartAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getStartAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getStartAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAirportReferencePoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -901,32 +876,6 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndPosition();
-            boolean rhsFieldIsSet = that.isSetEndPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getEndPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getEndPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEndNavaidSystem();
             boolean rhsFieldIsSet = that.isSetEndNavaidSystem();
             JAXBElement<NavaidPropertyType> lhsField;
@@ -935,6 +884,71 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
             rhsField = that.getEndNavaidSystem();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endNavaidSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetStartAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getStartAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getStartAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartAimingPoint();
+            boolean rhsFieldIsSet = that.isSetStartAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getStartAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getStartAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetEndRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getEndRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getEndRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<DirectFlightSegmentExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<DirectFlightSegmentExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetStartNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getStartNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getStartNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -952,6 +966,19 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
                 return false;
             }
         }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -961,7 +988,7 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1052,7 +1079,7 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<DirectFlightSegmentExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1065,7 +1092,7 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1143,7 +1170,7 @@ public class DirectFlightSegmentType extends AbstractDirectFlightType implements
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<DirectFlightSegmentExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

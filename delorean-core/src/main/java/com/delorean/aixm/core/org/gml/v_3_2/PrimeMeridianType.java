@@ -1,28 +1,23 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for PrimeMeridianType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for PrimeMeridianType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="PrimeMeridianType">
  *   <complexContent>
@@ -34,32 +29,33 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PrimeMeridianType", propOrder = {"greenwichLongitude"})
-public class PrimeMeridianType extends IdentifiedObjectType implements Serializable {
+@XmlType(name = "PrimeMeridianType", propOrder = {
+    "greenwichLongitude"
+})
+public class PrimeMeridianType
+    extends IdentifiedObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:greenwichLongitude is the longitude of the prime meridian measured from
-     * the Greenwich meridian, positive eastward. If the value of the prime meridian
-     * "name" is "Greenwich" then the value of greenwichLongitude shall be 0
-     * degrees.
-     *
+     * gml:greenwichLongitude is the longitude of the prime meridian measured from the Greenwich meridian, positive eastward. If the value of the prime meridian "name" is "Greenwich" then the value of greenwichLongitude shall be 0 degrees.
+     * 
      */
     @XmlElement(required = true)
     protected AngleType greenwichLongitude;
 
     /**
-     * gml:greenwichLongitude is the longitude of the prime meridian measured from
-     * the Greenwich meridian, positive eastward. If the value of the prime meridian
-     * "name" is "Greenwich" then the value of greenwichLongitude shall be 0
-     * degrees.
-     *
-     * @return possible object is {@link AngleType }
-     *
+     * gml:greenwichLongitude is the longitude of the prime meridian measured from the Greenwich meridian, positive eastward. If the value of the prime meridian "name" is "Greenwich" then the value of greenwichLongitude shall be 0 degrees.
+     * 
+     * @return
+     *     possible object is
+     *     {@link AngleType }
+     *     
      */
     public AngleType getGreenwichLongitude() {
         return greenwichLongitude;
@@ -67,10 +63,11 @@ public class PrimeMeridianType extends IdentifiedObjectType implements Serializa
 
     /**
      * Sets the value of the greenwichLongitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AngleType }
-     *
+     *     allowed object is
+     *     {@link AngleType }
+     *     
      * @see #getGreenwichLongitude()
      */
     public void setGreenwichLongitude(AngleType value) {
@@ -78,13 +75,12 @@ public class PrimeMeridianType extends IdentifiedObjectType implements Serializa
     }
 
     public boolean isSetGreenwichLongitude() {
-        return (this.greenwichLongitude != null);
+        return (this.greenwichLongitude!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -10,7 +11,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,34 +24,31 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for NoSequenceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for NoSequenceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="NoSequenceType">
  *   <simpleContent>
  *     <extension base="<http://www.aixm.aero/schema/5.1>NoSequenceBaseType">
- *       <attribute name="nilReason" type=
-"{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
+ *       <attribute name="nilReason" type="{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NoSequenceType", propOrder = {"value"})
+@XmlType(name = "NoSequenceType", propOrder = {
+    "value"
+})
 @Embeddable
-public class NoSequenceType implements Serializable, Equals, HashCode, ToString {
+public class NoSequenceType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -61,7 +58,7 @@ public class NoSequenceType implements Serializable, Equals, HashCode, ToString 
 
     /**
      * Gets the value of the value property.
-     *
+     * 
      */
     @Basic
     @Column(name = "VALUE_", precision = 10, scale = 0)
@@ -71,7 +68,7 @@ public class NoSequenceType implements Serializable, Equals, HashCode, ToString 
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      */
     public void setValue(long value) {
         this.value = value;
@@ -84,9 +81,11 @@ public class NoSequenceType implements Serializable, Equals, HashCode, ToString 
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "NIL_REASON")
@@ -96,10 +95,11 @@ public class NoSequenceType implements Serializable, Equals, HashCode, ToString 
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
@@ -107,7 +107,7 @@ public class NoSequenceType implements Serializable, Equals, HashCode, ToString 
 
     @Transient
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -123,9 +123,8 @@ public class NoSequenceType implements Serializable, Equals, HashCode, ToString 
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

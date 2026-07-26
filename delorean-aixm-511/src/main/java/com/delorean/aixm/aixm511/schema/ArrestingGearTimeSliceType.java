@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,66 +31,40 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for ArrestingGearTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ArrestingGearTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ArrestingGearTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="status" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeStatusOperationsType" minOccurs="0"/>
- *         <element name="length" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="width" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="engageDevice" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeArrestingGearEngageDeviceType" minOccurs
-="0"/>
- *         <element name="absorbType" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeArrestingGearEnergyAbsorbType" minOccurs
-="0"/>
- *         <element name="bidirectional" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="runwayDirection" type=
-"{http://www.aixm.aero/schema/5.1.1}RunwayDirectionPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="surfaceProperties" type=
-"{http://www.aixm.aero/schema/5.1.1}SurfaceCharacteristicsPropertyType" minOccurs
-="0"/>
+ *         <element name="status" type="{http://www.aixm.aero/schema/5.1.1}CodeStatusOperationsType" minOccurs="0"/>
+ *         <element name="length" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="width" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="engageDevice" type="{http://www.aixm.aero/schema/5.1.1}CodeArrestingGearEngageDeviceType" minOccurs="0"/>
+ *         <element name="absorbType" type="{http://www.aixm.aero/schema/5.1.1}CodeArrestingGearEnergyAbsorbType" minOccurs="0"/>
+ *         <element name="bidirectional" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="runwayDirection" type="{http://www.aixm.aero/schema/5.1.1}RunwayDirectionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="surfaceProperties" type="{http://www.aixm.aero/schema/5.1.1}SurfaceCharacteristicsPropertyType" minOccurs="0"/>
  *         <choice>
- *           <element name="extent_surfaceExtent" type=
-"{http://www.aixm.aero/schema/5.1.1}ElevatedSurfacePropertyType" minOccurs="0"/>
- *           <element name="extent_curveExtent" type=
-"{http://www.aixm.aero/schema/5.1.1}ElevatedCurvePropertyType" minOccurs="0"/>
- *           <element name="extent_pointExtent" type=
-"{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *           <element name="extent_surfaceExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedSurfacePropertyType" minOccurs="0"/>
+ *           <element name="extent_curveExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedCurvePropertyType" minOccurs="0"/>
+ *           <element name="extent_pointExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
  *         </choice>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractArrestingGearExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractArrestingGearExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -100,16 +74,32 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ArrestingGearTimeSliceType", propOrder = {"status", "length", "width", "engageDevice", "absorbType",
-        "bidirectional", "location", "runwayDirection", "surfaceProperties", "extentSurfaceExtent", "extentCurveExtent",
-        "extentPointExtent", "annotation", "extension"})
+@XmlType(name = "ArrestingGearTimeSliceType", propOrder = {
+    "status",
+    "length",
+    "width",
+    "engageDevice",
+    "absorbType",
+    "bidirectional",
+    "location",
+    "runwayDirection",
+    "surfaceProperties",
+    "extentSurfaceExtent",
+    "extentCurveExtent",
+    "extentPointExtent",
+    "annotation",
+    "extension"
+})
 @Entity(name = "ArrestingGearTimeSliceType")
 @Table(name = "arrestinggear_t", schema = "airport_heliport")
-public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class ArrestingGearTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "status", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -142,10 +132,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Gets the value of the status property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeStatusOperationsType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeStatusOperationsType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeStatusOperationsType> getStatus() {
@@ -154,11 +145,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the status property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeStatusOperationsType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeStatusOperationsType }{@code >}
+     *     
      */
     public void setStatus(JAXBElement<CodeStatusOperationsType> value) {
         this.status = value;
@@ -166,15 +157,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetStatus() {
-        return (this.status != null);
+        return (this.status!= null);
     }
 
     /**
      * Gets the value of the length property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getLength() {
@@ -183,11 +175,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the length property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setLength(JAXBElement<ValDistanceType> value) {
         this.length = value;
@@ -195,15 +187,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetLength() {
-        return (this.length != null);
+        return (this.length!= null);
     }
 
     /**
      * Gets the value of the width property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getWidth() {
@@ -212,11 +205,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the width property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setWidth(JAXBElement<ValDistanceType> value) {
         this.width = value;
@@ -224,15 +217,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetWidth() {
-        return (this.width != null);
+        return (this.width!= null);
     }
 
     /**
      * Gets the value of the engageDevice property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeArrestingGearEngageDeviceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeArrestingGearEngageDeviceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeArrestingGearEngageDeviceType> getEngageDevice() {
@@ -241,11 +235,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the engageDevice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeArrestingGearEngageDeviceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeArrestingGearEngageDeviceType }{@code >}
+     *     
      */
     public void setEngageDevice(JAXBElement<CodeArrestingGearEngageDeviceType> value) {
         this.engageDevice = value;
@@ -253,15 +247,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetEngageDevice() {
-        return (this.engageDevice != null);
+        return (this.engageDevice!= null);
     }
 
     /**
      * Gets the value of the absorbType property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeArrestingGearEnergyAbsorbType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeArrestingGearEnergyAbsorbType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeArrestingGearEnergyAbsorbType> getAbsorbType() {
@@ -270,11 +265,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the absorbType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeArrestingGearEnergyAbsorbType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeArrestingGearEnergyAbsorbType }{@code >}
+     *     
      */
     public void setAbsorbType(JAXBElement<CodeArrestingGearEnergyAbsorbType> value) {
         this.absorbType = value;
@@ -282,15 +277,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetAbsorbType() {
-        return (this.absorbType != null);
+        return (this.absorbType!= null);
     }
 
     /**
      * Gets the value of the bidirectional property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getBidirectional() {
@@ -299,11 +295,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the bidirectional property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setBidirectional(JAXBElement<CodeYesNoType> value) {
         this.bidirectional = value;
@@ -311,15 +307,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetBidirectional() {
-        return (this.bidirectional != null);
+        return (this.bidirectional!= null);
     }
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getLocation() {
@@ -328,11 +325,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setLocation(JAXBElement<ValDistanceType> value) {
         this.location = value;
@@ -340,36 +337,39 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the runwayDirection property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the runwayDirection property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the runwayDirection property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getRunwayDirection().add(newItem);
+     *    getRunwayDirection().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RunwayDirectionPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arrstnggrtmslctp_rnwdrctn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "runwaydirection_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arrstnggrtmslctp_rnwdrctn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "runwaydirection_hjid", referencedColumnName = "hjid")
+    })
     public List<RunwayDirectionPropertyType> getRunwayDirection() {
         if (runwayDirection == null) {
             runwayDirection = new ArrayList<>();
@@ -378,8 +378,8 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setRunwayDirection(List<RunwayDirectionPropertyType> runwayDirection) {
         this.runwayDirection = runwayDirection;
@@ -387,7 +387,7 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetRunwayDirection() {
-        return ((this.runwayDirection != null) && (!this.runwayDirection.isEmpty()));
+        return ((this.runwayDirection!= null)&&(!this.runwayDirection.isEmpty()));
     }
 
     public void unsetRunwayDirection() {
@@ -396,10 +396,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Gets the value of the surfaceProperties property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<SurfaceCharacteristicsPropertyType> getSurfaceProperties() {
@@ -408,11 +409,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the surfaceProperties property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
+     *     
      */
     public void setSurfaceProperties(JAXBElement<SurfaceCharacteristicsPropertyType> value) {
         this.surfaceProperties = value;
@@ -420,15 +421,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetSurfaceProperties() {
-        return (this.surfaceProperties != null);
+        return (this.surfaceProperties!= null);
     }
 
     /**
      * Gets the value of the extentSurfaceExtent property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedSurfacePropertyType> getExtentSurfaceExtent() {
@@ -437,11 +439,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the extentSurfaceExtent property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
+     *     
      */
     public void setExtentSurfaceExtent(JAXBElement<AIXMElevatedSurfacePropertyType> value) {
         this.extentSurfaceExtent = value;
@@ -449,15 +451,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetExtentSurfaceExtent() {
-        return (this.extentSurfaceExtent != null);
+        return (this.extentSurfaceExtent!= null);
     }
 
     /**
      * Gets the value of the extentCurveExtent property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedCurvePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedCurvePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedCurvePropertyType> getExtentCurveExtent() {
@@ -466,11 +469,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the extentCurveExtent property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedCurvePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedCurvePropertyType }{@code >}
+     *     
      */
     public void setExtentCurveExtent(JAXBElement<AIXMElevatedCurvePropertyType> value) {
         this.extentCurveExtent = value;
@@ -478,15 +481,16 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetExtentCurveExtent() {
-        return (this.extentCurveExtent != null);
+        return (this.extentCurveExtent!= null);
     }
 
     /**
      * Gets the value of the extentPointExtent property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getExtentPointExtent() {
@@ -495,11 +499,11 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the extentPointExtent property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setExtentPointExtent(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.extentPointExtent = value;
@@ -507,36 +511,39 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetExtentPointExtent() {
-        return (this.extentPointExtent != null);
+        return (this.extentPointExtent!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arrstnggrtmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arrstnggrtmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -545,8 +552,8 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -554,7 +561,7 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -563,29 +570,29 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ArrestingGearTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ArrestingGearTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "arrestinggear_te_hjid", referencedColumnName = "hjid")
     public List<ArrestingGearTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -595,8 +602,8 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<ArrestingGearTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -604,7 +611,7 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -612,160 +619,166 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "status")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "statusnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "status", columnDefinition = "codestatusoperationsbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "statusnilreason", columnDefinition = "nilreason"))
+    })
     public CodeStatusOperationsType getStatusItem() {
         return XmlAdapterUtils.unmarshallSource(CodeStatusOperationsType.class, this.getStatus());
     }
 
     public void setStatusItem(CodeStatusOperationsType target) {
-        setStatus(XmlAdapterUtils.marshallJAXBElement(CodeStatusOperationsType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "status"), ArrestingGearTimeSliceType.class, target));
+        setStatus(XmlAdapterUtils.marshallJAXBElement(CodeStatusOperationsType.class, new QName("http://www.aixm.aero/schema/5.1.1", "status"), ArrestingGearTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "lengthuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lengthnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "lengthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lengthnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getLengthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getLength());
     }
 
     public void setLengthItem(ValDistanceType target) {
-        setLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "length"), ArrestingGearTimeSliceType.class, target));
+        setLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "length"), ArrestingGearTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "width", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "widthuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "widthnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "width", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "widthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "widthnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getWidthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getWidth());
     }
 
     public void setWidthItem(ValDistanceType target) {
-        setWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "width"), ArrestingGearTimeSliceType.class, target));
+        setWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "width"), ArrestingGearTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "engagedevice")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "engagedevicenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "engagedevice", columnDefinition = "codearrestinggearengagedevicebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "engagedevicenilreason", columnDefinition = "nilreason"))
+    })
     public CodeArrestingGearEngageDeviceType getEngageDeviceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeArrestingGearEngageDeviceType.class, this.getEngageDevice());
     }
 
     public void setEngageDeviceItem(CodeArrestingGearEngageDeviceType target) {
-        setEngageDevice(XmlAdapterUtils.marshallJAXBElement(CodeArrestingGearEngageDeviceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "engageDevice"), ArrestingGearTimeSliceType.class,
-                target));
+        setEngageDevice(XmlAdapterUtils.marshallJAXBElement(CodeArrestingGearEngageDeviceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "engageDevice"), ArrestingGearTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "absorbtype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "absorbtypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "absorbtype", columnDefinition = "codearrestinggearenergyabsorbbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "absorbtypenilreason", columnDefinition = "nilreason"))
+    })
     public CodeArrestingGearEnergyAbsorbType getAbsorbTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeArrestingGearEnergyAbsorbType.class, this.getAbsorbType());
     }
 
     public void setAbsorbTypeItem(CodeArrestingGearEnergyAbsorbType target) {
-        setAbsorbType(XmlAdapterUtils.marshallJAXBElement(CodeArrestingGearEnergyAbsorbType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "absorbType"), ArrestingGearTimeSliceType.class,
-                target));
+        setAbsorbType(XmlAdapterUtils.marshallJAXBElement(CodeArrestingGearEnergyAbsorbType.class, new QName("http://www.aixm.aero/schema/5.1.1", "absorbType"), ArrestingGearTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "bidirectional")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "bidirectionalnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "bidirectional", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "bidirectionalnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getBidirectionalItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getBidirectional());
     }
 
     public void setBidirectionalItem(CodeYesNoType target) {
-        setBidirectional(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "bidirectional"), ArrestingGearTimeSliceType.class,
-                target));
+        setBidirectional(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "bidirectional"), ArrestingGearTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "location", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "locationuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "locationnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "location", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "locationuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "locationnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getLocation());
     }
 
     public void setLocationItem(ValDistanceType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "location"), ArrestingGearTimeSliceType.class, target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "location"), ArrestingGearTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arrstnggrtmslctp_srfcprprts_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "surfaceproperties_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arrstnggrtmslctp_srfcprprts_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "surfaceproperties_hjid", referencedColumnName = "hjid")
+    })
     public SurfaceCharacteristicsPropertyType getSurfacePropertiesItem() {
         return XmlAdapterUtils.unmarshallSource(SurfaceCharacteristicsPropertyType.class, this.getSurfaceProperties());
     }
 
     public void setSurfacePropertiesItem(SurfaceCharacteristicsPropertyType target) {
-        setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "surfaceProperties"), ArrestingGearTimeSliceType.class,
-                target));
+        setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surfaceProperties"), ArrestingGearTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arrstnggrtmslctp_extntsrfcextnt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "extentsurfaceextent_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arrstnggrtmslctp_extntsrfcextnt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extentsurfaceextent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedSurfacePropertyType getExtentSurfaceExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedSurfacePropertyType.class, this.getExtentSurfaceExtent());
     }
 
     public void setExtentSurfaceExtentItem(AIXMElevatedSurfacePropertyType target) {
-        setExtentSurfaceExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedSurfacePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "extent_surfaceExtent"),
-                ArrestingGearTimeSliceType.class, target));
+        setExtentSurfaceExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent_surfaceExtent"), ArrestingGearTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arrstnggrtmslctp_extntcrvextnt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "extentcurveextent_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arrstnggrtmslctp_extntcrvextnt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extentcurveextent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedCurvePropertyType getExtentCurveExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedCurvePropertyType.class, this.getExtentCurveExtent());
     }
 
     public void setExtentCurveExtentItem(AIXMElevatedCurvePropertyType target) {
-        setExtentCurveExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedCurvePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "extent_curveExtent"), ArrestingGearTimeSliceType.class,
-                target));
+        setExtentCurveExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent_curveExtent"), ArrestingGearTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arrstnggrtmslctp_extntpntextnt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "extentpointextent_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arrstnggrtmslctp_extntpntextnt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extentpointextent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getExtentPointExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getExtentPointExtent());
     }
 
     public void setExtentPointExtentItem(AIXMElevatedPointPropertyType target) {
-        setExtentPointExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "extent_pointExtent"), ArrestingGearTimeSliceType.class,
-                target));
+        setExtentPointExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent_pointExtent"), ArrestingGearTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -789,58 +802,6 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEngageDevice();
-            boolean rhsFieldIsSet = that.isSetEngageDevice();
-            JAXBElement<CodeArrestingGearEngageDeviceType> lhsField;
-            lhsField = this.getEngageDevice();
-            JAXBElement<CodeArrestingGearEngageDeviceType> rhsField;
-            rhsField = that.getEngageDevice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engageDevice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engageDevice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRunwayDirection();
-            boolean rhsFieldIsSet = that.isSetRunwayDirection();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetRunwayDirection() ? this.getRunwayDirection() : null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetRunwayDirection() ? that.getRunwayDirection() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ArrestingGearTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ArrestingGearTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBidirectional();
-            boolean rhsFieldIsSet = that.isSetBidirectional();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getBidirectional();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getBidirectional();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bidirectional", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bidirectional", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSurfaceProperties();
             boolean rhsFieldIsSet = that.isSetSurfaceProperties();
             JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
@@ -849,19 +810,6 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
             rhsField = that.getSurfaceProperties();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -880,40 +828,40 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbsorbType();
+            boolean rhsFieldIsSet = that.isSetAbsorbType();
+            JAXBElement<CodeArrestingGearEnergyAbsorbType> lhsField;
+            lhsField = this.getAbsorbType();
+            JAXBElement<CodeArrestingGearEnergyAbsorbType> rhsField;
+            rhsField = that.getAbsorbType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "absorbType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "absorbType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeStatusOperationsType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeStatusOperationsType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            boolean lhsFieldIsSet = this.isSetBidirectional();
+            boolean rhsFieldIsSet = that.isSetBidirectional();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getBidirectional();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getBidirectional();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bidirectional", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bidirectional", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ArrestingGearTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ArrestingGearTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -932,14 +880,40 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbsorbType();
-            boolean rhsFieldIsSet = that.isSetAbsorbType();
-            JAXBElement<CodeArrestingGearEnergyAbsorbType> lhsField;
-            lhsField = this.getAbsorbType();
-            JAXBElement<CodeArrestingGearEnergyAbsorbType> rhsField;
-            rhsField = that.getAbsorbType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "absorbType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "absorbType", rhsField);
+            boolean lhsFieldIsSet = this.isSetRunwayDirection();
+            boolean rhsFieldIsSet = that.isSetRunwayDirection();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetRunwayDirection()?this.getRunwayDirection():null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetRunwayDirection()?that.getRunwayDirection():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEngageDevice();
+            boolean rhsFieldIsSet = that.isSetEngageDevice();
+            JAXBElement<CodeArrestingGearEngageDeviceType> lhsField;
+            lhsField = this.getEngageDevice();
+            JAXBElement<CodeArrestingGearEngageDeviceType> rhsField;
+            rhsField = that.getEngageDevice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engageDevice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engageDevice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -953,6 +927,45 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
             rhsField = that.getExtentCurveExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeStatusOperationsType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeStatusOperationsType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1015,7 +1028,7 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
         {
             boolean theFieldIsSet = this.isSetRunwayDirection();
             List<RunwayDirectionPropertyType> theField;
-            theField = (this.isSetRunwayDirection() ? this.getRunwayDirection() : null);
+            theField = (this.isSetRunwayDirection()?this.getRunwayDirection():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "runwayDirection", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1050,14 +1063,14 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ArrestingGearTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1112,7 +1125,7 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
         {
             boolean theFieldIsSet = this.isSetRunwayDirection();
             List<RunwayDirectionPropertyType> theField;
-            theField = (this.isSetRunwayDirection() ? this.getRunwayDirection() : null);
+            theField = (this.isSetRunwayDirection()?this.getRunwayDirection():null);
             strategy.appendField(locator, this, "runwayDirection", buffer, theField, theFieldIsSet);
         }
         {
@@ -1142,13 +1155,13 @@ public class ArrestingGearTimeSliceType extends AbstractAIXMTimeSliceType implem
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ArrestingGearTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,41 +35,37 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractAltimeterCheckpointExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractNavigationSystemCheckpointExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractAltimeterCheckpointExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractNavigationSystemCheckpointExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractAltimeterCheckpointExtension", "abstractNavigationSystemCheckpointExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractAltimeterCheckpointExtension",
+    "abstractNavigationSystemCheckpointExtension"
+})
 @Entity(name = "AltimeterCheckpointTimeSliceExtensionType")
 @Table(name = "altimetercheckpoint_te", schema = "navaids_point")
-public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString {
+public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractAltimeterCheckpointExtension")
@@ -85,11 +81,15 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
 
     /**
      * Gets the value of the abstractAltimeterCheckpointExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractaltimetercheckpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAltimeterCheckpointExtension() {
         return abstractAltimeterCheckpointExtension;
@@ -97,10 +97,11 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
 
     /**
      * Sets the value of the abstractAltimeterCheckpointExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractAltimeterCheckpointExtension(AbstractExtensionType value) {
         this.abstractAltimeterCheckpointExtension = value;
@@ -108,16 +109,20 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
 
     @Transient
     public boolean isSetAbstractAltimeterCheckpointExtension() {
-        return (this.abstractAltimeterCheckpointExtension != null);
+        return (this.abstractAltimeterCheckpointExtension!= null);
     }
 
     /**
      * Gets the value of the abstractNavigationSystemCheckpointExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractnavigationsystemcheckpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavigationSystemCheckpointExtension() {
         return abstractNavigationSystemCheckpointExtension;
@@ -125,10 +130,11 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
 
     /**
      * Sets the value of the abstractNavigationSystemCheckpointExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractNavigationSystemCheckpointExtension(AbstractExtensionType value) {
         this.abstractNavigationSystemCheckpointExtension = value;
@@ -136,14 +142,16 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
 
     @Transient
     public boolean isSetAbstractNavigationSystemCheckpointExtension() {
-        return (this.abstractNavigationSystemCheckpointExtension != null);
+        return (this.abstractNavigationSystemCheckpointExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -157,10 +165,11 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -168,7 +177,7 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -176,10 +185,12 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -190,21 +201,24 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -213,11 +227,12 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -236,9 +251,8 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -246,29 +260,14 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
         }
         final AltimeterCheckpointTimeSliceExtensionType that = ((AltimeterCheckpointTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractAltimeterCheckpointExtension();
             boolean rhsFieldIsSet = that.isSetAbstractAltimeterCheckpointExtension();
             AbstractExtensionType lhsField;
             lhsField = this.getAbstractAltimeterCheckpointExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractAltimeterCheckpointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterCheckpointExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterCheckpointExtension",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterCheckpointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterCheckpointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -280,10 +279,21 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
             lhsField = this.getAbstractNavigationSystemCheckpointExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractNavigationSystemCheckpointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractNavigationSystemCheckpointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractNavigationSystemCheckpointExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavigationSystemCheckpointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavigationSystemCheckpointExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -308,22 +318,20 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
             boolean theFieldIsSet = this.isSetAbstractAltimeterCheckpointExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractAltimeterCheckpointExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractAltimeterCheckpointExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractAltimeterCheckpointExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractNavigationSystemCheckpointExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractNavigationSystemCheckpointExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
-                    "abstractNavigationSystemCheckpointExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractNavigationSystemCheckpointExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -356,20 +364,18 @@ public class AltimeterCheckpointTimeSliceExtensionType implements Serializable, 
             boolean theFieldIsSet = this.isSetAbstractAltimeterCheckpointExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractAltimeterCheckpointExtension();
-            strategy.appendField(locator, this, "abstractAltimeterCheckpointExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractAltimeterCheckpointExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractNavigationSystemCheckpointExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractNavigationSystemCheckpointExtension();
-            strategy.appendField(locator, this, "abstractNavigationSystemCheckpointExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractNavigationSystemCheckpointExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

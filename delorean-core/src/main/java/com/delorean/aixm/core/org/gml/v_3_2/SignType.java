@@ -5,19 +5,13 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
+
 /**
  * gml:SignType is a convenience type with values "+" (plus) and "-" (minus).
- *
- * <p>
- * Java class for SignType
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * 
+ * <p>Java class for SignType</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  * <pre>{@code
  * <simpleType name="SignType">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -26,14 +20,15 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- *
+ * 
  */
 @XmlType(name = "SignType")
 @XmlEnum
 public enum SignType {
 
     @XmlEnumValue("-")
-    VALUE_1("-"), @XmlEnumValue("+")
+    VALUE_1("-"),
+    @XmlEnumValue("+")
     VALUE_2("+");
     private final String value;
 
@@ -43,8 +38,9 @@ public enum SignType {
 
     /**
      * Gets the value associated to the enum constant.
-     *
-     * @return The value linked to the enum.
+     * 
+     * @return
+     *     The value linked to the enum.
      */
     public String value() {
         return value;
@@ -52,15 +48,16 @@ public enum SignType {
 
     /**
      * Gets the enum associated to the value passed as parameter.
-     *
+     * 
      * @param v
-     *            The value to get the enum from.
-     * @return The enum which corresponds to the value, if it exists.
+     *     The value to get the enum from.
+     * @return
+     *     The enum which corresponds to the value, if it exists.
      * @throws IllegalArgumentException
-     *             If no value matches in the enum declaration.
+     *     If no value matches in the enum declaration.
      */
     public static SignType fromValue(String v) {
-        for (SignType c : SignType.values()) {
+        for (SignType c: SignType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

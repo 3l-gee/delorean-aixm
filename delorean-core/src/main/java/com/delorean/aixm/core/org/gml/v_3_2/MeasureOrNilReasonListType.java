@@ -1,15 +1,15 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -23,39 +23,35 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * gml:MeasureOrNilReasonListType provides for a list of quantities. An instance
- * element may also include embedded values from NilReasonType. It is intended
- * to be used in situations where a value is expected, but the value may be
- * absent for some reason.
- *
- * <p>
- * Java class for MeasureOrNilReasonListType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * gml:MeasureOrNilReasonListType provides for a list of quantities. An instance element may also include embedded values from NilReasonType. It is intended to be used in situations where a value is expected, but the value may be absent for some reason.
+ * 
+ * <p>Java class for MeasureOrNilReasonListType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="MeasureOrNilReasonListType">
  *   <simpleContent>
  *     <extension base="<http://www.opengis.net/gml/3.2>doubleOrNilReasonList">
- *       <attribute name="uom" use="required" type=
-"{http://www.opengis.net/gml/3.2}UomIdentifier" />
+ *       <attribute name="uom" use="required" type="{http://www.opengis.net/gml/3.2}UomIdentifier" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MeasureOrNilReasonListType", propOrder = {"value"})
-@XmlSeeAlso({QuantityExtentType.class})
-public class MeasureOrNilReasonListType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "MeasureOrNilReasonListType", propOrder = {
+    "value"
+})
+@XmlSeeAlso({
+    QuantityExtentType.class
+})
+public class MeasureOrNilReasonListType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -64,27 +60,26 @@ public class MeasureOrNilReasonListType implements Serializable, Equals, HashCod
     protected String uom;
 
     /**
-     * A type for a list of values of the respective simple type.Gets the value of
-     * the value property.
-     *
+     * A type for a list of values of the respective simple type.Gets the value of the value property.
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the value property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the value property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getValue().add(newItem);
+     *    getValue().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link String }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
      */
     public List<String> getValue() {
         if (value == null) {
@@ -95,14 +90,14 @@ public class MeasureOrNilReasonListType implements Serializable, Equals, HashCod
 
     /**
      * A type for a list of values of the respective simple type.
-     *
+     * 
      */
     public void setValue(List<String> value) {
         this.value = value;
     }
 
     public boolean isSetValue() {
-        return ((this.value != null) && (!this.value.isEmpty()));
+        return ((this.value!= null)&&(!this.value.isEmpty()));
     }
 
     public void unsetValue() {
@@ -111,9 +106,11 @@ public class MeasureOrNilReasonListType implements Serializable, Equals, HashCod
 
     /**
      * Gets the value of the uom property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getUom() {
         return uom;
@@ -121,17 +118,18 @@ public class MeasureOrNilReasonListType implements Serializable, Equals, HashCod
 
     /**
      * Sets the value of the uom property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setUom(String value) {
         this.uom = value;
     }
 
     public boolean isSetUom() {
-        return (this.uom != null);
+        return (this.uom!= null);
     }
 
     @Override
@@ -147,15 +145,27 @@ public class MeasureOrNilReasonListType implements Serializable, Equals, HashCod
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final MeasureOrNilReasonListType that = ((MeasureOrNilReasonListType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            List<String> lhsField;
+            lhsField = (this.isSetValue()?this.getValue():null);
+            List<String> rhsField;
+            rhsField = (that.isSetValue()?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetUom();
             boolean rhsFieldIsSet = that.isSetUom();
@@ -165,19 +175,6 @@ public class MeasureOrNilReasonListType implements Serializable, Equals, HashCod
             rhsField = that.getUom();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            List<String> lhsField;
-            lhsField = (this.isSetValue() ? this.getValue() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetValue() ? that.getValue() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -201,7 +198,7 @@ public class MeasureOrNilReasonListType implements Serializable, Equals, HashCod
         {
             boolean theFieldIsSet = this.isSetValue();
             List<String> theField;
-            theField = (this.isSetValue() ? this.getValue() : null);
+            theField = (this.isSetValue()?this.getValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -240,7 +237,7 @@ public class MeasureOrNilReasonListType implements Serializable, Equals, HashCod
         {
             boolean theFieldIsSet = this.isSetValue();
             List<String> theField;
-            theField = (this.isSetValue() ? this.getValue() : null);
+            theField = (this.isSetValue()?this.getValue():null);
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {

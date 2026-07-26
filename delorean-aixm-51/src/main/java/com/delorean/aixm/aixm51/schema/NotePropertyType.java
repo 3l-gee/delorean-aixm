@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for NotePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for NotePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="NotePropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1}Note"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NotePropertyType", propOrder = {"note"})
+@XmlType(name = "NotePropertyType", propOrder = {
+    "note"
+})
 @Entity(name = "NotePropertyType")
 @Table(name = "note_p", schema = "note")
-public class NotePropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class NotePropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Note", required = true)
@@ -57,11 +56,15 @@ public class NotePropertyType extends AbstractAIXMPropertyType implements Serial
 
     /**
      * Gets the value of the note property.
-     *
-     * @return possible object is {@link NoteType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link NoteType }
+     *     
      */
-    @OneToOne(targetEntity = NoteType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = NoteType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "note_hjid", referencedColumnName = "hjid")
     public NoteType getNote() {
         return note;
@@ -69,10 +72,11 @@ public class NotePropertyType extends AbstractAIXMPropertyType implements Serial
 
     /**
      * Sets the value of the note property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link NoteType }
-     *
+     *     allowed object is
+     *     {@link NoteType }
+     *     
      */
     public void setNote(NoteType value) {
         this.note = value;
@@ -80,13 +84,12 @@ public class NotePropertyType extends AbstractAIXMPropertyType implements Serial
 
     @Transient
     public boolean isSetNote() {
-        return (this.note != null);
+        return (this.note!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

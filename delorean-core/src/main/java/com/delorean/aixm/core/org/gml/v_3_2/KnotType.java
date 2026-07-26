@@ -1,13 +1,13 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigInteger;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,39 +21,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for KnotType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for KnotType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="KnotType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element name="value" type=
-"{http://www.w3.org/2001/XMLSchema}double"/>
- *         <element name="multiplicity" type=
-"{http://www.w3.org/2001/XMLSchema}nonNegativeInteger"/>
- *         <element name="weight" type=
-"{http://www.w3.org/2001/XMLSchema}double"/>
+ *         <element name="value" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         <element name="multiplicity" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger"/>
+ *         <element name="weight" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KnotType", propOrder = {"value", "multiplicity", "weight"})
-public class KnotType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "KnotType", propOrder = {
+    "value",
+    "multiplicity",
+    "weight"
+})
+public class KnotType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     protected double value;
@@ -64,7 +61,7 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Gets the value of the value property.
-     *
+     * 
      */
     public double getValue() {
         return value;
@@ -72,7 +69,7 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      */
     public void setValue(double value) {
         this.value = value;
@@ -84,9 +81,11 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Gets the value of the multiplicity property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getMultiplicity() {
         return multiplicity;
@@ -94,22 +93,23 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the multiplicity property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setMultiplicity(BigInteger value) {
         this.multiplicity = value;
     }
 
     public boolean isSetMultiplicity() {
-        return (this.multiplicity != null);
+        return (this.multiplicity!= null);
     }
 
     /**
      * Gets the value of the weight property.
-     *
+     * 
      */
     public double getWeight() {
         return weight;
@@ -117,7 +117,7 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the weight property.
-     *
+     * 
      */
     public void setWeight(double value) {
         this.weight = value;
@@ -140,28 +140,14 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final KnotType that = ((KnotType) object);
-        {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getValue();
-            double rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
@@ -184,6 +170,19 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
             rhsField = that.getMultiplicity();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multiplicity", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multiplicity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getValue();
+            double rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

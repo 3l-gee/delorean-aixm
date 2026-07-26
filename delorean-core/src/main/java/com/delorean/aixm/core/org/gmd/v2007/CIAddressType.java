@@ -1,64 +1,60 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import com.delorean.aixm.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
  * Location of the responsible individual or organisation
- *
- * <p>
- * Java class for CI_Address_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * 
+ * <p>Java class for CI_Address_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CI_Address_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="deliveryPoint" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="city" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="administrativeArea" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="postalCode" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="country" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="electronicMailAddress" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="deliveryPoint" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="city" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="administrativeArea" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="postalCode" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="country" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="electronicMailAddress" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CI_Address_Type", propOrder = {"deliveryPoint", "city", "administrativeArea", "postalCode", "country",
-        "electronicMailAddress"})
-public class CIAddressType extends AbstractObjectType implements Serializable {
+@XmlType(name = "CI_Address_Type", propOrder = {
+    "deliveryPoint",
+    "city",
+    "administrativeArea",
+    "postalCode",
+    "country",
+    "electronicMailAddress"
+})
+public class CIAddressType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected List<CharacterStringPropertyType> deliveryPoint;
@@ -70,26 +66,25 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
 
     /**
      * Gets the value of the deliveryPoint property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the deliveryPoint property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the deliveryPoint property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getDeliveryPoint().add(newItem);
+     *    getDeliveryPoint().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CharacterStringPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<CharacterStringPropertyType> getDeliveryPoint() {
         if (deliveryPoint == null) {
@@ -99,15 +94,15 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setDeliveryPoint(List<CharacterStringPropertyType> deliveryPoint) {
         this.deliveryPoint = deliveryPoint;
     }
 
     public boolean isSetDeliveryPoint() {
-        return ((this.deliveryPoint != null) && (!this.deliveryPoint.isEmpty()));
+        return ((this.deliveryPoint!= null)&&(!this.deliveryPoint.isEmpty()));
     }
 
     public void unsetDeliveryPoint() {
@@ -116,9 +111,11 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
 
     /**
      * Gets the value of the city property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getCity() {
         return city;
@@ -126,24 +123,27 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the city property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setCity(CharacterStringPropertyType value) {
         this.city = value;
     }
 
     public boolean isSetCity() {
-        return (this.city != null);
+        return (this.city!= null);
     }
 
     /**
      * Gets the value of the administrativeArea property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getAdministrativeArea() {
         return administrativeArea;
@@ -151,24 +151,27 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the administrativeArea property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setAdministrativeArea(CharacterStringPropertyType value) {
         this.administrativeArea = value;
     }
 
     public boolean isSetAdministrativeArea() {
-        return (this.administrativeArea != null);
+        return (this.administrativeArea!= null);
     }
 
     /**
      * Gets the value of the postalCode property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getPostalCode() {
         return postalCode;
@@ -176,24 +179,27 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the postalCode property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setPostalCode(CharacterStringPropertyType value) {
         this.postalCode = value;
     }
 
     public boolean isSetPostalCode() {
-        return (this.postalCode != null);
+        return (this.postalCode!= null);
     }
 
     /**
      * Gets the value of the country property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getCountry() {
         return country;
@@ -201,41 +207,41 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the country property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setCountry(CharacterStringPropertyType value) {
         this.country = value;
     }
 
     public boolean isSetCountry() {
-        return (this.country != null);
+        return (this.country!= null);
     }
 
     /**
      * Gets the value of the electronicMailAddress property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the electronicMailAddress property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the electronicMailAddress property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getElectronicMailAddress().add(newItem);
+     *    getElectronicMailAddress().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CharacterStringPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<CharacterStringPropertyType> getElectronicMailAddress() {
         if (electronicMailAddress == null) {
@@ -245,15 +251,15 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setElectronicMailAddress(List<CharacterStringPropertyType> electronicMailAddress) {
         this.electronicMailAddress = electronicMailAddress;
     }
 
     public boolean isSetElectronicMailAddress() {
-        return ((this.electronicMailAddress != null) && (!this.electronicMailAddress.isEmpty()));
+        return ((this.electronicMailAddress!= null)&&(!this.electronicMailAddress.isEmpty()));
     }
 
     public void unsetElectronicMailAddress() {
@@ -261,9 +267,8 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -274,40 +279,14 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
         }
         final CIAddressType that = ((CIAddressType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDeliveryPoint();
-            boolean rhsFieldIsSet = that.isSetDeliveryPoint();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetDeliveryPoint() ? this.getDeliveryPoint() : null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetDeliveryPoint() ? that.getDeliveryPoint() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deliveryPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deliveryPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElectronicMailAddress();
-            boolean rhsFieldIsSet = that.isSetElectronicMailAddress();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetElectronicMailAddress() ? this.getElectronicMailAddress() : null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetElectronicMailAddress() ? that.getElectronicMailAddress() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "electronicMailAddress", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "electronicMailAddress", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPostalCode();
-            boolean rhsFieldIsSet = that.isSetPostalCode();
+            boolean lhsFieldIsSet = this.isSetCountry();
+            boolean rhsFieldIsSet = that.isSetCountry();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getPostalCode();
+            lhsField = this.getCountry();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getPostalCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postalCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postalCode", rhsField);
+            rhsField = that.getCountry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -326,6 +305,19 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetPostalCode();
+            boolean rhsFieldIsSet = that.isSetPostalCode();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getPostalCode();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getPostalCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postalCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postalCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCity();
             boolean rhsFieldIsSet = that.isSetCity();
             CharacterStringPropertyType lhsField;
@@ -339,14 +331,27 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCountry();
-            boolean rhsFieldIsSet = that.isSetCountry();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getCountry();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getCountry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
+            boolean lhsFieldIsSet = this.isSetDeliveryPoint();
+            boolean rhsFieldIsSet = that.isSetDeliveryPoint();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetDeliveryPoint()?this.getDeliveryPoint():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetDeliveryPoint()?that.getDeliveryPoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deliveryPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deliveryPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElectronicMailAddress();
+            boolean rhsFieldIsSet = that.isSetElectronicMailAddress();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetElectronicMailAddress()?this.getElectronicMailAddress():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetElectronicMailAddress()?that.getElectronicMailAddress():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "electronicMailAddress", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "electronicMailAddress", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -360,7 +365,7 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetDeliveryPoint();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetDeliveryPoint() ? this.getDeliveryPoint() : null);
+            theField = (this.isSetDeliveryPoint()?this.getDeliveryPoint():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "deliveryPoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -395,7 +400,7 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetElectronicMailAddress();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetElectronicMailAddress() ? this.getElectronicMailAddress() : null);
+            theField = (this.isSetElectronicMailAddress()?this.getElectronicMailAddress():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "electronicMailAddress", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -408,7 +413,7 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetDeliveryPoint();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetDeliveryPoint() ? this.getDeliveryPoint() : null);
+            theField = (this.isSetDeliveryPoint()?this.getDeliveryPoint():null);
             strategy.appendField(locator, this, "deliveryPoint", buffer, theField, theFieldIsSet);
         }
         {
@@ -438,7 +443,7 @@ public class CIAddressType extends AbstractObjectType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetElectronicMailAddress();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetElectronicMailAddress() ? this.getElectronicMailAddress() : null);
+            theField = (this.isSetElectronicMailAddress()?this.getElectronicMailAddress():null);
             strategy.appendField(locator, this, "electronicMailAddress", buffer, theField, theFieldIsSet);
         }
         return buffer;

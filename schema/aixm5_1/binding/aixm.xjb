@@ -1753,7 +1753,7 @@
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../aixm/AIXM_Features.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.aixm.delorean.core.schema.a5_1.aixm"/>
+      <jaxb:package name="com.delorean.aixm.core.schema.a5_1.aixm"/>
     </jaxb:schemaBindings>
     <!-- section : manual -->
     <!-- part : default -->
@@ -1767,10 +1767,10 @@
       <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "PointPropertyType", propOrder = {"point"})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']//xs:element[@name='point']">
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.gis.AixmPointType"/>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.gis.AixmPointType"/>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Point", required = true, type = com.aixm.delorean.core.schema.a5_1.aixm.PointType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.gis.PointTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Point", required = true, type = com.delorean.aixm.core.schema.a5_1.aixm.PointType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.gis.PointTypeAdapter.class)</annox:annotate>
       <jaxb:property name="point"/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='ElevatedPointPropertyType']">
@@ -1779,10 +1779,10 @@
       <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "ElevatedPointPropertyType", propOrder = {"elevatedPoint"})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='ElevatedPointPropertyType']//xs:element[@name='point']">
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.gis.AixmElevatedPointType"/>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.gis.AixmElevatedPointType"/>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedPoint", required = true, type = com.aixm.delorean.core.schema.a5_1.aixm.ElevatedPointType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.gis.ElevatedPointTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedPoint", required = true, type = com.delorean.aixm.core.schema.a5_1.aixm.ElevatedPointType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.gis.ElevatedPointTypeAdapter.class)</annox:annotate>
       <jaxb:property name="elevatedPoint"/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='CurvePropertyType']">
@@ -1791,10 +1791,10 @@
       <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "CurvePropertyType", propOrder = {"curve"})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='CurvePropertyType']//xs:element[@name='curve']">
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.gis.AixmCurveType"/>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.gis.AixmCurveType"/>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Curve", required = true, type = com.aixm.delorean.core.schema.a5_1.aixm.CurveType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.gis.CurveTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Curve", required = true, type = com.delorean.aixm.core.schema.a5_1.aixm.CurveType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.gis.CurveTypeAdapter.class)</annox:annotate>
       <jaxb:property name="curve"/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='ElevatedCurvePropertyType']">
@@ -1803,10 +1803,10 @@
       <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "ElevatedCurvePropertyType", propOrder = {"elevatedCurve"})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='ElevatedCurvePropertyType']//xs:element[@name='curve']">
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.gis.AixmElevatedCurveType"/>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.gis.AixmElevatedCurveType"/>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedCurve", required = true, type = com.aixm.delorean.core.schema.a5_1.aixm.ElevatedCurveType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.gis.ElevatedCurveTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedCurve", required = true, type = com.delorean.aixm.core.schema.a5_1.aixm.ElevatedCurveType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.gis.ElevatedCurveTypeAdapter.class)</annox:annotate>
       <jaxb:property name="elevatedCurve"/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='SurfacePropertyType']">
@@ -1815,10 +1815,10 @@
       <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "SurfacePropertyType", propOrder = {"surface"})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='SurfacePropertyType']//xs:element[@name='surface']">
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.gis.AixmSurfaceType"/>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.gis.AixmSurfaceType"/>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Surface", required = true, type = com.aixm.delorean.core.schema.a5_1.aixm.SurfaceType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.gis.SurfaceTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Surface", required = true, type = com.delorean.aixm.core.schema.a5_1.aixm.SurfaceType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.gis.SurfaceTypeAdapter.class)</annox:annotate>
       <jaxb:property name="surface"/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='ElevatedSurfacePropertyType']">
@@ -1827,10 +1827,10 @@
       <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "ElevatedSurfacePropertyType", propOrder = {"elevatedSurface"})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='ElevatedSurfacePropertyType']//xs:element[@name='surface']">
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.gis.AixmElevatedSurfaceType"/>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.gis.AixmElevatedSurfaceType"/>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedSurface", required = true, type = com.aixm.delorean.core.schema.a5_1.aixm.ElevatedSurfaceType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.gis.ElevatedSurfaceTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedSurface", required = true, type = com.delorean.aixm.core.schema.a5_1.aixm.ElevatedSurfaceType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.gis.ElevatedSurfaceTypeAdapter.class)</annox:annotate>
       <jaxb:property name="elevatedSurface"/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TerminalSegmentPointType']">
@@ -4048,17 +4048,17 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayContaminationType']//xs:element[@name='observationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "observationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "observationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayContaminationType']//xs:element[@name='nextObservationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "nextObservationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "nextObservationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -4087,17 +4087,17 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiwayContaminationType']//xs:element[@name='observationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "observationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "observationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiwayContaminationType']//xs:element[@name='nextObservationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "nextObservationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "nextObservationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -4145,17 +4145,17 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwaySectionContaminationType']//xs:element[@name='observationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "observationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "observationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwaySectionContaminationType']//xs:element[@name='nextObservationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "nextObservationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "nextObservationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -4184,17 +4184,17 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffContaminationType']//xs:element[@name='observationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "observationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "observationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffContaminationType']//xs:element[@name='nextObservationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "nextObservationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "nextObservationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -4223,17 +4223,17 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ApronContaminationType']//xs:element[@name='observationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "observationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "observationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ApronContaminationType']//xs:element[@name='nextObservationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "nextObservationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "nextObservationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -4262,17 +4262,17 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AircraftStandContaminationType']//xs:element[@name='observationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "observationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "observationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AircraftStandContaminationType']//xs:element[@name='nextObservationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "nextObservationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "nextObservationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -4301,17 +4301,17 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportHeliportContaminationType']//xs:element[@name='observationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "observationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "observationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "observationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportHeliportContaminationType']//xs:element[@name='nextObservationTime']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "nextObservationTime", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateTimeType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTimeTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "nextObservationTime_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "nextObservationTime_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -4561,9 +4561,9 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='WorkAreaTimeSliceType']//xs:element[@name='plannedOperational']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "plannedOperational", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "plannedOperational", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "plannedOperational_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "plannedOperational_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -4826,17 +4826,17 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportHeliportTimeSliceType']//xs:element[@name='certificationDate']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "certificationDate", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "certificationDate", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "certificationDate_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "certificationDate_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportHeliportTimeSliceType']//xs:element[@name='certificationExpirationDate']">
       <jaxb:property generateElementProperty="false"/>
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.date.AixmTimestamp"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "certificationExpirationDate", required = false, type = com.aixm.delorean.core.schema.a5_1.aixm.DateType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.date.DateTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.date.AixmTimestamp"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "certificationExpirationDate", required = false, type = com.delorean.aixm.core.schema.a5_1.aixm.DateType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.date.DateTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "certificationExpirationDate_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false)), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "certificationExpirationDate_nilreason", length = 255, nullable = true, unique = false))})</annox:annotate>
     </jaxb:bindings>
@@ -18849,10 +18849,10 @@
       <annox:annotate target="field">@jakarta.persistence.Transient</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='featureLifetime']">
-      <jaxb:javaType name="com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType"/>
+      <jaxb:javaType name="com.delorean.aixm.core.adapter.type.time.AixmTimeSliceType"/>
       <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.delorean.aixm.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.time.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin")), @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end"))})</annox:annotate>
       <jaxb:property name="featureLifetime"/>
     </jaxb:bindings>
@@ -18925,7 +18925,7 @@
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../aixm/message/AIXM_BasicMessage.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.aixm.delorean.core.schema.a5_1.aixm.message"/>
+      <jaxb:package name="com.delorean.aixm.core.schema.a5_1.aixm.message"/>
     </jaxb:schemaBindings>
     <!-- section : manual -->
     <!-- part : default -->
@@ -18945,12 +18945,12 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
       <jaxb:bindings node="//xs:element[@name='abstractAIXMFeature']">
-        <jaxb:javaType name="com.aixm.delorean.core.schema.a5_1.aixm.AbstractAIXMFeatureType"/>
+        <jaxb:javaType name="com.delorean.aixm.core.schema.a5_1.aixm.AbstractAIXMFeatureType"/>
         <annox:removeAnnotation class="jakarta.xml.bind.annotation.XmlElement" target="field"/>
         <annox:annotate target="field">@jakarta.persistence.OneToOne(cascade = CascadeType.ALL)</annox:annotate>
         <annox:annotate target="field">@jakarta.persistence.JoinColumn(name = "abstract_aixm_feature_id")</annox:annotate>
         <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElementRef(name = "AbstractAIXMFeature", namespace = "http://www.aixm.aero/schema/5.1", type = jakarta.xml.bind.JAXBElement.class, required = false)</annox:annotate>
-        <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.a5_1.feature.AbstractFeatureAdapter.class)</annox:annotate>
+        <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.a5_1.feature.AbstractFeatureAdapter.class)</annox:annotate>
         <jaxb:property name="abstractAIXMFeature"/>
       </jaxb:bindings>
     </jaxb:bindings>

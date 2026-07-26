@@ -1,6 +1,9 @@
 package com.delorean.aixm.core;
 
 import javax.xml.namespace.QName;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CoreConfig {
 
@@ -11,9 +14,13 @@ public class CoreConfig {
     protected final Class<?> timeSliceClass;
     protected final Class<?> objectClass;
     protected final QName qName;
+
+    // Database SQL paths
     protected final String schemaPath;
     protected final String sqlPreInitPath;
     protected final String sqlPostInitPath;
+    protected final Map<String, String> sqlFilesMap;
+
     protected final String configurationPath;
     protected final Class<?> deloreanEngineClass;
     protected final Class<?> databaseHelperClass;
@@ -43,6 +50,7 @@ public class CoreConfig {
         // Database settings
         String sqlPreInitPath,
         String sqlPostInitPath,
+        Map<String, String> sqlFilesMap,
         String configurationPath,
 
         // Resource settings
@@ -59,6 +67,9 @@ public class CoreConfig {
         this.schemaPath = schemaPath;
         this.sqlPreInitPath = sqlPreInitPath;
         this.sqlPostInitPath = sqlPostInitPath;
+        this.sqlFilesMap = sqlFilesMap != null 
+                ? Collections.unmodifiableMap(new HashMap<>(sqlFilesMap)) 
+                : Collections.emptyMap();
         this.configurationPath = configurationPath;
         this.deloreanEngineClass = engineClass;
         this.databaseHelperClass = databaseHelperClass;
@@ -105,6 +116,10 @@ public class CoreConfig {
 
     public String getSqlPostInitPath() {
         return this.sqlPostInitPath;
+    }
+
+    public Map<String, String> getSqlFilesMap() {
+        return this.sqlFilesMap;
     }
 
     public String getConfigurationPath() {

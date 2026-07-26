@@ -1,56 +1,53 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gco.v2007.BooleanPropertyType;
 import com.delorean.aixm.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * quantitative_result from Quality Procedures - - renamed to remove implied use
- * limitiation.
- *
- * <p>
- * Java class for DQ_ConformanceResult_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * quantitative_result from Quality Procedures -  - renamed to remove implied use limitiation.
+ * 
+ * <p>Java class for DQ_ConformanceResult_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DQ_ConformanceResult_Type">
  *   <complexContent>
- *     <extension base=
-"{http://www.isotc211.org/2005/gmd}AbstractDQ_Result_Type">
+ *     <extension base="{http://www.isotc211.org/2005/gmd}AbstractDQ_Result_Type">
  *       <sequence>
- *         <element name="specification" type=
-"{http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType"/>
- *         <element name="explanation" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType"/>
- *         <element name="pass" type=
-"{http://www.isotc211.org/2005/gco}Boolean_PropertyType"/>
+ *         <element name="specification" type="{http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType"/>
+ *         <element name="explanation" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType"/>
+ *         <element name="pass" type="{http://www.isotc211.org/2005/gco}Boolean_PropertyType"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DQ_ConformanceResult_Type", propOrder = {"specification", "explanation", "pass"})
-public class DQConformanceResultType extends AbstractDQResultType implements Serializable {
+@XmlType(name = "DQ_ConformanceResult_Type", propOrder = {
+    "specification",
+    "explanation",
+    "pass"
+})
+public class DQConformanceResultType
+    extends AbstractDQResultType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -62,9 +59,11 @@ public class DQConformanceResultType extends AbstractDQResultType implements Ser
 
     /**
      * Gets the value of the specification property.
-     *
-     * @return possible object is {@link CICitationPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CICitationPropertyType }
+     *     
      */
     public CICitationPropertyType getSpecification() {
         return specification;
@@ -72,24 +71,27 @@ public class DQConformanceResultType extends AbstractDQResultType implements Ser
 
     /**
      * Sets the value of the specification property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CICitationPropertyType }
-     *
+     *     allowed object is
+     *     {@link CICitationPropertyType }
+     *     
      */
     public void setSpecification(CICitationPropertyType value) {
         this.specification = value;
     }
 
     public boolean isSetSpecification() {
-        return (this.specification != null);
+        return (this.specification!= null);
     }
 
     /**
      * Gets the value of the explanation property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getExplanation() {
         return explanation;
@@ -97,24 +99,27 @@ public class DQConformanceResultType extends AbstractDQResultType implements Ser
 
     /**
      * Sets the value of the explanation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setExplanation(CharacterStringPropertyType value) {
         this.explanation = value;
     }
 
     public boolean isSetExplanation() {
-        return (this.explanation != null);
+        return (this.explanation!= null);
     }
 
     /**
      * Gets the value of the pass property.
-     *
-     * @return possible object is {@link BooleanPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BooleanPropertyType }
+     *     
      */
     public BooleanPropertyType getPass() {
         return pass;
@@ -122,23 +127,23 @@ public class DQConformanceResultType extends AbstractDQResultType implements Ser
 
     /**
      * Sets the value of the pass property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BooleanPropertyType }
-     *
+     *     allowed object is
+     *     {@link BooleanPropertyType }
+     *     
      */
     public void setPass(BooleanPropertyType value) {
         this.pass = value;
     }
 
     public boolean isSetPass() {
-        return (this.pass != null);
+        return (this.pass!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -162,19 +167,6 @@ public class DQConformanceResultType extends AbstractDQResultType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPass();
-            boolean rhsFieldIsSet = that.isSetPass();
-            BooleanPropertyType lhsField;
-            lhsField = this.getPass();
-            BooleanPropertyType rhsField;
-            rhsField = that.getPass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pass", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecification();
             boolean rhsFieldIsSet = that.isSetSpecification();
             CICitationPropertyType lhsField;
@@ -183,6 +175,19 @@ public class DQConformanceResultType extends AbstractDQResultType implements Ser
             rhsField = that.getSpecification();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specification", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPass();
+            boolean rhsFieldIsSet = that.isSetPass();
+            BooleanPropertyType lhsField;
+            lhsField = this.getPass();
+            BooleanPropertyType rhsField;
+            rhsField = that.getPass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pass", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

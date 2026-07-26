@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,49 +31,31 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for FlightRestrictionTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FlightRestrictionTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FlightRestrictionTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="designator" type=
-"{http://www.aixm.aero/schema/5.1}CodeFlightRestrictionDesignatorType" minOccurs
-="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.1}CodeFlightRestrictionType" minOccurs="0"/>
- *         <element name="instruction" type=
-"{http://www.aixm.aero/schema/5.1}TextInstructionType" minOccurs="0"/>
- *         <element name="flight" type=
-"{http://www.aixm.aero/schema/5.1}FlightConditionCombinationPropertyType" minOccurs
-="0"/>
- *         <element name="regulatedRoute" type=
-"{http://www.aixm.aero/schema/5.1}FlightRestrictionRoutePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.1}CodeFlightRestrictionDesignatorType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1}CodeFlightRestrictionType" minOccurs="0"/>
+ *         <element name="instruction" type="{http://www.aixm.aero/schema/5.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="flight" type="{http://www.aixm.aero/schema/5.1}FlightConditionCombinationPropertyType" minOccurs="0"/>
+ *         <element name="regulatedRoute" type="{http://www.aixm.aero/schema/5.1}FlightRestrictionRoutePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractFlightRestrictionExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractFlightRestrictionExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -83,15 +65,25 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FlightRestrictionTimeSliceType", propOrder = {"designator", "type", "instruction", "flight",
-        "regulatedRoute", "annotation", "extension"})
+@XmlType(name = "FlightRestrictionTimeSliceType", propOrder = {
+    "designator",
+    "type",
+    "instruction",
+    "flight",
+    "regulatedRoute",
+    "annotation",
+    "extension"
+})
 @Entity(name = "FlightRestrictionTimeSliceType")
 @Table(name = "flightrestriction_t", schema = "route")
-public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class FlightRestrictionTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "designator", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -110,10 +102,11 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the designator property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeFlightRestrictionDesignatorType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeFlightRestrictionDesignatorType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeFlightRestrictionDesignatorType> getDesignator() {
@@ -122,11 +115,11 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the designator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeFlightRestrictionDesignatorType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeFlightRestrictionDesignatorType }{@code >}
+     *     
      */
     public void setDesignator(JAXBElement<CodeFlightRestrictionDesignatorType> value) {
         this.designator = value;
@@ -134,15 +127,16 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator != null);
+        return (this.designator!= null);
     }
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeFlightRestrictionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeFlightRestrictionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeFlightRestrictionType> getType() {
@@ -151,11 +145,11 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeFlightRestrictionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeFlightRestrictionType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeFlightRestrictionType> value) {
         this.type = value;
@@ -163,15 +157,16 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the instruction property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextInstructionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextInstructionType> getInstruction() {
@@ -180,11 +175,11 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the instruction property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextInstructionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
+     *     
      */
     public void setInstruction(JAXBElement<TextInstructionType> value) {
         this.instruction = value;
@@ -192,15 +187,16 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetInstruction() {
-        return (this.instruction != null);
+        return (this.instruction!= null);
     }
 
     /**
      * Gets the value of the flight property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link FlightConditionCombinationPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link FlightConditionCombinationPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<FlightConditionCombinationPropertyType> getFlight() {
@@ -209,11 +205,11 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the flight property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link FlightConditionCombinationPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link FlightConditionCombinationPropertyType }{@code >}
+     *     
      */
     public void setFlight(JAXBElement<FlightConditionCombinationPropertyType> value) {
         this.flight = value;
@@ -221,37 +217,39 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetFlight() {
-        return (this.flight != null);
+        return (this.flight!= null);
     }
 
     /**
      * Gets the value of the regulatedRoute property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the regulatedRoute property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the regulatedRoute property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getRegulatedRoute().add(newItem);
+     *    getRegulatedRoute().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FlightRestrictionRoutePropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = FlightRestrictionRoutePropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtrstrctntmslctp_rgltdrt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightrestriction_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "regulatedroute_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtrstrctntmslctp_rgltdrt_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightrestriction_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "regulatedroute_hjid", referencedColumnName = "hjid")
+    })
     public List<FlightRestrictionRoutePropertyType> getRegulatedRoute() {
         if (regulatedRoute == null) {
             regulatedRoute = new ArrayList<>();
@@ -260,8 +258,8 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setRegulatedRoute(List<FlightRestrictionRoutePropertyType> regulatedRoute) {
         this.regulatedRoute = regulatedRoute;
@@ -269,7 +267,7 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetRegulatedRoute() {
-        return ((this.regulatedRoute != null) && (!this.regulatedRoute.isEmpty()));
+        return ((this.regulatedRoute!= null)&&(!this.regulatedRoute.isEmpty()));
     }
 
     public void unsetRegulatedRoute() {
@@ -278,31 +276,34 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtrstrctntmslctp_annttn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightrestriction_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtrstrctntmslctp_annttn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightrestriction_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -311,8 +312,8 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -320,7 +321,7 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -329,29 +330,29 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FlightRestrictionTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = FlightRestrictionTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "flightrestriction_te_hjid", referencedColumnName = "hjid")
     public List<FlightRestrictionTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -361,8 +362,8 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<FlightRestrictionTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -370,7 +371,7 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -379,62 +380,62 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 16)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "character1")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason", columnDefinition = "nilreason"))
+    })
     public CodeFlightRestrictionDesignatorType getDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFlightRestrictionDesignatorType.class, this.getDesignator());
     }
 
     public void setDesignatorItem(CodeFlightRestrictionDesignatorType target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(CodeFlightRestrictionDesignatorType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "designator"), FlightRestrictionTimeSliceType.class,
-                target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(CodeFlightRestrictionDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1", "designator"), FlightRestrictionTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codeflightrestrictionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeFlightRestrictionType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFlightRestrictionType.class, this.getType());
     }
 
     public void setTypeItem(CodeFlightRestrictionType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeFlightRestrictionType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "type"), FlightRestrictionTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeFlightRestrictionType.class, new QName("http://www.aixm.aero/schema/5.1", "type"), FlightRestrictionTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "TEXT", length = 10000)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "instructionnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "instructionnilreason", columnDefinition = "nilreason"))
+    })
     public TextInstructionType getInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getInstruction());
     }
 
     public void setInstructionItem(TextInstructionType target) {
-        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "instruction"), FlightRestrictionTimeSliceType.class,
-                target));
+        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.1", "instruction"), FlightRestrictionTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = FlightConditionCombinationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtrstrctntmslctp_flght_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightrestriction_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "flight_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtrstrctntmslctp_flght_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightrestriction_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flight_hjid", referencedColumnName = "hjid")
+    })
     public FlightConditionCombinationPropertyType getFlightItem() {
         return XmlAdapterUtils.unmarshallSource(FlightConditionCombinationPropertyType.class, this.getFlight());
     }
 
     public void setFlightItem(FlightConditionCombinationPropertyType target) {
-        setFlight(XmlAdapterUtils.marshallJAXBElement(FlightConditionCombinationPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "flight"), FlightRestrictionTimeSliceType.class, target));
+        setFlight(XmlAdapterUtils.marshallJAXBElement(FlightConditionCombinationPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "flight"), FlightRestrictionTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -445,14 +446,40 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
         }
         final FlightRestrictionTimeSliceType that = ((FlightRestrictionTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightRestrictionTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightRestrictionTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeFlightRestrictionType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeFlightRestrictionType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlight();
+            boolean rhsFieldIsSet = that.isSetFlight();
+            JAXBElement<FlightConditionCombinationPropertyType> lhsField;
+            lhsField = this.getFlight();
+            JAXBElement<FlightConditionCombinationPropertyType> rhsField;
+            rhsField = that.getFlight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -471,14 +498,14 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeFlightRestrictionType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeFlightRestrictionType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightRestrictionTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FlightRestrictionTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -500,37 +527,11 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
             boolean lhsFieldIsSet = this.isSetRegulatedRoute();
             boolean rhsFieldIsSet = that.isSetRegulatedRoute();
             List<FlightRestrictionRoutePropertyType> lhsField;
-            lhsField = (this.isSetRegulatedRoute() ? this.getRegulatedRoute() : null);
+            lhsField = (this.isSetRegulatedRoute()?this.getRegulatedRoute():null);
             List<FlightRestrictionRoutePropertyType> rhsField;
-            rhsField = (that.isSetRegulatedRoute() ? that.getRegulatedRoute() : null);
+            rhsField = (that.isSetRegulatedRoute()?that.getRegulatedRoute():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "regulatedRoute", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "regulatedRoute", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlight();
-            boolean rhsFieldIsSet = that.isSetFlight();
-            JAXBElement<FlightConditionCombinationPropertyType> lhsField;
-            lhsField = this.getFlight();
-            JAXBElement<FlightConditionCombinationPropertyType> rhsField;
-            rhsField = that.getFlight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -572,21 +573,21 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
         {
             boolean theFieldIsSet = this.isSetRegulatedRoute();
             List<FlightRestrictionRoutePropertyType> theField;
-            theField = (this.isSetRegulatedRoute() ? this.getRegulatedRoute() : null);
+            theField = (this.isSetRegulatedRoute()?this.getRegulatedRoute():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "regulatedRoute", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<FlightRestrictionTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -623,19 +624,19 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
         {
             boolean theFieldIsSet = this.isSetRegulatedRoute();
             List<FlightRestrictionRoutePropertyType> theField;
-            theField = (this.isSetRegulatedRoute() ? this.getRegulatedRoute() : null);
+            theField = (this.isSetRegulatedRoute()?this.getRegulatedRoute():null);
             strategy.appendField(locator, this, "regulatedRoute", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<FlightRestrictionTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

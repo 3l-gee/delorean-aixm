@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for PostalAddressPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for PostalAddressPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="PostalAddressPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.2}PostalAddress"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PostalAddressPropertyType", propOrder = {"postalAddress"})
+@XmlType(name = "PostalAddressPropertyType", propOrder = {
+    "postalAddress"
+})
 @Entity(name = "PostalAddressPropertyType")
 @Table(name = "postaladdresspropertytype", schema = "shared")
-public class PostalAddressPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class PostalAddressPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "PostalAddress", required = true)
@@ -57,11 +56,15 @@ public class PostalAddressPropertyType extends AbstractAIXMPropertyType implemen
 
     /**
      * Gets the value of the postalAddress property.
-     *
-     * @return possible object is {@link PostalAddressType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link PostalAddressType }
+     *     
      */
-    @OneToOne(targetEntity = PostalAddressType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = PostalAddressType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "postaladdress_hjid", referencedColumnName = "hjid")
     public PostalAddressType getPostalAddress() {
         return postalAddress;
@@ -69,10 +72,11 @@ public class PostalAddressPropertyType extends AbstractAIXMPropertyType implemen
 
     /**
      * Sets the value of the postalAddress property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link PostalAddressType }
-     *
+     *     allowed object is
+     *     {@link PostalAddressType }
+     *     
      */
     public void setPostalAddress(PostalAddressType value) {
         this.postalAddress = value;
@@ -80,13 +84,12 @@ public class PostalAddressPropertyType extends AbstractAIXMPropertyType implemen
 
     @Transient
     public boolean isSetPostalAddress() {
-        return (this.postalAddress != null);
+        return (this.postalAddress!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

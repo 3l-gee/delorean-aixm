@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,96 +31,51 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for VerticalStructureTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for VerticalStructureTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="VerticalStructureTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.2}CodeVerticalStructureType" minOccurs="0"/>
- *         <element name="lighted" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="markingICAOStandard" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="group" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="length" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="width" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="radius" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="lightingICAOStandard" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="synchronisedLighting" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="marker" type=
-"{http://www.aixm.aero/schema/5.2}MarkerBeaconPropertyType" minOccurs="0"/>
- *         <element name="part" type=
-"{http://www.aixm.aero/schema/5.2}VerticalStructurePartPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="hostedPassengerService" type=
-"{http://www.aixm.aero/schema/5.2}PassengerServicePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="supportedGroundLight" type=
-"{http://www.aixm.aero/schema/5.2}GroundLightSystemPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="hostedNavaidEquipment" type=
-"{http://www.aixm.aero/schema/5.2}NavaidEquipmentPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="hostedSpecialNavStation" type=
-"{http://www.aixm.aero/schema/5.2}SpecialNavigationStationPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="hostedUnit" type=
-"{http://www.aixm.aero/schema/5.2}UnitPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="hostedOrganisation" type=
-"{http://www.aixm.aero/schema/5.2}OrganisationAuthorityPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="supportedService" type=
-"{http://www.aixm.aero/schema/5.2}ServicePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="lightingAvailability" type=
-"{http://www.aixm.aero/schema/5.2}VerticalStructureLightingStatusPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="marked" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="designator" type=
-"{http://www.aixm.aero/schema/5.2}TextDesignatorLongType" minOccurs="0"/>
- *         <element name="placeName" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="dataAssessmentStatus" type=
-"{http://www.aixm.aero/schema/5.2}CodeDataAssessmentStatusType" minOccurs="0"/>
- *         <element name="arrestingDevice" type=
-"{http://www.aixm.aero/schema/5.2}ArrestingGearPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.2}CodeVerticalStructureType" minOccurs="0"/>
+ *         <element name="lighted" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="markingICAOStandard" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="group" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="length" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="width" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="radius" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="lightingICAOStandard" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="synchronisedLighting" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="marker" type="{http://www.aixm.aero/schema/5.2}MarkerBeaconPropertyType" minOccurs="0"/>
+ *         <element name="part" type="{http://www.aixm.aero/schema/5.2}VerticalStructurePartPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedPassengerService" type="{http://www.aixm.aero/schema/5.2}PassengerServicePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="supportedGroundLight" type="{http://www.aixm.aero/schema/5.2}GroundLightSystemPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedNavaidEquipment" type="{http://www.aixm.aero/schema/5.2}NavaidEquipmentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedSpecialNavStation" type="{http://www.aixm.aero/schema/5.2}SpecialNavigationStationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedUnit" type="{http://www.aixm.aero/schema/5.2}UnitPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedOrganisation" type="{http://www.aixm.aero/schema/5.2}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="supportedService" type="{http://www.aixm.aero/schema/5.2}ServicePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="lightingAvailability" type="{http://www.aixm.aero/schema/5.2}VerticalStructureLightingStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="marked" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.2}TextDesignatorLongType" minOccurs="0"/>
+ *         <element name="placeName" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="dataAssessmentStatus" type="{http://www.aixm.aero/schema/5.2}CodeDataAssessmentStatusType" minOccurs="0"/>
+ *         <element name="arrestingDevice" type="{http://www.aixm.aero/schema/5.2}ArrestingGearPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractVerticalStructureExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractVerticalStructureExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -130,18 +85,45 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "VerticalStructureTimeSliceType", propOrder = {"aixmName", "type", "lighted", "markingICAOStandard",
-        "group", "length", "width", "radius", "lightingICAOStandard", "synchronisedLighting", "marker", "part",
-        "hostedPassengerService", "supportedGroundLight", "hostedNavaidEquipment", "hostedSpecialNavStation",
-        "hostedUnit", "hostedOrganisation", "supportedService", "annotation", "lightingAvailability", "marked",
-        "designator", "placeName", "dataAssessmentStatus", "arrestingDevice", "extension"})
+@XmlType(name = "VerticalStructureTimeSliceType", propOrder = {
+    "aixmName",
+    "type",
+    "lighted",
+    "markingICAOStandard",
+    "group",
+    "length",
+    "width",
+    "radius",
+    "lightingICAOStandard",
+    "synchronisedLighting",
+    "marker",
+    "part",
+    "hostedPassengerService",
+    "supportedGroundLight",
+    "hostedNavaidEquipment",
+    "hostedSpecialNavStation",
+    "hostedUnit",
+    "hostedOrganisation",
+    "supportedService",
+    "annotation",
+    "lightingAvailability",
+    "marked",
+    "designator",
+    "placeName",
+    "dataAssessmentStatus",
+    "arrestingDevice",
+    "extension"
+})
 @Entity(name = "VerticalStructureTimeSliceType")
 @Table(name = "verticalstructure_t", schema = "obstacle")
-public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class VerticalStructureTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "name", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -200,10 +182,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -212,11 +195,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -224,15 +207,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalStructureType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalStructureType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalStructureType> getType() {
@@ -241,11 +225,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalStructureType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalStructureType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeVerticalStructureType> value) {
         this.type = value;
@@ -253,15 +237,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the lighted property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getLighted() {
@@ -270,11 +255,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the lighted property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setLighted(JAXBElement<CodeYesNoType> value) {
         this.lighted = value;
@@ -282,15 +267,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetLighted() {
-        return (this.lighted != null);
+        return (this.lighted!= null);
     }
 
     /**
      * Gets the value of the markingICAOStandard property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getMarkingICAOStandard() {
@@ -299,11 +285,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the markingICAOStandard property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setMarkingICAOStandard(JAXBElement<CodeYesNoType> value) {
         this.markingICAOStandard = value;
@@ -311,15 +297,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetMarkingICAOStandard() {
-        return (this.markingICAOStandard != null);
+        return (this.markingICAOStandard!= null);
     }
 
     /**
      * Gets the value of the group property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getGroup() {
@@ -328,11 +315,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the group property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setGroup(JAXBElement<CodeYesNoType> value) {
         this.group = value;
@@ -340,15 +327,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetGroup() {
-        return (this.group != null);
+        return (this.group!= null);
     }
 
     /**
      * Gets the value of the length property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getLength() {
@@ -357,11 +345,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the length property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setLength(JAXBElement<ValDistanceType> value) {
         this.length = value;
@@ -369,15 +357,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetLength() {
-        return (this.length != null);
+        return (this.length!= null);
     }
 
     /**
      * Gets the value of the width property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getWidth() {
@@ -386,11 +375,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the width property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setWidth(JAXBElement<ValDistanceType> value) {
         this.width = value;
@@ -398,15 +387,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetWidth() {
-        return (this.width != null);
+        return (this.width!= null);
     }
 
     /**
      * Gets the value of the radius property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getRadius() {
@@ -415,11 +405,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the radius property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setRadius(JAXBElement<ValDistanceType> value) {
         this.radius = value;
@@ -427,15 +417,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetRadius() {
-        return (this.radius != null);
+        return (this.radius!= null);
     }
 
     /**
      * Gets the value of the lightingICAOStandard property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getLightingICAOStandard() {
@@ -444,11 +435,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the lightingICAOStandard property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setLightingICAOStandard(JAXBElement<CodeYesNoType> value) {
         this.lightingICAOStandard = value;
@@ -456,15 +447,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetLightingICAOStandard() {
-        return (this.lightingICAOStandard != null);
+        return (this.lightingICAOStandard!= null);
     }
 
     /**
      * Gets the value of the synchronisedLighting property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getSynchronisedLighting() {
@@ -473,11 +465,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the synchronisedLighting property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setSynchronisedLighting(JAXBElement<CodeYesNoType> value) {
         this.synchronisedLighting = value;
@@ -485,15 +477,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetSynchronisedLighting() {
-        return (this.synchronisedLighting != null);
+        return (this.synchronisedLighting!= null);
     }
 
     /**
      * Gets the value of the marker property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link MarkerBeaconPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link MarkerBeaconPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<MarkerBeaconPropertyType> getMarker() {
@@ -502,11 +495,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the marker property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link MarkerBeaconPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link MarkerBeaconPropertyType }{@code >}
+     *     
      */
     public void setMarker(JAXBElement<MarkerBeaconPropertyType> value) {
         this.marker = value;
@@ -514,37 +507,39 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetMarker() {
-        return (this.marker != null);
+        return (this.marker!= null);
     }
 
     /**
      * Gets the value of the part property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the part property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the part property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getPart().add(newItem);
+     *    getPart().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link VerticalStructurePartPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = VerticalStructurePartPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_prt_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "part_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_prt_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "part_hjid", referencedColumnName = "hjid")
+    })
     public List<VerticalStructurePartPropertyType> getPart() {
         if (part == null) {
             part = new ArrayList<>();
@@ -553,8 +548,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setPart(List<VerticalStructurePartPropertyType> part) {
         this.part = part;
@@ -562,7 +557,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetPart() {
-        return ((this.part != null) && (!this.part.isEmpty()));
+        return ((this.part!= null)&&(!this.part.isEmpty()));
     }
 
     public void unsetPart() {
@@ -571,31 +566,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the hostedPassengerService property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the hostedPassengerService property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the hostedPassengerService property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getHostedPassengerService().add(newItem);
+     *    getHostedPassengerService().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PassengerServicePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = PassengerServicePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_hstdpssngrsrvc_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "hostedpassengerservice_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = PassengerServicePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_hstdpssngrsrvc_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "hostedpassengerservice_hjid", referencedColumnName = "hjid")
+    })
     public List<PassengerServicePropertyType> getHostedPassengerService() {
         if (hostedPassengerService == null) {
             hostedPassengerService = new ArrayList<>();
@@ -604,8 +602,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setHostedPassengerService(List<PassengerServicePropertyType> hostedPassengerService) {
         this.hostedPassengerService = hostedPassengerService;
@@ -613,7 +611,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetHostedPassengerService() {
-        return ((this.hostedPassengerService != null) && (!this.hostedPassengerService.isEmpty()));
+        return ((this.hostedPassengerService!= null)&&(!this.hostedPassengerService.isEmpty()));
     }
 
     public void unsetHostedPassengerService() {
@@ -622,31 +620,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the supportedGroundLight property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the supportedGroundLight property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the supportedGroundLight property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSupportedGroundLight().add(newItem);
+     *    getSupportedGroundLight().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link GroundLightSystemPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = GroundLightSystemPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_spprtdgrndlght_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "supportedgroundlight_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = GroundLightSystemPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_spprtdgrndlght_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "supportedgroundlight_hjid", referencedColumnName = "hjid")
+    })
     public List<GroundLightSystemPropertyType> getSupportedGroundLight() {
         if (supportedGroundLight == null) {
             supportedGroundLight = new ArrayList<>();
@@ -655,8 +656,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSupportedGroundLight(List<GroundLightSystemPropertyType> supportedGroundLight) {
         this.supportedGroundLight = supportedGroundLight;
@@ -664,7 +665,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetSupportedGroundLight() {
-        return ((this.supportedGroundLight != null) && (!this.supportedGroundLight.isEmpty()));
+        return ((this.supportedGroundLight!= null)&&(!this.supportedGroundLight.isEmpty()));
     }
 
     public void unsetSupportedGroundLight() {
@@ -673,31 +674,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the hostedNavaidEquipment property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the hostedNavaidEquipment property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the hostedNavaidEquipment property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getHostedNavaidEquipment().add(newItem);
+     *    getHostedNavaidEquipment().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NavaidEquipmentPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NavaidEquipmentPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_hstdnvdeqpmnt_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "hostednavaidequipment_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NavaidEquipmentPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_hstdnvdeqpmnt_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "hostednavaidequipment_hjid", referencedColumnName = "hjid")
+    })
     public List<NavaidEquipmentPropertyType> getHostedNavaidEquipment() {
         if (hostedNavaidEquipment == null) {
             hostedNavaidEquipment = new ArrayList<>();
@@ -706,8 +710,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setHostedNavaidEquipment(List<NavaidEquipmentPropertyType> hostedNavaidEquipment) {
         this.hostedNavaidEquipment = hostedNavaidEquipment;
@@ -715,7 +719,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetHostedNavaidEquipment() {
-        return ((this.hostedNavaidEquipment != null) && (!this.hostedNavaidEquipment.isEmpty()));
+        return ((this.hostedNavaidEquipment!= null)&&(!this.hostedNavaidEquipment.isEmpty()));
     }
 
     public void unsetHostedNavaidEquipment() {
@@ -724,32 +728,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the hostedSpecialNavStation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the hostedSpecialNavStation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the hostedSpecialNavStation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getHostedSpecialNavStation().add(newItem);
+     *    getHostedSpecialNavStation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SpecialNavigationStationPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SpecialNavigationStationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_hstdspclnvsttn_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "hostedspecialnavstation_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_hstdspclnvsttn_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "hostedspecialnavstation_hjid", referencedColumnName = "hjid")
+    })
     public List<SpecialNavigationStationPropertyType> getHostedSpecialNavStation() {
         if (hostedSpecialNavStation == null) {
             hostedSpecialNavStation = new ArrayList<>();
@@ -758,8 +764,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setHostedSpecialNavStation(List<SpecialNavigationStationPropertyType> hostedSpecialNavStation) {
         this.hostedSpecialNavStation = hostedSpecialNavStation;
@@ -767,7 +773,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetHostedSpecialNavStation() {
-        return ((this.hostedSpecialNavStation != null) && (!this.hostedSpecialNavStation.isEmpty()));
+        return ((this.hostedSpecialNavStation!= null)&&(!this.hostedSpecialNavStation.isEmpty()));
     }
 
     public void unsetHostedSpecialNavStation() {
@@ -776,31 +782,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the hostedUnit property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the hostedUnit property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the hostedUnit property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getHostedUnit().add(newItem);
+     *    getHostedUnit().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link UnitPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = UnitPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_hstdunt_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "hostedunit_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = UnitPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_hstdunt_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "hostedunit_hjid", referencedColumnName = "hjid")
+    })
     public List<UnitPropertyType> getHostedUnit() {
         if (hostedUnit == null) {
             hostedUnit = new ArrayList<>();
@@ -809,8 +818,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setHostedUnit(List<UnitPropertyType> hostedUnit) {
         this.hostedUnit = hostedUnit;
@@ -818,7 +827,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetHostedUnit() {
-        return ((this.hostedUnit != null) && (!this.hostedUnit.isEmpty()));
+        return ((this.hostedUnit!= null)&&(!this.hostedUnit.isEmpty()));
     }
 
     public void unsetHostedUnit() {
@@ -827,32 +836,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the hostedOrganisation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the hostedOrganisation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the hostedOrganisation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getHostedOrganisation().add(newItem);
+     *    getHostedOrganisation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrganisationAuthorityPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_hstdorgnstn_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "hostedorganisation_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_hstdorgnstn_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "hostedorganisation_hjid", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getHostedOrganisation() {
         if (hostedOrganisation == null) {
             hostedOrganisation = new ArrayList<>();
@@ -861,8 +872,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setHostedOrganisation(List<OrganisationAuthorityPropertyType> hostedOrganisation) {
         this.hostedOrganisation = hostedOrganisation;
@@ -870,7 +881,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetHostedOrganisation() {
-        return ((this.hostedOrganisation != null) && (!this.hostedOrganisation.isEmpty()));
+        return ((this.hostedOrganisation!= null)&&(!this.hostedOrganisation.isEmpty()));
     }
 
     public void unsetHostedOrganisation() {
@@ -879,31 +890,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the supportedService property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the supportedService property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the supportedService property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSupportedService().add(newItem);
+     *    getSupportedService().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ServicePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = ServicePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_spprtdsrvc_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "supportedservice_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = ServicePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_spprtdsrvc_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "supportedservice_hjid", referencedColumnName = "hjid")
+    })
     public List<ServicePropertyType> getSupportedService() {
         if (supportedService == null) {
             supportedService = new ArrayList<>();
@@ -912,8 +926,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSupportedService(List<ServicePropertyType> supportedService) {
         this.supportedService = supportedService;
@@ -921,7 +935,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetSupportedService() {
-        return ((this.supportedService != null) && (!this.supportedService.isEmpty()));
+        return ((this.supportedService!= null)&&(!this.supportedService.isEmpty()));
     }
 
     public void unsetSupportedService() {
@@ -930,31 +944,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_annttn_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_annttn_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -963,8 +980,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -972,7 +989,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -981,32 +998,34 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the lightingAvailability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the lightingAvailability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the lightingAvailability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getLightingAvailability().add(newItem);
+     *    getLightingAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link VerticalStructureLightingStatusPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = VerticalStructureLightingStatusPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_lghtngavlblt_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "lightingavailability_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_lghtngavlblt_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "lightingavailability_hjid", referencedColumnName = "hjid")
+    })
     public List<VerticalStructureLightingStatusPropertyType> getLightingAvailability() {
         if (lightingAvailability == null) {
             lightingAvailability = new ArrayList<>();
@@ -1015,8 +1034,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setLightingAvailability(List<VerticalStructureLightingStatusPropertyType> lightingAvailability) {
         this.lightingAvailability = lightingAvailability;
@@ -1024,7 +1043,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetLightingAvailability() {
-        return ((this.lightingAvailability != null) && (!this.lightingAvailability.isEmpty()));
+        return ((this.lightingAvailability!= null)&&(!this.lightingAvailability.isEmpty()));
     }
 
     public void unsetLightingAvailability() {
@@ -1033,10 +1052,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the marked property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getMarked() {
@@ -1045,11 +1065,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the marked property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setMarked(JAXBElement<CodeYesNoType> value) {
         this.marked = value;
@@ -1057,15 +1077,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetMarked() {
-        return (this.marked != null);
+        return (this.marked!= null);
     }
 
     /**
      * Gets the value of the designator property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextDesignatorLongType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextDesignatorLongType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextDesignatorLongType> getDesignator() {
@@ -1074,11 +1095,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the designator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextDesignatorLongType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextDesignatorLongType }{@code >}
+     *     
      */
     public void setDesignator(JAXBElement<TextDesignatorLongType> value) {
         this.designator = value;
@@ -1086,15 +1107,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator != null);
+        return (this.designator!= null);
     }
 
     /**
      * Gets the value of the placeName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getPlaceName() {
@@ -1103,11 +1125,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the placeName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setPlaceName(JAXBElement<TextNameType> value) {
         this.placeName = value;
@@ -1115,15 +1137,16 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetPlaceName() {
-        return (this.placeName != null);
+        return (this.placeName!= null);
     }
 
     /**
      * Gets the value of the dataAssessmentStatus property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeDataAssessmentStatusType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeDataAssessmentStatusType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeDataAssessmentStatusType> getDataAssessmentStatus() {
@@ -1132,11 +1155,11 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Sets the value of the dataAssessmentStatus property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeDataAssessmentStatusType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeDataAssessmentStatusType }{@code >}
+     *     
      */
     public void setDataAssessmentStatus(JAXBElement<CodeDataAssessmentStatusType> value) {
         this.dataAssessmentStatus = value;
@@ -1144,36 +1167,39 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetDataAssessmentStatus() {
-        return (this.dataAssessmentStatus != null);
+        return (this.dataAssessmentStatus!= null);
     }
 
     /**
      * Gets the value of the arrestingDevice property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the arrestingDevice property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the arrestingDevice property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getArrestingDevice().add(newItem);
+     *    getArrestingDevice().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ArrestingGearPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = ArrestingGearPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_arrstngdvc_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "arrestingdevice_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = ArrestingGearPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_arrstngdvc_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "arrestingdevice_hjid", referencedColumnName = "hjid")
+    })
     public List<ArrestingGearPropertyType> getArrestingDevice() {
         if (arrestingDevice == null) {
             arrestingDevice = new ArrayList<>();
@@ -1182,8 +1208,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setArrestingDevice(List<ArrestingGearPropertyType> arrestingDevice) {
         this.arrestingDevice = arrestingDevice;
@@ -1191,7 +1217,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetArrestingDevice() {
-        return ((this.arrestingDevice != null) && (!this.arrestingDevice.isEmpty()));
+        return ((this.arrestingDevice!= null)&&(!this.arrestingDevice.isEmpty()));
     }
 
     public void unsetArrestingDevice() {
@@ -1200,29 +1226,29 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link VerticalStructureTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = VerticalStructureTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "verticalstructure_te_hjid", referencedColumnName = "hjid")
     public List<VerticalStructureTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -1232,8 +1258,8 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<VerticalStructureTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -1241,7 +1267,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -1250,207 +1276,211 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "name"), VerticalStructureTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codeverticalstructurebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalStructureType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalStructureType.class, this.getType());
     }
 
     public void setTypeItem(CodeVerticalStructureType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeVerticalStructureType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "type"), VerticalStructureTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeVerticalStructureType.class, new QName("http://www.aixm.aero/schema/5.2", "type"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "lighted")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lightednilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "lighted", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lightednilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getLightedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getLighted());
     }
 
     public void setLightedItem(CodeYesNoType target) {
-        setLighted(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "lighted"), VerticalStructureTimeSliceType.class, target));
+        setLighted(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "lighted"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "markingicaostandard")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "markingicaostandardnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "markingicaostandard", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "markingicaostandardnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getMarkingICAOStandardItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getMarkingICAOStandard());
     }
 
     public void setMarkingICAOStandardItem(CodeYesNoType target) {
-        setMarkingICAOStandard(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "markingICAOStandard"),
-                VerticalStructureTimeSliceType.class, target));
+        setMarkingICAOStandard(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "markingICAOStandard"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "group_")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "groupnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "group_", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "groupnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getGroupItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getGroup());
     }
 
     public void setGroupItem(CodeYesNoType target) {
-        setGroup(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "group"), VerticalStructureTimeSliceType.class, target));
+        setGroup(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "group"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "lengthuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "lengthaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lengthnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "lengthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "lengthaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lengthnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getLengthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getLength());
     }
 
     public void setLengthItem(ValDistanceType target) {
-        setLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "length"), VerticalStructureTimeSliceType.class, target));
+        setLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "length"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "width", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "widthuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "widthaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "widthnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "width", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "widthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "widthaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "widthnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getWidthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getWidth());
     }
 
     public void setWidthItem(ValDistanceType target) {
-        setWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "width"), VerticalStructureTimeSliceType.class, target));
+        setWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "width"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "radius", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "radiusuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "radiusaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "radiusnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "radius", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "radiusuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "radiusaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "radiusnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getRadiusItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getRadius());
     }
 
     public void setRadiusItem(ValDistanceType target) {
-        setRadius(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "radius"), VerticalStructureTimeSliceType.class, target));
+        setRadius(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "radius"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "lightingicaostandard")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lightingicaostandardnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "lightingicaostandard", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lightingicaostandardnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getLightingICAOStandardItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getLightingICAOStandard());
     }
 
     public void setLightingICAOStandardItem(CodeYesNoType target) {
-        setLightingICAOStandard(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "lightingICAOStandard"),
-                VerticalStructureTimeSliceType.class, target));
+        setLightingICAOStandard(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "lightingICAOStandard"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "synchronisedlighting")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "synchronisedlightingnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "synchronisedlighting", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "synchronisedlightingnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getSynchronisedLightingItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getSynchronisedLighting());
     }
 
     public void setSynchronisedLightingItem(CodeYesNoType target) {
-        setSynchronisedLighting(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "synchronisedLighting"),
-                VerticalStructureTimeSliceType.class, target));
+        setSynchronisedLighting(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "synchronisedLighting"), VerticalStructureTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = MarkerBeaconPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "vrtclstrctrtmslctp_mrkr_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "marker_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = MarkerBeaconPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "vrtclstrctrtmslctp_mrkr_l", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "marker_hjid", referencedColumnName = "hjid")
+    })
     public MarkerBeaconPropertyType getMarkerItem() {
         return XmlAdapterUtils.unmarshallSource(MarkerBeaconPropertyType.class, this.getMarker());
     }
 
     public void setMarkerItem(MarkerBeaconPropertyType target) {
-        setMarker(XmlAdapterUtils.marshallJAXBElement(MarkerBeaconPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "marker"), VerticalStructureTimeSliceType.class, target));
+        setMarker(XmlAdapterUtils.marshallJAXBElement(MarkerBeaconPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "marker"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "marked")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "markednilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "marked", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "markednilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getMarkedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getMarked());
     }
 
     public void setMarkedItem(CodeYesNoType target) {
-        setMarked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "marked"), VerticalStructureTimeSliceType.class, target));
+        setMarked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "marked"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "character3")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason", columnDefinition = "nilreason"))
+    })
     public TextDesignatorLongType getDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(TextDesignatorLongType.class, this.getDesignator());
     }
 
     public void setDesignatorItem(TextDesignatorLongType target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorLongType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "designator"), VerticalStructureTimeSliceType.class,
-                target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorLongType.class, new QName("http://www.aixm.aero/schema/5.2", "designator"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "placename", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "placenamenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "placename", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "placenamenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getPlaceNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getPlaceName());
     }
 
     public void setPlaceNameItem(TextNameType target) {
-        setPlaceName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "placeName"), VerticalStructureTimeSliceType.class,
-                target));
+        setPlaceName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "placeName"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "dataassessmentstatus")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "dataassessmentstatusnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "dataassessmentstatus", columnDefinition = "codedataassessmentstatusbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "dataassessmentstatusnilreason", columnDefinition = "nilreason"))
+    })
     public CodeDataAssessmentStatusType getDataAssessmentStatusItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDataAssessmentStatusType.class, this.getDataAssessmentStatus());
     }
 
     public void setDataAssessmentStatusItem(CodeDataAssessmentStatusType target) {
-        setDataAssessmentStatus(XmlAdapterUtils.marshallJAXBElement(CodeDataAssessmentStatusType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "dataAssessmentStatus"),
-                VerticalStructureTimeSliceType.class, target));
+        setDataAssessmentStatus(XmlAdapterUtils.marshallJAXBElement(CodeDataAssessmentStatusType.class, new QName("http://www.aixm.aero/schema/5.2", "dataAssessmentStatus"), VerticalStructureTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1464,9 +1494,9 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             boolean lhsFieldIsSet = this.isSetSupportedGroundLight();
             boolean rhsFieldIsSet = that.isSetSupportedGroundLight();
             List<GroundLightSystemPropertyType> lhsField;
-            lhsField = (this.isSetSupportedGroundLight() ? this.getSupportedGroundLight() : null);
+            lhsField = (this.isSetSupportedGroundLight()?this.getSupportedGroundLight():null);
             List<GroundLightSystemPropertyType> rhsField;
-            rhsField = (that.isSetSupportedGroundLight() ? that.getSupportedGroundLight() : null);
+            rhsField = (that.isSetSupportedGroundLight()?that.getSupportedGroundLight():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedGroundLight", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedGroundLight", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1474,105 +1504,14 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLightingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetLightingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLightingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLightingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingICAOStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSynchronisedLighting();
-            boolean rhsFieldIsSet = that.isSetSynchronisedLighting();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSynchronisedLighting();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSynchronisedLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "synchronisedLighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "synchronisedLighting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<VerticalStructureTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<VerticalStructureTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedSpecialNavStation();
-            boolean rhsFieldIsSet = that.isSetHostedSpecialNavStation();
-            List<SpecialNavigationStationPropertyType> lhsField;
-            lhsField = (this.isSetHostedSpecialNavStation() ? this.getHostedSpecialNavStation() : null);
-            List<SpecialNavigationStationPropertyType> rhsField;
-            rhsField = (that.isSetHostedSpecialNavStation() ? that.getHostedSpecialNavStation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedSpecialNavStation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedSpecialNavStation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWidth();
-            boolean rhsFieldIsSet = that.isSetWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<TextDesignatorLongType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<TextDesignatorLongType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedUnit();
-            boolean rhsFieldIsSet = that.isSetHostedUnit();
-            List<UnitPropertyType> lhsField;
-            lhsField = (this.isSetHostedUnit() ? this.getHostedUnit() : null);
-            List<UnitPropertyType> rhsField;
-            rhsField = (that.isSetHostedUnit() ? that.getHostedUnit() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLightingAvailability();
-            boolean rhsFieldIsSet = that.isSetLightingAvailability();
-            List<VerticalStructureLightingStatusPropertyType> lhsField;
-            lhsField = (this.isSetLightingAvailability() ? this.getLightingAvailability() : null);
-            List<VerticalStructureLightingStatusPropertyType> rhsField;
-            rhsField = (that.isSetLightingAvailability() ? that.getLightingAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingAvailability", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeVerticalStructureType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeVerticalStructureType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1591,58 +1530,6 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHostedPassengerService();
-            boolean rhsFieldIsSet = that.isSetHostedPassengerService();
-            List<PassengerServicePropertyType> lhsField;
-            lhsField = (this.isSetHostedPassengerService() ? this.getHostedPassengerService() : null);
-            List<PassengerServicePropertyType> rhsField;
-            rhsField = (that.isSetHostedPassengerService() ? that.getHostedPassengerService() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedPassengerService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedPassengerService", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedOrganisation();
-            boolean rhsFieldIsSet = that.isSetHostedOrganisation();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetHostedOrganisation() ? this.getHostedOrganisation() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetHostedOrganisation() ? that.getHostedOrganisation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedOrganisation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRadius();
             boolean rhsFieldIsSet = that.isSetRadius();
             JAXBElement<ValDistanceType> lhsField;
@@ -1656,131 +1543,79 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSupportedService();
-            boolean rhsFieldIsSet = that.isSetSupportedService();
-            List<ServicePropertyType> lhsField;
-            lhsField = (this.isSetSupportedService() ? this.getSupportedService() : null);
-            List<ServicePropertyType> rhsField;
-            rhsField = (that.isSetSupportedService() ? that.getSupportedService() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedService", rhsField);
+            boolean lhsFieldIsSet = this.isSetHostedOrganisation();
+            boolean rhsFieldIsSet = that.isSetHostedOrganisation();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetHostedOrganisation()?this.getHostedOrganisation():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetHostedOrganisation()?that.getHostedOrganisation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedOrganisation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGroup();
-            boolean rhsFieldIsSet = that.isSetGroup();
+            boolean lhsFieldIsSet = this.isSetHostedUnit();
+            boolean rhsFieldIsSet = that.isSetHostedUnit();
+            List<UnitPropertyType> lhsField;
+            lhsField = (this.isSetHostedUnit()?this.getHostedUnit():null);
+            List<UnitPropertyType> rhsField;
+            rhsField = (that.isSetHostedUnit()?that.getHostedUnit():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedUnit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWidth();
+            boolean rhsFieldIsSet = that.isSetWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLightingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetLightingICAOStandard();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getGroup();
+            lhsField = this.getLightingICAOStandard();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
+            rhsField = that.getLightingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingICAOStandard", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHostedNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetHostedNavaidEquipment();
-            List<NavaidEquipmentPropertyType> lhsField;
-            lhsField = (this.isSetHostedNavaidEquipment() ? this.getHostedNavaidEquipment() : null);
-            List<NavaidEquipmentPropertyType> rhsField;
-            rhsField = (that.isSetHostedNavaidEquipment() ? that.getHostedNavaidEquipment() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedNavaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedNavaidEquipment", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLighted();
-            boolean rhsFieldIsSet = that.isSetLighted();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLighted();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLighted();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighted", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighted", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPlaceName();
-            boolean rhsFieldIsSet = that.isSetPlaceName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getPlaceName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getPlaceName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "placeName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "placeName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArrestingDevice();
-            boolean rhsFieldIsSet = that.isSetArrestingDevice();
-            List<ArrestingGearPropertyType> lhsField;
-            lhsField = (this.isSetArrestingDevice() ? this.getArrestingDevice() : null);
-            List<ArrestingGearPropertyType> rhsField;
-            rhsField = (that.isSetArrestingDevice() ? that.getArrestingDevice() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arrestingDevice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arrestingDevice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarker();
-            boolean rhsFieldIsSet = that.isSetMarker();
-            JAXBElement<MarkerBeaconPropertyType> lhsField;
-            lhsField = this.getMarker();
-            JAXBElement<MarkerBeaconPropertyType> rhsField;
-            rhsField = that.getMarker();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "marker", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "marker", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPart();
-            boolean rhsFieldIsSet = that.isSetPart();
-            List<VerticalStructurePartPropertyType> lhsField;
-            lhsField = (this.isSetPart() ? this.getPart() : null);
-            List<VerticalStructurePartPropertyType> rhsField;
-            rhsField = (that.isSetPart() ? that.getPart() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "part", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "part", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDataAssessmentStatus();
-            boolean rhsFieldIsSet = that.isSetDataAssessmentStatus();
-            JAXBElement<CodeDataAssessmentStatusType> lhsField;
-            lhsField = this.getDataAssessmentStatus();
-            JAXBElement<CodeDataAssessmentStatusType> rhsField;
-            rhsField = that.getDataAssessmentStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataAssessmentStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataAssessmentStatus", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<VerticalStructureTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<VerticalStructureTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1799,14 +1634,209 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeVerticalStructureType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeVerticalStructureType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetGroup();
+            boolean rhsFieldIsSet = that.isSetGroup();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getGroup();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSynchronisedLighting();
+            boolean rhsFieldIsSet = that.isSetSynchronisedLighting();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSynchronisedLighting();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSynchronisedLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "synchronisedLighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "synchronisedLighting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSupportedService();
+            boolean rhsFieldIsSet = that.isSetSupportedService();
+            List<ServicePropertyType> lhsField;
+            lhsField = (this.isSetSupportedService()?this.getSupportedService():null);
+            List<ServicePropertyType> rhsField;
+            rhsField = (that.isSetSupportedService()?that.getSupportedService():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedService", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPlaceName();
+            boolean rhsFieldIsSet = that.isSetPlaceName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getPlaceName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getPlaceName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "placeName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "placeName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHostedSpecialNavStation();
+            boolean rhsFieldIsSet = that.isSetHostedSpecialNavStation();
+            List<SpecialNavigationStationPropertyType> lhsField;
+            lhsField = (this.isSetHostedSpecialNavStation()?this.getHostedSpecialNavStation():null);
+            List<SpecialNavigationStationPropertyType> rhsField;
+            rhsField = (that.isSetHostedSpecialNavStation()?that.getHostedSpecialNavStation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedSpecialNavStation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedSpecialNavStation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHostedPassengerService();
+            boolean rhsFieldIsSet = that.isSetHostedPassengerService();
+            List<PassengerServicePropertyType> lhsField;
+            lhsField = (this.isSetHostedPassengerService()?this.getHostedPassengerService():null);
+            List<PassengerServicePropertyType> rhsField;
+            rhsField = (that.isSetHostedPassengerService()?that.getHostedPassengerService():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedPassengerService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedPassengerService", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHostedNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetHostedNavaidEquipment();
+            List<NavaidEquipmentPropertyType> lhsField;
+            lhsField = (this.isSetHostedNavaidEquipment()?this.getHostedNavaidEquipment():null);
+            List<NavaidEquipmentPropertyType> rhsField;
+            rhsField = (that.isSetHostedNavaidEquipment()?that.getHostedNavaidEquipment():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedNavaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedNavaidEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarker();
+            boolean rhsFieldIsSet = that.isSetMarker();
+            JAXBElement<MarkerBeaconPropertyType> lhsField;
+            lhsField = this.getMarker();
+            JAXBElement<MarkerBeaconPropertyType> rhsField;
+            rhsField = that.getMarker();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "marker", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "marker", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLighted();
+            boolean rhsFieldIsSet = that.isSetLighted();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLighted();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLighted();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighted", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighted", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPart();
+            boolean rhsFieldIsSet = that.isSetPart();
+            List<VerticalStructurePartPropertyType> lhsField;
+            lhsField = (this.isSetPart()?this.getPart():null);
+            List<VerticalStructurePartPropertyType> rhsField;
+            rhsField = (that.isSetPart()?that.getPart():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "part", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "part", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<TextDesignatorLongType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<TextDesignatorLongType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLightingAvailability();
+            boolean rhsFieldIsSet = that.isSetLightingAvailability();
+            List<VerticalStructureLightingStatusPropertyType> lhsField;
+            lhsField = (this.isSetLightingAvailability()?this.getLightingAvailability():null);
+            List<VerticalStructureLightingStatusPropertyType> rhsField;
+            rhsField = (that.isSetLightingAvailability()?that.getLightingAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingAvailability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArrestingDevice();
+            boolean rhsFieldIsSet = that.isSetArrestingDevice();
+            List<ArrestingGearPropertyType> lhsField;
+            lhsField = (this.isSetArrestingDevice()?this.getArrestingDevice():null);
+            List<ArrestingGearPropertyType> rhsField;
+            rhsField = (that.isSetArrestingDevice()?that.getArrestingDevice():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arrestingDevice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arrestingDevice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataAssessmentStatus();
+            boolean rhsFieldIsSet = that.isSetDataAssessmentStatus();
+            JAXBElement<CodeDataAssessmentStatusType> lhsField;
+            lhsField = this.getDataAssessmentStatus();
+            JAXBElement<CodeDataAssessmentStatusType> rhsField;
+            rhsField = that.getDataAssessmentStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataAssessmentStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataAssessmentStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1897,70 +1927,70 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
         {
             boolean theFieldIsSet = this.isSetPart();
             List<VerticalStructurePartPropertyType> theField;
-            theField = (this.isSetPart() ? this.getPart() : null);
+            theField = (this.isSetPart()?this.getPart():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "part", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedPassengerService();
             List<PassengerServicePropertyType> theField;
-            theField = (this.isSetHostedPassengerService() ? this.getHostedPassengerService() : null);
+            theField = (this.isSetHostedPassengerService()?this.getHostedPassengerService():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "hostedPassengerService", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSupportedGroundLight();
             List<GroundLightSystemPropertyType> theField;
-            theField = (this.isSetSupportedGroundLight() ? this.getSupportedGroundLight() : null);
+            theField = (this.isSetSupportedGroundLight()?this.getSupportedGroundLight():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "supportedGroundLight", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedNavaidEquipment();
             List<NavaidEquipmentPropertyType> theField;
-            theField = (this.isSetHostedNavaidEquipment() ? this.getHostedNavaidEquipment() : null);
+            theField = (this.isSetHostedNavaidEquipment()?this.getHostedNavaidEquipment():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "hostedNavaidEquipment", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedSpecialNavStation();
             List<SpecialNavigationStationPropertyType> theField;
-            theField = (this.isSetHostedSpecialNavStation() ? this.getHostedSpecialNavStation() : null);
+            theField = (this.isSetHostedSpecialNavStation()?this.getHostedSpecialNavStation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "hostedSpecialNavStation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedUnit();
             List<UnitPropertyType> theField;
-            theField = (this.isSetHostedUnit() ? this.getHostedUnit() : null);
+            theField = (this.isSetHostedUnit()?this.getHostedUnit():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "hostedUnit", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedOrganisation();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetHostedOrganisation() ? this.getHostedOrganisation() : null);
+            theField = (this.isSetHostedOrganisation()?this.getHostedOrganisation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "hostedOrganisation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSupportedService();
             List<ServicePropertyType> theField;
-            theField = (this.isSetSupportedService() ? this.getSupportedService() : null);
+            theField = (this.isSetSupportedService()?this.getSupportedService():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "supportedService", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetLightingAvailability();
             List<VerticalStructureLightingStatusPropertyType> theField;
-            theField = (this.isSetLightingAvailability() ? this.getLightingAvailability() : null);
+            theField = (this.isSetLightingAvailability()?this.getLightingAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "lightingAvailability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1995,14 +2025,14 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
         {
             boolean theFieldIsSet = this.isSetArrestingDevice();
             List<ArrestingGearPropertyType> theField;
-            theField = (this.isSetArrestingDevice() ? this.getArrestingDevice() : null);
+            theField = (this.isSetArrestingDevice()?this.getArrestingDevice():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "arrestingDevice", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<VerticalStructureTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2081,61 +2111,61 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
         {
             boolean theFieldIsSet = this.isSetPart();
             List<VerticalStructurePartPropertyType> theField;
-            theField = (this.isSetPart() ? this.getPart() : null);
+            theField = (this.isSetPart()?this.getPart():null);
             strategy.appendField(locator, this, "part", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedPassengerService();
             List<PassengerServicePropertyType> theField;
-            theField = (this.isSetHostedPassengerService() ? this.getHostedPassengerService() : null);
+            theField = (this.isSetHostedPassengerService()?this.getHostedPassengerService():null);
             strategy.appendField(locator, this, "hostedPassengerService", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSupportedGroundLight();
             List<GroundLightSystemPropertyType> theField;
-            theField = (this.isSetSupportedGroundLight() ? this.getSupportedGroundLight() : null);
+            theField = (this.isSetSupportedGroundLight()?this.getSupportedGroundLight():null);
             strategy.appendField(locator, this, "supportedGroundLight", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedNavaidEquipment();
             List<NavaidEquipmentPropertyType> theField;
-            theField = (this.isSetHostedNavaidEquipment() ? this.getHostedNavaidEquipment() : null);
+            theField = (this.isSetHostedNavaidEquipment()?this.getHostedNavaidEquipment():null);
             strategy.appendField(locator, this, "hostedNavaidEquipment", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedSpecialNavStation();
             List<SpecialNavigationStationPropertyType> theField;
-            theField = (this.isSetHostedSpecialNavStation() ? this.getHostedSpecialNavStation() : null);
+            theField = (this.isSetHostedSpecialNavStation()?this.getHostedSpecialNavStation():null);
             strategy.appendField(locator, this, "hostedSpecialNavStation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedUnit();
             List<UnitPropertyType> theField;
-            theField = (this.isSetHostedUnit() ? this.getHostedUnit() : null);
+            theField = (this.isSetHostedUnit()?this.getHostedUnit():null);
             strategy.appendField(locator, this, "hostedUnit", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHostedOrganisation();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetHostedOrganisation() ? this.getHostedOrganisation() : null);
+            theField = (this.isSetHostedOrganisation()?this.getHostedOrganisation():null);
             strategy.appendField(locator, this, "hostedOrganisation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSupportedService();
             List<ServicePropertyType> theField;
-            theField = (this.isSetSupportedService() ? this.getSupportedService() : null);
+            theField = (this.isSetSupportedService()?this.getSupportedService():null);
             strategy.appendField(locator, this, "supportedService", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetLightingAvailability();
             List<VerticalStructureLightingStatusPropertyType> theField;
-            theField = (this.isSetLightingAvailability() ? this.getLightingAvailability() : null);
+            theField = (this.isSetLightingAvailability()?this.getLightingAvailability():null);
             strategy.appendField(locator, this, "lightingAvailability", buffer, theField, theFieldIsSet);
         }
         {
@@ -2165,13 +2195,13 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
         {
             boolean theFieldIsSet = this.isSetArrestingDevice();
             List<ArrestingGearPropertyType> theField;
-            theField = (this.isSetArrestingDevice() ? this.getArrestingDevice() : null);
+            theField = (this.isSetArrestingDevice()?this.getArrestingDevice():null);
             strategy.appendField(locator, this, "arrestingDevice", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<VerticalStructureTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

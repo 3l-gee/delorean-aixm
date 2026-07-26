@@ -1,11 +1,11 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -19,50 +19,44 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * direction descriptions are specified by a compass point code, a keyword, a
- * textual description or a reference to a description. A gml:compassPoint is
- * specified by a simple enumeration. In addition, thre elements to contain
- * text-based descriptions of direction are provided. If the direction is
- * specified using a term from a list, gml:keyword should be used, and the list
- * indicated using the value of the codeSpace attribute. if the direction is
- * decribed in prose, gml:direction or gml:reference should be used, allowing
- * the value to be included inline or by reference.
- *
- * <p>
- * Java class for DirectionDescriptionType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * direction descriptions are specified by a compass point code, a keyword, a textual description or a reference to a description.
+ * A gml:compassPoint is specified by a simple enumeration.  	
+ * In addition, thre elements to contain text-based descriptions of direction are provided.  
+ * If the direction is specified using a term from a list, gml:keyword should be used, and the list indicated using the value of the codeSpace attribute. 
+ * if the direction is decribed in prose, gml:direction or gml:reference should be used, allowing the value to be included inline or by reference.
+ * 
+ * <p>Java class for DirectionDescriptionType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DirectionDescriptionType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element name="compassPoint" type=
-"{http://www.opengis.net/gml/3.2}CompassPointEnumeration"/>
- *         <element name="keyword" type=
-"{http://www.opengis.net/gml/3.2}CodeType"/>
- *         <element name="description" type=
-"{http://www.w3.org/2001/XMLSchema}string"/>
- *         <element name="reference" type=
-"{http://www.opengis.net/gml/3.2}ReferenceType"/>
+ *         <element name="compassPoint" type="{http://www.opengis.net/gml/3.2}CompassPointEnumeration"/>
+ *         <element name="keyword" type="{http://www.opengis.net/gml/3.2}CodeType"/>
+ *         <element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="reference" type="{http://www.opengis.net/gml/3.2}ReferenceType"/>
  *       </choice>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DirectionDescriptionType", propOrder = {"compassPoint", "keyword", "description", "reference"})
-public class DirectionDescriptionType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "DirectionDescriptionType", propOrder = {
+    "compassPoint",
+    "keyword",
+    "description",
+    "reference"
+})
+public class DirectionDescriptionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlSchemaType(name = "string")
@@ -73,9 +67,11 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
 
     /**
      * Gets the value of the compassPoint property.
-     *
-     * @return possible object is {@link CompassPointEnumeration }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CompassPointEnumeration }
+     *     
      */
     public CompassPointEnumeration getCompassPoint() {
         return compassPoint;
@@ -83,24 +79,27 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the compassPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CompassPointEnumeration }
-     *
+     *     allowed object is
+     *     {@link CompassPointEnumeration }
+     *     
      */
     public void setCompassPoint(CompassPointEnumeration value) {
         this.compassPoint = value;
     }
 
     public boolean isSetCompassPoint() {
-        return (this.compassPoint != null);
+        return (this.compassPoint!= null);
     }
 
     /**
      * Gets the value of the keyword property.
-     *
-     * @return possible object is {@link CodeType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CodeType }
+     *     
      */
     public CodeType getKeyword() {
         return keyword;
@@ -108,24 +107,27 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the keyword property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CodeType }
-     *
+     *     allowed object is
+     *     {@link CodeType }
+     *     
      */
     public void setKeyword(CodeType value) {
         this.keyword = value;
     }
 
     public boolean isSetKeyword() {
-        return (this.keyword != null);
+        return (this.keyword!= null);
     }
 
     /**
      * Gets the value of the description property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDescription() {
         return description;
@@ -133,24 +135,27 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the description property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDescription(String value) {
         this.description = value;
     }
 
     public boolean isSetDescription() {
-        return (this.description != null);
+        return (this.description!= null);
     }
 
     /**
      * Gets the value of the reference property.
-     *
-     * @return possible object is {@link ReferenceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ReferenceType }
+     *     
      */
     public ReferenceType getReference() {
         return reference;
@@ -158,17 +163,18 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the reference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ReferenceType }
-     *
+     *     allowed object is
+     *     {@link ReferenceType }
+     *     
      */
     public void setReference(ReferenceType value) {
         this.reference = value;
     }
 
     public boolean isSetReference() {
-        return (this.reference != null);
+        return (this.reference!= null);
     }
 
     @Override
@@ -184,28 +190,14 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final DirectionDescriptionType that = ((DirectionDescriptionType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetKeyword();
-            boolean rhsFieldIsSet = that.isSetKeyword();
-            CodeType lhsField;
-            lhsField = this.getKeyword();
-            CodeType rhsField;
-            rhsField = that.getKeyword();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetDescription();
             boolean rhsFieldIsSet = that.isSetDescription();
@@ -215,6 +207,19 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
             rhsField = that.getDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetKeyword();
+            boolean rhsFieldIsSet = that.isSetKeyword();
+            CodeType lhsField;
+            lhsField = this.getKeyword();
+            CodeType rhsField;
+            rhsField = that.getKeyword();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

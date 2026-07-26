@@ -1,70 +1,63 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for DiscreteCoverageType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DiscreteCoverageType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DiscreteCoverageType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractCoverageType">
  *       <sequence>
- *         <element ref=
-"{http://www.opengis.net/gml/3.2}coverageFunction" minOccurs="0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}coverageFunction" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DiscreteCoverageType", propOrder = {"coverageFunction"})
-public class DiscreteCoverageType extends AbstractCoverageType implements Serializable {
+@XmlType(name = "DiscreteCoverageType", propOrder = {
+    "coverageFunction"
+})
+public class DiscreteCoverageType
+    extends AbstractCoverageType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The gml:coverageFunction property describes the mapping function from the
-     * domain to the range of the coverage. The value of the CoverageFunction is one
-     * of gml:CoverageMappingRule and gml:GridFunction. If the gml:coverageFunction
-     * property is omitted for a gridded coverage (including rectified gridded
-     * coverages) the gml:startPoint is assumed to be the value of the gml:low
-     * property in the gml:Grid geometry, and the gml:sequenceRule is assumed to be
-     * linear and the gml:axisOrder property is assumed to be "+1 +2".
-     *
+     * The gml:coverageFunction property describes the mapping function from the domain to the range of the coverage.
+     * The value of the CoverageFunction is one of gml:CoverageMappingRule and gml:GridFunction.
+     * If the gml:coverageFunction property is omitted for a gridded coverage (including rectified gridded coverages) the gml:startPoint is assumed to be the value of the gml:low property in the gml:Grid geometry, and the gml:sequenceRule is assumed to be linear and the gml:axisOrder property is assumed to be "+1 +2".
+     * 
      */
     protected CoverageFunctionType coverageFunction;
 
     /**
-     * The gml:coverageFunction property describes the mapping function from the
-     * domain to the range of the coverage. The value of the CoverageFunction is one
-     * of gml:CoverageMappingRule and gml:GridFunction. If the gml:coverageFunction
-     * property is omitted for a gridded coverage (including rectified gridded
-     * coverages) the gml:startPoint is assumed to be the value of the gml:low
-     * property in the gml:Grid geometry, and the gml:sequenceRule is assumed to be
-     * linear and the gml:axisOrder property is assumed to be "+1 +2".
-     *
-     * @return possible object is {@link CoverageFunctionType }
-     *
+     * The gml:coverageFunction property describes the mapping function from the domain to the range of the coverage.
+     * The value of the CoverageFunction is one of gml:CoverageMappingRule and gml:GridFunction.
+     * If the gml:coverageFunction property is omitted for a gridded coverage (including rectified gridded coverages) the gml:startPoint is assumed to be the value of the gml:low property in the gml:Grid geometry, and the gml:sequenceRule is assumed to be linear and the gml:axisOrder property is assumed to be "+1 +2".
+     * 
+     * @return
+     *     possible object is
+     *     {@link CoverageFunctionType }
+     *     
      */
     public CoverageFunctionType getCoverageFunction() {
         return coverageFunction;
@@ -72,10 +65,11 @@ public class DiscreteCoverageType extends AbstractCoverageType implements Serial
 
     /**
      * Sets the value of the coverageFunction property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CoverageFunctionType }
-     *
+     *     allowed object is
+     *     {@link CoverageFunctionType }
+     *     
      * @see #getCoverageFunction()
      */
     public void setCoverageFunction(CoverageFunctionType value) {
@@ -83,13 +77,12 @@ public class DiscreteCoverageType extends AbstractCoverageType implements Serial
     }
 
     public boolean isSetCoverageFunction() {
-        return (this.coverageFunction != null);
+        return (this.coverageFunction!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

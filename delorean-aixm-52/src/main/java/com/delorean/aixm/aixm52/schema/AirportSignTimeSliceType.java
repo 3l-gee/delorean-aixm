@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,59 +31,37 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AirportSignTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirportSignTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirportSignTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.2}CodeAirportSignType" minOccurs="0"/>
- *         <element name="frontMessageText" type=
-"{http://www.aixm.aero/schema/5.2}TextNoteType" minOccurs="0"/>
- *         <element name="backMessageText" type=
-"{http://www.aixm.aero/schema/5.2}TextNoteType" minOccurs="0"/>
- *         <element name="frontSignBearing" type=
-"{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
- *         <element name="height" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="lighted" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="direction" type=
-"{http://www.aixm.aero/schema/5.2}CodeCardinalDirectionType" minOccurs="0"/>
- *         <element name="side" type=
-"{http://www.aixm.aero/schema/5.2}CodeSideType" minOccurs="0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.2}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="signStatus" type=
-"{http://www.aixm.aero/schema/5.2}AirportSignStatusPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="associatedAirport" type=
-"{http://www.aixm.aero/schema/5.2}AirportHeliportPropertyType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.2}CodeAirportSignType" minOccurs="0"/>
+ *         <element name="frontMessageText" type="{http://www.aixm.aero/schema/5.2}TextNoteType" minOccurs="0"/>
+ *         <element name="backMessageText" type="{http://www.aixm.aero/schema/5.2}TextNoteType" minOccurs="0"/>
+ *         <element name="frontSignBearing" type="{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
+ *         <element name="height" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="lighted" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="direction" type="{http://www.aixm.aero/schema/5.2}CodeCardinalDirectionType" minOccurs="0"/>
+ *         <element name="side" type="{http://www.aixm.aero/schema/5.2}CodeSideType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.2}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="signStatus" type="{http://www.aixm.aero/schema/5.2}AirportSignStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="associatedAirport" type="{http://www.aixm.aero/schema/5.2}AirportHeliportPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractAirportSignExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractAirportSignExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -93,16 +71,31 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirportSignTimeSliceType", propOrder = {"type", "frontMessageText", "backMessageText",
-        "frontSignBearing", "height", "lighted", "direction", "side", "location", "signStatus", "associatedAirport",
-        "annotation", "extension"})
+@XmlType(name = "AirportSignTimeSliceType", propOrder = {
+    "type",
+    "frontMessageText",
+    "backMessageText",
+    "frontSignBearing",
+    "height",
+    "lighted",
+    "direction",
+    "side",
+    "location",
+    "signStatus",
+    "associatedAirport",
+    "annotation",
+    "extension"
+})
 @Entity(name = "AirportSignTimeSliceType")
 @Table(name = "airportsign_t", schema = "airport_heliport")
-public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class AirportSignTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -133,10 +126,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAirportSignType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAirportSignType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAirportSignType> getType() {
@@ -145,11 +139,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAirportSignType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAirportSignType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeAirportSignType> value) {
         this.type = value;
@@ -157,15 +151,16 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the frontMessageText property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNoteType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNoteType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNoteType> getFrontMessageText() {
@@ -174,11 +169,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the frontMessageText property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNoteType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNoteType }{@code >}
+     *     
      */
     public void setFrontMessageText(JAXBElement<TextNoteType> value) {
         this.frontMessageText = value;
@@ -186,15 +181,16 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetFrontMessageText() {
-        return (this.frontMessageText != null);
+        return (this.frontMessageText!= null);
     }
 
     /**
      * Gets the value of the backMessageText property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNoteType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNoteType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNoteType> getBackMessageText() {
@@ -203,11 +199,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the backMessageText property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNoteType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNoteType }{@code >}
+     *     
      */
     public void setBackMessageText(JAXBElement<TextNoteType> value) {
         this.backMessageText = value;
@@ -215,15 +211,16 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetBackMessageText() {
-        return (this.backMessageText != null);
+        return (this.backMessageText!= null);
     }
 
     /**
      * Gets the value of the frontSignBearing property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getFrontSignBearing() {
@@ -232,11 +229,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the frontSignBearing property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setFrontSignBearing(JAXBElement<ValBearingType> value) {
         this.frontSignBearing = value;
@@ -244,15 +241,16 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetFrontSignBearing() {
-        return (this.frontSignBearing != null);
+        return (this.frontSignBearing!= null);
     }
 
     /**
      * Gets the value of the height property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getHeight() {
@@ -261,11 +259,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the height property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setHeight(JAXBElement<ValDistanceType> value) {
         this.height = value;
@@ -273,15 +271,16 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetHeight() {
-        return (this.height != null);
+        return (this.height!= null);
     }
 
     /**
      * Gets the value of the lighted property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getLighted() {
@@ -290,11 +289,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the lighted property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setLighted(JAXBElement<CodeYesNoType> value) {
         this.lighted = value;
@@ -302,15 +301,16 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetLighted() {
-        return (this.lighted != null);
+        return (this.lighted!= null);
     }
 
     /**
      * Gets the value of the direction property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeCardinalDirectionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeCardinalDirectionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeCardinalDirectionType> getDirection() {
@@ -319,11 +319,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the direction property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeCardinalDirectionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeCardinalDirectionType }{@code >}
+     *     
      */
     public void setDirection(JAXBElement<CodeCardinalDirectionType> value) {
         this.direction = value;
@@ -331,15 +331,16 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetDirection() {
-        return (this.direction != null);
+        return (this.direction!= null);
     }
 
     /**
      * Gets the value of the side property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeSideType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSideType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSideType> getSide() {
@@ -348,11 +349,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the side property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link CodeSideType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSideType }{@code >}
+     *     
      */
     public void setSide(JAXBElement<CodeSideType> value) {
         this.side = value;
@@ -360,15 +361,16 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetSide() {
-        return (this.side != null);
+        return (this.side!= null);
     }
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getLocation() {
@@ -377,11 +379,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setLocation(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.location = value;
@@ -389,36 +391,39 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the signStatus property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the signStatus property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the signStatus property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSignStatus().add(newItem);
+     *    getSignStatus().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirportSignStatusPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AirportSignStatusPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arprtsgntmslctp_sgnstts_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportsign_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "signstatus_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = AirportSignStatusPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arprtsgntmslctp_sgnstts_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "airportsign_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "signstatus_hjid", referencedColumnName = "hjid")
+    })
     public List<AirportSignStatusPropertyType> getSignStatus() {
         if (signStatus == null) {
             signStatus = new ArrayList<>();
@@ -427,8 +432,8 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSignStatus(List<AirportSignStatusPropertyType> signStatus) {
         this.signStatus = signStatus;
@@ -436,7 +441,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetSignStatus() {
-        return ((this.signStatus != null) && (!this.signStatus.isEmpty()));
+        return ((this.signStatus!= null)&&(!this.signStatus.isEmpty()));
     }
 
     public void unsetSignStatus() {
@@ -445,10 +450,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Gets the value of the associatedAirport property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getAssociatedAirport() {
@@ -457,11 +463,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Sets the value of the associatedAirport property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setAssociatedAirport(JAXBElement<AirportHeliportPropertyType> value) {
         this.associatedAirport = value;
@@ -469,36 +475,39 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetAssociatedAirport() {
-        return (this.associatedAirport != null);
+        return (this.associatedAirport!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arprtsgntmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportsign_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arprtsgntmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "airportsign_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -507,8 +516,8 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -516,7 +525,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -525,29 +534,29 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirportSignTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AirportSignTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airportsign_te_hjid", referencedColumnName = "hjid")
     public List<AirportSignTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -557,8 +566,8 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AirportSignTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -566,7 +575,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -574,144 +583,149 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codeairportsignbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeAirportSignType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAirportSignType.class, this.getType());
     }
 
     public void setTypeItem(CodeAirportSignType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeAirportSignType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "type"), AirportSignTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeAirportSignType.class, new QName("http://www.aixm.aero/schema/5.2", "type"), AirportSignTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "frontmessagetext", columnDefinition = "TEXT", length = 10000)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "frontmessagetextnilreason")),
-            @AttributeOverride(name = "lang", column = @Column(name = "frontmessagetextlang"))})
+        @AttributeOverride(name = "value", column = @Column(name = "frontmessagetext", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "frontmessagetextnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "lang", column = @Column(name = "FRONT_MESSAGE_TEXT_ITEM_LANG", length = 17))
+    })
     public TextNoteType getFrontMessageTextItem() {
         return XmlAdapterUtils.unmarshallSource(TextNoteType.class, this.getFrontMessageText());
     }
 
     public void setFrontMessageTextItem(TextNoteType target) {
-        setFrontMessageText(XmlAdapterUtils.marshallJAXBElement(TextNoteType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "frontMessageText"), AirportSignTimeSliceType.class,
-                target));
+        setFrontMessageText(XmlAdapterUtils.marshallJAXBElement(TextNoteType.class, new QName("http://www.aixm.aero/schema/5.2", "frontMessageText"), AirportSignTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "backmessagetext", columnDefinition = "TEXT", length = 10000)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "backmessagetextnilreason")),
-            @AttributeOverride(name = "lang", column = @Column(name = "backmessagetextlang"))})
+        @AttributeOverride(name = "value", column = @Column(name = "backmessagetext", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "backmessagetextnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "lang", column = @Column(name = "BACK_MESSAGE_TEXT_ITEM_LANG", length = 17))
+    })
     public TextNoteType getBackMessageTextItem() {
         return XmlAdapterUtils.unmarshallSource(TextNoteType.class, this.getBackMessageText());
     }
 
     public void setBackMessageTextItem(TextNoteType target) {
-        setBackMessageText(XmlAdapterUtils.marshallJAXBElement(TextNoteType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "backMessageText"), AirportSignTimeSliceType.class,
-                target));
+        setBackMessageText(XmlAdapterUtils.marshallJAXBElement(TextNoteType.class, new QName("http://www.aixm.aero/schema/5.2", "backMessageText"), AirportSignTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "frontsignbearing", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "frontsignbearingnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "frontsignbearingaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "frontsignbearing", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "frontsignbearingnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "frontsignbearingaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValBearingType getFrontSignBearingItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getFrontSignBearing());
     }
 
     public void setFrontSignBearingItem(ValBearingType target) {
-        setFrontSignBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "frontSignBearing"), AirportSignTimeSliceType.class,
-                target));
+        setFrontSignBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.2", "frontSignBearing"), AirportSignTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "height", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "heightuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "heightaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "heightnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "height", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "heightuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "heightaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "heightnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getHeightItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getHeight());
     }
 
     public void setHeightItem(ValDistanceType target) {
-        setHeight(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "height"), AirportSignTimeSliceType.class, target));
+        setHeight(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "height"), AirportSignTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "lighted")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lightednilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "lighted", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lightednilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getLightedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getLighted());
     }
 
     public void setLightedItem(CodeYesNoType target) {
-        setLighted(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "lighted"), AirportSignTimeSliceType.class, target));
+        setLighted(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "lighted"), AirportSignTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "direction")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "directionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "direction", columnDefinition = "codecardinaldirectionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "directionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeCardinalDirectionType getDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCardinalDirectionType.class, this.getDirection());
     }
 
     public void setDirectionItem(CodeCardinalDirectionType target) {
-        setDirection(XmlAdapterUtils.marshallJAXBElement(CodeCardinalDirectionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "direction"), AirportSignTimeSliceType.class, target));
+        setDirection(XmlAdapterUtils.marshallJAXBElement(CodeCardinalDirectionType.class, new QName("http://www.aixm.aero/schema/5.2", "direction"), AirportSignTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "side")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "sidenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "side", columnDefinition = "codesidebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "sidenilreason", columnDefinition = "nilreason"))
+    })
     public CodeSideType getSideItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSideType.class, this.getSide());
     }
 
     public void setSideItem(CodeSideType target) {
-        setSide(XmlAdapterUtils.marshallJAXBElement(CodeSideType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "side"), AirportSignTimeSliceType.class, target));
+        setSide(XmlAdapterUtils.marshallJAXBElement(CodeSideType.class, new QName("http://www.aixm.aero/schema/5.2", "side"), AirportSignTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arprtsgntmslctp_lctn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportsign_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arprtsgntmslctp_lctn_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "airportsign_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
 
     public void setLocationItem(AIXMElevatedPointPropertyType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "location"), AirportSignTimeSliceType.class, target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "location"), AirportSignTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arprtsgntmslctp_assctdarprt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportsign_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "associatedairport_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arprtsgntmslctp_assctdarprt_l", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "airportsign_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "associatedairport_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getAssociatedAirportItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getAssociatedAirport());
     }
 
     public void setAssociatedAirportItem(AirportHeliportPropertyType target) {
-        setAssociatedAirport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "associatedAirport"), AirportSignTimeSliceType.class,
-                target));
+        setAssociatedAirport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "associatedAirport"), AirportSignTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -722,6 +736,32 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         final AirportSignTimeSliceType that = ((AirportSignTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetSignStatus();
+            boolean rhsFieldIsSet = that.isSetSignStatus();
+            List<AirportSignStatusPropertyType> lhsField;
+            lhsField = (this.isSetSignStatus()?this.getSignStatus():null);
+            List<AirportSignStatusPropertyType> rhsField;
+            rhsField = (that.isSetSignStatus()?that.getSignStatus():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSide();
+            boolean rhsFieldIsSet = that.isSetSide();
+            JAXBElement<CodeSideType> lhsField;
+            lhsField = this.getSide();
+            JAXBElement<CodeSideType> rhsField;
+            rhsField = that.getSide();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAssociatedAirport();
             boolean rhsFieldIsSet = that.isSetAssociatedAirport();
             JAXBElement<AirportHeliportPropertyType> lhsField;
@@ -730,45 +770,6 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = that.getAssociatedAirport();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirport", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAirportSignType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAirportSignType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrontSignBearing();
-            boolean rhsFieldIsSet = that.isSetFrontSignBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getFrontSignBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getFrontSignBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frontSignBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frontSignBearing", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -787,19 +788,6 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDirection();
             boolean rhsFieldIsSet = that.isSetDirection();
             JAXBElement<CodeCardinalDirectionType> lhsField;
@@ -808,6 +796,32 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = that.getDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrontSignBearing();
+            boolean rhsFieldIsSet = that.isSetFrontSignBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getFrontSignBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getFrontSignBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frontSignBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frontSignBearing", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -829,24 +843,11 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AirportSignTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<AirportSignTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSide();
-            boolean rhsFieldIsSet = that.isSetSide();
-            JAXBElement<CodeSideType> lhsField;
-            lhsField = this.getSide();
-            JAXBElement<CodeSideType> rhsField;
-            rhsField = that.getSide();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -865,14 +866,14 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSignStatus();
-            boolean rhsFieldIsSet = that.isSetSignStatus();
-            List<AirportSignStatusPropertyType> lhsField;
-            lhsField = (this.isSetSignStatus() ? this.getSignStatus() : null);
-            List<AirportSignStatusPropertyType> rhsField;
-            rhsField = (that.isSetSignStatus() ? that.getSignStatus() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signStatus", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -886,6 +887,19 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = that.getFrontMessageText();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frontMessageText", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frontMessageText", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAirportSignType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAirportSignType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -962,7 +976,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
         {
             boolean theFieldIsSet = this.isSetSignStatus();
             List<AirportSignStatusPropertyType> theField;
-            theField = (this.isSetSignStatus() ? this.getSignStatus() : null);
+            theField = (this.isSetSignStatus()?this.getSignStatus():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "signStatus", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -976,14 +990,14 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirportSignTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1050,7 +1064,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
         {
             boolean theFieldIsSet = this.isSetSignStatus();
             List<AirportSignStatusPropertyType> theField;
-            theField = (this.isSetSignStatus() ? this.getSignStatus() : null);
+            theField = (this.isSetSignStatus()?this.getSignStatus():null);
             strategy.appendField(locator, this, "signStatus", buffer, theField, theFieldIsSet);
         }
         {
@@ -1062,13 +1076,13 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirportSignTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,15 +1,15 @@
 
 package com.delorean.aixm.core.org.w3.xlink;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -23,44 +23,45 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * Intended for use as the type of user-declared elements to make them extended
- * links. Note that the elements referenced in the content model are all
- * abstract. The intention is that by simply declaring elements with these as
- * their substitutionGroup, all the right things will happen.
- *
- * <p>
- * Java class for extended complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * Intended for use as the type of user-declared elements to make them
+ *     extended links.
+ *     Note that the elements referenced in the content model are all abstract.
+ *     The intention is that by simply declaring elements with these as their
+ *     substitutionGroup, all the right things will happen.
+ * 
+ * <p>Java class for extended complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="extended">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <group ref="{http://www.w3.org/1999/xlink}extendedModel" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *       <group ref="{http://www.w3.org/1999/xlink}extendedModel" maxOccurs="unbounded" minOccurs="0"/>
  *       <attGroup ref="{http://www.w3.org/1999/xlink}extendedAttrs"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "extended", propOrder = {"extendedModel"})
-public class Extended implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "extended", propOrder = {
+    "extendedModel"
+})
+public class Extended implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
-    @XmlElements({@XmlElement(name = "title", type = TitleEltType.class),
-            @XmlElement(name = "resource", type = ResourceType.class),
-            @XmlElement(name = "locator", type = LocatorType.class), @XmlElement(name = "arc", type = ArcType.class)})
+    @XmlElements({
+        @XmlElement(name = "title", type = TitleEltType.class),
+        @XmlElement(name = "resource", type = ResourceType.class),
+        @XmlElement(name = "locator", type = LocatorType.class),
+        @XmlElement(name = "arc", type = ArcType.class)
+    })
     protected List<Object> extendedModel;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     public static final TypeType TYPE = TypeType.EXTENDED;
@@ -71,26 +72,28 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Gets the value of the extendedModel property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extendedModel property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extendedModel property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtendedModel().add(newItem);
+     *    getExtendedModel().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link TitleEltType
-     * } {@link ResourceType } {@link LocatorType } {@link ArcType }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link TitleEltType }
+     * {@link ResourceType }
+     * {@link LocatorType }
+     * {@link ArcType }
+     * 
+     * 
      */
     public List<Object> getExtendedModel() {
         if (extendedModel == null) {
@@ -100,15 +103,15 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtendedModel(List<Object> extendedModel) {
         this.extendedModel = extendedModel;
     }
 
     public boolean isSetExtendedModel() {
-        return ((this.extendedModel != null) && (!this.extendedModel.isEmpty()));
+        return ((this.extendedModel!= null)&&(!this.extendedModel.isEmpty()));
     }
 
     public void unsetExtendedModel() {
@@ -117,9 +120,11 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -127,24 +132,27 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the titleAttribute property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getTitleAttribute() {
         return titleAttribute;
@@ -152,17 +160,18 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
 
     /**
      * Sets the value of the titleAttribute property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setTitleAttribute(String value) {
         this.titleAttribute = value;
     }
 
     public boolean isSetTitleAttribute() {
-        return (this.titleAttribute != null);
+        return (this.titleAttribute!= null);
     }
 
     @Override
@@ -178,9 +187,8 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -188,14 +196,14 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
         }
         final Extended that = ((Extended) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtendedModel();
-            boolean rhsFieldIsSet = that.isSetExtendedModel();
-            List<Object> lhsField;
-            lhsField = (this.isSetExtendedModel() ? this.getExtendedModel() : null);
-            List<Object> rhsField;
-            rhsField = (that.isSetExtendedModel() ? that.getExtendedModel() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedModel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedModel", rhsField);
+            boolean lhsFieldIsSet = this.isSetTitleAttribute();
+            boolean rhsFieldIsSet = that.isSetTitleAttribute();
+            String lhsField;
+            lhsField = this.getTitleAttribute();
+            String rhsField;
+            rhsField = that.getTitleAttribute();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -214,14 +222,14 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitleAttribute();
-            boolean rhsFieldIsSet = that.isSetTitleAttribute();
-            String lhsField;
-            lhsField = this.getTitleAttribute();
-            String rhsField;
-            rhsField = that.getTitleAttribute();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtendedModel();
+            boolean rhsFieldIsSet = that.isSetExtendedModel();
+            List<Object> lhsField;
+            lhsField = (this.isSetExtendedModel()?this.getExtendedModel():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetExtendedModel()?that.getExtendedModel():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedModel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedModel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -245,7 +253,7 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
         {
             boolean theFieldIsSet = this.isSetExtendedModel();
             List<Object> theField;
-            theField = (this.isSetExtendedModel() ? this.getExtendedModel() : null);
+            theField = (this.isSetExtendedModel()?this.getExtendedModel():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extendedModel", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -291,7 +299,7 @@ public class Extended implements Serializable, Equals, HashCode, ToString {
         {
             boolean theFieldIsSet = this.isSetExtendedModel();
             List<Object> theField;
-            theField = (this.isSetExtendedModel() ? this.getExtendedModel() : null);
+            theField = (this.isSetExtendedModel()?this.getExtendedModel():null);
             strategy.appendField(locator, this, "extendedModel", buffer, theField, theFieldIsSet);
         }
         {

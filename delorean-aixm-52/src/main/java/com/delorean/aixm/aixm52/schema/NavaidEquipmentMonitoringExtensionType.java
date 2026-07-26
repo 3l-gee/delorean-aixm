@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,42 +35,37 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractPropertiesWithScheduleExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractNavaidEquipmentMonitoringExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractPropertiesWithScheduleExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}AbstractNavaidEquipmentMonitoringExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractPropertiesWithScheduleExtension",
-        "abstractNavaidEquipmentMonitoringExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractPropertiesWithScheduleExtension",
+    "abstractNavaidEquipmentMonitoringExtension"
+})
 @Entity(name = "NavaidEquipmentMonitoringExtensionType")
 @Table(name = "navaidequipmentmonitoring_oe", schema = "navaids_point")
-public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equals, HashCode, ToString {
+public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractPropertiesWithScheduleExtension")
@@ -86,11 +81,15 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
 
     /**
      * Gets the value of the abstractPropertiesWithScheduleExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
@@ -98,10 +97,11 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
 
     /**
      * Sets the value of the abstractPropertiesWithScheduleExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractPropertiesWithScheduleExtension(AbstractExtensionType value) {
         this.abstractPropertiesWithScheduleExtension = value;
@@ -109,16 +109,20 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
 
     @Transient
     public boolean isSetAbstractPropertiesWithScheduleExtension() {
-        return (this.abstractPropertiesWithScheduleExtension != null);
+        return (this.abstractPropertiesWithScheduleExtension!= null);
     }
 
     /**
      * Gets the value of the abstractNavaidEquipmentMonitoringExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractnavaidequipmentmonitoringextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentMonitoringExtension() {
         return abstractNavaidEquipmentMonitoringExtension;
@@ -126,10 +130,11 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
 
     /**
      * Sets the value of the abstractNavaidEquipmentMonitoringExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractNavaidEquipmentMonitoringExtension(AbstractExtensionType value) {
         this.abstractNavaidEquipmentMonitoringExtension = value;
@@ -137,14 +142,16 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
 
     @Transient
     public boolean isSetAbstractNavaidEquipmentMonitoringExtension() {
-        return (this.abstractNavaidEquipmentMonitoringExtension != null);
+        return (this.abstractNavaidEquipmentMonitoringExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -158,10 +165,11 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -169,7 +177,7 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -177,10 +185,12 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -191,21 +201,24 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -214,11 +227,12 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -237,9 +251,8 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -247,14 +260,14 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
         }
         final NavaidEquipmentMonitoringExtensionType that = ((NavaidEquipmentMonitoringExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentMonitoringExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentMonitoringExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidEquipmentMonitoringExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidEquipmentMonitoringExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentMonitoringExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentMonitoringExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -266,25 +279,21 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
             lhsField = this.getAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractPropertiesWithScheduleExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentMonitoringExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentMonitoringExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentMonitoringExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentMonitoringExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractNavaidEquipmentMonitoringExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractNavaidEquipmentMonitoringExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -309,22 +318,20 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
             boolean theFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractPropertiesWithScheduleExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractPropertiesWithScheduleExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractNavaidEquipmentMonitoringExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractNavaidEquipmentMonitoringExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractNavaidEquipmentMonitoringExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractNavaidEquipmentMonitoringExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -357,20 +364,18 @@ public class NavaidEquipmentMonitoringExtensionType implements Serializable, Equ
             boolean theFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractPropertiesWithScheduleExtension();
-            strategy.appendField(locator, this, "abstractPropertiesWithScheduleExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractPropertiesWithScheduleExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractNavaidEquipmentMonitoringExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractNavaidEquipmentMonitoringExtension();
-            strategy.appendField(locator, this, "abstractNavaidEquipmentMonitoringExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractNavaidEquipmentMonitoringExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

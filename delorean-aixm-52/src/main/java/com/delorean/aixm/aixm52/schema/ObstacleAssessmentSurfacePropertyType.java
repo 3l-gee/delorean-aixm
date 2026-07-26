@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ObstacleAssessmentSurfacePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ObstacleAssessmentSurfacePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ObstacleAssessmentSurfacePropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}ObstacleAssessmentSurface"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}ObstacleAssessmentSurface"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ObstacleAssessmentSurfacePropertyType", propOrder = {"obstacleAssessmentSurface"})
+@XmlType(name = "ObstacleAssessmentSurfacePropertyType", propOrder = {
+    "obstacleAssessmentSurface"
+})
 @Entity(name = "ObstacleAssessmentSurfacePropertyType")
 @Table(name = "obstacleassessmentsurfacepropertytype", schema = "shared")
-public class ObstacleAssessmentSurfacePropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class ObstacleAssessmentSurfacePropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ObstacleAssessmentSurface", required = true)
@@ -58,11 +56,15 @@ public class ObstacleAssessmentSurfacePropertyType extends AbstractAIXMPropertyT
 
     /**
      * Gets the value of the obstacleAssessmentSurface property.
-     *
-     * @return possible object is {@link ObstacleAssessmentSurfaceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ObstacleAssessmentSurfaceType }
+     *     
      */
-    @OneToOne(targetEntity = ObstacleAssessmentSurfaceType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ObstacleAssessmentSurfaceType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "obstacleassessmentsurface_hjid", referencedColumnName = "hjid")
     public ObstacleAssessmentSurfaceType getObstacleAssessmentSurface() {
         return obstacleAssessmentSurface;
@@ -70,10 +72,11 @@ public class ObstacleAssessmentSurfacePropertyType extends AbstractAIXMPropertyT
 
     /**
      * Sets the value of the obstacleAssessmentSurface property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ObstacleAssessmentSurfaceType }
-     *
+     *     allowed object is
+     *     {@link ObstacleAssessmentSurfaceType }
+     *     
      */
     public void setObstacleAssessmentSurface(ObstacleAssessmentSurfaceType value) {
         this.obstacleAssessmentSurface = value;
@@ -81,13 +84,12 @@ public class ObstacleAssessmentSurfacePropertyType extends AbstractAIXMPropertyT
 
     @Transient
     public boolean isSetObstacleAssessmentSurface() {
-        return (this.obstacleAssessmentSurface != null);
+        return (this.obstacleAssessmentSurface!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

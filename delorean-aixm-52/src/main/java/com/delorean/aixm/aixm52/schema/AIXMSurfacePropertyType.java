@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import com.delorean.aixm.aixm52.gis.adapter.SurfaceTypeAdapter;
 import com.delorean.aixm.aixm52.gis.type.AixmSurfaceType;
 import jakarta.persistence.Entity;
@@ -11,45 +12,42 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for SurfacePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SurfacePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SurfacePropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element name="Surface" type=
-"{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="Surface" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SurfacePropertyType", propOrder = {"surface"})
+@XmlType(name = "SurfacePropertyType", propOrder = {
+    "surface"
+})
 @Entity(name = "AIXMSurfacePropertyType")
 @Table(name = "aixm_surface_pt", schema = "gml")
-public class AIXMSurfacePropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class AIXMSurfacePropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Surface", required = true, type = SurfaceType.class)
@@ -58,22 +56,25 @@ public class AIXMSurfacePropertyType extends AbstractAIXMPropertyType implements
 
     /**
      * Gets the value of the surface property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-    @jakarta.persistence.JoinColumn(name = "surface_hjid", referencedColumnName = "hjid")
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "surface_hjid", referencedColumnName = "hjid")
     public AixmSurfaceType getSurface() {
         return surface;
     }
 
     /**
      * Sets the value of the surface property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSurface(AixmSurfaceType value) {
         this.surface = value;
@@ -81,13 +82,12 @@ public class AIXMSurfacePropertyType extends AbstractAIXMPropertyType implements
 
     @Transient
     public boolean isSetSurface() {
-        return (this.surface != null);
+        return (this.surface!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

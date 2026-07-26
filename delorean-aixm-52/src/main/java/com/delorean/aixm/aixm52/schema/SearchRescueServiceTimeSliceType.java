@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,73 +31,41 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for SearchRescueServiceTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SearchRescueServiceTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SearchRescueServiceTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="flightOperations" type=
-"{http://www.aixm.aero/schema/5.2}CodeFlightDestinationType" minOccurs="0"/>
- *         <element name="rank" type=
-"{http://www.aixm.aero/schema/5.2}CodeFacilityRankingType" minOccurs="0"/>
- *         <element name="compliantICAO" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.2}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="serviceProvider" type=
-"{http://www.aixm.aero/schema/5.2}UnitPropertyType" minOccurs="0"/>
- *         <element name="call-sign" type=
-"{http://www.aixm.aero/schema/5.2}CallsignDetailPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="radioCommunication" type=
-"{http://www.aixm.aero/schema/5.2}RadioCommunicationChannelPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="groundCommunication" type=
-"{http://www.aixm.aero/schema/5.2}ContactInformationPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="availability" type=
-"{http://www.aixm.aero/schema/5.2}ServiceOperationalStatusPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.2}CodeServiceSARType" minOccurs="0"/>
- *         <element name="clientAirspace" type=
-"{http://www.aixm.aero/schema/5.2}AirspacePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="clientRoute" type=
-"{http://www.aixm.aero/schema/5.2}RoutePortionPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="clientSegment" type=
-"{http://www.aixm.aero/schema/5.2}RouteSegmentPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="flightOperations" type="{http://www.aixm.aero/schema/5.2}CodeFlightDestinationType" minOccurs="0"/>
+ *         <element name="rank" type="{http://www.aixm.aero/schema/5.2}CodeFacilityRankingType" minOccurs="0"/>
+ *         <element name="compliantICAO" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.2}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="serviceProvider" type="{http://www.aixm.aero/schema/5.2}UnitPropertyType" minOccurs="0"/>
+ *         <element name="call-sign" type="{http://www.aixm.aero/schema/5.2}CallsignDetailPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="radioCommunication" type="{http://www.aixm.aero/schema/5.2}RadioCommunicationChannelPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="groundCommunication" type="{http://www.aixm.aero/schema/5.2}ContactInformationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.2}ServiceOperationalStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.2}CodeServiceSARType" minOccurs="0"/>
+ *         <element name="clientAirspace" type="{http://www.aixm.aero/schema/5.2}AirspacePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="clientRoute" type="{http://www.aixm.aero/schema/5.2}RoutePortionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="clientSegment" type="{http://www.aixm.aero/schema/5.2}RouteSegmentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractSearchRescueServiceExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractServiceExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractSearchRescueServiceExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractServiceExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -107,16 +75,34 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SearchRescueServiceTimeSliceType", propOrder = {"flightOperations", "rank", "compliantICAO",
-        "aixmName", "location", "serviceProvider", "callSign", "radioCommunication", "groundCommunication",
-        "availability", "annotation", "type", "clientAirspace", "clientRoute", "clientSegment", "extension"})
+@XmlType(name = "SearchRescueServiceTimeSliceType", propOrder = {
+    "flightOperations",
+    "rank",
+    "compliantICAO",
+    "aixmName",
+    "location",
+    "serviceProvider",
+    "callSign",
+    "radioCommunication",
+    "groundCommunication",
+    "availability",
+    "annotation",
+    "type",
+    "clientAirspace",
+    "clientRoute",
+    "clientSegment",
+    "extension"
+})
 @Entity(name = "SearchRescueServiceTimeSliceType")
 @Table(name = "searchrescueservice_t", schema = "service")
-public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class SearchRescueServiceTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "flightOperations", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -153,10 +139,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the flightOperations property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeFlightDestinationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeFlightDestinationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeFlightDestinationType> getFlightOperations() {
@@ -165,11 +152,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the flightOperations property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeFlightDestinationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeFlightDestinationType }{@code >}
+     *     
      */
     public void setFlightOperations(JAXBElement<CodeFlightDestinationType> value) {
         this.flightOperations = value;
@@ -177,15 +164,16 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetFlightOperations() {
-        return (this.flightOperations != null);
+        return (this.flightOperations!= null);
     }
 
     /**
      * Gets the value of the rank property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeFacilityRankingType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeFacilityRankingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeFacilityRankingType> getRank() {
@@ -194,11 +182,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the rank property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeFacilityRankingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeFacilityRankingType }{@code >}
+     *     
      */
     public void setRank(JAXBElement<CodeFacilityRankingType> value) {
         this.rank = value;
@@ -206,15 +194,16 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetRank() {
-        return (this.rank != null);
+        return (this.rank!= null);
     }
 
     /**
      * Gets the value of the compliantICAO property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getCompliantICAO() {
@@ -223,11 +212,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the compliantICAO property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setCompliantICAO(JAXBElement<CodeYesNoType> value) {
         this.compliantICAO = value;
@@ -235,15 +224,16 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetCompliantICAO() {
-        return (this.compliantICAO != null);
+        return (this.compliantICAO!= null);
     }
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -252,11 +242,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -264,15 +254,16 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getLocation() {
@@ -281,11 +272,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setLocation(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.location = value;
@@ -293,15 +284,16 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the serviceProvider property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link UnitPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link UnitPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<UnitPropertyType> getServiceProvider() {
@@ -310,11 +302,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the serviceProvider property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link UnitPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link UnitPropertyType }{@code >}
+     *     
      */
     public void setServiceProvider(JAXBElement<UnitPropertyType> value) {
         this.serviceProvider = value;
@@ -322,36 +314,39 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetServiceProvider() {
-        return (this.serviceProvider != null);
+        return (this.serviceProvider!= null);
     }
 
     /**
      * Gets the value of the callSign property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the callSign property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the callSign property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getCallSign().add(newItem);
+     *    getCallSign().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CallsignDetailPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = CallsignDetailPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_cll-sgn_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "call-sign_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = CallsignDetailPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_cll-sgn_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "call-sign_hjid", referencedColumnName = "hjid")
+    })
     public List<CallsignDetailPropertyType> getCallSign() {
         if (callSign == null) {
             callSign = new ArrayList<>();
@@ -360,8 +355,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setCallSign(List<CallsignDetailPropertyType> callSign) {
         this.callSign = callSign;
@@ -369,7 +364,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetCallSign() {
-        return ((this.callSign != null) && (!this.callSign.isEmpty()));
+        return ((this.callSign!= null)&&(!this.callSign.isEmpty()));
     }
 
     public void unsetCallSign() {
@@ -378,32 +373,34 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the radioCommunication property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the radioCommunication property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the radioCommunication property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getRadioCommunication().add(newItem);
+     *    getRadioCommunication().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RadioCommunicationChannelPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = RadioCommunicationChannelPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_rdcmmnctn_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "radiocommunication_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_rdcmmnctn_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "radiocommunication_hjid", referencedColumnName = "hjid")
+    })
     public List<RadioCommunicationChannelPropertyType> getRadioCommunication() {
         if (radioCommunication == null) {
             radioCommunication = new ArrayList<>();
@@ -412,8 +409,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setRadioCommunication(List<RadioCommunicationChannelPropertyType> radioCommunication) {
         this.radioCommunication = radioCommunication;
@@ -421,7 +418,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetRadioCommunication() {
-        return ((this.radioCommunication != null) && (!this.radioCommunication.isEmpty()));
+        return ((this.radioCommunication!= null)&&(!this.radioCommunication.isEmpty()));
     }
 
     public void unsetRadioCommunication() {
@@ -430,32 +427,34 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the groundCommunication property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the groundCommunication property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the groundCommunication property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getGroundCommunication().add(newItem);
+     *    getGroundCommunication().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ContactInformationPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_grndcmmnctn_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "groundcommunication_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_grndcmmnctn_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "groundcommunication_hjid", referencedColumnName = "hjid")
+    })
     public List<ContactInformationPropertyType> getGroundCommunication() {
         if (groundCommunication == null) {
             groundCommunication = new ArrayList<>();
@@ -464,8 +463,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setGroundCommunication(List<ContactInformationPropertyType> groundCommunication) {
         this.groundCommunication = groundCommunication;
@@ -473,7 +472,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetGroundCommunication() {
-        return ((this.groundCommunication != null) && (!this.groundCommunication.isEmpty()));
+        return ((this.groundCommunication!= null)&&(!this.groundCommunication.isEmpty()));
     }
 
     public void unsetGroundCommunication() {
@@ -482,32 +481,34 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ServiceOperationalStatusPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ServiceOperationalStatusPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_avlblt_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_avlblt_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
+    })
     public List<ServiceOperationalStatusPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -516,8 +517,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<ServiceOperationalStatusPropertyType> availability) {
         this.availability = availability;
@@ -525,7 +526,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -534,31 +535,34 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_annttn_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_annttn_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -567,8 +571,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -576,7 +580,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -585,10 +589,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeServiceSARType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeServiceSARType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeServiceSARType> getType() {
@@ -597,11 +602,11 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeServiceSARType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeServiceSARType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeServiceSARType> value) {
         this.type = value;
@@ -609,36 +614,39 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the clientAirspace property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the clientAirspace property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the clientAirspace property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getClientAirspace().add(newItem);
+     *    getClientAirspace().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspacePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AirspacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_clntarspc_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "clientairspace_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = AirspacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_clntarspc_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "clientairspace_hjid", referencedColumnName = "hjid")
+    })
     public List<AirspacePropertyType> getClientAirspace() {
         if (clientAirspace == null) {
             clientAirspace = new ArrayList<>();
@@ -647,8 +655,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setClientAirspace(List<AirspacePropertyType> clientAirspace) {
         this.clientAirspace = clientAirspace;
@@ -656,7 +664,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetClientAirspace() {
-        return ((this.clientAirspace != null) && (!this.clientAirspace.isEmpty()));
+        return ((this.clientAirspace!= null)&&(!this.clientAirspace.isEmpty()));
     }
 
     public void unsetClientAirspace() {
@@ -665,31 +673,34 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the clientRoute property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the clientRoute property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the clientRoute property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getClientRoute().add(newItem);
+     *    getClientRoute().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RoutePortionPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = RoutePortionPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_clntrt_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "clientroute_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = RoutePortionPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_clntrt_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "clientroute_hjid", referencedColumnName = "hjid")
+    })
     public List<RoutePortionPropertyType> getClientRoute() {
         if (clientRoute == null) {
             clientRoute = new ArrayList<>();
@@ -698,8 +709,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setClientRoute(List<RoutePortionPropertyType> clientRoute) {
         this.clientRoute = clientRoute;
@@ -707,7 +718,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetClientRoute() {
-        return ((this.clientRoute != null) && (!this.clientRoute.isEmpty()));
+        return ((this.clientRoute!= null)&&(!this.clientRoute.isEmpty()));
     }
 
     public void unsetClientRoute() {
@@ -716,31 +727,34 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the clientSegment property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the clientSegment property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the clientSegment property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getClientSegment().add(newItem);
+     *    getClientSegment().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RouteSegmentPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = RouteSegmentPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_clntsgmnt_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "clientsegment_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = RouteSegmentPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_clntsgmnt_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "clientsegment_hjid", referencedColumnName = "hjid")
+    })
     public List<RouteSegmentPropertyType> getClientSegment() {
         if (clientSegment == null) {
             clientSegment = new ArrayList<>();
@@ -749,8 +763,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setClientSegment(List<RouteSegmentPropertyType> clientSegment) {
         this.clientSegment = clientSegment;
@@ -758,7 +772,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetClientSegment() {
-        return ((this.clientSegment != null) && (!this.clientSegment.isEmpty()));
+        return ((this.clientSegment!= null)&&(!this.clientSegment.isEmpty()));
     }
 
     public void unsetClientSegment() {
@@ -767,29 +781,29 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SearchRescueServiceTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SearchRescueServiceTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "searchrescueservice_te_hjid", referencedColumnName = "hjid")
     public List<SearchRescueServiceTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -799,8 +813,8 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<SearchRescueServiceTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -808,7 +822,7 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -816,100 +830,105 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "flightoperations")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "flightoperationsnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "flightoperations", columnDefinition = "codeflightdestinationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "flightoperationsnilreason", columnDefinition = "nilreason"))
+    })
     public CodeFlightDestinationType getFlightOperationsItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFlightDestinationType.class, this.getFlightOperations());
     }
 
     public void setFlightOperationsItem(CodeFlightDestinationType target) {
-        setFlightOperations(XmlAdapterUtils.marshallJAXBElement(CodeFlightDestinationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "flightOperations"),
-                SearchRescueServiceTimeSliceType.class, target));
+        setFlightOperations(XmlAdapterUtils.marshallJAXBElement(CodeFlightDestinationType.class, new QName("http://www.aixm.aero/schema/5.2", "flightOperations"), SearchRescueServiceTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "rank")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "ranknilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "rank", columnDefinition = "codefacilityrankingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "ranknilreason", columnDefinition = "nilreason"))
+    })
     public CodeFacilityRankingType getRankItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFacilityRankingType.class, this.getRank());
     }
 
     public void setRankItem(CodeFacilityRankingType target) {
-        setRank(XmlAdapterUtils.marshallJAXBElement(CodeFacilityRankingType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "rank"), SearchRescueServiceTimeSliceType.class, target));
+        setRank(XmlAdapterUtils.marshallJAXBElement(CodeFacilityRankingType.class, new QName("http://www.aixm.aero/schema/5.2", "rank"), SearchRescueServiceTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "complianticao")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "complianticaonilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "complianticao", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "complianticaonilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getCompliantICAOItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getCompliantICAO());
     }
 
     public void setCompliantICAOItem(CodeYesNoType target) {
-        setCompliantICAO(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "compliantICAO"), SearchRescueServiceTimeSliceType.class,
-                target));
+        setCompliantICAO(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "compliantICAO"), SearchRescueServiceTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "name"), SearchRescueServiceTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), SearchRescueServiceTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_lctn_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_lctn_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
 
     public void setLocationItem(AIXMElevatedPointPropertyType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "location"), SearchRescueServiceTimeSliceType.class,
-                target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "location"), SearchRescueServiceTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = UnitPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "srchrscsrvctmslctp_srvcprvdr_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "serviceprovider_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = UnitPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "srchrscsrvctmslctp_srvcprvdr_l", schema = "service", joinColumns = {
+        @JoinColumn(name = "searchrescueservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "serviceprovider_hjid", referencedColumnName = "hjid")
+    })
     public UnitPropertyType getServiceProviderItem() {
         return XmlAdapterUtils.unmarshallSource(UnitPropertyType.class, this.getServiceProvider());
     }
 
     public void setServiceProviderItem(UnitPropertyType target) {
-        setServiceProvider(XmlAdapterUtils.marshallJAXBElement(UnitPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "serviceProvider"), SearchRescueServiceTimeSliceType.class,
-                target));
+        setServiceProvider(XmlAdapterUtils.marshallJAXBElement(UnitPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "serviceProvider"), SearchRescueServiceTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codeservicesarbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeServiceSARType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeServiceSARType.class, this.getType());
     }
 
     public void setTypeItem(CodeServiceSARType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeServiceSARType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "type"), SearchRescueServiceTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeServiceSARType.class, new QName("http://www.aixm.aero/schema/5.2", "type"), SearchRescueServiceTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -920,25 +939,12 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         final SearchRescueServiceTimeSliceType that = ((SearchRescueServiceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCompliantICAO();
-            boolean rhsFieldIsSet = that.isSetCompliantICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCompliantICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCompliantICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGroundCommunication();
             boolean rhsFieldIsSet = that.isSetGroundCommunication();
             List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetGroundCommunication() ? this.getGroundCommunication() : null);
+            lhsField = (this.isSetGroundCommunication()?this.getGroundCommunication():null);
             List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetGroundCommunication() ? that.getGroundCommunication() : null);
+            rhsField = (that.isSetGroundCommunication()?that.getGroundCommunication():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "groundCommunication", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "groundCommunication", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -946,14 +952,14 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetClientSegment();
-            boolean rhsFieldIsSet = that.isSetClientSegment();
-            List<RouteSegmentPropertyType> lhsField;
-            lhsField = (this.isSetClientSegment() ? this.getClientSegment() : null);
-            List<RouteSegmentPropertyType> rhsField;
-            rhsField = (that.isSetClientSegment() ? that.getClientSegment() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientSegment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientSegment", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SearchRescueServiceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SearchRescueServiceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -972,71 +978,6 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClientAirspace();
-            boolean rhsFieldIsSet = that.isSetClientAirspace();
-            List<AirspacePropertyType> lhsField;
-            lhsField = (this.isSetClientAirspace() ? this.getClientAirspace() : null);
-            List<AirspacePropertyType> rhsField;
-            rhsField = (that.isSetClientAirspace() ? that.getClientAirspace() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SearchRescueServiceTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SearchRescueServiceTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadioCommunication();
-            boolean rhsFieldIsSet = that.isSetRadioCommunication();
-            List<RadioCommunicationChannelPropertyType> lhsField;
-            lhsField = (this.isSetRadioCommunication() ? this.getRadioCommunication() : null);
-            List<RadioCommunicationChannelPropertyType> rhsField;
-            rhsField = (that.isSetRadioCommunication() ? that.getRadioCommunication() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunication", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunication", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRank();
             boolean rhsFieldIsSet = that.isSetRank();
             JAXBElement<CodeFacilityRankingType> lhsField;
@@ -1045,32 +986,6 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = that.getRank();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClientRoute();
-            boolean rhsFieldIsSet = that.isSetClientRoute();
-            List<RoutePortionPropertyType> lhsField;
-            lhsField = (this.isSetClientRoute() ? this.getClientRoute() : null);
-            List<RoutePortionPropertyType> rhsField;
-            rhsField = (that.isSetClientRoute() ? that.getClientRoute() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientRoute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientRoute", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ServiceOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<ServiceOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1089,27 +1004,53 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCallSign();
-            boolean rhsFieldIsSet = that.isSetCallSign();
-            List<CallsignDetailPropertyType> lhsField;
-            lhsField = (this.isSetCallSign() ? this.getCallSign() : null);
-            List<CallsignDetailPropertyType> rhsField;
-            rhsField = (that.isSetCallSign() ? that.getCallSign() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
+            boolean lhsFieldIsSet = this.isSetClientSegment();
+            boolean rhsFieldIsSet = that.isSetClientSegment();
+            List<RouteSegmentPropertyType> lhsField;
+            lhsField = (this.isSetClientSegment()?this.getClientSegment():null);
+            List<RouteSegmentPropertyType> rhsField;
+            rhsField = (that.isSetClientSegment()?that.getClientSegment():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientSegment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientSegment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeServiceSARType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeServiceSARType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetClientAirspace();
+            boolean rhsFieldIsSet = that.isSetClientAirspace();
+            List<AirspacePropertyType> lhsField;
+            lhsField = (this.isSetClientAirspace()?this.getClientAirspace():null);
+            List<AirspacePropertyType> rhsField;
+            rhsField = (that.isSetClientAirspace()?that.getClientAirspace():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ServiceOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ServiceOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1123,6 +1064,84 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = that.getServiceProvider();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClientRoute();
+            boolean rhsFieldIsSet = that.isSetClientRoute();
+            List<RoutePortionPropertyType> lhsField;
+            lhsField = (this.isSetClientRoute()?this.getClientRoute():null);
+            List<RoutePortionPropertyType> rhsField;
+            rhsField = (that.isSetClientRoute()?that.getClientRoute():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientRoute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientRoute", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCallSign();
+            boolean rhsFieldIsSet = that.isSetCallSign();
+            List<CallsignDetailPropertyType> lhsField;
+            lhsField = (this.isSetCallSign()?this.getCallSign():null);
+            List<CallsignDetailPropertyType> rhsField;
+            rhsField = (that.isSetCallSign()?that.getCallSign():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadioCommunication();
+            boolean rhsFieldIsSet = that.isSetRadioCommunication();
+            List<RadioCommunicationChannelPropertyType> lhsField;
+            lhsField = (this.isSetRadioCommunication()?this.getRadioCommunication():null);
+            List<RadioCommunicationChannelPropertyType> rhsField;
+            rhsField = (that.isSetRadioCommunication()?that.getRadioCommunication():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunication", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunication", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCompliantICAO();
+            boolean rhsFieldIsSet = that.isSetCompliantICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCompliantICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCompliantICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeServiceSARType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeServiceSARType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1178,35 +1197,35 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
         {
             boolean theFieldIsSet = this.isSetCallSign();
             List<CallsignDetailPropertyType> theField;
-            theField = (this.isSetCallSign() ? this.getCallSign() : null);
+            theField = (this.isSetCallSign()?this.getCallSign():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "callSign", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetRadioCommunication();
             List<RadioCommunicationChannelPropertyType> theField;
-            theField = (this.isSetRadioCommunication() ? this.getRadioCommunication() : null);
+            theField = (this.isSetRadioCommunication()?this.getRadioCommunication():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "radioCommunication", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetGroundCommunication();
             List<ContactInformationPropertyType> theField;
-            theField = (this.isSetGroundCommunication() ? this.getGroundCommunication() : null);
+            theField = (this.isSetGroundCommunication()?this.getGroundCommunication():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "groundCommunication", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<ServiceOperationalStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1220,28 +1239,28 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
         {
             boolean theFieldIsSet = this.isSetClientAirspace();
             List<AirspacePropertyType> theField;
-            theField = (this.isSetClientAirspace() ? this.getClientAirspace() : null);
+            theField = (this.isSetClientAirspace()?this.getClientAirspace():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "clientAirspace", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetClientRoute();
             List<RoutePortionPropertyType> theField;
-            theField = (this.isSetClientRoute() ? this.getClientRoute() : null);
+            theField = (this.isSetClientRoute()?this.getClientRoute():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "clientRoute", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetClientSegment();
             List<RouteSegmentPropertyType> theField;
-            theField = (this.isSetClientSegment() ? this.getClientSegment() : null);
+            theField = (this.isSetClientSegment()?this.getClientSegment():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "clientSegment", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SearchRescueServiceTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1290,31 +1309,31 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
         {
             boolean theFieldIsSet = this.isSetCallSign();
             List<CallsignDetailPropertyType> theField;
-            theField = (this.isSetCallSign() ? this.getCallSign() : null);
+            theField = (this.isSetCallSign()?this.getCallSign():null);
             strategy.appendField(locator, this, "callSign", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetRadioCommunication();
             List<RadioCommunicationChannelPropertyType> theField;
-            theField = (this.isSetRadioCommunication() ? this.getRadioCommunication() : null);
+            theField = (this.isSetRadioCommunication()?this.getRadioCommunication():null);
             strategy.appendField(locator, this, "radioCommunication", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetGroundCommunication();
             List<ContactInformationPropertyType> theField;
-            theField = (this.isSetGroundCommunication() ? this.getGroundCommunication() : null);
+            theField = (this.isSetGroundCommunication()?this.getGroundCommunication():null);
             strategy.appendField(locator, this, "groundCommunication", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<ServiceOperationalStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1326,25 +1345,25 @@ public class SearchRescueServiceTimeSliceType extends AbstractAIXMTimeSliceType 
         {
             boolean theFieldIsSet = this.isSetClientAirspace();
             List<AirspacePropertyType> theField;
-            theField = (this.isSetClientAirspace() ? this.getClientAirspace() : null);
+            theField = (this.isSetClientAirspace()?this.getClientAirspace():null);
             strategy.appendField(locator, this, "clientAirspace", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetClientRoute();
             List<RoutePortionPropertyType> theField;
-            theField = (this.isSetClientRoute() ? this.getClientRoute() : null);
+            theField = (this.isSetClientRoute()?this.getClientRoute():null);
             strategy.appendField(locator, this, "clientRoute", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetClientSegment();
             List<RouteSegmentPropertyType> theField;
-            theField = (this.isSetClientSegment() ? this.getClientSegment() : null);
+            theField = (this.isSetClientSegment()?this.getClientSegment():null);
             strategy.appendField(locator, this, "clientSegment", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SearchRescueServiceTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

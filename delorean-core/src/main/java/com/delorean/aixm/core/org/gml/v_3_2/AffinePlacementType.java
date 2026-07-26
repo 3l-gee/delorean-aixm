@@ -1,15 +1,15 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -23,41 +23,38 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AffinePlacementType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AffinePlacementType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AffinePlacementType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element name="location" type=
-"{http://www.opengis.net/gml/3.2}DirectPositionType"/>
- *         <element name="refDirection" type=
-"{http://www.opengis.net/gml/3.2}VectorType" maxOccurs="unbounded"/>
- *         <element name="inDimension" type=
-"{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
- *         <element name="outDimension" type=
-"{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *         <element name="location" type="{http://www.opengis.net/gml/3.2}DirectPositionType"/>
+ *         <element name="refDirection" type="{http://www.opengis.net/gml/3.2}VectorType" maxOccurs="unbounded"/>
+ *         <element name="inDimension" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *         <element name="outDimension" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AffinePlacementType", propOrder = {"location", "refDirection", "inDimension", "outDimension"})
-public class AffinePlacementType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "AffinePlacementType", propOrder = {
+    "location",
+    "refDirection",
+    "inDimension",
+    "outDimension"
+})
+public class AffinePlacementType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -73,9 +70,11 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link DirectPositionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link DirectPositionType }
+     *     
      */
     public DirectPositionType getLocation() {
         return location;
@@ -83,40 +82,41 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link DirectPositionType }
-     *
+     *     allowed object is
+     *     {@link DirectPositionType }
+     *     
      */
     public void setLocation(DirectPositionType value) {
         this.location = value;
     }
 
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the refDirection property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the refDirection property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the refDirection property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getRefDirection().add(newItem);
+     *    getRefDirection().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link VectorType }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link VectorType }
+     * 
+     * 
      */
     public List<VectorType> getRefDirection() {
         if (refDirection == null) {
@@ -126,15 +126,15 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setRefDirection(List<VectorType> refDirection) {
         this.refDirection = refDirection;
     }
 
     public boolean isSetRefDirection() {
-        return ((this.refDirection != null) && (!this.refDirection.isEmpty()));
+        return ((this.refDirection!= null)&&(!this.refDirection.isEmpty()));
     }
 
     public void unsetRefDirection() {
@@ -143,9 +143,11 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Gets the value of the inDimension property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getInDimension() {
         return inDimension;
@@ -153,24 +155,27 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the inDimension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setInDimension(BigInteger value) {
         this.inDimension = value;
     }
 
     public boolean isSetInDimension() {
-        return (this.inDimension != null);
+        return (this.inDimension!= null);
     }
 
     /**
      * Gets the value of the outDimension property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getOutDimension() {
         return outDimension;
@@ -178,17 +183,18 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
 
     /**
      * Sets the value of the outDimension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setOutDimension(BigInteger value) {
         this.outDimension = value;
     }
 
     public boolean isSetOutDimension() {
-        return (this.outDimension != null);
+        return (this.outDimension!= null);
     }
 
     @Override
@@ -204,9 +210,8 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -227,19 +232,6 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRefDirection();
-            boolean rhsFieldIsSet = that.isSetRefDirection();
-            List<VectorType> lhsField;
-            lhsField = (this.isSetRefDirection() ? this.getRefDirection() : null);
-            List<VectorType> rhsField;
-            rhsField = (that.isSetRefDirection() ? that.getRefDirection() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOutDimension();
             boolean rhsFieldIsSet = that.isSetOutDimension();
             BigInteger lhsField;
@@ -248,6 +240,19 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getOutDimension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outDimension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outDimension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRefDirection();
+            boolean rhsFieldIsSet = that.isSetRefDirection();
+            List<VectorType> lhsField;
+            lhsField = (this.isSetRefDirection()?this.getRefDirection():null);
+            List<VectorType> rhsField;
+            rhsField = (that.isSetRefDirection()?that.getRefDirection():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -291,7 +296,7 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
         {
             boolean theFieldIsSet = this.isSetRefDirection();
             List<VectorType> theField;
-            theField = (this.isSetRefDirection() ? this.getRefDirection() : null);
+            theField = (this.isSetRefDirection()?this.getRefDirection():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "refDirection", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -343,7 +348,7 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
         {
             boolean theFieldIsSet = this.isSetRefDirection();
             List<VectorType> theField;
-            theField = (this.isSetRefDirection() ? this.getRefDirection() : null);
+            theField = (this.isSetRefDirection()?this.getRefDirection():null);
             strategy.appendField(locator, this, "refDirection", buffer, theField, theFieldIsSet);
         }
         {

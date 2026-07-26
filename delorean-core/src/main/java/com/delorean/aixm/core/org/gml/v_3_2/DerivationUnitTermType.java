@@ -1,45 +1,42 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigInteger;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for DerivationUnitTermType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DerivationUnitTermType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DerivationUnitTermType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}UnitOfMeasureType">
- *       <attribute name="exponent" type=
-"{http://www.w3.org/2001/XMLSchema}integer" />
+ *       <attribute name="exponent" type="{http://www.w3.org/2001/XMLSchema}integer" />
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DerivationUnitTermType")
-public class DerivationUnitTermType extends UnitOfMeasureType implements Serializable {
+public class DerivationUnitTermType
+    extends UnitOfMeasureType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "exponent")
@@ -47,9 +44,11 @@ public class DerivationUnitTermType extends UnitOfMeasureType implements Seriali
 
     /**
      * Gets the value of the exponent property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getExponent() {
         return exponent;
@@ -57,23 +56,23 @@ public class DerivationUnitTermType extends UnitOfMeasureType implements Seriali
 
     /**
      * Sets the value of the exponent property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setExponent(BigInteger value) {
         this.exponent = value;
     }
 
     public boolean isSetExponent() {
-        return (this.exponent != null);
+        return (this.exponent!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

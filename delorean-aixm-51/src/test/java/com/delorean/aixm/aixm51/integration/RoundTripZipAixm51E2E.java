@@ -118,7 +118,7 @@ public class RoundTripZipAixm51E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src/test/java/com/aixm/delorean/aixm51/out/donlon-aixm-51-marshalled.xml.log";
+        String xmlPath = "src/test/java/com/delorean/aixm/aixm51/out/donlon-aixm-51-marshalled.xml.log";
 
         // do
         container.marshal(xmlPath);
@@ -135,7 +135,7 @@ public class RoundTripZipAixm51E2E {
         container.getDatabaseBinding().setHbm2ddl("create");
 
         // do
-        container.startup();
+        container.startup(false);
 
         // check that 
         // the dbconfig is of the right dbconfig 
@@ -174,7 +174,7 @@ public class RoundTripZipAixm51E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src/test/java/com/aixm/delorean/aixm51/out/donlon-aixm-51-extracted.xml.log";
+        String xmlPath = "src/test/java/com/delorean/aixm/aixm51/out/donlon-aixm-51-extracted.xml.log";
 
         // do
         container.marshal(xmlPath);

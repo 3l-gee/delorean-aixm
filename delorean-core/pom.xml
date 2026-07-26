@@ -18,6 +18,12 @@
     <name>Delorean Core</name>
     
 	<dependencies>
+        <!-- Delorean core -->
+        <dependency>
+            <groupId>com.delorean-aixm</groupId>
+            <artifactId>post-jaxb</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
         <!-- JPA Dependencies -->
 		<dependency>
@@ -142,7 +148,6 @@
             <scope>test</scope>
         </dependency>
 
-
         <!-- JSON serialisation-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -161,11 +166,26 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.classic}</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>3.1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.loki4j</groupId>
+            <artifactId>loki-logback-appender</artifactId>
+            <version>2.0.3</version>
         </dependency>
 
 	</dependencies>
@@ -259,25 +279,44 @@
             <id>jaxb-core</id>
             <build>
                 <plugins>
-
-                    <!-- Post-JAXB Codegen Fix Utility -->
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
                         <version>3.1.0</version>
                         <executions>
+
+                            <!-- Post-JAXB Codegen Fix Utility -->
                             <execution>
                                 <id>postprocess aixm core gml bindings</id>
                                 <phase>process-sources</phase>
                                 <goals>
-                                    <goal>java</goal>
+                                    <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <mainClass>com.delorean.aixm.postjaxb.PostJAXBRunner</mainClass>
+                                    <executable>java</executable>
                                     <arguments>
+                                        <argument>-classpath</argument>
+                                        <classpath/>
+                                        <argument>com.delorean.aixm.postjaxb.PostJAXBRunner</argument>
                                         <argument>${project.basedir}/src/main/post-jaxb/post-jaxb-config_core.yaml</argument>
                                     </arguments>
                                 </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    
+                    <!-- Prevent Logback copy onto itself -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-shared-logback-config</id>
+                                <phase>none</phase>
+                            </execution>
+                            <execution>
+                                <id>copy-shared-logback-test-config</id>
+                                <phase>none</phase>
                             </execution>
                         </executions>
                     </plugin>
@@ -355,14 +394,6 @@
                     </plugin>
                 </plugins>
             </build>
-            <dependencies>
-                <dependency>
-                    <groupId>com.delorean-aixm</groupId>
-                    <artifactId>post-jaxb</artifactId>
-                    <version>${project.parent.version}</version>
-                    <scope>provided</scope>
-                </dependency>
-            </dependencies>
         </profile>
     </profiles>
 </project>

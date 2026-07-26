@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,17 +38,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for RoadTimeSlicePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for RoadTimeSlicePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="RoadTimeSlicePropertyType">
  *   <complexContent>
@@ -56,22 +51,26 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.2}RoadTimeSlice"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RoadTimeSlicePropertyType", propOrder = {"roadTimeSlice"})
-@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "RoadTimeSlicePropertyType", propOrder = {
+    "roadTimeSlice"
+})
+@FilterDef(name = "TPHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RoadTimeSlicePropertyType")
 @Table(name = "road_tp", schema = "airport_heliport")
-public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
+public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "RoadTimeSlice", required = true)
@@ -85,11 +84,15 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
 
     /**
      * Gets the value of the roadTimeSlice property.
-     *
-     * @return possible object is {@link RoadTimeSliceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link RoadTimeSliceType }
+     *     
      */
-    @OneToOne(targetEntity = RoadTimeSliceType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = RoadTimeSliceType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "roadtimeslice_hjid", referencedColumnName = "hjid")
     public RoadTimeSliceType getRoadTimeSlice() {
         return roadTimeSlice;
@@ -97,10 +100,11 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the roadTimeSlice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link RoadTimeSliceType }
-     *
+     *     allowed object is
+     *     {@link RoadTimeSliceType }
+     *     
      */
     public void setRoadTimeSlice(RoadTimeSliceType value) {
         this.roadTimeSlice = value;
@@ -108,14 +112,16 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
 
     @Transient
     public boolean isSetRoadTimeSlice() {
-        return (this.roadTimeSlice != null);
+        return (this.roadTimeSlice!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -129,10 +135,11 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -140,7 +147,7 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -148,10 +155,12 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -162,21 +171,24 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -185,11 +197,12 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -208,9 +221,8 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -234,9 +246,9 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -269,7 +281,7 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -307,7 +319,7 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

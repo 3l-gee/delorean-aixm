@@ -7,10 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import org.xml.sax.SAXParseException;
+import lombok.extern.slf4j.Slf4j;
 
-import com.delorean.aixm.core.log.ConsoleLogger;
-import com.delorean.aixm.core.log.LogLevel;
-
+@Slf4j
 public class InspectionBindingService {
 
     private static InspectionBindingService instance;
@@ -138,11 +137,11 @@ public class InspectionBindingService {
         InspectionBindingService s = getInstance();
 
         if (s.allEvents.isEmpty()) {
-            ConsoleLogger.info("Validation : 0 issues detected.");
+            log.info("Validation : 0 issues detected.");
             return;
         }
 
-        ConsoleLogger.info("Validation : " + s.allEvents.size() + " issue(s) detected.");
+        log.info("Validation : " + s.allEvents.size() + " issue(s) detected.");
 
         // Grouping Hierarchy: Source -> Severity -> Message String -> Event List
         Map<InspectionSource, Map<ValidationSeverity, Map<String, List<InspectionEvent>>>> groupedEvents = 
@@ -160,18 +159,18 @@ public class InspectionBindingService {
             ));
         
             groupedEvents.forEach((source, severityMap) -> {
-                ConsoleLogger.info("Source : [" + source + "]");
+                log.info("Source : [" + source + "]");
             
                 severityMap.forEach((severity, messageMap) -> {
                     long totalSeverityCount = messageMap.values().stream().mapToLong(List::size).sum();
                     
-                    ConsoleLogger.info("  |-- Severity: [" + severity + "] (" + totalSeverityCount + " total instances)");
+                    log.info("  |-- Severity: [" + severity + "] (" + totalSeverityCount + " total instances)");
                     
                     messageMap.forEach((message, instances) -> {
                         int occurrenceCount = instances.size();
                         InspectionEvent sample = instances.get(0);
                         
-                        ConsoleLogger.info(String.format(
+                        log.info(String.format(
                             "      |-- [x%d] %s -> %s",
                             occurrenceCount, 
                             sample.getMethod(), 
@@ -179,7 +178,7 @@ public class InspectionBindingService {
                         ));
                         
                         // Show a sample reference location spot so developers know where to look
-                        ConsoleLogger.info("      |   |--  Sample Location Trace: " + sample.getLocation());
+                        log.info("      |   |--  Sample Location Trace: " + sample.getLocation());
                     });
                 });
         });

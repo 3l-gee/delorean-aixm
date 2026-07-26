@@ -1,6 +1,9 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import com.delorean.aixm.core.org.gml.v_3_2.CurveType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -8,52 +11,36 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ElevatedCurveType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ElevatedCurveType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ElevatedCurveType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}CurveType">
  *       <sequence>
- *         <element name="elevation" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="geoidUndulation" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceSignedType" minOccurs="0"/>
- *         <element name="verticalDatum" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="horizontalAccuracy" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="elevation" type="{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="geoidUndulation" type="{http://www.aixm.aero/schema/5.2}ValDistanceSignedType" minOccurs="0"/>
+ *         <element name="verticalDatum" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="horizontalAccuracy" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractElevatedCurveExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractElevatedCurveExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -63,13 +50,22 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ElevatedCurveType", propOrder = {"elevation", "geoidUndulation", "verticalDatum", "horizontalAccuracy",
-        "annotation", "extension"})
-public class ElevatedCurveType extends CurveType implements Serializable {
+@XmlType(name = "ElevatedCurveType", propOrder = {
+    "elevation",
+    "geoidUndulation",
+    "verticalDatum",
+    "horizontalAccuracy",
+    "annotation",
+    "extension"
+})
+public class ElevatedCurveType
+    extends CurveType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "elevation", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -86,10 +82,11 @@ public class ElevatedCurveType extends CurveType implements Serializable {
 
     /**
      * Gets the value of the elevation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public JAXBElement<ValDistanceVerticalType> getElevation() {
         return elevation;
@@ -97,26 +94,27 @@ public class ElevatedCurveType extends CurveType implements Serializable {
 
     /**
      * Sets the value of the elevation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setElevation(JAXBElement<ValDistanceVerticalType> value) {
         this.elevation = value;
     }
 
     public boolean isSetElevation() {
-        return (this.elevation != null);
+        return (this.elevation!= null);
     }
 
     /**
      * Gets the value of the geoidUndulation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceSignedType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     *     
      */
     public JAXBElement<ValDistanceSignedType> getGeoidUndulation() {
         return geoidUndulation;
@@ -124,26 +122,27 @@ public class ElevatedCurveType extends CurveType implements Serializable {
 
     /**
      * Sets the value of the geoidUndulation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceSignedType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     *     
      */
     public void setGeoidUndulation(JAXBElement<ValDistanceSignedType> value) {
         this.geoidUndulation = value;
     }
 
     public boolean isSetGeoidUndulation() {
-        return (this.geoidUndulation != null);
+        return (this.geoidUndulation!= null);
     }
 
     /**
      * Gets the value of the verticalDatum property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public JAXBElement<TextNameType> getVerticalDatum() {
         return verticalDatum;
@@ -151,26 +150,27 @@ public class ElevatedCurveType extends CurveType implements Serializable {
 
     /**
      * Sets the value of the verticalDatum property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setVerticalDatum(JAXBElement<TextNameType> value) {
         this.verticalDatum = value;
     }
 
     public boolean isSetVerticalDatum() {
-        return (this.verticalDatum != null);
+        return (this.verticalDatum!= null);
     }
 
     /**
      * Gets the value of the horizontalAccuracy property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
@@ -178,42 +178,41 @@ public class ElevatedCurveType extends CurveType implements Serializable {
 
     /**
      * Sets the value of the horizontalAccuracy property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setHorizontalAccuracy(JAXBElement<ValDistanceType> value) {
         this.horizontalAccuracy = value;
     }
 
     public boolean isSetHorizontalAccuracy() {
-        return (this.horizontalAccuracy != null);
+        return (this.horizontalAccuracy!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -223,15 +222,15 @@ public class ElevatedCurveType extends CurveType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
     }
 
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -240,26 +239,25 @@ public class ElevatedCurveType extends CurveType implements Serializable {
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ElevatedCurveTypeExtension }
-     *
-     *
+     * 
+     * 
      */
     public List<ElevatedCurveTypeExtension> getExtension() {
         if (extension == null) {
@@ -269,15 +267,15 @@ public class ElevatedCurveType extends CurveType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<ElevatedCurveTypeExtension> extension) {
         this.extension = extension;
     }
 
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -285,9 +283,8 @@ public class ElevatedCurveType extends CurveType implements Serializable {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -298,6 +295,19 @@ public class ElevatedCurveType extends CurveType implements Serializable {
         }
         final ElevatedCurveType that = ((ElevatedCurveType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
             boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
             JAXBElement<ValDistanceType> lhsField;
@@ -306,6 +316,19 @@ public class ElevatedCurveType extends CurveType implements Serializable {
             rhsField = that.getHorizontalAccuracy();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ElevatedCurveTypeExtension> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ElevatedCurveTypeExtension> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -324,14 +347,14 @@ public class ElevatedCurveType extends CurveType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ElevatedCurveTypeExtension> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ElevatedCurveTypeExtension> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetGeoidUndulation();
+            boolean rhsFieldIsSet = that.isSetGeoidUndulation();
+            JAXBElement<ValDistanceSignedType> lhsField;
+            lhsField = this.getGeoidUndulation();
+            JAXBElement<ValDistanceSignedType> rhsField;
+            rhsField = that.getGeoidUndulation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoidUndulation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoidUndulation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -345,32 +368,6 @@ public class ElevatedCurveType extends CurveType implements Serializable {
             rhsField = that.getVerticalDatum();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGeoidUndulation();
-            boolean rhsFieldIsSet = that.isSetGeoidUndulation();
-            JAXBElement<ValDistanceSignedType> lhsField;
-            lhsField = this.getGeoidUndulation();
-            JAXBElement<ValDistanceSignedType> rhsField;
-            rhsField = that.getGeoidUndulation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoidUndulation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoidUndulation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -412,14 +409,14 @@ public class ElevatedCurveType extends CurveType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ElevatedCurveTypeExtension> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -456,13 +453,13 @@ public class ElevatedCurveType extends CurveType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ElevatedCurveTypeExtension> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

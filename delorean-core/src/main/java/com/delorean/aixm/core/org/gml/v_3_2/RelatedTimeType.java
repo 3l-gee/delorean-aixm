@@ -1,40 +1,29 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * gml:RelatedTimeType provides a content model for indicating the relative
- * position of an arbitrary member of the substitution group whose head is
- * gml:AbstractTimePrimitive. It extends the generic
- * gml:TimePrimitivePropertyType with an XML attribute relativePosition, whose
- * value is selected from the set of 13 temporal relationships identified by
- * Allen (1983)
- *
- * <p>
- * Java class for RelatedTimeType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * gml:RelatedTimeType provides a content model for indicating the relative position of an arbitrary member of the substitution group whose head is gml:AbstractTimePrimitive. It extends the generic gml:TimePrimitivePropertyType with an XML attribute relativePosition, whose value is selected from the set of 13 temporal relationships identified by Allen (1983)
+ * 
+ * <p>Java class for RelatedTimeType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="RelatedTimeType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}TimePrimitivePropertyType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}TimePrimitivePropertyType">
  *       <attribute name="relativePosition">
  *         <simpleType>
  *           <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -58,12 +47,15 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RelatedTimeType")
-public class RelatedTimeType extends TimePrimitivePropertyType implements Serializable {
+public class RelatedTimeType
+    extends TimePrimitivePropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "relativePosition")
@@ -71,9 +63,11 @@ public class RelatedTimeType extends TimePrimitivePropertyType implements Serial
 
     /**
      * Gets the value of the relativePosition property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRelativePosition() {
         return relativePosition;
@@ -81,23 +75,23 @@ public class RelatedTimeType extends TimePrimitivePropertyType implements Serial
 
     /**
      * Sets the value of the relativePosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRelativePosition(String value) {
         this.relativePosition = value;
     }
 
     public boolean isSetRelativePosition() {
-        return (this.relativePosition != null);
+        return (this.relativePosition!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

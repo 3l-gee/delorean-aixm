@@ -20,19 +20,19 @@ parsing = {
         "ignore" : [],
     },
     "embedded_three": {
-        "method": r'@AttributeOverrides\({\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*protected ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)',
+        "method": r'@AttributeOverrides\({\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*public ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)',
         "ignore": [],
     },
     "embedded_two" : {
-        "method" : r'@AttributeOverrides\({\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*protected ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)',
+        "method" : r'@AttributeOverrides\({\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*public ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)',
         "ignore" : [],
     },
     "one_to_one": {
-        "method": r'@JoinColumn\(name = \"([A-Z|a-z|0-9|_]+)\", referencedColumnName = \"([A-Z|a-z|0-9|_]+).*\n.*protected ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)',
+        "method": r'@JoinTable\(name = \"([A-Z|a-z|0-9|_]+)\", schema = \"([A-Z|a-z|0-9|_]+)\".*\n.*\(name = \"([A-Z|a-z|0-9|_]+).*\n.*\n.*\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*public ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)',
         "ignore": [],
     },
     "one_to_many": {
-        "method": r'@JoinTable\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\(name = \"([A-Z|a-z|0-9|_]+).*\n.*\n.*\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*protected List<([A-Z|a-z|0-9|_]+)> ([A-Z|a-z|0-9|_]+)',
+        "method": r'@JoinTable\(name = \"([A-Z|a-z|0-9|_]+)\", schema = \"([A-Z|a-z|0-9|_]+)\".*\n.*\(name = \"([A-Z|a-z|0-9|_]+).*\n.*\n.*\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*public List<([A-Z|a-z|0-9|_]+)> ([A-Z|a-z|0-9|_]+)',
         "ignore": [],
     }
 }
@@ -41,6 +41,6 @@ InteractionMachinery(
     "viewgen/version/parsing.yaml",
     "delorean-aixm-51/src/main/pre-jaxb/pre-jaxb-config_a51.yaml", 
     "delorean-aixm-51/src/main/resources/sql", 
-    "delorean-aixm-51/src/main/java/com/aixm/delorean/aixm51/schema")
+    "delorean-aixm-51/src/main/java/com/delorean/aixm/aixm51/schema")
 
 # InteractionMachinery("a5_1", parsing,"viewgen/version/a5_1","delorean-aixm-51/src/main/resources/a5_1", "delorean-aixm-51/src/main/java/com/aixm/delorean/aixm51/schema")

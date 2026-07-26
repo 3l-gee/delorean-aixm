@@ -136,7 +136,7 @@ public class RoundTripZipAixm52E2E {
         container.getDatabaseBinding().setHbm2ddl("create");
 
         // do
-        container.startup();
+        container.startup(false);
 
         // check that 
         // the dbconfig is of the right dbconfig 

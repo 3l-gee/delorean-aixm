@@ -1,56 +1,53 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 
+
 /**
- * <p>
- * Java class for AbstractAirportHeliportProtectionAreaType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AbstractAirportHeliportProtectionAreaType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractAirportHeliportProtectionAreaType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMFeatureType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMFeatureType">
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractAirportHeliportProtectionAreaType")
-@XmlSeeAlso({TouchDownLiftOffSafeAreaType.class, RunwayProtectAreaType.class})
+@XmlSeeAlso({
+    TouchDownLiftOffSafeAreaType.class,
+    RunwayProtectAreaType.class
+})
 @Entity(name = "AbstractAirportHeliportProtectionAreaType")
 @Table(name = "abstractairportheliportprotectionareatype", schema = "public")
-public abstract class AbstractAirportHeliportProtectionAreaType extends AbstractAIXMFeatureType
-        implements
-            Serializable {
+public abstract class AbstractAirportHeliportProtectionAreaType
+    extends AbstractAIXMFeatureType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

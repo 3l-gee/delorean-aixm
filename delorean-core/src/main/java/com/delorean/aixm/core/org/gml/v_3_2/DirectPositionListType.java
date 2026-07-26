@@ -1,16 +1,16 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,46 +24,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * posList instances (and other instances with the content model specified by
- * DirectPositionListType) hold the coordinates for a sequence of direct
- * positions within the same coordinate reference system (CRS). if no srsName
- * attribute is given, the CRS shall be specified as part of the larger context
- * this geometry element is part of, typically a geometric object like a point,
- * curve, etc. The optional attribute count specifies the number of direct
- * positions in the list. If the attribute count is present then the attribute
- * srsDimension shall be present, too. The number of entries in the list is
- * equal to the product of the dimensionality of the coordinate reference system
- * (i.e. it is a derived value of the coordinate reference system definition)
- * and the number of direct positions.
- *
- * <p>
- * Java class for DirectPositionListType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * posList instances (and other instances with the content model specified by DirectPositionListType) hold the coordinates for a sequence of direct positions within the same coordinate reference system (CRS).
+ * if no srsName attribute is given, the CRS shall be specified as part of the larger context this geometry element is part of, typically a geometric object like a point, curve, etc. 
+ * The optional attribute count specifies the number of direct positions in the list. If the attribute count is present then the attribute srsDimension shall be present, too.
+ * The number of entries in the list is equal to the product of the dimensionality of the coordinate reference system (i.e. it is a derived value of the coordinate reference system definition) and the number of direct positions.
+ * 
+ * <p>Java class for DirectPositionListType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DirectPositionListType">
  *   <simpleContent>
  *     <extension base="<http://www.opengis.net/gml/3.2>doubleList">
  *       <attGroup ref="{http://www.opengis.net/gml/3.2}SRSReferenceGroup"/>
- *       <attribute name="count" type=
-"{http://www.w3.org/2001/XMLSchema}positiveInteger" />
+ *       <attribute name="count" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DirectPositionListType", propOrder = {"value"})
-public class DirectPositionListType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "DirectPositionListType", propOrder = {
+    "value"
+})
+public class DirectPositionListType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -83,27 +73,26 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
     protected List<String> uomLabels;
 
     /**
-     * A type for a list of values of the respective simple type.Gets the value of
-     * the value property.
-     *
+     * A type for a list of values of the respective simple type.Gets the value of the value property.
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the value property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the value property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getValue().add(newItem);
+     *    getValue().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link Double }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link Double }
+     * 
+     * 
      */
     public List<Double> getValue() {
         if (value == null) {
@@ -114,14 +103,14 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
 
     /**
      * A type for a list of values of the respective simple type.
-     *
+     * 
      */
     public void setValue(List<Double> value) {
         this.value = value;
     }
 
     public boolean isSetValue() {
-        return ((this.value != null) && (!this.value.isEmpty()));
+        return ((this.value!= null)&&(!this.value.isEmpty()));
     }
 
     public void unsetValue() {
@@ -130,9 +119,11 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
 
     /**
      * Gets the value of the count property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getCount() {
         return count;
@@ -140,24 +131,27 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the count property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setCount(BigInteger value) {
         this.count = value;
     }
 
     public boolean isSetCount() {
-        return (this.count != null);
+        return (this.count!= null);
     }
 
     /**
      * Gets the value of the srsName property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSrsName() {
         return srsName;
@@ -165,24 +159,27 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the srsName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSrsName(String value) {
         this.srsName = value;
     }
 
     public boolean isSetSrsName() {
-        return (this.srsName != null);
+        return (this.srsName!= null);
     }
 
     /**
      * Gets the value of the srsDimension property.
-     *
-     * @return possible object is {@link BigInteger }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getSrsDimension() {
         return srsDimension;
@@ -190,40 +187,41 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the srsDimension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigInteger }
-     *
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setSrsDimension(BigInteger value) {
         this.srsDimension = value;
     }
 
     public boolean isSetSrsDimension() {
-        return (this.srsDimension != null);
+        return (this.srsDimension!= null);
     }
 
     /**
      * Gets the value of the axisLabels property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the axisLabels property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the axisLabels property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAxisLabels().add(newItem);
+     *    getAxisLabels().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link String }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
      */
     public List<String> getAxisLabels() {
         if (axisLabels == null) {
@@ -233,15 +231,15 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAxisLabels(List<String> axisLabels) {
         this.axisLabels = axisLabels;
     }
 
     public boolean isSetAxisLabels() {
-        return ((this.axisLabels != null) && (!this.axisLabels.isEmpty()));
+        return ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
     }
 
     public void unsetAxisLabels() {
@@ -250,25 +248,25 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
 
     /**
      * Gets the value of the uomLabels property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the uomLabels property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the uomLabels property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getUomLabels().add(newItem);
+     *    getUomLabels().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
-     * Objects of the following type(s) are allowed in the list {@link String }
-     *
-     *
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
      */
     public List<String> getUomLabels() {
         if (uomLabels == null) {
@@ -278,15 +276,15 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setUomLabels(List<String> uomLabels) {
         this.uomLabels = uomLabels;
     }
 
     public boolean isSetUomLabels() {
-        return ((this.uomLabels != null) && (!this.uomLabels.isEmpty()));
+        return ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
     }
 
     public void unsetUomLabels() {
@@ -306,9 +304,8 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -342,40 +339,27 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAxisLabels();
-            boolean rhsFieldIsSet = that.isSetAxisLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetAxisLabels() ? that.getAxisLabels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUomLabels();
-            boolean rhsFieldIsSet = that.isSetUomLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetUomLabels() ? this.getUomLabels() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetUomLabels() ? that.getUomLabels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
             List<Double> lhsField;
-            lhsField = (this.isSetValue() ? this.getValue() : null);
+            lhsField = (this.isSetValue()?this.getValue():null);
             List<Double> rhsField;
-            rhsField = (that.isSetValue() ? that.getValue() : null);
+            rhsField = (that.isSetValue()?that.getValue():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAxisLabels();
+            boolean rhsFieldIsSet = that.isSetAxisLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -389,6 +373,19 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
             rhsField = that.getSrsDimension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUomLabels();
+            boolean rhsFieldIsSet = that.isSetUomLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -412,7 +409,7 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
         {
             boolean theFieldIsSet = this.isSetValue();
             List<Double> theField;
-            theField = (this.isSetValue() ? this.getValue() : null);
+            theField = (this.isSetValue()?this.getValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -440,14 +437,14 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
         {
             boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
+            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (this.isSetUomLabels() ? this.getUomLabels() : null);
+            theField = (this.isSetUomLabels()?this.getUomLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uomLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -479,7 +476,7 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
         {
             boolean theFieldIsSet = this.isSetValue();
             List<Double> theField;
-            theField = (this.isSetValue() ? this.getValue() : null);
+            theField = (this.isSetValue()?this.getValue():null);
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
@@ -503,13 +500,13 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
         {
             boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
+            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             strategy.appendField(locator, this, "axisLabels", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (this.isSetUomLabels() ? this.getUomLabels() : null);
+            theField = (this.isSetUomLabels()?this.getUomLabels():null);
             strategy.appendField(locator, this, "uomLabels", buffer, theField, theFieldIsSet);
         }
         return buffer;

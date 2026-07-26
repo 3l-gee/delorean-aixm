@@ -107,7 +107,6 @@ public abstract class AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, 
             Object oldObj = oldList.get(i);
             Object newObj = newList.get(i);
             if (!EqualsBuilder.reflectionEquals(oldObj, newObj, "hjid", "hjversion")) {
-                System.out.println("Difference found at index " + i + " → change");
                 return true;
             }
         }

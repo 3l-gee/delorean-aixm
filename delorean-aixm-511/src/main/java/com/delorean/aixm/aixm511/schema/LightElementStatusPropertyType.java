@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for LightElementStatusPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for LightElementStatusPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="LightElementStatusPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}LightElementStatus"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}LightElementStatus"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LightElementStatusPropertyType", propOrder = {"lightElementStatus"})
+@XmlType(name = "LightElementStatusPropertyType", propOrder = {
+    "lightElementStatus"
+})
 @Entity(name = "LightElementStatusPropertyType")
 @Table(name = "lightelementstatus_p", schema = "shared")
-public class LightElementStatusPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class LightElementStatusPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "LightElementStatus", required = true)
@@ -58,11 +56,15 @@ public class LightElementStatusPropertyType extends AbstractAIXMPropertyType imp
 
     /**
      * Gets the value of the lightElementStatus property.
-     *
-     * @return possible object is {@link LightElementStatusType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link LightElementStatusType }
+     *     
      */
-    @OneToOne(targetEntity = LightElementStatusType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = LightElementStatusType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "lightelementstatus_hjid", referencedColumnName = "hjid")
     public LightElementStatusType getLightElementStatus() {
         return lightElementStatus;
@@ -70,10 +72,11 @@ public class LightElementStatusPropertyType extends AbstractAIXMPropertyType imp
 
     /**
      * Sets the value of the lightElementStatus property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link LightElementStatusType }
-     *
+     *     allowed object is
+     *     {@link LightElementStatusType }
+     *     
      */
     public void setLightElementStatus(LightElementStatusType value) {
         this.lightElementStatus = value;
@@ -81,13 +84,12 @@ public class LightElementStatusPropertyType extends AbstractAIXMPropertyType imp
 
     @Transient
     public boolean isSetLightElementStatus() {
-        return (this.lightElementStatus != null);
+        return (this.lightElementStatus!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

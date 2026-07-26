@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,79 +31,46 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AzimuthTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AzimuthTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AzimuthTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="designator" type=
-"{http://www.aixm.aero/schema/5.2}CodeNavaidDesignatorType" minOccurs="0"/>
- *         <element name="name" type=
-"{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
- *         <element name="emissionClass" type=
-"{http://www.aixm.aero/schema/5.2}CodeRadioEmissionType" minOccurs="0"/>
- *         <element name="mobile" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="magneticVariation" type=
-"{http://www.aixm.aero/schema/5.2}ValMagneticVariationType" minOccurs="0"/>
- *         <element name="dateMagneticVariation" type=
-"{http://www.aixm.aero/schema/5.2}DateYearType" minOccurs="0"/>
- *         <element name="flightChecked" type=
-"{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.2}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="authority" type=
-"{http://www.aixm.aero/schema/5.2}AuthorityForNavaidEquipmentPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="monitoring" type=
-"{http://www.aixm.aero/schema/5.2}NavaidEquipmentMonitoringPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="availability" type=
-"{http://www.aixm.aero/schema/5.2}NavaidOperationalStatusPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.2}CodeMLSAzimuthType" minOccurs="0"/>
- *         <element name="trueBearing" type=
-"{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
- *         <element name="magneticBearing" type=
-"{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
- *         <element name="angleProportionalLeft" type=
-"{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
- *         <element name="angleProportionalRight" type=
-"{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
- *         <element name="angleCoverLeft" type=
-"{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
- *         <element name="angleCoverRight" type=
-"{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
- *         <element name="channel" type=
-"{http://www.aixm.aero/schema/5.2}CodeMLSChannelType" minOccurs="0"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.2}CodeNavaidDesignatorType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="emissionClass" type="{http://www.aixm.aero/schema/5.2}CodeRadioEmissionType" minOccurs="0"/>
+ *         <element name="mobile" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="magneticVariation" type="{http://www.aixm.aero/schema/5.2}ValMagneticVariationType" minOccurs="0"/>
+ *         <element name="dateMagneticVariation" type="{http://www.aixm.aero/schema/5.2}DateYearType" minOccurs="0"/>
+ *         <element name="flightChecked" type="{http://www.aixm.aero/schema/5.2}CodeYesNoType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.2}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="authority" type="{http://www.aixm.aero/schema/5.2}AuthorityForNavaidEquipmentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="monitoring" type="{http://www.aixm.aero/schema/5.2}NavaidEquipmentMonitoringPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.2}NavaidOperationalStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.2}CodeMLSAzimuthType" minOccurs="0"/>
+ *         <element name="trueBearing" type="{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
+ *         <element name="magneticBearing" type="{http://www.aixm.aero/schema/5.2}ValBearingType" minOccurs="0"/>
+ *         <element name="angleProportionalLeft" type="{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
+ *         <element name="angleProportionalRight" type="{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
+ *         <element name="angleCoverLeft" type="{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
+ *         <element name="angleCoverRight" type="{http://www.aixm.aero/schema/5.2}ValAngleType" minOccurs="0"/>
+ *         <element name="channel" type="{http://www.aixm.aero/schema/5.2}CodeMLSChannelType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractAzimuthExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractNavaidEquipmentExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractAzimuthExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractNavaidEquipmentExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -113,17 +80,39 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AzimuthTimeSliceType", propOrder = {"designator", "aixmName", "emissionClass", "mobile",
-        "magneticVariation", "dateMagneticVariation", "flightChecked", "location", "authority", "monitoring",
-        "availability", "annotation", "type", "trueBearing", "magneticBearing", "angleProportionalLeft",
-        "angleProportionalRight", "angleCoverLeft", "angleCoverRight", "channel", "extension"})
+@XmlType(name = "AzimuthTimeSliceType", propOrder = {
+    "designator",
+    "aixmName",
+    "emissionClass",
+    "mobile",
+    "magneticVariation",
+    "dateMagneticVariation",
+    "flightChecked",
+    "location",
+    "authority",
+    "monitoring",
+    "availability",
+    "annotation",
+    "type",
+    "trueBearing",
+    "magneticBearing",
+    "angleProportionalLeft",
+    "angleProportionalRight",
+    "angleCoverLeft",
+    "angleCoverRight",
+    "channel",
+    "extension"
+})
 @Entity(name = "AzimuthTimeSliceType")
 @Table(name = "azimuth_t", schema = "navaids_point")
-public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class AzimuthTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "designator", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -170,10 +159,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Gets the value of the designator property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeNavaidDesignatorType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeNavaidDesignatorType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeNavaidDesignatorType> getDesignator() {
@@ -182,11 +172,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the designator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeNavaidDesignatorType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeNavaidDesignatorType }{@code >}
+     *     
      */
     public void setDesignator(JAXBElement<CodeNavaidDesignatorType> value) {
         this.designator = value;
@@ -194,15 +184,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator != null);
+        return (this.designator!= null);
     }
 
     /**
      * Gets the value of the aixmName property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -211,11 +202,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the aixmName property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -223,15 +214,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName != null);
+        return (this.aixmName!= null);
     }
 
     /**
      * Gets the value of the emissionClass property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeRadioEmissionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeRadioEmissionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeRadioEmissionType> getEmissionClass() {
@@ -240,11 +232,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the emissionClass property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeRadioEmissionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeRadioEmissionType }{@code >}
+     *     
      */
     public void setEmissionClass(JAXBElement<CodeRadioEmissionType> value) {
         this.emissionClass = value;
@@ -252,15 +244,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetEmissionClass() {
-        return (this.emissionClass != null);
+        return (this.emissionClass!= null);
     }
 
     /**
      * Gets the value of the mobile property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getMobile() {
@@ -269,11 +262,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the mobile property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setMobile(JAXBElement<CodeYesNoType> value) {
         this.mobile = value;
@@ -281,15 +274,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetMobile() {
-        return (this.mobile != null);
+        return (this.mobile!= null);
     }
 
     /**
      * Gets the value of the magneticVariation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValMagneticVariationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValMagneticVariationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValMagneticVariationType> getMagneticVariation() {
@@ -298,11 +292,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the magneticVariation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValMagneticVariationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValMagneticVariationType }{@code >}
+     *     
      */
     public void setMagneticVariation(JAXBElement<ValMagneticVariationType> value) {
         this.magneticVariation = value;
@@ -310,15 +304,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetMagneticVariation() {
-        return (this.magneticVariation != null);
+        return (this.magneticVariation!= null);
     }
 
     /**
      * Gets the value of the dateMagneticVariation property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link DateYearType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DateYearType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DateYearType> getDateMagneticVariation() {
@@ -327,11 +322,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the dateMagneticVariation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link DateYearType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DateYearType }{@code >}
+     *     
      */
     public void setDateMagneticVariation(JAXBElement<DateYearType> value) {
         this.dateMagneticVariation = value;
@@ -339,15 +334,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetDateMagneticVariation() {
-        return (this.dateMagneticVariation != null);
+        return (this.dateMagneticVariation!= null);
     }
 
     /**
      * Gets the value of the flightChecked property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getFlightChecked() {
@@ -356,11 +352,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the flightChecked property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setFlightChecked(JAXBElement<CodeYesNoType> value) {
         this.flightChecked = value;
@@ -368,15 +364,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetFlightChecked() {
-        return (this.flightChecked != null);
+        return (this.flightChecked!= null);
     }
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getLocation() {
@@ -385,11 +382,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setLocation(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.location = value;
@@ -397,37 +394,39 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the authority property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the authority property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the authority property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAuthority().add(newItem);
+     *    getAuthority().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AuthorityForNavaidEquipmentPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AuthorityForNavaidEquipmentPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "azmthtmslctp_athrt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "authority_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "azmthtmslctp_athrt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "authority_hjid", referencedColumnName = "hjid")
+    })
     public List<AuthorityForNavaidEquipmentPropertyType> getAuthority() {
         if (authority == null) {
             authority = new ArrayList<>();
@@ -436,8 +435,8 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAuthority(List<AuthorityForNavaidEquipmentPropertyType> authority) {
         this.authority = authority;
@@ -445,7 +444,7 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetAuthority() {
-        return ((this.authority != null) && (!this.authority.isEmpty()));
+        return ((this.authority!= null)&&(!this.authority.isEmpty()));
     }
 
     public void unsetAuthority() {
@@ -454,32 +453,34 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Gets the value of the monitoring property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the monitoring property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the monitoring property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getMonitoring().add(newItem);
+     *    getMonitoring().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NavaidEquipmentMonitoringPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = NavaidEquipmentMonitoringPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "azmthtmslctp_mntrng_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "monitoring_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "azmthtmslctp_mntrng_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "monitoring_hjid", referencedColumnName = "hjid")
+    })
     public List<NavaidEquipmentMonitoringPropertyType> getMonitoring() {
         if (monitoring == null) {
             monitoring = new ArrayList<>();
@@ -488,8 +489,8 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setMonitoring(List<NavaidEquipmentMonitoringPropertyType> monitoring) {
         this.monitoring = monitoring;
@@ -497,7 +498,7 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetMonitoring() {
-        return ((this.monitoring != null) && (!this.monitoring.isEmpty()));
+        return ((this.monitoring!= null)&&(!this.monitoring.isEmpty()));
     }
 
     public void unsetMonitoring() {
@@ -506,32 +507,34 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NavaidOperationalStatusPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = NavaidOperationalStatusPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "azmthtmslctp_avlblt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "azmthtmslctp_avlblt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
+    })
     public List<NavaidOperationalStatusPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -540,8 +543,8 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<NavaidOperationalStatusPropertyType> availability) {
         this.availability = availability;
@@ -549,7 +552,7 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -558,31 +561,34 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "azmthtmslctp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "azmthtmslctp_annttn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -591,8 +597,8 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -600,7 +606,7 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -609,10 +615,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeMLSAzimuthType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeMLSAzimuthType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeMLSAzimuthType> getType() {
@@ -621,11 +628,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeMLSAzimuthType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeMLSAzimuthType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeMLSAzimuthType> value) {
         this.type = value;
@@ -633,15 +640,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the trueBearing property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getTrueBearing() {
@@ -650,11 +658,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the trueBearing property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setTrueBearing(JAXBElement<ValBearingType> value) {
         this.trueBearing = value;
@@ -662,15 +670,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetTrueBearing() {
-        return (this.trueBearing != null);
+        return (this.trueBearing!= null);
     }
 
     /**
      * Gets the value of the magneticBearing property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getMagneticBearing() {
@@ -679,11 +688,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the magneticBearing property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setMagneticBearing(JAXBElement<ValBearingType> value) {
         this.magneticBearing = value;
@@ -691,15 +700,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetMagneticBearing() {
-        return (this.magneticBearing != null);
+        return (this.magneticBearing!= null);
     }
 
     /**
      * Gets the value of the angleProportionalLeft property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getAngleProportionalLeft() {
@@ -708,11 +718,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the angleProportionalLeft property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setAngleProportionalLeft(JAXBElement<ValAngleType> value) {
         this.angleProportionalLeft = value;
@@ -720,15 +730,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetAngleProportionalLeft() {
-        return (this.angleProportionalLeft != null);
+        return (this.angleProportionalLeft!= null);
     }
 
     /**
      * Gets the value of the angleProportionalRight property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getAngleProportionalRight() {
@@ -737,11 +748,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the angleProportionalRight property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setAngleProportionalRight(JAXBElement<ValAngleType> value) {
         this.angleProportionalRight = value;
@@ -749,15 +760,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetAngleProportionalRight() {
-        return (this.angleProportionalRight != null);
+        return (this.angleProportionalRight!= null);
     }
 
     /**
      * Gets the value of the angleCoverLeft property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getAngleCoverLeft() {
@@ -766,11 +778,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the angleCoverLeft property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setAngleCoverLeft(JAXBElement<ValAngleType> value) {
         this.angleCoverLeft = value;
@@ -778,15 +790,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetAngleCoverLeft() {
-        return (this.angleCoverLeft != null);
+        return (this.angleCoverLeft!= null);
     }
 
     /**
      * Gets the value of the angleCoverRight property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getAngleCoverRight() {
@@ -795,11 +808,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the angleCoverRight property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setAngleCoverRight(JAXBElement<ValAngleType> value) {
         this.angleCoverRight = value;
@@ -807,15 +820,16 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetAngleCoverRight() {
-        return (this.angleCoverRight != null);
+        return (this.angleCoverRight!= null);
     }
 
     /**
      * Gets the value of the channel property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeMLSChannelType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeMLSChannelType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeMLSChannelType> getChannel() {
@@ -824,11 +838,11 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     /**
      * Sets the value of the channel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeMLSChannelType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeMLSChannelType }{@code >}
+     *     
      */
     public void setChannel(JAXBElement<CodeMLSChannelType> value) {
         this.channel = value;
@@ -836,33 +850,34 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetChannel() {
-        return (this.channel != null);
+        return (this.channel!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AzimuthTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AzimuthTimeSliceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = AzimuthTimeSliceExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "azimuth_te_hjid", referencedColumnName = "hjid")
     public List<AzimuthTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -872,8 +887,8 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AzimuthTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -881,7 +896,7 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -890,221 +905,225 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 4)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "alphanumeric")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason", columnDefinition = "nilreason"))
+    })
     public CodeNavaidDesignatorType getDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(CodeNavaidDesignatorType.class, this.getDesignator());
     }
 
     public void setDesignatorItem(CodeNavaidDesignatorType target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(CodeNavaidDesignatorType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "designator"), AzimuthTimeSliceType.class, target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(CodeNavaidDesignatorType.class, new QName("http://www.aixm.aero/schema/5.2", "designator"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "name"), AzimuthTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "emissionclass")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "emissionclassnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "emissionclass", columnDefinition = "coderadioemissionbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "emissionclassnilreason", columnDefinition = "nilreason"))
+    })
     public CodeRadioEmissionType getEmissionClassItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRadioEmissionType.class, this.getEmissionClass());
     }
 
     public void setEmissionClassItem(CodeRadioEmissionType target) {
-        setEmissionClass(XmlAdapterUtils.marshallJAXBElement(CodeRadioEmissionType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "emissionClass"), AzimuthTimeSliceType.class, target));
+        setEmissionClass(XmlAdapterUtils.marshallJAXBElement(CodeRadioEmissionType.class, new QName("http://www.aixm.aero/schema/5.2", "emissionClass"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "mobile")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "mobilenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "mobile", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "mobilenilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getMobileItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getMobile());
     }
 
     public void setMobileItem(CodeYesNoType target) {
-        setMobile(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "mobile"), AzimuthTimeSliceType.class, target));
+        setMobile(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "mobile"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "magneticvariation", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "magneticvariationaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "magneticvariation", columnDefinition = "valmagneticvariationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "magneticvariationaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValMagneticVariationType getMagneticVariationItem() {
         return XmlAdapterUtils.unmarshallSource(ValMagneticVariationType.class, this.getMagneticVariation());
     }
 
     public void setMagneticVariationItem(ValMagneticVariationType target) {
-        setMagneticVariation(XmlAdapterUtils.marshallJAXBElement(ValMagneticVariationType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "magneticVariation"), AzimuthTimeSliceType.class, target));
+        setMagneticVariation(XmlAdapterUtils.marshallJAXBElement(ValMagneticVariationType.class, new QName("http://www.aixm.aero/schema/5.2", "magneticVariation"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "datemagneticvariation", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "datemagneticvariationnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "datemagneticvariation", columnDefinition = "dateyearbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "datemagneticvariationnilreason", columnDefinition = "nilreason"))
+    })
     public DateYearType getDateMagneticVariationItem() {
         return XmlAdapterUtils.unmarshallSource(DateYearType.class, this.getDateMagneticVariation());
     }
 
     public void setDateMagneticVariationItem(DateYearType target) {
-        setDateMagneticVariation(XmlAdapterUtils.marshallJAXBElement(DateYearType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "dateMagneticVariation"), AzimuthTimeSliceType.class,
-                target));
+        setDateMagneticVariation(XmlAdapterUtils.marshallJAXBElement(DateYearType.class, new QName("http://www.aixm.aero/schema/5.2", "dateMagneticVariation"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "flightchecked")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "flightcheckednilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "flightchecked", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "flightcheckednilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getFlightCheckedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getFlightChecked());
     }
 
     public void setFlightCheckedItem(CodeYesNoType target) {
-        setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "flightChecked"), AzimuthTimeSliceType.class, target));
+        setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.2", "flightChecked"), AzimuthTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "azmthtmslctp_lctn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "azmthtmslctp_lctn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "azimuth_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
 
     public void setLocationItem(AIXMElevatedPointPropertyType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "location"), AzimuthTimeSliceType.class, target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "location"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codemlsazimuthbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeMLSAzimuthType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMLSAzimuthType.class, this.getType());
     }
 
     public void setTypeItem(CodeMLSAzimuthType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeMLSAzimuthType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "type"), AzimuthTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeMLSAzimuthType.class, new QName("http://www.aixm.aero/schema/5.2", "type"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "truebearing", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "truebearingnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "truebearingaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "truebearing", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "truebearingnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "truebearingaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValBearingType getTrueBearingItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getTrueBearing());
     }
 
     public void setTrueBearingItem(ValBearingType target) {
-        setTrueBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "trueBearing"), AzimuthTimeSliceType.class, target));
+        setTrueBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.2", "trueBearing"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "magneticbearing", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "magneticbearingnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "magneticbearingaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "magneticbearing", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "magneticbearingnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "magneticbearingaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValBearingType getMagneticBearingItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getMagneticBearing());
     }
 
     public void setMagneticBearingItem(ValBearingType target) {
-        setMagneticBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "magneticBearing"), AzimuthTimeSliceType.class, target));
+        setMagneticBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.2", "magneticBearing"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "angleproportionalleft", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "angleproportionalleftnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "angleproportionalleftaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "angleproportionalleft", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "angleproportionalleftnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "angleproportionalleftaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValAngleType getAngleProportionalLeftItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getAngleProportionalLeft());
     }
 
     public void setAngleProportionalLeftItem(ValAngleType target) {
-        setAngleProportionalLeft(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "angleProportionalLeft"), AzimuthTimeSliceType.class,
-                target));
+        setAngleProportionalLeft(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.2", "angleProportionalLeft"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "angleproportionalright", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "angleproportionalrightnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "angleproportionalrightaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "angleproportionalright", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "angleproportionalrightnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "angleproportionalrightaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValAngleType getAngleProportionalRightItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getAngleProportionalRight());
     }
 
     public void setAngleProportionalRightItem(ValAngleType target) {
-        setAngleProportionalRight(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "angleProportionalRight"), AzimuthTimeSliceType.class,
-                target));
+        setAngleProportionalRight(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.2", "angleProportionalRight"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "anglecoverleft", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "anglecoverleftnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "anglecoverleftaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "anglecoverleft", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "anglecoverleftnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "anglecoverleftaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValAngleType getAngleCoverLeftItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getAngleCoverLeft());
     }
 
     public void setAngleCoverLeftItem(ValAngleType target) {
-        setAngleCoverLeft(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "angleCoverLeft"), AzimuthTimeSliceType.class, target));
+        setAngleCoverLeft(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.2", "angleCoverLeft"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "anglecoverright", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "anglecoverrightnilreason")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "anglecoverrightaccuracy"))})
+        @AttributeOverride(name = "value", column = @Column(name = "anglecoverright", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "anglecoverrightnilreason", columnDefinition = "nilreason")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "anglecoverrightaccuracy", columnDefinition = "numericalwithnilreason"))
+    })
     public ValAngleType getAngleCoverRightItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getAngleCoverRight());
     }
 
     public void setAngleCoverRightItem(ValAngleType target) {
-        setAngleCoverRight(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "angleCoverRight"), AzimuthTimeSliceType.class, target));
+        setAngleCoverRight(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.2", "angleCoverRight"), AzimuthTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "channel")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "channelnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "channel", columnDefinition = "codemlschannelbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "channelnilreason", columnDefinition = "nilreason"))
+    })
     public CodeMLSChannelType getChannelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMLSChannelType.class, this.getChannel());
     }
 
     public void setChannelItem(CodeMLSChannelType target) {
-        setChannel(XmlAdapterUtils.marshallJAXBElement(CodeMLSChannelType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "channel"), AzimuthTimeSliceType.class, target));
+        setChannel(XmlAdapterUtils.marshallJAXBElement(CodeMLSChannelType.class, new QName("http://www.aixm.aero/schema/5.2", "channel"), AzimuthTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1115,38 +1134,12 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
         }
         final AzimuthTimeSliceType that = ((AzimuthTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAngleCoverRight();
-            boolean rhsFieldIsSet = that.isSetAngleCoverRight();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getAngleCoverRight();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getAngleCoverRight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleCoverRight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleCoverRight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMobile();
-            boolean rhsFieldIsSet = that.isSetMobile();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMobile();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMobile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMonitoring();
             boolean rhsFieldIsSet = that.isSetMonitoring();
             List<NavaidEquipmentMonitoringPropertyType> lhsField;
-            lhsField = (this.isSetMonitoring() ? this.getMonitoring() : null);
+            lhsField = (this.isSetMonitoring()?this.getMonitoring():null);
             List<NavaidEquipmentMonitoringPropertyType> rhsField;
-            rhsField = (that.isSetMonitoring() ? that.getMonitoring() : null);
+            rhsField = (that.isSetMonitoring()?that.getMonitoring():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitoring", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitoring", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1154,40 +1147,14 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeNavaidDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeNavaidDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrueBearing();
-            boolean rhsFieldIsSet = that.isSetTrueBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getTrueBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getTrueBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEmissionClass();
-            boolean rhsFieldIsSet = that.isSetEmissionClass();
-            JAXBElement<CodeRadioEmissionType> lhsField;
-            lhsField = this.getEmissionClass();
-            JAXBElement<CodeRadioEmissionType> rhsField;
-            rhsField = that.getEmissionClass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1219,27 +1186,27 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetMagneticVariation();
-            JAXBElement<ValMagneticVariationType> lhsField;
-            lhsField = this.getMagneticVariation();
-            JAXBElement<ValMagneticVariationType> rhsField;
-            rhsField = that.getMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariation", rhsField);
+            boolean lhsFieldIsSet = this.isSetMagneticBearing();
+            boolean rhsFieldIsSet = that.isSetMagneticBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getMagneticBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getMagneticBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<NavaidOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<NavaidOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1258,14 +1225,40 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<NavaidOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<NavaidOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngleProportionalRight();
+            boolean rhsFieldIsSet = that.isSetAngleProportionalRight();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getAngleProportionalRight();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getAngleProportionalRight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleProportionalRight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleProportionalRight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetMagneticVariation();
+            JAXBElement<ValMagneticVariationType> lhsField;
+            lhsField = this.getMagneticVariation();
+            JAXBElement<ValMagneticVariationType> rhsField;
+            rhsField = that.getMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1274,9 +1267,9 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
             boolean lhsFieldIsSet = this.isSetAuthority();
             boolean rhsFieldIsSet = that.isSetAuthority();
             List<AuthorityForNavaidEquipmentPropertyType> lhsField;
-            lhsField = (this.isSetAuthority() ? this.getAuthority() : null);
+            lhsField = (this.isSetAuthority()?this.getAuthority():null);
             List<AuthorityForNavaidEquipmentPropertyType> rhsField;
-            rhsField = (that.isSetAuthority() ? that.getAuthority() : null);
+            rhsField = (that.isSetAuthority()?that.getAuthority():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1284,66 +1277,27 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeNavaidDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeNavaidDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AzimuthTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AzimuthTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMagneticBearing();
-            boolean rhsFieldIsSet = that.isSetMagneticBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getMagneticBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getMagneticBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
-            JAXBElement<DateYearType> lhsField;
-            lhsField = this.getDateMagneticVariation();
-            JAXBElement<DateYearType> rhsField;
-            rhsField = that.getDateMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetEmissionClass();
+            boolean rhsFieldIsSet = that.isSetEmissionClass();
+            JAXBElement<CodeRadioEmissionType> lhsField;
+            lhsField = this.getEmissionClass();
+            JAXBElement<CodeRadioEmissionType> rhsField;
+            rhsField = that.getEmissionClass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1375,14 +1329,79 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngleProportionalRight();
-            boolean rhsFieldIsSet = that.isSetAngleProportionalRight();
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrueBearing();
+            boolean rhsFieldIsSet = that.isSetTrueBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getTrueBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getTrueBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngleCoverRight();
+            boolean rhsFieldIsSet = that.isSetAngleCoverRight();
             JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getAngleProportionalRight();
+            lhsField = this.getAngleCoverRight();
             JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getAngleProportionalRight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleProportionalRight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleProportionalRight", rhsField);
+            rhsField = that.getAngleCoverRight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleCoverRight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleCoverRight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AzimuthTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AzimuthTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMobile();
+            boolean rhsFieldIsSet = that.isSetMobile();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMobile();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMobile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
+            JAXBElement<DateYearType> lhsField;
+            lhsField = this.getDateMagneticVariation();
+            JAXBElement<DateYearType> rhsField;
+            rhsField = that.getDateMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1452,28 +1471,28 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
         {
             boolean theFieldIsSet = this.isSetAuthority();
             List<AuthorityForNavaidEquipmentPropertyType> theField;
-            theField = (this.isSetAuthority() ? this.getAuthority() : null);
+            theField = (this.isSetAuthority()?this.getAuthority():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "authority", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetMonitoring();
             List<NavaidEquipmentMonitoringPropertyType> theField;
-            theField = (this.isSetMonitoring() ? this.getMonitoring() : null);
+            theField = (this.isSetMonitoring()?this.getMonitoring():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "monitoring", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<NavaidOperationalStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1536,7 +1555,7 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AzimuthTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1597,25 +1616,25 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
         {
             boolean theFieldIsSet = this.isSetAuthority();
             List<AuthorityForNavaidEquipmentPropertyType> theField;
-            theField = (this.isSetAuthority() ? this.getAuthority() : null);
+            theField = (this.isSetAuthority()?this.getAuthority():null);
             strategy.appendField(locator, this, "authority", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetMonitoring();
             List<NavaidEquipmentMonitoringPropertyType> theField;
-            theField = (this.isSetMonitoring() ? this.getMonitoring() : null);
+            theField = (this.isSetMonitoring()?this.getMonitoring():null);
             strategy.appendField(locator, this, "monitoring", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<NavaidOperationalStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1669,7 +1688,7 @@ public class AzimuthTimeSliceType extends AbstractAIXMTimeSliceType implements S
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AzimuthTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -21,6 +21,8 @@ def main():
 
     coordinator.export_xjb(verbose=args.verbose)
 
+    coordinator.export_sql(verbose=args.verbose)
+
     coordinator.save_entity_class()
 
 if __name__ == "__main__":

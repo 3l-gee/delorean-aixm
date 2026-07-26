@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -8,24 +9,18 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ObservationType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ObservationType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ObservationType">
  *   <complexContent>
@@ -40,18 +35,28 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ObservationType", propOrder = {"validTime", "using", "target", "resultOf"})
-@XmlSeeAlso({DirectedObservationType.class})
-public class ObservationType extends AbstractFeatureType implements Serializable {
+@XmlType(name = "ObservationType", propOrder = {
+    "validTime",
+    "using",
+    "target",
+    "resultOf"
+})
+@XmlSeeAlso({
+    DirectedObservationType.class
+})
+public class ObservationType
+    extends AbstractFeatureType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
      * gml:validTime is a convenience property element.
-     *
+     * 
      */
     @XmlElement(required = true)
     protected TimePrimitivePropertyType validTime;
@@ -63,9 +68,11 @@ public class ObservationType extends AbstractFeatureType implements Serializable
 
     /**
      * gml:validTime is a convenience property element.
-     *
-     * @return possible object is {@link TimePrimitivePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link TimePrimitivePropertyType }
+     *     
      */
     public TimePrimitivePropertyType getValidTime() {
         return validTime;
@@ -73,10 +80,11 @@ public class ObservationType extends AbstractFeatureType implements Serializable
 
     /**
      * Sets the value of the validTime property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TimePrimitivePropertyType }
-     *
+     *     allowed object is
+     *     {@link TimePrimitivePropertyType }
+     *     
      * @see #getValidTime()
      */
     public void setValidTime(TimePrimitivePropertyType value) {
@@ -84,14 +92,16 @@ public class ObservationType extends AbstractFeatureType implements Serializable
     }
 
     public boolean isSetValidTime() {
-        return (this.validTime != null);
+        return (this.validTime!= null);
     }
 
     /**
      * Gets the value of the using property.
-     *
-     * @return possible object is {@link ProcedurePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ProcedurePropertyType }
+     *     
      */
     public ProcedurePropertyType getUsing() {
         return using;
@@ -99,26 +109,28 @@ public class ObservationType extends AbstractFeatureType implements Serializable
 
     /**
      * Sets the value of the using property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ProcedurePropertyType }
-     *
+     *     allowed object is
+     *     {@link ProcedurePropertyType }
+     *     
      */
     public void setUsing(ProcedurePropertyType value) {
         this.using = value;
     }
 
     public boolean isSetUsing() {
-        return (this.using != null);
+        return (this.using!= null);
     }
 
     /**
      * Gets the value of the target property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TargetPropertyType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link TargetPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TargetPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TargetPropertyType }{@code >}
+     *     
      */
     public JAXBElement<TargetPropertyType> getTarget() {
         return target;
@@ -126,26 +138,28 @@ public class ObservationType extends AbstractFeatureType implements Serializable
 
     /**
      * Sets the value of the target property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TargetPropertyType }{@code >} {@link JAXBElement
-     *            }{@code <}{@link TargetPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TargetPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link TargetPropertyType }{@code >}
+     *     
      */
     public void setTarget(JAXBElement<TargetPropertyType> value) {
         this.target = value;
     }
 
     public boolean isSetTarget() {
-        return (this.target != null);
+        return (this.target!= null);
     }
 
     /**
      * Gets the value of the resultOf property.
-     *
-     * @return possible object is {@link ResultType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ResultType }
+     *     
      */
     public ResultType getResultOf() {
         return resultOf;
@@ -153,23 +167,23 @@ public class ObservationType extends AbstractFeatureType implements Serializable
 
     /**
      * Sets the value of the resultOf property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ResultType }
-     *
+     *     allowed object is
+     *     {@link ResultType }
+     *     
      */
     public void setResultOf(ResultType value) {
         this.resultOf = value;
     }
 
     public boolean isSetResultOf() {
-        return (this.resultOf != null);
+        return (this.resultOf!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -180,6 +194,19 @@ public class ObservationType extends AbstractFeatureType implements Serializable
         }
         final ObservationType that = ((ObservationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetResultOf();
+            boolean rhsFieldIsSet = that.isSetResultOf();
+            ResultType lhsField;
+            lhsField = this.getResultOf();
+            ResultType rhsField;
+            rhsField = that.getResultOf();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resultOf", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resultOf", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUsing();
             boolean rhsFieldIsSet = that.isSetUsing();
             ProcedurePropertyType lhsField;
@@ -188,19 +215,6 @@ public class ObservationType extends AbstractFeatureType implements Serializable
             rhsField = that.getUsing();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "using", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "using", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetValidTime();
-            boolean rhsFieldIsSet = that.isSetValidTime();
-            TimePrimitivePropertyType lhsField;
-            lhsField = this.getValidTime();
-            TimePrimitivePropertyType rhsField;
-            rhsField = that.getValidTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -219,14 +233,14 @@ public class ObservationType extends AbstractFeatureType implements Serializable
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetResultOf();
-            boolean rhsFieldIsSet = that.isSetResultOf();
-            ResultType lhsField;
-            lhsField = this.getResultOf();
-            ResultType rhsField;
-            rhsField = that.getResultOf();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resultOf", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resultOf", rhsField);
+            boolean lhsFieldIsSet = this.isSetValidTime();
+            boolean rhsFieldIsSet = that.isSetValidTime();
+            TimePrimitivePropertyType lhsField;
+            lhsField = this.getValidTime();
+            TimePrimitivePropertyType rhsField;
+            rhsField = that.getValidTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

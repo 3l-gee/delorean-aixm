@@ -1,64 +1,58 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import com.delorean.aixm.core.org.gco.v2007.AbstractObjectType;
 import com.delorean.aixm.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for LI_Source_Type complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for LI_Source_Type complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="LI_Source_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="description" type=
-"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="scaleDenominator" type=
-"{http://www.isotc211.org/2005/gmd}MD_RepresentativeFraction_PropertyType" minOccurs
-="0"/>
- *         <element name="sourceReferenceSystem" type=
-"{http://www.isotc211.org/2005/gmd}MD_ReferenceSystem_PropertyType" minOccurs=
-"0"/>
- *         <element name="sourceCitation" type=
-"{http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType" minOccurs="0"/>
- *         <element name="sourceExtent" type=
-"{http://www.isotc211.org/2005/gmd}EX_Extent_PropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="sourceStep" type=
-"{http://www.isotc211.org/2005/gmd}LI_ProcessStep_PropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="description" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="scaleDenominator" type="{http://www.isotc211.org/2005/gmd}MD_RepresentativeFraction_PropertyType" minOccurs="0"/>
+ *         <element name="sourceReferenceSystem" type="{http://www.isotc211.org/2005/gmd}MD_ReferenceSystem_PropertyType" minOccurs="0"/>
+ *         <element name="sourceCitation" type="{http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType" minOccurs="0"/>
+ *         <element name="sourceExtent" type="{http://www.isotc211.org/2005/gmd}EX_Extent_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="sourceStep" type="{http://www.isotc211.org/2005/gmd}LI_ProcessStep_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LI_Source_Type", propOrder = {"description", "scaleDenominator", "sourceReferenceSystem",
-        "sourceCitation", "sourceExtent", "sourceStep"})
-public class LISourceType extends AbstractObjectType implements Serializable {
+@XmlType(name = "LI_Source_Type", propOrder = {
+    "description",
+    "scaleDenominator",
+    "sourceReferenceSystem",
+    "sourceCitation",
+    "sourceExtent",
+    "sourceStep"
+})
+public class LISourceType
+    extends AbstractObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType description;
@@ -70,9 +64,11 @@ public class LISourceType extends AbstractObjectType implements Serializable {
 
     /**
      * Gets the value of the description property.
-     *
-     * @return possible object is {@link CharacterStringPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public CharacterStringPropertyType getDescription() {
         return description;
@@ -80,24 +76,27 @@ public class LISourceType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the description property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CharacterStringPropertyType }
-     *
+     *     allowed object is
+     *     {@link CharacterStringPropertyType }
+     *     
      */
     public void setDescription(CharacterStringPropertyType value) {
         this.description = value;
     }
 
     public boolean isSetDescription() {
-        return (this.description != null);
+        return (this.description!= null);
     }
 
     /**
      * Gets the value of the scaleDenominator property.
-     *
-     * @return possible object is {@link MDRepresentativeFractionPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link MDRepresentativeFractionPropertyType }
+     *     
      */
     public MDRepresentativeFractionPropertyType getScaleDenominator() {
         return scaleDenominator;
@@ -105,24 +104,27 @@ public class LISourceType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the scaleDenominator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MDRepresentativeFractionPropertyType }
-     *
+     *     allowed object is
+     *     {@link MDRepresentativeFractionPropertyType }
+     *     
      */
     public void setScaleDenominator(MDRepresentativeFractionPropertyType value) {
         this.scaleDenominator = value;
     }
 
     public boolean isSetScaleDenominator() {
-        return (this.scaleDenominator != null);
+        return (this.scaleDenominator!= null);
     }
 
     /**
      * Gets the value of the sourceReferenceSystem property.
-     *
-     * @return possible object is {@link MDReferenceSystemPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link MDReferenceSystemPropertyType }
+     *     
      */
     public MDReferenceSystemPropertyType getSourceReferenceSystem() {
         return sourceReferenceSystem;
@@ -130,24 +132,27 @@ public class LISourceType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the sourceReferenceSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link MDReferenceSystemPropertyType }
-     *
+     *     allowed object is
+     *     {@link MDReferenceSystemPropertyType }
+     *     
      */
     public void setSourceReferenceSystem(MDReferenceSystemPropertyType value) {
         this.sourceReferenceSystem = value;
     }
 
     public boolean isSetSourceReferenceSystem() {
-        return (this.sourceReferenceSystem != null);
+        return (this.sourceReferenceSystem!= null);
     }
 
     /**
      * Gets the value of the sourceCitation property.
-     *
-     * @return possible object is {@link CICitationPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CICitationPropertyType }
+     *     
      */
     public CICitationPropertyType getSourceCitation() {
         return sourceCitation;
@@ -155,41 +160,41 @@ public class LISourceType extends AbstractObjectType implements Serializable {
 
     /**
      * Sets the value of the sourceCitation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CICitationPropertyType }
-     *
+     *     allowed object is
+     *     {@link CICitationPropertyType }
+     *     
      */
     public void setSourceCitation(CICitationPropertyType value) {
         this.sourceCitation = value;
     }
 
     public boolean isSetSourceCitation() {
-        return (this.sourceCitation != null);
+        return (this.sourceCitation!= null);
     }
 
     /**
      * Gets the value of the sourceExtent property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the sourceExtent property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the sourceExtent property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSourceExtent().add(newItem);
+     *    getSourceExtent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link EXExtentPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<EXExtentPropertyType> getSourceExtent() {
         if (sourceExtent == null) {
@@ -199,15 +204,15 @@ public class LISourceType extends AbstractObjectType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSourceExtent(List<EXExtentPropertyType> sourceExtent) {
         this.sourceExtent = sourceExtent;
     }
 
     public boolean isSetSourceExtent() {
-        return ((this.sourceExtent != null) && (!this.sourceExtent.isEmpty()));
+        return ((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()));
     }
 
     public void unsetSourceExtent() {
@@ -216,26 +221,25 @@ public class LISourceType extends AbstractObjectType implements Serializable {
 
     /**
      * Gets the value of the sourceStep property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the sourceStep property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the sourceStep property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSourceStep().add(newItem);
+     *    getSourceStep().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LIProcessStepPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<LIProcessStepPropertyType> getSourceStep() {
         if (sourceStep == null) {
@@ -245,15 +249,15 @@ public class LISourceType extends AbstractObjectType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSourceStep(List<LIProcessStepPropertyType> sourceStep) {
         this.sourceStep = sourceStep;
     }
 
     public boolean isSetSourceStep() {
-        return ((this.sourceStep != null) && (!this.sourceStep.isEmpty()));
+        return ((this.sourceStep!= null)&&(!this.sourceStep.isEmpty()));
     }
 
     public void unsetSourceStep() {
@@ -261,9 +265,8 @@ public class LISourceType extends AbstractObjectType implements Serializable {
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -274,6 +277,19 @@ public class LISourceType extends AbstractObjectType implements Serializable {
         }
         final LISourceType that = ((LISourceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetScaleDenominator();
+            boolean rhsFieldIsSet = that.isSetScaleDenominator();
+            MDRepresentativeFractionPropertyType lhsField;
+            lhsField = this.getScaleDenominator();
+            MDRepresentativeFractionPropertyType rhsField;
+            rhsField = that.getScaleDenominator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleDenominator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleDenominator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSourceCitation();
             boolean rhsFieldIsSet = that.isSetSourceCitation();
             CICitationPropertyType lhsField;
@@ -282,6 +298,19 @@ public class LISourceType extends AbstractObjectType implements Serializable {
             rhsField = that.getSourceCitation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceCitation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceCitation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSourceExtent();
+            boolean rhsFieldIsSet = that.isSetSourceExtent();
+            List<EXExtentPropertyType> lhsField;
+            lhsField = (this.isSetSourceExtent()?this.getSourceExtent():null);
+            List<EXExtentPropertyType> rhsField;
+            rhsField = (that.isSetSourceExtent()?that.getSourceExtent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -300,14 +329,14 @@ public class LISourceType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSourceExtent();
-            boolean rhsFieldIsSet = that.isSetSourceExtent();
-            List<EXExtentPropertyType> lhsField;
-            lhsField = (this.isSetSourceExtent() ? this.getSourceExtent() : null);
-            List<EXExtentPropertyType> rhsField;
-            rhsField = (that.isSetSourceExtent() ? that.getSourceExtent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceExtent", rhsField);
+            boolean lhsFieldIsSet = this.isSetSourceStep();
+            boolean rhsFieldIsSet = that.isSetSourceStep();
+            List<LIProcessStepPropertyType> lhsField;
+            lhsField = (this.isSetSourceStep()?this.getSourceStep():null);
+            List<LIProcessStepPropertyType> rhsField;
+            rhsField = (that.isSetSourceStep()?that.getSourceStep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceStep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceStep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -321,32 +350,6 @@ public class LISourceType extends AbstractObjectType implements Serializable {
             rhsField = that.getDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetScaleDenominator();
-            boolean rhsFieldIsSet = that.isSetScaleDenominator();
-            MDRepresentativeFractionPropertyType lhsField;
-            lhsField = this.getScaleDenominator();
-            MDRepresentativeFractionPropertyType rhsField;
-            rhsField = that.getScaleDenominator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleDenominator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleDenominator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSourceStep();
-            boolean rhsFieldIsSet = that.isSetSourceStep();
-            List<LIProcessStepPropertyType> lhsField;
-            lhsField = (this.isSetSourceStep() ? this.getSourceStep() : null);
-            List<LIProcessStepPropertyType> rhsField;
-            rhsField = (that.isSetSourceStep() ? that.getSourceStep() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceStep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceStep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -388,14 +391,14 @@ public class LISourceType extends AbstractObjectType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetSourceExtent();
             List<EXExtentPropertyType> theField;
-            theField = (this.isSetSourceExtent() ? this.getSourceExtent() : null);
+            theField = (this.isSetSourceExtent()?this.getSourceExtent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sourceExtent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSourceStep();
             List<LIProcessStepPropertyType> theField;
-            theField = (this.isSetSourceStep() ? this.getSourceStep() : null);
+            theField = (this.isSetSourceStep()?this.getSourceStep():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sourceStep", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -432,13 +435,13 @@ public class LISourceType extends AbstractObjectType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetSourceExtent();
             List<EXExtentPropertyType> theField;
-            theField = (this.isSetSourceExtent() ? this.getSourceExtent() : null);
+            theField = (this.isSetSourceExtent()?this.getSourceExtent():null);
             strategy.appendField(locator, this, "sourceExtent", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSourceStep();
             List<LIProcessStepPropertyType> theField;
-            theField = (this.isSetSourceStep() ? this.getSourceStep() : null);
+            theField = (this.isSetSourceStep()?this.getSourceStep():null);
             strategy.appendField(locator, this, "sourceStep", buffer, theField, theFieldIsSet);
         }
         return buffer;

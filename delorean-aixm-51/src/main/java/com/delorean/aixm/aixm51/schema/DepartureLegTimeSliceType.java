@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,116 +31,62 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for DepartureLegTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DepartureLegTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DepartureLegTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="endConditionDesignator" type=
-"{http://www.aixm.aero/schema/5.1}CodeSegmentTerminationType" minOccurs="0"/>
- *         <element name="legPath" type=
-"{http://www.aixm.aero/schema/5.1}CodeTrajectoryType" minOccurs="0"/>
- *         <element name="legTypeARINC" type=
-"{http://www.aixm.aero/schema/5.1}CodeSegmentPathType" minOccurs="0"/>
- *         <element name="course" type=
-"{http://www.aixm.aero/schema/5.1}ValBearingType" minOccurs="0"/>
- *         <element name="courseType" type=
-"{http://www.aixm.aero/schema/5.1}CodeCourseType" minOccurs="0"/>
- *         <element name="courseDirection" type=
-"{http://www.aixm.aero/schema/5.1}CodeDirectionReferenceType" minOccurs="0"/>
- *         <element name="turnDirection" type=
-"{http://www.aixm.aero/schema/5.1}CodeDirectionTurnType" minOccurs="0"/>
- *         <element name="speedLimit" type=
-"{http://www.aixm.aero/schema/5.1}ValSpeedType" minOccurs="0"/>
- *         <element name="speedReference" type=
-"{http://www.aixm.aero/schema/5.1}CodeSpeedReferenceType" minOccurs="0"/>
- *         <element name="speedInterpretation" type=
-"{http://www.aixm.aero/schema/5.1}CodeAltitudeUseType" minOccurs="0"/>
- *         <element name="bankAngle" type=
-"{http://www.aixm.aero/schema/5.1}ValAngleType" minOccurs="0"/>
- *         <element name="length" type=
-"{http://www.aixm.aero/schema/5.1}ValDistanceType" minOccurs="0"/>
- *         <element name="duration" type=
-"{http://www.aixm.aero/schema/5.1}ValDurationType" minOccurs="0"/>
- *         <element name="procedureTurnRequired" type=
-"{http://www.aixm.aero/schema/5.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="upperLimitAltitude" type=
-"{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="upperLimitReference" type=
-"{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="lowerLimitAltitude" type=
-"{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="lowerLimitReference" type=
-"{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="altitudeInterpretation" type=
-"{http://www.aixm.aero/schema/5.1}CodeAltitudeUseType" minOccurs="0"/>
- *         <element name="altitudeOverrideATC" type=
-"{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="altitudeOverrideReference" type=
-"{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="verticalAngle" type=
-"{http://www.aixm.aero/schema/5.1}ValAngleType" minOccurs="0"/>
- *         <element name="startPoint" type=
-"{http://www.aixm.aero/schema/5.1}TerminalSegmentPointPropertyType" minOccurs=
-"0"/>
- *         <element name="endPoint" type=
-"{http://www.aixm.aero/schema/5.1}TerminalSegmentPointPropertyType" minOccurs=
-"0"/>
- *         <element name="trajectory" type=
-"{http://www.aixm.aero/schema/5.1}CurvePropertyType" minOccurs="0"/>
- *         <element name="arcCentre" type=
-"{http://www.aixm.aero/schema/5.1}TerminalSegmentPointPropertyType" minOccurs=
-"0"/>
- *         <element name="angle" type=
-"{http://www.aixm.aero/schema/5.1}AngleIndicationPropertyType" minOccurs="0"/>
- *         <element name="distance" type=
-"{http://www.aixm.aero/schema/5.1}DistanceIndicationPropertyType" minOccurs=
-"0"/>
- *         <element name="aircraftCategory" type=
-"{http://www.aixm.aero/schema/5.1}AircraftCharacteristicPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="holding" type=
-"{http://www.aixm.aero/schema/5.1}HoldingUsePropertyType" minOccurs="0"/>
- *         <element name="designSurface" type=
-"{http://www.aixm.aero/schema/5.1}ObstacleAssessmentAreaPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="requiredNavigationPerformance" type=
-"{http://www.aixm.aero/schema/5.1}CodeRNPType" minOccurs="0"/>
- *         <element name="minimumObstacleClearanceAltitude" type=
-"{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="departure" type=
-"{http://www.aixm.aero/schema/5.1}StandardInstrumentDeparturePropertyType" minOccurs
-="0"/>
- *         <element name="condition" type=
-"{http://www.aixm.aero/schema/5.1}DepartureArrivalConditionPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
+ *         <element name="endConditionDesignator" type="{http://www.aixm.aero/schema/5.1}CodeSegmentTerminationType" minOccurs="0"/>
+ *         <element name="legPath" type="{http://www.aixm.aero/schema/5.1}CodeTrajectoryType" minOccurs="0"/>
+ *         <element name="legTypeARINC" type="{http://www.aixm.aero/schema/5.1}CodeSegmentPathType" minOccurs="0"/>
+ *         <element name="course" type="{http://www.aixm.aero/schema/5.1}ValBearingType" minOccurs="0"/>
+ *         <element name="courseType" type="{http://www.aixm.aero/schema/5.1}CodeCourseType" minOccurs="0"/>
+ *         <element name="courseDirection" type="{http://www.aixm.aero/schema/5.1}CodeDirectionReferenceType" minOccurs="0"/>
+ *         <element name="turnDirection" type="{http://www.aixm.aero/schema/5.1}CodeDirectionTurnType" minOccurs="0"/>
+ *         <element name="speedLimit" type="{http://www.aixm.aero/schema/5.1}ValSpeedType" minOccurs="0"/>
+ *         <element name="speedReference" type="{http://www.aixm.aero/schema/5.1}CodeSpeedReferenceType" minOccurs="0"/>
+ *         <element name="speedInterpretation" type="{http://www.aixm.aero/schema/5.1}CodeAltitudeUseType" minOccurs="0"/>
+ *         <element name="bankAngle" type="{http://www.aixm.aero/schema/5.1}ValAngleType" minOccurs="0"/>
+ *         <element name="length" type="{http://www.aixm.aero/schema/5.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="duration" type="{http://www.aixm.aero/schema/5.1}ValDurationType" minOccurs="0"/>
+ *         <element name="procedureTurnRequired" type="{http://www.aixm.aero/schema/5.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="upperLimitAltitude" type="{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="upperLimitReference" type="{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="lowerLimitAltitude" type="{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="lowerLimitReference" type="{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="altitudeInterpretation" type="{http://www.aixm.aero/schema/5.1}CodeAltitudeUseType" minOccurs="0"/>
+ *         <element name="altitudeOverrideATC" type="{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="altitudeOverrideReference" type="{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="verticalAngle" type="{http://www.aixm.aero/schema/5.1}ValAngleType" minOccurs="0"/>
+ *         <element name="startPoint" type="{http://www.aixm.aero/schema/5.1}TerminalSegmentPointPropertyType" minOccurs="0"/>
+ *         <element name="endPoint" type="{http://www.aixm.aero/schema/5.1}TerminalSegmentPointPropertyType" minOccurs="0"/>
+ *         <element name="trajectory" type="{http://www.aixm.aero/schema/5.1}CurvePropertyType" minOccurs="0"/>
+ *         <element name="arcCentre" type="{http://www.aixm.aero/schema/5.1}TerminalSegmentPointPropertyType" minOccurs="0"/>
+ *         <element name="angle" type="{http://www.aixm.aero/schema/5.1}AngleIndicationPropertyType" minOccurs="0"/>
+ *         <element name="distance" type="{http://www.aixm.aero/schema/5.1}DistanceIndicationPropertyType" minOccurs="0"/>
+ *         <element name="aircraftCategory" type="{http://www.aixm.aero/schema/5.1}AircraftCharacteristicPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="holding" type="{http://www.aixm.aero/schema/5.1}HoldingUsePropertyType" minOccurs="0"/>
+ *         <element name="designSurface" type="{http://www.aixm.aero/schema/5.1}ObstacleAssessmentAreaPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="requiredNavigationPerformance" type="{http://www.aixm.aero/schema/5.1}CodeRNPType" minOccurs="0"/>
+ *         <element name="minimumObstacleClearanceAltitude" type="{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="departure" type="{http://www.aixm.aero/schema/5.1}StandardInstrumentDeparturePropertyType" minOccurs="0"/>
+ *         <element name="condition" type="{http://www.aixm.aero/schema/5.1}DepartureArrivalConditionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractDepartureLegExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractSegmentLegExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractDepartureLegExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractSegmentLegExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -150,20 +96,55 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DepartureLegTimeSliceType", propOrder = {"endConditionDesignator", "legPath", "legTypeARINC", "course",
-        "courseType", "courseDirection", "turnDirection", "speedLimit", "speedReference", "speedInterpretation",
-        "bankAngle", "length", "duration", "procedureTurnRequired", "upperLimitAltitude", "upperLimitReference",
-        "lowerLimitAltitude", "lowerLimitReference", "altitudeInterpretation", "altitudeOverrideATC",
-        "altitudeOverrideReference", "verticalAngle", "startPoint", "endPoint", "trajectory", "arcCentre", "angle",
-        "distance", "aircraftCategory", "holding", "designSurface", "annotation", "requiredNavigationPerformance",
-        "minimumObstacleClearanceAltitude", "departure", "condition", "extension"})
+@XmlType(name = "DepartureLegTimeSliceType", propOrder = {
+    "endConditionDesignator",
+    "legPath",
+    "legTypeARINC",
+    "course",
+    "courseType",
+    "courseDirection",
+    "turnDirection",
+    "speedLimit",
+    "speedReference",
+    "speedInterpretation",
+    "bankAngle",
+    "length",
+    "duration",
+    "procedureTurnRequired",
+    "upperLimitAltitude",
+    "upperLimitReference",
+    "lowerLimitAltitude",
+    "lowerLimitReference",
+    "altitudeInterpretation",
+    "altitudeOverrideATC",
+    "altitudeOverrideReference",
+    "verticalAngle",
+    "startPoint",
+    "endPoint",
+    "trajectory",
+    "arcCentre",
+    "angle",
+    "distance",
+    "aircraftCategory",
+    "holding",
+    "designSurface",
+    "annotation",
+    "requiredNavigationPerformance",
+    "minimumObstacleClearanceAltitude",
+    "departure",
+    "condition",
+    "extension"
+})
 @Entity(name = "DepartureLegTimeSliceType")
 @Table(name = "departureleg_t", schema = "procedure")
-public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class DepartureLegTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "endConditionDesignator", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -242,10 +223,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Gets the value of the endConditionDesignator property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSegmentTerminationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSegmentTerminationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSegmentTerminationType> getEndConditionDesignator() {
@@ -254,11 +236,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the endConditionDesignator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSegmentTerminationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSegmentTerminationType }{@code >}
+     *     
      */
     public void setEndConditionDesignator(JAXBElement<CodeSegmentTerminationType> value) {
         this.endConditionDesignator = value;
@@ -266,15 +248,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetEndConditionDesignator() {
-        return (this.endConditionDesignator != null);
+        return (this.endConditionDesignator!= null);
     }
 
     /**
      * Gets the value of the legPath property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeTrajectoryType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeTrajectoryType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeTrajectoryType> getLegPath() {
@@ -283,11 +266,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the legPath property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeTrajectoryType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeTrajectoryType }{@code >}
+     *     
      */
     public void setLegPath(JAXBElement<CodeTrajectoryType> value) {
         this.legPath = value;
@@ -295,15 +278,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetLegPath() {
-        return (this.legPath != null);
+        return (this.legPath!= null);
     }
 
     /**
      * Gets the value of the legTypeARINC property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSegmentPathType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSegmentPathType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSegmentPathType> getLegTypeARINC() {
@@ -312,11 +296,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the legTypeARINC property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSegmentPathType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSegmentPathType }{@code >}
+     *     
      */
     public void setLegTypeARINC(JAXBElement<CodeSegmentPathType> value) {
         this.legTypeARINC = value;
@@ -324,15 +308,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetLegTypeARINC() {
-        return (this.legTypeARINC != null);
+        return (this.legTypeARINC!= null);
     }
 
     /**
      * Gets the value of the course property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getCourse() {
@@ -341,11 +326,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the course property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setCourse(JAXBElement<ValBearingType> value) {
         this.course = value;
@@ -353,15 +338,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetCourse() {
-        return (this.course != null);
+        return (this.course!= null);
     }
 
     /**
      * Gets the value of the courseType property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeCourseType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeCourseType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeCourseType> getCourseType() {
@@ -370,11 +356,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the courseType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeCourseType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeCourseType }{@code >}
+     *     
      */
     public void setCourseType(JAXBElement<CodeCourseType> value) {
         this.courseType = value;
@@ -382,15 +368,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetCourseType() {
-        return (this.courseType != null);
+        return (this.courseType!= null);
     }
 
     /**
      * Gets the value of the courseDirection property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeDirectionReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeDirectionReferenceType> getCourseDirection() {
@@ -399,11 +386,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the courseDirection property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeDirectionReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionReferenceType }{@code >}
+     *     
      */
     public void setCourseDirection(JAXBElement<CodeDirectionReferenceType> value) {
         this.courseDirection = value;
@@ -411,15 +398,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetCourseDirection() {
-        return (this.courseDirection != null);
+        return (this.courseDirection!= null);
     }
 
     /**
      * Gets the value of the turnDirection property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeDirectionTurnType> getTurnDirection() {
@@ -428,11 +416,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the turnDirection property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *     
      */
     public void setTurnDirection(JAXBElement<CodeDirectionTurnType> value) {
         this.turnDirection = value;
@@ -440,15 +428,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetTurnDirection() {
-        return (this.turnDirection != null);
+        return (this.turnDirection!= null);
     }
 
     /**
      * Gets the value of the speedLimit property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValSpeedType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValSpeedType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValSpeedType> getSpeedLimit() {
@@ -457,11 +446,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the speedLimit property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValSpeedType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValSpeedType }{@code >}
+     *     
      */
     public void setSpeedLimit(JAXBElement<ValSpeedType> value) {
         this.speedLimit = value;
@@ -469,15 +458,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetSpeedLimit() {
-        return (this.speedLimit != null);
+        return (this.speedLimit!= null);
     }
 
     /**
      * Gets the value of the speedReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSpeedReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSpeedReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSpeedReferenceType> getSpeedReference() {
@@ -486,11 +476,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the speedReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSpeedReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSpeedReferenceType }{@code >}
+     *     
      */
     public void setSpeedReference(JAXBElement<CodeSpeedReferenceType> value) {
         this.speedReference = value;
@@ -498,15 +488,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetSpeedReference() {
-        return (this.speedReference != null);
+        return (this.speedReference!= null);
     }
 
     /**
      * Gets the value of the speedInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAltitudeUseType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAltitudeUseType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAltitudeUseType> getSpeedInterpretation() {
@@ -515,11 +506,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the speedInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAltitudeUseType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAltitudeUseType }{@code >}
+     *     
      */
     public void setSpeedInterpretation(JAXBElement<CodeAltitudeUseType> value) {
         this.speedInterpretation = value;
@@ -527,15 +518,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetSpeedInterpretation() {
-        return (this.speedInterpretation != null);
+        return (this.speedInterpretation!= null);
     }
 
     /**
      * Gets the value of the bankAngle property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getBankAngle() {
@@ -544,11 +536,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the bankAngle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setBankAngle(JAXBElement<ValAngleType> value) {
         this.bankAngle = value;
@@ -556,15 +548,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetBankAngle() {
-        return (this.bankAngle != null);
+        return (this.bankAngle!= null);
     }
 
     /**
      * Gets the value of the length property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getLength() {
@@ -573,11 +566,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the length property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setLength(JAXBElement<ValDistanceType> value) {
         this.length = value;
@@ -585,15 +578,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetLength() {
-        return (this.length != null);
+        return (this.length!= null);
     }
 
     /**
      * Gets the value of the duration property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDurationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDurationType> getDuration() {
@@ -602,11 +596,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the duration property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDurationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
+     *     
      */
     public void setDuration(JAXBElement<ValDurationType> value) {
         this.duration = value;
@@ -614,15 +608,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetDuration() {
-        return (this.duration != null);
+        return (this.duration!= null);
     }
 
     /**
      * Gets the value of the procedureTurnRequired property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getProcedureTurnRequired() {
@@ -631,11 +626,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the procedureTurnRequired property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setProcedureTurnRequired(JAXBElement<CodeYesNoType> value) {
         this.procedureTurnRequired = value;
@@ -643,15 +638,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetProcedureTurnRequired() {
-        return (this.procedureTurnRequired != null);
+        return (this.procedureTurnRequired!= null);
     }
 
     /**
      * Gets the value of the upperLimitAltitude property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getUpperLimitAltitude() {
@@ -660,11 +656,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the upperLimitAltitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setUpperLimitAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.upperLimitAltitude = value;
@@ -672,15 +668,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetUpperLimitAltitude() {
-        return (this.upperLimitAltitude != null);
+        return (this.upperLimitAltitude!= null);
     }
 
     /**
      * Gets the value of the upperLimitReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getUpperLimitReference() {
@@ -689,11 +686,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the upperLimitReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setUpperLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.upperLimitReference = value;
@@ -701,15 +698,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetUpperLimitReference() {
-        return (this.upperLimitReference != null);
+        return (this.upperLimitReference!= null);
     }
 
     /**
      * Gets the value of the lowerLimitAltitude property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getLowerLimitAltitude() {
@@ -718,11 +716,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the lowerLimitAltitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setLowerLimitAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.lowerLimitAltitude = value;
@@ -730,15 +728,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetLowerLimitAltitude() {
-        return (this.lowerLimitAltitude != null);
+        return (this.lowerLimitAltitude!= null);
     }
 
     /**
      * Gets the value of the lowerLimitReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getLowerLimitReference() {
@@ -747,11 +746,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the lowerLimitReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setLowerLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.lowerLimitReference = value;
@@ -759,15 +758,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetLowerLimitReference() {
-        return (this.lowerLimitReference != null);
+        return (this.lowerLimitReference!= null);
     }
 
     /**
      * Gets the value of the altitudeInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAltitudeUseType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAltitudeUseType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAltitudeUseType> getAltitudeInterpretation() {
@@ -776,11 +776,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the altitudeInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAltitudeUseType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAltitudeUseType }{@code >}
+     *     
      */
     public void setAltitudeInterpretation(JAXBElement<CodeAltitudeUseType> value) {
         this.altitudeInterpretation = value;
@@ -788,15 +788,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetAltitudeInterpretation() {
-        return (this.altitudeInterpretation != null);
+        return (this.altitudeInterpretation!= null);
     }
 
     /**
      * Gets the value of the altitudeOverrideATC property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getAltitudeOverrideATC() {
@@ -805,11 +806,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the altitudeOverrideATC property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setAltitudeOverrideATC(JAXBElement<ValDistanceVerticalType> value) {
         this.altitudeOverrideATC = value;
@@ -817,15 +818,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetAltitudeOverrideATC() {
-        return (this.altitudeOverrideATC != null);
+        return (this.altitudeOverrideATC!= null);
     }
 
     /**
      * Gets the value of the altitudeOverrideReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getAltitudeOverrideReference() {
@@ -834,11 +836,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the altitudeOverrideReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setAltitudeOverrideReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.altitudeOverrideReference = value;
@@ -846,15 +848,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetAltitudeOverrideReference() {
-        return (this.altitudeOverrideReference != null);
+        return (this.altitudeOverrideReference!= null);
     }
 
     /**
      * Gets the value of the verticalAngle property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValAngleType> getVerticalAngle() {
@@ -863,11 +866,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the verticalAngle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
+     *     
      */
     public void setVerticalAngle(JAXBElement<ValAngleType> value) {
         this.verticalAngle = value;
@@ -875,15 +878,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetVerticalAngle() {
-        return (this.verticalAngle != null);
+        return (this.verticalAngle!= null);
     }
 
     /**
      * Gets the value of the startPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TerminalSegmentPointPropertyType> getStartPoint() {
@@ -892,11 +896,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the startPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
+     *     
      */
     public void setStartPoint(JAXBElement<TerminalSegmentPointPropertyType> value) {
         this.startPoint = value;
@@ -904,15 +908,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetStartPoint() {
-        return (this.startPoint != null);
+        return (this.startPoint!= null);
     }
 
     /**
      * Gets the value of the endPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TerminalSegmentPointPropertyType> getEndPoint() {
@@ -921,11 +926,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the endPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
+     *     
      */
     public void setEndPoint(JAXBElement<TerminalSegmentPointPropertyType> value) {
         this.endPoint = value;
@@ -933,15 +938,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetEndPoint() {
-        return (this.endPoint != null);
+        return (this.endPoint!= null);
     }
 
     /**
      * Gets the value of the trajectory property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMCurvePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMCurvePropertyType> getTrajectory() {
@@ -950,11 +956,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the trajectory property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMCurvePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *     
      */
     public void setTrajectory(JAXBElement<AIXMCurvePropertyType> value) {
         this.trajectory = value;
@@ -962,15 +968,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetTrajectory() {
-        return (this.trajectory != null);
+        return (this.trajectory!= null);
     }
 
     /**
      * Gets the value of the arcCentre property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TerminalSegmentPointPropertyType> getArcCentre() {
@@ -979,11 +986,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the arcCentre property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TerminalSegmentPointPropertyType }{@code >}
+     *     
      */
     public void setArcCentre(JAXBElement<TerminalSegmentPointPropertyType> value) {
         this.arcCentre = value;
@@ -991,15 +998,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetArcCentre() {
-        return (this.arcCentre != null);
+        return (this.arcCentre!= null);
     }
 
     /**
      * Gets the value of the angle property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AngleIndicationPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AngleIndicationPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AngleIndicationPropertyType> getAngle() {
@@ -1008,11 +1016,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the angle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AngleIndicationPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AngleIndicationPropertyType }{@code >}
+     *     
      */
     public void setAngle(JAXBElement<AngleIndicationPropertyType> value) {
         this.angle = value;
@@ -1020,15 +1028,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetAngle() {
-        return (this.angle != null);
+        return (this.angle!= null);
     }
 
     /**
      * Gets the value of the distance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DistanceIndicationPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DistanceIndicationPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DistanceIndicationPropertyType> getDistance() {
@@ -1037,11 +1046,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the distance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DistanceIndicationPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DistanceIndicationPropertyType }{@code >}
+     *     
      */
     public void setDistance(JAXBElement<DistanceIndicationPropertyType> value) {
         this.distance = value;
@@ -1049,37 +1058,39 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetDistance() {
-        return (this.distance != null);
+        return (this.distance!= null);
     }
 
     /**
      * Gets the value of the aircraftCategory property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the aircraftCategory property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the aircraftCategory property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAircraftCategory().add(newItem);
+     *    getAircraftCategory().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AircraftCharacteristicPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_arcrftctgr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "aircraftcategory_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_arcrftctgr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "aircraftcategory_hjid", referencedColumnName = "hjid")
+    })
     public List<AircraftCharacteristicPropertyType> getAircraftCategory() {
         if (aircraftCategory == null) {
             aircraftCategory = new ArrayList<>();
@@ -1088,8 +1099,8 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAircraftCategory(List<AircraftCharacteristicPropertyType> aircraftCategory) {
         this.aircraftCategory = aircraftCategory;
@@ -1097,7 +1108,7 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetAircraftCategory() {
-        return ((this.aircraftCategory != null) && (!this.aircraftCategory.isEmpty()));
+        return ((this.aircraftCategory!= null)&&(!this.aircraftCategory.isEmpty()));
     }
 
     public void unsetAircraftCategory() {
@@ -1106,10 +1117,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Gets the value of the holding property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link HoldingUsePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link HoldingUsePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<HoldingUsePropertyType> getHolding() {
@@ -1118,11 +1130,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the holding property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link HoldingUsePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link HoldingUsePropertyType }{@code >}
+     *     
      */
     public void setHolding(JAXBElement<HoldingUsePropertyType> value) {
         this.holding = value;
@@ -1130,37 +1142,39 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetHolding() {
-        return (this.holding != null);
+        return (this.holding!= null);
     }
 
     /**
      * Gets the value of the designSurface property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the designSurface property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the designSurface property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getDesignSurface().add(newItem);
+     *    getDesignSurface().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ObstacleAssessmentAreaPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ObstacleAssessmentAreaPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_dsgnsrfc_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "designsurface_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_dsgnsrfc_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "designsurface_hjid", referencedColumnName = "hjid")
+    })
     public List<ObstacleAssessmentAreaPropertyType> getDesignSurface() {
         if (designSurface == null) {
             designSurface = new ArrayList<>();
@@ -1169,8 +1183,8 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setDesignSurface(List<ObstacleAssessmentAreaPropertyType> designSurface) {
         this.designSurface = designSurface;
@@ -1178,7 +1192,7 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetDesignSurface() {
-        return ((this.designSurface != null) && (!this.designSurface.isEmpty()));
+        return ((this.designSurface!= null)&&(!this.designSurface.isEmpty()));
     }
 
     public void unsetDesignSurface() {
@@ -1187,31 +1201,34 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_annttn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_annttn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -1220,8 +1237,8 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -1229,7 +1246,7 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -1238,10 +1255,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Gets the value of the requiredNavigationPerformance property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeRNPType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeRNPType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeRNPType> getRequiredNavigationPerformance() {
@@ -1250,11 +1268,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the requiredNavigationPerformance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link CodeRNPType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeRNPType }{@code >}
+     *     
      */
     public void setRequiredNavigationPerformance(JAXBElement<CodeRNPType> value) {
         this.requiredNavigationPerformance = value;
@@ -1262,15 +1280,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetRequiredNavigationPerformance() {
-        return (this.requiredNavigationPerformance != null);
+        return (this.requiredNavigationPerformance!= null);
     }
 
     /**
      * Gets the value of the minimumObstacleClearanceAltitude property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMinimumObstacleClearanceAltitude() {
@@ -1279,11 +1298,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the minimumObstacleClearanceAltitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setMinimumObstacleClearanceAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.minimumObstacleClearanceAltitude = value;
@@ -1291,15 +1310,16 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetMinimumObstacleClearanceAltitude() {
-        return (this.minimumObstacleClearanceAltitude != null);
+        return (this.minimumObstacleClearanceAltitude!= null);
     }
 
     /**
      * Gets the value of the departure property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link StandardInstrumentDeparturePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentDeparturePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<StandardInstrumentDeparturePropertyType> getDeparture() {
@@ -1308,12 +1328,11 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the departure property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link StandardInstrumentDeparturePropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link StandardInstrumentDeparturePropertyType }{@code >}
+     *     
      */
     public void setDeparture(JAXBElement<StandardInstrumentDeparturePropertyType> value) {
         this.departure = value;
@@ -1321,37 +1340,39 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetDeparture() {
-        return (this.departure != null);
+        return (this.departure!= null);
     }
 
     /**
      * Gets the value of the condition property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the condition property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the condition property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getCondition().add(newItem);
+     *    getCondition().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DepartureArrivalConditionPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = DepartureArrivalConditionPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_cndtn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "condition_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_cndtn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "condition_hjid", referencedColumnName = "hjid")
+    })
     public List<DepartureArrivalConditionPropertyType> getCondition() {
         if (condition == null) {
             condition = new ArrayList<>();
@@ -1360,8 +1381,8 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setCondition(List<DepartureArrivalConditionPropertyType> condition) {
         this.condition = condition;
@@ -1369,7 +1390,7 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetCondition() {
-        return ((this.condition != null) && (!this.condition.isEmpty()));
+        return ((this.condition!= null)&&(!this.condition.isEmpty()));
     }
 
     public void unsetCondition() {
@@ -1378,29 +1399,29 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DepartureLegTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = DepartureLegTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "departureleg_te_hjid", referencedColumnName = "hjid")
     public List<DepartureLegTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -1410,8 +1431,8 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<DepartureLegTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -1419,7 +1440,7 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -1427,440 +1448,455 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "endconditiondesignator")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "endconditiondesignatornilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "endconditiondesignator", columnDefinition = "codesegmentterminationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "endconditiondesignatornilreason", columnDefinition = "nilreason"))
+    })
     public CodeSegmentTerminationType getEndConditionDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSegmentTerminationType.class, this.getEndConditionDesignator());
     }
 
     public void setEndConditionDesignatorItem(CodeSegmentTerminationType target) {
-        setEndConditionDesignator(XmlAdapterUtils.marshallJAXBElement(CodeSegmentTerminationType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "endConditionDesignator"), DepartureLegTimeSliceType.class,
-                target));
+        setEndConditionDesignator(XmlAdapterUtils.marshallJAXBElement(CodeSegmentTerminationType.class, new QName("http://www.aixm.aero/schema/5.1", "endConditionDesignator"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "legpath")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "legpathnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "legpath", columnDefinition = "codetrajectorybase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "legpathnilreason", columnDefinition = "nilreason"))
+    })
     public CodeTrajectoryType getLegPathItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTrajectoryType.class, this.getLegPath());
     }
 
     public void setLegPathItem(CodeTrajectoryType target) {
-        setLegPath(XmlAdapterUtils.marshallJAXBElement(CodeTrajectoryType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "legPath"), DepartureLegTimeSliceType.class, target));
+        setLegPath(XmlAdapterUtils.marshallJAXBElement(CodeTrajectoryType.class, new QName("http://www.aixm.aero/schema/5.1", "legPath"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "legtypearinc")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "legtypearincnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "legtypearinc", columnDefinition = "codesegmentpathbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "legtypearincnilreason", columnDefinition = "nilreason"))
+    })
     public CodeSegmentPathType getLegTypeARINCItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSegmentPathType.class, this.getLegTypeARINC());
     }
 
     public void setLegTypeARINCItem(CodeSegmentPathType target) {
-        setLegTypeARINC(XmlAdapterUtils.marshallJAXBElement(CodeSegmentPathType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "legTypeARINC"), DepartureLegTimeSliceType.class, target));
+        setLegTypeARINC(XmlAdapterUtils.marshallJAXBElement(CodeSegmentPathType.class, new QName("http://www.aixm.aero/schema/5.1", "legTypeARINC"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "course", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "coursenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "course", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "coursenilreason", columnDefinition = "nilreason"))
+    })
     public ValBearingType getCourseItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getCourse());
     }
 
     public void setCourseItem(ValBearingType target) {
-        setCourse(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "course"), DepartureLegTimeSliceType.class, target));
+        setCourse(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1", "course"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "coursetype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "coursetypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "coursetype", columnDefinition = "codecoursebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "coursetypenilreason", columnDefinition = "nilreason"))
+    })
     public CodeCourseType getCourseTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCourseType.class, this.getCourseType());
     }
 
     public void setCourseTypeItem(CodeCourseType target) {
-        setCourseType(XmlAdapterUtils.marshallJAXBElement(CodeCourseType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "courseType"), DepartureLegTimeSliceType.class, target));
+        setCourseType(XmlAdapterUtils.marshallJAXBElement(CodeCourseType.class, new QName("http://www.aixm.aero/schema/5.1", "courseType"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "coursedirection")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "coursedirectionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "coursedirection", columnDefinition = "codedirectionreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "coursedirectionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeDirectionReferenceType getCourseDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDirectionReferenceType.class, this.getCourseDirection());
     }
 
     public void setCourseDirectionItem(CodeDirectionReferenceType target) {
-        setCourseDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "courseDirection"), DepartureLegTimeSliceType.class,
-                target));
+        setCourseDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionReferenceType.class, new QName("http://www.aixm.aero/schema/5.1", "courseDirection"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "turndirection")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "turndirectionnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "turndirection", columnDefinition = "codedirectionturnbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "turndirectionnilreason", columnDefinition = "nilreason"))
+    })
     public CodeDirectionTurnType getTurnDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDirectionTurnType.class, this.getTurnDirection());
     }
 
     public void setTurnDirectionItem(CodeDirectionTurnType target) {
-        setTurnDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "turnDirection"), DepartureLegTimeSliceType.class,
-                target));
+        setTurnDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class, new QName("http://www.aixm.aero/schema/5.1", "turnDirection"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "speedlimit", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "speedlimituom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "speedlimitnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "speedlimit", columnDefinition = "valspeedbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "speedlimituom", columnDefinition = "uomspeed")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "speedlimitnilreason", columnDefinition = "nilreason"))
+    })
     public ValSpeedType getSpeedLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValSpeedType.class, this.getSpeedLimit());
     }
 
     public void setSpeedLimitItem(ValSpeedType target) {
-        setSpeedLimit(XmlAdapterUtils.marshallJAXBElement(ValSpeedType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "speedLimit"), DepartureLegTimeSliceType.class, target));
+        setSpeedLimit(XmlAdapterUtils.marshallJAXBElement(ValSpeedType.class, new QName("http://www.aixm.aero/schema/5.1", "speedLimit"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "speedreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "speedreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "speedreference", columnDefinition = "codespeedreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "speedreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeSpeedReferenceType getSpeedReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSpeedReferenceType.class, this.getSpeedReference());
     }
 
     public void setSpeedReferenceItem(CodeSpeedReferenceType target) {
-        setSpeedReference(XmlAdapterUtils.marshallJAXBElement(CodeSpeedReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "speedReference"), DepartureLegTimeSliceType.class,
-                target));
+        setSpeedReference(XmlAdapterUtils.marshallJAXBElement(CodeSpeedReferenceType.class, new QName("http://www.aixm.aero/schema/5.1", "speedReference"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "speedinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "speedinterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "speedinterpretation", columnDefinition = "codealtitudeusebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "speedinterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeAltitudeUseType getSpeedInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAltitudeUseType.class, this.getSpeedInterpretation());
     }
 
     public void setSpeedInterpretationItem(CodeAltitudeUseType target) {
-        setSpeedInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeAltitudeUseType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "speedInterpretation"), DepartureLegTimeSliceType.class,
-                target));
+        setSpeedInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeAltitudeUseType.class, new QName("http://www.aixm.aero/schema/5.1", "speedInterpretation"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "bankangle", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "bankanglenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "bankangle", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "bankanglenilreason", columnDefinition = "nilreason"))
+    })
     public ValAngleType getBankAngleItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getBankAngle());
     }
 
     public void setBankAngleItem(ValAngleType target) {
-        setBankAngle(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "bankAngle"), DepartureLegTimeSliceType.class, target));
+        setBankAngle(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.1", "bankAngle"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "lengthuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lengthnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "lengthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lengthnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getLengthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getLength());
     }
 
     public void setLengthItem(ValDistanceType target) {
-        setLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "length"), DepartureLegTimeSliceType.class, target));
+        setLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1", "length"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "duration", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "durationuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "durationnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "duration", columnDefinition = "valdurationbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "durationuom", columnDefinition = "uomduration")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "durationnilreason", columnDefinition = "nilreason"))
+    })
     public ValDurationType getDurationItem() {
         return XmlAdapterUtils.unmarshallSource(ValDurationType.class, this.getDuration());
     }
 
     public void setDurationItem(ValDurationType target) {
-        setDuration(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "duration"), DepartureLegTimeSliceType.class, target));
+        setDuration(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class, new QName("http://www.aixm.aero/schema/5.1", "duration"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "procedureturnrequired")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "procedureturnrequirednilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "procedureturnrequired", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "procedureturnrequirednilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getProcedureTurnRequiredItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getProcedureTurnRequired());
     }
 
     public void setProcedureTurnRequiredItem(CodeYesNoType target) {
-        setProcedureTurnRequired(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "procedureTurnRequired"), DepartureLegTimeSliceType.class,
-                target));
+        setProcedureTurnRequired(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1", "procedureTurnRequired"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "upperlimitaltitude", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "upperlimitaltitudeuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitaltitudenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimitaltitude", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "upperlimitaltitudeuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitaltitudenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getUpperLimitAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getUpperLimitAltitude());
     }
 
     public void setUpperLimitAltitudeItem(ValDistanceVerticalType target) {
-        setUpperLimitAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "upperLimitAltitude"), DepartureLegTimeSliceType.class,
-                target));
+        setUpperLimitAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1", "upperLimitAltitude"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "upperlimitreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimitreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getUpperLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getUpperLimitReference());
     }
 
     public void setUpperLimitReferenceItem(CodeVerticalReferenceType target) {
-        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "upperLimitReference"), DepartureLegTimeSliceType.class,
-                target));
+        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1", "upperLimitReference"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "lowerlimitaltitude", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "lowerlimitaltitudeuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitaltitudenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimitaltitude", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "lowerlimitaltitudeuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitaltitudenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getLowerLimitAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getLowerLimitAltitude());
     }
 
     public void setLowerLimitAltitudeItem(ValDistanceVerticalType target) {
-        setLowerLimitAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "lowerLimitAltitude"), DepartureLegTimeSliceType.class,
-                target));
+        setLowerLimitAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1", "lowerLimitAltitude"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getLowerLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getLowerLimitReference());
     }
 
     public void setLowerLimitReferenceItem(CodeVerticalReferenceType target) {
-        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "lowerLimitReference"), DepartureLegTimeSliceType.class,
-                target));
+        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1", "lowerLimitReference"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "altitudeinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeinterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "altitudeinterpretation", columnDefinition = "codealtitudeusebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeinterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeAltitudeUseType getAltitudeInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAltitudeUseType.class, this.getAltitudeInterpretation());
     }
 
     public void setAltitudeInterpretationItem(CodeAltitudeUseType target) {
-        setAltitudeInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeAltitudeUseType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "altitudeInterpretation"), DepartureLegTimeSliceType.class,
-                target));
+        setAltitudeInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeAltitudeUseType.class, new QName("http://www.aixm.aero/schema/5.1", "altitudeInterpretation"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "altitudeoverrideatc", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "altitudeoverrideatcuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeoverrideatcnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "altitudeoverrideatc", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "altitudeoverrideatcuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeoverrideatcnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getAltitudeOverrideATCItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getAltitudeOverrideATC());
     }
 
     public void setAltitudeOverrideATCItem(ValDistanceVerticalType target) {
-        setAltitudeOverrideATC(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "altitudeOverrideATC"), DepartureLegTimeSliceType.class,
-                target));
+        setAltitudeOverrideATC(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1", "altitudeOverrideATC"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "altitudeoverridereference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeoverridereferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "altitudeoverridereference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeoverridereferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getAltitudeOverrideReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getAltitudeOverrideReference());
     }
 
     public void setAltitudeOverrideReferenceItem(CodeVerticalReferenceType target) {
-        setAltitudeOverrideReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "altitudeOverrideReference"),
-                DepartureLegTimeSliceType.class, target));
+        setAltitudeOverrideReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1", "altitudeOverrideReference"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "verticalangle", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "verticalanglenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "verticalangle", columnDefinition = "valanglebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "verticalanglenilreason", columnDefinition = "nilreason"))
+    })
     public ValAngleType getVerticalAngleItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getVerticalAngle());
     }
 
     public void setVerticalAngleItem(ValAngleType target) {
-        setVerticalAngle(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "verticalAngle"), DepartureLegTimeSliceType.class,
-                target));
+        setVerticalAngle(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.1", "verticalAngle"), DepartureLegTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = TerminalSegmentPointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_strtpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "startpoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_strtpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "startpoint_hjid", referencedColumnName = "hjid")
+    })
     public TerminalSegmentPointPropertyType getStartPointItem() {
         return XmlAdapterUtils.unmarshallSource(TerminalSegmentPointPropertyType.class, this.getStartPoint());
     }
 
     public void setStartPointItem(TerminalSegmentPointPropertyType target) {
-        setStartPoint(XmlAdapterUtils.marshallJAXBElement(TerminalSegmentPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "startPoint"), DepartureLegTimeSliceType.class, target));
+        setStartPoint(XmlAdapterUtils.marshallJAXBElement(TerminalSegmentPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "startPoint"), DepartureLegTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = TerminalSegmentPointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_endpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "endpoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_endpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "endpoint_hjid", referencedColumnName = "hjid")
+    })
     public TerminalSegmentPointPropertyType getEndPointItem() {
         return XmlAdapterUtils.unmarshallSource(TerminalSegmentPointPropertyType.class, this.getEndPoint());
     }
 
     public void setEndPointItem(TerminalSegmentPointPropertyType target) {
-        setEndPoint(XmlAdapterUtils.marshallJAXBElement(TerminalSegmentPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "endPoint"), DepartureLegTimeSliceType.class, target));
+        setEndPoint(XmlAdapterUtils.marshallJAXBElement(TerminalSegmentPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "endPoint"), DepartureLegTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_trjctr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "trajectory_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_trjctr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "trajectory_hjid", referencedColumnName = "hjid")
+    })
     public AIXMCurvePropertyType getTrajectoryItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMCurvePropertyType.class, this.getTrajectory());
     }
 
     public void setTrajectoryItem(AIXMCurvePropertyType target) {
-        setTrajectory(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "trajectory"), DepartureLegTimeSliceType.class, target));
+        setTrajectory(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "trajectory"), DepartureLegTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = TerminalSegmentPointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_arccntr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "arccentre_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_arccntr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "arccentre_hjid", referencedColumnName = "hjid")
+    })
     public TerminalSegmentPointPropertyType getArcCentreItem() {
         return XmlAdapterUtils.unmarshallSource(TerminalSegmentPointPropertyType.class, this.getArcCentre());
     }
 
     public void setArcCentreItem(TerminalSegmentPointPropertyType target) {
-        setArcCentre(XmlAdapterUtils.marshallJAXBElement(TerminalSegmentPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "arcCentre"), DepartureLegTimeSliceType.class, target));
+        setArcCentre(XmlAdapterUtils.marshallJAXBElement(TerminalSegmentPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "arcCentre"), DepartureLegTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AngleIndicationPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_angl_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "angle_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AngleIndicationPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_angl_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "angle_hjid", referencedColumnName = "hjid")
+    })
     public AngleIndicationPropertyType getAngleItem() {
         return XmlAdapterUtils.unmarshallSource(AngleIndicationPropertyType.class, this.getAngle());
     }
 
     public void setAngleItem(AngleIndicationPropertyType target) {
-        setAngle(XmlAdapterUtils.marshallJAXBElement(AngleIndicationPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "angle"), DepartureLegTimeSliceType.class, target));
+        setAngle(XmlAdapterUtils.marshallJAXBElement(AngleIndicationPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "angle"), DepartureLegTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = DistanceIndicationPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_dstnc_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "distance_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DistanceIndicationPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_dstnc_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "distance_hjid", referencedColumnName = "hjid")
+    })
     public DistanceIndicationPropertyType getDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(DistanceIndicationPropertyType.class, this.getDistance());
     }
 
     public void setDistanceItem(DistanceIndicationPropertyType target) {
-        setDistance(XmlAdapterUtils.marshallJAXBElement(DistanceIndicationPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "distance"), DepartureLegTimeSliceType.class, target));
+        setDistance(XmlAdapterUtils.marshallJAXBElement(DistanceIndicationPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "distance"), DepartureLegTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = HoldingUsePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_hldng_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "holding_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = HoldingUsePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_hldng_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "holding_hjid", referencedColumnName = "hjid")
+    })
     public HoldingUsePropertyType getHoldingItem() {
         return XmlAdapterUtils.unmarshallSource(HoldingUsePropertyType.class, this.getHolding());
     }
 
     public void setHoldingItem(HoldingUsePropertyType target) {
-        setHolding(XmlAdapterUtils.marshallJAXBElement(HoldingUsePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "holding"), DepartureLegTimeSliceType.class, target));
+        setHolding(XmlAdapterUtils.marshallJAXBElement(HoldingUsePropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "holding"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "requirednavigationperformance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "requirednavigationperformancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "requirednavigationperformance", columnDefinition = "codernpbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "requirednavigationperformancenilreason", columnDefinition = "nilreason"))
+    })
     public CodeRNPType getRequiredNavigationPerformanceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRNPType.class, this.getRequiredNavigationPerformance());
     }
 
     public void setRequiredNavigationPerformanceItem(CodeRNPType target) {
-        setRequiredNavigationPerformance(XmlAdapterUtils.marshallJAXBElement(CodeRNPType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "requiredNavigationPerformance"),
-                DepartureLegTimeSliceType.class, target));
+        setRequiredNavigationPerformance(XmlAdapterUtils.marshallJAXBElement(CodeRNPType.class, new QName("http://www.aixm.aero/schema/5.1", "requiredNavigationPerformance"), DepartureLegTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "minimumobstacleclearancealtitude", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "minimumobstacleclearancealtitudeuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumobstacleclearancealtitudenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "minimumobstacleclearancealtitude", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "minimumobstacleclearancealtitudeuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumobstacleclearancealtitudenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getMinimumObstacleClearanceAltitudeItem() {
-        return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class,
-                this.getMinimumObstacleClearanceAltitude());
+        return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMinimumObstacleClearanceAltitude());
     }
 
     public void setMinimumObstacleClearanceAltitudeItem(ValDistanceVerticalType target) {
-        setMinimumObstacleClearanceAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "minimumObstacleClearanceAltitude"),
-                DepartureLegTimeSliceType.class, target));
+        setMinimumObstacleClearanceAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1", "minimumObstacleClearanceAltitude"), DepartureLegTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = StandardInstrumentDeparturePropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "dprtrlgtmslctp_dprtr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "departure_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "dprtrlgtmslctp_dprtr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "departureleg_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "departure_hjid", referencedColumnName = "hjid")
+    })
     public StandardInstrumentDeparturePropertyType getDepartureItem() {
         return XmlAdapterUtils.unmarshallSource(StandardInstrumentDeparturePropertyType.class, this.getDeparture());
     }
 
     public void setDepartureItem(StandardInstrumentDeparturePropertyType target) {
-        setDeparture(XmlAdapterUtils.marshallJAXBElement(StandardInstrumentDeparturePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "departure"), DepartureLegTimeSliceType.class, target));
+        setDeparture(XmlAdapterUtils.marshallJAXBElement(StandardInstrumentDeparturePropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "departure"), DepartureLegTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1871,55 +1907,14 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         final DepartureLegTimeSliceType that = ((DepartureLegTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCourseDirection();
-            boolean rhsFieldIsSet = that.isSetCourseDirection();
-            JAXBElement<CodeDirectionReferenceType> lhsField;
-            lhsField = this.getCourseDirection();
-            JAXBElement<CodeDirectionReferenceType> rhsField;
-            rhsField = that.getCourseDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAngle();
-            boolean rhsFieldIsSet = that.isSetAngle();
-            JAXBElement<AngleIndicationPropertyType> lhsField;
-            lhsField = this.getAngle();
-            JAXBElement<AngleIndicationPropertyType> rhsField;
-            rhsField = that.getAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumObstacleClearanceAltitude();
-            boolean rhsFieldIsSet = that.isSetMinimumObstacleClearanceAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumObstacleClearanceAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumObstacleClearanceAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumObstacleClearanceAltitude",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumObstacleClearanceAltitude",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetProcedureTurnRequired();
+            boolean rhsFieldIsSet = that.isSetProcedureTurnRequired();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getProcedureTurnRequired();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getProcedureTurnRequired();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "procedureTurnRequired", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "procedureTurnRequired", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1938,341 +1933,14 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEndConditionDesignator();
-            boolean rhsFieldIsSet = that.isSetEndConditionDesignator();
-            JAXBElement<CodeSegmentTerminationType> lhsField;
-            lhsField = this.getEndConditionDesignator();
-            JAXBElement<CodeSegmentTerminationType> rhsField;
-            rhsField = that.getEndConditionDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endConditionDesignator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endConditionDesignator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLegTypeARINC();
-            boolean rhsFieldIsSet = that.isSetLegTypeARINC();
-            JAXBElement<CodeSegmentPathType> lhsField;
-            lhsField = this.getLegTypeARINC();
-            JAXBElement<CodeSegmentPathType> rhsField;
-            rhsField = that.getLegTypeARINC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legTypeARINC", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legTypeARINC", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpeedLimit();
-            boolean rhsFieldIsSet = that.isSetSpeedLimit();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeedLimit();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeedLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTurnDirection();
-            boolean rhsFieldIsSet = that.isSetTurnDirection();
-            JAXBElement<CodeDirectionTurnType> lhsField;
-            lhsField = this.getTurnDirection();
-            JAXBElement<CodeDirectionTurnType> rhsField;
-            rhsField = that.getTurnDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcCentre();
-            boolean rhsFieldIsSet = that.isSetArcCentre();
-            JAXBElement<TerminalSegmentPointPropertyType> lhsField;
-            lhsField = this.getArcCentre();
-            JAXBElement<TerminalSegmentPointPropertyType> rhsField;
-            rhsField = that.getArcCentre();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcCentre", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcCentre", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignSurface();
-            boolean rhsFieldIsSet = that.isSetDesignSurface();
-            List<ObstacleAssessmentAreaPropertyType> lhsField;
-            lhsField = (this.isSetDesignSurface() ? this.getDesignSurface() : null);
-            List<ObstacleAssessmentAreaPropertyType> rhsField;
-            rhsField = (that.isSetDesignSurface() ? that.getDesignSurface() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDeparture();
-            boolean rhsFieldIsSet = that.isSetDeparture();
-            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
-            lhsField = this.getDeparture();
-            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
-            rhsField = that.getDeparture();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "departure", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "departure", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
-            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getUpperLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrajectory();
-            boolean rhsFieldIsSet = that.isSetTrajectory();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getTrajectory();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getTrajectory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trajectory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trajectory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLegPath();
-            boolean rhsFieldIsSet = that.isSetLegPath();
-            JAXBElement<CodeTrajectoryType> lhsField;
-            lhsField = this.getLegPath();
-            JAXBElement<CodeTrajectoryType> rhsField;
-            rhsField = that.getLegPath();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legPath", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legPath", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpeedReference();
-            boolean rhsFieldIsSet = that.isSetSpeedReference();
-            JAXBElement<CodeSpeedReferenceType> lhsField;
-            lhsField = this.getSpeedReference();
-            JAXBElement<CodeSpeedReferenceType> rhsField;
-            rhsField = that.getSpeedReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRequiredNavigationPerformance();
-            boolean rhsFieldIsSet = that.isSetRequiredNavigationPerformance();
-            JAXBElement<CodeRNPType> lhsField;
-            lhsField = this.getRequiredNavigationPerformance();
-            JAXBElement<CodeRNPType> rhsField;
-            rhsField = that.getRequiredNavigationPerformance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "requiredNavigationPerformance",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "requiredNavigationPerformance",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLowerLimitAltitude();
-            boolean rhsFieldIsSet = that.isSetLowerLimitAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getLowerLimitAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getLowerLimitAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitudeOverrideATC();
-            boolean rhsFieldIsSet = that.isSetAltitudeOverrideATC();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAltitudeOverrideATC();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAltitudeOverrideATC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeOverrideATC", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeOverrideATC", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCourse();
-            boolean rhsFieldIsSet = that.isSetCourse();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getCourse();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "course", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "course", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraftCategory();
-            boolean rhsFieldIsSet = that.isSetAircraftCategory();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraftCategory() ? this.getAircraftCategory() : null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraftCategory() ? that.getAircraftCategory() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndPoint();
-            boolean rhsFieldIsSet = that.isSetEndPoint();
-            JAXBElement<TerminalSegmentPointPropertyType> lhsField;
-            lhsField = this.getEndPoint();
-            JAXBElement<TerminalSegmentPointPropertyType> rhsField;
-            rhsField = that.getEndPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDuration();
-            boolean rhsFieldIsSet = that.isSetDuration();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getDuration();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getDuration();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "duration", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "duration", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimitAltitude();
-            boolean rhsFieldIsSet = that.isSetUpperLimitAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLimitAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLimitAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProcedureTurnRequired();
-            boolean rhsFieldIsSet = that.isSetProcedureTurnRequired();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getProcedureTurnRequired();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getProcedureTurnRequired();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "procedureTurnRequired", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "procedureTurnRequired", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<DepartureLegTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<DepartureLegTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCourseType();
-            boolean rhsFieldIsSet = that.isSetCourseType();
-            JAXBElement<CodeCourseType> lhsField;
-            lhsField = this.getCourseType();
-            JAXBElement<CodeCourseType> rhsField;
-            rhsField = that.getCourseType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpeedInterpretation();
-            boolean rhsFieldIsSet = that.isSetSpeedInterpretation();
-            JAXBElement<CodeAltitudeUseType> lhsField;
-            lhsField = this.getSpeedInterpretation();
-            JAXBElement<CodeAltitudeUseType> rhsField;
-            rhsField = that.getSpeedInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBankAngle();
-            boolean rhsFieldIsSet = that.isSetBankAngle();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getBankAngle();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getBankAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bankAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bankAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -2291,14 +1959,14 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStartPoint();
-            boolean rhsFieldIsSet = that.isSetStartPoint();
-            JAXBElement<TerminalSegmentPointPropertyType> lhsField;
-            lhsField = this.getStartPoint();
-            JAXBElement<TerminalSegmentPointPropertyType> rhsField;
-            rhsField = that.getStartPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -2317,6 +1985,123 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetStartPoint();
+            boolean rhsFieldIsSet = that.isSetStartPoint();
+            JAXBElement<TerminalSegmentPointPropertyType> lhsField;
+            lhsField = this.getStartPoint();
+            JAXBElement<TerminalSegmentPointPropertyType> rhsField;
+            rhsField = that.getStartPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpeedLimit();
+            boolean rhsFieldIsSet = that.isSetSpeedLimit();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeedLimit();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeedLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitudeOverrideATC();
+            boolean rhsFieldIsSet = that.isSetAltitudeOverrideATC();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAltitudeOverrideATC();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAltitudeOverrideATC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeOverrideATC", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeOverrideATC", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCourse();
+            boolean rhsFieldIsSet = that.isSetCourse();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getCourse();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "course", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "course", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndPoint();
+            boolean rhsFieldIsSet = that.isSetEndPoint();
+            JAXBElement<TerminalSegmentPointPropertyType> lhsField;
+            lhsField = this.getEndPoint();
+            JAXBElement<TerminalSegmentPointPropertyType> rhsField;
+            rhsField = that.getEndPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCourseDirection();
+            boolean rhsFieldIsSet = that.isSetCourseDirection();
+            JAXBElement<CodeDirectionReferenceType> lhsField;
+            lhsField = this.getCourseDirection();
+            JAXBElement<CodeDirectionReferenceType> rhsField;
+            rhsField = that.getCourseDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
+            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getUpperLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCondition();
+            boolean rhsFieldIsSet = that.isSetCondition();
+            List<DepartureArrivalConditionPropertyType> lhsField;
+            lhsField = (this.isSetCondition()?this.getCondition():null);
+            List<DepartureArrivalConditionPropertyType> rhsField;
+            rhsField = (that.isSetCondition()?that.getCondition():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTurnDirection();
+            boolean rhsFieldIsSet = that.isSetTurnDirection();
+            JAXBElement<CodeDirectionTurnType> lhsField;
+            lhsField = this.getTurnDirection();
+            JAXBElement<CodeDirectionTurnType> rhsField;
+            rhsField = that.getTurnDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetHolding();
             boolean rhsFieldIsSet = that.isSetHolding();
             JAXBElement<HoldingUsePropertyType> lhsField;
@@ -2330,14 +2115,118 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCondition();
-            boolean rhsFieldIsSet = that.isSetCondition();
-            List<DepartureArrivalConditionPropertyType> lhsField;
-            lhsField = (this.isSetCondition() ? this.getCondition() : null);
-            List<DepartureArrivalConditionPropertyType> rhsField;
-            rhsField = (that.isSetCondition() ? that.getCondition() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            boolean lhsFieldIsSet = this.isSetCourseType();
+            boolean rhsFieldIsSet = that.isSetCourseType();
+            JAXBElement<CodeCourseType> lhsField;
+            lhsField = this.getCourseType();
+            JAXBElement<CodeCourseType> rhsField;
+            rhsField = that.getCourseType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLegTypeARINC();
+            boolean rhsFieldIsSet = that.isSetLegTypeARINC();
+            JAXBElement<CodeSegmentPathType> lhsField;
+            lhsField = this.getLegTypeARINC();
+            JAXBElement<CodeSegmentPathType> rhsField;
+            rhsField = that.getLegTypeARINC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legTypeARINC", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legTypeARINC", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAircraftCategory();
+            boolean rhsFieldIsSet = that.isSetAircraftCategory();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraftCategory()?this.getAircraftCategory():null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraftCategory()?that.getAircraftCategory():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCategory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitAltitude();
+            boolean rhsFieldIsSet = that.isSetLowerLimitAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getLowerLimitAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getLowerLimitAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignSurface();
+            boolean rhsFieldIsSet = that.isSetDesignSurface();
+            List<ObstacleAssessmentAreaPropertyType> lhsField;
+            lhsField = (this.isSetDesignSurface()?this.getDesignSurface():null);
+            List<ObstacleAssessmentAreaPropertyType> rhsField;
+            rhsField = (that.isSetDesignSurface()?that.getDesignSurface():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcCentre();
+            boolean rhsFieldIsSet = that.isSetArcCentre();
+            JAXBElement<TerminalSegmentPointPropertyType> lhsField;
+            lhsField = this.getArcCentre();
+            JAXBElement<TerminalSegmentPointPropertyType> rhsField;
+            rhsField = that.getArcCentre();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcCentre", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcCentre", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDuration();
+            boolean rhsFieldIsSet = that.isSetDuration();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getDuration();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getDuration();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "duration", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "duration", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpeedInterpretation();
+            boolean rhsFieldIsSet = that.isSetSpeedInterpretation();
+            JAXBElement<CodeAltitudeUseType> lhsField;
+            lhsField = this.getSpeedInterpretation();
+            JAXBElement<CodeAltitudeUseType> rhsField;
+            rhsField = that.getSpeedInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -2351,6 +2240,149 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
             rhsField = that.getAltitudeOverrideReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeOverrideReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeOverrideReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRequiredNavigationPerformance();
+            boolean rhsFieldIsSet = that.isSetRequiredNavigationPerformance();
+            JAXBElement<CodeRNPType> lhsField;
+            lhsField = this.getRequiredNavigationPerformance();
+            JAXBElement<CodeRNPType> rhsField;
+            rhsField = that.getRequiredNavigationPerformance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "requiredNavigationPerformance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "requiredNavigationPerformance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumObstacleClearanceAltitude();
+            boolean rhsFieldIsSet = that.isSetMinimumObstacleClearanceAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumObstacleClearanceAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumObstacleClearanceAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumObstacleClearanceAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumObstacleClearanceAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndConditionDesignator();
+            boolean rhsFieldIsSet = that.isSetEndConditionDesignator();
+            JAXBElement<CodeSegmentTerminationType> lhsField;
+            lhsField = this.getEndConditionDesignator();
+            JAXBElement<CodeSegmentTerminationType> rhsField;
+            rhsField = that.getEndConditionDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endConditionDesignator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endConditionDesignator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBankAngle();
+            boolean rhsFieldIsSet = that.isSetBankAngle();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getBankAngle();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getBankAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bankAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bankAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<DepartureLegTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<DepartureLegTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLimitAltitude();
+            boolean rhsFieldIsSet = that.isSetUpperLimitAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLimitAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLimitAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDeparture();
+            boolean rhsFieldIsSet = that.isSetDeparture();
+            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
+            lhsField = this.getDeparture();
+            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
+            rhsField = that.getDeparture();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "departure", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "departure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpeedReference();
+            boolean rhsFieldIsSet = that.isSetSpeedReference();
+            JAXBElement<CodeSpeedReferenceType> lhsField;
+            lhsField = this.getSpeedReference();
+            JAXBElement<CodeSpeedReferenceType> rhsField;
+            rhsField = that.getSpeedReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLegPath();
+            boolean rhsFieldIsSet = that.isSetLegPath();
+            JAXBElement<CodeTrajectoryType> lhsField;
+            lhsField = this.getLegPath();
+            JAXBElement<CodeTrajectoryType> rhsField;
+            rhsField = that.getLegPath();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legPath", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legPath", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngle();
+            boolean rhsFieldIsSet = that.isSetAngle();
+            JAXBElement<AngleIndicationPropertyType> lhsField;
+            lhsField = this.getAngle();
+            JAXBElement<AngleIndicationPropertyType> rhsField;
+            rhsField = that.getAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrajectory();
+            boolean rhsFieldIsSet = that.isSetTrajectory();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getTrajectory();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getTrajectory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trajectory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trajectory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -2560,7 +2592,7 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean theFieldIsSet = this.isSetAircraftCategory();
             List<AircraftCharacteristicPropertyType> theField;
-            theField = (this.isSetAircraftCategory() ? this.getAircraftCategory() : null);
+            theField = (this.isSetAircraftCategory()?this.getAircraftCategory():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aircraftCategory", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2574,14 +2606,14 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean theFieldIsSet = this.isSetDesignSurface();
             List<ObstacleAssessmentAreaPropertyType> theField;
-            theField = (this.isSetDesignSurface() ? this.getDesignSurface() : null);
+            theField = (this.isSetDesignSurface()?this.getDesignSurface():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "designSurface", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2596,8 +2628,7 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
             boolean theFieldIsSet = this.isSetMinimumObstacleClearanceAltitude();
             JAXBElement<ValDistanceVerticalType> theField;
             theField = this.getMinimumObstacleClearanceAltitude();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "minimumObstacleClearanceAltitude",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "minimumObstacleClearanceAltitude", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -2610,14 +2641,14 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean theFieldIsSet = this.isSetCondition();
             List<DepartureArrivalConditionPropertyType> theField;
-            theField = (this.isSetCondition() ? this.getCondition() : null);
+            theField = (this.isSetCondition()?this.getCondition():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "condition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<DepartureLegTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2798,7 +2829,7 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean theFieldIsSet = this.isSetAircraftCategory();
             List<AircraftCharacteristicPropertyType> theField;
-            theField = (this.isSetAircraftCategory() ? this.getAircraftCategory() : null);
+            theField = (this.isSetAircraftCategory()?this.getAircraftCategory():null);
             strategy.appendField(locator, this, "aircraftCategory", buffer, theField, theFieldIsSet);
         }
         {
@@ -2810,13 +2841,13 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean theFieldIsSet = this.isSetDesignSurface();
             List<ObstacleAssessmentAreaPropertyType> theField;
-            theField = (this.isSetDesignSurface() ? this.getDesignSurface() : null);
+            theField = (this.isSetDesignSurface()?this.getDesignSurface():null);
             strategy.appendField(locator, this, "designSurface", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -2840,13 +2871,13 @@ public class DepartureLegTimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean theFieldIsSet = this.isSetCondition();
             List<DepartureArrivalConditionPropertyType> theField;
-            theField = (this.isSetCondition() ? this.getCondition() : null);
+            theField = (this.isSetCondition()?this.getCondition():null);
             strategy.appendField(locator, this, "condition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<DepartureLegTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

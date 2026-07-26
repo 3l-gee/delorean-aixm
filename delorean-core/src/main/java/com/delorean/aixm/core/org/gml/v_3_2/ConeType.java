@@ -1,47 +1,41 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 
+
 /**
- * <p>
- * Java class for ConeType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ConeType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ConeType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractGriddedSurfaceType">
- *       <attribute name="horizontalCurveType" type=
-"{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed=
-"circularArc3Points" />
- *       <attribute name="verticalCurveType" type=
-"{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed="linear" />
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGriddedSurfaceType">
+ *       <attribute name="horizontalCurveType" type="{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed="circularArc3Points" />
+ *       <attribute name="verticalCurveType" type="{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed="linear" />
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ConeType")
-public class ConeType extends AbstractGriddedSurfaceType implements Serializable {
+public class ConeType
+    extends AbstractGriddedSurfaceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "horizontalCurveType")
@@ -50,9 +44,8 @@ public class ConeType extends AbstractGriddedSurfaceType implements Serializable
     public static final CurveInterpolationType VERTICAL_CURVE_TYPE = CurveInterpolationType.LINEAR;
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

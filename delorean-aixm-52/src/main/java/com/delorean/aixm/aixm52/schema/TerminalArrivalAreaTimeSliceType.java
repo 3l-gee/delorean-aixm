@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,83 +31,49 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for TerminalArrivalAreaTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TerminalArrivalAreaTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TerminalArrivalAreaTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="arrivalAreaType" type=
-"{http://www.aixm.aero/schema/5.2}CodeTAAType" minOccurs="0"/>
- *         <element name="outerBufferWidth" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
- *         <element name="lateralBufferWidth" type=
-"{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="arrivalAreaType" type="{http://www.aixm.aero/schema/5.2}CodeTAAType" minOccurs="0"/>
+ *         <element name="outerBufferWidth" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="lateralBufferWidth" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
  *         <choice>
- *           <element name="IF_fixDesignatedPoint" type=
-"{http://www.aixm.aero/schema/5.2}DesignatedPointPropertyType" minOccurs="0"/>
- *           <element name="IF_navaidSystem" type=
-"{http://www.aixm.aero/schema/5.2}NavaidPropertyType" minOccurs="0"/>
- *           <element name="IF_position" type=
-"{http://www.aixm.aero/schema/5.2}PointPropertyType" minOccurs="0"/>
- *           <element name="IF_runwayPoint" type=
-"{http://www.aixm.aero/schema/5.2}RunwayCentrelinePointPropertyType" minOccurs=
-"0"/>
- *           <element name="IF_aimingPoint" type=
-"{http://www.aixm.aero/schema/5.2}TouchDownLiftOffPropertyType" minOccurs="0"/>
- *           <element name="IF_airportReferencePoint" type=
-"{http://www.aixm.aero/schema/5.2}AirportHeliportPropertyType" minOccurs="0"/>
+ *           <element name="IF_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.2}DesignatedPointPropertyType" minOccurs="0"/>
+ *           <element name="IF_navaidSystem" type="{http://www.aixm.aero/schema/5.2}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="IF_position" type="{http://www.aixm.aero/schema/5.2}PointPropertyType" minOccurs="0"/>
+ *           <element name="IF_runwayPoint" type="{http://www.aixm.aero/schema/5.2}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *           <element name="IF_aimingPoint" type="{http://www.aixm.aero/schema/5.2}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *           <element name="IF_airportReferencePoint" type="{http://www.aixm.aero/schema/5.2}AirportHeliportPropertyType" minOccurs="0"/>
  *         </choice>
  *         <choice>
- *           <element name="IAF_fixDesignatedPoint" type=
-"{http://www.aixm.aero/schema/5.2}DesignatedPointPropertyType" minOccurs="0"/>
- *           <element name="IAF_navaidSystem" type=
-"{http://www.aixm.aero/schema/5.2}NavaidPropertyType" minOccurs="0"/>
- *           <element name="IAF_position" type=
-"{http://www.aixm.aero/schema/5.2}PointPropertyType" minOccurs="0"/>
- *           <element name="IAF_runwayPoint" type=
-"{http://www.aixm.aero/schema/5.2}RunwayCentrelinePointPropertyType" minOccurs=
-"0"/>
- *           <element name="IAF_aimingPoint" type=
-"{http://www.aixm.aero/schema/5.2}TouchDownLiftOffPropertyType" minOccurs="0"/>
- *           <element name="IAF_airportReferencePoint" type=
-"{http://www.aixm.aero/schema/5.2}AirportHeliportPropertyType" minOccurs="0"/>
+ *           <element name="IAF_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.2}DesignatedPointPropertyType" minOccurs="0"/>
+ *           <element name="IAF_navaidSystem" type="{http://www.aixm.aero/schema/5.2}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="IAF_position" type="{http://www.aixm.aero/schema/5.2}PointPropertyType" minOccurs="0"/>
+ *           <element name="IAF_runwayPoint" type="{http://www.aixm.aero/schema/5.2}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *           <element name="IAF_aimingPoint" type="{http://www.aixm.aero/schema/5.2}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *           <element name="IAF_airportReferencePoint" type="{http://www.aixm.aero/schema/5.2}AirportHeliportPropertyType" minOccurs="0"/>
  *         </choice>
- *         <element name="buffer" type=
-"{http://www.aixm.aero/schema/5.2}SurfacePropertyType" minOccurs="0"/>
- *         <element name="sector" type=
-"{http://www.aixm.aero/schema/5.2}TerminalArrivalAreaSectorPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="designCriteria" type=
-"{http://www.aixm.aero/schema/5.2}DesignStandardPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="approach" type=
-"{http://www.aixm.aero/schema/5.2}InstrumentApproachProcedurePropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
+ *         <element name="buffer" type="{http://www.aixm.aero/schema/5.2}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="sector" type="{http://www.aixm.aero/schema/5.2}TerminalArrivalAreaSectorPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="designCriteria" type="{http://www.aixm.aero/schema/5.2}DesignStandardPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="approach" type="{http://www.aixm.aero/schema/5.2}InstrumentApproachProcedurePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.2}AbstractTerminalArrivalAreaExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractTerminalArrivalAreaExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -117,18 +83,39 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TerminalArrivalAreaTimeSliceType", propOrder = {"arrivalAreaType", "outerBufferWidth",
-        "lateralBufferWidth", "ifFixDesignatedPoint", "ifNavaidSystem", "ifPosition", "ifRunwayPoint", "ifAimingPoint",
-        "ifAirportReferencePoint", "iafFixDesignatedPoint", "iafNavaidSystem", "iafPosition", "iafRunwayPoint",
-        "iafAimingPoint", "iafAirportReferencePoint", "buffer", "sector", "annotation", "designCriteria", "approach",
-        "extension"})
+@XmlType(name = "TerminalArrivalAreaTimeSliceType", propOrder = {
+    "arrivalAreaType",
+    "outerBufferWidth",
+    "lateralBufferWidth",
+    "ifFixDesignatedPoint",
+    "ifNavaidSystem",
+    "ifPosition",
+    "ifRunwayPoint",
+    "ifAimingPoint",
+    "ifAirportReferencePoint",
+    "iafFixDesignatedPoint",
+    "iafNavaidSystem",
+    "iafPosition",
+    "iafRunwayPoint",
+    "iafAimingPoint",
+    "iafAirportReferencePoint",
+    "buffer",
+    "sector",
+    "annotation",
+    "designCriteria",
+    "approach",
+    "extension"
+})
 @Entity(name = "TerminalArrivalAreaTimeSliceType")
 @Table(name = "terminalarrivalarea_t", schema = "procedure")
-public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class TerminalArrivalAreaTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "arrivalAreaType", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -175,10 +162,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the arrivalAreaType property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeTAAType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeTAAType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeTAAType> getArrivalAreaType() {
@@ -187,11 +175,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the arrivalAreaType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link CodeTAAType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeTAAType }{@code >}
+     *     
      */
     public void setArrivalAreaType(JAXBElement<CodeTAAType> value) {
         this.arrivalAreaType = value;
@@ -199,15 +187,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetArrivalAreaType() {
-        return (this.arrivalAreaType != null);
+        return (this.arrivalAreaType!= null);
     }
 
     /**
      * Gets the value of the outerBufferWidth property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getOuterBufferWidth() {
@@ -216,11 +205,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the outerBufferWidth property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setOuterBufferWidth(JAXBElement<ValDistanceType> value) {
         this.outerBufferWidth = value;
@@ -228,15 +217,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetOuterBufferWidth() {
-        return (this.outerBufferWidth != null);
+        return (this.outerBufferWidth!= null);
     }
 
     /**
      * Gets the value of the lateralBufferWidth property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getLateralBufferWidth() {
@@ -245,11 +235,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the lateralBufferWidth property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setLateralBufferWidth(JAXBElement<ValDistanceType> value) {
         this.lateralBufferWidth = value;
@@ -257,15 +247,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetLateralBufferWidth() {
-        return (this.lateralBufferWidth != null);
+        return (this.lateralBufferWidth!= null);
     }
 
     /**
      * Gets the value of the ifFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getIFFixDesignatedPoint() {
@@ -274,11 +265,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the ifFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setIFFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.ifFixDesignatedPoint = value;
@@ -286,15 +277,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIFFixDesignatedPoint() {
-        return (this.ifFixDesignatedPoint != null);
+        return (this.ifFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the ifNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getIFNavaidSystem() {
@@ -303,11 +295,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the ifNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setIFNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.ifNavaidSystem = value;
@@ -315,15 +307,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIFNavaidSystem() {
-        return (this.ifNavaidSystem != null);
+        return (this.ifNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the ifPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getIFPosition() {
@@ -332,11 +325,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the ifPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setIFPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.ifPosition = value;
@@ -344,15 +337,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIFPosition() {
-        return (this.ifPosition != null);
+        return (this.ifPosition!= null);
     }
 
     /**
      * Gets the value of the ifRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getIFRunwayPoint() {
@@ -361,11 +355,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the ifRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setIFRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.ifRunwayPoint = value;
@@ -373,15 +367,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIFRunwayPoint() {
-        return (this.ifRunwayPoint != null);
+        return (this.ifRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the ifAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getIFAimingPoint() {
@@ -390,11 +385,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the ifAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setIFAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.ifAimingPoint = value;
@@ -402,15 +397,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIFAimingPoint() {
-        return (this.ifAimingPoint != null);
+        return (this.ifAimingPoint!= null);
     }
 
     /**
      * Gets the value of the ifAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getIFAirportReferencePoint() {
@@ -419,11 +415,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the ifAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setIFAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.ifAirportReferencePoint = value;
@@ -431,15 +427,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIFAirportReferencePoint() {
-        return (this.ifAirportReferencePoint != null);
+        return (this.ifAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the iafFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getIAFFixDesignatedPoint() {
@@ -448,11 +445,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the iafFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setIAFFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.iafFixDesignatedPoint = value;
@@ -460,15 +457,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIAFFixDesignatedPoint() {
-        return (this.iafFixDesignatedPoint != null);
+        return (this.iafFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the iafNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getIAFNavaidSystem() {
@@ -477,11 +475,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the iafNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setIAFNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.iafNavaidSystem = value;
@@ -489,15 +487,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIAFNavaidSystem() {
-        return (this.iafNavaidSystem != null);
+        return (this.iafNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the iafPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getIAFPosition() {
@@ -506,11 +505,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the iafPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setIAFPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.iafPosition = value;
@@ -518,15 +517,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIAFPosition() {
-        return (this.iafPosition != null);
+        return (this.iafPosition!= null);
     }
 
     /**
      * Gets the value of the iafRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getIAFRunwayPoint() {
@@ -535,11 +535,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the iafRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setIAFRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.iafRunwayPoint = value;
@@ -547,15 +547,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIAFRunwayPoint() {
-        return (this.iafRunwayPoint != null);
+        return (this.iafRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the iafAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getIAFAimingPoint() {
@@ -564,11 +565,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the iafAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setIAFAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.iafAimingPoint = value;
@@ -576,15 +577,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIAFAimingPoint() {
-        return (this.iafAimingPoint != null);
+        return (this.iafAimingPoint!= null);
     }
 
     /**
      * Gets the value of the iafAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getIAFAirportReferencePoint() {
@@ -593,11 +595,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the iafAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setIAFAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.iafAirportReferencePoint = value;
@@ -605,15 +607,16 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetIAFAirportReferencePoint() {
-        return (this.iafAirportReferencePoint != null);
+        return (this.iafAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the buffer property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMSurfacePropertyType> getBuffer() {
@@ -622,11 +625,11 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Sets the value of the buffer property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
      */
     public void setBuffer(JAXBElement<AIXMSurfacePropertyType> value) {
         this.buffer = value;
@@ -634,37 +637,39 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetBuffer() {
-        return (this.buffer != null);
+        return (this.buffer!= null);
     }
 
     /**
      * Gets the value of the sector property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the sector property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the sector property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSector().add(newItem);
+     *    getSector().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TerminalArrivalAreaSectorPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = TerminalArrivalAreaSectorPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_sctr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "sector_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_sctr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "sector_hjid", referencedColumnName = "hjid")
+    })
     public List<TerminalArrivalAreaSectorPropertyType> getSector() {
         if (sector == null) {
             sector = new ArrayList<>();
@@ -673,8 +678,8 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSector(List<TerminalArrivalAreaSectorPropertyType> sector) {
         this.sector = sector;
@@ -682,7 +687,7 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetSector() {
-        return ((this.sector != null) && (!this.sector.isEmpty()));
+        return ((this.sector!= null)&&(!this.sector.isEmpty()));
     }
 
     public void unsetSector() {
@@ -691,31 +696,34 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_annttn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_annttn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -724,8 +732,8 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -733,7 +741,7 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -742,31 +750,34 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the designCriteria property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the designCriteria property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the designCriteria property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getDesignCriteria().add(newItem);
+     *    getDesignCriteria().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DesignStandardPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = DesignStandardPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_dsgncrtr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "designcriteria_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = DesignStandardPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_dsgncrtr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "designcriteria_hjid", referencedColumnName = "hjid")
+    })
     public List<DesignStandardPropertyType> getDesignCriteria() {
         if (designCriteria == null) {
             designCriteria = new ArrayList<>();
@@ -775,8 +786,8 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setDesignCriteria(List<DesignStandardPropertyType> designCriteria) {
         this.designCriteria = designCriteria;
@@ -784,7 +795,7 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetDesignCriteria() {
-        return ((this.designCriteria != null) && (!this.designCriteria.isEmpty()));
+        return ((this.designCriteria!= null)&&(!this.designCriteria.isEmpty()));
     }
 
     public void unsetDesignCriteria() {
@@ -793,32 +804,34 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the approach property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the approach property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the approach property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getApproach().add(newItem);
+     *    getApproach().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InstrumentApproachProcedurePropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = InstrumentApproachProcedurePropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_apprch_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "approach_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_apprch_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "approach_hjid", referencedColumnName = "hjid")
+    })
     public List<InstrumentApproachProcedurePropertyType> getApproach() {
         if (approach == null) {
             approach = new ArrayList<>();
@@ -827,8 +840,8 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setApproach(List<InstrumentApproachProcedurePropertyType> approach) {
         this.approach = approach;
@@ -836,7 +849,7 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetApproach() {
-        return ((this.approach != null) && (!this.approach.isEmpty()));
+        return ((this.approach!= null)&&(!this.approach.isEmpty()));
     }
 
     public void unsetApproach() {
@@ -845,29 +858,29 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TerminalArrivalAreaTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = TerminalArrivalAreaTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "terminalarrivalarea_te_hjid", referencedColumnName = "hjid")
     public List<TerminalArrivalAreaTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -877,8 +890,8 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<TerminalArrivalAreaTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -886,7 +899,7 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -894,238 +907,259 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "arrivalareatype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "arrivalareatypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "arrivalareatype", columnDefinition = "codetaabase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "arrivalareatypenilreason", columnDefinition = "nilreason"))
+    })
     public CodeTAAType getArrivalAreaTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTAAType.class, this.getArrivalAreaType());
     }
 
     public void setArrivalAreaTypeItem(CodeTAAType target) {
-        setArrivalAreaType(XmlAdapterUtils.marshallJAXBElement(CodeTAAType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "arrivalAreaType"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setArrivalAreaType(XmlAdapterUtils.marshallJAXBElement(CodeTAAType.class, new QName("http://www.aixm.aero/schema/5.2", "arrivalAreaType"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "outerbufferwidth", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "outerbufferwidthuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "outerbufferwidthaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "outerbufferwidthnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "outerbufferwidth", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "outerbufferwidthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "outerbufferwidthaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "outerbufferwidthnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getOuterBufferWidthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getOuterBufferWidth());
     }
 
     public void setOuterBufferWidthItem(ValDistanceType target) {
-        setOuterBufferWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "outerBufferWidth"),
-                TerminalArrivalAreaTimeSliceType.class, target));
+        setOuterBufferWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "outerBufferWidth"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "lateralbufferwidth", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "lateralbufferwidthuom")),
-            @AttributeOverride(name = "accuracy", column = @Column(name = "lateralbufferwidthaccuracy")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lateralbufferwidthnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "lateralbufferwidth", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "lateralbufferwidthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "lateralbufferwidthaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lateralbufferwidthnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getLateralBufferWidthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getLateralBufferWidth());
     }
 
     public void setLateralBufferWidthItem(ValDistanceType target) {
-        setLateralBufferWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "lateralBufferWidth"),
-                TerminalArrivalAreaTimeSliceType.class, target));
+        setLateralBufferWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "lateralBufferWidth"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_iffxdsgntdpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "iffixdesignatedpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_iffxdsgntdpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "iffixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getIFFixDesignatedPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getIFFixDesignatedPoint());
     }
 
     public void setIFFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setIFFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IF_fixDesignatedPoint"),
-                TerminalArrivalAreaTimeSliceType.class, target));
+        setIFFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IF_fixDesignatedPoint"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_ifnvdsstm_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "ifnavaidsystem_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_ifnvdsstm_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "ifnavaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getIFNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getIFNavaidSystem());
     }
 
     public void setIFNavaidSystemItem(NavaidPropertyType target) {
-        setIFNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IF_navaidSystem"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setIFNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IF_navaidSystem"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_ifpstn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "ifposition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_ifpstn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "ifposition_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getIFPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getIFPosition());
     }
 
     public void setIFPositionItem(AIXMPointPropertyType target) {
-        setIFPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IF_position"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setIFPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IF_position"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_ifrnwpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "ifrunwaypoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_ifrnwpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "ifrunwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getIFRunwayPointItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getIFRunwayPoint());
     }
 
     public void setIFRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setIFRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IF_runwayPoint"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setIFRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IF_runwayPoint"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_ifamngpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "ifaimingpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_ifamngpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "ifaimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getIFAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getIFAimingPoint());
     }
 
     public void setIFAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setIFAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IF_aimingPoint"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setIFAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IF_aimingPoint"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_ifarprtrfrncpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "ifairportreferencepoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_ifarprtrfrncpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "ifairportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getIFAirportReferencePointItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getIFAirportReferencePoint());
     }
 
     public void setIFAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setIFAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IF_airportReferencePoint"),
-                TerminalArrivalAreaTimeSliceType.class, target));
+        setIFAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IF_airportReferencePoint"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_iaffxdsgntdpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "iaffixdesignatedpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_iaffxdsgntdpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "iaffixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getIAFFixDesignatedPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getIAFFixDesignatedPoint());
     }
 
     public void setIAFFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setIAFFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IAF_fixDesignatedPoint"),
-                TerminalArrivalAreaTimeSliceType.class, target));
+        setIAFFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IAF_fixDesignatedPoint"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_iafnvdsstm_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "iafnavaidsystem_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_iafnvdsstm_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "iafnavaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getIAFNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getIAFNavaidSystem());
     }
 
     public void setIAFNavaidSystemItem(NavaidPropertyType target) {
-        setIAFNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IAF_navaidSystem"),
-                TerminalArrivalAreaTimeSliceType.class, target));
+        setIAFNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IAF_navaidSystem"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_iafpstn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "iafposition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_iafpstn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "iafposition_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getIAFPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getIAFPosition());
     }
 
     public void setIAFPositionItem(AIXMPointPropertyType target) {
-        setIAFPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IAF_position"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setIAFPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IAF_position"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_iafrnwpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "iafrunwaypoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_iafrnwpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "iafrunwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getIAFRunwayPointItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getIAFRunwayPoint());
     }
 
     public void setIAFRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setIAFRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IAF_runwayPoint"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setIAFRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IAF_runwayPoint"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_iafamngpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "iafaimingpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_iafamngpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "iafaimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getIAFAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getIAFAimingPoint());
     }
 
     public void setIAFAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setIAFAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IAF_aimingPoint"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setIAFAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IAF_aimingPoint"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_iafarprtrfrncpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "iafairportreferencepoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_iafarprtrfrncpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "iafairportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getIAFAirportReferencePointItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getIAFAirportReferencePoint());
     }
 
     public void setIAFAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setIAFAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "IAF_airportReferencePoint"),
-                TerminalArrivalAreaTimeSliceType.class, target));
+        setIAFAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "IAF_airportReferencePoint"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "trmnlarrvlartmslctp_bffr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "buffer_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "trmnlarrvlartmslctp_bffr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "terminalarrivalarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "buffer_hjid", referencedColumnName = "hjid")
+    })
     public AIXMSurfacePropertyType getBufferItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getBuffer());
     }
 
     public void setBufferItem(AIXMSurfacePropertyType target) {
-        setBuffer(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.2", "buffer"), TerminalArrivalAreaTimeSliceType.class,
-                target));
+        setBuffer(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "buffer"), TerminalArrivalAreaTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1136,27 +1170,14 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         final TerminalArrivalAreaTimeSliceType that = ((TerminalArrivalAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLateralBufferWidth();
-            boolean rhsFieldIsSet = that.isSetLateralBufferWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLateralBufferWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLateralBufferWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lateralBufferWidth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lateralBufferWidth", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignCriteria();
-            boolean rhsFieldIsSet = that.isSetDesignCriteria();
-            List<DesignStandardPropertyType> lhsField;
-            lhsField = (this.isSetDesignCriteria() ? this.getDesignCriteria() : null);
-            List<DesignStandardPropertyType> rhsField;
-            rhsField = (that.isSetDesignCriteria() ? that.getDesignCriteria() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designCriteria", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designCriteria", rhsField);
+            boolean lhsFieldIsSet = this.isSetIFAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetIFAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getIFAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getIFAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifAirportReferencePoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1165,9 +1186,9 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<TerminalArrivalAreaTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<TerminalArrivalAreaTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1175,27 +1196,14 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIFAimingPoint();
-            boolean rhsFieldIsSet = that.isSetIFAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getIFAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getIFAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIFFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetIFFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getIFFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getIFFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifFixDesignatedPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetLateralBufferWidth();
+            boolean rhsFieldIsSet = that.isSetLateralBufferWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLateralBufferWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLateralBufferWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lateralBufferWidth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lateralBufferWidth", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1214,27 +1222,27 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<TerminalArrivalAreaSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector() ? this.getSector() : null);
-            List<TerminalArrivalAreaSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector() ? that.getSector() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            boolean lhsFieldIsSet = this.isSetIAFNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetIAFNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getIAFNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getIAFNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "iafNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "iafNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIAFAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetIAFAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getIAFAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getIAFAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "iafAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "iafAirportReferencePoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetIFFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetIFFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getIFFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getIFFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifFixDesignatedPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1253,12 +1261,51 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetBuffer();
+            boolean rhsFieldIsSet = that.isSetBuffer();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getBuffer();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getBuffer();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "buffer", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "buffer", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<TerminalArrivalAreaSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector()?this.getSector():null);
+            List<TerminalArrivalAreaSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector()?that.getSector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIFNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetIFNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getIFNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getIFNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -1266,27 +1313,79 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIFAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetIFAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getIFAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getIFAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifAirportReferencePoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetIAFAimingPoint();
+            boolean rhsFieldIsSet = that.isSetIAFAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getIAFAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getIAFAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "iafAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "iafAimingPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIFPosition();
-            boolean rhsFieldIsSet = that.isSetIFPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getIFPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getIFPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetOuterBufferWidth();
+            boolean rhsFieldIsSet = that.isSetOuterBufferWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getOuterBufferWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getOuterBufferWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outerBufferWidth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outerBufferWidth", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIFAimingPoint();
+            boolean rhsFieldIsSet = that.isSetIFAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getIFAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getIFAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIAFFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetIAFFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getIAFFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getIAFFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "iafFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "iafFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignCriteria();
+            boolean rhsFieldIsSet = that.isSetDesignCriteria();
+            List<DesignStandardPropertyType> lhsField;
+            lhsField = (this.isSetDesignCriteria()?this.getDesignCriteria():null);
+            List<DesignStandardPropertyType> rhsField;
+            rhsField = (that.isSetDesignCriteria()?that.getDesignCriteria():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designCriteria", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designCriteria", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproach();
+            boolean rhsFieldIsSet = that.isSetApproach();
+            List<InstrumentApproachProcedurePropertyType> lhsField;
+            lhsField = (this.isSetApproach()?this.getApproach():null);
+            List<InstrumentApproachProcedurePropertyType> rhsField;
+            rhsField = (that.isSetApproach()?that.getApproach():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approach", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approach", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1318,92 +1417,27 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOuterBufferWidth();
-            boolean rhsFieldIsSet = that.isSetOuterBufferWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getOuterBufferWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getOuterBufferWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outerBufferWidth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outerBufferWidth", rhsField);
+            boolean lhsFieldIsSet = this.isSetIFPosition();
+            boolean rhsFieldIsSet = that.isSetIFPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getIFPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getIFPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIAFAimingPoint();
-            boolean rhsFieldIsSet = that.isSetIAFAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getIAFAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getIAFAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "iafAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "iafAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBuffer();
-            boolean rhsFieldIsSet = that.isSetBuffer();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getBuffer();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getBuffer();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "buffer", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "buffer", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIAFFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetIAFFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getIAFFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getIAFFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "iafFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "iafFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApproach();
-            boolean rhsFieldIsSet = that.isSetApproach();
-            List<InstrumentApproachProcedurePropertyType> lhsField;
-            lhsField = (this.isSetApproach() ? this.getApproach() : null);
-            List<InstrumentApproachProcedurePropertyType> rhsField;
-            rhsField = (that.isSetApproach() ? that.getApproach() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approach", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approach", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIFNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetIFNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getIFNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getIFNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ifNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ifNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIAFNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetIAFNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getIAFNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getIAFNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "iafNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "iafNavaidSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetIAFAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetIAFAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getIAFAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getIAFAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "iafAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "iafAirportReferencePoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1529,35 +1563,35 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
         {
             boolean theFieldIsSet = this.isSetSector();
             List<TerminalArrivalAreaSectorPropertyType> theField;
-            theField = (this.isSetSector() ? this.getSector() : null);
+            theField = (this.isSetSector()?this.getSector():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sector", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetDesignCriteria();
             List<DesignStandardPropertyType> theField;
-            theField = (this.isSetDesignCriteria() ? this.getDesignCriteria() : null);
+            theField = (this.isSetDesignCriteria()?this.getDesignCriteria():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "designCriteria", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetApproach();
             List<InstrumentApproachProcedurePropertyType> theField;
-            theField = (this.isSetApproach() ? this.getApproach() : null);
+            theField = (this.isSetApproach()?this.getApproach():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "approach", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<TerminalArrivalAreaTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1666,31 +1700,31 @@ public class TerminalArrivalAreaTimeSliceType extends AbstractAIXMTimeSliceType 
         {
             boolean theFieldIsSet = this.isSetSector();
             List<TerminalArrivalAreaSectorPropertyType> theField;
-            theField = (this.isSetSector() ? this.getSector() : null);
+            theField = (this.isSetSector()?this.getSector():null);
             strategy.appendField(locator, this, "sector", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetDesignCriteria();
             List<DesignStandardPropertyType> theField;
-            theField = (this.isSetDesignCriteria() ? this.getDesignCriteria() : null);
+            theField = (this.isSetDesignCriteria()?this.getDesignCriteria():null);
             strategy.appendField(locator, this, "designCriteria", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetApproach();
             List<InstrumentApproachProcedurePropertyType> theField;
-            theField = (this.isSetApproach() ? this.getApproach() : null);
+            theField = (this.isSetApproach()?this.getApproach():null);
             strategy.appendField(locator, this, "approach", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<TerminalArrivalAreaTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -2,17 +2,21 @@ package com.delorean.aixm.core.database;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class HibernateHelper {
 
     private static final int DEFAULT_RETRIES = 3;
     private static final long RETRY_DELAY_MS = 500;
 
     public static <T> T doWithoutTransaction(Session session, HibernateOperation<T> operation) {
+        log.atDebug().setMessage("Executing operation without transaction : {}").addArgument(() -> operation.toString()).log();
         return operation.apply(session);
     }
 
     public static <T> T doInTransaction(Session session, HibernateOperation<T> operation) {
+        log.atDebug().setMessage("Executing operation in transaction : {}").addArgument(() -> operation.toString()).log();
         Transaction tx = null;
 
         try {
@@ -35,6 +39,7 @@ public class HibernateHelper {
     }
 
     public static <T> T doInTransactionWithRetry(Session session, HibernateOperation<T> op) {
+        log.atDebug().setMessage("Executing operation in transaction with retry : {}").addArgument(() -> op.toString()).log();
         int retries = DEFAULT_RETRIES;
 
         while (true) {
@@ -47,7 +52,7 @@ public class HibernateHelper {
                     throw ex;
                 }
 
-                System.err.println("Retryable error, retrying... attempts left: " + retries);
+                log.atDebug().setMessage("Retryable error, retrying... attempts left: {}").addArgument(retries).log();
                 retries--;
 
                 try { Thread.sleep(RETRY_DELAY_MS); }

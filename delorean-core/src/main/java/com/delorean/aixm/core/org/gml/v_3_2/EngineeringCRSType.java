@@ -1,29 +1,24 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for EngineeringCRSType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for EngineeringCRSType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="EngineeringCRSType">
  *   <complexContent>
@@ -45,78 +40,82 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EngineeringCRSType", propOrder = {"affineCS", "cartesianCS", "cylindricalCS", "linearCS", "polarCS",
-        "sphericalCS", "userDefinedCS", "coordinateSystem", "engineeringDatum"})
-public class EngineeringCRSType extends AbstractCRSType implements Serializable {
+@XmlType(name = "EngineeringCRSType", propOrder = {
+    "affineCS",
+    "cartesianCS",
+    "cylindricalCS",
+    "linearCS",
+    "polarCS",
+    "sphericalCS",
+    "userDefinedCS",
+    "coordinateSystem",
+    "engineeringDatum"
+})
+public class EngineeringCRSType
+    extends AbstractCRSType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:affineCS is an association role to the affine coordinate system used by
-     * this CRS.
-     *
+     * gml:affineCS is an association role to the affine coordinate system used by this CRS.
+     * 
      */
     @XmlElementRef(name = "affineCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<AffineCSPropertyType> affineCS;
     /**
-     * gml:cartesianCS is an association role to the Cartesian coordinate system
-     * used by this CRS.
-     *
+     * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
+     * 
      */
     @XmlElementRef(name = "cartesianCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CartesianCSPropertyType> cartesianCS;
     /**
-     * gml:cylindricalCS is an association role to the cylindrical coordinate system
-     * used by this CRS.
-     *
+     * gml:cylindricalCS is an association role to the cylindrical coordinate system used by this CRS.
+     * 
      */
     protected CylindricalCSPropertyType cylindricalCS;
     /**
-     * gml:linearCS is an association role to the linear coordinate system used by
-     * this CRS.
-     *
+     * gml:linearCS is an association role to the linear coordinate system used by this CRS.
+     * 
      */
     protected LinearCSPropertyType linearCS;
     /**
-     * gml:polarCS is an association role to the polar coordinate system used by
-     * this CRS.
-     *
+     * gml:polarCS is an association role to the polar coordinate system used by this CRS.
+     * 
      */
     protected PolarCSPropertyType polarCS;
     /**
-     * gml:sphericalCS is an association role to the spherical coordinate system
-     * used by this CRS.
-     *
+     * gml:sphericalCS is an association role to the spherical coordinate system used by this CRS.
+     * 
      */
     @XmlElementRef(name = "sphericalCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<SphericalCSPropertyType> sphericalCS;
     /**
-     * gml:userDefinedCS is an association role to the user defined coordinate
-     * system used by this CRS.
-     *
+     * gml:userDefinedCS is an association role to the user defined coordinate system used by this CRS.
+     * 
      */
     protected UserDefinedCSPropertyType userDefinedCS;
     @XmlElementRef(name = "coordinateSystem", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CoordinateSystemPropertyType> coordinateSystem;
     /**
-     * gml:engineeringDatum is an association role to the engineering datum used by
-     * this CRS.
-     *
+     * gml:engineeringDatum is an association role to the engineering datum used by this CRS.
+     * 
      */
     @XmlElementRef(name = "engineeringDatum", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<EngineeringDatumPropertyType> engineeringDatum;
 
     /**
-     * gml:affineCS is an association role to the affine coordinate system used by
-     * this CRS.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AffineCSPropertyType }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AffineCSPropertyType }{@code >}
-     *
+     * gml:affineCS is an association role to the affine coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
+     *     
      */
     public JAXBElement<AffineCSPropertyType> getAffineCS() {
         return affineCS;
@@ -124,13 +123,12 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the affineCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AffineCSPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AffineCSPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
+     *     
      * @see #getAffineCS()
      */
     public void setAffineCS(JAXBElement<AffineCSPropertyType> value) {
@@ -138,18 +136,17 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
     }
 
     public boolean isSetAffineCS() {
-        return (this.affineCS != null);
+        return (this.affineCS!= null);
     }
 
     /**
-     * gml:cartesianCS is an association role to the Cartesian coordinate system
-     * used by this CRS.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link CartesianCSPropertyType
-     *         }{@code >}
-     *
+     * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *     
      */
     public JAXBElement<CartesianCSPropertyType> getCartesianCS() {
         return cartesianCS;
@@ -157,13 +154,12 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the cartesianCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link CartesianCSPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *     
      * @see #getCartesianCS()
      */
     public void setCartesianCS(JAXBElement<CartesianCSPropertyType> value) {
@@ -171,15 +167,16 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
     }
 
     public boolean isSetCartesianCS() {
-        return (this.cartesianCS != null);
+        return (this.cartesianCS!= null);
     }
 
     /**
-     * gml:cylindricalCS is an association role to the cylindrical coordinate system
-     * used by this CRS.
-     *
-     * @return possible object is {@link CylindricalCSPropertyType }
-     *
+     * gml:cylindricalCS is an association role to the cylindrical coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CylindricalCSPropertyType }
+     *     
      */
     public CylindricalCSPropertyType getCylindricalCS() {
         return cylindricalCS;
@@ -187,10 +184,11 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the cylindricalCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CylindricalCSPropertyType }
-     *
+     *     allowed object is
+     *     {@link CylindricalCSPropertyType }
+     *     
      * @see #getCylindricalCS()
      */
     public void setCylindricalCS(CylindricalCSPropertyType value) {
@@ -198,15 +196,16 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
     }
 
     public boolean isSetCylindricalCS() {
-        return (this.cylindricalCS != null);
+        return (this.cylindricalCS!= null);
     }
 
     /**
-     * gml:linearCS is an association role to the linear coordinate system used by
-     * this CRS.
-     *
-     * @return possible object is {@link LinearCSPropertyType }
-     *
+     * gml:linearCS is an association role to the linear coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link LinearCSPropertyType }
+     *     
      */
     public LinearCSPropertyType getLinearCS() {
         return linearCS;
@@ -214,10 +213,11 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the linearCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link LinearCSPropertyType }
-     *
+     *     allowed object is
+     *     {@link LinearCSPropertyType }
+     *     
      * @see #getLinearCS()
      */
     public void setLinearCS(LinearCSPropertyType value) {
@@ -225,15 +225,16 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
     }
 
     public boolean isSetLinearCS() {
-        return (this.linearCS != null);
+        return (this.linearCS!= null);
     }
 
     /**
-     * gml:polarCS is an association role to the polar coordinate system used by
-     * this CRS.
-     *
-     * @return possible object is {@link PolarCSPropertyType }
-     *
+     * gml:polarCS is an association role to the polar coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link PolarCSPropertyType }
+     *     
      */
     public PolarCSPropertyType getPolarCS() {
         return polarCS;
@@ -241,10 +242,11 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the polarCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link PolarCSPropertyType }
-     *
+     *     allowed object is
+     *     {@link PolarCSPropertyType }
+     *     
      * @see #getPolarCS()
      */
     public void setPolarCS(PolarCSPropertyType value) {
@@ -252,18 +254,17 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
     }
 
     public boolean isSetPolarCS() {
-        return (this.polarCS != null);
+        return (this.polarCS!= null);
     }
 
     /**
-     * gml:sphericalCS is an association role to the spherical coordinate system
-     * used by this CRS.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link SphericalCSPropertyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link SphericalCSPropertyType
-     *         }{@code >}
-     *
+     * gml:sphericalCS is an association role to the spherical coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *     
      */
     public JAXBElement<SphericalCSPropertyType> getSphericalCS() {
         return sphericalCS;
@@ -271,13 +272,12 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the sphericalCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link SphericalCSPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link SphericalCSPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *     
      * @see #getSphericalCS()
      */
     public void setSphericalCS(JAXBElement<SphericalCSPropertyType> value) {
@@ -285,15 +285,16 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
     }
 
     public boolean isSetSphericalCS() {
-        return (this.sphericalCS != null);
+        return (this.sphericalCS!= null);
     }
 
     /**
-     * gml:userDefinedCS is an association role to the user defined coordinate
-     * system used by this CRS.
-     *
-     * @return possible object is {@link UserDefinedCSPropertyType }
-     *
+     * gml:userDefinedCS is an association role to the user defined coordinate system used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link UserDefinedCSPropertyType }
+     *     
      */
     public UserDefinedCSPropertyType getUserDefinedCS() {
         return userDefinedCS;
@@ -301,10 +302,11 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the userDefinedCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link UserDefinedCSPropertyType }
-     *
+     *     allowed object is
+     *     {@link UserDefinedCSPropertyType }
+     *     
      * @see #getUserDefinedCS()
      */
     public void setUserDefinedCS(UserDefinedCSPropertyType value) {
@@ -312,17 +314,17 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
     }
 
     public boolean isSetUserDefinedCS() {
-        return (this.userDefinedCS != null);
+        return (this.userDefinedCS!= null);
     }
 
     /**
      * Gets the value of the coordinateSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CoordinateSystemPropertyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *     
      */
     public JAXBElement<CoordinateSystemPropertyType> getCoordinateSystem() {
         return coordinateSystem;
@@ -330,31 +332,29 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the coordinateSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CoordinateSystemPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *     
      */
     public void setCoordinateSystem(JAXBElement<CoordinateSystemPropertyType> value) {
         this.coordinateSystem = value;
     }
 
     public boolean isSetCoordinateSystem() {
-        return (this.coordinateSystem != null);
+        return (this.coordinateSystem!= null);
     }
 
     /**
-     * gml:engineeringDatum is an association role to the engineering datum used by
-     * this CRS.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link EngineeringDatumPropertyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType
-     *         }{@code >}
-     *
+     * gml:engineeringDatum is an association role to the engineering datum used by this CRS.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *     
      */
     public JAXBElement<EngineeringDatumPropertyType> getEngineeringDatum() {
         return engineeringDatum;
@@ -362,13 +362,12 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
 
     /**
      * Sets the value of the engineeringDatum property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link EngineeringDatumPropertyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *     
      * @see #getEngineeringDatum()
      */
     public void setEngineeringDatum(JAXBElement<EngineeringDatumPropertyType> value) {
@@ -376,13 +375,12 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
     }
 
     public boolean isSetEngineeringDatum() {
-        return (this.engineeringDatum != null);
+        return (this.engineeringDatum!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -392,6 +390,19 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
             return false;
         }
         final EngineeringCRSType that = ((EngineeringCRSType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetLinearCS();
+            boolean rhsFieldIsSet = that.isSetLinearCS();
+            LinearCSPropertyType lhsField;
+            lhsField = this.getLinearCS();
+            LinearCSPropertyType rhsField;
+            rhsField = that.getLinearCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linearCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linearCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetPolarCS();
             boolean rhsFieldIsSet = that.isSetPolarCS();
@@ -406,14 +417,14 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEngineeringDatum();
-            boolean rhsFieldIsSet = that.isSetEngineeringDatum();
-            JAXBElement<EngineeringDatumPropertyType> lhsField;
-            lhsField = this.getEngineeringDatum();
-            JAXBElement<EngineeringDatumPropertyType> rhsField;
-            rhsField = that.getEngineeringDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engineeringDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engineeringDatum", rhsField);
+            boolean lhsFieldIsSet = this.isSetAffineCS();
+            boolean rhsFieldIsSet = that.isSetAffineCS();
+            JAXBElement<AffineCSPropertyType> lhsField;
+            lhsField = this.getAffineCS();
+            JAXBElement<AffineCSPropertyType> rhsField;
+            rhsField = that.getAffineCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -471,27 +482,14 @@ public class EngineeringCRSType extends AbstractCRSType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAffineCS();
-            boolean rhsFieldIsSet = that.isSetAffineCS();
-            JAXBElement<AffineCSPropertyType> lhsField;
-            lhsField = this.getAffineCS();
-            JAXBElement<AffineCSPropertyType> rhsField;
-            rhsField = that.getAffineCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLinearCS();
-            boolean rhsFieldIsSet = that.isSetLinearCS();
-            LinearCSPropertyType lhsField;
-            lhsField = this.getLinearCS();
-            LinearCSPropertyType rhsField;
-            rhsField = that.getLinearCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linearCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linearCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetEngineeringDatum();
+            boolean rhsFieldIsSet = that.isSetEngineeringDatum();
+            JAXBElement<EngineeringDatumPropertyType> lhsField;
+            lhsField = this.getEngineeringDatum();
+            JAXBElement<EngineeringDatumPropertyType> rhsField;
+            rhsField = that.getEngineeringDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engineeringDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engineeringDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,36 +1,30 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigInteger;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ArcByCenterPointType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ArcByCenterPointType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ArcByCenterPointType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractCurveSegmentType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractCurveSegmentType">
  *       <sequence>
  *         <choice>
  *           <choice>
@@ -41,39 +35,43 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *           <element ref="{http://www.opengis.net/gml/3.2}posList"/>
  *           <element ref="{http://www.opengis.net/gml/3.2}coordinates"/>
  *         </choice>
- *         <element name="radius" type=
-"{http://www.opengis.net/gml/3.2}LengthType"/>
- *         <element name="startAngle" type=
-"{http://www.opengis.net/gml/3.2}AngleType" minOccurs="0"/>
- *         <element name="endAngle" type=
-"{http://www.opengis.net/gml/3.2}AngleType" minOccurs="0"/>
+ *         <element name="radius" type="{http://www.opengis.net/gml/3.2}LengthType"/>
+ *         <element name="startAngle" type="{http://www.opengis.net/gml/3.2}AngleType" minOccurs="0"/>
+ *         <element name="endAngle" type="{http://www.opengis.net/gml/3.2}AngleType" minOccurs="0"/>
  *       </sequence>
- *       <attribute name="interpolation" type=
-"{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed=
-"circularArcCenterPointWithRadius" />
- *       <attribute name="numArc" use="required" type=
-"{http://www.w3.org/2001/XMLSchema}integer" fixed="1" />
+ *       <attribute name="interpolation" type="{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed="circularArcCenterPointWithRadius" />
+ *       <attribute name="numArc" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" fixed="1" />
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ArcByCenterPointType", propOrder = {"pos", "pointProperty", "pointRep", "posList", "coordinates",
-        "radius", "startAngle", "endAngle"})
-@XmlSeeAlso({CircleByCenterPointType.class})
-public class ArcByCenterPointType extends AbstractCurveSegmentType implements Serializable {
+@XmlType(name = "ArcByCenterPointType", propOrder = {
+    "pos",
+    "pointProperty",
+    "pointRep",
+    "posList",
+    "coordinates",
+    "radius",
+    "startAngle",
+    "endAngle"
+})
+@XmlSeeAlso({
+    CircleByCenterPointType.class
+})
+public class ArcByCenterPointType
+    extends AbstractCurveSegmentType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected DirectPositionType pos;
     /**
-     * This property element either references a point via the XLink-attributes or
-     * contains the point element. pointProperty is the predefined property which
-     * may be used by GML Application Schemas whenever a GML feature has a property
-     * with a value that is substitutable for Point.
-     *
+     * This property element either references a point via the XLink-attributes or contains the point element. pointProperty is the predefined property which may be used by GML Application Schemas whenever a GML feature has a property with a value that is substitutable for Point.
+     * 
      */
     protected PointPropertyType pointProperty;
     protected PointPropertyType pointRep;
@@ -90,9 +88,11 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Gets the value of the pos property.
-     *
-     * @return possible object is {@link DirectPositionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link DirectPositionType }
+     *     
      */
     public DirectPositionType getPos() {
         return pos;
@@ -100,27 +100,27 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Sets the value of the pos property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link DirectPositionType }
-     *
+     *     allowed object is
+     *     {@link DirectPositionType }
+     *     
      */
     public void setPos(DirectPositionType value) {
         this.pos = value;
     }
 
     public boolean isSetPos() {
-        return (this.pos != null);
+        return (this.pos!= null);
     }
 
     /**
-     * This property element either references a point via the XLink-attributes or
-     * contains the point element. pointProperty is the predefined property which
-     * may be used by GML Application Schemas whenever a GML feature has a property
-     * with a value that is substitutable for Point.
-     *
-     * @return possible object is {@link PointPropertyType }
-     *
+     * This property element either references a point via the XLink-attributes or contains the point element. pointProperty is the predefined property which may be used by GML Application Schemas whenever a GML feature has a property with a value that is substitutable for Point.
+     * 
+     * @return
+     *     possible object is
+     *     {@link PointPropertyType }
+     *     
      */
     public PointPropertyType getPointProperty() {
         return pointProperty;
@@ -128,10 +128,11 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Sets the value of the pointProperty property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link PointPropertyType }
-     *
+     *     allowed object is
+     *     {@link PointPropertyType }
+     *     
      * @see #getPointProperty()
      */
     public void setPointProperty(PointPropertyType value) {
@@ -139,14 +140,16 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
     }
 
     public boolean isSetPointProperty() {
-        return (this.pointProperty != null);
+        return (this.pointProperty!= null);
     }
 
     /**
      * Gets the value of the pointRep property.
-     *
-     * @return possible object is {@link PointPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link PointPropertyType }
+     *     
      */
     public PointPropertyType getPointRep() {
         return pointRep;
@@ -154,24 +157,27 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Sets the value of the pointRep property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link PointPropertyType }
-     *
+     *     allowed object is
+     *     {@link PointPropertyType }
+     *     
      */
     public void setPointRep(PointPropertyType value) {
         this.pointRep = value;
     }
 
     public boolean isSetPointRep() {
-        return (this.pointRep != null);
+        return (this.pointRep!= null);
     }
 
     /**
      * Gets the value of the posList property.
-     *
-     * @return possible object is {@link DirectPositionListType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link DirectPositionListType }
+     *     
      */
     public DirectPositionListType getPosList() {
         return posList;
@@ -179,24 +185,27 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Sets the value of the posList property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link DirectPositionListType }
-     *
+     *     allowed object is
+     *     {@link DirectPositionListType }
+     *     
      */
     public void setPosList(DirectPositionListType value) {
         this.posList = value;
     }
 
     public boolean isSetPosList() {
-        return (this.posList != null);
+        return (this.posList!= null);
     }
 
     /**
      * Gets the value of the coordinates property.
-     *
-     * @return possible object is {@link CoordinatesType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link CoordinatesType }
+     *     
      */
     public CoordinatesType getCoordinates() {
         return coordinates;
@@ -204,24 +213,27 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Sets the value of the coordinates property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link CoordinatesType }
-     *
+     *     allowed object is
+     *     {@link CoordinatesType }
+     *     
      */
     public void setCoordinates(CoordinatesType value) {
         this.coordinates = value;
     }
 
     public boolean isSetCoordinates() {
-        return (this.coordinates != null);
+        return (this.coordinates!= null);
     }
 
     /**
      * Gets the value of the radius property.
-     *
-     * @return possible object is {@link LengthType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link LengthType }
+     *     
      */
     public LengthType getRadius() {
         return radius;
@@ -229,24 +241,27 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Sets the value of the radius property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link LengthType }
-     *
+     *     allowed object is
+     *     {@link LengthType }
+     *     
      */
     public void setRadius(LengthType value) {
         this.radius = value;
     }
 
     public boolean isSetRadius() {
-        return (this.radius != null);
+        return (this.radius!= null);
     }
 
     /**
      * Gets the value of the startAngle property.
-     *
-     * @return possible object is {@link AngleType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AngleType }
+     *     
      */
     public AngleType getStartAngle() {
         return startAngle;
@@ -254,24 +269,27 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Sets the value of the startAngle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AngleType }
-     *
+     *     allowed object is
+     *     {@link AngleType }
+     *     
      */
     public void setStartAngle(AngleType value) {
         this.startAngle = value;
     }
 
     public boolean isSetStartAngle() {
-        return (this.startAngle != null);
+        return (this.startAngle!= null);
     }
 
     /**
      * Gets the value of the endAngle property.
-     *
-     * @return possible object is {@link AngleType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AngleType }
+     *     
      */
     public AngleType getEndAngle() {
         return endAngle;
@@ -279,23 +297,23 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
 
     /**
      * Sets the value of the endAngle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AngleType }
-     *
+     *     allowed object is
+     *     {@link AngleType }
+     *     
      */
     public void setEndAngle(AngleType value) {
         this.endAngle = value;
     }
 
     public boolean isSetEndAngle() {
-        return (this.endAngle != null);
+        return (this.endAngle!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -306,27 +324,14 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
         }
         final ArcByCenterPointType that = ((ArcByCenterPointType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStartAngle();
-            boolean rhsFieldIsSet = that.isSetStartAngle();
-            AngleType lhsField;
-            lhsField = this.getStartAngle();
-            AngleType rhsField;
-            rhsField = that.getStartAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAngle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointRep();
-            boolean rhsFieldIsSet = that.isSetPointRep();
-            PointPropertyType lhsField;
-            lhsField = this.getPointRep();
-            PointPropertyType rhsField;
-            rhsField = that.getPointRep();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointRep", rhsField);
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
+            DirectPositionListType lhsField;
+            lhsField = this.getPosList();
+            DirectPositionListType rhsField;
+            rhsField = that.getPosList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -345,14 +350,14 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPosList();
-            boolean rhsFieldIsSet = that.isSetPosList();
-            DirectPositionListType lhsField;
-            lhsField = this.getPosList();
-            DirectPositionListType rhsField;
-            rhsField = that.getPosList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointRep();
+            boolean rhsFieldIsSet = that.isSetPointRep();
+            PointPropertyType lhsField;
+            lhsField = this.getPointRep();
+            PointPropertyType rhsField;
+            rhsField = that.getPointRep();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointRep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -371,19 +376,6 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEndAngle();
-            boolean rhsFieldIsSet = that.isSetEndAngle();
-            AngleType lhsField;
-            lhsField = this.getEndAngle();
-            AngleType rhsField;
-            rhsField = that.getEndAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endAngle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPointProperty();
             boolean rhsFieldIsSet = that.isSetPointProperty();
             PointPropertyType lhsField;
@@ -397,6 +389,19 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetStartAngle();
+            boolean rhsFieldIsSet = that.isSetStartAngle();
+            AngleType lhsField;
+            lhsField = this.getStartAngle();
+            AngleType rhsField;
+            rhsField = that.getStartAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRadius();
             boolean rhsFieldIsSet = that.isSetRadius();
             LengthType lhsField;
@@ -405,6 +410,19 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
             rhsField = that.getRadius();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radius", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radius", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndAngle();
+            boolean rhsFieldIsSet = that.isSetEndAngle();
+            AngleType lhsField;
+            lhsField = this.getEndAngle();
+            AngleType rhsField;
+            rhsField = that.getEndAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

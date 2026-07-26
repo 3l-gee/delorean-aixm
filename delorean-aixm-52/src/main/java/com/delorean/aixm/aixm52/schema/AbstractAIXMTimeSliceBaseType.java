@@ -1,37 +1,30 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gml.v_3_2.AbstractTimeSliceType;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 
+
 /**
- * Base type of AIXM Timeslices. Removes option attributes that are not used in
- * AIXM.
- *
- * <p>
- * Java class for AbstractAIXMTimeSliceBaseType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * Base type of AIXM Timeslices.  Removes option attributes that are not used in AIXM.
+ * 
+ * <p>Java class for AbstractAIXMTimeSliceBaseType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractAIXMTimeSliceBaseType">
  *   <complexContent>
- *     <restriction base=
-"{http://www.opengis.net/gml/3.2}AbstractTimeSliceType">
+ *     <restriction base="{http://www.opengis.net/gml/3.2}AbstractTimeSliceType">
  *       <sequence>
  *         <sequence>
  *         </sequence>
@@ -44,21 +37,25 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractAIXMTimeSliceBaseType")
-@XmlSeeAlso({AbstractAIXMTimeSliceType.class})
+@XmlSeeAlso({
+    AbstractAIXMTimeSliceType.class
+})
 @MappedSuperclass
-public abstract class AbstractAIXMTimeSliceBaseType extends AbstractTimeSliceType implements Serializable {
+public abstract class AbstractAIXMTimeSliceBaseType
+    extends AbstractTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

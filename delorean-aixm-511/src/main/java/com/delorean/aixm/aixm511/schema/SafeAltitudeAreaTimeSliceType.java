@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,60 +31,37 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for SafeAltitudeAreaTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SafeAltitudeAreaTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SafeAltitudeAreaTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="safeAreaType" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeSafeAltitudeType" minOccurs="0"/>
+ *         <element name="safeAreaType" type="{http://www.aixm.aero/schema/5.1.1}CodeSafeAltitudeType" minOccurs="0"/>
  *         <choice>
- *           <element name="centrePoint_fixDesignatedPoint" type=
-"{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
- *           <element name="centrePoint_navaidSystem" type=
-"{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
- *           <element name="centrePoint_position" type=
-"{http://www.aixm.aero/schema/5.1.1}PointPropertyType" minOccurs="0"/>
- *           <element name="centrePoint_runwayPoint" type=
-"{http://www.aixm.aero/schema/5.1.1}RunwayCentrelinePointPropertyType" minOccurs
-="0"/>
- *           <element name="centrePoint_aimingPoint" type=
-"{http://www.aixm.aero/schema/5.1.1}TouchDownLiftOffPropertyType" minOccurs=
-"0"/>
- *           <element name="centrePoint_airportReferencePoint" type=
-"{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *           <element name="centrePoint_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *           <element name="centrePoint_navaidSystem" type="{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="centrePoint_position" type="{http://www.aixm.aero/schema/5.1.1}PointPropertyType" minOccurs="0"/>
+ *           <element name="centrePoint_runwayPoint" type="{http://www.aixm.aero/schema/5.1.1}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *           <element name="centrePoint_aimingPoint" type="{http://www.aixm.aero/schema/5.1.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *           <element name="centrePoint_airportReferencePoint" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
  *         </choice>
- *         <element name="sector" type=
-"{http://www.aixm.aero/schema/5.1.1}SafeAltitudeAreaSectorPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="sector" type="{http://www.aixm.aero/schema/5.1.1}SafeAltitudeAreaSectorPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractSafeAltitudeAreaExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractSafeAltitudeAreaExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -94,16 +71,29 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SafeAltitudeAreaTimeSliceType", propOrder = {"safeAreaType", "centrePointFixDesignatedPoint",
-        "centrePointNavaidSystem", "centrePointPosition", "centrePointRunwayPoint", "centrePointAimingPoint",
-        "centrePointAirportReferencePoint", "sector", "location", "annotation", "extension"})
+@XmlType(name = "SafeAltitudeAreaTimeSliceType", propOrder = {
+    "safeAreaType",
+    "centrePointFixDesignatedPoint",
+    "centrePointNavaidSystem",
+    "centrePointPosition",
+    "centrePointRunwayPoint",
+    "centrePointAimingPoint",
+    "centrePointAirportReferencePoint",
+    "sector",
+    "location",
+    "annotation",
+    "extension"
+})
 @Entity(name = "SafeAltitudeAreaTimeSliceType")
 @Table(name = "safealtitudearea_t", schema = "procedure")
-public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class SafeAltitudeAreaTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "safeAreaType", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -130,10 +120,11 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the safeAreaType property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeSafeAltitudeType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeSafeAltitudeType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeSafeAltitudeType> getSafeAreaType() {
@@ -142,11 +133,11 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the safeAreaType property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeSafeAltitudeType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeSafeAltitudeType }{@code >}
+     *     
      */
     public void setSafeAreaType(JAXBElement<CodeSafeAltitudeType> value) {
         this.safeAreaType = value;
@@ -154,15 +145,16 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetSafeAreaType() {
-        return (this.safeAreaType != null);
+        return (this.safeAreaType!= null);
     }
 
     /**
      * Gets the value of the centrePointFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getCentrePointFixDesignatedPoint() {
@@ -171,11 +163,11 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the centrePointFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setCentrePointFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.centrePointFixDesignatedPoint = value;
@@ -183,15 +175,16 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetCentrePointFixDesignatedPoint() {
-        return (this.centrePointFixDesignatedPoint != null);
+        return (this.centrePointFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the centrePointNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getCentrePointNavaidSystem() {
@@ -200,11 +193,11 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the centrePointNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setCentrePointNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.centrePointNavaidSystem = value;
@@ -212,15 +205,16 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetCentrePointNavaidSystem() {
-        return (this.centrePointNavaidSystem != null);
+        return (this.centrePointNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the centrePointPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getCentrePointPosition() {
@@ -229,11 +223,11 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the centrePointPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setCentrePointPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.centrePointPosition = value;
@@ -241,15 +235,16 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetCentrePointPosition() {
-        return (this.centrePointPosition != null);
+        return (this.centrePointPosition!= null);
     }
 
     /**
      * Gets the value of the centrePointRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getCentrePointRunwayPoint() {
@@ -258,11 +253,11 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the centrePointRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setCentrePointRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.centrePointRunwayPoint = value;
@@ -270,15 +265,16 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetCentrePointRunwayPoint() {
-        return (this.centrePointRunwayPoint != null);
+        return (this.centrePointRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the centrePointAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getCentrePointAimingPoint() {
@@ -287,11 +283,11 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the centrePointAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setCentrePointAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.centrePointAimingPoint = value;
@@ -299,15 +295,16 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetCentrePointAimingPoint() {
-        return (this.centrePointAimingPoint != null);
+        return (this.centrePointAimingPoint!= null);
     }
 
     /**
      * Gets the value of the centrePointAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getCentrePointAirportReferencePoint() {
@@ -316,11 +313,11 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Sets the value of the centrePointAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setCentrePointAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.centrePointAirportReferencePoint = value;
@@ -328,37 +325,39 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetCentrePointAirportReferencePoint() {
-        return (this.centrePointAirportReferencePoint != null);
+        return (this.centrePointAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the sector property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the sector property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the sector property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSector().add(newItem);
+     *    getSector().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SafeAltitudeAreaSectorPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SafeAltitudeAreaSectorPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_sctr_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "sector_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_sctr_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "sector_hjid", referencedColumnName = "hjid")
+    })
     public List<SafeAltitudeAreaSectorPropertyType> getSector() {
         if (sector == null) {
             sector = new ArrayList<>();
@@ -367,8 +366,8 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSector(List<SafeAltitudeAreaSectorPropertyType> sector) {
         this.sector = sector;
@@ -376,7 +375,7 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetSector() {
-        return ((this.sector != null) && (!this.sector.isEmpty()));
+        return ((this.sector!= null)&&(!this.sector.isEmpty()));
     }
 
     public void unsetSector() {
@@ -385,31 +384,34 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the location property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the location property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the location property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getLocation().add(newItem);
+     *    getLocation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirportHeliportPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_lctn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_lctn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public List<AirportHeliportPropertyType> getLocation() {
         if (location == null) {
             location = new ArrayList<>();
@@ -418,8 +420,8 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setLocation(List<AirportHeliportPropertyType> location) {
         this.location = location;
@@ -427,7 +429,7 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetLocation() {
-        return ((this.location != null) && (!this.location.isEmpty()));
+        return ((this.location!= null)&&(!this.location.isEmpty()));
     }
 
     public void unsetLocation() {
@@ -436,31 +438,34 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_annttn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_annttn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -469,8 +474,8 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -478,7 +483,7 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -487,29 +492,29 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SafeAltitudeAreaTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = SafeAltitudeAreaTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "safealtitudearea_te_hjid", referencedColumnName = "hjid")
     public List<SafeAltitudeAreaTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -519,8 +524,8 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<SafeAltitudeAreaTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -528,7 +533,7 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -536,110 +541,117 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "safeareatype")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "safeareatypenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "safeareatype", columnDefinition = "codesafealtitudebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "safeareatypenilreason", columnDefinition = "nilreason"))
+    })
     public CodeSafeAltitudeType getSafeAreaTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSafeAltitudeType.class, this.getSafeAreaType());
     }
 
     public void setSafeAreaTypeItem(CodeSafeAltitudeType target) {
-        setSafeAreaType(XmlAdapterUtils.marshallJAXBElement(CodeSafeAltitudeType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "safeAreaType"), SafeAltitudeAreaTimeSliceType.class,
-                target));
+        setSafeAreaType(XmlAdapterUtils.marshallJAXBElement(CodeSafeAltitudeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "safeAreaType"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_cntrpntfxdsgntdpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "centrepointfixdesignatedpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_cntrpntfxdsgntdpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "centrepointfixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getCentrePointFixDesignatedPointItem() {
-        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class,
-                this.getCentrePointFixDesignatedPoint());
+        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getCentrePointFixDesignatedPoint());
     }
 
     public void setCentrePointFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setCentrePointFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_fixDesignatedPoint"),
-                SafeAltitudeAreaTimeSliceType.class, target));
+        setCentrePointFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_fixDesignatedPoint"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_cntrpntnvdsstm_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "centrepointnavaidsystem_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_cntrpntnvdsstm_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "centrepointnavaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getCentrePointNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getCentrePointNavaidSystem());
     }
 
     public void setCentrePointNavaidSystemItem(NavaidPropertyType target) {
-        setCentrePointNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_navaidSystem"),
-                SafeAltitudeAreaTimeSliceType.class, target));
+        setCentrePointNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_navaidSystem"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_cntrpntpstn_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "centrepointposition_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_cntrpntpstn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "centrepointposition_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getCentrePointPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getCentrePointPosition());
     }
 
     public void setCentrePointPositionItem(AIXMPointPropertyType target) {
-        setCentrePointPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_position"),
-                SafeAltitudeAreaTimeSliceType.class, target));
+        setCentrePointPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_position"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_cntrpntrnwpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "centrepointrunwaypoint_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_cntrpntrnwpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "centrepointrunwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getCentrePointRunwayPointItem() {
-        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class,
-                this.getCentrePointRunwayPoint());
+        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getCentrePointRunwayPoint());
     }
 
     public void setCentrePointRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setCentrePointRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_runwayPoint"),
-                SafeAltitudeAreaTimeSliceType.class, target));
+        setCentrePointRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_runwayPoint"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_cntrpntamngpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "centrepointaimingpoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_cntrpntamngpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "centrepointaimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getCentrePointAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getCentrePointAimingPoint());
     }
 
     public void setCentrePointAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setCentrePointAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_aimingPoint"),
-                SafeAltitudeAreaTimeSliceType.class, target));
+        setCentrePointAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_aimingPoint"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "sfalttdartmslctp_cntrpntarprtrfrncpnt_link", schema = "procedure", joinColumns = {
-            @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "centrepointairportreferencepoint_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdartmslctp_cntrpntarprtrfrncpnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "safealtitudearea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "centrepointairportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getCentrePointAirportReferencePointItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class,
-                this.getCentrePointAirportReferencePoint());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getCentrePointAirportReferencePoint());
     }
 
     public void setCentrePointAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setCentrePointAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_airportReferencePoint"),
-                SafeAltitudeAreaTimeSliceType.class, target));
+        setCentrePointAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_airportReferencePoint"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -663,6 +675,19 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getCentrePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getCentrePointNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
             boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
@@ -671,6 +696,84 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
             rhsField = that.getCentrePointRunwayPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getCentrePointAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getCentrePointAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getCentrePointFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<SafeAltitudeAreaSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector()?this.getSector():null);
+            List<SafeAltitudeAreaSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector()?that.getSector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetLocation()?this.getLocation():null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetLocation()?that.getLocation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SafeAltitudeAreaTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SafeAltitudeAreaTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -689,47 +792,6 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getCentrePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getCentrePointNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getCentrePointAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getCentrePointAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAirportReferencePoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAirportReferencePoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCentrePointAimingPoint();
             boolean rhsFieldIsSet = that.isSetCentrePointAimingPoint();
             JAXBElement<TouchDownLiftOffPropertyType> lhsField;
@@ -738,60 +800,6 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
             rhsField = that.getCentrePointAimingPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAimingPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getCentrePointFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<SafeAltitudeAreaSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector() ? this.getSector() : null);
-            List<SafeAltitudeAreaSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector() ? that.getSector() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SafeAltitudeAreaTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SafeAltitudeAreaTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetLocation() ? this.getLocation() : null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetLocation() ? that.getLocation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -848,35 +856,34 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
             boolean theFieldIsSet = this.isSetCentrePointAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getCentrePointAirportReferencePoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "centrePointAirportReferencePoint",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "centrePointAirportReferencePoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSector();
             List<SafeAltitudeAreaSectorPropertyType> theField;
-            theField = (this.isSetSector() ? this.getSector() : null);
+            theField = (this.isSetSector()?this.getSector():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sector", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetLocation();
             List<AirportHeliportPropertyType> theField;
-            theField = (this.isSetLocation() ? this.getLocation() : null);
+            theField = (this.isSetLocation()?this.getLocation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "location", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SafeAltitudeAreaTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -931,25 +938,25 @@ public class SafeAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType imp
         {
             boolean theFieldIsSet = this.isSetSector();
             List<SafeAltitudeAreaSectorPropertyType> theField;
-            theField = (this.isSetSector() ? this.getSector() : null);
+            theField = (this.isSetSector()?this.getSector():null);
             strategy.appendField(locator, this, "sector", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetLocation();
             List<AirportHeliportPropertyType> theField;
-            theField = (this.isSetLocation() ? this.getLocation() : null);
+            theField = (this.isSetLocation()?this.getLocation():null);
             strategy.appendField(locator, this, "location", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SafeAltitudeAreaTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

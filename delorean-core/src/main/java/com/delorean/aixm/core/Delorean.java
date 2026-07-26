@@ -52,6 +52,7 @@ public class Delorean<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, CONFIG> {
             objectClass,
             config.getSqlPreInitPath(), 
             config.getSqlPostInitPath(), 
+            config.getSqlFilesMap(), 
             config.getConfigurationPath(),  
             config.getCoreResourceAnchorsClass(), 
             config.getAIXMResourceAnchorsClass(), 

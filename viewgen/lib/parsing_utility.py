@@ -35,6 +35,85 @@ class ParsingUtility :
         
         return res
 
+    @staticmethod
+    def extract_columns(parsing, schema, table, content):
+        """Extract simple column definitions."""
+        raw_columns = re.findall(parsing["column"]["method"], content) or [None]
+        return [f"{schema}.{table}.{column}" for column in raw_columns]
+    
+    # @staticmethod
+    # def extract_parent_columns(schema, table, parent_name):
+    #     """Extract inherited columns from parent classes."""
+    #     parent_columns = self.attributes["parents_attributes"].get(parent_name[0], [])
+    #     return [f"{schema}.{table}.{col}" for col in parent_columns]
+
+    @staticmethod
+    def extract_embedded_columns_two(parsing, content):
+        """Extract embedded attributes (2 columns)."""
+        embedded_columns = []
+        raw_embedded_two = re.findall(parsing["embedded_two"]["method"], content)
+        for column in raw_embedded_two:
+            value, nil, type, role = column[0], column[1], column[2], column[3]
+            embedded_columns.append({
+                "value" : value,
+                "nil" : nil,
+                "type" : type,
+                "role" : role.lower()
+            })
+
+        return embedded_columns
+    
+    @staticmethod
+    def extract_embedded_columns_three(parsing, content):
+        """Extract embedded attributes (3 columns)."""
+        embedded_columns = []
+        raw_embedded_three = re.findall(parsing["embedded_three"]["method"], content)
+        for column in raw_embedded_three:
+            value, uom, nil, type, role = column[0], column[1], column[2], column[3], column[4]
+            embedded_columns.append({
+                "value" : value,
+                "uom" : uom,
+                "nil" : nil,
+                "type" : type,
+                "role" : role.lower()
+            })
+ 
+        return embedded_columns
+
+    @staticmethod
+    def extract_one_to_one(parsing, content):
+        """Extract one-to-one relationships."""
+        res = []
+        raw_one_to_one = re.findall(parsing["one_to_one"]["method"], content)
+        for column in raw_one_to_one:
+            join_table, schema, join_column, invers_join_column, type, role = column[0], column[1], column[2], column[3], column[4], column[5]
+            res.append({
+                "table" :   f"{schema}.{join_table}",
+                "column" :  f"{schema}.{join_table}.{join_column}",
+                "invers" :  f"{schema}.{join_table}.{invers_join_column}",
+                "type" : type,
+                "role" : role.lower()
+            })
+
+        return res
+
+    @staticmethod
+    def extract_one_to_many(parsing, content):
+        """Extract one-to-many relationships."""
+        res = []
+        raw_one_to_one = re.findall(parsing["one_to_one"]["method"], content)
+        for column in raw_one_to_one:
+            join_table, schema, join_column, invers_join_column, type, role = column[0], column[1], column[2], column[3], column[4], column[5]
+            res.append({
+                "table" :   f"{schema}.{join_table}",
+                "column" :  f"{schema}.{join_table}.{join_column}",
+                "invers" :  f"{schema}.{join_table}.{invers_join_column}",
+                "type" : type,
+                "role" : role.lower()
+            })
+
+        return res
+
 
     # def __init__(self, parsing, inheritance, formated_sql, association, qlr_attr, input_path):
     #     self.parsing = parsing

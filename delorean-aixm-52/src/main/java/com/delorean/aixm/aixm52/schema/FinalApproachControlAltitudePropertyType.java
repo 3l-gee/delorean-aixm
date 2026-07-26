@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for FinalApproachControlAltitudePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FinalApproachControlAltitudePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FinalApproachControlAltitudePropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}FinalApproachControlAltitude"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}FinalApproachControlAltitude"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FinalApproachControlAltitudePropertyType", propOrder = {"finalApproachControlAltitude"})
+@XmlType(name = "FinalApproachControlAltitudePropertyType", propOrder = {
+    "finalApproachControlAltitude"
+})
 @Entity(name = "FinalApproachControlAltitudePropertyType")
 @Table(name = "finalapproachcontrolaltitudepropertytype", schema = "procedure")
-public class FinalApproachControlAltitudePropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class FinalApproachControlAltitudePropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "FinalApproachControlAltitude", required = true)
@@ -58,12 +56,15 @@ public class FinalApproachControlAltitudePropertyType extends AbstractAIXMProper
 
     /**
      * Gets the value of the finalApproachControlAltitude property.
-     *
-     * @return possible object is {@link FinalApproachControlAltitudeType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link FinalApproachControlAltitudeType }
+     *     
      */
     @OneToOne(targetEntity = FinalApproachControlAltitudeType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "finalapproachcontrolaltitude_hjid", referencedColumnName = "hjid")
     public FinalApproachControlAltitudeType getFinalApproachControlAltitude() {
         return finalApproachControlAltitude;
@@ -71,10 +72,11 @@ public class FinalApproachControlAltitudePropertyType extends AbstractAIXMProper
 
     /**
      * Sets the value of the finalApproachControlAltitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link FinalApproachControlAltitudeType }
-     *
+     *     allowed object is
+     *     {@link FinalApproachControlAltitudeType }
+     *     
      */
     public void setFinalApproachControlAltitude(FinalApproachControlAltitudeType value) {
         this.finalApproachControlAltitude = value;
@@ -82,13 +84,12 @@ public class FinalApproachControlAltitudePropertyType extends AbstractAIXMProper
 
     @Transient
     public boolean isSetFinalApproachControlAltitude() {
-        return (this.finalApproachControlAltitude != null);
+        return (this.finalApproachControlAltitude!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -105,10 +106,8 @@ public class FinalApproachControlAltitudePropertyType extends AbstractAIXMProper
             lhsField = this.getFinalApproachControlAltitude();
             FinalApproachControlAltitudeType rhsField;
             rhsField = that.getFinalApproachControlAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "finalApproachControlAltitude",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "finalApproachControlAltitude",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "finalApproachControlAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "finalApproachControlAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

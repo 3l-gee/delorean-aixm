@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -19,10 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,57 +30,34 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AirspaceActivationType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirspaceActivationType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirspaceActivationType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
  *       <sequence>
- *         <element name="timeInterval" type=
-"{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="specialDateAuthority" type=
-"{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="activity" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeAirspaceActivityType" minOccurs="0"/>
- *         <element name="status" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeStatusAirspaceType" minOccurs="0"/>
- *         <element name="levels" type=
-"{http://www.aixm.aero/schema/5.1.1}AirspaceLayerPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="user" type=
-"{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <element name="aircraft" type=
-"{http://www.aixm.aero/schema/5.1.1}AircraftCharacteristicPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
+ *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="activity" type="{http://www.aixm.aero/schema/5.1.1}CodeAirspaceActivityType" minOccurs="0"/>
+ *         <element name="status" type="{http://www.aixm.aero/schema/5.1.1}CodeStatusAirspaceType" minOccurs="0"/>
+ *         <element name="levels" type="{http://www.aixm.aero/schema/5.1.1}AirspaceLayerPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="user" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="aircraft" type="{http://www.aixm.aero/schema/5.1.1}AircraftCharacteristicPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAirspaceActivationExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAirspaceActivationExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -90,15 +67,27 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirspaceActivationType", propOrder = {"timeInterval", "annotation", "specialDateAuthority", "activity",
-        "status", "levels", "user", "aircraft", "extension"})
+@XmlType(name = "AirspaceActivationType", propOrder = {
+    "timeInterval",
+    "annotation",
+    "specialDateAuthority",
+    "activity",
+    "status",
+    "levels",
+    "user",
+    "aircraft",
+    "extension"
+})
 @Entity(name = "AirspaceActivationType")
 @Table(name = "airspaceactivation_o", schema = "airspace")
-public class AirspaceActivationType extends AbstractPropertiesWithScheduleType implements Serializable {
+public class AirspaceActivationType
+    extends AbstractPropertiesWithScheduleType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(nillable = true)
@@ -121,31 +110,34 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Gets the value of the timeInterval property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the timeInterval property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the timeInterval property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getTimeInterval().add(newItem);
+     *    getTimeInterval().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TimesheetPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcactvtntp_tmintrvl_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspcactvtntp_tmintrvl_l", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
+    })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
             timeInterval = new ArrayList<>();
@@ -154,8 +146,8 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setTimeInterval(List<TimesheetPropertyType> timeInterval) {
         this.timeInterval = timeInterval;
@@ -163,7 +155,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetTimeInterval() {
-        return ((this.timeInterval != null) && (!this.timeInterval.isEmpty()));
+        return ((this.timeInterval!= null)&&(!this.timeInterval.isEmpty()));
     }
 
     public void unsetTimeInterval() {
@@ -172,31 +164,34 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcactvtntp_annttn_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspcactvtntp_annttn_l", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -205,8 +200,8 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -214,7 +209,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -223,32 +218,34 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Gets the value of the specialDateAuthority property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the specialDateAuthority property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the specialDateAuthority property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSpecialDateAuthority().add(newItem);
+     *    getSpecialDateAuthority().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrganisationAuthorityPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcactvtntp_spcldtathrt_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspcactvtntp_spcldtathrt_l", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
             specialDateAuthority = new ArrayList<>();
@@ -257,8 +254,8 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSpecialDateAuthority(List<OrganisationAuthorityPropertyType> specialDateAuthority) {
         this.specialDateAuthority = specialDateAuthority;
@@ -266,7 +263,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetSpecialDateAuthority() {
-        return ((this.specialDateAuthority != null) && (!this.specialDateAuthority.isEmpty()));
+        return ((this.specialDateAuthority!= null)&&(!this.specialDateAuthority.isEmpty()));
     }
 
     public void unsetSpecialDateAuthority() {
@@ -275,10 +272,11 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Gets the value of the activity property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAirspaceActivityType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAirspaceActivityType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAirspaceActivityType> getActivity() {
@@ -287,11 +285,11 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Sets the value of the activity property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAirspaceActivityType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAirspaceActivityType }{@code >}
+     *     
      */
     public void setActivity(JAXBElement<CodeAirspaceActivityType> value) {
         this.activity = value;
@@ -299,15 +297,16 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetActivity() {
-        return (this.activity != null);
+        return (this.activity!= null);
     }
 
     /**
      * Gets the value of the status property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeStatusAirspaceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeStatusAirspaceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeStatusAirspaceType> getStatus() {
@@ -316,11 +315,11 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Sets the value of the status property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeStatusAirspaceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeStatusAirspaceType }{@code >}
+     *     
      */
     public void setStatus(JAXBElement<CodeStatusAirspaceType> value) {
         this.status = value;
@@ -328,36 +327,39 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetStatus() {
-        return (this.status != null);
+        return (this.status!= null);
     }
 
     /**
      * Gets the value of the levels property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the levels property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the levels property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getLevels().add(newItem);
+     *    getLevels().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceLayerPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcactvtntp_lvls_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "levels_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspcactvtntp_lvls_l", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "levels_hjid", referencedColumnName = "hjid")
+    })
     public List<AirspaceLayerPropertyType> getLevels() {
         if (levels == null) {
             levels = new ArrayList<>();
@@ -366,8 +368,8 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setLevels(List<AirspaceLayerPropertyType> levels) {
         this.levels = levels;
@@ -375,7 +377,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetLevels() {
-        return ((this.levels != null) && (!this.levels.isEmpty()));
+        return ((this.levels!= null)&&(!this.levels.isEmpty()));
     }
 
     public void unsetLevels() {
@@ -384,32 +386,34 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Gets the value of the user property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the user property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the user property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getUser().add(newItem);
+     *    getUser().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrganisationAuthorityPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcactvtntp_usr_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "user__hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspcactvtntp_usr_l", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "user__hjid", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getUser() {
         if (user == null) {
             user = new ArrayList<>();
@@ -418,8 +422,8 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setUser(List<OrganisationAuthorityPropertyType> user) {
         this.user = user;
@@ -427,7 +431,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetUser() {
-        return ((this.user != null) && (!this.user.isEmpty()));
+        return ((this.user!= null)&&(!this.user.isEmpty()));
     }
 
     public void unsetUser() {
@@ -436,32 +440,34 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Gets the value of the aircraft property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the aircraft property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the aircraft property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAircraft().add(newItem);
+     *    getAircraft().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AircraftCharacteristicPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcactvtntp_arcrft_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "aircraft_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspcactvtntp_arcrft_l", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "airspaceactivation_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "aircraft_hjid", referencedColumnName = "hjid")
+    })
     public List<AircraftCharacteristicPropertyType> getAircraft() {
         if (aircraft == null) {
             aircraft = new ArrayList<>();
@@ -470,8 +476,8 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAircraft(List<AircraftCharacteristicPropertyType> aircraft) {
         this.aircraft = aircraft;
@@ -479,7 +485,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetAircraft() {
-        return ((this.aircraft != null) && (!this.aircraft.isEmpty()));
+        return ((this.aircraft!= null)&&(!this.aircraft.isEmpty()));
     }
 
     public void unsetAircraft() {
@@ -488,29 +494,29 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceActivationExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AirspaceActivationExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airspaceactivation_oe_hjid", referencedColumnName = "hjid")
     public List<AirspaceActivationExtensionType> getExtension() {
         if (extension == null) {
@@ -520,8 +526,8 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AirspaceActivationExtensionType> extension) {
         this.extension = extension;
@@ -529,7 +535,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -537,33 +543,34 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "activity")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "activitynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "activity", columnDefinition = "codeairspaceactivitybase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "activitynilreason", columnDefinition = "nilreason"))
+    })
     public CodeAirspaceActivityType getActivityItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAirspaceActivityType.class, this.getActivity());
     }
 
     public void setActivityItem(CodeAirspaceActivityType target) {
-        setActivity(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceActivityType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "activity"), AirspaceActivationType.class, target));
+        setActivity(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceActivityType.class, new QName("http://www.aixm.aero/schema/5.1.1", "activity"), AirspaceActivationType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "status")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "statusnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "status", columnDefinition = "codestatusairspacebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "statusnilreason", columnDefinition = "nilreason"))
+    })
     public CodeStatusAirspaceType getStatusItem() {
         return XmlAdapterUtils.unmarshallSource(CodeStatusAirspaceType.class, this.getStatus());
     }
 
     public void setStatusItem(CodeStatusAirspaceType target) {
-        setStatus(XmlAdapterUtils.marshallJAXBElement(CodeStatusAirspaceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "status"), AirspaceActivationType.class, target));
+        setStatus(XmlAdapterUtils.marshallJAXBElement(CodeStatusAirspaceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "status"), AirspaceActivationType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -574,27 +581,14 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
         }
         final AirspaceActivationType that = ((AirspaceActivationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceActivationExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceActivationExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -603,9 +597,9 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -613,53 +607,40 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLevels();
-            boolean rhsFieldIsSet = that.isSetLevels();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetLevels() ? this.getLevels() : null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetLevels() ? that.getLevels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraft();
-            boolean rhsFieldIsSet = that.isSetAircraft();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraft() ? this.getAircraft() : null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraft() ? that.getAircraft() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            boolean lhsFieldIsSet = this.isSetUser();
+            boolean rhsFieldIsSet = that.isSetUser();
             List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            lhsField = (this.isSetUser()?this.getUser():null);
             List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            rhsField = (that.isSetUser()?that.getUser():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "user", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "user", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActivity();
-            boolean rhsFieldIsSet = that.isSetActivity();
-            JAXBElement<CodeAirspaceActivityType> lhsField;
-            lhsField = this.getActivity();
-            JAXBElement<CodeAirspaceActivityType> rhsField;
-            rhsField = that.getActivity();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activity", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceActivationExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AirspaceActivationExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -678,14 +659,40 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUser();
-            boolean rhsFieldIsSet = that.isSetUser();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetUser() ? this.getUser() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetUser() ? that.getUser() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "user", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "user", rhsField);
+            boolean lhsFieldIsSet = this.isSetAircraft();
+            boolean rhsFieldIsSet = that.isSetAircraft();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraft()?this.getAircraft():null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraft()?that.getAircraft():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActivity();
+            boolean rhsFieldIsSet = that.isSetActivity();
+            JAXBElement<CodeAirspaceActivityType> lhsField;
+            lhsField = this.getActivity();
+            JAXBElement<CodeAirspaceActivityType> rhsField;
+            rhsField = that.getActivity();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLevels();
+            boolean rhsFieldIsSet = that.isSetLevels();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetLevels()?this.getLevels():null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetLevels()?that.getLevels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -699,21 +706,21 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
         {
             boolean theFieldIsSet = this.isSetTimeInterval();
             List<TimesheetPropertyType> theField;
-            theField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            theField = (this.isSetTimeInterval()?this.getTimeInterval():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeInterval", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            theField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "specialDateAuthority", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -734,28 +741,28 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
         {
             boolean theFieldIsSet = this.isSetLevels();
             List<AirspaceLayerPropertyType> theField;
-            theField = (this.isSetLevels() ? this.getLevels() : null);
+            theField = (this.isSetLevels()?this.getLevels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "levels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUser();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetUser() ? this.getUser() : null);
+            theField = (this.isSetUser()?this.getUser():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "user", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAircraft();
             List<AircraftCharacteristicPropertyType> theField;
-            theField = (this.isSetAircraft() ? this.getAircraft() : null);
+            theField = (this.isSetAircraft()?this.getAircraft():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aircraft", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceActivationExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -768,19 +775,19 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
         {
             boolean theFieldIsSet = this.isSetTimeInterval();
             List<TimesheetPropertyType> theField;
-            theField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            theField = (this.isSetTimeInterval()?this.getTimeInterval():null);
             strategy.appendField(locator, this, "timeInterval", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            theField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
             strategy.appendField(locator, this, "specialDateAuthority", buffer, theField, theFieldIsSet);
         }
         {
@@ -798,25 +805,25 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
         {
             boolean theFieldIsSet = this.isSetLevels();
             List<AirspaceLayerPropertyType> theField;
-            theField = (this.isSetLevels() ? this.getLevels() : null);
+            theField = (this.isSetLevels()?this.getLevels():null);
             strategy.appendField(locator, this, "levels", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUser();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetUser() ? this.getUser() : null);
+            theField = (this.isSetUser()?this.getUser():null);
             strategy.appendField(locator, this, "user", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAircraft();
             List<AircraftCharacteristicPropertyType> theField;
-            theField = (this.isSetAircraft() ? this.getAircraft() : null);
+            theField = (this.isSetAircraft()?this.getAircraft():null);
             strategy.appendField(locator, this, "aircraft", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceActivationExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

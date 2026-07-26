@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for FinalApproachControlPositionPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FinalApproachControlPositionPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FinalApproachControlPositionPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.2}FinalApproachControlPosition"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.2}FinalApproachControlPosition"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FinalApproachControlPositionPropertyType", propOrder = {"finalApproachControlPosition"})
+@XmlType(name = "FinalApproachControlPositionPropertyType", propOrder = {
+    "finalApproachControlPosition"
+})
 @Entity(name = "FinalApproachControlPositionPropertyType")
 @Table(name = "finalapproachcontrolpositionpropertytype", schema = "procedure")
-public class FinalApproachControlPositionPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class FinalApproachControlPositionPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "FinalApproachControlPosition", required = true)
@@ -58,12 +56,15 @@ public class FinalApproachControlPositionPropertyType extends AbstractAIXMProper
 
     /**
      * Gets the value of the finalApproachControlPosition property.
-     *
-     * @return possible object is {@link FinalApproachControlPositionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link FinalApproachControlPositionType }
+     *     
      */
     @OneToOne(targetEntity = FinalApproachControlPositionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "finalapproachcontrolposition_hjid", referencedColumnName = "hjid")
     public FinalApproachControlPositionType getFinalApproachControlPosition() {
         return finalApproachControlPosition;
@@ -71,10 +72,11 @@ public class FinalApproachControlPositionPropertyType extends AbstractAIXMProper
 
     /**
      * Sets the value of the finalApproachControlPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link FinalApproachControlPositionType }
-     *
+     *     allowed object is
+     *     {@link FinalApproachControlPositionType }
+     *     
      */
     public void setFinalApproachControlPosition(FinalApproachControlPositionType value) {
         this.finalApproachControlPosition = value;
@@ -82,13 +84,12 @@ public class FinalApproachControlPositionPropertyType extends AbstractAIXMProper
 
     @Transient
     public boolean isSetFinalApproachControlPosition() {
-        return (this.finalApproachControlPosition != null);
+        return (this.finalApproachControlPosition!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -105,10 +106,8 @@ public class FinalApproachControlPositionPropertyType extends AbstractAIXMProper
             lhsField = this.getFinalApproachControlPosition();
             FinalApproachControlPositionType rhsField;
             rhsField = that.getFinalApproachControlPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "finalApproachControlPosition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "finalApproachControlPosition",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "finalApproachControlPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "finalApproachControlPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

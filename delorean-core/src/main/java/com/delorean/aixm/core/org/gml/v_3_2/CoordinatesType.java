@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -10,7 +11,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,52 +24,41 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
  * This type is deprecated for tuples with ordinate values that are numbers.
- * CoordinatesType is a text string, intended to be used to record an array of
- * tuples or coordinates. While it is not possible to enforce the internal
- * structure of the string through schema validation, some optional attributes
- * have been provided in previous versions of GML to support a description of
- * the internal structure. These attributes are deprecated. The attributes were
- * intended to be used as follows: Decimal symbol used for a decimal point
- * (default="." a stop or period) cs symbol used to separate components within a
- * tuple or coordinate string (default="," a comma) ts symbol used to separate
- * tuples or coordinate strings (default=" " a space) Since it is based on the
- * XML Schema string type, CoordinatesType may be used in the construction of
- * tables of tuples or arrays of tuples, including ones that contain mixed text
- * and numeric values.
- *
- * <p>
- * Java class for CoordinatesType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * CoordinatesType is a text string, intended to be used to record an array of tuples or coordinates. 
+ * While it is not possible to enforce the internal structure of the string through schema validation, some optional attributes have been provided in previous versions of GML to support a description of the internal structure. These attributes are deprecated. The attributes were intended to be used as follows:
+ * Decimal	symbol used for a decimal point (default="." a stop or period)
+ * cs        	symbol used to separate components within a tuple or coordinate string (default="," a comma)
+ * ts        	symbol used to separate tuples or coordinate strings (default=" " a space)
+ * Since it is based on the XML Schema string type, CoordinatesType may be used in the construction of tables of tuples or arrays of tuples, including ones that contain mixed text and numeric values.
+ * 
+ * <p>Java class for CoordinatesType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CoordinatesType">
  *   <simpleContent>
  *     <extension base="<http://www.w3.org/2001/XMLSchema>string">
- *       <attribute name="decimal" type=
-"{http://www.w3.org/2001/XMLSchema}string" default="." />
- *       <attribute name="cs" type=
-"{http://www.w3.org/2001/XMLSchema}string" default="," />
- *       <attribute name="ts" type=
-"{http://www.w3.org/2001/XMLSchema}string" default=" " />
+ *       <attribute name="decimal" type="{http://www.w3.org/2001/XMLSchema}string" default="." />
+ *       <attribute name="cs" type="{http://www.w3.org/2001/XMLSchema}string" default="," />
+ *       <attribute name="ts" type="{http://www.w3.org/2001/XMLSchema}string" default=" " />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CoordinatesType", propOrder = {"value"})
+@XmlType(name = "CoordinatesType", propOrder = {
+    "value"
+})
 @Embeddable
-public class CoordinatesType implements Serializable, Equals, HashCode, ToString {
+public class CoordinatesType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -83,9 +72,11 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the value property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "VALUE_", length = 255)
@@ -95,10 +86,11 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setValue(String value) {
         this.value = value;
@@ -106,14 +98,16 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetValue() {
-        return (this.value != null);
+        return (this.value!= null);
     }
 
     /**
      * Gets the value of the decimal property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "DECIMAL_", length = 255)
@@ -127,10 +121,11 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the decimal property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDecimal(String value) {
         this.decimal = value;
@@ -138,14 +133,16 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetDecimal() {
-        return (this.decimal != null);
+        return (this.decimal!= null);
     }
 
     /**
      * Gets the value of the cs property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "CS", length = 255)
@@ -159,10 +156,11 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the cs property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCs(String value) {
         this.cs = value;
@@ -170,14 +168,16 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetCs() {
-        return (this.cs != null);
+        return (this.cs!= null);
     }
 
     /**
      * Gets the value of the ts property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "TS", length = 255)
@@ -191,10 +191,11 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the ts property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setTs(String value) {
         this.ts = value;
@@ -202,7 +203,7 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetTs() {
-        return (this.ts != null);
+        return (this.ts!= null);
     }
 
     @Override
@@ -218,15 +219,27 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final CoordinatesType that = ((CoordinatesType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetTs();
+            boolean rhsFieldIsSet = that.isSetTs();
+            String lhsField;
+            lhsField = this.getTs();
+            String rhsField;
+            rhsField = that.getTs();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ts", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ts", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
@@ -236,19 +249,6 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCs();
-            boolean rhsFieldIsSet = that.isSetCs();
-            String lhsField;
-            lhsField = this.getCs();
-            String rhsField;
-            rhsField = that.getCs();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cs", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cs", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -267,14 +267,14 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTs();
-            boolean rhsFieldIsSet = that.isSetTs();
+            boolean lhsFieldIsSet = this.isSetCs();
+            boolean rhsFieldIsSet = that.isSetCs();
             String lhsField;
-            lhsField = this.getTs();
+            lhsField = this.getCs();
             String rhsField;
-            rhsField = that.getTs();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ts", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ts", rhsField);
+            rhsField = that.getCs();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cs", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cs", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

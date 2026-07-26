@@ -1,52 +1,40 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TinType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TinType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TinType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}SurfaceType">
  *       <sequence>
- *         <element name="stopLines" type=
-"{http://www.opengis.net/gml/3.2}LineStringSegmentArrayPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="breakLines" type=
-"{http://www.opengis.net/gml/3.2}LineStringSegmentArrayPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="maxLength" type=
-"{http://www.opengis.net/gml/3.2}LengthType"/>
+ *         <element name="stopLines" type="{http://www.opengis.net/gml/3.2}LineStringSegmentArrayPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="breakLines" type="{http://www.opengis.net/gml/3.2}LineStringSegmentArrayPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="maxLength" type="{http://www.opengis.net/gml/3.2}LengthType"/>
  *         <element name="controlPoint">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
  *                   <element ref="{http://www.opengis.net/gml/3.2}posList"/>
- *                   <group ref=
-"{http://www.opengis.net/gml/3.2}geometricPositionGroup" maxOccurs=
-"unbounded" minOccurs="3"/>
+ *                   <group ref="{http://www.opengis.net/gml/3.2}geometricPositionGroup" maxOccurs="unbounded" minOccurs="3"/>
  *                 </choice>
  *               </restriction>
  *             </complexContent>
@@ -57,12 +45,20 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TinType", propOrder = {"stopLines", "breakLines", "maxLength", "controlPoint"})
-public class TinType extends SurfaceType implements Serializable {
+@XmlType(name = "TinType", propOrder = {
+    "stopLines",
+    "breakLines",
+    "maxLength",
+    "controlPoint"
+})
+public class TinType
+    extends SurfaceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     protected List<LineStringSegmentArrayPropertyType> stopLines;
@@ -74,26 +70,25 @@ public class TinType extends SurfaceType implements Serializable {
 
     /**
      * Gets the value of the stopLines property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the stopLines property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the stopLines property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getStopLines().add(newItem);
+     *    getStopLines().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LineStringSegmentArrayPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<LineStringSegmentArrayPropertyType> getStopLines() {
         if (stopLines == null) {
@@ -103,15 +98,15 @@ public class TinType extends SurfaceType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setStopLines(List<LineStringSegmentArrayPropertyType> stopLines) {
         this.stopLines = stopLines;
     }
 
     public boolean isSetStopLines() {
-        return ((this.stopLines != null) && (!this.stopLines.isEmpty()));
+        return ((this.stopLines!= null)&&(!this.stopLines.isEmpty()));
     }
 
     public void unsetStopLines() {
@@ -120,26 +115,25 @@ public class TinType extends SurfaceType implements Serializable {
 
     /**
      * Gets the value of the breakLines property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the breakLines property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the breakLines property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getBreakLines().add(newItem);
+     *    getBreakLines().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LineStringSegmentArrayPropertyType }
-     *
-     *
+     * 
+     * 
      */
     public List<LineStringSegmentArrayPropertyType> getBreakLines() {
         if (breakLines == null) {
@@ -149,15 +143,15 @@ public class TinType extends SurfaceType implements Serializable {
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setBreakLines(List<LineStringSegmentArrayPropertyType> breakLines) {
         this.breakLines = breakLines;
     }
 
     public boolean isSetBreakLines() {
-        return ((this.breakLines != null) && (!this.breakLines.isEmpty()));
+        return ((this.breakLines!= null)&&(!this.breakLines.isEmpty()));
     }
 
     public void unsetBreakLines() {
@@ -166,9 +160,11 @@ public class TinType extends SurfaceType implements Serializable {
 
     /**
      * Gets the value of the maxLength property.
-     *
-     * @return possible object is {@link LengthType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link LengthType }
+     *     
      */
     public LengthType getMaxLength() {
         return maxLength;
@@ -176,24 +172,27 @@ public class TinType extends SurfaceType implements Serializable {
 
     /**
      * Sets the value of the maxLength property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link LengthType }
-     *
+     *     allowed object is
+     *     {@link LengthType }
+     *     
      */
     public void setMaxLength(LengthType value) {
         this.maxLength = value;
     }
 
     public boolean isSetMaxLength() {
-        return (this.maxLength != null);
+        return (this.maxLength!= null);
     }
 
     /**
      * Gets the value of the controlPoint property.
-     *
-     * @return possible object is {@link ControlPoint }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ControlPoint }
+     *     
      */
     public ControlPoint getControlPoint() {
         return controlPoint;
@@ -201,23 +200,23 @@ public class TinType extends SurfaceType implements Serializable {
 
     /**
      * Sets the value of the controlPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ControlPoint }
-     *
+     *     allowed object is
+     *     {@link ControlPoint }
+     *     
      */
     public void setControlPoint(ControlPoint value) {
         this.controlPoint = value;
     }
 
     public boolean isSetControlPoint() {
-        return (this.controlPoint != null);
+        return (this.controlPoint!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -227,19 +226,6 @@ public class TinType extends SurfaceType implements Serializable {
             return false;
         }
         final TinType that = ((TinType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetBreakLines();
-            boolean rhsFieldIsSet = that.isSetBreakLines();
-            List<LineStringSegmentArrayPropertyType> lhsField;
-            lhsField = (this.isSetBreakLines() ? this.getBreakLines() : null);
-            List<LineStringSegmentArrayPropertyType> rhsField;
-            rhsField = (that.isSetBreakLines() ? that.getBreakLines() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "breakLines", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "breakLines", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetMaxLength();
             boolean rhsFieldIsSet = that.isSetMaxLength();
@@ -254,14 +240,14 @@ public class TinType extends SurfaceType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStopLines();
-            boolean rhsFieldIsSet = that.isSetStopLines();
+            boolean lhsFieldIsSet = this.isSetBreakLines();
+            boolean rhsFieldIsSet = that.isSetBreakLines();
             List<LineStringSegmentArrayPropertyType> lhsField;
-            lhsField = (this.isSetStopLines() ? this.getStopLines() : null);
+            lhsField = (this.isSetBreakLines()?this.getBreakLines():null);
             List<LineStringSegmentArrayPropertyType> rhsField;
-            rhsField = (that.isSetStopLines() ? that.getStopLines() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stopLines", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stopLines", rhsField);
+            rhsField = (that.isSetBreakLines()?that.getBreakLines():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "breakLines", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "breakLines", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -279,6 +265,19 @@ public class TinType extends SurfaceType implements Serializable {
                 return false;
             }
         }
+        {
+            boolean lhsFieldIsSet = this.isSetStopLines();
+            boolean rhsFieldIsSet = that.isSetStopLines();
+            List<LineStringSegmentArrayPropertyType> lhsField;
+            lhsField = (this.isSetStopLines()?this.getStopLines():null);
+            List<LineStringSegmentArrayPropertyType> rhsField;
+            rhsField = (that.isSetStopLines()?that.getStopLines():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stopLines", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stopLines", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -288,14 +287,14 @@ public class TinType extends SurfaceType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetStopLines();
             List<LineStringSegmentArrayPropertyType> theField;
-            theField = (this.isSetStopLines() ? this.getStopLines() : null);
+            theField = (this.isSetStopLines()?this.getStopLines():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "stopLines", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetBreakLines();
             List<LineStringSegmentArrayPropertyType> theField;
-            theField = (this.isSetBreakLines() ? this.getBreakLines() : null);
+            theField = (this.isSetBreakLines()?this.getBreakLines():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "breakLines", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -322,13 +321,13 @@ public class TinType extends SurfaceType implements Serializable {
         {
             boolean theFieldIsSet = this.isSetStopLines();
             List<LineStringSegmentArrayPropertyType> theField;
-            theField = (this.isSetStopLines() ? this.getStopLines() : null);
+            theField = (this.isSetStopLines()?this.getStopLines():null);
             strategy.appendField(locator, this, "stopLines", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetBreakLines();
             List<LineStringSegmentArrayPropertyType> theField;
-            theField = (this.isSetBreakLines() ? this.getBreakLines() : null);
+            theField = (this.isSetBreakLines()?this.getBreakLines():null);
             strategy.appendField(locator, this, "breakLines", buffer, theField, theFieldIsSet);
         }
         {

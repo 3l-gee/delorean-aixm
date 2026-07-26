@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -19,10 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,40 +30,28 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for FlightConditionCircumstanceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for FlightConditionCircumstanceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="FlightConditionCircumstanceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="referenceLocation" type=
-"{http://www.aixm.aero/schema/5.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="relationWithLocation" type=
-"{http://www.aixm.aero/schema/5.1}CodeLocationQualifierType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="referenceLocation" type="{http://www.aixm.aero/schema/5.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="relationWithLocation" type="{http://www.aixm.aero/schema/5.1}CodeLocationQualifierType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractFlightConditionCircumstanceExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractFlightConditionCircumstanceExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -73,15 +61,22 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FlightConditionCircumstanceType", propOrder = {"referenceLocation", "relationWithLocation",
-        "annotation", "extension"})
+@XmlType(name = "FlightConditionCircumstanceType", propOrder = {
+    "referenceLocation",
+    "relationWithLocation",
+    "annotation",
+    "extension"
+})
 @Entity(name = "FlightConditionCircumstanceType")
 @Table(name = "flightconditioncircumstance_o", schema = "route")
-public class FlightConditionCircumstanceType extends AbstractAIXMObjectType implements Serializable {
+public class FlightConditionCircumstanceType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "referenceLocation", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -94,10 +89,11 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
 
     /**
      * Gets the value of the referenceLocation property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getReferenceLocation() {
@@ -106,11 +102,11 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
 
     /**
      * Sets the value of the referenceLocation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setReferenceLocation(JAXBElement<CodeYesNoType> value) {
         this.referenceLocation = value;
@@ -118,15 +114,16 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetReferenceLocation() {
-        return (this.referenceLocation != null);
+        return (this.referenceLocation!= null);
     }
 
     /**
      * Gets the value of the relationWithLocation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeLocationQualifierType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeLocationQualifierType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeLocationQualifierType> getRelationWithLocation() {
@@ -135,11 +132,11 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
 
     /**
      * Sets the value of the relationWithLocation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeLocationQualifierType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeLocationQualifierType }{@code >}
+     *     
      */
     public void setRelationWithLocation(JAXBElement<CodeLocationQualifierType> value) {
         this.relationWithLocation = value;
@@ -147,36 +144,39 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetRelationWithLocation() {
-        return (this.relationWithLocation != null);
+        return (this.relationWithLocation!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtncrcmstnctp_annttn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "flightconditioncircumstance_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "flghtcndtncrcmstnctp_annttn_l", schema = "route", joinColumns = {
+        @JoinColumn(name = "flightconditioncircumstance_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -185,8 +185,8 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -194,7 +194,7 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -203,29 +203,29 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FlightConditionCircumstanceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = FlightConditionCircumstanceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "flightconditioncircumstance_oe_hjid", referencedColumnName = "hjid")
     public List<FlightConditionCircumstanceExtensionType> getExtension() {
         if (extension == null) {
@@ -235,8 +235,8 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<FlightConditionCircumstanceExtensionType> extension) {
         this.extension = extension;
@@ -244,7 +244,7 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -252,35 +252,34 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "referencelocation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "referencelocationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "referencelocation", columnDefinition = "codeyesnobase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "referencelocationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeYesNoType getReferenceLocationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getReferenceLocation());
     }
 
     public void setReferenceLocationItem(CodeYesNoType target) {
-        setReferenceLocation(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "referenceLocation"),
-                FlightConditionCircumstanceType.class, target));
+        setReferenceLocation(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1", "referenceLocation"), FlightConditionCircumstanceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "relationwithlocation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "relationwithlocationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "relationwithlocation", columnDefinition = "codelocationqualifierbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "relationwithlocationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeLocationQualifierType getRelationWithLocationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLocationQualifierType.class, this.getRelationWithLocation());
     }
 
     public void setRelationWithLocationItem(CodeLocationQualifierType target) {
-        setRelationWithLocation(XmlAdapterUtils.marshallJAXBElement(CodeLocationQualifierType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "relationWithLocation"),
-                FlightConditionCircumstanceType.class, target));
+        setRelationWithLocation(XmlAdapterUtils.marshallJAXBElement(CodeLocationQualifierType.class, new QName("http://www.aixm.aero/schema/5.1", "relationWithLocation"), FlightConditionCircumstanceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -294,9 +293,9 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<FlightConditionCircumstanceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<FlightConditionCircumstanceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -307,9 +306,9 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -365,14 +364,14 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<FlightConditionCircumstanceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -397,13 +396,13 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<FlightConditionCircumstanceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

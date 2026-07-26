@@ -1,67 +1,64 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.math.BigDecimal;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ClothoidType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ClothoidType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ClothoidType">
  *   <complexContent>
- *     <extension base=
-"{http://www.opengis.net/gml/3.2}AbstractCurveSegmentType">
+ *     <extension base="{http://www.opengis.net/gml/3.2}AbstractCurveSegmentType">
  *       <sequence>
  *         <element name="refLocation">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.opengis.net/gml/3.2}AffinePlacement"/>
+ *                   <element ref="{http://www.opengis.net/gml/3.2}AffinePlacement"/>
  *                 </sequence>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
  *         </element>
- *         <element name="scaleFactor" type=
-"{http://www.w3.org/2001/XMLSchema}decimal"/>
- *         <element name="startParameter" type=
-"{http://www.w3.org/2001/XMLSchema}double"/>
- *         <element name="endParameter" type=
-"{http://www.w3.org/2001/XMLSchema}double"/>
+ *         <element name="scaleFactor" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
+ *         <element name="startParameter" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         <element name="endParameter" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       </sequence>
- *       <attribute name="interpolation" type=
-"{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed="clothoid" />
+ *       <attribute name="interpolation" type="{http://www.opengis.net/gml/3.2}CurveInterpolationType" fixed="clothoid" />
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ClothoidType", propOrder = {"refLocation", "scaleFactor", "startParameter", "endParameter"})
-public class ClothoidType extends AbstractCurveSegmentType implements Serializable {
+@XmlType(name = "ClothoidType", propOrder = {
+    "refLocation",
+    "scaleFactor",
+    "startParameter",
+    "endParameter"
+})
+public class ClothoidType
+    extends AbstractCurveSegmentType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -75,9 +72,11 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
 
     /**
      * Gets the value of the refLocation property.
-     *
-     * @return possible object is {@link RefLocation }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link RefLocation }
+     *     
      */
     public RefLocation getRefLocation() {
         return refLocation;
@@ -85,24 +84,27 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
 
     /**
      * Sets the value of the refLocation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link RefLocation }
-     *
+     *     allowed object is
+     *     {@link RefLocation }
+     *     
      */
     public void setRefLocation(RefLocation value) {
         this.refLocation = value;
     }
 
     public boolean isSetRefLocation() {
-        return (this.refLocation != null);
+        return (this.refLocation!= null);
     }
 
     /**
      * Gets the value of the scaleFactor property.
-     *
-     * @return possible object is {@link BigDecimal }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigDecimal }
+     *     
      */
     public BigDecimal getScaleFactor() {
         return scaleFactor;
@@ -110,22 +112,23 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
 
     /**
      * Sets the value of the scaleFactor property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link BigDecimal }
-     *
+     *     allowed object is
+     *     {@link BigDecimal }
+     *     
      */
     public void setScaleFactor(BigDecimal value) {
         this.scaleFactor = value;
     }
 
     public boolean isSetScaleFactor() {
-        return (this.scaleFactor != null);
+        return (this.scaleFactor!= null);
     }
 
     /**
      * Gets the value of the startParameter property.
-     *
+     * 
      */
     public double getStartParameter() {
         return startParameter;
@@ -133,7 +136,7 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
 
     /**
      * Sets the value of the startParameter property.
-     *
+     * 
      */
     public void setStartParameter(double value) {
         this.startParameter = value;
@@ -145,7 +148,7 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
 
     /**
      * Gets the value of the endParameter property.
-     *
+     * 
      */
     public double getEndParameter() {
         return endParameter;
@@ -153,7 +156,7 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
 
     /**
      * Sets the value of the endParameter property.
-     *
+     * 
      */
     public void setEndParameter(double value) {
         this.endParameter = value;
@@ -164,9 +167,8 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -176,19 +178,6 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
             return false;
         }
         final ClothoidType that = ((ClothoidType) object);
-        {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getEndParameter();
-            double rhsField;
-            rhsField = that.getEndParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endParameter", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetRefLocation();
             boolean rhsFieldIsSet = that.isSetRefLocation();
@@ -211,6 +200,19 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
             rhsField = that.getScaleFactor();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getEndParameter();
+            double rhsField;
+            rhsField = that.getEndParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endParameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endParameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

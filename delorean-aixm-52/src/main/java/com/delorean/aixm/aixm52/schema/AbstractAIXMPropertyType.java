@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm52.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,7 +20,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -33,100 +33,176 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * It provides a basis for deriving AIXM feature/object properties. It defines
- * the nilReason attribute and currently, it is only used for properties that
- * are derived from association with an AIM object.
- *
- * <p>
- * Java class for AbstractAIXMPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * It provides a basis for deriving AIXM feature/object properties. It defines the nilReason attribute and currently, it is only used for properties that are derived from association with an AIM object.
+ * 
+ * <p>Java class for AbstractAIXMPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractAIXMPropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <attribute name="nilReason" type=
-"{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
+ *       <attribute name="nilReason" type="{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractAIXMPropertyType")
-@XmlSeeAlso({AerialRefuellingAnchorPropertyType.class, AerialRefuellingPointPropertyType.class,
-        AerialRefuellingTrackPropertyType.class, AuthorityForAerialRefuellingPropertyType.class,
-        AirportHeliportAvailabilityPropertyType.class, AirportHeliportResponsibilityOrganisationPropertyType.class,
-        AirportHeliportUsagePropertyType.class, AltimeterSourcePropertyType.class, CityPropertyType.class,
-        ConditionCombinationPropertyType.class, SurfaceCharacteristicsPropertyType.class,
-        UsageConditionPropertyType.class, WeatherSourceAvailabilityPropertyType.class,
-        WorkareaActivityPropertyType.class, ApronAreaAvailabilityPropertyType.class, ApronAreaUsagePropertyType.class,
-        GroundLightingAvailabilityPropertyType.class, LightActivationPropertyType.class, LightGroupPropertyType.class,
-        MarkingElementPropertyType.class, AirportSignStatusPropertyType.class,
-        ManoeuvringAreaAvailabilityPropertyType.class, ManoeuvringAreaUsagePropertyType.class,
-        NavaidEquipmentDistancePropertyType.class, RunwayDeclaredDistancePropertyType.class,
-        RunwayDeclaredDistanceValuePropertyType.class, AircraftStandContaminationPropertyType.class,
-        AirportHeliportContaminationPropertyType.class, ApronContaminationPropertyType.class, RidgePropertyType.class,
-        RunwayContaminationPropertyType.class, RunwaySectionContaminationPropertyType.class,
-        SurfaceContaminationPropertyType.class, SurfaceContaminationLayerPropertyType.class,
-        TaxiwayContaminationPropertyType.class, TouchDownLiftOffContaminationPropertyType.class,
-        GuidanceLineDirectionPropertyType.class, AirspaceActivationPropertyType.class,
-        AirspaceGeometryComponentPropertyType.class, AirspaceLayerClassPropertyType.class,
-        AirspaceVolumePropertyType.class, AirspaceVolumeDependencyPropertyType.class, AIXMCurvePropertyType.class,
-        AIXMElevatedCurvePropertyType.class, AIXMElevatedPointPropertyType.class, AIXMElevatedSurfacePropertyType.class,
-        AIXMPointPropertyType.class, AIXMSurfacePropertyType.class, HoldingPatternDistancePropertyType.class,
-        HoldingPatternDurationPropertyType.class, AuthorityForNavaidEquipmentPropertyType.class,
-        AuthorityForSpecialNavigationStationPropertyType.class, AuthorityForSpecialNavigationSystemPropertyType.class,
-        NavaidComponentPropertyType.class, NavaidEquipmentMonitoringPropertyType.class,
-        NavaidOperationalStatusPropertyType.class, SpecialNavigationStationStatusPropertyType.class,
-        AnglePropertyType.class, AngleUsePropertyType.class, DistancePropertyType.class,
-        EnRouteSegmentPointPropertyType.class, PointReferencePropertyType.class, SegmentPointPropertyType.class,
-        TerminalSegmentPointPropertyType.class, PointUsagePropertyType.class,
-        FlightInspectionTrajectoryPropertyType.class, RadioFrequencyPropertyType.class,
-        SatelliteApproachOperationPropertyType.class, SatelliteServiceAreaPropertyType.class,
-        VDBAntennaPropertyType.class, LinguisticNotePropertyType.class, NotePropertyType.class,
-        VerticalStructureLightingStatusPropertyType.class, VerticalStructurePartPropertyType.class,
-        OrganisationAuthorityAssociationPropertyType.class, UnitAvailabilityPropertyType.class,
-        UnitDependencyPropertyType.class, ApproachConditionPropertyType.class,
-        FinalApproachControlAltitudePropertyType.class, FinalApproachControlPositionPropertyType.class,
-        FinalApproachProfilePropertyType.class, MissedApproachGroupPropertyType.class,
-        TerminalArrivalAreaSectorPropertyType.class, FinalApproachSegmentDataPropertyType.class,
-        CirclingRestrictionPropertyType.class, EquipmentUnavailableAdjustmentPropertyType.class,
-        EquipmentUnavailableAdjustmentColumnPropertyType.class, MinimaPropertyType.class,
-        NavigationAreaSectorPropertyType.class, SectorDesignPropertyType.class,
-        SegmentLegAltitudeConditionPropertyType.class, MinimumAltitudeAreaSectorPropertyType.class,
-        CourseGroupPropertyType.class, HoldingUsePropertyType.class, LandingTakeoffAreaCollectionPropertyType.class,
-        ProcedureTransitionPropertyType.class, ProcedureTransitionLegPropertyType.class,
-        ProcedureAvailabilityPropertyType.class, AltitudeIndicationPropertyType.class,
-        RouteAvailabilityPropertyType.class, RoutePortionPropertyType.class, AirspaceBorderCrossingPropertyType.class,
-        DirectFlightPropertyType.class, DirectFlightClassPropertyType.class, DirectFlightSegmentPropertyType.class,
-        FlightConditionCircumstancePropertyType.class, FlightConditionCombinationPropertyType.class,
-        FlightConditionElementPropertyType.class, FlightRestrictionLevelPropertyType.class,
-        FlightRestrictionRoutePropertyType.class, FlightRoutingElementPropertyType.class,
-        CallsignDetailPropertyType.class, FuelPropertyType.class, NitrogenPropertyType.class, OilPropertyType.class,
-        OxygenPropertyType.class, RadioCommunicationOperationalStatusPropertyType.class,
-        ServiceOperationalStatusPropertyType.class, ContactInformationPropertyType.class,
-        OnlineContactPropertyType.class, PostalAddressPropertyType.class, TelephoneContactPropertyType.class,
-        AircraftCharacteristicPropertyType.class, AircraftNavigationEquipmentPropertyType.class,
-        FlightCharacteristicPropertyType.class, AirspaceLayerPropertyType.class, CircleSectorPropertyType.class,
-        DesignStandardPropertyType.class, LightElementPropertyType.class, LightElementStatusPropertyType.class,
-        MeteorologyPropertyType.class, PropertiesWithSchedulePropertyType.class, TimesheetPropertyType.class,
-        StandardLevelPropertyType.class, AltitudeAdjustmentPropertyType.class,
-        ObstacleAssessmentSurfacePropertyType.class, ObstaclePlacementPropertyType.class, ObstructionPropertyType.class,
-        RadarComponentPropertyType.class, ReflectorPropertyType.class, SurveillanceGroundStationPropertyType.class})
+@XmlSeeAlso({
+    AerialRefuellingAnchorPropertyType.class,
+    AerialRefuellingPointPropertyType.class,
+    AerialRefuellingTrackPropertyType.class,
+    AuthorityForAerialRefuellingPropertyType.class,
+    AirportHeliportAvailabilityPropertyType.class,
+    AirportHeliportResponsibilityOrganisationPropertyType.class,
+    AirportHeliportUsagePropertyType.class,
+    AltimeterSourcePropertyType.class,
+    CityPropertyType.class,
+    ConditionCombinationPropertyType.class,
+    SurfaceCharacteristicsPropertyType.class,
+    UsageConditionPropertyType.class,
+    WeatherSourceAvailabilityPropertyType.class,
+    WorkareaActivityPropertyType.class,
+    ApronAreaAvailabilityPropertyType.class,
+    ApronAreaUsagePropertyType.class,
+    GroundLightingAvailabilityPropertyType.class,
+    LightActivationPropertyType.class,
+    LightGroupPropertyType.class,
+    MarkingElementPropertyType.class,
+    AirportSignStatusPropertyType.class,
+    ManoeuvringAreaAvailabilityPropertyType.class,
+    ManoeuvringAreaUsagePropertyType.class,
+    NavaidEquipmentDistancePropertyType.class,
+    RunwayDeclaredDistancePropertyType.class,
+    RunwayDeclaredDistanceValuePropertyType.class,
+    AircraftStandContaminationPropertyType.class,
+    AirportHeliportContaminationPropertyType.class,
+    ApronContaminationPropertyType.class,
+    RidgePropertyType.class,
+    RunwayContaminationPropertyType.class,
+    RunwaySectionContaminationPropertyType.class,
+    SurfaceContaminationPropertyType.class,
+    SurfaceContaminationLayerPropertyType.class,
+    TaxiwayContaminationPropertyType.class,
+    TouchDownLiftOffContaminationPropertyType.class,
+    GuidanceLineDirectionPropertyType.class,
+    AirspaceActivationPropertyType.class,
+    AirspaceGeometryComponentPropertyType.class,
+    AirspaceLayerClassPropertyType.class,
+    AirspaceVolumePropertyType.class,
+    AirspaceVolumeDependencyPropertyType.class,
+    AIXMCurvePropertyType.class,
+    AIXMElevatedCurvePropertyType.class,
+    AIXMElevatedPointPropertyType.class,
+    AIXMElevatedSurfacePropertyType.class,
+    AIXMPointPropertyType.class,
+    AIXMSurfacePropertyType.class,
+    HoldingPatternDistancePropertyType.class,
+    HoldingPatternDurationPropertyType.class,
+    AuthorityForNavaidEquipmentPropertyType.class,
+    AuthorityForSpecialNavigationStationPropertyType.class,
+    AuthorityForSpecialNavigationSystemPropertyType.class,
+    NavaidComponentPropertyType.class,
+    NavaidEquipmentMonitoringPropertyType.class,
+    NavaidOperationalStatusPropertyType.class,
+    SpecialNavigationStationStatusPropertyType.class,
+    AnglePropertyType.class,
+    AngleUsePropertyType.class,
+    DistancePropertyType.class,
+    EnRouteSegmentPointPropertyType.class,
+    PointReferencePropertyType.class,
+    SegmentPointPropertyType.class,
+    TerminalSegmentPointPropertyType.class,
+    PointUsagePropertyType.class,
+    FlightInspectionTrajectoryPropertyType.class,
+    RadioFrequencyPropertyType.class,
+    SatelliteApproachOperationPropertyType.class,
+    SatelliteServiceAreaPropertyType.class,
+    VDBAntennaPropertyType.class,
+    LinguisticNotePropertyType.class,
+    NotePropertyType.class,
+    VerticalStructureLightingStatusPropertyType.class,
+    VerticalStructurePartPropertyType.class,
+    OrganisationAuthorityAssociationPropertyType.class,
+    UnitAvailabilityPropertyType.class,
+    UnitDependencyPropertyType.class,
+    ApproachConditionPropertyType.class,
+    FinalApproachControlAltitudePropertyType.class,
+    FinalApproachControlPositionPropertyType.class,
+    FinalApproachProfilePropertyType.class,
+    MissedApproachGroupPropertyType.class,
+    TerminalArrivalAreaSectorPropertyType.class,
+    FinalApproachSegmentDataPropertyType.class,
+    CirclingRestrictionPropertyType.class,
+    EquipmentUnavailableAdjustmentPropertyType.class,
+    EquipmentUnavailableAdjustmentColumnPropertyType.class,
+    MinimaPropertyType.class,
+    NavigationAreaSectorPropertyType.class,
+    SectorDesignPropertyType.class,
+    SegmentLegAltitudeConditionPropertyType.class,
+    MinimumAltitudeAreaSectorPropertyType.class,
+    CourseGroupPropertyType.class,
+    HoldingUsePropertyType.class,
+    LandingTakeoffAreaCollectionPropertyType.class,
+    ProcedureTransitionPropertyType.class,
+    ProcedureTransitionLegPropertyType.class,
+    ProcedureAvailabilityPropertyType.class,
+    AltitudeIndicationPropertyType.class,
+    RouteAvailabilityPropertyType.class,
+    RoutePortionPropertyType.class,
+    AirspaceBorderCrossingPropertyType.class,
+    DirectFlightPropertyType.class,
+    DirectFlightClassPropertyType.class,
+    DirectFlightSegmentPropertyType.class,
+    FlightConditionCircumstancePropertyType.class,
+    FlightConditionCombinationPropertyType.class,
+    FlightConditionElementPropertyType.class,
+    FlightRestrictionLevelPropertyType.class,
+    FlightRestrictionRoutePropertyType.class,
+    FlightRoutingElementPropertyType.class,
+    CallsignDetailPropertyType.class,
+    FuelPropertyType.class,
+    NitrogenPropertyType.class,
+    OilPropertyType.class,
+    OxygenPropertyType.class,
+    RadioCommunicationOperationalStatusPropertyType.class,
+    ServiceOperationalStatusPropertyType.class,
+    ContactInformationPropertyType.class,
+    OnlineContactPropertyType.class,
+    PostalAddressPropertyType.class,
+    TelephoneContactPropertyType.class,
+    AircraftCharacteristicPropertyType.class,
+    AircraftNavigationEquipmentPropertyType.class,
+    FlightCharacteristicPropertyType.class,
+    AirspaceLayerPropertyType.class,
+    CircleSectorPropertyType.class,
+    DesignStandardPropertyType.class,
+    LightElementPropertyType.class,
+    LightElementStatusPropertyType.class,
+    MeteorologyPropertyType.class,
+    PropertiesWithSchedulePropertyType.class,
+    TimesheetPropertyType.class,
+    StandardLevelPropertyType.class,
+    AltitudeAdjustmentPropertyType.class,
+    ObstacleAssessmentSurfacePropertyType.class,
+    ObstaclePlacementPropertyType.class,
+    ObstructionPropertyType.class,
+    RadarComponentPropertyType.class,
+    ReflectorPropertyType.class,
+    SurveillanceGroundStationPropertyType.class
+})
 @Entity(name = "AbstractAIXMPropertyType")
 @Table(name = "aixm_property", schema = "aixm")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class AbstractAIXMPropertyType implements Serializable, Equals, HashCode, ToString {
+public abstract class AbstractAIXMPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "nilReason")
@@ -138,9 +214,11 @@ public abstract class AbstractAIXMPropertyType implements Serializable, Equals, 
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Basic
     @Column(name = "NIL_REASON")
@@ -150,10 +228,11 @@ public abstract class AbstractAIXMPropertyType implements Serializable, Equals, 
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
@@ -161,14 +240,16 @@ public abstract class AbstractAIXMPropertyType implements Serializable, Equals, 
 
     @Transient
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -179,21 +260,24 @@ public abstract class AbstractAIXMPropertyType implements Serializable, Equals, 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -202,11 +286,12 @@ public abstract class AbstractAIXMPropertyType implements Serializable, Equals, 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -225,9 +310,8 @@ public abstract class AbstractAIXMPropertyType implements Serializable, Equals, 
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

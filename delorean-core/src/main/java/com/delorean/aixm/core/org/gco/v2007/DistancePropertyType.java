@@ -1,13 +1,13 @@
 
 package com.delorean.aixm.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gml.v_3_2.LengthType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,17 +21,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for Distance_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for Distance_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="Distance_PropertyType">
  *   <complexContent>
@@ -44,12 +39,15 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Distance_PropertyType", propOrder = {"distance"})
-public class DistancePropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "Distance_PropertyType", propOrder = {
+    "distance"
+})
+public class DistancePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Distance")
@@ -59,9 +57,11 @@ public class DistancePropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Gets the value of the distance property.
-     *
-     * @return possible object is {@link LengthType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link LengthType }
+     *     
      */
     public LengthType getDistance() {
         return distance;
@@ -69,24 +69,27 @@ public class DistancePropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the distance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link LengthType }
-     *
+     *     allowed object is
+     *     {@link LengthType }
+     *     
      */
     public void setDistance(LengthType value) {
         this.distance = value;
     }
 
     public boolean isSetDistance() {
-        return (this.distance != null);
+        return (this.distance!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -94,17 +97,18 @@ public class DistancePropertyType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -120,28 +124,14 @@ public class DistancePropertyType implements Serializable, Equals, HashCode, ToS
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final DistancePropertyType that = ((DistancePropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            LengthType lhsField;
-            lhsField = this.getDistance();
-            LengthType rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
@@ -151,6 +141,19 @@ public class DistancePropertyType implements Serializable, Equals, HashCode, ToS
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            LengthType lhsField;
+            lhsField = this.getDistance();
+            LengthType rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

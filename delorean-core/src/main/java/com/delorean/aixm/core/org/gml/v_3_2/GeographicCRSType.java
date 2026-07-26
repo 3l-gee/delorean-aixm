@@ -1,28 +1,23 @@
 
 package com.delorean.aixm.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for GeographicCRSType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for GeographicCRSType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="GeographicCRSType">
  *   <complexContent>
@@ -35,12 +30,18 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeographicCRSType", propOrder = {"usesEllipsoidalCS", "usesGeodeticDatum"})
-public class GeographicCRSType extends AbstractCRSType implements Serializable {
+@XmlType(name = "GeographicCRSType", propOrder = {
+    "usesEllipsoidalCS",
+    "usesGeodeticDatum"
+})
+public class GeographicCRSType
+    extends AbstractCRSType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -50,9 +51,11 @@ public class GeographicCRSType extends AbstractCRSType implements Serializable {
 
     /**
      * Gets the value of the usesEllipsoidalCS property.
-     *
-     * @return possible object is {@link EllipsoidalCSPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link EllipsoidalCSPropertyType }
+     *     
      */
     public EllipsoidalCSPropertyType getUsesEllipsoidalCS() {
         return usesEllipsoidalCS;
@@ -60,24 +63,27 @@ public class GeographicCRSType extends AbstractCRSType implements Serializable {
 
     /**
      * Sets the value of the usesEllipsoidalCS property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link EllipsoidalCSPropertyType }
-     *
+     *     allowed object is
+     *     {@link EllipsoidalCSPropertyType }
+     *     
      */
     public void setUsesEllipsoidalCS(EllipsoidalCSPropertyType value) {
         this.usesEllipsoidalCS = value;
     }
 
     public boolean isSetUsesEllipsoidalCS() {
-        return (this.usesEllipsoidalCS != null);
+        return (this.usesEllipsoidalCS!= null);
     }
 
     /**
      * Gets the value of the usesGeodeticDatum property.
-     *
-     * @return possible object is {@link GeodeticDatumPropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link GeodeticDatumPropertyType }
+     *     
      */
     public GeodeticDatumPropertyType getUsesGeodeticDatum() {
         return usesGeodeticDatum;
@@ -85,23 +91,23 @@ public class GeographicCRSType extends AbstractCRSType implements Serializable {
 
     /**
      * Sets the value of the usesGeodeticDatum property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link GeodeticDatumPropertyType }
-     *
+     *     allowed object is
+     *     {@link GeodeticDatumPropertyType }
+     *     
      */
     public void setUsesGeodeticDatum(GeodeticDatumPropertyType value) {
         this.usesGeodeticDatum = value;
     }
 
     public boolean isSetUsesGeodeticDatum() {
-        return (this.usesGeodeticDatum != null);
+        return (this.usesGeodeticDatum!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

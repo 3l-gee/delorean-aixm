@@ -108,8 +108,8 @@ class Feature(Layer) :
 
     def generate_where(self) : 
         return [
-            f"aixm.aixm_feature.feature_status = 'APPROVED'",
-            f"aixm.aixm_timeslice.feature_status = 'APPROVED'"
+            f"aixm.aixm_feature.lifecycle_status = 'APPROVED'",
+            f"aixm.aixm_timeslice.lifecycle_status = 'APPROVED'"
         ]
     
     def generate_order(self, name, schema) : 

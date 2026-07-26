@@ -9,7 +9,9 @@ import com.delorean.aixm.aixm52.schema.AbstractAIXMFeatureType;
 import com.delorean.aixm.aixm52.schema.AbstractAIXMTimeSliceType;
 import com.delorean.aixm.core.engine.TemporalityInspector;
 import com.delorean.aixm.core.time.type.DeloreanTimeSliceType;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Aixm52TimeSliceEngine {
 
     @SuppressWarnings("unchecked")
@@ -17,6 +19,8 @@ public class Aixm52TimeSliceEngine {
         if (feature == null) {
             return 0;
         }
+
+        log.atDebug().log("Counting TimeSlices for feature: {}", feature.getIdentifier().getValue());
 
         int count = 0;
         String name = feature.getClass().getSimpleName().replace("Type", "");
@@ -55,6 +59,8 @@ public class Aixm52TimeSliceEngine {
             throw new RuntimeException("Failed to inject Null timeSlice into feature");
         }
 
+        log.atDebug().log("Injecting TimeSlice into feature: {}", feature.getIdentifier().getValue());
+
         try {
             String featureName = feature.getClass().getSimpleName().replace("Type", "");
             Method getListMethod = feature.getClass().getMethod("getTimeSlice");
@@ -76,6 +82,8 @@ public class Aixm52TimeSliceEngine {
         if (feature == null) {
             return List.of();
         }
+
+        log.atDebug().log("Extracting TimeSlices from feature: {}", feature.getIdentifier().getValue());
 
         String name = feature.getClass().getSimpleName().replace("Type", "");
         List<AbstractAIXMTimeSliceType> listTimeSlice = new ArrayList<>();
@@ -103,6 +111,7 @@ public class Aixm52TimeSliceEngine {
                 Object ts = getSpecificTimeSliceMethod.invoke(timeSlicePropertyObj);
 
                 if (ts instanceof AbstractAIXMTimeSliceType timeSlice) {
+                    log.atDebug().log("Adding TimeSlice {} to feature: {}", timeSlice.getSequenceNumber(), feature.getIdentifier().getValue());
                     listTimeSlice.add(timeSlice);
                 }
 

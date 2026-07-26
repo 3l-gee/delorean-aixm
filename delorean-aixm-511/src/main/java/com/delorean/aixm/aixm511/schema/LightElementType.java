@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,49 +31,32 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for LightElementType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for LightElementType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="LightElementType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="colour" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeColourType" minOccurs="0"/>
- *         <element name="intensityLevel" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeLightIntensityType" minOccurs="0"/>
- *         <element name="intensity" type=
-"{http://www.aixm.aero/schema/5.1.1}ValLightIntensityType" minOccurs="0"/>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeLightSourceType" minOccurs="0"/>
- *         <element name="location" type=
-"{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="availability" type=
-"{http://www.aixm.aero/schema/5.1.1}LightElementStatusPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
+ *         <element name="colour" type="{http://www.aixm.aero/schema/5.1.1}CodeColourType" minOccurs="0"/>
+ *         <element name="intensityLevel" type="{http://www.aixm.aero/schema/5.1.1}CodeLightIntensityType" minOccurs="0"/>
+ *         <element name="intensity" type="{http://www.aixm.aero/schema/5.1.1}ValLightIntensityType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeLightSourceType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}LightElementStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractLightElementExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractLightElementExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -83,15 +66,26 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LightElementType", propOrder = {"colour", "intensityLevel", "intensity", "type", "location",
-        "annotation", "availability", "extension"})
+@XmlType(name = "LightElementType", propOrder = {
+    "colour",
+    "intensityLevel",
+    "intensity",
+    "type",
+    "location",
+    "annotation",
+    "availability",
+    "extension"
+})
 @Entity(name = "LightElementType")
 @Table(name = "lightelement_o", schema = "shared")
-public class LightElementType extends AbstractAIXMObjectType implements Serializable {
+public class LightElementType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "colour", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -112,10 +106,11 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Gets the value of the colour property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeColourType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeColourType> getColour() {
@@ -124,11 +119,11 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the colour property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeColourType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
+     *     
      */
     public void setColour(JAXBElement<CodeColourType> value) {
         this.colour = value;
@@ -136,15 +131,16 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetColour() {
-        return (this.colour != null);
+        return (this.colour!= null);
     }
 
     /**
      * Gets the value of the intensityLevel property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeLightIntensityType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightIntensityType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeLightIntensityType> getIntensityLevel() {
@@ -153,11 +149,11 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the intensityLevel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeLightIntensityType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightIntensityType }{@code >}
+     *     
      */
     public void setIntensityLevel(JAXBElement<CodeLightIntensityType> value) {
         this.intensityLevel = value;
@@ -165,15 +161,16 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetIntensityLevel() {
-        return (this.intensityLevel != null);
+        return (this.intensityLevel!= null);
     }
 
     /**
      * Gets the value of the intensity property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValLightIntensityType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValLightIntensityType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValLightIntensityType> getIntensity() {
@@ -182,11 +179,11 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the intensity property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValLightIntensityType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValLightIntensityType }{@code >}
+     *     
      */
     public void setIntensity(JAXBElement<ValLightIntensityType> value) {
         this.intensity = value;
@@ -194,15 +191,16 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetIntensity() {
-        return (this.intensity != null);
+        return (this.intensity!= null);
     }
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeLightSourceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightSourceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeLightSourceType> getType() {
@@ -211,11 +209,11 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeLightSourceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightSourceType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeLightSourceType> value) {
         this.type = value;
@@ -223,15 +221,16 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the location property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getLocation() {
@@ -240,11 +239,11 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the location property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setLocation(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.location = value;
@@ -252,36 +251,39 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location != null);
+        return (this.location!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lghtelmnttp_annttn_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "lightelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lghtelmnttp_annttn_l", schema = "shared", joinColumns = {
+        @JoinColumn(name = "lightelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -290,8 +292,8 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -299,7 +301,7 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -308,32 +310,34 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LightElementStatusPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = LightElementStatusPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lghtelmnttp_avlblt_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "lightelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lghtelmnttp_avlblt_l", schema = "shared", joinColumns = {
+        @JoinColumn(name = "lightelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
+    })
     public List<LightElementStatusPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -342,8 +346,8 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<LightElementStatusPropertyType> availability) {
         this.availability = availability;
@@ -351,7 +355,7 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -360,28 +364,29 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LightElementExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = LightElementExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = LightElementExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "lightelement_oe_hjid", referencedColumnName = "hjid")
     public List<LightElementExtensionType> getExtension() {
         if (extension == null) {
@@ -391,8 +396,8 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<LightElementExtensionType> extension) {
         this.extension = extension;
@@ -400,7 +405,7 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -408,72 +413,77 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "colour")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "colournilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "colour", columnDefinition = "codecolourbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "colournilreason", columnDefinition = "nilreason"))
+    })
     public CodeColourType getColourItem() {
         return XmlAdapterUtils.unmarshallSource(CodeColourType.class, this.getColour());
     }
 
     public void setColourItem(CodeColourType target) {
-        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "colour"), LightElementType.class, target));
+        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class, new QName("http://www.aixm.aero/schema/5.1.1", "colour"), LightElementType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "intensitylevel")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "intensitylevelnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "intensitylevel", columnDefinition = "codelightintensitybase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "intensitylevelnilreason", columnDefinition = "nilreason"))
+    })
     public CodeLightIntensityType getIntensityLevelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLightIntensityType.class, this.getIntensityLevel());
     }
 
     public void setIntensityLevelItem(CodeLightIntensityType target) {
-        setIntensityLevel(XmlAdapterUtils.marshallJAXBElement(CodeLightIntensityType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intensityLevel"), LightElementType.class, target));
+        setIntensityLevel(XmlAdapterUtils.marshallJAXBElement(CodeLightIntensityType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intensityLevel"), LightElementType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "intensity", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "intensityuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "intensitynilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "intensity", columnDefinition = "vallightintensitybase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "intensityuom", columnDefinition = "uomlightintensity")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "intensitynilreason", columnDefinition = "nilreason"))
+    })
     public ValLightIntensityType getIntensityItem() {
         return XmlAdapterUtils.unmarshallSource(ValLightIntensityType.class, this.getIntensity());
     }
 
     public void setIntensityItem(ValLightIntensityType target) {
-        setIntensity(XmlAdapterUtils.marshallJAXBElement(ValLightIntensityType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intensity"), LightElementType.class, target));
+        setIntensity(XmlAdapterUtils.marshallJAXBElement(ValLightIntensityType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intensity"), LightElementType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type", columnDefinition = "codelightsourcebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason", columnDefinition = "nilreason"))
+    })
     public CodeLightSourceType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLightSourceType.class, this.getType());
     }
 
     public void setTypeItem(CodeLightSourceType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeLightSourceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "type"), LightElementType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeLightSourceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), LightElementType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "lghtelmnttp_lctn_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "lightelement_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "lghtelmnttp_lctn_l", schema = "shared", joinColumns = {
+        @JoinColumn(name = "lightelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
 
     public void setLocationItem(AIXMElevatedPointPropertyType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "location"), LightElementType.class, target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "location"), LightElementType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -483,45 +493,6 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
             return false;
         }
         final LightElementType that = ((LightElementType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeLightSourceType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeLightSourceType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<LightElementExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<LightElementExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetIntensity();
             boolean rhsFieldIsSet = that.isSetIntensity();
@@ -549,14 +520,27 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<LightElementStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<LightElementStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -575,14 +559,40 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<LightElementStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<LightElementStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeLightSourceType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeLightSourceType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<LightElementExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<LightElementExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -631,21 +641,21 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<LightElementStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<LightElementExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -688,19 +698,19 @@ public class LightElementType extends AbstractAIXMObjectType implements Serializ
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<LightElementStatusPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<LightElementExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

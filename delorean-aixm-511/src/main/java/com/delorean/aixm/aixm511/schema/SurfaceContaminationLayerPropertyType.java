@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for SurfaceContaminationLayerPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SurfaceContaminationLayerPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SurfaceContaminationLayerPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}SurfaceContaminationLayer"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}SurfaceContaminationLayer"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SurfaceContaminationLayerPropertyType", propOrder = {"surfaceContaminationLayer"})
+@XmlType(name = "SurfaceContaminationLayerPropertyType", propOrder = {
+    "surfaceContaminationLayer"
+})
 @Entity(name = "SurfaceContaminationLayerPropertyType")
 @Table(name = "surfacecontaminationlayer_p", schema = "airport_heliport")
-public class SurfaceContaminationLayerPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class SurfaceContaminationLayerPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "SurfaceContaminationLayer", required = true)
@@ -58,11 +56,15 @@ public class SurfaceContaminationLayerPropertyType extends AbstractAIXMPropertyT
 
     /**
      * Gets the value of the surfaceContaminationLayer property.
-     *
-     * @return possible object is {@link SurfaceContaminationLayerType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link SurfaceContaminationLayerType }
+     *     
      */
-    @OneToOne(targetEntity = SurfaceContaminationLayerType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = SurfaceContaminationLayerType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "surfacecontaminationlayer_hjid", referencedColumnName = "hjid")
     public SurfaceContaminationLayerType getSurfaceContaminationLayer() {
         return surfaceContaminationLayer;
@@ -70,10 +72,11 @@ public class SurfaceContaminationLayerPropertyType extends AbstractAIXMPropertyT
 
     /**
      * Sets the value of the surfaceContaminationLayer property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link SurfaceContaminationLayerType }
-     *
+     *     allowed object is
+     *     {@link SurfaceContaminationLayerType }
+     *     
      */
     public void setSurfaceContaminationLayer(SurfaceContaminationLayerType value) {
         this.surfaceContaminationLayer = value;
@@ -81,13 +84,12 @@ public class SurfaceContaminationLayerPropertyType extends AbstractAIXMPropertyT
 
     @Transient
     public boolean isSetSurfaceContaminationLayer() {
-        return (this.surfaceContaminationLayer != null);
+        return (this.surfaceContaminationLayer!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

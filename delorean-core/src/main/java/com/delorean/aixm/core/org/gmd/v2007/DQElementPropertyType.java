@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.w3.xlink.ActuateType;
 import com.delorean.aixm.core.org.w3.xlink.ShowType;
 import com.delorean.aixm.core.org.w3.xlink.TypeType;
@@ -10,7 +11,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,17 +24,12 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for DQ_Element_PropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DQ_Element_PropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DQ_Element_PropertyType">
  *   <complexContent>
@@ -48,12 +43,15 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DQ_Element_PropertyType", propOrder = {"abstractDQElement"})
-public class DQElementPropertyType implements Serializable, Equals, HashCode, ToString {
+@XmlType(name = "DQ_Element_PropertyType", propOrder = {
+    "abstractDQElement"
+})
+public class DQElementPropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractDQ_Element", namespace = "http://www.isotc211.org/2005/gmd", type = JAXBElement.class, required = false)
@@ -79,42 +77,31 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Gets the value of the abstractDQElement property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AbstractDQCompletenessType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractDQElementType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractDQLogicalConsistencyType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractDQPositionalAccuracyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link AbstractDQTemporalAccuracyType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link AbstractDQThematicAccuracyType }{@code >}
-     *         {@link JAXBElement
-     *         }{@code <}{@link DQAbsoluteExternalPositionalAccuracyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DQAccuracyOfATimeMeasurementType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link DQCompletenessCommissionType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DQCompletenessOmissionType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link DQConceptualConsistencyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DQDomainConsistencyType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link DQFormatConsistencyType }{@code >}
-     *         {@link JAXBElement
-     *         }{@code <}{@link DQGriddedDataPositionalAccuracyType }{@code >}
-     *         {@link JAXBElement
-     *         }{@code <}{@link DQNonQuantitativeAttributeAccuracyType }{@code >}
-     *         {@link JAXBElement
-     *         }{@code <}{@link DQQuantitativeAttributeAccuracyType }{@code >}
-     *         {@link JAXBElement
-     *         }{@code <}{@link DQRelativeInternalPositionalAccuracyType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DQTemporalConsistencyType
-     *         }{@code >} {@link JAXBElement }{@code <}{@link DQTemporalValidityType
-     *         }{@code >} {@link JAXBElement
-     *         }{@code <}{@link DQThematicClassificationCorrectnessType }{@code >}
-     *         {@link JAXBElement }{@code <}{@link DQTopologicalConsistencyType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AbstractDQCompletenessType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQElementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQLogicalConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQPositionalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQTemporalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQThematicAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQAbsoluteExternalPositionalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQAccuracyOfATimeMeasurementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQCompletenessCommissionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQCompletenessOmissionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQConceptualConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQDomainConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQFormatConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQGriddedDataPositionalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQNonQuantitativeAttributeAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQQuantitativeAttributeAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQRelativeInternalPositionalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQTemporalConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQTemporalValidityType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQThematicClassificationCorrectnessType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQTopologicalConsistencyType }{@code >}
+     *     
      */
     public JAXBElement<? extends AbstractDQElementType> getAbstractDQElement() {
         return abstractDQElement;
@@ -122,59 +109,47 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the abstractDQElement property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AbstractDQCompletenessType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractDQElementType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractDQLogicalConsistencyType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link AbstractDQPositionalAccuracyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link AbstractDQTemporalAccuracyType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link AbstractDQThematicAccuracyType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link DQAbsoluteExternalPositionalAccuracyType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link DQAccuracyOfATimeMeasurementType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link DQCompletenessCommissionType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link DQCompletenessOmissionType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link DQConceptualConsistencyType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link DQDomainConsistencyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link DQFormatConsistencyType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link DQGriddedDataPositionalAccuracyType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link DQNonQuantitativeAttributeAccuracyType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link DQQuantitativeAttributeAccuracyType }{@code >}
-     *            {@link JAXBElement
-     *            }{@code <}{@link DQRelativeInternalPositionalAccuracyType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link DQTemporalConsistencyType }{@code >}
-     *            {@link JAXBElement }{@code <}{@link DQTemporalValidityType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link DQThematicClassificationCorrectnessType
-     *            }{@code >} {@link JAXBElement
-     *            }{@code <}{@link DQTopologicalConsistencyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AbstractDQCompletenessType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQElementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQLogicalConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQPositionalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQTemporalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link AbstractDQThematicAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQAbsoluteExternalPositionalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQAccuracyOfATimeMeasurementType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQCompletenessCommissionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQCompletenessOmissionType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQConceptualConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQDomainConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQFormatConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQGriddedDataPositionalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQNonQuantitativeAttributeAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQQuantitativeAttributeAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQRelativeInternalPositionalAccuracyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQTemporalConsistencyType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQTemporalValidityType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQThematicClassificationCorrectnessType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link DQTopologicalConsistencyType }{@code >}
+     *     
      */
     public void setAbstractDQElement(JAXBElement<? extends AbstractDQElementType> value) {
         this.abstractDQElement = value;
     }
 
     public boolean isSetAbstractDQElement() {
-        return (this.abstractDQElement != null);
+        return (this.abstractDQElement!= null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNilReason() {
         return nilReason;
@@ -182,24 +157,27 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the nilReason property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason != null);
+        return (this.nilReason!= null);
     }
 
     /**
      * Gets the value of the uuidref property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getUuidref() {
         return uuidref;
@@ -207,24 +185,27 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the uuidref property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setUuidref(String value) {
         this.uuidref = value;
     }
 
     public boolean isSetUuidref() {
-        return (this.uuidref != null);
+        return (this.uuidref!= null);
     }
 
     /**
      * Gets the value of the href property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getHref() {
         return href;
@@ -232,24 +213,27 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the href property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href != null);
+        return (this.href!= null);
     }
 
     /**
      * Gets the value of the role property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRole() {
         return role;
@@ -257,24 +241,27 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the role property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role != null);
+        return (this.role!= null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getArcrole() {
         return arcrole;
@@ -282,24 +269,27 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the arcrole property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole != null);
+        return (this.arcrole!= null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -307,24 +297,27 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle != null);
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
      * Gets the value of the show property.
-     *
-     * @return possible object is {@link ShowType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
      */
     public ShowType getShow() {
         return show;
@@ -332,24 +325,27 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the show property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ShowType }
-     *
+     *     allowed object is
+     *     {@link ShowType }
+     *     
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show != null);
+        return (this.show!= null);
     }
 
     /**
      * Gets the value of the actuate property.
-     *
-     * @return possible object is {@link ActuateType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
      */
     public ActuateType getActuate() {
         return actuate;
@@ -357,17 +353,18 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the actuate property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ActuateType }
-     *
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate != null);
+        return (this.actuate!= null);
     }
 
     @Override
@@ -383,28 +380,14 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final DQElementPropertyType that = ((DQElementPropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetUuidref();
             boolean rhsFieldIsSet = that.isSetUuidref();
@@ -419,14 +402,40 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDQElement();
-            boolean rhsFieldIsSet = that.isSetAbstractDQElement();
-            JAXBElement<? extends AbstractDQElementType> lhsField;
-            lhsField = this.getAbstractDQElement();
-            JAXBElement<? extends AbstractDQElementType> rhsField;
-            rhsField = that.getAbstractDQElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDQElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDQElement", rhsField);
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -458,19 +467,6 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetActuate();
             boolean rhsFieldIsSet = that.isSetActuate();
             ActuateType lhsField;
@@ -484,6 +480,19 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAbstractDQElement();
+            boolean rhsFieldIsSet = that.isSetAbstractDQElement();
+            JAXBElement<? extends AbstractDQElementType> lhsField;
+            lhsField = this.getAbstractDQElement();
+            JAXBElement<? extends AbstractDQElementType> rhsField;
+            rhsField = that.getAbstractDQElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDQElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDQElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
@@ -492,19 +501,6 @@ public class DQElementPropertyType implements Serializable, Equals, HashCode, To
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

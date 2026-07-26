@@ -5,19 +5,13 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
+
 /**
- *
- *
- * <p>
- * Java class for showType
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * 
+ * 
+ * <p>Java class for showType</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  * <pre>{@code
  * <simpleType name="showType">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}token">
@@ -29,17 +23,21 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- *
+ * 
  */
 @XmlType(name = "showType")
 @XmlEnum
 public enum ShowType {
 
     @XmlEnumValue("new")
-    NEW("new"), @XmlEnumValue("replace")
-    REPLACE("replace"), @XmlEnumValue("embed")
-    EMBED("embed"), @XmlEnumValue("other")
-    OTHER("other"), @XmlEnumValue("none")
+    NEW("new"),
+    @XmlEnumValue("replace")
+    REPLACE("replace"),
+    @XmlEnumValue("embed")
+    EMBED("embed"),
+    @XmlEnumValue("other")
+    OTHER("other"),
+    @XmlEnumValue("none")
     NONE("none");
     private final String value;
 
@@ -49,8 +47,9 @@ public enum ShowType {
 
     /**
      * Gets the value associated to the enum constant.
-     *
-     * @return The value linked to the enum.
+     * 
+     * @return
+     *     The value linked to the enum.
      */
     public String value() {
         return value;
@@ -58,15 +57,16 @@ public enum ShowType {
 
     /**
      * Gets the enum associated to the value passed as parameter.
-     *
+     * 
      * @param v
-     *            The value to get the enum from.
-     * @return The enum which corresponds to the value, if it exists.
+     *     The value to get the enum from.
+     * @return
+     *     The enum which corresponds to the value, if it exists.
      * @throws IllegalArgumentException
-     *             If no value matches in the enum declaration.
+     *     If no value matches in the enum declaration.
      */
     public static ShowType fromValue(String v) {
-        for (ShowType c : ShowType.values()) {
+        for (ShowType c: ShowType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
