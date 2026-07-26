@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================================
+  AIXM 5.1 GEOMETRY TEST DATASET  (for delorean-aixm.com)
+  ============================================================================
+  Purpose : exercise every GML geometry pattern allowed in AIXM 5.1, one
+            feature per pattern, clearly labelled, so a parser/renderer can
+            be checked variant-by-variant.
+
+  NOTE ON SCHEMA STRICTNESS
+  =========================
+  Feature bodies (mandatory aixm properties such as <aixm:type>,
+  <aixm:designator>, etc.) have been trimmed to the minimum needed to keep
+  the file readable, since the point of this dataset is the *geometry*
+  encoding, not full AIXM feature-attribute conformance. The geometry
+  elements themselves (gml:Point, gml:Curve/segments, gml:Surface/patches,
+  xlink:href patterns, srsName handling, gml:pos vs gml:posList, etc.) follow
+  the real GML 3.2 / AIXM 5.1 encoding rules.
+
+  Coordinate order: EPSG:4326 -> lat lon (as per the EPSG axis order used by
+  AIXM); CRS84 -> lon lat (used deliberately in the SRS-change tests so an
+  axis-order bug would actually show up).
+  ============================================================================
+-->
+<message:AIXMBasicMessage gml:id="MSG_TEST_GEOMETRIES"
+    xmlns:message="http://www.aixm.aero/schema/5.1/message"
+    xmlns:aixm="http://www.aixm.aero/schema/5.1"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <gml:boundedBy>
+    <gml:Envelope srsName="urn:ogc:def:crs:EPSG::4326">
+      <gml:lowerCorner>47.000000 8.000000</gml:lowerCorner>
+      <gml:upperCorner>48.000000 9.000000</gml:upperCorner>
+    </gml:Envelope>
+  </gml:boundedBy>
+
+  <!-- ==========================================================================================
+       REFERENCE FEATURES  (targets for the xlink:href "by uuid" and "by local id" tests below)
+       ========================================================================================== -->
+
+  <message:hasMember>
+    <aixm:DesignatedPoint gml:id="REF_POINT_FEATURE">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000001</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:DesignatedPointTimeSlice gml:id="REF_POINT_FEATURE_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>ICAO</aixm:type>
+          <aixm:designatorICAO>REFPT</aixm:designatorICAO>
+          <aixm:location>
+            <aixm:ElevatedPoint gml:id="REF_POINT_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:pos>47.500000 8.500000</gml:pos>
+            </aixm:ElevatedPoint>
+          </aixm:location>
+        </aixm:DesignatedPointTimeSlice>
+      </aixm:timeSlice>
+    </aixm:DesignatedPoint>
+  </message:hasMember>
+
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="REF_CURVE_FEATURE">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000002</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="REF_CURVE_FEATURE_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="REF_CURVE_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:GeodesicString>
+                  <gml:posList>47.400000 8.300000 47.600000 8.700000</gml:posList>
+                </gml:GeodesicString>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+
+  <!-- ==========================================================================================
+       1. POINT GEOMETRIES
+       ========================================================================================== -->
+
+  <!-- 1.1 POS : plain gml:pos -->
+  <message:hasMember>
+    <aixm:DesignatedPoint gml:id="PT_POS">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000010</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:DesignatedPointTimeSlice gml:id="PT_POS_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>ICAO</aixm:type>
+          <aixm:designatorICAO>POSPT</aixm:designatorICAO>
+          <aixm:location>
+            <aixm:ElevatedPoint gml:id="PT_POS_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:pos>47.510000 8.510000</gml:pos>
+            </aixm:ElevatedPoint>
+          </aixm:location>
+        </aixm:DesignatedPointTimeSlice>
+      </aixm:timeSlice>
+    </aixm:DesignatedPoint>
+  </message:hasMember>
+
+  <!-- 1.2 SRS change : local srsName overrides the message default, 3D + CRS84 (lon,lat) axis order -->
+  <message:hasMember>
+    <aixm:DesignatedPoint gml:id="PT_SRSCHANGE">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000011</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:DesignatedPointTimeSlice gml:id="PT_SRSCHANGE_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>ICAO</aixm:type>
+          <aixm:designatorICAO>SRSPT</aixm:designatorICAO>
+          <aixm:location>
+            <!-- CRS84 = lon,lat order, vs. the EPSG:4326 lat,lon default used elsewhere -->
+            <aixm:ElevatedPoint gml:id="PT_SRSCHANGE_GEOM" srsName="urn:ogc:def:crs:OGC::CRS84" srsDimension="3">
+              <gml:pos>8.520000 47.520000 540.0</gml:pos>
+            </aixm:ElevatedPoint>
+          </aixm:location>
+        </aixm:DesignatedPointTimeSlice>
+      </aixm:timeSlice>
+    </aixm:DesignatedPoint>
+  </message:hasMember>
+
+  <!-- 1.3 PointProperty href to uuid (external feature reference) -->
+  <message:hasMember>
+    <aixm:DesignatedPoint gml:id="PT_HREF_UUID">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000012</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:DesignatedPointTimeSlice gml:id="PT_HREF_UUID_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>ICAO</aixm:type>
+          <aixm:designatorICAO>HREFPTU</aixm:designatorICAO>
+          <!-- no inline geometry: reuses REF_POINT_FEATURE's geometry via its feature uuid -->
+          <aixm:location xlink:href="urn:uuid:e00a0000-0000-4000-8000-000000000001"/>
+        </aixm:DesignatedPointTimeSlice>
+      </aixm:timeSlice>
+    </aixm:DesignatedPoint>
+  </message:hasMember>
+
+  <!-- 1.4 PointProperty href to id (local, same-document gml:id fragment) -->
+  <message:hasMember>
+    <aixm:DesignatedPoint gml:id="PT_HREF_LOCALID">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000013</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:DesignatedPointTimeSlice gml:id="PT_HREF_LOCALID_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>ICAO</aixm:type>
+          <aixm:designatorICAO>HREFPTL</aixm:designatorICAO>
+          <!-- points straight at the gml:id of the geometry element (not the feature) -->
+          <aixm:location xlink:href="#REF_POINT_GEOM"/>
+        </aixm:DesignatedPointTimeSlice>
+      </aixm:timeSlice>
+    </aixm:DesignatedPoint>
+  </message:hasMember>
+
+
+  <!-- ==========================================================================================
+       2. LINE (CURVE) GEOMETRIES
+       ========================================================================================== -->
+
+  <!-- 2.1 POS : LineStringSegment built from repeated gml:pos elements -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_POS">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000020</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_POS_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_POS_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:LineStringSegment interpretation="linear">
+                  <gml:pos>47.100000 8.100000</gml:pos>
+                  <gml:pos>47.150000 8.150000</gml:pos>
+                  <gml:pos>47.200000 8.180000</gml:pos>
+                </gml:LineStringSegment>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.2 POSList : same segment type, built from a single posList -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_POSLIST">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000021</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_POSLIST_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_POSLIST_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:LineStringSegment interpretation="linear">
+                  <gml:posList>47.210000 8.200000 47.250000 8.230000 47.280000 8.260000</gml:posList>
+                </gml:LineStringSegment>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.3 SRS change on a curve : 3D, CRS84 axis order -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_SRSCHANGE">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000022</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_SRSCHANGE_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_SRSCHANGE_GEOM" srsName="urn:ogc:def:crs:OGC::CRS84" srsDimension="3">
+              <gml:segments>
+                <gml:LineStringSegment interpretation="linear">
+                  <gml:posList>8.300000 47.300000 500.0 8.340000 47.330000 520.0</gml:posList>
+                </gml:LineStringSegment>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.4 / 2.5 PointProperty href (uuid + local id) used as curve endpoints -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_ENDPOINTS_HREF">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000023</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_ENDPOINTS_HREF_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <!-- 2.4 start point: PointProperty href to uuid (external feature) -->
+          <aixm:start>
+            <aixm:EnRouteSegmentPoint>
+              <aixm:pointChoice_pointProperty xlink:href="urn:uuid:e00a0000-0000-4000-8000-000000000001"/>
+            </aixm:EnRouteSegmentPoint>
+          </aixm:start>
+          <!-- 2.5 end point: PointProperty href to local id -->
+          <aixm:end>
+            <aixm:EnRouteSegmentPoint>
+              <aixm:pointChoice_pointProperty xlink:href="#PT_POS_GEOM"/>
+            </aixm:EnRouteSegmentPoint>
+          </aixm:end>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_ENDPOINTS_HREF_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:GeodesicString>
+                  <gml:posList>47.500000 8.500000 47.510000 8.510000</gml:posList>
+                </gml:GeodesicString>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.6 CurveProperty href to uuid (external feature's curve reused wholesale) -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_CURVEPROP_HREF_UUID">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000024</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_CURVEPROP_HREF_UUID_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <!-- no inline geometry: reuses REF_CURVE_FEATURE's curve via its feature uuid -->
+          <aixm:curveExtent xlink:href="urn:uuid:e00a0000-0000-4000-8000-000000000002"/>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.7 CurveProperty href to id (local gml:id fragment) -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_CURVEPROP_HREF_ID">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000025</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_CURVEPROP_HREF_ID_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent xlink:href="#LN_POS_GEOM"/>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.8 Lines : straight LineStringSegment (isolated, minimal example) -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_LINE">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000026</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_LINE_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_LINE_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:LineStringSegment interpretation="linear">
+                  <gml:posList>47.600000 8.000000 47.650000 8.050000</gml:posList>
+                </gml:LineStringSegment>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.9a Arc : ArcByCenterPoint (center + radius + bearings) -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_ARC_BYCENTER">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000027</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_ARC_BYCENTER_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_ARC_BYCENTER_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:ArcByCenterPoint numArc="1">
+                  <gml:pos>47.700000 8.200000</gml:pos>
+                  <gml:radius uom="[nmi_i]">5.0</gml:radius>
+                  <gml:startAngle uom="deg">0.0</gml:startAngle>
+                  <gml:endAngle uom="deg">90.0</gml:endAngle>
+                </gml:ArcByCenterPoint>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.9b Arc : classic 3-point gml:Arc -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_ARC_3PT">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000028</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_ARC_3PT_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_ARC_3PT_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:Arc>
+                  <gml:posList>47.710000 8.210000 47.720000 8.230000 47.700000 8.250000</gml:posList>
+                </gml:Arc>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.10a Circle : CircleByCenterPoint (center + radius, full 360) -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_CIRCLE_BYCENTER">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000029</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_CIRCLE_BYCENTER_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_CIRCLE_BYCENTER_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:CircleByCenterPoint numArc="1">
+                  <gml:pos>47.800000 8.100000</gml:pos>
+                  <gml:radius uom="[nmi_i]">3.0</gml:radius>
+                  <gml:startAngle uom="deg">0.0</gml:startAngle>
+                  <gml:endAngle uom="deg">360.0</gml:endAngle>
+                </gml:CircleByCenterPoint>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.10b Circle : classic 3-point gml:Circle -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_CIRCLE_3PT">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-00000000002a</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_CIRCLE_3PT_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_CIRCLE_3PT_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:Circle>
+                  <gml:posList>47.810000 8.140000 47.830000 8.100000 47.810000 8.060000</gml:posList>
+                </gml:Circle>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+  <!-- 2.11 Geodesic : GeodesicString with posList -->
+  <message:hasMember>
+    <aixm:RouteSegment gml:id="LN_GEODESIC">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-00000000002b</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:RouteSegmentTimeSlice gml:id="LN_GEODESIC_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:curveExtent>
+            <aixm:ElevatedCurve gml:id="LN_GEODESIC_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+              <gml:segments>
+                <gml:GeodesicString>
+                  <gml:posList>47.900000 8.000000 47.950000 8.400000 47.980000 8.800000</gml:posList>
+                </gml:GeodesicString>
+              </gml:segments>
+            </aixm:ElevatedCurve>
+          </aixm:curveExtent>
+        </aixm:RouteSegmentTimeSlice>
+      </aixm:timeSlice>
+    </aixm:RouteSegment>
+  </message:hasMember>
+
+
+  <!-- ==========================================================================================
+       3. SURFACE GEOMETRIES
+       ========================================================================================== -->
+
+  <!-- 3.1 Multi polygon : gml:MultiSurface with two independent PolygonPatch members -->
+  <message:hasMember>
+    <aixm:Airspace gml:id="SF_MULTIPOLYGON">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000030</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:AirspaceTimeSlice gml:id="SF_MULTIPOLYGON_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>OTHER:TEST</aixm:type>
+          <aixm:geometryComponent>
+            <aixm:AirspaceGeometryComponent>
+              <aixm:theAirspaceVolume>
+                <aixm:AirspaceVolume gml:id="SF_MULTIPOLYGON_VOL">
+                  <aixm:horizontalProjection>
+                    <aixm:Surface gml:id="SF_MULTIPOLYGON_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+                      <gml:patches>
+                        <gml:PolygonPatch>
+                          <gml:exterior>
+                            <gml:LinearRing>
+                              <gml:posList>47.00 8.00 47.10 8.00 47.10 8.10 47.00 8.10 47.00 8.00</gml:posList>
+                            </gml:LinearRing>
+                          </gml:exterior>
+                        </gml:PolygonPatch>
+                        <gml:PolygonPatch>
+                          <gml:exterior>
+                            <gml:LinearRing>
+                              <gml:posList>47.20 8.20 47.30 8.20 47.30 8.30 47.20 8.30 47.20 8.20</gml:posList>
+                            </gml:LinearRing>
+                          </gml:exterior>
+                        </gml:PolygonPatch>
+                      </gml:patches>
+                    </aixm:Surface>
+                  </aixm:horizontalProjection>
+                </aixm:AirspaceVolume>
+              </aixm:theAirspaceVolume>
+            </aixm:AirspaceGeometryComponent>
+          </aixm:geometryComponent>
+        </aixm:AirspaceTimeSlice>
+      </aixm:timeSlice>
+    </aixm:Airspace>
+  </message:hasMember>
+
+  <!-- 3.2 Holes : PolygonPatch with an exterior ring + one interior ring (hole) -->
+  <message:hasMember>
+    <aixm:Airspace gml:id="SF_HOLE">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000031</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:AirspaceTimeSlice gml:id="SF_HOLE_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>OTHER:TEST</aixm:type>
+          <aixm:geometryComponent>
+            <aixm:AirspaceGeometryComponent>
+              <aixm:theAirspaceVolume>
+                <aixm:AirspaceVolume gml:id="SF_HOLE_VOL">
+                  <aixm:horizontalProjection>
+                    <aixm:Surface gml:id="SF_HOLE_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+                      <gml:patches>
+                        <gml:PolygonPatch>
+                          <gml:exterior>
+                            <gml:LinearRing>
+                              <gml:posList>47.00 8.00 47.20 8.00 47.20 8.20 47.00 8.20 47.00 8.00</gml:posList>
+                            </gml:LinearRing>
+                          </gml:exterior>
+                          <gml:interior>
+                            <gml:LinearRing>
+                              <gml:posList>47.08 8.08 47.08 8.12 47.12 8.12 47.12 8.08 47.08 8.08</gml:posList>
+                            </gml:LinearRing>
+                          </gml:interior>
+                        </gml:PolygonPatch>
+                      </gml:patches>
+                    </aixm:Surface>
+                  </aixm:horizontalProjection>
+                </aixm:AirspaceVolume>
+              </aixm:theAirspaceVolume>
+            </aixm:AirspaceGeometryComponent>
+          </aixm:geometryComponent>
+        </aixm:AirspaceTimeSlice>
+      </aixm:timeSlice>
+    </aixm:Airspace>
+  </message:hasMember>
+
+  <!-- 3.3 Ring : explicit gml:Ring (curveMember-based) instead of gml:LinearRing -->
+  <message:hasMember>
+    <aixm:Airspace gml:id="SF_RING">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000032</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:AirspaceTimeSlice gml:id="SF_RING_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>OTHER:TEST</aixm:type>
+          <aixm:geometryComponent>
+            <aixm:AirspaceGeometryComponent>
+              <aixm:theAirspaceVolume>
+                <aixm:AirspaceVolume gml:id="SF_RING_VOL">
+                  <aixm:horizontalProjection>
+                    <aixm:Surface gml:id="SF_RING_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+                      <gml:patches>
+                        <gml:PolygonPatch>
+                          <gml:exterior>
+                            <gml:Ring>
+                              <gml:curveMember>
+                                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326">
+                                  <gml:segments>
+                                    <gml:LineStringSegment interpretation="linear">
+                                      <gml:posList>47.40 8.40 47.50 8.40 47.50 8.50 47.40 8.50 47.40 8.40</gml:posList>
+                                    </gml:LineStringSegment>
+                                  </gml:segments>
+                                </gml:Curve>
+                              </gml:curveMember>
+                            </gml:Ring>
+                          </gml:exterior>
+                        </gml:PolygonPatch>
+                      </gml:patches>
+                    </aixm:Surface>
+                  </aixm:horizontalProjection>
+                </aixm:AirspaceVolume>
+              </aixm:theAirspaceVolume>
+            </aixm:AirspaceGeometryComponent>
+          </aixm:geometryComponent>
+        </aixm:AirspaceTimeSlice>
+      </aixm:timeSlice>
+    </aixm:Airspace>
+  </message:hasMember>
+
+  <!-- 3.4 Curve : ring made of a gml:Curve with mixed segment types (Geodesic + Arc + Line) -->
+  <message:hasMember>
+    <aixm:Airspace gml:id="SF_CURVE_RING">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000033</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:AirspaceTimeSlice gml:id="SF_CURVE_RING_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>OTHER:TEST</aixm:type>
+          <aixm:geometryComponent>
+            <aixm:AirspaceGeometryComponent>
+              <aixm:theAirspaceVolume>
+                <aixm:AirspaceVolume gml:id="SF_CURVE_RING_VOL">
+                  <aixm:horizontalProjection>
+                    <aixm:Surface gml:id="SF_CURVE_RING_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+                      <gml:patches>
+                        <gml:PolygonPatch>
+                          <gml:exterior>
+                            <gml:Ring>
+                              <gml:curveMember>
+                                <gml:Curve gml:id="SF_CURVE_RING_CURVE" srsName="urn:ogc:def:crs:EPSG::4326">
+                                  <gml:segments>
+                                    <gml:GeodesicString>
+                                      <gml:posList>47.60 8.60 47.65 8.60</gml:posList>
+                                    </gml:GeodesicString>
+                                    <gml:ArcByCenterPoint numArc="1">
+                                      <gml:pos>47.65 8.65</gml:pos>
+                                      <gml:radius uom="[nmi_i]">2.7</gml:radius>
+                                      <gml:startAngle uom="deg">180.0</gml:startAngle>
+                                      <gml:endAngle uom="deg">270.0</gml:endAngle>
+                                    </gml:ArcByCenterPoint>
+                                    <gml:LineStringSegment interpretation="linear">
+                                      <gml:posList>47.65 8.70 47.60 8.70 47.60 8.60</gml:posList>
+                                    </gml:LineStringSegment>
+                                  </gml:segments>
+                                </gml:Curve>
+                              </gml:curveMember>
+                            </gml:Ring>
+                          </gml:exterior>
+                        </gml:PolygonPatch>
+                      </gml:patches>
+                    </aixm:Surface>
+                  </aixm:horizontalProjection>
+                </aixm:AirspaceVolume>
+              </aixm:theAirspaceVolume>
+            </aixm:AirspaceGeometryComponent>
+          </aixm:geometryComponent>
+        </aixm:AirspaceTimeSlice>
+      </aixm:timeSlice>
+    </aixm:Airspace>
+  </message:hasMember>
+
+  <!-- 3.5 Segment : ring built from several curveMembers, each a single-segment Curve
+       (tests stitching of independent segments end-to-end, including a CurveProperty href) -->
+  <message:hasMember>
+    <aixm:Airspace gml:id="SF_SEGMENTED_RING">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000034</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:AirspaceTimeSlice gml:id="SF_SEGMENTED_RING_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>OTHER:TEST</aixm:type>
+          <aixm:geometryComponent>
+            <aixm:AirspaceGeometryComponent>
+              <aixm:theAirspaceVolume>
+                <aixm:AirspaceVolume gml:id="SF_SEGMENTED_RING_VOL">
+                  <aixm:horizontalProjection>
+                    <aixm:Surface gml:id="SF_SEGMENTED_RING_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+                      <gml:patches>
+                        <gml:PolygonPatch>
+                          <gml:exterior>
+                            <gml:Ring>
+                              <gml:curveMember>
+                                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326">
+                                  <gml:segments>
+                                    <gml:LineStringSegment interpretation="linear">
+                                      <gml:posList>47.70 8.00 47.75 8.00</gml:posList>
+                                    </gml:LineStringSegment>
+                                  </gml:segments>
+                                </gml:Curve>
+                              </gml:curveMember>
+                              <gml:curveMember>
+                                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326">
+                                  <gml:segments>
+                                    <gml:GeodesicString>
+                                      <gml:posList>47.75 8.00 47.75 8.10</gml:posList>
+                                    </gml:GeodesicString>
+                                  </gml:segments>
+                                </gml:Curve>
+                              </gml:curveMember>
+                              <!-- closing segment reused from another feature's curve by uuid -->
+                              <gml:curveMember xlink:href="urn:uuid:e00a0000-0000-4000-8000-000000000002"/>
+                            </gml:Ring>
+                          </gml:exterior>
+                        </gml:PolygonPatch>
+                      </gml:patches>
+                    </aixm:Surface>
+                  </aixm:horizontalProjection>
+                </aixm:AirspaceVolume>
+              </aixm:theAirspaceVolume>
+            </aixm:AirspaceGeometryComponent>
+          </aixm:geometryComponent>
+        </aixm:AirspaceTimeSlice>
+      </aixm:timeSlice>
+    </aixm:Airspace>
+  </message:hasMember>
+
+  <!-- 3.6 Point : ring vertices given as repeated gml:pos (not posList) -->
+  <message:hasMember>
+    <aixm:Airspace gml:id="SF_POS_RING">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000035</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:AirspaceTimeSlice gml:id="SF_POS_RING_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>OTHER:TEST</aixm:type>
+          <aixm:geometryComponent>
+            <aixm:AirspaceGeometryComponent>
+              <aixm:theAirspaceVolume>
+                <aixm:AirspaceVolume gml:id="SF_POS_RING_VOL">
+                  <aixm:horizontalProjection>
+                    <aixm:Surface gml:id="SF_POS_RING_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+                      <gml:patches>
+                        <gml:PolygonPatch>
+                          <gml:exterior>
+                            <gml:LinearRing>
+                              <gml:pos>47.80 8.30</gml:pos>
+                              <gml:pos>47.85 8.30</gml:pos>
+                              <gml:pos>47.85 8.35</gml:pos>
+                              <gml:pos>47.80 8.35</gml:pos>
+                              <gml:pos>47.80 8.30</gml:pos>
+                            </gml:LinearRing>
+                          </gml:exterior>
+                        </gml:PolygonPatch>
+                      </gml:patches>
+                    </aixm:Surface>
+                  </aixm:horizontalProjection>
+                </aixm:AirspaceVolume>
+              </aixm:theAirspaceVolume>
+            </aixm:AirspaceGeometryComponent>
+          </aixm:geometryComponent>
+        </aixm:AirspaceTimeSlice>
+      </aixm:timeSlice>
+    </aixm:Airspace>
+  </message:hasMember>
+
+  <!-- 3.7 Kitchen sink : all of the above combined in one feature.
+       - gml:MultiSurface with two surfaceMembers
+       - patch #1: exterior Ring made of a Curve mixing Geodesic + ArcByCenterPoint + Line segments,
+                   plus an interior hole ring given as a LinearRing/posList
+       - patch #2: exterior LinearRing given via repeated gml:pos, SRS overridden locally (CRS84, 3D),
+                   with its interior hole ring referenced by CurveProperty href to a local id -->
+  <message:hasMember>
+    <aixm:Airspace gml:id="SF_KITCHEN_SINK">
+      <gml:identifier codeSpace="urn:uuid">e00a0000-0000-4000-8000-000000000036</gml:identifier>
+      <aixm:timeSlice>
+        <aixm:AirspaceTimeSlice gml:id="SF_KITCHEN_SINK_TS1">
+          <gml:validTime/>
+          <aixm:interpretation>BASELINE</aixm:interpretation>
+          <aixm:type>OTHER:TEST</aixm:type>
+          <aixm:geometryComponent>
+            <aixm:AirspaceGeometryComponent>
+              <aixm:theAirspaceVolume>
+                <aixm:AirspaceVolume gml:id="SF_KITCHEN_SINK_VOL">
+                  <aixm:horizontalProjection>
+                    <gml:MultiSurface gml:id="SF_KITCHEN_SINK_GEOM" srsName="urn:ogc:def:crs:EPSG::4326" srsDimension="2">
+                      <gml:surfaceMember>
+                        <aixm:Surface>
+                          <gml:patches>
+                            <gml:PolygonPatch>
+                              <gml:exterior>
+                                <gml:Ring>
+                                  <gml:curveMember>
+                                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326">
+                                      <gml:segments>
+                                        <gml:GeodesicString>
+                                          <gml:posList>47.30 8.60 47.35 8.60</gml:posList>
+                                        </gml:GeodesicString>
+                                        <gml:ArcByCenterPoint numArc="1">
+                                          <gml:pos>47.35 8.65</gml:pos>
+                                          <gml:radius uom="[nmi_i]">2.7</gml:radius>
+                                          <gml:startAngle uom="deg">180.0</gml:startAngle>
+                                          <gml:endAngle uom="deg">270.0</gml:endAngle>
+                                        </gml:ArcByCenterPoint>
+                                        <gml:LineStringSegment interpretation="linear">
+                                          <gml:posList>47.35 8.70 47.30 8.70 47.30 8.60</gml:posList>
+                                        </gml:LineStringSegment>
+                                      </gml:segments>
+                                    </gml:Curve>
+                                  </gml:curveMember>
+                                </gml:Ring>
+                              </gml:exterior>
+                              <gml:interior>
+                                <gml:LinearRing gml:id="SF_KITCHEN_SINK_HOLE1">
+                                  <gml:posList>47.315 8.615 47.315 8.625 47.325 8.625 47.325 8.615 47.315 8.615</gml:posList>
+                                </gml:LinearRing>
+                              </gml:interior>
+                            </gml:PolygonPatch>
+                          </gml:patches>
+                        </aixm:Surface>
+                      </gml:surfaceMember>
+                      <gml:surfaceMember>
+                        <aixm:Surface>
+                          <gml:patches>
+                            <gml:PolygonPatch>
+                              <!-- local SRS override, 3D, CRS84 axis order -->
+                              <gml:exterior srsName="urn:ogc:def:crs:OGC::CRS84" srsDimension="3">
+                                <gml:LinearRing>
+                                  <gml:pos>8.80 47.40 400.0</gml:pos>
+                                  <gml:pos>8.85 47.40 400.0</gml:pos>
+                                  <gml:pos>8.85 47.45 400.0</gml:pos>
+                                  <gml:pos>8.80 47.45 400.0</gml:pos>
+                                  <gml:pos>8.80 47.40 400.0</gml:pos>
+                                </gml:LinearRing>
+                              </gml:exterior>
+                              <gml:interior>
+                                <gml:Ring>
+                                  <!-- CurveProperty href to a local id, reusing another curve as a hole boundary -->
+                                  <gml:curveMember xlink:href="#LN_GEODESIC_GEOM"/>
+                                </gml:Ring>
+                              </gml:interior>
+                            </gml:PolygonPatch>
+                          </gml:patches>
+                        </aixm:Surface>
+                      </gml:surfaceMember>
+                    </gml:MultiSurface>
+                  </aixm:horizontalProjection>
+                </aixm:AirspaceVolume>
+              </aixm:theAirspaceVolume>
+            </aixm:AirspaceGeometryComponent>
+          </aixm:geometryComponent>
+        </aixm:AirspaceTimeSlice>
+      </aixm:timeSlice>
+    </aixm:Airspace>
+  </message:hasMember>
+
+</message:AIXMBasicMessage>

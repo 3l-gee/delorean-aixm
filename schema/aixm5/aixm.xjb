@@ -4,13 +4,13 @@
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../aixm/AIXM_Features.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.aixm.delorean.core.schema.a5.aixm"/>
+      <jaxb:package name="com.delorean.aixm.core.schema.a5.aixm"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../aixm/AIXM_AbstractGML_ObjectTypes.xsd" node="/xs:schema">
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../aixm/message/AIXM_BasicMessage.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.aixm.delorean.core.schema.a5.aixm.message"/>
+      <jaxb:package name="com.delorean.aixm.core.schema.a5.aixm.message"/>
     </jaxb:schemaBindings>
 </jaxb:bindings>

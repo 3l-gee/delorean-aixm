@@ -18,7 +18,11 @@ class Util:
             name = [x for x in name if x is not None]
 
         if type(name) is list : 
-            names = [Util.snake_case_table(n, list) for n in name]
+            names = []
+            for n in name :
+                joined_name = Util.snake_case_table(n, name_type)
+                names.append(joined_name)
+
             return "_".join(names)
         else : 
             return Config().generate_database_name(name)
@@ -63,22 +67,22 @@ class Util:
     
         if restriction.attrib["base"]:
             res["base"] = restriction.attrib["base"]
-            if restriction.attrib["base"] == "string":
+            if restriction.attrib["base"] == "string" or restriction.attrib["base"] == "xsd:string":
                 res["uber"] = "string"
-            elif restriction.attrib["base"] == "unsignedInt":
+            elif restriction.attrib["base"] == "unsignedInt" or restriction.attrib["base"] == "xsd:unsignedInt":
                 res["uber"] = "unsignedInt"
-            elif restriction.attrib["base"] == "decimal":
+            elif restriction.attrib["base"] == "decimal" or restriction.attrib["base"] == "xsd:decimal":
                 res["uber"] = "decimal" 
-            elif restriction.attrib["base"] == "boolean":
+            elif restriction.attrib["base"] == "boolean" or restriction.attrib["base"] == "xsd:boolean":
                 res["uber"] = "boolean"
-            elif restriction.attrib["base"] == "date":
+            elif restriction.attrib["base"] == "date" or restriction.attrib["base"] == "xsd:date":
                 res["uber"] = "date"
-            elif restriction.attrib["base"] == "dateTime":
+            elif restriction.attrib["base"] == "dateTime" or restriction.attrib["base"] == "xsd:dateTime":
                 res["uber"] = "dateTime"
-            elif restriction.attrib["base"] == "token":
+            elif restriction.attrib["base"] == "token" or restriction.attrib["base"] == "xsd:token":
                 res["uber"] = "token"
-            elif restriction.attrib["base"] == "time":
-                res["uber"] = "TItimeME"
+            elif restriction.attrib["base"] == "time" or restriction.attrib["base"] == "xsd:time":
+                res["uber"] = "time"
 
         if restriction.find(Tag.fractionDigits) is not None:
             res["fractionDigits"] = restriction.find(Tag.fractionDigits).attrib["value"]
@@ -122,12 +126,10 @@ class Property:
     def name(name):
         return f'<jaxb:property name="{name}"/>'
     
-    # element = '<jaxb:property generateElementProperty="false"/>'
     element = ''
 
     @staticmethod
     def name_element(name):
-        # return f'<jaxb:property name="{name}" generateElementProperty="false"/>'
         return f'<jaxb:property name="{name}"/>'
     
     @staticmethod
@@ -263,9 +265,14 @@ class HyperJAXB:
     
     @staticmethod 
     def orm_join_table(schema, owning_table, target_table):
-        join_table_name = Util.snake_case_table([owning_table, target_table, "link"]).replace('"', '')
+        owning_table_acronym = Config().generate_phonetic_acronym(owning_table)
+        target_table_acronym = Config().generate_phonetic_acronym(target_table)
+        join_table_name = Util.snake_case_table([owning_table_acronym, target_table_acronym, "l"]).replace('"', '')
         owning_table = Util.snake_case_column(str(owning_table)).replace('"', '')
         target_table = Util.snake_case_column(str(target_table)).replace('"', '')
+
+        if len(join_table_name) > 63:
+            print(f"Warning: The generated table name '{join_table_name}' exceeds the maximum length of 63 characters")
 
         return f'''<orm:join-table name="{join_table_name}" schema="{schema}"><orm:join-column name="{owning_table}_hjid" referenced-column-name="hjid" /><orm:inverse-join-column name="{target_table}_hjid" referenced-column-name="hjid" /></orm:join-table>'''
     
@@ -337,6 +344,8 @@ class HyperJAXB:
     @staticmethod
     def table(name, schema, prefix=None, suffix=None):
         join_table_name = Util.snake_case_table([prefix, name, suffix]).replace('"', '')
+        if len(join_table_name) > 63:
+            print(f"Warning: The generated table name '{join_table_name}' exceeds the maximum length of 63 characters")
         
         return f'<orm:table name = "{join_table_name}" schema = "{schema}" />'
     
@@ -479,63 +488,7 @@ class Constraint:
         
         # Format the annotation string using f-strings
         return f'@jakarta.validation.constraints.Pattern(regexp = "{escaped_value}", message = "{message + " : " + escaped_value}")'
-
-# class Relation:
-
-#     @staticmethod
-#     def inhertiance():
-#         return f'<orm:inheritance strategy="JOINED" />'
-        
-#     @staticmethod
-#     def one_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
-#         return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch})'
     
-#     @staticmethod
-#     def one_to_one_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):   
-#         return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
-
-#     @staticmethod
-#     def one_to_many(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
-#         return f'@jakarta.persistence.OneToMany(cascade={cascade}, fetch={fetch})'
-    
-#     @staticmethod
-#     def one_to_many_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):   
-#         return f'@jakarta.persistence.OneToMany(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
-    
-#     @staticmethod
-#     def many_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):  
-#         return f'@jakarta.persistence.ManyToOne(cascade={cascade}, fetch={fetch})'
-
-#     @staticmethod
-#     def many_to_one_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):  
-#         return f'@jakarta.persistence.ManyToOne(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
-    
-#     @staticmethod
-#     def many_to_many(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):  
-#         return f'@jakarta.persistence.ManyToMany(cascade={cascade}, fetch={fetch})'
-    
-#     @staticmethod
-#     def many_to_many_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):  
-#         return f'@jakarta.persistence.ManyToMany(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
-    
-#     @staticmethod
-#     def join_column(name, referenced_column_name="id"):
-#         return f'@jakarta.persistence.JoinColumn(name="{Util.snake_case(str(name + "_id"))}", referencedColumnName="{referenced_column_name}")'
-    
-#     @staticmethod
-#     def join_table(name1, name2, join_columns, inverse_join_columns):
-#         return f'@jakarta.persistence.JoinTable(name = "{Util.snake_case_table([name1, name2])}", joinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(str(join_columns + "_id"))}"), inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(str(inverse_join_columns + "_id"))}"))'    
-#     @staticmethod
-#     def collection_element():
-#         return f'@jakarta.persistence.ElementCollection'
-    
-#     @staticmethod
-#     def collection_table(name, parent=None):
-#         if parent is None :
-#             return f'@jakarta.persistence.CollectionTable(name = "{Util.snake_case(str(name + "_col"))}")'
-#         else :
-#             return f'@jakarta.persistence.CollectionTable(name = "{Util.snake_case(name)}, joinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(parent)}_id"))'
-
 class Jpa:
     # relation = Relation
     constraint = Constraint
@@ -546,13 +499,17 @@ class Jpa:
     embeddable = '''<hj:embeddable/>'''
     embedded = '@jakarta.persistence.Embedded'
 
-    @staticmethod
-    def column(name, length=255, nullable=True, unique=False):
-        return f'@jakarta.persistence.Column(name = "{Util.snake_case_column(name)}", length = {length}, nullable = {Util.bool_str(nullable)}, unique = {Util.bool_str(unique)})'
+    # @staticmethod
+    # def column(name, length=255, nullable=True, unique=False):
+    #     print("\n--- Util.column called by: ---")
+    #     for line in traceback.format_stack()[:-1]:
+    #         if "Util.column" not in line:
+    #             print(line.strip())
+    #     return f'@jakarta.persistence.Column(name = "{Util.snake_case_column(name)}", length = {length}, nullable = {Util.bool_str(nullable)}, unique = {Util.bool_str(unique)})'
 
-    @staticmethod
-    def column_with_definition(name, columnDefinition, length=255, nullable=True, unique=False):
-        return f'@jakarta.persistence.Column(name = "{Util.snake_case_column(name)}", length = {length}, columnDefinition = "{columnDefinition}", nullable = {Util.bool_str(nullable)}, unique = {Util.bool_str(unique)})'
+    # @staticmethod
+    # def column_with_definition(name, columnDefinition, length=255, nullable=True, unique=False):
+    #     return f'@jakarta.persistence.Column(name = "{Util.snake_case_column(name)}", length = {length}, columnDefinition = "{columnDefinition}", nullable = {Util.bool_str(nullable)}, unique = {Util.bool_str(unique)})'
         
     @staticmethod
     def table(name, schema, prefix=None):

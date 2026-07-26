@@ -877,7 +877,7 @@ r2 AS (
 		AND 
 		partial_surface_view.total_count = 1
 		AND 
-		ST_NPoints(ST_AddPoint(partial_surface_view.geom, ST_StartPoint(partial_surface_view.geom))) >= 4		
+		 
 ),
 g1 AS (
 	SELECT 

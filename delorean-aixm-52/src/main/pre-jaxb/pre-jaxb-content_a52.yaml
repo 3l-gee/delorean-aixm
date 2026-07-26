@@ -1,0 +1,27 @@
+
+xsd:
+  datatypexsd:
+    name: ../AIXM_DataTypes
+    path: src/main/schema/AIXM_DataTypes.xsd
+    strategy: data_type
+    manual: src/main/pre-jaxb/manual/AIXM_DataTypes.xjb
+
+  featurexsd:
+    name: ../AIXM_Features
+    path: src/main/schema/AIXM_Features.xsd
+    strategy: feature
+    package: com.delorean.aixm.aixm52.schema
+    manual: src/main/pre-jaxb/manual/AIXM_Features.xjb
+
+  abstractxsd:
+    name: ../AIXM_AbstractGML_ObjectTypes
+    path: src/main/schema/AIXM_AbstractGML_ObjectTypes.xsd
+    strategy: abstract
+    manual: src/main/pre-jaxb/manual/AIXM_AbstractGML_ObjectTypes.xjb
+
+  messagexsd:
+    name: ../message/AIXM_BasicMessage
+    path: src/main/schema/message/AIXM_BasicMessage.xsd
+    strategy: other
+    package: com.delorean.aixm.aixm52.schema.message
+    manual: src/main/pre-jaxb/manual/AIXM_BasicMessage.xjb

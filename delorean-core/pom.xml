@@ -7,7 +7,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.aixm.delorean</groupId>
+        <groupId>com.delorean-aixm</groupId>
         <artifactId>delorean-aixm</artifactId>
         <version>0.2.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -18,6 +18,12 @@
     <name>Delorean Core</name>
     
 	<dependencies>
+        <!-- Delorean core -->
+        <dependency>
+            <groupId>com.delorean-aixm</groupId>
+            <artifactId>post-jaxb</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
         <!-- JPA Dependencies -->
 		<dependency>
@@ -33,44 +39,24 @@
             <scope>provided</scope>
 		</dependency>
 
-        <!-- HiSrc Runtime Dependencies -->
+        <!-- JAXB XML Binding -->
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-basicjaxb-runtime</artifactId>
-			<version>${hisrc-basicjaxb.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.patrodyne.jvnet</groupId>
-			<artifactId>hisrc-hyperjaxb-ejb-runtime</artifactId>
-			<version>${hisrc-hyperjaxb.version}</version>
+			<version>${hisrc.version}</version>
 		</dependency>
         <dependency>
-            <groupId>org.patrodyne.jvnet</groupId>
-            <artifactId>hisrc-hyperjaxb-opt-hibernate</artifactId>
-            <version>${hisrc-hyperjaxb.version}</version>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${jakarta-xml-bind.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.patrodyne.jvnet</groupId>
-            <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-            <version>${hisrc-hyperjaxb.version}</version>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.12</version>
         </dependency>
 
         <!-- Database Dependencies -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2database.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>${postgresql.version}</version>
-		</dependency>
-        <dependency>
-            <groupId>net.postgis</groupId>
-            <artifactId>postgis-jdbc</artifactId>
-            <version>${postgis.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
@@ -103,18 +89,6 @@
             <artifactId>jakarta.el-api</artifactId>
             <version>6.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.glassfish.expressly</groupId>
-            <artifactId>expressly</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-
-        <!-- SLF4J Implementation -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
 
         <!-- GIS Dependencies -->
         <dependency>
@@ -122,40 +96,30 @@
             <artifactId>jts-core</artifactId>
             <version>${jts.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.locationtech.jts.io</groupId>
-            <artifactId>jts-io-common</artifactId>
-            <version>${jts.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.locationtech.proj4j</groupId>
-            <artifactId>proj4j</artifactId>
-            <version>${proj4.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.locationtech.proj4j</groupId>
-            <artifactId>proj4j-epsg</artifactId>
-            <version>${proj4.version}</version>
-        </dependency>
 
-        <!-- XML templates Dependencies -->
+        <!-- Equals Dependencies-->
         <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>${freemarker.version}</version>
-        </dependency>
-
-        <!-- Mapping Dependencies -->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
         </dependency>
         
         <!-- Test Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
@@ -184,23 +148,44 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Post-JAXB Codegen Fix Utility -->
-        <dependency>
-            <groupId>com.aixm.delorean</groupId>
-            <artifactId>post-jaxb</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        
         <!-- JSON serialisation-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.20.1</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-jaxb-annotations</artifactId>
-            <version>2.20.1</version>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- Logging-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.classic}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>3.1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.loki4j</groupId>
+            <artifactId>loki-logback-appender</artifactId>
+            <version>2.0.3</version>
         </dependency>
 
 	</dependencies>
@@ -261,99 +246,96 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
-					<mainClass>com.aixm.delorean.Main</mainClass>
+					<mainClass>com.delorean.aixm.Main</mainClass>
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
 			</plugin>
+
+            <!-- Dependency analysis: suppress known runtime/SPI false positives -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <usedDependencies>
+                        <usedDependency>jakarta.annotation:jakarta.annotation-api</usedDependency>
+                        <usedDependency>com.zaxxer:HikariCP</usedDependency>
+                        <usedDependency>org.hibernate.orm:hibernate-hikaricp</usedDependency>
+                        <usedDependency>org.hibernate.orm:hibernate-spatial</usedDependency>
+                        <usedDependency>org.hibernate.validator:hibernate-validator</usedDependency>
+                        <usedDependency>jakarta.el:jakarta.el-api</usedDependency>
+                        <usedDependency>org.junit.jupiter:junit-jupiter-engine</usedDependency>
+                        <usedDependency>org.testcontainers:testcontainers-postgresql</usedDependency>
+                        <usedDependency>org.xmlunit:xmlunit-core</usedDependency>
+                        <usedDependency>ch.qos.logback:logback-classic</usedDependency>
+                    </usedDependencies>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
     <profiles>
-    <!-- <profile>
-            <id>fat-jar</id>
-            <build>
-                <plugins>
-                    Maven Shade Plugin to create a fat JAR
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-shade-plugin</artifactId>
-                        <version>3.5.0</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>shade</goal>
-                                </goals>
-                                <configuration>
-                                    <createDependencyReducedPom>true</createDependencyReducedPom>
-                                    <shadedArtifactAttached>true</shadedArtifactAttached>
-                                    <shadedClassifierName>fat</shadedClassifierName>
-                                    
-                                    Only include runtime deps
-                                    <artifactSet>
-                                        <excludes>
-                                            <exclude>junit:*</exclude>
-                                            <exclude>org.junit.jupiter:*</exclude>
-                                            <exclude>org.assertj:*</exclude>
-                                            <exclude>org.testcontainers:*</exclude>
-                                            <exclude>org.hamcrest:*</exclude>
-                                        </excludes>
-                                    </artifactSet>
-                                    
-                                    Strip signatures, licenses, docs
-                                    <filters>
-                                        <filter>
-                                            <artifact>*:*</artifact>
-                                            <excludes>
-                                                <exclude>META-INF/*.SF</exclude>
-                                                <exclude>META-INF/*.DSA</exclude>
-                                                <exclude>META-INF/*.RSA</exclude>
-                                                <exclude>META-INF/LICENSE*</exclude>
-                                                <exclude>META-INF/NOTICE*</exclude>
-                                                <exclude>**/*.html</exclude>
-                                                <exclude>**/*.txt</exclude>
-                                                <exclude>**/*.md</exclude>
-                                            </excludes>
-                                        </filter>
-                                    </filters>
-                                    
-                                    <artifactSet>
-                                        <includes>
-                                            <include>*:*</include>
-                                        </includes>
-                                    </artifactSet>
-                                    <transformers>
-                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                            <mainClass>com.aixm.delorean.Main</mainClass>
-                                        </transformer>
-                                    </transformers>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>-->
         <profile>
             <id>jaxb-core</id>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+
+                            <!-- Post-JAXB Codegen Fix Utility -->
+                            <execution>
+                                <id>postprocess aixm core gml bindings</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>java</executable>
+                                    <arguments>
+                                        <argument>-classpath</argument>
+                                        <classpath/>
+                                        <argument>com.delorean.aixm.postjaxb.PostJAXBRunner</argument>
+                                        <argument>${project.basedir}/src/main/post-jaxb/post-jaxb-config_core.yaml</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    
+                    <!-- Prevent Logback copy onto itself -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-shared-logback-config</id>
+                                <phase>none</phase>
+                            </execution>
+                            <execution>
+                                <id>copy-shared-logback-test-config</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+
                     <!-- HiSrc HyperJAXB Code Generation for GML 3.2.1 -->
                     <plugin>
                         <groupId>org.patrodyne.jvnet</groupId>
                         <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
-                        <version>${hisrc-hyperjaxb.version}</version>
+                        <version>${hisrc.version}</version>
                         <dependencies>
                             <dependency>
                                 <groupId>org.patrodyne.jvnet</groupId>
                                 <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-                                <version>${hisrc-hyperjaxb.version}</version>
+                                <version>${hisrc.version}</version>
                             </dependency>
                         </dependencies>
                         <executions>
                             <execution>
-                                <id>generate gml bindings</id>
+                                <id>generate aixm core gml bindings</id>
                                 <phase>generate-sources</phase>
                                 <goals>
                                     <goal>generate</goal>
@@ -372,28 +354,6 @@
                                     </bindingIncludes>
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                                     <episodeFile>${project.build.outputDirectory}/META-INF/sun-jaxb.episode</episodeFile>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <!-- Post-JAXB Codegen Fix Utility -->
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <id>post-jaxb</id>
-                                <phase>process-sources</phase>
-                                <goals>
-                                    <goal>java</goal>
-                                </goals>
-                                <configuration>
-                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBRunner</mainClass>
-                                    <arguments>
-                                        <argument>${project.basedir}/src/main/post-jaxb/gml-post-jaxb-config.yaml</argument>
-                                    </arguments>
                                 </configuration>
                             </execution>
                         </executions>

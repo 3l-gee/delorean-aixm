@@ -72,8 +72,8 @@
 			<extension base="aixm:AbstractAIXMFeatureBaseType">
 				<sequence>
 					<element name="featureMetadata" type="aixm:FeatureMetadataPropertyType" minOccurs="0"/>
-					<!-- delorean aixm approval status field -->
-					<element name="approvalStatus" minOccurs="0">
+					<!-- delorean aixm feature status field -->
+					<element name="lifecycleStatus" minOccurs="0">
 						<simpleType>
 							<restriction base="string">
 								<enumeration value="APPROVED"/>
@@ -155,8 +155,8 @@
 					<!-- delorean aixm hyper jaxb codgen limitation -->
 					<!-- <element ref="aixm:featureLifetime" minOccurs="0"/> -->	
 					<element name="featureLifetime" type="string" minOccurs="0"/>
-					<!-- delorean aixm approval status field -->
-					<element name="approvalStatus" minOccurs="0">
+					<!-- delorean aixm lifecycle status field -->
+					<element name="lifecycleStatus" minOccurs="0">
 						<simpleType>
 							<restriction base="string">
 								<enumeration value="APPROVED"/>
@@ -245,7 +245,9 @@
 		<complexContent>
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
-					<element ref="gmd:MD_Metadata"/>
+					<!-- delorean aixm hyper jaxb codegen limitation -->
+					<!-- <element ref="gmd:MD_Metadata"/> -->
+					<element name="mdMetadata" type="string"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -254,7 +256,9 @@
 		<complexContent>
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
-					<element ref="gmd:MD_Metadata"/>
+					<!-- delorean aixm hyper jaxb codegen limitation -->
+					<!-- <element ref="gmd:MD_Metadata"/> -->
+					<element name="mdMetadata" type="string"/>
 				</sequence>
 			</extension>
 		</complexContent>

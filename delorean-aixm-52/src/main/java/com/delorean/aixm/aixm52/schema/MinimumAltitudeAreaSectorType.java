@@ -1,0 +1,800 @@
+
+package com.delorean.aixm.aixm52.schema;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElementRef;
+import jakarta.xml.bind.annotation.XmlType;
+import org.jvnet.basicjaxb.lang.EqualsStrategy;
+import org.jvnet.basicjaxb.lang.HashCodeStrategy;
+import org.jvnet.basicjaxb.lang.ToStringStrategy;
+import org.jvnet.basicjaxb.locator.ObjectLocator;
+import org.jvnet.basicjaxb.locator.util.LocatorUtils;
+import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
+
+
+/**
+ * <p>Java class for MinimumAltitudeAreaSectorType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
+ * <pre>{@code
+ * <complexType name="MinimumAltitudeAreaSectorType">
+ *   <complexContent>
+ *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMObjectType">
+ *       <sequence>
+ *         <element name="bufferWidth" type="{http://www.aixm.aero/schema/5.2}ValDistanceType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.2}TextNameType" minOccurs="0"/>
+ *         <element name="altitude" type="{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="altitudeLowTemperature" type="{http://www.aixm.aero/schema/5.2}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="significantObstacle" type="{http://www.aixm.aero/schema/5.2}ObstructionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="sectorDefinition" type="{http://www.aixm.aero/schema/5.2}CircleSectorPropertyType" minOccurs="0"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.2}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.2}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
+ *           <complexType>
+ *             <complexContent>
+ *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 <choice>
+ *                   <element ref="{http://www.aixm.aero/schema/5.2}AbstractMinimumAltitudeAreaSectorExtension"/>
+ *                 </choice>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *               </restriction>
+ *             </complexContent>
+ *           </complexType>
+ *         </element>
+ *       </sequence>
+ *     </extension>
+ *   </complexContent>
+ * </complexType>
+ * }</pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "MinimumAltitudeAreaSectorType", propOrder = {
+    "bufferWidth",
+    "aixmName",
+    "altitude",
+    "altitudeLowTemperature",
+    "significantObstacle",
+    "sectorDefinition",
+    "extent",
+    "annotation",
+    "extension"
+})
+@Entity(name = "MinimumAltitudeAreaSectorType")
+@Table(name = "minimumaltitudeareasector_o", schema = "procedure")
+public class MinimumAltitudeAreaSectorType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
+
+    private static final long serialVersionUID = 20251104L;
+    @XmlElementRef(name = "bufferWidth", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<ValDistanceType> bufferWidth;
+    @XmlElementRef(name = "name", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<TextNameType> aixmName;
+    @XmlElementRef(name = "altitude", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<ValDistanceVerticalType> altitude;
+    @XmlElementRef(name = "altitudeLowTemperature", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<ValDistanceVerticalType> altitudeLowTemperature;
+    @XmlElement(nillable = true)
+    protected List<ObstructionPropertyType> significantObstacle;
+    @XmlElementRef(name = "sectorDefinition", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<CircleSectorPropertyType> sectorDefinition;
+    @XmlElementRef(name = "extent", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<AIXMSurfacePropertyType> extent;
+    @XmlElement(nillable = true)
+    protected List<NotePropertyType> annotation;
+    protected List<MinimumAltitudeAreaSectorExtensionType> extension;
+
+    /**
+     * Gets the value of the bufferWidth property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<ValDistanceType> getBufferWidth() {
+        return bufferWidth;
+    }
+
+    /**
+     * Sets the value of the bufferWidth property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
+     */
+    public void setBufferWidth(JAXBElement<ValDistanceType> value) {
+        this.bufferWidth = value;
+    }
+
+    @Transient
+    public boolean isSetBufferWidth() {
+        return (this.bufferWidth!= null);
+    }
+
+    /**
+     * Gets the value of the aixmName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<TextNameType> getAixmName() {
+        return aixmName;
+    }
+
+    /**
+     * Sets the value of the aixmName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
+     */
+    public void setAixmName(JAXBElement<TextNameType> value) {
+        this.aixmName = value;
+    }
+
+    @Transient
+    public boolean isSetAixmName() {
+        return (this.aixmName!= null);
+    }
+
+    /**
+     * Gets the value of the altitude property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<ValDistanceVerticalType> getAltitude() {
+        return altitude;
+    }
+
+    /**
+     * Sets the value of the altitude property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
+     */
+    public void setAltitude(JAXBElement<ValDistanceVerticalType> value) {
+        this.altitude = value;
+    }
+
+    @Transient
+    public boolean isSetAltitude() {
+        return (this.altitude!= null);
+    }
+
+    /**
+     * Gets the value of the altitudeLowTemperature property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<ValDistanceVerticalType> getAltitudeLowTemperature() {
+        return altitudeLowTemperature;
+    }
+
+    /**
+     * Sets the value of the altitudeLowTemperature property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
+     */
+    public void setAltitudeLowTemperature(JAXBElement<ValDistanceVerticalType> value) {
+        this.altitudeLowTemperature = value;
+    }
+
+    @Transient
+    public boolean isSetAltitudeLowTemperature() {
+        return (this.altitudeLowTemperature!= null);
+    }
+
+    /**
+     * Gets the value of the significantObstacle property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the significantObstacle property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getSignificantObstacle().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link ObstructionPropertyType }
+     * 
+     * 
+     */
+    @OneToMany(targetEntity = ObstructionPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "mnmmalttdarsctrtp_sgnfcntobstcl_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "minimumaltitudeareasector_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "significantobstacle_hjid", referencedColumnName = "hjid")
+    })
+    public List<ObstructionPropertyType> getSignificantObstacle() {
+        if (significantObstacle == null) {
+            significantObstacle = new ArrayList<>();
+        }
+        return this.significantObstacle;
+    }
+
+    /**
+     * 
+     * 
+     */
+    public void setSignificantObstacle(List<ObstructionPropertyType> significantObstacle) {
+        this.significantObstacle = significantObstacle;
+    }
+
+    @Transient
+    public boolean isSetSignificantObstacle() {
+        return ((this.significantObstacle!= null)&&(!this.significantObstacle.isEmpty()));
+    }
+
+    public void unsetSignificantObstacle() {
+        this.significantObstacle = null;
+    }
+
+    /**
+     * Gets the value of the sectorDefinition property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CircleSectorPropertyType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<CircleSectorPropertyType> getSectorDefinition() {
+        return sectorDefinition;
+    }
+
+    /**
+     * Sets the value of the sectorDefinition property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CircleSectorPropertyType }{@code >}
+     *     
+     */
+    public void setSectorDefinition(JAXBElement<CircleSectorPropertyType> value) {
+        this.sectorDefinition = value;
+    }
+
+    @Transient
+    public boolean isSetSectorDefinition() {
+        return (this.sectorDefinition!= null);
+    }
+
+    /**
+     * Gets the value of the extent property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<AIXMSurfacePropertyType> getExtent() {
+        return extent;
+    }
+
+    /**
+     * Sets the value of the extent property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
+     */
+    public void setExtent(JAXBElement<AIXMSurfacePropertyType> value) {
+        this.extent = value;
+    }
+
+    @Transient
+    public boolean isSetExtent() {
+        return (this.extent!= null);
+    }
+
+    /**
+     * Gets the value of the annotation property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getAnnotation().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link NotePropertyType }
+     * 
+     * 
+     */
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "mnmmalttdarsctrtp_annttn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "minimumaltitudeareasector_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
+    public List<NotePropertyType> getAnnotation() {
+        if (annotation == null) {
+            annotation = new ArrayList<>();
+        }
+        return this.annotation;
+    }
+
+    /**
+     * 
+     * 
+     */
+    public void setAnnotation(List<NotePropertyType> annotation) {
+        this.annotation = annotation;
+    }
+
+    @Transient
+    public boolean isSetAnnotation() {
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+    }
+
+    public void unsetAnnotation() {
+        this.annotation = null;
+    }
+
+    /**
+     * Gets the value of the extension property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getExtension().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link MinimumAltitudeAreaSectorExtensionType }
+     * 
+     * 
+     */
+    @OneToMany(targetEntity = MinimumAltitudeAreaSectorExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "minimumaltitudeareasector_oe_hjid", referencedColumnName = "hjid")
+    public List<MinimumAltitudeAreaSectorExtensionType> getExtension() {
+        if (extension == null) {
+            extension = new ArrayList<>();
+        }
+        return this.extension;
+    }
+
+    /**
+     * 
+     * 
+     */
+    public void setExtension(List<MinimumAltitudeAreaSectorExtensionType> extension) {
+        this.extension = extension;
+    }
+
+    @Transient
+    public boolean isSetExtension() {
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+    }
+
+    public void unsetExtension() {
+        this.extension = null;
+    }
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "bufferwidth", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "bufferwidthuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "bufferwidthaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "bufferwidthnilreason", columnDefinition = "nilreason"))
+    })
+    public ValDistanceType getBufferWidthItem() {
+        return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getBufferWidth());
+    }
+
+    public void setBufferWidthItem(ValDistanceType target) {
+        setBufferWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "bufferWidth"), MinimumAltitudeAreaSectorType.class, target));
+    }
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "character2")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason", columnDefinition = "nilreason"))
+    })
+    public TextNameType getAixmNameItem() {
+        return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
+    }
+
+    public void setAixmNameItem(TextNameType target) {
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "name"), MinimumAltitudeAreaSectorType.class, target));
+    }
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "altitude", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "altitudeuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "altitudeaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudenilreason", columnDefinition = "nilreason"))
+    })
+    public ValDistanceVerticalType getAltitudeItem() {
+        return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getAltitude());
+    }
+
+    public void setAltitudeItem(ValDistanceVerticalType target) {
+        setAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "altitude"), MinimumAltitudeAreaSectorType.class, target));
+    }
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "altitudelowtemperature", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "altitudelowtemperatureuom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "accuracy", column = @Column(name = "altitudelowtemperatureaccuracy", columnDefinition = "numericalwithnilreason")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudelowtemperaturenilreason", columnDefinition = "nilreason"))
+    })
+    public ValDistanceVerticalType getAltitudeLowTemperatureItem() {
+        return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getAltitudeLowTemperature());
+    }
+
+    public void setAltitudeLowTemperatureItem(ValDistanceVerticalType target) {
+        setAltitudeLowTemperature(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "altitudeLowTemperature"), MinimumAltitudeAreaSectorType.class, target));
+    }
+
+    @OneToOne(targetEntity = CircleSectorPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "mnmmalttdarsctrtp_sctrdfntn_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "minimumaltitudeareasector_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "sectordefinition_hjid", referencedColumnName = "hjid")
+    })
+    public CircleSectorPropertyType getSectorDefinitionItem() {
+        return XmlAdapterUtils.unmarshallSource(CircleSectorPropertyType.class, this.getSectorDefinition());
+    }
+
+    public void setSectorDefinitionItem(CircleSectorPropertyType target) {
+        setSectorDefinition(XmlAdapterUtils.marshallJAXBElement(CircleSectorPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "sectorDefinition"), MinimumAltitudeAreaSectorType.class, target));
+    }
+
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "mnmmalttdarsctrtp_extnt_l", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "minimumaltitudeareasector_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
+    public AIXMSurfacePropertyType getExtentItem() {
+        return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getExtent());
+    }
+
+    public void setExtentItem(AIXMSurfacePropertyType target) {
+        setExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "extent"), MinimumAltitudeAreaSectorType.class, target));
+    }
+
+    @Override
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        if (!super.equals(thisLocator, thatLocator, object, strategy)) {
+            return false;
+        }
+        final MinimumAltitudeAreaSectorType that = ((MinimumAltitudeAreaSectorType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetBufferWidth();
+            boolean rhsFieldIsSet = that.isSetBufferWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getBufferWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getBufferWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bufferWidth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bufferWidth", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSignificantObstacle();
+            boolean rhsFieldIsSet = that.isSetSignificantObstacle();
+            List<ObstructionPropertyType> lhsField;
+            lhsField = (this.isSetSignificantObstacle()?this.getSignificantObstacle():null);
+            List<ObstructionPropertyType> rhsField;
+            rhsField = (that.isSetSignificantObstacle()?that.getSignificantObstacle():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantObstacle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantObstacle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitude();
+            boolean rhsFieldIsSet = that.isSetAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitudeLowTemperature();
+            boolean rhsFieldIsSet = that.isSetAltitudeLowTemperature();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAltitudeLowTemperature();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAltitudeLowTemperature();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeLowTemperature", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeLowTemperature", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<MinimumAltitudeAreaSectorExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<MinimumAltitudeAreaSectorExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSectorDefinition();
+            boolean rhsFieldIsSet = that.isSetSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> lhsField;
+            lhsField = this.getSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> rhsField;
+            rhsField = that.getSectorDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
+        int currentHashCode = super.hashCode(locator, strategy);
+        {
+            boolean theFieldIsSet = this.isSetBufferWidth();
+            JAXBElement<ValDistanceType> theField;
+            theField = this.getBufferWidth();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "bufferWidth", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetAixmName();
+            JAXBElement<TextNameType> theField;
+            theField = this.getAixmName();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aixmName", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetAltitude();
+            JAXBElement<ValDistanceVerticalType> theField;
+            theField = this.getAltitude();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "altitude", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetAltitudeLowTemperature();
+            JAXBElement<ValDistanceVerticalType> theField;
+            theField = this.getAltitudeLowTemperature();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "altitudeLowTemperature", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSignificantObstacle();
+            List<ObstructionPropertyType> theField;
+            theField = (this.isSetSignificantObstacle()?this.getSignificantObstacle():null);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantObstacle", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> theField;
+            theField = this.getSectorDefinition();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sectorDefinition", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetExtent();
+            JAXBElement<AIXMSurfacePropertyType> theField;
+            theField = this.getExtent();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extent", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetAnnotation();
+            List<NotePropertyType> theField;
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetExtension();
+            List<MinimumAltitudeAreaSectorExtensionType> theField;
+            theField = (this.isSetExtension()?this.getExtension():null);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        return currentHashCode;
+    }
+
+    @Override
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
+        super.appendFields(locator, buffer, strategy);
+        {
+            boolean theFieldIsSet = this.isSetBufferWidth();
+            JAXBElement<ValDistanceType> theField;
+            theField = this.getBufferWidth();
+            strategy.appendField(locator, this, "bufferWidth", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetAixmName();
+            JAXBElement<TextNameType> theField;
+            theField = this.getAixmName();
+            strategy.appendField(locator, this, "aixmName", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetAltitude();
+            JAXBElement<ValDistanceVerticalType> theField;
+            theField = this.getAltitude();
+            strategy.appendField(locator, this, "altitude", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetAltitudeLowTemperature();
+            JAXBElement<ValDistanceVerticalType> theField;
+            theField = this.getAltitudeLowTemperature();
+            strategy.appendField(locator, this, "altitudeLowTemperature", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSignificantObstacle();
+            List<ObstructionPropertyType> theField;
+            theField = (this.isSetSignificantObstacle()?this.getSignificantObstacle():null);
+            strategy.appendField(locator, this, "significantObstacle", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> theField;
+            theField = this.getSectorDefinition();
+            strategy.appendField(locator, this, "sectorDefinition", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetExtent();
+            JAXBElement<AIXMSurfacePropertyType> theField;
+            theField = this.getExtent();
+            strategy.appendField(locator, this, "extent", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetAnnotation();
+            List<NotePropertyType> theField;
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetExtension();
+            List<MinimumAltitudeAreaSectorExtensionType> theField;
+            theField = (this.isSetExtension()?this.getExtension():null);
+            strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
+        }
+        return buffer;
+    }
+
+}

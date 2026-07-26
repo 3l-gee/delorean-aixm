@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <variable name="CORE_LEVEL" value="${app.log.level:-INFO}" />
+    <variable name="MODULE_LEVEL" value="${app.log.level:-WARN}" />
+
+    <appender name="STANDARD_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%highlight(%-5level)] %msg%n%ex{0}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+        <http>
+            <url>${LOKI_URL:-https://logs-prod-039.grafana.net/loki/api/v1/push}</url>
+            <auth>
+                <username>${LOKI_USER:-1689570}</username>
+                <password>${LOKI_PASSWORD:-glc_eyJvIjoiMTg1MjE5MCIsIm4iOiJzdGFjay0xNzMxNzgzLWFsbG95LTg3ZjI3YTk1LTBmMTAtNGFiYS05Y2YxLTRlOWQ2YTUwMWYyNiIsImsiOiI0MnI0VzV0Wkh6NEg0M2U1MW1janhnNVYiLCJtIjp7InIiOiJwcm9kLWV1LWNlbnRyYWwtMCJ9fQ==}</password>
+            </auth>
+        </http>
+        <format>
+            <label>
+                <pattern>app=delorean-AIXM,level=%level,host=${HOSTNAME}</pattern>
+            </label>
+            <message>
+                <pattern>[%-5level] %msg%n%ex{0}</pattern>
+            </message>
+        </format>
+    </appender>
+
+    <!-- GLOBAL ROOT LEVEL -->
+    <root level="INFO">
+        <appender-ref ref="STANDARD_CONSOLE" />
+        <appender-ref ref="LOKI" />
+    </root>
+
+    <!-- STEER MODULES LOGS -->
+    <logger name="com.delorean" level="${CORE_LEVEL}" />
+    <logger name="org.hibernate" level="${MODULE_LEVEL}" />
+    <logger name="jakarta.xml" level="${MODULE_LEVEL}" />
+    <logger name="jakarta.persistence" level="${MODULE_LEVEL}" />
+    <logger name="org.jvnet" level="${MODULE_LEVEL}" />
+</configuration>

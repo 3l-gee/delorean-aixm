@@ -1,5 +1,16 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "files.exclude": {
+        "**/target": true,
+        "**/.mvn": true,
+    },
+      "search.exclude": {
+        "**/target": true
+    },
+    "java.import.exclusions": [
+        "**/delorean-aixm-51/**",
+        "**/delorean-aixm-511/**",
+        "**/delorean-aixm-52/**"
+    ],
     "files.associations": {
         "*.xjb": "xml",
         "*.qgs": "xml",
@@ -7,5 +18,8 @@
         "*.qml": "xml",
         "*.ftl": "xml"
     },
-    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms100m -Xlog:disable"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.autobuild.enabled": false,
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms100m -Xlog:disable",
 }

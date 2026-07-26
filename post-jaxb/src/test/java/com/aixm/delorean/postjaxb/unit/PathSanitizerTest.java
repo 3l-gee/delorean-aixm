@@ -1,4 +1,4 @@
-package com.aixm.delorean.postjaxb.unit;
+package com.delorean.aixm.postjaxb.unit;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.aixm.delorean.postjaxb.PostJAXBRunner;
+import com.delorean.aixm.postjaxb.PostJAXBRunner;
 
 
 public class PathSanitizerTest {

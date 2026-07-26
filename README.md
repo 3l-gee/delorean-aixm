@@ -1,42 +1,102 @@
 <img src="website/src/assets/logo/delorean-aixm-logo-big-transparent.png" width="900">
                     
-Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more.
+Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more. While tools that rely on an in-memory representation of the AIXM dataset start to struggle at 1 GB, Delorean can easily ingest 10–100 GB and leverage the power of a normalised, 3NF-compliant AIXM HyperJAXB schema, PostGIS tools and PostgreSQL with aggressive indexing and partitioning.
+
+Delorean support all feature types found in aixm for the following aixm versions : 
+* [x] Schema
+	* [x] AIXM 5.1
+	* [x] AIXM 5.1.1
+	* [x] AIXM 5.2
+	* [ ] Extension
+		* [ ] Event
+		* [ ] ADR
+		* [ ] ASRN
+* [x] ETL Function
+	* [x] Marshal
+		* [x] Zip
+		* [x] Plain
+		* [x] Url
+	* [x] Unmarshal
+		* [x] Zip
+		* [x] Plain
+		* [x] Url
+	* [x] Persist
+	* [x] Extract
+	* [x] Predicate
+	* [x] Merge
+	* [ ] Combine
+	* [x] Integrate
+	* [ ] Delta
+	* [X] Filter
+	* [X] Prune
+	* [X] Clone
+	* [x] Validate
+		* [x] XSD
+		* [ ] EAD Business Rules
+	* [x] GML Geometries
+	* [x] GML Id
+		* [x] Context
+		* [x] OID
+	* [x] Temporal Concept
+		* [x] BASELINE
+		* [x] PERMDELTA
+		* [ ] TEMPDELTA
+		* [ ] SNAPSHOT
+* [x] DB Function
+	* [x] View
+	* [x] Schema
+	* [x] Temporal Concept
+		* [x] BASELINE
+		* [x] PERMDELTA
+		* [ ] TEMPDELTA
+		* [ ] SNAPSHOT
+* [x] UI/UX
+	* [ ] Yaml Workflow
+	* [x] Logging
+	* [x] Statistics
+	* [ ] Strict / Loose Mode
+
+I created this tool because I believe the aviation industry needs a simple, accessible solution for handling AIXM data. Delorean-AIXM is heavily inspired by [INTERLIS](https://www.interlis.ch/en) and its robust open-source ecosystem like [ili2db](https://github.com/claeis/ili2db). I believe open-source software is the key to expanding AIXM adoption; right now, there is massive untapped potential as existing tools are too expensive, overly complicated, or poorly suited to user needs. This could be directly implemented for eIAP, Digital NOTAM, national and international data exchange and much more.
 
 ```mermaid
-mindmap
-    root((Delorean))
-        xml
-            unmarshal
-            marshal
-            validate
-        postgres
-            persist
-            extract
-            view
-        filter
-            feature
-            time
-            geometry
-        transform
-            feature
-            time
-            geometry
-        merge
-            feature
-            time
-            geometry
+flowchart LR
+    
+    A[local org] 
+    B[National org]
+    C[European org]
+    D[Inter. org]
+    E[Air travel]
+        
+    A e1@-.-> B
+    B e2@==> C
+    C e3@-.-> D
+    D e4@-.-> E
+    
+    
+    AA((local ltd))
+    AB((inter. ltd))
+   
+    AA e4@<-.-> A
+    AA e5@<-.-> B
+    AA e6@<-.-> E
+      
+    AA <-.-> AB
+    AB <-.-> A
+    AB <-.-> B
+    AB <-.-> C
+    AB <-.-> D
+    AB <-.-> E
+    
+    
+    e1@{ curve: linear }
+    e2@{ curve: linear }
+    e3@{ curve: linear }
+    e4@{ curve: linear }
 ```
-
-Delorean support all features types found in aixm for the following aixm versions : 
-* [x] 5_2
-* [x] 5_1_1
-* [x] 5_1
-* [ ] 5_0
-* [ ] 4_5 
 
 ## License
 
-Delorean is licensed under the GPLV3
+Delorean-AIXM is open-source software licensed under the GPLv3 License.
 
 ## Using
 
@@ -44,32 +104,47 @@ Consult the Wiki : [Usage](https://github.com/3l-gee/delorean/wiki) / [Exemple](
 
 ## Building
 
-The build process for Delorean can be divided into two categories: schema compilation and incremental builds.
+Prerequisites
+- Java 21 or higher
+- Docker
 
-### Building
-
-For most changes, such as bug fixes or feature updates, you can directly build the project using:
+Standard Build
+To compile the project and install all modules into your local repository, run:
 ```bash
-mvn package
+mvn clean install
 ```
 
-This is the fastest and most common build process, as it does not involve regenerating the AIXM-specific codebase.
-
-#### Schema Generation
-Schema generation is required when there are changes to the AIXM XSD schema. This process is more resource-intensive and generates the entire AIXM-specific codebase. To perform schema generation, run the following commands:
+Build with regeneration of HiSrc HyperJAXB classes
 ```bash
-mvn clean install -P enable-hyper-jaxb
-mvn install package
+mvn clean install -Pjaxb-core -Pjaxb-51 -Pjaxb-511 -Pjaxb-52
+```
+> The HiSrc HyperJAXB classes are generated directly from the AIXM XSD schemas. If you need to modify the content of an AIXM class, you should change the underlying XSD schema first. This ensures that the data remains valid and can be marshalled/unmarshalled properly across different systems.
+
+Testing 
+```bash
+mvn clean verify
 ```
 
-This step involves manual modifications to the generated classes due to limitations in the JAXB tool suite. After schema generation, inspect the generated code and apply necessary adjustments to ensure compatibility with the AIXM schema and project requirements. Document any changes for future reference.
+Flame Graphing (aixm 5.1 cli yaml workflow exemple)
+```bash
+sudo sysctl kernel.perf_event_paranoid=1
+sudo sysctl kernel.kptr_restrict=0
+
+java -agentpath:$HOME/async-profiler-3.0-linux-x64/lib/libasyncProfiler.so=start,event=cpu,file=cpu_profile.html -jar delorean-cli-aixm51/target/delorean-cli-aixm51-0.2.0.jar -y "delorean-cli-aixm51/src/test/resources/task.yaml"
+
+java -agentpath:$HOME/async-profiler-3.0-linux-x64/lib/libasyncProfiler.so=start,event=alloc,file=alloc_profile.html -jar delorean-cli-aixm51/target/delorean-cli-aixm51-0.2.0.jar -y "delorean-cli-aixm51/src/test/resources/task.yaml"
+
+java -agentpath:$HOME/async-profiler-3.0-linux-x64/lib/libasyncProfiler.so=start,event=wall,file=wall_profile.html -jar delorean-cli-aixm51/target/delorean-cli-aixm51-0.2.0.jar -y "delorean-cli-aixm51/src/test/resources/task.yaml"
+
+java -agentpath:$HOME/async-profiler-3.0-linux-x64/lib/libasyncProfiler.so=start,event=lock,file=lock_profile.html -jar delorean-cli-aixm51/target/delorean-cli-aixm51-0.2.0.jar -y "delorean-cli-aixm51/src/test/resources/task.yaml"
+```
 
 ## Documentation
 Please refer to the [wiki](https://github.com/3l-gee/delorean/wiki) for the full documentation.
 
 ## Bugs
 
-TODO
+Bugs & Features: Please open an issue on our GitHub Issues page.
 
 ## Community support
 

@@ -13,10 +13,10 @@
     <jaxb:bindings schemaLocation="../iso/19139/20070417/gmd/gmd.xsd" node="/xs:schema">
 
         <jaxb:schemaBindings>
-            <jaxb:package name="com.aixm.delorean.core.org.gmd.v2007"/>
+            <jaxb:package name="com.delorean.aixm.core.org.gmd.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="com.aixm.delorean.core.org.gmd.v2007"/>
+        <hj:ignored-package name="com.delorean.aixm.core.org.gmd.v2007"/>
 
     </jaxb:bindings>
 
@@ -41,10 +41,10 @@
     <jaxb:bindings schemaLocation="../iso/19139/20070417/gco/gco.xsd" node="/xs:schema">
 
         <jaxb:schemaBindings>
-            <jaxb:package name="com.aixm.delorean.core.org.gco.v2007"/>
+            <jaxb:package name="com.delorean.aixm.core.org.gco.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="com.aixm.delorean.core.org.gco.v2007"/>
+        <hj:ignored-package name="com.delorean.aixm.core.org.gco.v2007"/>
         
     </jaxb:bindings>
 
@@ -59,30 +59,30 @@
     <jaxb:bindings schemaLocation="../iso/19139/20070417/gsr/gsr.xsd" node="/xs:schema">
 
         <jaxb:schemaBindings>
-            <jaxb:package name="com.aixm.delorean.core.org.gsr.v2007"/>
+            <jaxb:package name="com.delorean.aixm.core.org.gsr.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="com.aixm.delorean.core.org.gsr.v2007"/>
+        <hj:ignored-package name="com.delorean.aixm.core.org.gsr.v2007"/>
         
     </jaxb:bindings>
 
     <jaxb:bindings schemaLocation="../iso/19139/20070417/gss/gss.xsd" node="/xs:schema">
 
         <jaxb:schemaBindings>
-            <jaxb:package name="com.aixm.delorean.core.org.gss.v2007"/>
+            <jaxb:package name="com.delorean.aixm.core.org.gss.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="com.aixm.delorean.core.org.gss.v2007"/>
+        <hj:ignored-package name="com.delorean.aixm.core.org.gss.v2007"/>
         
     </jaxb:bindings>
 
     <jaxb:bindings schemaLocation="../iso/19139/20070417/gts/gts.xsd" node="/xs:schema">
 
         <jaxb:schemaBindings>
-            <jaxb:package name="com.aixm.delorean.core.org.gts.v2007"/>
+            <jaxb:package name="com.delorean.aixm.core.org.gts.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="com.aixm.delorean.core.org.gts.v2007"/>
+        <hj:ignored-package name="com.delorean.aixm.core.org.gts.v2007"/>
         
     </jaxb:bindings>
  </jaxb:bindings>

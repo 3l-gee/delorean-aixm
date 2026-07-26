@@ -18,13 +18,15 @@ class SingletonMeta(type):
             del cls._instances[cls]
 
 class Config(metaclass=SingletonMeta): 
-
     def __init__(self, path: str, verbose: bool = False):
         with open(path, "r", encoding="utf-8") as f:
             data = yaml.safe_load(f)
 
         self.version: str = data["version"]
-        self.output_path: str = data["output_path"]
+        self.output_path_xjb: str = data["output_path_xjb"]
+        self.output_path_domain_check: str = data["output_path_domain_check"]
+        self.output_path_domain_checkless: str = data["output_path_domain_checkless"]
+        self.output_path_postgresql_comments: str = data["output_path_postgresql_comments"]
 
         # Special cases
         self.ignore: List[str] = data.get("ignore", [])
@@ -33,12 +35,39 @@ class Config(metaclass=SingletonMeta):
         self.abstract: List[str] = data.get("abstract", [])
 
         # Mapping sections
+        type
+        self.type: MappingSection = MappingSection(**data["type"])
+        self.basetype: MappingSection = MappingSection(**data["basetype"])
         self.feature: MappingSection = MappingSection(**data["feature"])
         self.timesliceproperty: MappingSection = MappingSection(**data["timesliceproperty"])
         self.timeslice: MappingSection = MappingSection(**data["timeslice"])
         self.property: MappingSection = MappingSection(**data["property"])
         self.object: MappingSection = MappingSection(**data["object"])
-        self.extension: MappingSection = MappingSection(**data["extension"])
+        self.timeslice_extension: MappingSection = MappingSection(**data["timeslice_extension"])
+        self.object_extension: MappingSection = MappingSection(**data["object_extension"])
+
+        self.XSD_TO_PG_TYPES = {
+            "string": "TEXT",
+            "token": "TEXT",
+            "normalizedString": "TEXT",
+            "anyURI": "TEXT",
+            "decimal": "NUMERIC",
+            "float": "REAL",
+            "double": "DOUBLE PRECISION",
+            "integer": "BIGINT",
+            "long": "BIGINT",
+            "int": "INTEGER",
+            "short": "SMALLINT",
+            "unsignedInt": "BIGINT",
+            "unsignedLong": "NUMERIC(20,0)",
+            "unsignedShort": "INTEGER",
+            "positiveInteger": "BIGINT",
+            "nonNegativeInteger": "BIGINT",
+            "boolean": "BOOLEAN",
+            "dateTime": "TIMESTAMPTZ",
+            "date": "DATE",
+            "time": "TIME",
+        }
 
         self.SQL_NON_RESERVED_KEY_WORD: List[str] = [
             "ABORT",
@@ -558,6 +587,26 @@ class Config(metaclass=SingletonMeta):
         return name
     
     @staticmethod
+    def generate_phonetic_acronym(name):
+        if not name:
+            return ""
+
+        parts = re.split(r'[_ \s]+', name)
+        acronym_parts = []
+        
+        for part in parts:
+            if not part: continue
+            
+            head = part[0].lower()
+            tail_consonants = re.findall(r'[^aeiouy]', part[1:])
+            word_acronym = head + "".join(tail_consonants)
+            acronym_parts.append(word_acronym)
+        
+        full_acronym = "".join(acronym_parts)
+        
+        return full_acronym.lower()
+    
+    @staticmethod
     def get_abstract() -> List[str]:
         return Config().abstract
     
@@ -574,8 +623,20 @@ class Config(metaclass=SingletonMeta):
         return Config().transient
         
     @staticmethod
-    def get_output_path() -> str:
-        return Config().output_path
+    def get_output_path_xjb() -> str:
+        return Config().output_path_xjb
+
+    @staticmethod
+    def get_output_path_domain_check() -> str:
+        return Config().output_path_domain_check
+
+    @staticmethod
+    def get_output_path_domain_checkless() -> str:
+        return Config().output_path_domain_checkless
+
+    @staticmethod
+    def get_output_path_postgresql_comments() -> str:
+        return Config().output_path_postgresql_comments
     
     @staticmethod
     def get_version() -> str:
@@ -599,9 +660,21 @@ class Config(metaclass=SingletonMeta):
         except:
             pass
 
+        xsdname = xsdname.replace("_","")
+
         key = []
         value = []
         dbname= []
+
+        if xsdname in Config().type.list:
+            key.append(Config().type.replace)
+            value.append(Config().type.prefix)
+            dbname.append(xsdname)
+
+        if xsdname in Config().basetype.list:
+            key.append(Config().basetype.replace)
+            value.append(Config().basetype.prefix)
+            dbname.append(xsdname)
 
         if xsdname in Config().feature.list:
             key.append(Config().feature.replace)
@@ -628,9 +701,14 @@ class Config(metaclass=SingletonMeta):
             value.append(Config().object.prefix)
             dbname.append(xsdname)
 
-        if xsdname in Config().extension.list:
-            key.append(Config().extension.replace)
-            value.append(Config().extension.prefix)
+        if xsdname in Config().timeslice_extension.list:
+            key.append(Config().timeslice_extension.replace)
+            value.append(Config().timeslice_extension.prefix)
+            dbname.append(xsdname)
+
+        if xsdname in Config().object_extension.list:
+            key.append(Config().object_extension.replace)
+            value.append(Config().object_extension.prefix)
             dbname.append(xsdname)
 
         if len(dbname) == 0 or len(key) == 0 or len(value) == 0 :

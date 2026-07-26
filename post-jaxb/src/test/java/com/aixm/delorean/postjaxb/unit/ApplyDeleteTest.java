@@ -1,4 +1,4 @@
-package com.aixm.delorean.postjaxb.unit;
+package com.delorean.aixm.postjaxb.unit;
 
 public class ApplyDeleteTest {
     

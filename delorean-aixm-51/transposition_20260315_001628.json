@@ -1,0 +1,4684 @@
+{
+    "AlphaType": {
+        "base": "string",
+        "pattern": "[A-Z]*",
+        "type": "AlphaType",
+        "uber": "string"
+    },
+    "AlphanumericType": {
+        "base": "string",
+        "pattern": "([A-Z]|\\d)*",
+        "type": "AlphanumericType",
+        "uber": "string"
+    },
+    "Character1Type": {
+        "base": "string",
+        "pattern": "([A-Z]|[0-9])+([ \\+\\-/]*([A-Z]|[0-9])+)*",
+        "type": "Character1Type",
+        "uber": "string"
+    },
+    "Character2Type": {
+        "base": "string",
+        "type": "Character2Type",
+        "uber": "string"
+    },
+    "Character3Type": {
+        "base": "string",
+        "pattern": "([A-Z]|[0-9]|[, !\"&#$%'\\(\\)\\*\\+\\-\\./:;<=>\\?@\\[\\\\\\]\\^_\\|\\{\\}])*",
+        "type": "Character3Type",
+        "uber": "string"
+    },
+    "CodeATCReportingBaseType": {
+        "enum": [
+            "COMPULSORY",
+            "ON_REQUEST",
+            "NO_REPORT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeATCReportingBaseType",
+        "uber": "enum"
+    },
+    "CodeAerialRefuellingBaseType": {
+        "enum": [
+            "TRACK",
+            "ANCHOR",
+            "BOTH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAerialRefuellingBaseType",
+        "uber": "enum"
+    },
+    "CodeAerialRefuellingPointBaseType": {
+        "enum": [
+            "INITIAL",
+            "CONTROL",
+            "CHECK",
+            "EXIT",
+            "ENTRY",
+            "ANCHOR",
+            "PATTERN",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAerialRefuellingPointBaseType",
+        "uber": "enum"
+    },
+    "CodeAerialRefuellingPrefixBaseType": {
+        "enum": [
+            "AR",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAerialRefuellingPrefixBaseType",
+        "uber": "enum"
+    },
+    "CodeAircraftBaseType": {
+        "enum": [
+            "LANDPLANE",
+            "SEAPLANE",
+            "AMPHIBIAN",
+            "HELICOPTER",
+            "GYROCOPTER",
+            "TILT_WING",
+            "STOL",
+            "GLIDER",
+            "HANGGLIDER",
+            "PARAGLIDER",
+            "ULTRA_LIGHT",
+            "BALLOON",
+            "UAV",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAircraftBaseType",
+        "uber": "enum"
+    },
+    "CodeAircraftCategoryBaseType": {
+        "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "H",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAircraftCategoryBaseType",
+        "uber": "enum"
+    },
+    "CodeAircraftEngineBaseType": {
+        "enum": [
+            "JET",
+            "PISTON",
+            "TURBOPROP",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAircraftEngineBaseType",
+        "uber": "enum"
+    },
+    "CodeAircraftEngineNumberBaseType": {
+        "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6",
+            "8",
+            "2C",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAircraftEngineNumberBaseType",
+        "uber": "enum"
+    },
+    "CodeAircraftGroundServiceBaseType": {
+        "enum": [
+            "DEICE",
+            "HAND",
+            "HANGAR",
+            "REPAIR",
+            "REMOVE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAircraftGroundServiceBaseType",
+        "uber": "enum"
+    },
+    "CodeAircraftICAOBaseType": {
+        "base": "string",
+        "maxLength": "4",
+        "minLength": "1",
+        "pattern": "([A-Z]|\\d)*",
+        "type": "AlphanumericType",
+        "uber": "string"
+    },
+    "CodeAircraftStandBaseType": {
+        "enum": [
+            "NI",
+            "ANG_NI",
+            "ANG_NO",
+            "PARL",
+            "RMT",
+            "ISOL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAircraftStandBaseType",
+        "uber": "enum"
+    },
+    "CodeAircraftWingspanClassBaseType": {
+        "enum": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAircraftWingspanClassBaseType",
+        "uber": "enum"
+    },
+    "CodeAirportHeliportBaseType": {
+        "enum": [
+            "AD",
+            "AH",
+            "HP",
+            "LS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirportHeliportBaseType",
+        "uber": "enum"
+    },
+    "CodeAirportHeliportCollocationBaseType": {
+        "enum": [
+            "FULL",
+            "RWY",
+            "PARTIAL",
+            "UNILATERAL",
+            "SEPARATED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirportHeliportCollocationBaseType",
+        "uber": "enum"
+    },
+    "CodeAirportHeliportDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "6",
+        "minLength": "3",
+        "pattern": "([A-Z]|\\d)*",
+        "type": "AlphanumericType",
+        "uber": "string"
+    },
+    "CodeAirportWarningBaseType": {
+        "enum": [
+            "WIP",
+            "EQUIP",
+            "BIRD",
+            "ANIMAL",
+            "RUBBER_REMOVAL",
+            "PARKED_ACFT",
+            "RESURFACING",
+            "PAVING",
+            "PAINTING",
+            "INSPECTION",
+            "GRASS_CUTTING",
+            "CALIBRATION",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirportWarningBaseType",
+        "uber": "enum"
+    },
+    "CodeAirspaceActivityBaseType": {
+        "enum": [
+            "AD_TFC",
+            "HELI_TFC",
+            "TRAINING",
+            "AEROBATICS",
+            "AIRSHOW",
+            "SPORT",
+            "ULM",
+            "GLIDING",
+            "PARAGLIDER",
+            "HANGGLIDING",
+            "PARACHUTE",
+            "AIR_DROP",
+            "BALLOON",
+            "RADIOSONDE",
+            "SPACE_FLIGHT",
+            "UAV",
+            "AERIAL_WORK",
+            "CROP_DUSTING",
+            "FIRE_FIGHTING",
+            "MILOPS",
+            "REFUEL",
+            "JET_CLIMBING",
+            "EXERCISE",
+            "TOWING",
+            "NAVAL_EXER",
+            "MISSILES",
+            "AIR_GUN",
+            "ARTILLERY",
+            "SHOOTING",
+            "BLASTING",
+            "WATER_BLASTING",
+            "ANTI_HAIL",
+            "BIRD",
+            "BIRD_MIGRATION",
+            "FIREWORK",
+            "HI_RADIO",
+            "HI_LIGHT",
+            "LASER",
+            "NATURE",
+            "FAUNA",
+            "NO_NOISE",
+            "ACCIDENT",
+            "POPULATION",
+            "VIP",
+            "VIP_PRES",
+            "VIP_VICE",
+            "OIL",
+            "GAS",
+            "REFINERY",
+            "CHEMICAL",
+            "NUCLEAR",
+            "TECHNICAL",
+            "ATS",
+            "PROCEDURE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirspaceActivityBaseType",
+        "uber": "enum"
+    },
+    "CodeAirspaceAggregationBaseType": {
+        "enum": [
+            "BASE",
+            "UNION",
+            "INTERS",
+            "SUBTR",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirspaceAggregationBaseType",
+        "uber": "enum"
+    },
+    "CodeAirspaceBaseType": {
+        "enum": [
+            "NAS",
+            "FIR",
+            "FIR_P",
+            "UIR",
+            "UIR_P",
+            "CTA",
+            "CTA_P",
+            "OCA_P",
+            "OCA",
+            "UTA",
+            "UTA_P",
+            "TMA",
+            "TMA_P",
+            "CTR",
+            "CTR_P",
+            "OTA",
+            "SECTOR",
+            "SECTOR_C",
+            "TSA",
+            "CBA",
+            "RCA",
+            "RAS",
+            "AWY",
+            "MTR",
+            "P",
+            "R",
+            "D",
+            "ADIZ",
+            "NO_FIR",
+            "PART",
+            "CLASS",
+            "POLITICAL",
+            "D_OTHER",
+            "TRA",
+            "A",
+            "W",
+            "PROTECT",
+            "AMA",
+            "ASR",
+            "ADV",
+            "UADV",
+            "ATZ",
+            "ATZ_P",
+            "HTZ",
+            "NAS_P",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirspaceBaseType",
+        "uber": "enum"
+    },
+    "CodeAirspaceClassificationBaseType": {
+        "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirspaceClassificationBaseType",
+        "uber": "enum"
+    },
+    "CodeAirspaceDependencyBaseType": {
+        "enum": [
+            "FULL_GEOMETRY",
+            "HORZ_PROJECTION",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirspaceDependencyBaseType",
+        "uber": "enum"
+    },
+    "CodeAirspaceDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "10",
+        "minLength": "1",
+        "pattern": "([A-Z]|[0-9]|[, !\"&#$%'\\(\\)\\*\\+\\-\\./:;<=>\\?@\\[\\\\\\]\\^_\\|\\{\\}])*",
+        "type": "Character3Type",
+        "uber": "string"
+    },
+    "CodeAirspacePointPositionBaseType": {
+        "enum": [
+            "IN",
+            "OUT",
+            "BORDER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirspacePointPositionBaseType",
+        "uber": "enum"
+    },
+    "CodeAirspacePointRoleBaseType": {
+        "enum": [
+            "ENTRY",
+            "EXIT",
+            "ENTRY_EXIT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAirspacePointRoleBaseType",
+        "uber": "enum"
+    },
+    "CodeAltitudeAdjustmentBaseType": {
+        "enum": [
+            "RA",
+            "AS",
+            "AT",
+            "AC",
+            "SI",
+            "XL",
+            "PR",
+            "HAA",
+            "MA",
+            "PT",
+            "DG",
+            "GS",
+            "CA",
+            "MT",
+            "MAH",
+            "SA",
+            "AAO",
+            "VA",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAltitudeAdjustmentBaseType",
+        "uber": "enum"
+    },
+    "CodeAltitudeUseBaseType": {
+        "enum": [
+            "ABOVE_LOWER",
+            "BELOW_UPPER",
+            "AT_LOWER",
+            "BETWEEN",
+            "RECOMMENDED",
+            "EXPECT_LOWER",
+            "AS_ASSIGNED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAltitudeUseBaseType",
+        "uber": "enum"
+    },
+    "CodeApproachBaseType": {
+        "enum": [
+            "ASR",
+            "ARA",
+            "ARSR",
+            "PAR",
+            "ILS",
+            "ILS_DME",
+            "ILS_PRM",
+            "LDA",
+            "LDA_DME",
+            "LOC",
+            "LOC_BC",
+            "LOC_DME",
+            "LOC_DME_BC",
+            "MLS",
+            "MLS_DME",
+            "NDB",
+            "NDB_DME",
+            "SDF",
+            "TLS",
+            "VOR",
+            "VOR_DME",
+            "TACAN",
+            "VORTAC",
+            "DME",
+            "DME_DME",
+            "RNP",
+            "GPS",
+            "GLONASS",
+            "GALILEO",
+            "RNAV",
+            "IGS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApproachBaseType",
+        "uber": "enum"
+    },
+    "CodeApproachEquipmentAdditionalBaseType": {
+        "enum": [
+            "ADF",
+            "DME",
+            "RADAR",
+            "RADARDME",
+            "VORLOC",
+            "DUALVORDME",
+            "DUALADF",
+            "ADFMA",
+            "SPECIAL",
+            "DUALVHF",
+            "GPSRNP3",
+            "ADFILS",
+            "DUALADF_DME",
+            "RADAR_RNAV",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApproachEquipmentAdditionalBaseType",
+        "uber": "enum"
+    },
+    "CodeApproachGuidanceBaseType": {
+        "enum": [
+            "NON_PRECISION",
+            "ILS_PRECISION_CAT_I",
+            "ILS_PRECISION_CAT_II",
+            "ILS_PRECISION_CAT_IIIA",
+            "ILS_PRECISION_CAT_IIIB",
+            "ILS_PRECISION_CAT_IIIC",
+            "ILS_PRECISION_CAT_IIID",
+            "MLS_PRECISION",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApproachGuidanceBaseType",
+        "uber": "enum"
+    },
+    "CodeApproachLightingBaseType": {
+        "enum": [
+            "ALSAF",
+            "MALS",
+            "MALSR",
+            "SALS",
+            "SSALS",
+            "SSALR",
+            "LDIN",
+            "ODALS",
+            "AFOVRN",
+            "MILOVRN",
+            "CALVERT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApproachLightingBaseType",
+        "uber": "enum"
+    },
+    "CodeApproachLightingICAOBaseType": {
+        "enum": [
+            "SIMPLE",
+            "CAT1",
+            "CAT23",
+            "CIRCLING",
+            "LEADIN",
+            "NONE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApproachLightingICAOBaseType",
+        "uber": "enum"
+    },
+    "CodeApproachPrefixBaseType": {
+        "enum": [
+            "HI",
+            "COPTER",
+            "CONVERGING",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApproachPrefixBaseType",
+        "uber": "enum"
+    },
+    "CodeApprovalBaseType": {
+        "enum": [
+            "APPROVED",
+            "DISAPPROVED",
+            "NOT_AUTHORISED",
+            "RESTRICTED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApprovalBaseType",
+        "uber": "enum"
+    },
+    "CodeApronElementBaseType": {
+        "enum": [
+            "NORMAL",
+            "PARKING",
+            "RAMP",
+            "CARGO",
+            "FUEL",
+            "HARDSTAND",
+            "MAINT",
+            "MILITARY",
+            "LOADING",
+            "TAXILANE",
+            "TURNAROUND",
+            "TEMPORARY",
+            "STAIRS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApronElementBaseType",
+        "uber": "enum"
+    },
+    "CodeApronSectionBaseType": {
+        "enum": [
+            "EDGE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeApronSectionBaseType",
+        "uber": "enum"
+    },
+    "CodeArcDirectionBaseType": {
+        "enum": [
+            "CWA",
+            "CCA",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeArcDirectionBaseType",
+        "uber": "enum"
+    },
+    "CodeArrestingGearEnergyAbsorbBaseType": {
+        "enum": [
+            "ROTARY_1300",
+            "ROTARY_2800",
+            "ROTARY_34B_1A",
+            "ROTARY_34B_1B",
+            "ROTARY_34B_1C",
+            "ROTARY_34D_1F",
+            "ROTARY_44B_2C",
+            "ROTARY_44B_2D",
+            "ROTARY_44B_2E",
+            "ROTARY_44B_2F",
+            "ROTARY_44B_2H",
+            "ROTARY_44B_2I",
+            "ROTARY_44B_2L",
+            "ROTARY_44B_3A",
+            "ROTARY_44B_3H",
+            "ROTARY_44B_3L",
+            "ROTARY_44B_4C",
+            "ROTARY_44B_4E",
+            "ROTARY_44B_4H",
+            "ROTARY_500S",
+            "ROTARY_500S_4",
+            "ROTARY_500S_6",
+            "ROTARY_500S_8",
+            "ROTARYTRANS_500S_8",
+            "ROTARY_AAE_64",
+            "ROTARY_BAK_12A",
+            "ROTARY_BAK_12B",
+            "ROTARY_BAK_13",
+            "LINEAR_BAK_6",
+            "ROTARY_BAK_9",
+            "DISK_BEFAB_12_3",
+            "DISK_BEFAB_20_4",
+            "DISK_BEFAB_21_2",
+            "DISK_BEFAB_24_4",
+            "DISK_BEFAB_56_2",
+            "DISK_BEFAB_6_3",
+            "DISK_BEFAB_60_2",
+            "DISK_BEFAB_8_3",
+            "CHAIN_CHAG",
+            "ROTARY_DUAL_BAK_12",
+            "ROTARY_E15",
+            "ROTARY_E27",
+            "ROTARY_E28",
+            "CHAIN_E5",
+            "CHAIN_E5_1",
+            "CHAIN_E5_2",
+            "CHAIN_E5_3",
+            "CHAIN_E6",
+            "ROTARY_CHAIN_JETSTOP",
+            "MOBILROTARY_M21",
+            "MOBILROTARY_MAAS",
+            "MOBILROTARY_MAG_I",
+            "MOBILROTARY_MAG_II",
+            "MOBILROTARY_MAG_III",
+            "MOBILROTARY_MAG_IV",
+            "MOBILROTARY_MAG_IX",
+            "MOBILROTARY_MAG_VI",
+            "MOBILROTARY_MAG_VII",
+            "MOBILROTARY_MAG_VIII",
+            "MOBILROTARY_MAG_X",
+            "TEXTILE_MB_100",
+            "TEXTILE_MB_60",
+            "MOBILROTARY_HYDRAULIC_WATER",
+            "ROTARY_PUAG_MK_21",
+            "DISK_RAF_MK_12A",
+            "DISK_RAF_MK_6",
+            "RAF_PORTABLE_AGEAR",
+            "DISK_RAF_TYPEA_BEFAB_6_3",
+            "DISK_RAF_TYPEB_BEFAB_12_3",
+            "ROTARY_RHAG_MK_1",
+            "ROTARY_HYDRAULIC_WATER",
+            "BARRIER_DISK_SAFELAND",
+            "LINEAR_SPRAG_MK_1",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeArrestingGearEnergyAbsorbBaseType",
+        "uber": "enum"
+    },
+    "CodeArrestingGearEngageDeviceBaseType": {
+        "enum": [
+            "61QSII",
+            "62NI",
+            "63PI",
+            "NET_A30",
+            "NET_A40",
+            "BAK_11_STRUT",
+            "BAK_12",
+            "BAK_14_HOOK",
+            "BAK_15_STANCHION_NET",
+            "BAK_15_HOOK",
+            "EMAS",
+            "HOOK_CABLE",
+            "HP_NET",
+            "J_BAR",
+            "JET_BARRIER",
+            "MA_1_NET",
+            "MA_1A_HOOK_CABLE",
+            "NET",
+            "HOOK_H",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeArrestingGearEngageDeviceBaseType",
+        "uber": "enum"
+    },
+    "CodeAuralMorseBaseType": {
+        "base": "string",
+        "pattern": "([\\-\\.]*)",
+        "type": "CodeAuralMorseBaseType",
+        "uber": "string"
+    },
+    "CodeAuthorityBaseType": {
+        "enum": [
+            "OWN",
+            "DLGT",
+            "AIS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAuthorityBaseType",
+        "uber": "enum"
+    },
+    "CodeAuthorityRoleBaseType": {
+        "enum": [
+            "OWN",
+            "OPERATE",
+            "SUPERVISE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAuthorityRoleBaseType",
+        "uber": "enum"
+    },
+    "CodeAviationStandardsBaseType": {
+        "enum": [
+            "ICAO",
+            "IATA",
+            "NATO",
+            "FAA",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeAviationStandardsBaseType",
+        "uber": "enum"
+    },
+    "CodeBearingBaseType": {
+        "enum": [
+            "TRUE",
+            "MAG",
+            "RDL",
+            "TRK",
+            "HDG",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeBearingBaseType",
+        "uber": "enum"
+    },
+    "CodeBuoyBaseType": {
+        "enum": [
+            "BLACK_RED_FL2",
+            "GREEN",
+            "GREEN_RED_GFL",
+            "Q3_VQ3",
+            "Q6_VQ6",
+            "Q9_VQ9",
+            "Q_VQ",
+            "RED",
+            "RED_GREEN_RFL",
+            "RED_WHITE",
+            "WHITE",
+            "YELLOW",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeBuoyBaseType",
+        "uber": "enum"
+    },
+    "CodeCardinalDirectionBaseType": {
+        "enum": [
+            "N",
+            "NE",
+            "E",
+            "SE",
+            "S",
+            "SW",
+            "W",
+            "NW",
+            "NNE",
+            "ENE",
+            "ESE",
+            "SSE",
+            "SSW",
+            "WSW",
+            "WNW",
+            "NNW",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeCardinalDirectionBaseType",
+        "uber": "enum"
+    },
+    "CodeCheckpointCategoryBaseType": {
+        "enum": [
+            "A",
+            "G",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeCheckpointCategoryBaseType",
+        "uber": "enum"
+    },
+    "CodeColourBaseType": {
+        "enum": [
+            "YELLOW",
+            "RED",
+            "WHITE",
+            "BLUE",
+            "GREEN",
+            "PURPLE",
+            "ORANGE",
+            "AMBER",
+            "BLACK",
+            "BROWN",
+            "GREY",
+            "LIGHT_GREY",
+            "MAGENTA",
+            "PINK",
+            "VIOLET",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeColourBaseType",
+        "uber": "enum"
+    },
+    "CodeCommunicationChannelBaseType": {
+        "enum": [
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeCommunicationChannelBaseType",
+        "uber": "enum"
+    },
+    "CodeCommunicationDirectionBaseType": {
+        "enum": [
+            "UPLINK",
+            "DOWNLINK",
+            "BIDIRECTIONAL",
+            "UPCAST",
+            "DOWNCAST",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeCommunicationDirectionBaseType",
+        "uber": "enum"
+    },
+    "CodeCommunicationModeBaseType": {
+        "enum": [
+            "HF",
+            "VHF",
+            "VDL1",
+            "VDL2",
+            "VDL4",
+            "AMSS",
+            "ADS_B",
+            "ADS_B_VDL",
+            "HFDL",
+            "VHF_833",
+            "UHF",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeCommunicationModeBaseType",
+        "uber": "enum"
+    },
+    "CodeComparisonBaseType": {
+        "enum": [
+            "LESS",
+            "LESS_OR_EQUAL",
+            "EQUAL",
+            "GREATER_OR_EQUAL",
+            "GREATER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeComparisonBaseType",
+        "uber": "enum"
+    },
+    "CodeContaminationBaseType": {
+        "enum": [
+            "NONE",
+            "DAMP",
+            "WATER",
+            "FROST",
+            "DRY_SNOW",
+            "WET_SNOW",
+            "SLUSH",
+            "ICE",
+            "COMPACT_SNOW",
+            "RUT",
+            "ASH",
+            "SAND",
+            "OIL",
+            "RUBBER",
+            "GRAS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeContaminationBaseType",
+        "uber": "enum"
+    },
+    "CodeCourseBaseType": {
+        "enum": [
+            "TRUE_TRACK",
+            "MAG_TRACK",
+            "TRUE_BRG",
+            "MAG_BRG",
+            "HDG",
+            "RDL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeCourseBaseType",
+        "uber": "enum"
+    },
+    "CodeCourseQualityILSBaseType": {
+        "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "T",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeCourseQualityILSBaseType",
+        "uber": "enum"
+    },
+    "CodeDMEBaseType": {
+        "enum": [
+            "NARROW",
+            "PRECISION",
+            "WIDE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDMEBaseType",
+        "uber": "enum"
+    },
+    "CodeDMEChannelBaseType": {
+        "enum": [
+            "1X",
+            "1Y",
+            "2X",
+            "2Y",
+            "3X",
+            "3Y",
+            "4X",
+            "4Y",
+            "5X",
+            "5Y",
+            "6X",
+            "6Y",
+            "7X",
+            "7Y",
+            "8X",
+            "8Y",
+            "9X",
+            "9Y",
+            "10X",
+            "10Y",
+            "11X",
+            "11Y",
+            "12X",
+            "12Y",
+            "13X",
+            "13Y",
+            "14X",
+            "14Y",
+            "15X",
+            "15Y",
+            "16X",
+            "16Y",
+            "17X",
+            "17Y",
+            "17Z",
+            "18X",
+            "18W",
+            "18Y",
+            "18Z",
+            "19X",
+            "19Y",
+            "19Z",
+            "20X",
+            "20W",
+            "20Y",
+            "20Z",
+            "21X",
+            "21Y",
+            "21Z",
+            "22X",
+            "22W",
+            "22Y",
+            "22Z",
+            "23X",
+            "23Y",
+            "23Z",
+            "24X",
+            "24W",
+            "24Y",
+            "24Z",
+            "25X",
+            "25Y",
+            "25Z",
+            "26X",
+            "26W",
+            "26Y",
+            "26Z",
+            "27X",
+            "27Y",
+            "27Z",
+            "28X",
+            "28W",
+            "28Y",
+            "28Z",
+            "29X",
+            "29Y",
+            "29Z",
+            "30X",
+            "30W",
+            "30Y",
+            "30Z",
+            "31X",
+            "31Y",
+            "31Z",
+            "32X",
+            "32W",
+            "32Y",
+            "32Z",
+            "33X",
+            "33Y",
+            "33Z",
+            "34X",
+            "34W",
+            "34Y",
+            "34Z",
+            "35X",
+            "35Y",
+            "35Z",
+            "36X",
+            "36W",
+            "36Y",
+            "36Z",
+            "37X",
+            "37Y",
+            "37Z",
+            "38X",
+            "38W",
+            "38Y",
+            "38Z",
+            "39X",
+            "39Y",
+            "39Z",
+            "40X",
+            "40W",
+            "40Y",
+            "40Z",
+            "41X",
+            "41Y",
+            "41Z",
+            "42X",
+            "42W",
+            "42Y",
+            "42Z",
+            "43X",
+            "43Y",
+            "43Z",
+            "44X",
+            "44W",
+            "44Y",
+            "44Z",
+            "45X",
+            "45Y",
+            "45Z",
+            "46X",
+            "46W",
+            "46Y",
+            "46Z",
+            "47X",
+            "47Y",
+            "47Z",
+            "48X",
+            "48W",
+            "48Y",
+            "48Z",
+            "49X",
+            "49Y",
+            "49Z",
+            "50X",
+            "50W",
+            "50Y",
+            "50Z",
+            "51X",
+            "51Y",
+            "51Z",
+            "52X",
+            "52W",
+            "52Y",
+            "52Z",
+            "53X",
+            "53Y",
+            "53Z",
+            "54X",
+            "54W",
+            "54Y",
+            "54Z",
+            "55X",
+            "55Y",
+            "55Z",
+            "56X",
+            "56W",
+            "56Y",
+            "56Z",
+            "57X",
+            "57Y",
+            "58X",
+            "58Y",
+            "59X",
+            "59Y",
+            "60X",
+            "60Y",
+            "61X",
+            "61Y",
+            "62X",
+            "62Y",
+            "63X",
+            "63Y",
+            "64X",
+            "64Y",
+            "65X",
+            "65Y",
+            "66X",
+            "66Y",
+            "67X",
+            "67Y",
+            "68X",
+            "68Y",
+            "69X",
+            "69Y",
+            "70X",
+            "70Y",
+            "71X",
+            "71Y",
+            "72X",
+            "72Y",
+            "73X",
+            "73Y",
+            "74X",
+            "74Y",
+            "75X",
+            "75Y",
+            "76X",
+            "76Y",
+            "77X",
+            "77Y",
+            "78X",
+            "78Y",
+            "79X",
+            "79Y",
+            "80X",
+            "80Y",
+            "80Z",
+            "81X",
+            "81Y",
+            "81Z",
+            "82X",
+            "82Y",
+            "82Z",
+            "83X",
+            "83Y",
+            "83Z",
+            "84X",
+            "84Y",
+            "84Z",
+            "85X",
+            "85Y",
+            "85Z",
+            "86X",
+            "86Y",
+            "86Z",
+            "87X",
+            "87Y",
+            "87Z",
+            "88X",
+            "88Y",
+            "88Z",
+            "89X",
+            "89Y",
+            "89Z",
+            "90X",
+            "90Y",
+            "90Z",
+            "91X",
+            "91Y",
+            "91Z",
+            "92X",
+            "92Y",
+            "92Z",
+            "93X",
+            "93Y",
+            "93Z",
+            "94X",
+            "94Y",
+            "94Z",
+            "95X",
+            "95Y",
+            "95Z",
+            "96X",
+            "96Y",
+            "96Z",
+            "97X",
+            "97Y",
+            "97Z",
+            "98X",
+            "98Y",
+            "98Z",
+            "99X",
+            "99Y",
+            "99Z",
+            "100X",
+            "100Y",
+            "100Z",
+            "101X",
+            "101Y",
+            "101Z",
+            "102X",
+            "102Y",
+            "102Z",
+            "103X",
+            "103Y",
+            "103Z",
+            "104X",
+            "104Y",
+            "104Z",
+            "105X",
+            "105Y",
+            "105Z",
+            "106X",
+            "106Y",
+            "106Z",
+            "107X",
+            "107Y",
+            "107Z",
+            "108X",
+            "108Y",
+            "108Z",
+            "109X",
+            "109Y",
+            "109Z",
+            "110X",
+            "110Y",
+            "110Z",
+            "111X",
+            "111Y",
+            "111Z",
+            "112X",
+            "112Y",
+            "112Z",
+            "113X",
+            "113Y",
+            "113Z",
+            "114X",
+            "114Y",
+            "114Z",
+            "115X",
+            "115Y",
+            "115Z",
+            "116X",
+            "116Y",
+            "116Z",
+            "117X",
+            "117Y",
+            "117Z",
+            "118X",
+            "118Y",
+            "118Z",
+            "119X",
+            "119Y",
+            "119Z",
+            "120X",
+            "120Y",
+            "121X",
+            "121Y",
+            "122X",
+            "122Y",
+            "123X",
+            "123Y",
+            "124X",
+            "124Y",
+            "125X",
+            "125Y",
+            "126X",
+            "126Y",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDMEChannelBaseType",
+        "uber": "enum"
+    },
+    "CodeDayBaseType": {
+        "enum": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN",
+            "WORK_DAY",
+            "BEF_WORK_DAY",
+            "AFT_WORK_DAY",
+            "HOL",
+            "BEF_HOL",
+            "AFT_HOL",
+            "ANY",
+            "BUSY_FRI",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDayBaseType",
+        "uber": "enum"
+    },
+    "CodeDeclaredDistanceBaseType": {
+        "enum": [
+            "LDA",
+            "TORA",
+            "TODA",
+            "ASDA",
+            "DTHR",
+            "TODAH",
+            "RTODAH",
+            "LDAH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDeclaredDistanceBaseType",
+        "uber": "enum"
+    },
+    "CodeDesignStandardBaseType": {
+        "enum": [
+            "PANS_OPS",
+            "TERPS",
+            "CANADA_TERPS",
+            "NATO",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDesignStandardBaseType",
+        "uber": "enum"
+    },
+    "CodeDesignatedPointBaseType": {
+        "enum": [
+            "ICAO",
+            "COORD",
+            "CNF",
+            "DESIGNED",
+            "MTR",
+            "TERMINAL",
+            "BRG_DIST",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDesignatedPointBaseType",
+        "uber": "enum"
+    },
+    "CodeDesignatedPointDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "5",
+        "minLength": "1",
+        "pattern": "([A-Z]|\\d)*",
+        "type": "AlphanumericType",
+        "uber": "string"
+    },
+    "CodeDirectionBaseType": {
+        "enum": [
+            "FORWARD",
+            "BACKWARD",
+            "BOTH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDirectionBaseType",
+        "uber": "enum"
+    },
+    "CodeDirectionReferenceBaseType": {
+        "enum": [
+            "TO",
+            "FROM",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDirectionReferenceBaseType",
+        "uber": "enum"
+    },
+    "CodeDirectionTurnBaseType": {
+        "enum": [
+            "LEFT",
+            "RIGHT",
+            "EITHER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDirectionTurnBaseType",
+        "uber": "enum"
+    },
+    "CodeDistanceIndicationBaseType": {
+        "enum": [
+            "DME",
+            "GEODETIC",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeDistanceIndicationBaseType",
+        "uber": "enum"
+    },
+    "CodeEmissionBandBaseType": {
+        "enum": [
+            "U",
+            "H",
+            "M",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeEmissionBandBaseType",
+        "uber": "enum"
+    },
+    "CodeEquipmentAntiCollisionBaseType": {
+        "enum": [
+            "ACAS_I",
+            "ACAS_II",
+            "GPWS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeEquipmentAntiCollisionBaseType",
+        "uber": "enum"
+    },
+    "CodeEquipmentUnavailableBaseType": {
+        "enum": [
+            "STANDARD",
+            "NONSTANDARD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeEquipmentUnavailableBaseType",
+        "uber": "enum"
+    },
+    "CodeFacilityRankingBaseType": {
+        "enum": [
+            "PRIMARY",
+            "SECONDARY",
+            "ALTERNATE",
+            "EMERG",
+            "GUARD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFacilityRankingBaseType",
+        "uber": "enum"
+    },
+    "CodeFinalGuidanceBaseType": {
+        "enum": [
+            "LPV",
+            "LNAV_VNAV",
+            "LNAV",
+            "GLS",
+            "ASR",
+            "ARA",
+            "ARSR",
+            "PAR",
+            "ILS",
+            "ILS_DME",
+            "ILS_PRM",
+            "LDA",
+            "LDA_DME",
+            "LOC",
+            "LOC_BC",
+            "LOC_DME",
+            "LOC_DME_BC",
+            "MLS",
+            "MLS_DME",
+            "NDB",
+            "NDB_DME",
+            "SDF",
+            "TLS",
+            "VOR",
+            "VOR_DME",
+            "TACAN",
+            "VORTAC",
+            "DME",
+            "LP",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFinalGuidanceBaseType",
+        "uber": "enum"
+    },
+    "CodeFireFightingBaseType": {
+        "enum": [
+            "H1",
+            "H2",
+            "H3",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "A6",
+            "A7",
+            "A8",
+            "A9",
+            "A10",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFireFightingBaseType",
+        "uber": "enum"
+    },
+    "CodeFlightBaseType": {
+        "enum": [
+            "OAT",
+            "GAT",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFlightBaseType",
+        "uber": "enum"
+    },
+    "CodeFlightDestinationBaseType": {
+        "enum": [
+            "ARR",
+            "DEP",
+            "OVERFLY",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFlightDestinationBaseType",
+        "uber": "enum"
+    },
+    "CodeFlightOriginBaseType": {
+        "enum": [
+            "NTL",
+            "INTL",
+            "ALL",
+            "HOME_BASED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFlightOriginBaseType",
+        "uber": "enum"
+    },
+    "CodeFlightPurposeBaseType": {
+        "enum": [
+            "SCHEDULED",
+            "NON_SCHEDULED",
+            "PRIVATE",
+            "AIR_TRAINING",
+            "AIR_WORK",
+            "ALL",
+            "PARTICIPANT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFlightPurposeBaseType",
+        "uber": "enum"
+    },
+    "CodeFlightRestrictionBaseType": {
+        "enum": [
+            "FORBID",
+            "MANDATORY",
+            "CLSD",
+            "ALLOWED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFlightRestrictionBaseType",
+        "uber": "enum"
+    },
+    "CodeFlightRestrictionDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "16",
+        "minLength": "1",
+        "pattern": "([A-Z]|[0-9])+([ \\+\\-/]*([A-Z]|[0-9])+)*",
+        "type": "Character1Type",
+        "uber": "string"
+    },
+    "CodeFlightRuleBaseType": {
+        "enum": [
+            "IFR",
+            "VFR",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFlightRuleBaseType",
+        "uber": "enum"
+    },
+    "CodeFlightStatusBaseType": {
+        "enum": [
+            "HEAD",
+            "STATE",
+            "HUM",
+            "HOSP",
+            "SAR",
+            "ALL",
+            "EMERGENCY",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFlightStatusBaseType",
+        "uber": "enum"
+    },
+    "CodeFlowConditionOperationBaseType": {
+        "enum": [
+            "AND",
+            "ANDNOT",
+            "OR",
+            "SEQ",
+            "NONE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFlowConditionOperationBaseType",
+        "uber": "enum"
+    },
+    "CodeFreeFlightBaseType": {
+        "enum": [
+            "PITCH",
+            "CATCH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFreeFlightBaseType",
+        "uber": "enum"
+    },
+    "CodeFrictionDeviceBaseType": {
+        "enum": [
+            "BRD",
+            "GRT",
+            "MUM",
+            "RFT",
+            "SFH",
+            "SFL",
+            "SKH",
+            "SKL",
+            "TAP",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFrictionDeviceBaseType",
+        "uber": "enum"
+    },
+    "CodeFrictionEstimateBaseType": {
+        "enum": [
+            "GOOD",
+            "MEDIUM_GOOD",
+            "MEDIUM",
+            "MEDIUM_POOR",
+            "POOR",
+            "UNRELIABLE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFrictionEstimateBaseType",
+        "uber": "enum"
+    },
+    "CodeFuelBaseType": {
+        "enum": [
+            "AVGAS",
+            "AVGAS_LL",
+            "OCT73",
+            "OCT80",
+            "OCT82UL",
+            "OCT80_87",
+            "OCT91_98",
+            "OCT100_130",
+            "OCT108_135",
+            "OCT115_145",
+            "MOGAS",
+            "JET",
+            "A",
+            "A1",
+            "A1_PLUS",
+            "B",
+            "JP1",
+            "JP2",
+            "JP3",
+            "JP4",
+            "JP5",
+            "JP6",
+            "JPTS",
+            "JP7",
+            "JP8",
+            "JP8_HIGHER",
+            "JP9",
+            "JP10",
+            "F18",
+            "F34",
+            "F35",
+            "F40",
+            "F44",
+            "TR0",
+            "TR4",
+            "TS1",
+            "RT",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeFuelBaseType",
+        "uber": "enum"
+    },
+    "CodeGeoBorderBaseType": {
+        "enum": [
+            "STATE",
+            "WATER",
+            "COAST",
+            "RIVER",
+            "BANK",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeGeoBorderBaseType",
+        "uber": "enum"
+    },
+    "CodeGradeSeparationBaseType": {
+        "enum": [
+            "UNDERPASS",
+            "OVERPASS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeGradeSeparationBaseType",
+        "uber": "enum"
+    },
+    "CodeGroundLightingBaseType": {
+        "enum": [
+            "BCN",
+            "IBN",
+            "HEL_BCN",
+            "ABN",
+            "MAR_BCN",
+            "RSP_BCN",
+            "TWR_BCN",
+            "HAZ_BCN",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeGroundLightingBaseType",
+        "uber": "enum"
+    },
+    "CodeGuidanceLineBaseType": {
+        "enum": [
+            "RWY",
+            "TWY",
+            "APRON",
+            "GATE_TLANE",
+            "LI_TLANE",
+            "LO_TLANE",
+            "AIR_TLANE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeGuidanceLineBaseType",
+        "uber": "enum"
+    },
+    "CodeHeightReferenceBaseType": {
+        "enum": [
+            "HAT",
+            "HAA",
+            "HAL",
+            "HAS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeHeightReferenceBaseType",
+        "uber": "enum"
+    },
+    "CodeHelicopterPerformanceBaseType": {
+        "enum": [
+            "1",
+            "2",
+            "3",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeHelicopterPerformanceBaseType",
+        "uber": "enum"
+    },
+    "CodeHoldingCategoryBaseType": {
+        "enum": [
+            "NON_PRECISION",
+            "CAT_I",
+            "CAT_II_III",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeHoldingCategoryBaseType",
+        "uber": "enum"
+    },
+    "CodeHoldingUsageBaseType": {
+        "enum": [
+            "ENR",
+            "TER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeHoldingUsageBaseType",
+        "uber": "enum"
+    },
+    "CodeHoldingUseBaseType": {
+        "enum": [
+            "PT",
+            "ARRIVAL",
+            "MISSED_APPROACH",
+            "CLIMB",
+            "ATC",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeHoldingUseBaseType",
+        "uber": "enum"
+    },
+    "CodeIATABaseType": {
+        "base": "string",
+        "maxLength": "3",
+        "minLength": "3",
+        "pattern": "[A-Z]*",
+        "type": "AlphaType",
+        "uber": "string"
+    },
+    "CodeICAOBaseType": {
+        "base": "string",
+        "maxLength": "4",
+        "minLength": "4",
+        "pattern": "[A-Z]*",
+        "type": "AlphaType",
+        "uber": "string"
+    },
+    "CodeILSBackCourseBaseType": {
+        "enum": [
+            "YES",
+            "NO",
+            "RSTR",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeILSBackCourseBaseType",
+        "uber": "enum"
+    },
+    "CodeIntegrityLevelILSBaseType": {
+        "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeIntegrityLevelILSBaseType",
+        "uber": "enum"
+    },
+    "CodeIntensityStandByBaseType": {
+        "enum": [
+            "OFF",
+            "LOW",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeIntensityStandByBaseType",
+        "uber": "enum"
+    },
+    "CodeLanguageBaseType": {
+        "base": "string",
+        "pattern": "[a-z]{3}",
+        "type": "CodeLanguageBaseType",
+        "uber": "string"
+    },
+    "CodeLevelBaseType": {
+        "enum": [
+            "UPPER",
+            "LOWER",
+            "BOTH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLevelBaseType",
+        "uber": "enum"
+    },
+    "CodeLevelSeriesBaseType": {
+        "enum": [
+            "ODD",
+            "EVEN",
+            "ODD_HALF",
+            "EVEN_HALF",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLevelSeriesBaseType",
+        "uber": "enum"
+    },
+    "CodeLevelTableDesignatorBaseType": {
+        "enum": [
+            "IFR",
+            "IFR_METRES",
+            "VFR",
+            "VFR_METRES",
+            "IFR_RVSM",
+            "IFR_METRES_RVSM",
+            "VFR_RVMS",
+            "VFR_METRES_RVSM",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLevelTableDesignatorBaseType",
+        "uber": "enum"
+    },
+    "CodeLightHoldingPositionBaseType": {
+        "enum": [
+            "STOP_BAR",
+            "SIGN",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLightHoldingPositionBaseType",
+        "uber": "enum"
+    },
+    "CodeLightIntensityBaseType": {
+        "enum": [
+            "LIL",
+            "LIM",
+            "LIH",
+            "LIL_LIH",
+            "PREDETERMINED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLightIntensityBaseType",
+        "uber": "enum"
+    },
+    "CodeLightSourceBaseType": {
+        "enum": [
+            "FLOOD",
+            "STROBE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLightSourceBaseType",
+        "uber": "enum"
+    },
+    "CodeLightingJARBaseType": {
+        "enum": [
+            "FALS",
+            "IALS",
+            "BALS",
+            "NALS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLightingJARBaseType",
+        "uber": "enum"
+    },
+    "CodeLoadingBridgeBaseType": {
+        "enum": [
+            "ARM",
+            "MOVABLE_ARM",
+            "PORTABLE_RAMP",
+            "PORTABLE_STAIRS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLoadingBridgeBaseType",
+        "uber": "enum"
+    },
+    "CodeLocationQualifierBaseType": {
+        "enum": [
+            "DEP",
+            "XNG",
+            "ARR",
+            "ACT",
+            "AVBL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLocationQualifierBaseType",
+        "uber": "enum"
+    },
+    "CodeLogicalOperatorBaseType": {
+        "enum": [
+            "AND",
+            "OR",
+            "NOT",
+            "NONE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeLogicalOperatorBaseType",
+        "uber": "enum"
+    },
+    "CodeMLSAzimuthBaseType": {
+        "enum": [
+            "FWD",
+            "BWD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMLSAzimuthBaseType",
+        "uber": "enum"
+    },
+    "CodeMLSChannelBaseType": {
+        "enum": [
+            "500",
+            "501",
+            "502",
+            "503",
+            "504",
+            "505",
+            "506",
+            "507",
+            "508",
+            "509",
+            "510",
+            "511",
+            "512",
+            "513",
+            "514",
+            "515",
+            "516",
+            "517",
+            "518",
+            "519",
+            "520",
+            "521",
+            "522",
+            "523",
+            "524",
+            "525",
+            "526",
+            "527",
+            "528",
+            "529",
+            "530",
+            "531",
+            "532",
+            "533",
+            "534",
+            "535",
+            "536",
+            "537",
+            "538",
+            "539",
+            "540",
+            "541",
+            "542",
+            "543",
+            "544",
+            "545",
+            "546",
+            "547",
+            "548",
+            "549",
+            "550",
+            "551",
+            "552",
+            "553",
+            "554",
+            "555",
+            "556",
+            "557",
+            "558",
+            "559",
+            "560",
+            "561",
+            "562",
+            "563",
+            "564",
+            "565",
+            "566",
+            "567",
+            "568",
+            "569",
+            "570",
+            "571",
+            "572",
+            "573",
+            "574",
+            "575",
+            "576",
+            "577",
+            "578",
+            "579",
+            "580",
+            "581",
+            "582",
+            "583",
+            "584",
+            "585",
+            "586",
+            "587",
+            "588",
+            "589",
+            "590",
+            "591",
+            "592",
+            "593",
+            "594",
+            "595",
+            "596",
+            "597",
+            "598",
+            "599",
+            "600",
+            "601",
+            "602",
+            "603",
+            "604",
+            "605",
+            "606",
+            "607",
+            "608",
+            "609",
+            "610",
+            "611",
+            "612",
+            "613",
+            "614",
+            "615",
+            "616",
+            "617",
+            "618",
+            "619",
+            "620",
+            "621",
+            "622",
+            "623",
+            "624",
+            "625",
+            "626",
+            "627",
+            "628",
+            "629",
+            "630",
+            "631",
+            "632",
+            "633",
+            "634",
+            "635",
+            "636",
+            "637",
+            "638",
+            "639",
+            "640",
+            "641",
+            "642",
+            "643",
+            "644",
+            "645",
+            "646",
+            "647",
+            "648",
+            "649",
+            "650",
+            "651",
+            "652",
+            "653",
+            "654",
+            "655",
+            "656",
+            "657",
+            "658",
+            "659",
+            "660",
+            "661",
+            "662",
+            "663",
+            "664",
+            "665",
+            "666",
+            "667",
+            "668",
+            "669",
+            "670",
+            "671",
+            "672",
+            "673",
+            "674",
+            "675",
+            "676",
+            "677",
+            "678",
+            "679",
+            "680",
+            "681",
+            "682",
+            "683",
+            "684",
+            "685",
+            "686",
+            "687",
+            "688",
+            "689",
+            "690",
+            "691",
+            "692",
+            "693",
+            "694",
+            "695",
+            "696",
+            "697",
+            "698",
+            "699",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMLSChannelBaseType",
+        "uber": "enum"
+    },
+    "CodeMarkerBeaconSignalBaseType": {
+        "enum": [
+            "FAN",
+            "LOW_PWR_FAN",
+            "Z",
+            "BONES",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMarkerBeaconSignalBaseType",
+        "uber": "enum"
+    },
+    "CodeMarkingConditionBaseType": {
+        "enum": [
+            "GOOD",
+            "FAIR",
+            "POOR",
+            "EXCELLENT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMarkingConditionBaseType",
+        "uber": "enum"
+    },
+    "CodeMarkingStyleBaseType": {
+        "enum": [
+            "SOLID",
+            "DASHED",
+            "DOTTED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMarkingStyleBaseType",
+        "uber": "enum"
+    },
+    "CodeMeteoConditionsBaseType": {
+        "enum": [
+            "IMC",
+            "VMC",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMeteoConditionsBaseType",
+        "uber": "enum"
+    },
+    "CodeMilitaryOperationsBaseType": {
+        "enum": [
+            "CIVIL",
+            "MIL",
+            "JOINT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMilitaryOperationsBaseType",
+        "uber": "enum"
+    },
+    "CodeMilitaryRoutePointBaseType": {
+        "enum": [
+            "S",
+            "T",
+            "X",
+            "AS",
+            "AX",
+            "ASX",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMilitaryRoutePointBaseType",
+        "uber": "enum"
+    },
+    "CodeMilitaryStatusBaseType": {
+        "enum": [
+            "MIL",
+            "CIVIL",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMilitaryStatusBaseType",
+        "uber": "enum"
+    },
+    "CodeMilitaryTrainingBaseType": {
+        "enum": [
+            "IR",
+            "VR",
+            "SR",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMilitaryTrainingBaseType",
+        "uber": "enum"
+    },
+    "CodeMinimaFinalApproachPathBaseType": {
+        "enum": [
+            "STRAIGHT_IN",
+            "CIRCLING",
+            "SIDESTEP",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMinimaFinalApproachPathBaseType",
+        "uber": "enum"
+    },
+    "CodeMinimumAltitudeBaseType": {
+        "enum": [
+            "OCA",
+            "DA",
+            "MDA",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMinimumAltitudeBaseType",
+        "uber": "enum"
+    },
+    "CodeMinimumHeightBaseType": {
+        "enum": [
+            "DH",
+            "OCH",
+            "MDH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMinimumHeightBaseType",
+        "uber": "enum"
+    },
+    "CodeMissedApproachBaseType": {
+        "enum": [
+            "PRIMARY",
+            "SECONDARY",
+            "ALTERNATE",
+            "TACAN",
+            "TACANALT",
+            "ENGINEOUT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeMissedApproachBaseType",
+        "uber": "enum"
+    },
+    "CodeNDBUsageBaseType": {
+        "enum": [
+            "ENR",
+            "L",
+            "MAR",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNDBUsageBaseType",
+        "uber": "enum"
+    },
+    "CodeNavaidDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "4",
+        "minLength": "1",
+        "pattern": "([A-Z]|\\d)*",
+        "type": "AlphanumericType",
+        "uber": "string"
+    },
+    "CodeNavaidPurposeBaseType": {
+        "enum": [
+            "TERMINAL",
+            "ENROUTE",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNavaidPurposeBaseType",
+        "uber": "enum"
+    },
+    "CodeNavaidServiceBaseType": {
+        "enum": [
+            "VOR",
+            "DME",
+            "NDB",
+            "TACAN",
+            "MKR",
+            "ILS",
+            "ILS_DME",
+            "MLS",
+            "MLS_DME",
+            "VORTAC",
+            "VOR_DME",
+            "NDB_DME",
+            "TLS",
+            "LOC",
+            "LOC_DME",
+            "NDB_MKR",
+            "DF",
+            "SDF",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNavaidServiceBaseType",
+        "uber": "enum"
+    },
+    "CodeNavigationAreaBaseType": {
+        "enum": [
+            "PNA",
+            "OMNI",
+            "DVA",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNavigationAreaBaseType",
+        "uber": "enum"
+    },
+    "CodeNavigationAreaRestrictionBaseType": {
+        "enum": [
+            "VECTOR",
+            "OMNIDIRECTIONAL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNavigationAreaRestrictionBaseType",
+        "uber": "enum"
+    },
+    "CodeNavigationEquipmentBaseType": {
+        "enum": [
+            "DME",
+            "VOR_DME",
+            "DME_DME",
+            "TACAN",
+            "ILS",
+            "MLS",
+            "GNSS",
+            "WAAS",
+            "LORAN",
+            "INS",
+            "FMS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNavigationEquipmentBaseType",
+        "uber": "enum"
+    },
+    "CodeNavigationSpecificationBaseType": {
+        "enum": [
+            "RNAV_10",
+            "RNAV_5",
+            "RNAV_2",
+            "RNAV_1",
+            "RNP_4",
+            "RNP_2",
+            "BASIC_RNP_1",
+            "ADVANCED_RNP_1",
+            "RNP_APCH",
+            "RNP_AR_APCH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNavigationSpecificationBaseType",
+        "uber": "enum"
+    },
+    "CodeNitrogenBaseType": {
+        "enum": [
+            "LPNG",
+            "HPNG",
+            "LHNG",
+            "LNG",
+            "NGRB",
+            "HNGRB",
+            "LNGRB",
+            "NG",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNitrogenBaseType",
+        "uber": "enum"
+    },
+    "CodeNorthReferenceBaseType": {
+        "enum": [
+            "TRUE",
+            "MAG",
+            "GRID",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNorthReferenceBaseType",
+        "uber": "enum"
+    },
+    "CodeNotePurposeBaseType": {
+        "enum": [
+            "DESCRIPTION",
+            "REMARK",
+            "WARNING",
+            "DISCLAIMER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeNotePurposeBaseType",
+        "uber": "enum"
+    },
+    "CodeObstacleAreaBaseType": {
+        "enum": [
+            "AREA1",
+            "AREA2",
+            "AREA3",
+            "AREA4",
+            "OLS",
+            "FAR77",
+            "MANAGED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeObstacleAreaBaseType",
+        "uber": "enum"
+    },
+    "CodeObstacleAssessmentSurfaceBaseType": {
+        "enum": [
+            "40_TO_1",
+            "72_TO_1",
+            "MA",
+            "FINAL",
+            "PT_ENTRY_AREA",
+            "PRIMARY",
+            "SECONDARY",
+            "ZONE1",
+            "ZONE2",
+            "ZONE3",
+            "AREA1",
+            "AREA2",
+            "AREA3",
+            "TURN_INITIATION",
+            "TURN",
+            "DER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeObstacleAssessmentSurfaceBaseType",
+        "uber": "enum"
+    },
+    "CodeObstructionIdSurfaceZoneBaseType": {
+        "enum": [
+            "APPROACH",
+            "CONICAL",
+            "HORIZONTAL",
+            "PRIMARY",
+            "TRANSITION",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeObstructionIdSurfaceZoneBaseType",
+        "uber": "enum"
+    },
+    "CodeOilBaseType": {
+        "enum": [
+            "PISTON",
+            "TURBO",
+            "HYDRAULIC",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeOilBaseType",
+        "uber": "enum"
+    },
+    "CodeOperationAirportHeliportBaseType": {
+        "enum": [
+            "LANDING",
+            "TAKEOFF",
+            "TOUCHGO",
+            "TRAIN_APPROACH",
+            "ALTN_LANDING",
+            "AIRSHOW",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeOperationAirportHeliportBaseType",
+        "uber": "enum"
+    },
+    "CodeOperationManoeuvringAreaBaseType": {
+        "enum": [
+            "LANDING",
+            "TAKEOFF",
+            "TOUCHGO",
+            "TRAIN_APPROACH",
+            "TAXIING",
+            "CROSSING",
+            "AIRSHOW",
+            "ALL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeOperationManoeuvringAreaBaseType",
+        "uber": "enum"
+    },
+    "CodeOrganisationBaseType": {
+        "enum": [
+            "STATE",
+            "STATE_GROUP",
+            "ORG",
+            "INTL_ORG",
+            "ACFT_OPR",
+            "HANDLING_AGENCY",
+            "NTL_AUTH",
+            "ATS",
+            "COMMERCIAL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeOrganisationBaseType",
+        "uber": "enum"
+    },
+    "CodeOrganisationDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "12",
+        "minLength": "1",
+        "pattern": "([A-Z]|[0-9])+([ \\+\\-/]*([A-Z]|[0-9])+)*",
+        "type": "Character1Type",
+        "uber": "string"
+    },
+    "CodeOrganisationHierarchyBaseType": {
+        "enum": [
+            "MEMBER",
+            "OWNED_BY",
+            "SUPERVISED_BY",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeOrganisationHierarchyBaseType",
+        "uber": "enum"
+    },
+    "CodeOxygenBaseType": {
+        "enum": [
+            "LPOX",
+            "HPOX",
+            "LHOX",
+            "LOX",
+            "OXRB",
+            "HOXRB",
+            "LOXRB",
+            "OX",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeOxygenBaseType",
+        "uber": "enum"
+    },
+    "CodePARBaseType": {
+        "enum": [
+            "FPN16",
+            "FPN62",
+            "GPN22",
+            "GPN25",
+            "MPN14K",
+            "TPN19",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePARBaseType",
+        "uber": "enum"
+    },
+    "CodePCNMethodBaseType": {
+        "enum": [
+            "TECH",
+            "ACFT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePCNMethodBaseType",
+        "uber": "enum"
+    },
+    "CodePCNPavementBaseType": {
+        "enum": [
+            "RIGID",
+            "FLEXIBLE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePCNPavementBaseType",
+        "uber": "enum"
+    },
+    "CodePCNSubgradeBaseType": {
+        "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePCNSubgradeBaseType",
+        "uber": "enum"
+    },
+    "CodePCNTyrePressureBaseType": {
+        "enum": [
+            "W",
+            "X",
+            "Y",
+            "Z",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePCNTyrePressureBaseType",
+        "uber": "enum"
+    },
+    "CodePassengerServiceBaseType": {
+        "enum": [
+            "CUST",
+            "SAN",
+            "SECUR",
+            "VET",
+            "HOTEL",
+            "TRANSPORT",
+            "REST",
+            "INFO",
+            "BANK",
+            "POST",
+            "MEDIC",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePassengerServiceBaseType",
+        "uber": "enum"
+    },
+    "CodePilotControlledLightingBaseType": {
+        "enum": [
+            "STANDARD_FAA",
+            "NON_STANDARD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePilotControlledLightingBaseType",
+        "uber": "enum"
+    },
+    "CodePositionInILSBaseType": {
+        "enum": [
+            "OUTER",
+            "MIDDLE",
+            "INNER",
+            "BACKCOURSE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePositionInILSBaseType",
+        "uber": "enum"
+    },
+    "CodePrimaryRadarBaseType": {
+        "enum": [
+            "ASR",
+            "ARSR",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodePrimaryRadarBaseType",
+        "uber": "enum"
+    },
+    "CodeProcedureAvailabilityBaseType": {
+        "enum": [
+            "USABLE",
+            "UNUSABLE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeProcedureAvailabilityBaseType",
+        "uber": "enum"
+    },
+    "CodeProcedureCodingStandardBaseType": {
+        "enum": [
+            "PANS_OPS",
+            "ARINC_424_15",
+            "ARINC_424_18",
+            "ARINC_424_19",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeProcedureCodingStandardBaseType",
+        "uber": "enum"
+    },
+    "CodeProcedureDistanceBaseType": {
+        "enum": [
+            "HAT",
+            "OM",
+            "MM",
+            "IM",
+            "PFAF",
+            "GSANT",
+            "FAF",
+            "MAP",
+            "THLD",
+            "VDP",
+            "RECH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeProcedureDistanceBaseType",
+        "uber": "enum"
+    },
+    "CodeProcedureFixRoleBaseType": {
+        "enum": [
+            "IAF",
+            "IF",
+            "IF_IAF",
+            "FAF",
+            "VDP",
+            "SDF",
+            "FPAP",
+            "FTP",
+            "FROP",
+            "TP",
+            "MAPT",
+            "MAHF",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeProcedureFixRoleBaseType",
+        "uber": "enum"
+    },
+    "CodeProcedurePhaseBaseType": {
+        "enum": [
+            "RWY",
+            "COMMON",
+            "EN_ROUTE",
+            "APPROACH",
+            "FINAL",
+            "MISSED",
+            "MISSED_P",
+            "MISSED_S",
+            "ENGINE_OUT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeProcedurePhaseBaseType",
+        "uber": "enum"
+    },
+    "CodeProtectAreaSectionBaseType": {
+        "enum": [
+            "EDGE",
+            "END",
+            "CL",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeProtectAreaSectionBaseType",
+        "uber": "enum"
+    },
+    "CodeRNPBaseType": {
+        "base": "decimal",
+        "pattern": "[0-9]{1,2}(\\.[0-9]{1}){0,1}",
+        "type": "CodeRNPBaseType",
+        "uber": "decimal"
+    },
+    "CodeRVRReadingBaseType": {
+        "enum": [
+            "TDZ",
+            "MID",
+            "TO",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRVRReadingBaseType",
+        "uber": "enum"
+    },
+    "CodeRVSMBaseType": {
+        "enum": [
+            "RVSM",
+            "NON_RVSM",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRVSMBaseType",
+        "uber": "enum"
+    },
+    "CodeRVSMPointRoleBaseType": {
+        "enum": [
+            "IN",
+            "OUT",
+            "IN_OUT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRVSMPointRoleBaseType",
+        "uber": "enum"
+    },
+    "CodeRadarServiceBaseType": {
+        "enum": [
+            "PAR",
+            "ARSR",
+            "ASR",
+            "SSR",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRadarServiceBaseType",
+        "uber": "enum"
+    },
+    "CodeRadioEmissionBaseType": {
+        "enum": [
+            "A2",
+            "A3A",
+            "A3B",
+            "A3E",
+            "A3H",
+            "A3J",
+            "A3L",
+            "A3U",
+            "J3E",
+            "NONA1A",
+            "NONA2A",
+            "PON",
+            "A8W",
+            "A9W",
+            "NOX",
+            "G1D",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRadioEmissionBaseType",
+        "uber": "enum"
+    },
+    "CodeRadioFrequencyAreaBaseType": {
+        "enum": [
+            "COV",
+            "T_COV",
+            "SCL",
+            "RHG",
+            "UNREL",
+            "RES",
+            "UUS",
+            "OUT",
+            "ESV",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRadioFrequencyAreaBaseType",
+        "uber": "enum"
+    },
+    "CodeRadioSignalBaseType": {
+        "enum": [
+            "AZIMUTH",
+            "DISTANCE",
+            "BEAM",
+            "VOICE",
+            "DATALINK",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRadioSignalBaseType",
+        "uber": "enum"
+    },
+    "CodeReferenceRoleBaseType": {
+        "enum": [
+            "INTERSECTION",
+            "RECNAV",
+            "ATD",
+            "RAD_DME",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeReferenceRoleBaseType",
+        "uber": "enum"
+    },
+    "CodeReflectorBaseType": {
+        "enum": [
+            "TOUCHDOWN",
+            "RUNWAY_END",
+            "REFERENCE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeReflectorBaseType",
+        "uber": "enum"
+    },
+    "CodeRelativePositionBaseType": {
+        "enum": [
+            "BEFORE",
+            "AT",
+            "AFTER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRelativePositionBaseType",
+        "uber": "enum"
+    },
+    "CodeRoadBaseType": {
+        "enum": [
+            "SERVICE",
+            "PUBLIC",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRoadBaseType",
+        "uber": "enum"
+    },
+    "CodeRouteAvailabilityBaseType": {
+        "enum": [
+            "OPEN",
+            "COND",
+            "CLSD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRouteAvailabilityBaseType",
+        "uber": "enum"
+    },
+    "CodeRouteBaseType": {
+        "enum": [
+            "ATS",
+            "NAT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRouteBaseType",
+        "uber": "enum"
+    },
+    "CodeRouteDesignatorLetterBaseType": {
+        "enum": [
+            "A",
+            "B",
+            "G",
+            "H",
+            "J",
+            "L",
+            "M",
+            "N",
+            "P",
+            "Q",
+            "R",
+            "T",
+            "V",
+            "W",
+            "Y",
+            "Z",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRouteDesignatorLetterBaseType",
+        "uber": "enum"
+    },
+    "CodeRouteDesignatorPrefixBaseType": {
+        "enum": [
+            "K",
+            "U",
+            "S",
+            "T",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRouteDesignatorPrefixBaseType",
+        "uber": "enum"
+    },
+    "CodeRouteDesignatorSuffixBaseType": {
+        "enum": [
+            "F",
+            "G",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRouteDesignatorSuffixBaseType",
+        "uber": "enum"
+    },
+    "CodeRouteNavigationBaseType": {
+        "enum": [
+            "CONV",
+            "RNAV",
+            "TACAN",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRouteNavigationBaseType",
+        "uber": "enum"
+    },
+    "CodeRouteOriginBaseType": {
+        "enum": [
+            "INTL",
+            "DOM",
+            "BOTH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRouteOriginBaseType",
+        "uber": "enum"
+    },
+    "CodeRouteSegmentPathBaseType": {
+        "enum": [
+            "GRC",
+            "RHL",
+            "GDS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRouteSegmentPathBaseType",
+        "uber": "enum"
+    },
+    "CodeRuleProcedureBaseType": {
+        "enum": [
+            "RULE",
+            "LAW",
+            "PROCEDURE",
+            "PRACTICE",
+            "ICAO_DIFF",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRuleProcedureBaseType",
+        "uber": "enum"
+    },
+    "CodeRuleProcedureTitleBaseType": {
+        "enum": [
+            "ENTRY_TRANSIT_DEPARTURE_OF_AIRCRAFT",
+            "ENTRY_TRANSIT_DEPARTURE_SCHEDULED",
+            "ENTRY_TRANSIT_DEPARTURE_NON_SCHEDULED",
+            "ENTRY_TRANSIT_DEPARTURE_PRIVATE",
+            "PUBLIC_HEALTH_MEASURES_AIRCRAFT",
+            "CUSTOMS_REQUIREMENTS",
+            "IMMIGRATION_REQUIREMENTS",
+            "PUBLIC_HEALTH_MEASURES_PASSENGERS",
+            "ENTRY_TRANSIT_DEPARTURE_CARGO",
+            "AIRCRAFT_INSTRUMENTS_EQUIPMENT_FLIGHT_DOCUMENTS",
+            "NATIONAL_REGULATIONS",
+            "INTERNATIONAL_AGREEMENTS_CONVENTIONS",
+            "DIFFERENCES_ICAO_STANDARDS_RECOMMENDED_PRACTICES_PROCEDURES",
+            "MEASURING_SYSTEM_AIRCRAFT_MARKINGS_HOLIDAYS",
+            "ABBREVIATIONS_AIS_PUBLICATIONS",
+            "AERODROME_HELIPORT_CHARGES",
+            "AIR_NAVIGATION_SERVICES_CHARGES",
+            "FLIGHT_RULES_GENERAL",
+            "VISUAL_FLIGHT_RULES",
+            "INSTRUMENT_FLIGHT_RULES",
+            "ATS_AIRSPACE_CLASSIFICATION",
+            "HOLDING_ APPROACH_DEPARTURE_PROCEDURES",
+            "ATS_SURVEILLANCE_SERVICES_PROCEDURES",
+            "ALTIMETER_SETTING_PROCEDURES",
+            "REGIONAL_SUPPLEMENTARY_PROCEDURES",
+            "AIR_TRAFFIC_FLOW_MANAGEMENT",
+            "FLIGHT_PLANNING",
+            "ADDRESSING_FLIGHT_PLAN_MESSAGES",
+            "INTERCEPTION_CIVIL_AIRCRAFT",
+            "UNLAWFUL_INTERFERENCE",
+            "AIR_TRAFFIC_INCIDENTS",
+            "AERODROME_HELIPORT_AVAILABILITY",
+            "LOCAL_TRAFFIC_REGULATIONS",
+            "NOISE_ABATEMENT_PROCEDURES",
+            "AERODROME_FLIGHT_PROCEDURES",
+            "AERODROME_BIRD_CONCENTRATION",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRuleProcedureTitleBaseType",
+        "uber": "enum"
+    },
+    "CodeRunwayBaseType": {
+        "enum": [
+            "RWY",
+            "FATO",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRunwayBaseType",
+        "uber": "enum"
+    },
+    "CodeRunwayElementBaseType": {
+        "enum": [
+            "NORMAL",
+            "INTERSECTION",
+            "DISPLACED",
+            "SHOULDER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRunwayElementBaseType",
+        "uber": "enum"
+    },
+    "CodeRunwayMarkingBaseType": {
+        "enum": [
+            "PRECISION",
+            "NONPRECISION",
+            "BASIC",
+            "NONE",
+            "RUNWAY_NUMBERS",
+            "NON_STANDARD",
+            "HELIPORT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRunwayMarkingBaseType",
+        "uber": "enum"
+    },
+    "CodeRunwayPointRoleBaseType": {
+        "enum": [
+            "START",
+            "THR",
+            "DISTHR",
+            "TDZ",
+            "MID",
+            "END",
+            "START_RUN",
+            "LAHSO",
+            "ABEAM_GLIDESLOPE",
+            "ABEAM_PAR",
+            "ABEAM_ELEVATION",
+            "ABEAM_TDR",
+            "ABEAM_RER",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRunwayPointRoleBaseType",
+        "uber": "enum"
+    },
+    "CodeRunwayProtectionAreaBaseType": {
+        "enum": [
+            "CWY",
+            "RESA",
+            "OFZ",
+            "IOFZ",
+            "POFZ",
+            "ILS",
+            "VGSI",
+            "STOPWAY",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRunwayProtectionAreaBaseType",
+        "uber": "enum"
+    },
+    "CodeRunwaySectionBaseType": {
+        "enum": [
+            "TDZ",
+            "AIM",
+            "CL",
+            "EDGE",
+            "THR",
+            "DESIG",
+            "AFT_THR",
+            "DTHR",
+            "END",
+            "TWY_INT",
+            "RPD_TWY_INT",
+            "1_THIRD",
+            "2_THIRD",
+            "3_THIRD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeRunwaySectionBaseType",
+        "uber": "enum"
+    },
+    "CodeSafeAltitudeBaseType": {
+        "enum": [
+            "MSA",
+            "ESA",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSafeAltitudeBaseType",
+        "uber": "enum"
+    },
+    "CodeSegmentPathBaseType": {
+        "enum": [
+            "AF",
+            "HF",
+            "HA",
+            "HM",
+            "IF",
+            "PI",
+            "PT",
+            "TF",
+            "CA",
+            "CD",
+            "CI",
+            "CR",
+            "CF",
+            "DF",
+            "FA",
+            "FC",
+            "FT",
+            "FM",
+            "VM",
+            "FD",
+            "VR",
+            "VD",
+            "VI",
+            "VA",
+            "RF",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSegmentPathBaseType",
+        "uber": "enum"
+    },
+    "CodeSegmentTerminationBaseType": {
+        "enum": [
+            "ALTITUDE",
+            "DISTANCE",
+            "DURATION",
+            "INTERCEPT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSegmentTerminationBaseType",
+        "uber": "enum"
+    },
+    "CodeServiceATCBaseType": {
+        "enum": [
+            "ACS",
+            "UAC",
+            "OACS",
+            "APP",
+            "TWR",
+            "ADVS",
+            "EFAS",
+            "CTAF",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeServiceATCBaseType",
+        "uber": "enum"
+    },
+    "CodeServiceATFMBaseType": {
+        "enum": [
+            "FPL",
+            "FPLV",
+            "ATFM",
+            "CLEARANCE",
+            "SCHED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeServiceATFMBaseType",
+        "uber": "enum"
+    },
+    "CodeServiceGroundControlBaseType": {
+        "enum": [
+            "TWR",
+            "SMGCS",
+            "TAXI",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeServiceGroundControlBaseType",
+        "uber": "enum"
+    },
+    "CodeServiceInformationBaseType": {
+        "enum": [
+            "AFIS",
+            "AIS",
+            "ATIS",
+            "BRIEFING",
+            "FIS",
+            "OFIS_VHF",
+            "OFIS_HF",
+            "NOTAM",
+            "INFO",
+            "RAF",
+            "METAR",
+            "SIGMET",
+            "TWEB",
+            "TAF",
+            "VOLMET",
+            "ALTIMETER",
+            "ASOS",
+            "AWOS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeServiceInformationBaseType",
+        "uber": "enum"
+    },
+    "CodeServiceSARBaseType": {
+        "enum": [
+            "ALRS",
+            "SAR",
+            "RCC",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeServiceSARBaseType",
+        "uber": "enum"
+    },
+    "CodeSideBaseType": {
+        "enum": [
+            "LEFT",
+            "RIGHT",
+            "BOTH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSideBaseType",
+        "uber": "enum"
+    },
+    "CodeSignalPerformanceILSBaseType": {
+        "enum": [
+            "I",
+            "II",
+            "III",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSignalPerformanceILSBaseType",
+        "uber": "enum"
+    },
+    "CodeSpecialDateBaseType": {
+        "enum": [
+            "HOL",
+            "BUSY_FRI",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSpecialDateBaseType",
+        "uber": "enum"
+    },
+    "CodeSpecialNavigationChainDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "4",
+        "minLength": "1",
+        "pattern": "([A-Z]|\\d)*",
+        "type": "AlphanumericType",
+        "uber": "string"
+    },
+    "CodeSpecialNavigationStationBaseType": {
+        "enum": [
+            "MASTER",
+            "SLAVE",
+            "RED_SLAVE",
+            "GREEN_SLAVE",
+            "PURPLE_SLAVE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSpecialNavigationStationBaseType",
+        "uber": "enum"
+    },
+    "CodeSpecialNavigationSystemBaseType": {
+        "enum": [
+            "LORANA",
+            "LORANC",
+            "LORAND",
+            "DECCA",
+            "GNSS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSpecialNavigationSystemBaseType",
+        "uber": "enum"
+    },
+    "CodeSpeedReferenceBaseType": {
+        "enum": [
+            "IAS",
+            "TAS",
+            "GS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSpeedReferenceBaseType",
+        "uber": "enum"
+    },
+    "CodeStandbyPowerBaseType": {
+        "enum": [
+            "BATTERY",
+            "COMMERCIAL",
+            "GENERATOR",
+            "UNKNOWN",
+            "NONE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeStandbyPowerBaseType",
+        "uber": "enum"
+    },
+    "CodeStatusAirportBaseType": {
+        "enum": [
+            "NORMAL",
+            "LIMITED",
+            "CLOSED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeStatusAirportBaseType",
+        "uber": "enum"
+    },
+    "CodeStatusAirspaceBaseType": {
+        "enum": [
+            "AVBL_FOR_ACTIVATION",
+            "ACTIVE",
+            "IN_USE",
+            "INACTIVE",
+            "INTERMITTENT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeStatusAirspaceBaseType",
+        "uber": "enum"
+    },
+    "CodeStatusConstructionBaseType": {
+        "enum": [
+            "IN_CONSTRUCTION",
+            "COMPLETED",
+            "DEMOLITION_PLANNED",
+            "IN_DEMOLITION ",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeStatusConstructionBaseType",
+        "uber": "enum"
+    },
+    "CodeStatusNavaidBaseType": {
+        "enum": [
+            "OPERATIONAL",
+            "UNSERVICEABLE",
+            "ONTEST",
+            "INTERRUPT",
+            "PARTIAL",
+            "CONDITIONAL",
+            "FALSE_INDICATION",
+            "FALSE_POSSIBLE",
+            "DISPLACED",
+            "IN_CONSTRUCTION",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeStatusNavaidBaseType",
+        "uber": "enum"
+    },
+    "CodeStatusOperationsBaseType": {
+        "enum": [
+            "NORMAL",
+            "DOWNGRADED",
+            "UNSERVICEABLE",
+            "WORK_IN_PROGRESS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeStatusOperationsBaseType",
+        "uber": "enum"
+    },
+    "CodeStatusServiceBaseType": {
+        "enum": [
+            "NORMAL",
+            "LIMITED",
+            "ONTEST",
+            "UNSERVICEABLE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeStatusServiceBaseType",
+        "uber": "enum"
+    },
+    "CodeSurfaceCompositionBaseType": {
+        "enum": [
+            "ASPH",
+            "ASPH_GRASS",
+            "CONC",
+            "CONC_ASPH",
+            "CONC_GRS",
+            "GRASS",
+            "SAND",
+            "WATER",
+            "BITUM",
+            "BRICK",
+            "MACADAM",
+            "STONE",
+            "CORAL",
+            "CLAY",
+            "LATERITE",
+            "GRAVEL",
+            "EARTH",
+            "ICE",
+            "SNOW",
+            "MEMBRANE",
+            "METAL",
+            "MATS",
+            "PIERCED_STEEL",
+            "WOOD",
+            "NON_BITUM_MIX",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSurfaceCompositionBaseType",
+        "uber": "enum"
+    },
+    "CodeSurfaceConditionBaseType": {
+        "enum": [
+            "GOOD",
+            "FAIR",
+            "POOR",
+            "UNSAFE",
+            "DEFORMED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSurfaceConditionBaseType",
+        "uber": "enum"
+    },
+    "CodeSurfacePreparationBaseType": {
+        "enum": [
+            "NATURAL",
+            "ROLLED",
+            "COMPACTED",
+            "GRADED",
+            "GROOVED",
+            "OILED",
+            "PAVED",
+            "PFC",
+            "AFSC",
+            "RFSC",
+            "NON_GROOVED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSurfacePreparationBaseType",
+        "uber": "enum"
+    },
+    "CodeSystemActivationBaseType": {
+        "enum": [
+            "ON",
+            "ON_OR_OFF",
+            "OFF",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeSystemActivationBaseType",
+        "uber": "enum"
+    },
+    "CodeTAABaseType": {
+        "enum": [
+            "LEFT_BASE",
+            "RIGHT_BASE",
+            "STRAIGHT_IN",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTAABaseType",
+        "uber": "enum"
+    },
+    "CodeTACANChannelBaseType": {
+        "enum": [
+            "1X",
+            "1Y",
+            "2X",
+            "2Y",
+            "3X",
+            "3Y",
+            "4X",
+            "4Y",
+            "5X",
+            "5Y",
+            "6X",
+            "6Y",
+            "7X",
+            "7Y",
+            "8X",
+            "8Y",
+            "9X",
+            "9Y",
+            "10X",
+            "10Y",
+            "11X",
+            "11Y",
+            "12X",
+            "12Y",
+            "13X",
+            "13Y",
+            "14X",
+            "14Y",
+            "15X",
+            "15Y",
+            "16X",
+            "16Y",
+            "17X",
+            "17Y",
+            "17Z",
+            "18X",
+            "18W",
+            "18Y",
+            "18Z",
+            "19X",
+            "19Y",
+            "19Z",
+            "20X",
+            "20W",
+            "20Y",
+            "20Z",
+            "21X",
+            "21Y",
+            "21Z",
+            "22X",
+            "22W",
+            "22Y",
+            "22Z",
+            "23X",
+            "23Y",
+            "23Z",
+            "24X",
+            "24W",
+            "24Y",
+            "24Z",
+            "25X",
+            "25Y",
+            "25Z",
+            "26X",
+            "26W",
+            "26Y",
+            "26Z",
+            "27X",
+            "27Y",
+            "27Z",
+            "28X",
+            "28W",
+            "28Y",
+            "28Z",
+            "29X",
+            "29Y",
+            "29Z",
+            "30X",
+            "30W",
+            "30Y",
+            "30Z",
+            "31X",
+            "31Y",
+            "31Z",
+            "32X",
+            "32W",
+            "32Y",
+            "32Z",
+            "33X",
+            "33Y",
+            "33Z",
+            "34X",
+            "34W",
+            "34Y",
+            "34Z",
+            "35X",
+            "35Y",
+            "35Z",
+            "36X",
+            "36W",
+            "36Y",
+            "36Z",
+            "37X",
+            "37Y",
+            "37Z",
+            "38X",
+            "38W",
+            "38Y",
+            "38Z",
+            "39X",
+            "39Y",
+            "39Z",
+            "40X",
+            "40W",
+            "40Y",
+            "40Z",
+            "41X",
+            "41Y",
+            "41Z",
+            "42X",
+            "42W",
+            "42Y",
+            "42Z",
+            "43X",
+            "43Y",
+            "43Z",
+            "44X",
+            "44W",
+            "44Y",
+            "44Z",
+            "45X",
+            "45Y",
+            "45Z",
+            "46X",
+            "46W",
+            "46Y",
+            "46Z",
+            "47X",
+            "47Y",
+            "47Z",
+            "48X",
+            "48W",
+            "48Y",
+            "48Z",
+            "49X",
+            "49Y",
+            "49Z",
+            "50X",
+            "50W",
+            "50Y",
+            "50Z",
+            "51X",
+            "51Y",
+            "51Z",
+            "52X",
+            "52W",
+            "52Y",
+            "52Z",
+            "53X",
+            "53Y",
+            "53Z",
+            "54X",
+            "54W",
+            "54Y",
+            "54Z",
+            "55X",
+            "55Y",
+            "55Z",
+            "56X",
+            "56W",
+            "56Y",
+            "56Z",
+            "57X",
+            "57Y",
+            "58X",
+            "58Y",
+            "59X",
+            "59Y",
+            "60X",
+            "60Y",
+            "61X",
+            "61Y",
+            "62X",
+            "62Y",
+            "63X",
+            "63Y",
+            "64X",
+            "64Y",
+            "65X",
+            "65Y",
+            "66X",
+            "66Y",
+            "67X",
+            "67Y",
+            "68X",
+            "68Y",
+            "69X",
+            "69Y",
+            "70X",
+            "70Y",
+            "71X",
+            "71Y",
+            "72X",
+            "72Y",
+            "73X",
+            "73Y",
+            "74X",
+            "74Y",
+            "75X",
+            "75Y",
+            "76X",
+            "76Y",
+            "77X",
+            "77Y",
+            "78X",
+            "78Y",
+            "79X",
+            "79Y",
+            "80X",
+            "80Y",
+            "80Z",
+            "81X",
+            "81Y",
+            "81Z",
+            "82X",
+            "82Y",
+            "82Z",
+            "83X",
+            "83Y",
+            "83Z",
+            "84X",
+            "84Y",
+            "84Z",
+            "85X",
+            "85Y",
+            "85Z",
+            "86X",
+            "86Y",
+            "86Z",
+            "87X",
+            "87Y",
+            "87Z",
+            "88X",
+            "88Y",
+            "88Z",
+            "89X",
+            "89Y",
+            "89Z",
+            "90X",
+            "90Y",
+            "90Z",
+            "91X",
+            "91Y",
+            "91Z",
+            "92X",
+            "92Y",
+            "92Z",
+            "93X",
+            "93Y",
+            "93Z",
+            "94X",
+            "94Y",
+            "94Z",
+            "95X",
+            "95Y",
+            "95Z",
+            "96X",
+            "96Y",
+            "96Z",
+            "97X",
+            "97Y",
+            "97Z",
+            "98X",
+            "98Y",
+            "98Z",
+            "99X",
+            "99Y",
+            "99Z",
+            "100X",
+            "100Y",
+            "100Z",
+            "101X",
+            "101Y",
+            "101Z",
+            "102X",
+            "102Y",
+            "102Z",
+            "103X",
+            "103Y",
+            "103Z",
+            "104X",
+            "104Y",
+            "104Z",
+            "105X",
+            "105Y",
+            "105Z",
+            "106X",
+            "106Y",
+            "106Z",
+            "107X",
+            "107Y",
+            "107Z",
+            "108X",
+            "108Y",
+            "108Z",
+            "109X",
+            "109Y",
+            "109Z",
+            "110X",
+            "110Y",
+            "110Z",
+            "111X",
+            "111Y",
+            "111Z",
+            "112X",
+            "112Y",
+            "112Z",
+            "113X",
+            "113Y",
+            "113Z",
+            "114X",
+            "114Y",
+            "114Z",
+            "115X",
+            "115Y",
+            "115Z",
+            "116X",
+            "116Y",
+            "116Z",
+            "117X",
+            "117Y",
+            "117Z",
+            "118X",
+            "118Y",
+            "118Z",
+            "119X",
+            "119Y",
+            "119Z",
+            "120X",
+            "120Y",
+            "121X",
+            "121Y",
+            "122X",
+            "122Y",
+            "123X",
+            "123Y",
+            "124X",
+            "124Y",
+            "125X",
+            "125Y",
+            "126X",
+            "126Y",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTACANChannelBaseType",
+        "uber": "enum"
+    },
+    "CodeTLOFSectionBaseType": {
+        "enum": [
+            "AIM",
+            "EDGE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTLOFSectionBaseType",
+        "uber": "enum"
+    },
+    "CodeTaxiwayBaseType": {
+        "enum": [
+            "AIR",
+            "GND",
+            "EXIT",
+            "FASTEXIT",
+            "STUB",
+            "TURN_AROUND",
+            "PARALLEL",
+            "BYPASS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTaxiwayBaseType",
+        "uber": "enum"
+    },
+    "CodeTaxiwayElementBaseType": {
+        "enum": [
+            "NORMAL",
+            "INTERSECTION",
+            "SHOULDER",
+            "HOLDING_BAY",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTaxiwayElementBaseType",
+        "uber": "enum"
+    },
+    "CodeTaxiwaySectionBaseType": {
+        "enum": [
+            "CL",
+            "EDGE",
+            "END",
+            "RWY_INT",
+            "TWY_INT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTaxiwaySectionBaseType",
+        "uber": "enum"
+    },
+    "CodeTelecomNetworkBaseType": {
+        "enum": [
+            "AFTN",
+            "AMHS",
+            "INTERNET",
+            "SITA",
+            "ACARS",
+            "ADNS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTelecomNetworkBaseType",
+        "uber": "enum"
+    },
+    "CodeTimeEventBaseType": {
+        "enum": [
+            "SR",
+            "SS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTimeEventBaseType",
+        "uber": "enum"
+    },
+    "CodeTimeEventCombinationBaseType": {
+        "enum": [
+            "EARLIEST",
+            "LATEST",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTimeEventCombinationBaseType",
+        "uber": "enum"
+    },
+    "CodeTimeReferenceBaseType": {
+        "enum": [
+            "UTC",
+            "UTC-12",
+            "UTC-11",
+            "UTC-10",
+            "UTC-9",
+            "UTC-8",
+            "UTC-7",
+            "UTC-6",
+            "UTC-5",
+            "UTC-4",
+            "UTC-3",
+            "UTC-2",
+            "UTC-1",
+            "UTC+1",
+            "UTC+2",
+            "UTC+3",
+            "UTC+4",
+            "UTC+5",
+            "UTC+6",
+            "UTC+7",
+            "UTC+8",
+            "UTC+9",
+            "UTC+10",
+            "UTC+11",
+            "UTC+12",
+            "UTC+13",
+            "UTC+14",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTimeReferenceBaseType",
+        "uber": "enum"
+    },
+    "CodeTrajectoryBaseType": {
+        "enum": [
+            "STRAIGHT",
+            "ARC",
+            "PT",
+            "BASETURN",
+            "HOLDING",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTrajectoryBaseType",
+        "uber": "enum"
+    },
+    "CodeTransponderBaseType": {
+        "enum": [
+            "MODE_1",
+            "MODE_2",
+            "MODE_3A",
+            "MODE_4",
+            "MODE_5",
+            "MODE_C",
+            "MODE_S",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeTransponderBaseType",
+        "uber": "enum"
+    },
+    "CodeUUIDBaseType": {
+        "base": "string",
+        "pattern": "([A-F]|[a-f]|\\d|\\-)*",
+        "type": "CodeUUIDBaseType",
+        "uber": "string"
+    },
+    "CodeUnitBaseType": {
+        "enum": [
+            "ACC",
+            "ADSU",
+            "ADVC",
+            "ALPS",
+            "AOF",
+            "APP",
+            "APP_ARR",
+            "APP_DEP",
+            "ARO",
+            "ATCC",
+            "ATFMU",
+            "ATMU",
+            "ATSU",
+            "BOF",
+            "BS",
+            "COM",
+            "FCST",
+            "FIC",
+            "GCA",
+            "MET",
+            "MWO",
+            "NOF",
+            "OAC",
+            "PAR",
+            "RAD",
+            "RAFC",
+            "RCC",
+            "RSC",
+            "SAR",
+            "SMC",
+            "SMR",
+            "SRA",
+            "SSR",
+            "TAR",
+            "TWR",
+            "UAC",
+            "UDF",
+            "UIC",
+            "VDF",
+            "WAFC",
+            "ARTCC",
+            "FSS",
+            "TRACON",
+            "MIL",
+            "MILOPS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeUnitBaseType",
+        "uber": "enum"
+    },
+    "CodeUnitDependencyBaseType": {
+        "enum": [
+            "OWNER",
+            "PROVIDER",
+            "ALTERNATE",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeUnitDependencyBaseType",
+        "uber": "enum"
+    },
+    "CodeUpperAlphaBaseType": {
+        "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeUpperAlphaBaseType",
+        "uber": "enum"
+    },
+    "CodeUsageLimitationBaseType": {
+        "enum": [
+            "PERMIT",
+            "CONDITIONAL",
+            "FORBID",
+            "RESERV",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeUsageLimitationBaseType",
+        "uber": "enum"
+    },
+    "CodeVASISBaseType": {
+        "enum": [
+            "PAPI",
+            "APAPI",
+            "HAPI",
+            "VASIS",
+            "AVASIS",
+            "TVASIS",
+            "ATVASIS",
+            "3B_VASIS",
+            "3B_AVASIS",
+            "3B_ATVASIS",
+            "PVASI",
+            "TRCV",
+            "PNI",
+            "ILU",
+            "OLS",
+            "LCVASI",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeVASISBaseType",
+        "uber": "enum"
+    },
+    "CodeVORBaseType": {
+        "enum": [
+            "VOR",
+            "DVOR",
+            "VOT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeVORBaseType",
+        "uber": "enum"
+    },
+    "CodeValueInterpretationBaseType": {
+        "enum": [
+            "ABOVE",
+            "AT_OR_ABOVE",
+            "AT_OR_BELOW",
+            "BELOW",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeValueInterpretationBaseType",
+        "uber": "enum"
+    },
+    "CodeVerticalDatumBaseType": {
+        "enum": [
+            "EGM_96",
+            "AHD",
+            "NAVD88",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeVerticalDatumBaseType",
+        "uber": "enum"
+    },
+    "CodeVerticalReferenceBaseType": {
+        "enum": [
+            "SFC",
+            "MSL",
+            "W84",
+            "STD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeVerticalReferenceBaseType",
+        "uber": "enum"
+    },
+    "CodeVerticalStructureBaseType": {
+        "enum": [
+            "AG_EQUIP",
+            "ANTENNA",
+            "ARCH",
+            "BRIDGE",
+            "BUILDING",
+            "CABLE_CAR",
+            "CATENARY",
+            "COMPRESSED_AIR_SYSTEM",
+            "CONTROL_MONITORING_SYSTEM",
+            "CONTROL_TOWER",
+            "COOLING_TOWER",
+            "CRANE",
+            "DAM",
+            "DOME",
+            "ELECTRICAL_EXIT_LIGHT",
+            "ELECTRICAL_SYSTEM",
+            "ELEVATOR",
+            "FENCE",
+            "FUEL_SYSTEM",
+            "GATE",
+            "GENERAL_UTILITY",
+            "GRAIN_ELEVATOR",
+            "HEAT_COOL_SYSTEM",
+            "INDUSTRIAL_SYSTEM",
+            "LIGHTHOUSE",
+            "MONUMENT",
+            "NATURAL_GAS_SYSTEM",
+            "NATURAL_HIGHPOINT",
+            "NAVAID",
+            "NUCLEAR_REACTOR",
+            "POLE",
+            "POWER_PLANT",
+            "REFINERY",
+            "RIG",
+            "SALTWATER_SYSTEM",
+            "SIGN",
+            "SPIRE",
+            "STACK",
+            "STADIUM",
+            "STORM_SYSTEM",
+            "TANK",
+            "TETHERED_BALLOON",
+            "TOWER",
+            "TRAMWAY",
+            "TRANSMISSION_LINE",
+            "TREE",
+            "URBAN",
+            "VEGETATION",
+            "WALL",
+            "WASTEWATER_SYSTEM",
+            "WATER_SYSTEM",
+            "WATER_TOWER",
+            "WINDMILL",
+            "WINDMILL_FARMS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeVerticalStructureBaseType",
+        "uber": "enum"
+    },
+    "CodeVerticalStructureMarkingBaseType": {
+        "enum": [
+            "MONOCOLOUR",
+            "CHEQUERED",
+            "HBANDS",
+            "VBANDS",
+            "FLAG",
+            "MARKERS",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeVerticalStructureMarkingBaseType",
+        "uber": "enum"
+    },
+    "CodeVerticalStructureMaterialBaseType": {
+        "enum": [
+            "ADOBE_BRICK",
+            "ALUMINIUM",
+            "BRICK",
+            "CONCRETE",
+            "FIBREGLASS",
+            "GLASS",
+            "IRON",
+            "MASONRY",
+            "METAL",
+            "MUD",
+            "PLANT",
+            "PRESTRESSED_CONCRETE",
+            "REINFORCED_CONCRETE",
+            "SOD",
+            "STEEL",
+            "STONE",
+            "TREATED_TIMBER",
+            "WOOD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeVerticalStructureMaterialBaseType",
+        "uber": "enum"
+    },
+    "CodeVisualDockingGuidanceBaseType": {
+        "enum": [
+            "AGNIS ",
+            "PAPA",
+            "SAFE_GATE",
+            "SAFE_DOC",
+            "APIS",
+            "A_VDGS",
+            "AGNIS_STOP ",
+            "AGNIS_PAPA",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeVisualDockingGuidanceBaseType",
+        "uber": "enum"
+    },
+    "CodeWakeTurbulenceBaseType": {
+        "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeWakeTurbulenceBaseType",
+        "uber": "enum"
+    },
+    "CodeWorkAreaBaseType": {
+        "enum": [
+            "CONSTRUCTION",
+            "SURFACEWORK",
+            "PARKED",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeWorkAreaBaseType",
+        "uber": "enum"
+    },
+    "CodeYesNoBaseType": {
+        "enum": [
+            "YES",
+            "NO",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "CodeYesNoBaseType",
+        "uber": "enum"
+    },
+    "DateBaseType": {
+        "base": "date",
+        "type": "DateBaseType",
+        "uber": "date"
+    },
+    "DateMonthDayBaseType": {
+        "base": "string",
+        "pattern": "(((0[1-9])|(1[0-9])|(2[0-9]))\\-((0[1-9])|10|11|12))|(30\\-(01|03|04|05|06|07|08|09|10|11|12))|(31\\-(01|03|05|07|08|10|12))|SDLST|EDLST",
+        "type": "DateMonthDayBaseType",
+        "uber": "string"
+    },
+    "DateTimeBaseType": {
+        "base": "dateTime",
+        "type": "DateTimeBaseType",
+        "uber": "dateTime"
+    },
+    "DateYearBaseType": {
+        "base": "string",
+        "pattern": "[1-9][0-9][0-9][0-9]",
+        "type": "DateYearBaseType",
+        "uber": "string"
+    },
+    "NoNumberBaseType": {
+        "base": "unsignedInt",
+        "type": "NoNumberBaseType",
+        "uber": "unsignedInt"
+    },
+    "NoSequenceBaseType": {
+        "base": "unsignedInt",
+        "type": "NoSequenceBaseType",
+        "uber": "unsignedInt"
+    },
+    "TextAddressBaseType": {
+        "base": "string",
+        "maxLength": "500",
+        "minLength": "1",
+        "type": "Character2Type",
+        "uber": "string"
+    },
+    "TextDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "16",
+        "minLength": "1",
+        "pattern": "([A-Z]|[0-9]|[, !\"&#$%'\\(\\)\\*\\+\\-\\./:;<=>\\?@\\[\\\\\\]\\^_\\|\\{\\}])*",
+        "type": "Character3Type",
+        "uber": "string"
+    },
+    "TextInstructionBaseType": {
+        "base": "string",
+        "maxLength": "10000",
+        "minLength": "1",
+        "type": "Character2Type",
+        "uber": "string"
+    },
+    "TextNameBaseType": {
+        "base": "string",
+        "maxLength": "60",
+        "minLength": "1",
+        "pattern": "([A-Z]|[0-9]|[, !\"&#$%'\\(\\)\\*\\+\\-\\./:;<=>\\?@\\[\\\\\\]\\^_\\|\\{\\}])*",
+        "type": "Character3Type",
+        "uber": "string"
+    },
+    "TextNoteBaseType": {
+        "base": "string",
+        "maxLength": "10000",
+        "minLength": "1",
+        "type": "Character2Type",
+        "uber": "string"
+    },
+    "TextPhoneBaseType": {
+        "base": "string",
+        "pattern": "(\\+)?[0-9\\s\\-\\(\\)]+",
+        "type": "TextPhoneBaseType",
+        "uber": "string",
+        "whiteSpace": "preserve"
+    },
+    "TextPropertyNameBaseType": {
+        "base": "token",
+        "maxLength": "60",
+        "minLength": "1",
+        "pattern": "[a-z][A-Za-z]*",
+        "type": "TextPropertyNameBaseType",
+        "uber": "token"
+    },
+    "TextRemarkBaseType": {
+        "base": "string",
+        "maxLength": "5000",
+        "minLength": "1",
+        "type": "Character2Type",
+        "uber": "string"
+    },
+    "TextSIDSTARDesignatorBaseType": {
+        "base": "string",
+        "maxLength": "7",
+        "minLength": "1",
+        "pattern": "([A-Z]|[0-9])+([ \\+\\-/]*([A-Z]|[0-9])+)*",
+        "type": "Character1Type",
+        "uber": "string"
+    },
+    "TimeBaseType": {
+        "base": "string",
+        "pattern": "(([0-1][0-9]|2[0-3]):[0-5][0-9])|(24:00)",
+        "type": "TimeBaseType",
+        "uber": "string"
+    },
+    "UomDepthType": {
+        "enum": [
+            "MM",
+            "CM",
+            "IN",
+            "FT",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomDepthType",
+        "uber": "enum"
+    },
+    "UomDistanceType": {
+        "enum": [
+            "NM",
+            "KM",
+            "M",
+            "FT",
+            "MI",
+            "CM",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomDistanceType",
+        "uber": "enum"
+    },
+    "UomDistanceVerticalType": {
+        "enum": [
+            "FT",
+            "M",
+            "FL",
+            "SM",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomDistanceVerticalType",
+        "uber": "enum"
+    },
+    "UomDurationType": {
+        "enum": [
+            "HR",
+            "MIN",
+            "SEC",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomDurationType",
+        "uber": "enum"
+    },
+    "UomFLType": {
+        "enum": [
+            "FL",
+            "SM",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomFLType",
+        "uber": "enum"
+    },
+    "UomFrequencyType": {
+        "enum": [
+            "HZ",
+            "KHZ",
+            "MHZ",
+            "GHZ",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomFrequencyType",
+        "uber": "enum"
+    },
+    "UomLightIntensityType": {
+        "enum": [
+            "CD",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomLightIntensityType",
+        "uber": "enum"
+    },
+    "UomPressureType": {
+        "enum": [
+            "PA",
+            "MPA",
+            "PSI",
+            "BAR",
+            "TORR",
+            "ATM",
+            "HPA",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomPressureType",
+        "uber": "enum"
+    },
+    "UomSpeedType": {
+        "enum": [
+            "KM_H",
+            "KT",
+            "MACH",
+            "M_MIN",
+            "FT_MIN",
+            "M_SEC",
+            "FT_SEC",
+            "MPH",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomSpeedType",
+        "uber": "enum"
+    },
+    "UomTemperatureType": {
+        "enum": [
+            "C",
+            "F",
+            "K",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomTemperatureType",
+        "uber": "enum"
+    },
+    "UomWeightType": {
+        "enum": [
+            "KG",
+            "T",
+            "LB",
+            "TON",
+            "OTHER(:(\\w|_){1,58})?"
+        ],
+        "type": "UomWeightType",
+        "uber": "enum"
+    },
+    "ValAlarmLimitBaseType": {
+        "base": "decimal",
+        "maxInclusive": "50.8",
+        "minInclusive": "0",
+        "type": "ValAlarmLimitBaseType",
+        "uber": "decimal"
+    },
+    "ValAngleBaseType": {
+        "base": "decimal",
+        "maxInclusive": "180",
+        "minInclusive": "-180",
+        "type": "ValAngleBaseType",
+        "uber": "decimal"
+    },
+    "ValBearingBaseType": {
+        "base": "decimal",
+        "maxInclusive": "360",
+        "minInclusive": "000",
+        "type": "ValBearingBaseType",
+        "uber": "decimal"
+    },
+    "ValChannelNumberBaseType": {
+        "base": "decimal",
+        "type": "ValChannelNumberBaseType",
+        "uber": "decimal"
+    },
+    "ValDepthBaseType": {
+        "base": "decimal",
+        "type": "ValDepthBaseType",
+        "uber": "decimal"
+    },
+    "ValDistanceBaseType": {
+        "base": "decimal",
+        "minInclusive": "0",
+        "type": "ValDistanceBaseType",
+        "uber": "decimal"
+    },
+    "ValDistanceSignedBaseType": {
+        "base": "decimal",
+        "type": "ValDistanceSignedBaseType",
+        "uber": "decimal"
+    },
+    "ValDistanceVerticalBaseType": {
+        "base": "string",
+        "pattern": "((\\+|\\-){0,1}[0-9]{1,8}(\\.[0-9]{1,4}){0,1})|UNL|GND|FLOOR|CEILING",
+        "type": "ValDistanceVerticalBaseType",
+        "uber": "string"
+    },
+    "ValDurationBaseType": {
+        "base": "decimal",
+        "type": "ValDurationBaseType",
+        "uber": "decimal"
+    },
+    "ValFLBaseType": {
+        "base": "unsignedInt",
+        "maxInclusive": "999",
+        "type": "ValFLBaseType",
+        "uber": "unsignedInt"
+    },
+    "ValFrequencyBaseType": {
+        "base": "decimal",
+        "minExclusive": "0",
+        "type": "ValFrequencyBaseType",
+        "uber": "decimal"
+    },
+    "ValFrictionBaseType": {
+        "base": "decimal",
+        "pattern": "0\\.[0-9]{2}",
+        "type": "ValFrictionBaseType",
+        "uber": "decimal"
+    },
+    "ValHexBaseType": {
+        "base": "string",
+        "pattern": "([A-F]|[0-9]){8}",
+        "type": "ValHexBaseType",
+        "uber": "string"
+    },
+    "ValLCNBaseType": {
+        "base": "decimal",
+        "type": "ValLCNBaseType",
+        "uber": "decimal"
+    },
+    "ValLightIntensityBaseType": {
+        "base": "decimal",
+        "type": "ValLightIntensityBaseType",
+        "uber": "decimal"
+    },
+    "ValMagneticVariationBaseType": {
+        "base": "decimal",
+        "maxInclusive": "180",
+        "minInclusive": "-180",
+        "type": "ValMagneticVariationBaseType",
+        "uber": "decimal"
+    },
+    "ValMagneticVariationChangeBaseType": {
+        "base": "decimal",
+        "maxInclusive": "180",
+        "minInclusive": "-180",
+        "type": "ValMagneticVariationChangeBaseType",
+        "uber": "decimal"
+    },
+    "ValPCNBaseType": {
+        "base": "decimal",
+        "pattern": "[0-9]{1,3}(\\.[0-9]){0,1}",
+        "type": "ValPCNBaseType",
+        "uber": "decimal"
+    },
+    "ValPercentBaseType": {
+        "base": "decimal",
+        "maxInclusive": "100",
+        "minInclusive": "0",
+        "type": "ValPercentBaseType",
+        "uber": "decimal"
+    },
+    "ValPressureBaseType": {
+        "base": "decimal",
+        "type": "ValPressureBaseType",
+        "uber": "decimal"
+    },
+    "ValSlopeBaseType": {
+        "base": "decimal",
+        "maxInclusive": "100",
+        "minInclusive": "-100",
+        "type": "ValSlopeBaseType",
+        "uber": "decimal"
+    },
+    "ValSpeedBaseType": {
+        "base": "decimal",
+        "minInclusive": "0",
+        "type": "ValSpeedBaseType",
+        "uber": "decimal"
+    },
+    "ValTemperatureBaseType": {
+        "base": "decimal",
+        "type": "ValTemperatureBaseType",
+        "uber": "decimal"
+    },
+    "ValWeightBaseType": {
+        "base": "decimal",
+        "minInclusive": "0",
+        "type": "ValWeightBaseType",
+        "uber": "decimal"
+    }
+}

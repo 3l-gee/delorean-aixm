@@ -1,1 +1,0 @@
-python .\pre-jaxb\cli.py --schema pre-jaxb\schema.yaml --config pre-jaxb\config_a5_1_1.yaml --content pre-jaxb\content_a5_1_1.yaml

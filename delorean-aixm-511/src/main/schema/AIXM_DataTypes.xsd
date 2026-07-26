@@ -41,13 +41,6 @@
 	attributeFormDefault="unqualified" 
 	version="5.1.1">
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="./gml/3.2.1/gml.xsd"/>
-	<!-- delorean aixm hyper jaxb codegen limitation -->
-	<attributeGroup name="AssociationAttributeGroup">
-		<attribute name="nilReason" type="gml:NilReasonType"/>
-		<attribute name="type" type="string" fixed="simple"/>
-		<attribute name="href" type="string"/>
-		<attribute name="title" type="string"/>
-	</attributeGroup >
 	<simpleType name="CodeBuoyDesignatorBaseType">
 		<restriction base="aixm:AlphanumericType"/>
 	</simpleType>

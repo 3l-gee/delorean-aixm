@@ -3,7 +3,7 @@ from lxml import etree
 import re
 import uuid
 import copy
-from lib.generic_helper_function import GenericHeleperFunction
+from viewgen.lib.helper_function import HeleperFunction
 
 class QLRGenerator:
         
@@ -12,18 +12,18 @@ class QLRGenerator:
         self.input_path = input_path
 
         # Template
-        self.geom_map_layer_template = GenericHeleperFunction.load_xml(self.input_path, "xml/geom-maplayer.xml")
-        self.table_map_layer_template = GenericHeleperFunction.load_xml(self.input_path, "xml/table-maplayer.xml")
-        self.layer_tree_layer_template = GenericHeleperFunction.load_xml(self.input_path, "xml/layer-tree-layer.xml")
+        self.geom_map_layer_template = HeleperFunction.load_xml(self.input_path, "xml/geom-maplayer.xml")
+        self.table_map_layer_template = HeleperFunction.load_xml(self.input_path, "xml/table-maplayer.xml")
+        self.layer_tree_layer_template = HeleperFunction.load_xml(self.input_path, "xml/layer-tree-layer.xml")
 
         # Fragment
-        self.label_style_template = GenericHeleperFunction.load_xml(self.input_path, "xml/labelStyle.xml")
-        self.attribute_editor_container_template = GenericHeleperFunction.load_xml(self.input_path, "xml/attributeEditorContainer.xml")
-        self.attribut_editor_field_template = GenericHeleperFunction.load_xml(self.input_path, "xml/attributeEditorField.xml")
-        self.attribut_editor_html_element_template = GenericHeleperFunction.load_xml(self.input_path, "xml/attributeEditorHtmlElement.xml")
-        self.attribute_editor_action_template = GenericHeleperFunction.load_xml(self.input_path, "xml/attributeEditorAction.xml")
-        self.alias_template = GenericHeleperFunction.load_xml(self.input_path, "xml/alias.xml")
-        self.temporal_template = GenericHeleperFunction.load_xml(self.input_path, "xml/temporal.xml")
+        self.label_style_template = HeleperFunction.load_xml(self.input_path, "xml/labelStyle.xml")
+        self.attribute_editor_container_template = HeleperFunction.load_xml(self.input_path, "xml/attributeEditorContainer.xml")
+        self.attribut_editor_field_template = HeleperFunction.load_xml(self.input_path, "xml/attributeEditorField.xml")
+        self.attribut_editor_html_element_template = HeleperFunction.load_xml(self.input_path, "xml/attributeEditorHtmlElement.xml")
+        self.attribute_editor_action_template = HeleperFunction.load_xml(self.input_path, "xml/attributeEditorAction.xml")
+        self.alias_template = HeleperFunction.load_xml(self.input_path, "xml/alias.xml")
+        self.temporal_template = HeleperFunction.load_xml(self.input_path, "xml/temporal.xml")
 
     def get_qlr_layer_names(self, layer) : 
         output = []
@@ -158,7 +158,7 @@ class QLRGenerator:
     
 
     def _generate_actions(self, layer, attribute_actions, aixm_type_to_layer):
-        generic_script = GenericHeleperFunction.load_txt(self.input_path, "python/open_table.py")
+        generic_script = HeleperFunction.load_txt(self.input_path, "python/open_table.py")
         actionsetting = etree.Element("actionsetting")
         actionsetting.set("action", generic_script)
         actionsetting.set("notificationMessage", "")
@@ -184,7 +184,7 @@ class QLRGenerator:
                     action = field["action"]
                     name = action.get("name")
 
-                    script = GenericHeleperFunction.load_txt(self.input_path, action["path"])
+                    script = HeleperFunction.load_txt(self.input_path, action["path"])
                     script = re.sub(r'XXXX', f"{field.get('field')}", script)
 
                     target_parameters = "[\n"
@@ -279,7 +279,7 @@ class QLRGenerator:
             html_node.append(copy_label_style)
 
             # Load raw HTML file as string
-            raw_html = GenericHeleperFunction.load_txt(self.input_path, field.get("html"))
+            raw_html = HeleperFunction.load_txt(self.input_path, field.get("html"))
 
             raw_html = re.sub(r'to_json\(\s*annotation\s*\)', f"to_json({field.get('field')})", raw_html)
             raw_html = re.sub (r'XXXX', f"{field.get('field')}", raw_html)

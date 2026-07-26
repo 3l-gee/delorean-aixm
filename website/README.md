@@ -15,7 +15,7 @@ This is the website for Delorean - The website documents the project, showcases 
 1. Clone the repo
 ```bash
 git clone https://github.com/3l-gee/delorean.git
-cd delorean/website
+cd website
 ```
 
 2. Install dependencies
