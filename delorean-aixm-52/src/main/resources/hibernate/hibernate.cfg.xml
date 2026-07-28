@@ -62,12 +62,15 @@
         <mapping class="com.delorean.aixm.aixm52.schema.AIXMPointPropertyType"/>
         <mapping class="com.delorean.aixm.aixm52.schema.AIXMElevatedPointPropertyType"/>
         <mapping class="com.delorean.aixm.aixm52.schema.ElevatedPointTypeExtension"/>
+        <mapping class="com.delorean.aixm.aixm52.schema.PointTypeExtension"/>
         <mapping class="com.delorean.aixm.aixm52.schema.AIXMCurvePropertyType"/>
         <mapping class="com.delorean.aixm.aixm52.schema.AIXMElevatedCurvePropertyType"/>
         <mapping class="com.delorean.aixm.aixm52.schema.ElevatedCurveTypeExtension"/>
+        <mapping class="com.delorean.aixm.aixm52.schema.CurveTypeExtension"/>
         <mapping class="com.delorean.aixm.aixm52.schema.AIXMSurfacePropertyType"/>
         <mapping class="com.delorean.aixm.aixm52.schema.AIXMElevatedSurfacePropertyType"/>
         <mapping class="com.delorean.aixm.aixm52.schema.ElevatedSurfaceTypeExtension"/>
+        <mapping class="com.delorean.aixm.aixm52.schema.SurfaceTypeExtension"/>
         <mapping class="com.delorean.aixm.aixm52.schema.ElevatedPointType"/>
 
         <mapping class="com.delorean.aixm.aixm52.schema.AbstractAirportGroundServiceType"/>
