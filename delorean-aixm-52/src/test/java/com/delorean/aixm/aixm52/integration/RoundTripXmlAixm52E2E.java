@@ -32,7 +32,6 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container
     - extract data from DB
     - marshal XML
 */
-@Disabled("Until a AIXM 5.2 dataset is published")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RoundTripXmlAixm52E2E {
@@ -83,7 +82,7 @@ public class RoundTripXmlAixm52E2E {
         ContextWarehouse.getInstance().getActiveInfo();
 
         // context is correctly set
-        assertThat(ContextWarehouse.getInstance().getActive().getDescription()).isEqualTo("RoundTripXmlAixm51E2E");
+        assertThat(ContextWarehouse.getInstance().getActive().getDescription()).isEqualTo("RoundTripXmlAixm52E2E");
 
         // context has a non-null hash
         assertThat(ContextWarehouse.getActiveSalt()).isNotNull();
@@ -124,11 +123,25 @@ public class RoundTripXmlAixm52E2E {
     void loadXml(){
 
         // given 
-        String xmlPath = "src/test/resources/roundtrip/donlon.xml";
+        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-52.xml";
 
         // do
         container.unmarshal(xmlPath);
 
+    }
+
+    @Test
+    @Order(21)
+    void saxInspect(){
+        // do
+        container.saxInspection();
+    }
+
+    @Test
+    @Order(22)
+    void inspectionSummary(){
+        // do
+        container.inspectionSummary();
     }
 
     @Test
@@ -143,7 +156,7 @@ public class RoundTripXmlAixm52E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src/test/java/com/aixm/delorean/aixm52/out/donlon-marshalled.xml.log";
+        String xmlPath = "src/test/java/com/delorean/aixm/aixm52/out/donlon-marshalled.xml.log";
 
         // do
         container.marshal(xmlPath);
@@ -218,7 +231,7 @@ public class RoundTripXmlAixm52E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src/test/java/com/aixm/delorean/aixm52/out/donlon-predicated.xml.log";
+        String xmlPath = "src/test/java/com/delorean/aixm/aixm52/out/donlon-predicated.xml.log";
 
         // do
         container.marshal(xmlPath);
@@ -252,7 +265,7 @@ public class RoundTripXmlAixm52E2E {
         }
 
         Path outDir = Paths.get(
-            "src/test/java/com/aixm/delorean/aixm52/out"
+            "src/test/java/com/delorean/aixm/aixm52/out"
         );
 
         Path schemaFile = outDir.resolve("aixm-52-schema.sql");
@@ -299,7 +312,7 @@ public class RoundTripXmlAixm52E2E {
         }
 
         Path outDir = Paths.get(
-            "src/test/java/com/aixm/delorean/aixm52/out"
+            "src/test/java/com/delorean/aixm/aixm52/out"
         );
 
         Path dataFile = outDir.resolve("roundtrip-data.sql");
@@ -320,7 +333,7 @@ public class RoundTripXmlAixm52E2E {
 
     @AfterAll
     void exportPgStatStatements() {
-        Path outDir = Paths.get("src/test/java/com/aixm/delorean/aixm52/out");
+        Path outDir = Paths.get("src/test/java/com/delorean/aixm/aixm52/out");
         Path pgStatFile = outDir.resolve("pg_stat_statements.log");
         String query = "SELECT query, calls, total_exec_time FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 100;";
 

@@ -21,7 +21,6 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container
     - extract data from DB
     - marshal XML
 */
-@Disabled("Until a AIXM 5.2 dataset is published")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RoundTripZipAixm52E2E {
@@ -119,7 +118,8 @@ public class RoundTripZipAixm52E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-marshalled.xml.log";
+        String xmlPath = "src/test/java/com/delorean/aixm/aixm52/out/donlon-marshalled.xml.log";
+
 
         // do
         container.marshal(xmlPath);
@@ -175,7 +175,7 @@ public class RoundTripZipAixm52E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-extracted.xml.log";
+        String xmlPath = "src/test/java/com/delorean/aixm/aixm52/out/donlon-extracted.xml.log";
 
         // do
         container.marshal(xmlPath);
