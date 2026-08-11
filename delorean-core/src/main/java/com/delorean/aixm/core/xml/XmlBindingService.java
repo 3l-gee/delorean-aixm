@@ -2,6 +2,7 @@ package com.delorean.aixm.core.xml;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
@@ -210,8 +211,9 @@ public class XmlBindingService<ROOT, FEATURE> {
         }
     }
 
+
     @SuppressWarnings("unchecked")
-    public ROOT unmarshal(InputStream xmlStream) {
+    public ROOT unmarshal(InputStream xmlStream, String description) {
         log.atDebug().setMessage("Unmarshalling XML stream into ROOT class: {}").addArgument(() -> this.rootClass.getName()).log();
         // Unmarshal the XML content from the InputStream
         Object unmarshalledObject;
@@ -242,7 +244,21 @@ public class XmlBindingService<ROOT, FEATURE> {
         JAXBElement<ROOT> aixmElement;
         if (this.rootClass.isInstance(rootElement.getValue())) {
             aixmElement = (JAXBElement<ROOT>) rootElement;
-            return (ROOT) aixmElement.getValue();
+            ROOT result = (ROOT) aixmElement.getValue();
+
+            // Dynamically set the description/file name using reflection if provided
+            if (description != null && result != null) {
+                try {
+                    Method method = result.getClass().getMethod("setDeloreanDescription", String.class);
+                    method.invoke(result, description);
+                } catch (NoSuchMethodException e) {
+                    throw new RuntimeException("Method setDeloreanDescription(String) not found in class: " + result.getClass().getName(), e);
+                } catch (Exception e) {
+                    throw new RuntimeException("Error invoking setDeloreanDescription(String) on class: " + result.getClass().getName(), e);
+                }
+            }
+
+            return result;
 
         } else {
             throw new RuntimeException("Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());

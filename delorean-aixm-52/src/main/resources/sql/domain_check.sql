@@ -2,7 +2,8 @@
 -- Phase 2a : Domain registered with checks
 -- ========================================================
 
-CREATE DOMAIN public.nilreason AS TEXT CHECK (VALUE ~ '^(inapplicable|missing|template|unknown|withheld|other:.+)$');
+DROP DOMAIN IF EXISTS public.nilreason;
+        CREATE DOMAIN public.nilreason AS TEXT CHECK (VALUE ~ '^(inapplicable|missing|template|unknown|withheld|other:.+)$');
 CREATE DOMAIN public.codeaircraftfieldlengthbase AS TEXT CHECK ((VALUE IN ('1', '2', '3', '4') OR VALUE ~ '^OTHER(:(\w|_){1,58})?$'));
 CREATE DOMAIN public.codeairportsignbase AS TEXT CHECK ((VALUE IN ('APRON', 'CARGO', 'CAT_HOLD', 'CIVIL', 'FBO', 'FUEL', 'INFO_NAVAID', 'INFO_VEH', 'INT_TKOF', 'INTL', 'MIL', 'MIL_HOLD', 'NO_ENTRY', 'OUTBOUND_DEST', 'PAX', 'RWY_APCH_DEP_HOLD', 'RWY_CRITICAL', 'RWY_DIST_REMAIN', 'RWY_EXIT', 'RWY_INT_HOLD', 'RWY_LOCATION', 'RWY_VACATED', 'TERM', 'TWY_DIRECTION', 'TWY_END', 'TWY_LOCATION', 'VEH_STOP', 'VEH_YIELD') OR VALUE ~ '^OTHER(:(\w|_){1,58})?$'));
 CREATE DOMAIN public.codeapproachprecisioncategorybase AS TEXT CHECK ((VALUE IN ('CAT_I', 'CAT_II', 'CAT_II_AUTOPILOT', 'CAT_III', 'GP_INOP', 'NON_PRECISION') OR VALUE ~ '^OTHER(:(\w|_){1,58})?$'));

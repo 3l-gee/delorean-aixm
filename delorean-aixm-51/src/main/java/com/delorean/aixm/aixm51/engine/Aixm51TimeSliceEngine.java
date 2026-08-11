@@ -15,6 +15,27 @@ import lombok.extern.slf4j.Slf4j;
 public class Aixm51TimeSliceEngine {
 
     /**
+     * Propagates a lifecycle status string to an AbstractAIXMFeatureType and all 
+     * extracted AbstractAIXMTimeSliceType instances using existing reflection helpers.
+     * 
+     * @param feature The target AIXM feature instance.
+     * @param status The lifecycle status string to set.
+     */
+    public static void applyTimeSliceLifecycleStatus(AbstractAIXMFeatureType feature, String status) {
+        if (feature == null) {
+            return;
+        }
+
+        List<AbstractAIXMTimeSliceType> timeSlices = invokeTimeSlice(feature);
+        for (AbstractAIXMTimeSliceType timeSlice : timeSlices) {
+            if (timeSlice != null) {
+                log.atDebug().log("Setting lifecycleStatus='{}' for TimeSlice seq: {}", status, timeSlice.getSequenceNumber());
+                timeSlice.setLifecycleStatus(status);
+            }
+        }
+    }
+
+    /**
      * Counts the number of TimeSlices associated with a given AIXM feature. This method uses reflection to find the appropriate property and getter method based on the feature's class name, and counts the number of non-null AbstractAIXMTimeSliceType instances associated with the feature.
      * @param feature A Concrete AIXM feature instance for which to count the associated TimeSlices.
      * @return The number of TimeSlices associated with the feature.

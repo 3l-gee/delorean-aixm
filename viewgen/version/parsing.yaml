@@ -15,25 +15,25 @@ extends:
 
 column:
   method: |
-    @Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\)
+        @Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\)
   ignore: []
 
 embedded_three:
   method: |
-    @AttributeOverrides\({\n*.*@AttributeOverride\(name = \"[A-Z|a-z|0-9|_]+", column = @Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@AttributeOverride\(name = \"[A-Z|a-z|0-9|_]+", column = @Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@AttributeOverride\(name = \"[A-Z|a-z|0-9|_]+", column = @Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\)}
+    @AttributeOverrides\({\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*public ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)
   ignore: []
 
 embedded_two:
   method: |
-    @AttributeOverrides\({\n.*@AttributeOverride\(name = \"[A-Z|a-z|0-9|_]+", column = @Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@AttributeOverride\(name = \"[A-Z|a-z|0-9|_]+", column = @Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\)}
+   @AttributeOverrides\({\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*@Column\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*public ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)
   ignore: []
 
 one_to_one:
   method: |
-    @JoinColumn\(name = \"([A-Z|a-z|0-9|_]+)\", referencedColumnName = \"([A-Z|a-z|0-9|_]+).*\n.*protected ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)
+    @JoinTable\(name = \"([A-Z|a-z|0-9|_]+)\", schema = \"([A-Z|a-z|0-9|_]+)\".*\n.*\(name = \"([A-Z|a-z|0-9|_]+).*\n.*\n.*\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*public ([A-Z|a-z|0-9|_]+) ([A-Z|a-z|0-9|_]+)
   ignore: []
 
 one_to_many:
   method: |
-    @JoinTable\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\(name = \"([A-Z|a-z|0-9|_]+).*\n.*\n.*\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*protected List<([A-Z|a-z|0-9|_]+)> ([A-Z|a-z|0-9|_]+)
+    @JoinTable\(name = \"([A-Z|a-z|0-9|_]+)\", schema = \"([A-Z|a-z|0-9|_]+)\".*\n.*\(name = \"([A-Z|a-z|0-9|_]+).*\n.*\n.*\(name = \"([A-Z|a-z|0-9|_]+)\".*\n.*\n.*public List<([A-Z|a-z|0-9|_]+)> ([A-Z|a-z|0-9|_]+)
   ignore: []

@@ -1,4 +1,4 @@
-from lib.layer import Layer, HeleperFunction
+from lib.layer import View, HeleperFunction
 
 
 # SELECT distinct on  (aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number)
@@ -33,7 +33,7 @@ from lib.layer import Layer, HeleperFunction
 # -- aixm.aixm_timeslice.lifecycle_status = 'APPROVED' 
 # ORDER BY aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
 
-class Feature(Layer) :
+class Feature(View) :
 
     def __init__(self, type, schema):
         self.layer_type = "feature"
@@ -74,7 +74,7 @@ class Feature(Layer) :
             "aixm.aixm_message.hjid as message_id",
             "aixm.aixm_message.id as message_tid",
             "aixm.aixm_message.identifier as message_tidentifier",
-            "aixm.aixm_feature.hjid as feature_id",
+            "aixm.aixm_feature.hjid",
             "aixm.aixm_feature.id as feature_tid",
             "aixm.aixm_feature.identifier",
             "aixm.aixm_timeslice.id as timeslice_id",
@@ -121,8 +121,8 @@ class Feature(Layer) :
     
     def generate_group(self, name, schema) :
         res = [f"{schema}.{name}.id"]
-        res.append(f"{schema}.{name}_ts.id")
-        res.append(f"{schema}.{name}_tsp.id")
+        res.append(f"{schema}.{name}_t.id")
+        res.append(f"{schema}.{name}_tp.id")
         res.append(f"aixm.aixm_feature.identifier.identifier")
         res.append(f"aixm.aixm_timeslice.interpretation")
         res.append(f"aixm.aixm_timeslice.sequence_number")
@@ -134,30 +134,19 @@ class Feature(Layer) :
         return res 
 
     def add_attributes_two(self, name, role, value, nil) :
-        self.attributes["attributes"]["feature"].append(f"coalesce(cast({self.schema}.{self.name}_ts.{value} as varchar), '(' || {self.schema}.{self.name}_ts.{nil} || ')')::text as {role}")
-        self.add_group(str(self.name + "_ts"), value, self.schema)
-        self.add_group(str(self.name + "_ts"), nil, self.schema)
-
-        self.publish["form"]["attributes"].append(
-            {
-                "type" : f"{type}",
-                "field": f"{role}",
-                "name" : f"{role}",
-            })
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_t.{value}")
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_t.{nil}") 
+        self.add_group(str(self.name + "_t"), value, self.schema)
+        self.add_group(str(self.name + "_t"), nil, self.schema)
         
     def add_attributes_three(self, type, role, value, uom, nil) :
         name = HeleperFunction.remove_suffix(type)
-        self.attributes["attributes"]["feature"].append(f"coalesce(cast({self.schema}.{self.name}_ts.{value} as varchar) || ' ' || {self.schema}.{self.name}_ts.{uom}, '(' || {self.schema}.{self.name}_ts.{nil} || ')')::text as {role}")
-        self.add_group(str(self.name + "_ts"), value, self.schema)
-        self.add_group(str(self.name + "_ts"), uom, self.schema)
-        self.add_group(str(self.name + "_ts"), nil, self.schema)
-
-        self.publish["form"]["attributes"].append(
-            {
-                "type" : f"{type}",
-                "field": f"{role}",
-                "name" : f"{role}",
-            })
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_t.{value}")
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_t.{uom}")
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_t.{nil}") 
+        self.add_group(str(self.name + "_t"), value, self.schema)
+        self.add_group(str(self.name + "_t"), uom, self.schema)
+        self.add_group(str(self.name + "_t"), nil, self.schema)
 
     def add_association_feature_one(self, schema, type, role, col, ref_types = None):
         if ref_types is None:
@@ -181,47 +170,7 @@ class Feature(Layer) :
         self.add_group(hash, "nilreason[1]")
         self.add_group(hash, "href")
 
-        self.attributes["left"].append(f"left join {schema}.{name}_pt {hash} on {self.schema}.{self.name}_ts.{col} = {hash}.id")
-
-        if not  self.publish["form"].get(role) :
-            self.publish["form"][role] = []
-
-        self.publish["form"][role].extend([
-            {
-                "type" : f"{type}",
-                "field": f"{role}",
-                "name" : f"{role}",
-            },
-            {
-                "type" : f"{type}",
-                "field": f"{role}_href",
-                "name" : f"Ref",
-            },
-            {
-                "field" : f"{role}_href",
-                "name" : f"{role}",
-                "action" : {
-                    "name" : f"identify {role}",
-                    "id" : None,
-                    "method" : "uuid",
-                    "path" : "python/one_uuid_identify.py",
-                    "source" : f"{role}",
-                    "target" : ref_types
-                }
-            },
-            {
-                "field" : f"{role}_href",
-                "name" : f"{role}",
-                "action" : {
-                    "name" : f"select {role}",
-                    "id" : None,
-                    "method" : "uuid",
-                    "path" : "python/one_uuid_select.py",
-                    "source" : f"{role}",
-                    "target" : ref_types
-                }
-            }
-        ])
+        self.attributes["left"].append(f"left join {schema}.{name}_pt {hash} on {self.schema}.{self.name}_t.{col} = {hash}.id")
     
     def add_association_object_one(self, schema, type, role, col):
         name = HeleperFunction.remove_suffix(type)
@@ -239,42 +188,7 @@ class Feature(Layer) :
 
         self.add_group(hash, "id")
 
-        self.attributes["left"].append(f"left join {schema}.{name}_view {hash} on {self.schema}.{self.name}_ts.{col} = {hash}.id")
-
-        if not  self.publish["form"].get(role) :
-            self.publish["form"][role] = []
-
-        self.publish["form"][role].extend([
-            {
-                "type" : f"{type}",
-                "field": f"{role}",
-                "name" : f"{role}",
-            },            
-            {
-                "field" : f"{role}",
-                "name" : f"{role}",
-                "action" : {
-                    "name" : f"identify {role}",
-                    "id" : None,
-                    "method" : "id",
-                    "path" : "python/one_id_identify.py",
-                    "source" : f"{role}",
-                    "target" : [type]
-                }
-            },
-            {
-                "field" : f"{role}",
-                "name" : f"{role}",
-                "action" : {
-                    "name" : f"select {role}",
-                    "id" : None,
-                    "method" : "id",
-                    "path" : "python/one_id_select.py",
-                    "source" : f"{role}",
-                    "target" : [type]
-                }
-            }
-        ])
+        self.attributes["left"].append(f"left join {schema}.{name}_view {hash} on {self.schema}.{self.name}_t.{col} = {hash}.id")
 
     def add_association_feature_many(self, schema, type, role, ref_types = None):
         if ref_types is None:
@@ -300,47 +214,12 @@ class Feature(Layer) :
             f"  )) as {role}"
             f"  from master_join {hash_one}",
             f"  join {schema}.{name}_pt {hash_two} on {hash_one}.target_id = {hash_two}.id",
-            f"  where {hash_one}.source_id = {self.schema}.{self.name}_ts.id",
+            f"  where {hash_one}.source_id = {self.schema}.{self.name}_t.id",
             f") as {hash_three} on TRUE"
         ])
 
         self.attributes["attributes"][type].extend([
             f"{hash_three}.{role}::jsonb as {role}"
-        ])
-
-        if not  self.publish["form"].get(role) :
-            self.publish["form"][role] = []
-
-        self.publish["form"][role].extend([
-            {
-                "type" : f"{type}",
-                "field": f"{role}",
-                "name" : f"{role}",
-            },
-            {
-                "field" : f"{role}",
-                "name" : f"{role}",
-                "action" : {
-                    "name" : f"identify {role}",
-                    "id" : None,
-                    "method" : "uuid",
-                    "path" : "python/many_uuid_identify.py",
-                    "source" : f"{role}",
-                    "target" : ref_types
-                }
-            },
-            {
-                "field" : f"{role}",
-                "name" : f"{role}",
-                "action" : {
-                    "name" : f"select {role}",
-                    "id" : None,
-                    "method" : "uuid",
-                    "path" : "python/many_uuid_select.py",
-                    "source" : f"{role}",
-                    "target" : ref_types
-                }
-            }
         ])
 
     def add_association_object_many(self, schema, type, role):
@@ -359,47 +238,12 @@ class Feature(Layer) :
             f"  select jsonb_agg(DISTINCT {hash_two}.id) as {role}",
             f"  from master_join {hash_one}",
             f"  join {schema}.{name}_view {hash_two} on {hash_one}.target_id = {hash_two}.id",
-            f"  where {hash_one}.source_id = {self.schema}.{self.name}_ts.id",
+            f"  where {hash_one}.source_id = {self.schema}.{self.name}_t.id",
             f") as {hash_three} on TRUE"
         ])
 
         self.attributes["attributes"][type].extend([
             f"{hash_three}.{role}::jsonb as {role}",
-        ])
-
-        if not  self.publish["form"].get(role) :
-            self.publish["form"][role] = []
-
-        self.publish["form"][role].extend([
-            {
-                "type" : f"{type}",
-                "field": f"{role}",
-                "name" : f"{role}",
-            },
-            {
-                "field" : f"{role}",
-                "name" : f"{role}",
-                "action" : {
-                    "name" : f"identify {role}",
-                    "id" : None,
-                    "method" : "id",
-                    "path" : "python/many_id_identify.py",
-                    "source" : f"{role}",
-                    "target" : [type]
-                }
-            },
-            {
-                "field" : f"{role}",
-                "name" : f"{role}",
-                "action" : {
-                    "name" : f"select {role}",
-                    "id" : None,
-                    "method" : "id",
-                    "path" : "python/many_id_select.py",
-                    "source" : f"{role}",
-                    "target" : [type]
-                }
-            }
         ])
 
     def add_association_snowflake_one(self, schema, type, publish_param, attribute, col, role):
@@ -415,15 +259,7 @@ class Feature(Layer) :
 
         self.attributes["attributes"][type].extend(formatted_attribute)
 
-        self.attributes["left"].append(f"left join {schema}.{name}_view {hash} on {self.schema}.{self.name}_ts.{col} = {hash}.id")
-
-        self.publish_handler(schema, name, role, hash, publish_param)
-
-        if not self.publish["form"].get(role) :
-            self.publish["form"][role] = []
-            
-        if publish_param.get("form") :
-            self.publish["form"][role].extend(HeleperFunction.format_structure(publish_param.get("form"), role=role))
+        self.attributes["left"].append(f"left join {schema}.{name}_view {hash} on {self.schema}.{self.name}_t.{col} = {hash}.id")
 
     def add_association_snowflake_many(self, schema, type, publish_param, argument, attribute, col, role):
         name = HeleperFunction.remove_suffix(type)
@@ -451,17 +287,9 @@ class Feature(Layer) :
         self.attributes["lateral"].extend([
             f"  from master_join {hash_one}",
             f"  join {schema}.{name}_view {hash_two} on {hash_one}.target_id = {hash_two}.id",
-            f"  where {hash_one}.source_id = {self.schema}.{self.name}_ts.id",
+            f"  where {hash_one}.source_id = {self.schema}.{self.name}_t.id",
             f") as {hash_three} on TRUE"
         ])
 
         if publish_param.get("geometry") :
             self.attributes["index"].append(f"create index on {self.schema}.{self.name}_view using gist ({hash_three}.geom)")
-
-        self.publish_handler(name, schema, role, hash_three, publish_param)
-
-        if not self.publish["form"].get(role) :
-            self.publish["form"][role] = []
-            
-        if publish_param.get("form") :
-            self.publish["form"][role].extend(HeleperFunction.format_structure(publish_param.get("form"), role=role))

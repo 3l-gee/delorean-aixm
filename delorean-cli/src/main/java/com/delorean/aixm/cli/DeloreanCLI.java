@@ -188,7 +188,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                     return false;
                 }
 
-                container.unmarshal(opts.file);
+                container.unmarshal(opts.file, null);
 
                 if ("persist".equals(baseActionName)) {
                     container.persist();
@@ -209,11 +209,11 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 container.marshal(opts.file);
 
                 if ("extract".equals(baseActionName)) {
-                    container.extract(opts.id);
+                    container.extract("hjid", opts.id);
                 }
 
                 if ("predicate".equals(baseActionName)) {
-                    container.predicate(opts.time);
+                    container.predicate(opts.time, "hjid", opts.id);
                 }
             }
 
@@ -277,6 +277,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                     case "extract":
                     case "predicate":
                     case "integrate":
+                    case "setStatus":
                     case "filter":
                         String containerName = actionNode.path("target").asText();
                         Container<?, ?, ?, ?, ?, ?> container = processor.getContainerByName(containerName);
@@ -362,10 +363,26 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             case "shutdown":
                 container.shutdown();
                 break;
+                
+            case "setstatus":
+                if (args != null && args.has("status")) {
+                    container.setStatus(args.get("status").asText());
+                } else {
+                    throw new IllegalArgumentException("Action 'setStatus' failed: Missing required argument 'status'.");
+                }
+                break;
 
             case "unmarshal":
                 if (args != null && args.has("path")) {
-                    container.unmarshal(args.get("path").asText());
+                    JsonNode descritpionNode = args.has("descritpion") ? args.get("descritpion") : null;
+
+                    if (descritpionNode != null) {
+                        String description = descritpionNode.asText();
+                        container.unmarshal(args.get("path").asText(), description);
+                    } else {
+                        container.unmarshal(args.get("path").asText(), null);
+                    }   
+
                 } else {
                     throw new IllegalArgumentException("Action 'unmarshal' failed: Missing required argument 'path'.");
                 }
@@ -384,7 +401,15 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 break;
 
             case "merge":
-                container.merge();
+                if (args != null && args.has("field") && args.has("value")) {
+                    JsonNode valueNode = args.get("value");
+                    JsonNode fieldNode = args.get("field");
+
+                    Object value = valueNode.isInt() ? valueNode.asInt() : valueNode.asText();
+                    container.merge(fieldNode.asText(), value);
+                } else {
+                    throw new IllegalArgumentException("Action 'merge' failed: Missing required argument 'field' or 'value'.");
+                }
                 break;
 
             case "diff":
@@ -412,28 +437,40 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 break;
 
             case "extract":
-                if (args != null && args.has("id")) {
-                    JsonNode idNode = args.get("id");
-                    Object id = idNode.isInt() ? idNode.asInt() : idNode.asText();
-                    container.extract(id);
+                if (args != null && args.has("field") && args.has("value")) {
+                    JsonNode valueNode = args.get("value");
+                    JsonNode fieldNode = args.get("field");
+
+                    Object value = valueNode.isInt() ? valueNode.asInt() : valueNode.asText();
+                    container.extract(fieldNode.asText(), value);
                 } else {
-                    throw new IllegalArgumentException("Action 'extract' failed: Missing required argument 'id'.");
+                    throw new IllegalArgumentException("Action 'extract' failed: Missing required argument 'field' or 'value'.");
                 }
                 break;
 
             case "predicate":
-                if (args != null && args.has("time")) {
-                    container.predicate(args.get("time").asText());
+                if (args != null && args.has("time") && args.has("field") && args.has("value")) {
+                    JsonNode timeNode = args.get("time");
+                    JsonNode valueNode = args.get("value");
+                    JsonNode fieldNode = args.get("field");
+
+                    Object value = valueNode.isInt() ? valueNode.asInt() : valueNode.asText();
+                    container.predicate(timeNode.asText(), fieldNode.asText(), value);
                 } else {
-                    throw new IllegalArgumentException("Action 'predicate' failed: Missing required argument 'time'.");
+                    throw new IllegalArgumentException("Action 'predicate' failed: Missing required argument 'time', 'field', or 'value'.");
                 }
                 break;
 
             case "integrate":
-                if (args != null && args.has("path")) {
-                    container.integrate(args.get("path").asText());
+                if (args != null && args.has("path") && args.has("field") && args.has("value")) {
+                    JsonNode timeNode = args.get("time");
+                    JsonNode valueNode = args.get("value");
+                    JsonNode fieldNode = args.get("field");
+
+                    Object value = valueNode.isInt() ? valueNode.asInt() : valueNode.asText();
+                    container.integrate(args.get("path").asText(), fieldNode.asText(), value);
                 } else {
-                    throw new IllegalArgumentException("Action 'integrate' failed: Missing required argument 'path'.");
+                    throw new IllegalArgumentException("Action 'integrate' failed: Missing required argument 'path', 'field', or 'value'.");
                 }
                 break;
 
@@ -441,7 +478,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 if (args != null && args.has("type")){
                     filterAction(container, commandName, args);
                 } else {
-                    throw new IllegalArgumentException("Action 'prune' failed: Missing required argument 'type'.");
+                    throw new IllegalArgumentException("Action 'filter' failed: Missing required argument 'type'.");
                 }
                 break;
 

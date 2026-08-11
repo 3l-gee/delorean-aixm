@@ -38,9 +38,9 @@ parsing = {
 }
 
 InteractionMachinery(
-    "viewgen/version/parsing.yaml",
+    parsing,
     "delorean-aixm-51/src/main/pre-jaxb/pre-jaxb-config_a51.yaml", 
-    "delorean-aixm-51/src/main/resources/sql", 
+    "delorean-aixm-51/src/main/resources/sql/delorean-aixm-51-view.sql", 
     "delorean-aixm-51/src/main/java/com/delorean/aixm/aixm51/schema")
 
 # InteractionMachinery("a5_1", parsing,"viewgen/version/a5_1","delorean-aixm-51/src/main/resources/a5_1", "delorean-aixm-51/src/main/java/com/aixm/delorean/aixm51/schema")

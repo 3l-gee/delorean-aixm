@@ -2,7 +2,8 @@
 -- Phase 2a : Domain registered with checks
 -- ========================================================
 
-CREATE DOMAIN public.nilreason AS TEXT CHECK (VALUE ~ '^(inapplicable|missing|template|unknown|withheld|other:.+)$');
+DROP DOMAIN IF EXISTS public.nilreason;
+        CREATE DOMAIN public.nilreason AS TEXT CHECK (VALUE ~ '^(inapplicable|missing|template|unknown|withheld|other:.+)$');
 CREATE DOMAIN public.alpha AS TEXT CHECK (VALUE ~ '^([A-Z]*)$');
 CREATE DOMAIN public.alphanumeric AS TEXT CHECK (VALUE ~ '^(([A-Z]|[0-9])*)$');
 CREATE DOMAIN public.character1 AS TEXT CHECK (VALUE ~ '^(([A-Z]|[0-9])+([ \+\-/]*([A-Z]|[0-9])+)*)$');

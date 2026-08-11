@@ -2,7 +2,8 @@
 -- Phase 2b : Domain registered wihout checks (checkless)
 -- ========================================================
 
-CREATE DOMAIN public.nilreason AS TEXT;
+DROP DOMAIN IF EXISTS public.nilreason;
+        CREATE DOMAIN public.nilreason AS TEXT;
 CREATE DOMAIN public.alpha AS TEXT;
 CREATE DOMAIN public.alphanumeric AS TEXT;
 CREATE DOMAIN public.character1 AS TEXT;

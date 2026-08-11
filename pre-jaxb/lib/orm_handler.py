@@ -22,50 +22,6 @@ class OrmHandler:
         node.append(f'''<orm:column column-definition="{type}" />''')
         return node
 
-        if constraints["uber"] == "string":
-            if constraints.get("length") is None and constraints.get("maxLength") is None :
-                length = 256
-            elif constraints.get("length") is not None and constraints.get("maxLength") is None :
-                length = constraints.get("length")
-            elif constraints.get("length") is None and constraints.get("maxLength") is not None :
-                length = constraints.get("maxLength")
-            elif constraints.get("length") is not None and constraints.get("maxLength") is not None :
-                length = max(constraints.get("maxLength"), constraints.get("length"))
-
-            if int(length) <= POSTGRES_VARCHAR_LIMIT:
-                # Map to VARCHAR
-                node.append(f'''<orm:column column-definition="VARCHAR" length="{length}" />''')
-                return node
-            else:
-                # Map to TEXT
-                node.append(f'''<orm:column column-definition="TEXT" length="{length}" />''')
-                return node
-            
-        if constraints["uber"] == "unsignedInt":
-            return []
-        
-        if constraints["uber"] == "token":
-            return []
-
-        if constraints["uber"] == "decimal":
-            if constraints.get("fractionDigits") is None and constraints.get("totalDigits") is None:
-                node.append(f'''<orm:column column-definition="NUMERIC" />''')
-                return node
-            
-            if constraints.get("fractionDigits") is not None and constraints.get("totalDigits") is None:
-                node.append(f'''<orm:column column-definition="NUMERIC" scale="{constraints.get("fractionDigits")}" />''')
-                return node
-            
-            if constraints.get("fractionDigits") is None and constraints.get("totalDigits") is not None:
-                node.append(f'''<orm:column column-definition="NUMERIC" precision="{constraints.get("totalDigits")}" />''')
-                return node
-            
-            if constraints.get("fractionDigits") is not None and constraints.get("totalDigits") is not None:
-                node.append(f'''<orm:column column-definition="NUMERIC" scale="{constraints.get("fractionDigits")}" precision="{constraints.get("totalDigits")}" />''')
-                return node
-        
-        return []
-
     def constraint_generator_attribute_override(xsdType) -> dict:
         POSTGRES_VARCHAR_LIMIT = 4000
 
@@ -82,49 +38,6 @@ class OrmHandler:
 
         type = Config.generate_database_name(constraints.get("type"))
         return f'''column-definition="{type}"'''
-
-        if constraints is None:
-            return None
-
-        if constraints["uber"] == "string":
-            if constraints.get("length") is None and constraints.get("maxLength") is None :
-                length = 256
-            elif constraints.get("length") is not None and constraints.get("maxLength") is None :
-                length = constraints.get("length")
-            elif constraints.get("length") is None and constraints.get("maxLength") is not None :
-                length = constraints.get("maxLength")
-            elif constraints.get("length") is not None and constraints.get("maxLength") is not None :
-                length = max(constraints.get("maxLength"), constraints.get("length"))
-
-            if int(length) <= POSTGRES_VARCHAR_LIMIT:
-                # Map to VARCHAR
-                return f'''column-definition="VARCHAR" length="{length}"'''
-            else:
-                # Map to TEXT
-                return f'''column-definition="TEXT" length="{length}"'''
-            
-        if constraints["uber"] == "unsignedInt":
-             return None
-        
-        if constraints["uber"] == "token":
-             return None
-
-        if constraints["uber"] == "decimal":
-            if constraints.get("fractionDigits") is None and constraints.get("totalDigits") is None:
-                return f'''column-definition="NUMERIC"'''
-            
-            if constraints.get("fractionDigits") is not None and constraints.get("totalDigits") is None:
-                return f'''column-definition="NUMERIC" scale="{constraints.get("fractionDigits")}" '''
-            
-            if constraints.get("fractionDigits") is None and constraints.get("totalDigits") is not None:
-                return f'''column-definition="NUMERIC" precision="{constraints.get("totalDigits")}" '''
-            
-            if constraints.get("fractionDigits") is not None and constraints.get("totalDigits") is not None:
-                return f'''column-definition="NUMERIC" scale="{constraints.get("fractionDigits")}" precision="{constraints.get("totalDigits")}" '''
-
-        
-        return None
-
 
     @staticmethod
     def embeded_types(type, parent, element) -> dict:
@@ -162,6 +75,12 @@ class OrmHandler:
                 type = value.get("type")
                 constraints = OrmHandler.constraint_generator_attribute_override(type)
                 res.append(HyperJAXB.attribute_override(key, str(name+  "_" + key), constraints))
+
+            # Todo : Lang still wonky somehow.
+            # elif key == "lang" : 
+            #     type = value.get("type")
+            #     constraints = OrmHandler.constraint_generator_attribute_override(type)
+            #     res.append(HyperJAXB.attribute_override(key, str(name+  "_" + key), constraints))
 
             elif key == "nilReason" : 
                 res.append(HyperJAXB.attribute_override(key, str(name+  "_" + key), 'column-definition="nilreason"'))

@@ -2,7 +2,8 @@
 -- Phase 2a : Domain registered with checks
 -- ========================================================
 
-CREATE DOMAIN public.nilreason AS TEXT CHECK (VALUE ~ '^(inapplicable|missing|template|unknown|withheld|other:.+)$');
+DROP DOMAIN IF EXISTS public.nilreason;
+        CREATE DOMAIN public.nilreason AS TEXT CHECK (VALUE ~ '^(inapplicable|missing|template|unknown|withheld|other:.+)$');
 CREATE DOMAIN public.codebuoydesignatorbase AS TEXT CHECK (VALUE ~ '^(([A-Z]|[0-9])*)$');
 CREATE DOMAIN public.codedistanceverticaluom AS TEXT CHECK ((VALUE IN ('FT', 'M', 'FL', 'SM') OR VALUE ~ '^OTHER(:(\w|_){1,58})?$'));
 CREATE DOMAIN public.codeicaocountrybase AS TEXT CHECK (VALUE ~ '^(([A-Z]|[0-9])*)$');

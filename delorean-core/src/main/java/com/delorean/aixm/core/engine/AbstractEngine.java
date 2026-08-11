@@ -22,6 +22,13 @@ public abstract class AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, 
     public abstract void temporalityInspection(ROOT message);
 
     /**
+     * Applies the specified lifecycle status to the given AIXM message and all its members. 
+     * @param message The top-level AIXM message container.
+     * @param status The lifecycle status string to set
+     */
+    public abstract void applyMessageLifecycleStatus(ROOT message, String status);
+
+    /**
      * Computes statistics about the AIXM message, such as the number of features and time slices.
      * @param message The AIXM message to analyze.
      * @return A string summarizing the statistics of the message.

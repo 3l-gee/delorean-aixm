@@ -2,7 +2,8 @@
 -- Phase 2b : Domain registered wihout checks (checkless)
 -- ========================================================
 
-CREATE DOMAIN public.nilreason AS TEXT;
+DROP DOMAIN IF EXISTS public.nilreason;
+        CREATE DOMAIN public.nilreason AS TEXT;
 CREATE DOMAIN public.codeaircraftfieldlengthbase AS TEXT;
 CREATE DOMAIN public.codeairportsignbase AS TEXT;
 CREATE DOMAIN public.codeapproachprecisioncategorybase AS TEXT;

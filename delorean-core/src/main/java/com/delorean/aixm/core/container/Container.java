@@ -56,7 +56,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         this.qName = qName;
         this.id = id;
 
-        log.info("Successfully initialized ContainerWarehouse: {}", id);
+        log.info("Successfully initialized Container: " + id);
         log.atDebug().setMessage("Root class: {}").addArgument(() -> rootClass.getName()).log();
         log.atDebug().setMessage("Feature class: {}").addArgument(() -> featureClass.getName()).log();
         log.atDebug().setMessage("TimeSlice class: {}").addArgument(() -> timeSliceClass.getName()).log();
@@ -171,7 +171,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
      * 
      * @throws RuntimeException if xmlBinding is not configured.
      */
-    public void unmarshal(String path) {
+    public void unmarshal(String path, String description) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
@@ -189,7 +189,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
 
         if (xmlStream == null) {
-            return;
+            throw new RuntimeException("Failed to open XML stream from path: " + path);
         }
 
         String fileName = "";
@@ -202,7 +202,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
 
         try {
-            this.message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
+            this.message = (ROOT) this.xmlBinding.unmarshal(xmlStream, description);
             this.name = fileName;
             String stats = this.deloreanEngine.statistics(this.message);
             log.info("Unmarshalled <" + this.name + "> from: " + path + " stats: " + stats);
@@ -216,7 +216,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
     }
 
     /** Internal helper to unmarshal a payload without mutating container state. */
-    private ROOT doUnmarshal(String path) {
+    private ROOT doUnmarshal(String path, String description) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
@@ -236,11 +236,11 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
 
         if (xmlStream == null) {
-            return message;
+            throw new RuntimeException("Failed to open XML stream from path: " + path);
         }
 
         try {
-            message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
+            message = (ROOT) this.xmlBinding.unmarshal(xmlStream, description);
         } finally {
             try {
                 xmlStream.close();
@@ -249,6 +249,19 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
             }
         }
         return message;
+    }
+    /**
+     * Sets the lifecycle status of the current in-memory message and all its members.
+     * @param status The lifecycle status string to set.
+     */
+    public void setStatus(String status) {
+        if (this.deloreanEngine == null) {
+            throw new RuntimeException("DeloreanEngine is not set");
+        }
+
+        this.deloreanEngine.applyMessageLifecycleStatus(this.message, status);
+        String stats = this.deloreanEngine.statistics(this.message);
+        log.info("Lifecycle status set to '{}' for message: <{}> stats: {}", status, this.name, stats);
     }
 
     /**
@@ -263,7 +276,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
         FileOutputStream pathObj = DeloreanUtility.pathToOutputStream(path);
         if (pathObj == null) {
-            return;
+            throw new RuntimeException("Failed to open output stream for path: " + path);
         }
         this.xmlBinding.marshal(this.message, pathObj, this.rootClass, this.qName);
         String stats = this.xmlBinding.statistics(path);
@@ -284,7 +297,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
         FileOutputStream pathObj = DeloreanUtility.pathToOutputStream(path);
         if (pathObj == null) {
-            return;
+            throw new RuntimeException("Failed to open output stream for path: " + path);
         }
         this.xmlBinding.marshal(message, pathObj, this.rootClass, this.qName);
     }
@@ -363,11 +376,11 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
      * merges the aixm message currently in-memory message into the database exiting
      * message.
      */
-    public void merge() {
+    public void merge(String fieldName, Object value) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
-        this.databaseBinding.merge(this.message);
+        this.databaseBinding.merge(this.message, fieldName, value);
         String stats = this.databaseBinding.statistics();
         log.info("Merged <" + this.name + ">  to: <" + this.databaseBinding.getUrl() + "> stats: " + stats);
     }
@@ -376,8 +389,8 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
      * Unmarshals an external dataset path and merges it temporally onto the current
      * message. Resolves partial diff (delta) to full timeslices.
      */
-    public void integrate(String path) {
-        ROOT newMessage = this.doUnmarshal(path);
+    public void integrate(String path, String fieldName, Object value) {
+        ROOT newMessage = this.doUnmarshal(path, null);
         this.message = this.deloreanEngine.integrate(this.message, newMessage);
         String stats = this.deloreanEngine.statistics(message);
         log.info("Diff applied to <" + this.name + "> stats: " + stats);
@@ -387,12 +400,12 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
      * Pulls a message entity graph out of the database matching the provided
      * primary identifier.
      */
-    public void extract(Object id) {
+    public void extract(String fieldName, Object value) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
 
-        this.message = (ROOT) this.databaseBinding.extract(this.rootClass, id);
+        this.message = (ROOT) this.databaseBinding.extract(this.rootClass, fieldName, value);
         String stats = this.deloreanEngine.statistics(this.message);
         log.info("Extracted <" + this.name + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
@@ -405,7 +418,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
      * 
      * @throws DateTimeParseException if format validation fails.
      */
-    public void predicate(String timeString) {
+    public void predicate(String timeString, String fieldName, Object value) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
@@ -433,21 +446,21 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
                 }
         }
 
-        this.message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
+        this.message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time, fieldName, value);
         String stats = this.deloreanEngine.statistics(this.message);
         log.info("Predicated <" + this.name + "> from: <" + this.databaseBinding.getUrl() + "> stats: " + stats);
     }
 
     /** Internal slice lookup processing against a precise timestamp value. */
     @SuppressWarnings("unchecked")
-    private ROOT doPredicate(Instant time) {
+    private ROOT doPredicate(Instant time, String fieldName, Object value) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
 
         ROOT message = null;
 
-        message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
+        message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time, this.name, this.id);
         String stats = this.deloreanEngine.statistics(this.message);
         log.info("Predicated <" + this.name + "> from: <" + this.databaseBinding.getUrl() + "> stats: " + stats);
         return message;

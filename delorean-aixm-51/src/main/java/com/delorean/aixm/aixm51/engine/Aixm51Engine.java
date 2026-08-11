@@ -32,6 +32,54 @@ public class Aixm51Engine extends com.delorean.aixm.core.engine.AbstractEngine<A
     }
 
     /**
+     * Propagates a lifecycle status string across an entire AIXM Basic Message, setting it on 
+     * all message members, their embedded features, and all extracted time slices.
+     * 
+     * @param message The top-level AIXM message container.
+     * @param status The lifecycle status string to set.
+     */
+    @Override
+    public void applyMessageLifecycleStatus(AIXMBasicMessageType message, String status) {
+        if (message == null || message.getHasMember() == null) {
+            log.atWarn().log("Cannot set lifecycle status on null AIXMBasicMessageType or empty members list");
+            return;
+        }
+
+        log.atDebug().log("Applying lifecycleStatus='{}' across {} message members", status, message.getHasMember().size());
+
+        for (BasicMessageMemberAIXMPropertyType member : message.getHasMember()) {
+            if (member != null) {
+                applyFeatureLifecycleStatus(member, status);
+            }
+        }
+    }
+
+    /**
+     * Propagates a lifecycle status string to both the underlying AbstractAIXMFeatureType 
+     * and all of its associated AbstractAIXMTimeSliceType instances.
+     * 
+     * @param member The JAXB/JPA message member container.
+     * @param status The lifecycle status string to set.
+     */
+
+    public static void applyFeatureLifecycleStatus(BasicMessageMemberAIXMPropertyType member, String status) {
+        if (member == null || member.getAbstractAIXMFeature() == null) {
+            log.atWarn().log("Cannot set lifecycle status on null member or null feature payload");
+            return;
+        }
+
+        AbstractAIXMFeatureType feature = member.getAbstractAIXMFeature().getValue();
+        if (feature == null) {
+            return;
+        }
+
+        log.atDebug().log("Setting lifecycleStatus='{}' for feature: {}", status, feature.getIdentifier().getValue());
+        feature.setLifecycleStatus(status);
+
+        Aixm51TimeSliceEngine.applyTimeSliceLifecycleStatus(feature, status);
+    }
+
+    /**
      * Computes information about the AIXM message like the earliest and latest feature lifetime, valid time, and counts of different slice types. It combines the temporality information of all features in the message to provide an overall summary.
      * @param message The AIXM message to analyze.
      */

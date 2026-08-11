@@ -102,7 +102,7 @@ public class RoundTripZipAixm511E2E {
         String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511.zip";
 
         // do
-        container.unmarshal(xmlPath);
+        container.unmarshal(xmlPath, "55b3eb52");
 
     }
 
@@ -163,7 +163,7 @@ public class RoundTripZipAixm511E2E {
     void databaseExtract() {
 
         // do
-        container.predicate("2022-01-01T00:00:00Z");
+        container.predicate("2022-01-01T00:00:00Z", "hjid", 1L);
 
         // check that
     }

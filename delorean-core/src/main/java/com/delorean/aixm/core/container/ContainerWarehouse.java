@@ -63,7 +63,7 @@ public class ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARC
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
 
-        log.info("Successfully initialized ContainerWarehouse : {}", name);
+        log.atDebug().setMessage("Successfully initialized ContainerWarehouse : {}").addArgument(() -> name).log();
         log.atDebug().setMessage("Root class: {}").addArgument(() -> rootClass.getName()).log();
         log.atDebug().setMessage("Feature class: {}").addArgument(() -> featureClass.getName()).log();
         log.atDebug().setMessage("TimeSlice class: {}").addArgument(() -> timeSliceClass.getName()).log();

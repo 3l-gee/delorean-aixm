@@ -1135,7 +1135,12 @@ property:
   - SurveyControlPointPropertyType
   - UsageConditionPropertyType
   - WorkareaActivityPropertyType
+  - WorkAreaPropertyType
   - AircraftStandPropertyType
+  - AirspacePropertyType
+  - DMEPropertyType
+  - FinalLegPropertyType
+  - RouteDMEPropertyType
   - ApronPropertyType
   - ApronAreaAvailabilityPropertyType
   - ApronAreaUsagePropertyType

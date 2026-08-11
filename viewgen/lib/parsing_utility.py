@@ -2,16 +2,23 @@ import re
 import json
 from collections import defaultdict, deque
 from lib.feature import Feature
-from lib.property import Property
+from lib.object import Object
 from lib.helper_function import HeleperFunction
 
-class ParsingUtility :
+class ParsingUtility:
+
+    parsing = {}
 
     @staticmethod
-    def extract_core(parsing, content):
-        class_name = re.findall(parsing["class"]["method"].strip(), content) or [None]
-        parent_name = re.findall(parsing["extends"]["method"].strip(), content) or [None]
-        table_name = re.search(parsing["table"]["method"].strip(), content) or None
+    def set_parsing(parsing):
+        ParsingUtility.parsing = parsing
+
+
+    @staticmethod
+    def extract_core(content):
+        class_name = re.findall(ParsingUtility.parsing["class"]["method"].strip(), content) or [None]
+        parent_name = re.findall(ParsingUtility.parsing["extends"]["method"].strip(), content) or [None]
+        table_name = re.search(ParsingUtility.parsing["table"]["method"].strip(), content) or None
         table_schema = None
 
         if table_name :
@@ -196,26 +203,26 @@ class ParsingUtility :
             content = file.read()
         return content
     
-    def process(self, path_list):
-        for file in path_list:
-            self._classify_file(file)
+    # def process(self, path_list):
+    #     for file in path_list:
+    #         self._classify_file(file)
 
-        for file in path_list:
-            self._process_file(file)
+    #     for file in path_list:
+    #         self._process_file(file)
 
-        for key, feature in self.feature.items():
-            feature.generate_sql()
-            # feature.genrate_prj()
+    #     for key, feature in self.feature.items():
+    #         feature.generate_sql()
+    #         # feature.genrate_prj()
 
-        for key,property in self.property.items():
-            property.generate_sql()
-            # property.genrate_prj()
+    #     for key,property in self.property.items():
+    #         property.generate_sql()
+    #         # property.genrate_prj()
 
     def feature_list(self, path):
         content = self._load_content(path)
-        table_name = re.search(self.parsing["table"]["method"], content)
-        class_name = re.findall(self.parsing["class"]["method"], content)
-        parent_name = re.findall(self.parsing["extends"]["method"], content)
+        table_name = re.search(ParsingUtility.parsing["table"]["method"], content)
+        class_name = re.findall(ParsingUtility.parsing["class"]["method"], content)
+        parent_name = re.findall(ParsingUtility.parsing["extends"]["method"], content)
 
         if class_name and class_name[0] in self.feature_set :
             return
@@ -259,12 +266,12 @@ class ParsingUtility :
         
         elif parent_name in self.property_parent_set:
             if class_name in self.formated_sql:
-                self.property[class_name] = Property(self.input_path, class_name, schema_name, True)  
+                self.property[class_name] = Object(self.input_path, class_name, schema_name, True)  
                 self.property[class_name].load_sql(self.formated_sql[class_name].get("path"))
                 self.property[class_name].load_dependecy(self.formated_sql[class_name].get("dependency"))
 
             if class_name not in self.property.keys() : 
-                self.property[class_name] = Property(self.input_path, class_name, schema_name)
+                self.property[class_name] = Object(self.input_path, class_name, schema_name)
 
         else :
 
@@ -273,37 +280,37 @@ class ParsingUtility :
                 "table" : table_name
             }
         
-    def _process_file(self, path):
-        content = self._load_content(path)
-        core =  self.extract_core(content)
-        class_name = core["class"]
-        parent_name = core["parent"]
-        table_name = core["table"]
-        schema_name = core["schema"]
+    # def _process_file(self, path):
+    #     content = self._load_content(path)
+    #     core =  self.extract_core(content)
+    #     class_name = core["class"]
+    #     parent_name = core["parent"]
+    #     table_name = core["table"]
+    #     schema_name = core["schema"]
 
-        # files are either in: 
-        # - Ignored 
-        # - Feature
-        # - Property
-        if class_name in self.ignore_set:
-            return  # Ignore specific classes
+    #     # files are either in: 
+    #     # - Ignored 
+    #     # - Feature
+    #     # - Property
+    #     if class_name in self.ignore_set:
+    #         return  # Ignore specific classes
 
-        elif parent_name in self.timeslice_parent_set :
-            if class_name.replace("TimeSlice","") in self.feature_set:
-                self._process_time_slice(self.feature[class_name.replace("TimeSlice","")], content)
+    #     elif parent_name in self.timeslice_parent_set :
+    #         if class_name.replace("TimeSlice","") in self.feature_set:
+    #             self._process_time_slice(self.feature[class_name.replace("TimeSlice","")], content)
 
-            else : 
-                raise ValueError(f"[ERROR] is a timeslice extension but wasn't part of feature layer generation: {class_name} / {content}")
+    #         else : 
+    #             raise ValueError(f"[ERROR] is a timeslice extension but wasn't part of feature layer generation: {class_name} / {content}")
 
-        elif class_name in self.object_set :
-            if class_name.replace("Type","PropertyType") in self.property.keys():
-                self._process_object(self.property[class_name.replace("Type","PropertyType")], content)
+    #     elif class_name in self.object_set :
+    #         if class_name.replace("Type","PropertyType") in self.property.keys():
+    #             self._process_object(self.property[class_name.replace("Type","PropertyType")], content)
 
-            else : 
-                raise ValueError(f"[ERROR] is a object extension but wasn't part of the property layer generation :{class_name} / {content}")
+    #         else : 
+    #             raise ValueError(f"[ERROR] is a object extension but wasn't part of the property layer generation :{class_name} / {content}")
             
-
-    def _process_time_slice(self, layer, content):      
+    @staticmethod
+    def process_time_slice(self, layer, content):      
         layer.get_name()
         for item in self.extract_embedded_columns_two(content):
             layer.add_attributes_two(item.get("type"), item.get("role"), item.get("value"), item.get("nil"))
@@ -466,13 +473,14 @@ class ParsingUtility :
     #     }
         
     #     return res
-
-    def extract_columns(self, schema, table, content):
+    @staticmethod
+    def extract_columns(schema, table, content):
         """Extract simple column definitions."""
-        raw_columns = re.findall(self.parsing["column"]["method"], content)
+        raw_columns = re.findall(ParsingUtility.parsing["column"]["method"], content)
         return [f"{schema}.{table}.{col}" for col in raw_columns]
 
-    def extract_parent_columns(self, schema, table, parent_name):
+    @staticmethod
+    def extract_parent_columns(schema, table, parent_name):
         """Extract inherited columns from parent classes."""
         parent_columns = self.attributes["parents_attributes"].get(parent_name[0], [])
         return [f"{schema}.{table}.{col}" for col in parent_columns]
@@ -480,7 +488,7 @@ class ParsingUtility :
     def extract_embedded_columns_two(self, content):
         """Extract embedded attributes (2 or 3 columns)."""
         embedded_columns = []
-        raw_embedded_two = re.findall(self.parsing["embedded_two"]["method"], content)
+        raw_embedded_two = re.findall(ParsingUtility.parsing["embedded_two"]["method"], content)
         for column in raw_embedded_two:
             value, nil, type, role = column[0], column[1], column[2], column[3]
             embedded_columns.append({
@@ -495,7 +503,7 @@ class ParsingUtility :
     def extract_embedded_columns_three(self, content):
         """Extract embedded attributes (2 or 3 columns)."""
         embedded_columns = []
-        raw_embedded_three = re.findall(self.parsing["embedded_three"]["method"], content)
+        raw_embedded_three = re.findall(ParsingUtility.parsing["embedded_three"]["method"], content)
         for column in raw_embedded_three:
             value, uom, nil, type, role = column[0], column[1], column[2], column[3], column[4]
             embedded_columns.append({
@@ -511,14 +519,15 @@ class ParsingUtility :
     def extract_one_to_one(self, content):
         """Extract one-to-one relationships."""
         res = []
-        raw_one_to_one = re.findall(self.parsing["one_to_one"]["method"], content)
+        raw_one_to_one = re.findall(ParsingUtility.parsing["one_to_one"]["method"], content)
         for column in raw_one_to_one:
-            col, ref, type, role = column[0], column[1], column[2], column[3]
             res.append({
-                "col" : col,
-                "ref" : ref,
-                "type" : type,
-                "role" : role.lower()
+                "join"      : column[0],
+                "schema"    : column[1],
+                "column"    : column[2],
+                "revcolumn" : column[3],
+                "type"      : column[4],
+                "role"      : column[5]
             })
 
         return res
@@ -526,7 +535,7 @@ class ParsingUtility :
     def extract_one_to_many(self, content):
         """Extract one-to-many relationships."""
         res = []
-        raw_one_to_many = re.findall(self.parsing["one_to_many"]["method"], content)
+        raw_one_to_many = re.findall(ParsingUtility.parsing["one_to_many"]["method"], content)
         for column in raw_one_to_many:
             join, ref_in, ref_out, type, role = column[0], column[1], column[2], column[3], column[4]
             res.append({

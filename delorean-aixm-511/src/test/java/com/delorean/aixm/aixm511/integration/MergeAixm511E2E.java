@@ -90,7 +90,7 @@ public class MergeAixm511E2E {
         String xmlPath = "src/test/resources/merge/timeslice-merge-first.xml";
 
         // do
-        AContainer.unmarshal(xmlPath);
+        AContainer.unmarshal(xmlPath, "425eb39d");
 
     }
 
@@ -143,7 +143,7 @@ public class MergeAixm511E2E {
         String xmlPath = "src/test/resources/merge/timeslice-merge-second.xml";
 
         // do
-        AContainer.unmarshal(xmlPath);
+        AContainer.unmarshal(xmlPath, "ef8d5f7f");
 
     }
 
@@ -161,7 +161,7 @@ public class MergeAixm511E2E {
         // given
 
         // do
-        AContainer.merge();
+        AContainer.merge("deloreanDescription", "425eb39d");
         
         // check that 
         // the dbconfig is of the right dbconfig 
@@ -188,7 +188,7 @@ public class MergeAixm511E2E {
         String xmlPath = "src/test/resources/merge/timeslice-merge-third.xml";
 
         // do
-        BContainer.unmarshal(xmlPath);
+        BContainer.unmarshal(xmlPath, "c9a66189");
 
     }
 
@@ -225,7 +225,7 @@ public class MergeAixm511E2E {
         // given
 
         // do
-        BContainer.merge();
+        BContainer.merge("deloreanDescription", "425eb39d");
         
         // check that 
         // the dbconfig is of the right dbconfig 
@@ -238,7 +238,7 @@ public class MergeAixm511E2E {
     void predicateAll() {
 
         // do
-        BContainer.predicate("2022-01-01T00:00:00Z");
+        BContainer.predicate("2022-01-01T00:00:00Z", "hjid", "1");
 
         // check that
     }
@@ -260,7 +260,7 @@ public class MergeAixm511E2E {
     void predicateLast() {
 
         // do
-        BContainer.predicate("2026-06-01T00:00:00Z");
+        BContainer.predicate("2026-06-01T00:00:00Z", "hjid", "1");
 
         // check that
     }

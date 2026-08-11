@@ -5,10 +5,9 @@ import yaml
 from lib.parsing_utility import ParsingUtility
 from lib.helper_function import HeleperFunction
 from lib.feature import Feature
-from lib.property import Property
+from lib.object import Object
 from lib.helper_function import HeleperFunction
 import copy
-
 
 class InteractionMachinery:
     JAXB_IGNORE_FILES = {
@@ -16,9 +15,16 @@ class InteractionMachinery:
         "ObjectFactory.java"
     }
 
-    def __init__(self, parsing_path: str, config_path: str, output_path: str, directory_path: str):
+    def __init__(self, parsing: str, config_path: str, output_path: str, directory_path: str):
+
+        # Load configurations
         config = HeleperFunction.load_yaml(config_path)
-        self.parsing = HeleperFunction.load_yaml(parsing_path)
+        ParsingUtility.set_parsing(parsing)
+        self.output_path = output_path
+        ParsingUtility.set_parsing
+        self.formated_sql = {}
+
+        # Initialize sets from config
         self.feature_set = set(config["feature"]["list"])
         self.timesliceproperty_set = set(config["timesliceproperty"]["list"])
         self.timeslice_set = set(config["timeslice"]["list"])
@@ -30,47 +36,147 @@ class InteractionMachinery:
         self.type_set = set(config["type"]["list"])
         self.ignore_set = set(config["ignore"])
         self.abstract_set = set(config["abstract"])
+
+        # File handling
         self.files = HeleperFunction.get_file_path(directory_path, ".java", self.JAXB_IGNORE_FILES)
         self.views = {"feature": {}, "object": {}, "property": {}}
+        self.class_info = {}
 
+        # Step 1: Generate Main body
+        self.generate_main_body()
+
+        # Step 2: Populate attribute and references
+        self.populates_attributes_refs_links()
+
+        # Step 3: Generate SQL views for classified files
+        self.generate_views()
+
+        # Step 4: Export the generated SQL to the specified output path
+        self.export_sql(self.output_path)
+
+
+    def generate_views(self):
+        for feature in self.views["feature"].values():
+            feature.generate_sql()
+
+        for object in self.views["object"].values():
+            object.generate_sql()
+
+        for property in self.views["property"].values():
+            property.generate_sql()
+
+    def generate_main_body(self):
+        """Classify all Java files into Features, TimeSlices, Objects, etc."""
         for file in self.files:
             content = HeleperFunction.load_java(file)
-            core = ParsingUtility.extract_core(self.parsing, content)
+            core = ParsingUtility.extract_core(content)
+            class_name = core.get("class")
+            parent_name = core.get("parent")
+            schema = core.get("schema")
 
+            # Feature 
+            if class_name in self.feature_set:
+                self.views["feature"][class_name] = Feature(class_name, schema)
+                continue
+
+            if class_name in self.timesliceproperty_set or class_name in self.timeslice_set:
+                continue
+
+            # Object
+            if class_name in self.object_set or parent_name in self.object_set:
+                self.views["object"][class_name] = Object(class_name, schema)
+                continue
+
+            if class_name in self.property_set and parent_name == "AbstractAIXMPropertyType":
+                continue
+
+            # Links
+            if class_name in self.property_set or (class_name.replace("PropertyType", "Type") in self.feature_set and parent_name is None):
+                continue
+
+            # Extension
+            if class_name in self.object_set:
+                continue
+
+            if  class_name in self.object_extension_set:
+                continue
+
+            if  class_name in self.timeslice_extension_set:
+                continue
+
+            # Basetype
+            elif class_name in self.basetype_set:
+                continue
+
+            elif class_name in self.type_set:
+                continue
+
+            elif class_name in self.ignore_set:
+                continue
+
+            elif class_name in self.abstract_set:
+                continue
+
+            elif parent_name in self.abstract_set:
+                continue
+        
+            else :
+                print(f"Class {core.get('class')} {core.get('parent')} not classified")
+
+    def populates_attributes_refs_links(self):
+        for file in self.files:
+            content = HeleperFunction.load_java(file)
+            core = ParsingUtility.extract_core(content)
+            class_name = core.get("class")
+            parent_name = core.get("parent")
+            schema = core.get("schema")
+
+            # Feature 
             if core.get("class") in self.feature_set:
-                self.views["feature"][core.get("class")] = Feature(core.get("class"), core.get("schema"))
-                continue
-
-            elif core.get("class").replace("PropertyType", "Type") in self.feature_set:
-                self.views["feature"][core.get("class")] = Feature(core.get("class"), core.get("schema"))
-                continue
-
-            elif core.get("class") in self.property_set or core.get("parent") in self.property_set:
-                # self.views["property"][core.get("class")] = Property(core.get("class"), core.get("schema"))
-                # self.property[class_name] = Property(self.input_path, class_name, schema_name, True)  
-                # self.property[class_name].load_sql(self.formated_sql[class_name].get("path"))
-                # self.property[class_name].load_dependecy(self.formated_sql[class_name].get("dependency"))ontinue
-                continue
-
-
-            elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
-                continue
-
-            elif core.get("class").replace("ExtensionType", "Type") in self.object_set:
                 continue
 
             elif core.get("class") in self.timesliceproperty_set:
                 continue
 
             elif core.get("class") in self.timeslice_set:
+                base_class_name = class_name.replace("TimeSlice", "")
+                if (self.views["feature"].get(base_class_name) is not None):
+                    timeslice = self.views["feature"].get(base_class_name)
+                    self.process_content(timeslice, content)
+                    continue
+                else:
+                    raise Exception(f"Timeslice {core.get('class')} does not have a corresponding feature class")
+                                                
+            # Object
+            elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
+                base_class_name = class_name.replace("PropertyType", "")
+                base_class_name = class_name.replace("PropertyType", "")
+                if (self.views["object"].get(base_class_name) is not None):
+                    object = self.views["object"].get(base_class_name)
+                    self.process_content(object, content)
+                    continue
                 continue
 
-            elif core.get("class") in self.timeslice_extension_set:
+            elif core.get("class") in self.property_set and core.get("parent") == "AbstractAIXMPropertyType":
+                continue
+
+            # Links
+            elif core.get("class") in self.property_set or core.get("class").replace("PropertyType", "Type") in self.feature_set and core.get("parent") is None:
+                continue
+
+
+            # Extension
+            elif core.get("class") in self.object_set:
                 continue
 
             elif core.get("class") in self.object_extension_set:
                 continue
 
+            elif core.get("class") in self.timeslice_extension_set:
+                continue
+
+
+            # Basetype
             elif core.get("class") in self.basetype_set:
                 continue
 
@@ -90,68 +196,133 @@ class InteractionMachinery:
                 print(f"Class {core.get('class')} {core.get('parent')} not classified")
 
 
-        for file in self.files:
-            content = HeleperFunction.load_java(file)
-            core = ParsingUtility.extract_core(self.parsing, content)
-            if core.get("class") in self.feature_set:
-                continue
+        # for file in self.files:
+        #     content = HeleperFunction.load_java(file)
+        #     core = ParsingUtility.extract_core(self.parsing, content)
 
-            elif core.get("class").replace("PropertyType", "Type") in self.feature_set:
-                continue
+        #     # Feature 
+        #     if core.get("class") in self.feature_set:
+        #         self.views["feature"][core.get("class")] = Feature(core.get("class"), core.get("schema"))
+        #         continue
 
-            elif core.get("class") in self.property_set or core.get("parent") in self.property_set:
-                continue
+        #     elif core.get("class") in self.timesliceproperty_set:
+        #         #self.views["feature"][core.get("class")] = Feature(core.get("class"), core.get("schema"))
+        #         continue
 
-            elif core.get("parent") in self.property_set:
-                continue
+        #     elif core.get("class") in self.timeslice_set:
+        #         continue
 
-            elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
-                continue
+ 
+        #     # Object
+        #     elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
+        #         continue
 
-            elif core.get("parent") in self.object_set:
-                continue
+        #     elif core.get("class") in self.property_set and core.get("parent") == "AbstractAIXMPropertyType":
+        #         continue
 
-            elif core.get("class").replace("ExtensionType", "Type") in self.object_set:
-                continue
+        #     # Links
+        #     elif core.get("class") in self.property_set or core.get("class").replace("PropertyType", "Type") in self.feature_set and core.get("parent") is None:
+        #         continue
 
-            elif core.get("class") in self.timesliceproperty_set:
-                continue
 
-            elif core.get("class") in self.timeslice_set:
-                continue
+        #     # Extension
+        #     elif core.get("class") in self.object_set:
+        #         continue
 
-            elif core.get("class") in self.extension_set or core.get("parent") in self.extension_set:
-                continue
+        #     elif core.get("class") in self.object_extension_set:
+        #         continue
 
-            elif core.get("parent") in self.extension_set:
-                continue
+        #     elif core.get("class") in self.timeslice_extension_set:
+        #         continue
 
-            elif core.get("class") in self.basetype_set:
-                continue
 
-            elif core.get("class") in self.type_set:
-                continue
+        #     # Basetype
+        #     elif core.get("class") in self.basetype_set:
+        #         continue
 
-            elif core.get("class") in self.ignore_set:
-                continue
+        #     elif core.get("class") in self.type_set:
+        #         continue
 
-            elif core.get("parent") in self.ignore_set:
-                continue
+        #     elif core.get("class") in self.ignore_set:
+        #         continue
 
-            elif core.get("class") in self.abstract_set:
-                continue
+        #     elif core.get("class") in self.abstract_set:
+        #         continue
 
-            elif core.get("parent") in self.abstract_set:
-                continue
+        #     elif core.get("parent") in self.abstract_set:
+        #         continue
         
-            else :
-                print(f"Class {core.get('class')} {core.get('parent')} not classified")
+        #     else :
+        #         print(f"Class {core.get('class')} {core.get('parent')} not classified")
 
-        for feature in self.views["feature"].values():
-            feature.generate_sql()
 
-        for feature in self.views["feature"].values() :
-            print(feature.get_sql())
+        # for file in self.files:
+        #     content = HeleperFunction.load_java(file)
+        #     core = ParsingUtility.extract_core(self.parsing, content)
+
+        #     # Feature 
+        #     if core.get("class") in self.feature_set:
+        #         continue
+
+        #     elif core.get("class") in self.timesliceproperty_set:
+        #         continue
+
+        #     elif core.get("class") in self.timeslice_set:
+        #         if (self.views["feature"].get(core.get("class").replace("TimeSlice", "")) is not None):
+        #             timeslice = self.views["feature"].get(core.get("class").replace("TimeSlice", ""))
+        #             self.process_time_slice(timeslice, content)
+        #             continue
+        #         else:
+        #             raise Exception(f"Timeslice {core.get('class')} does not have a corresponding feature class")
+                                                
+        #     # Object
+        #     elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
+        #         continue
+
+        #     elif core.get("class") in self.property_set and core.get("parent") == "AbstractAIXMPropertyType":
+        #         continue
+
+        #     # Links
+        #     elif core.get("class") in self.property_set or core.get("class").replace("PropertyType", "Type") in self.feature_set and core.get("parent") is None:
+        #         continue
+
+
+        #     # Extension
+        #     elif core.get("class") in self.object_set:
+        #         continue
+
+        #     elif core.get("class") in self.object_extension_set:
+        #         continue
+
+        #     elif core.get("class") in self.timeslice_extension_set:
+        #         continue
+
+
+        #     # Basetype
+        #     elif core.get("class") in self.basetype_set:
+        #         continue
+
+        #     elif core.get("class") in self.type_set:
+        #         continue
+
+        #     elif core.get("class") in self.ignore_set:
+        #         continue
+
+        #     elif core.get("class") in self.abstract_set:
+        #         continue
+
+        #     elif core.get("parent") in self.abstract_set:
+        #         continue
+        
+        #     else :
+        #         print(f"Class {core.get('class')} {core.get('parent')} not classified")
+
+        # for feature in self.views["feature"].values():
+        #     feature.generate_sql()
+
+        # for feature in self.views["feature"].values() :
+        #     if feature.get_name() == "airport_heliport.airportheliport_view":
+        #         print(feature.get_sql())
 
     # def __init__(self, name, parsing, input_path, output_path, directory,):
     #     self.name = name
@@ -194,14 +365,15 @@ class InteractionMachinery:
         #     }
 
             
-    def export_sql(self, output_path, name):
-        file_path = os.path.join(output_path, name)
-
+    def export_sql(self, output_path):
         res = ""
-        for layer, deps in self.layers.values():
-            res += f"-- {layer.get_type()}\n" + f"-- {deps}\n" + layer.get_sql() + "\n"
+        for key in self.views.keys():
+            res += "--" + key + "\n\n"
+            for feature in self.views[key].values():
+                res += "--" + feature.get_name() + "\n\n"
+                res += feature.get_sql() + "\n\n"
         
-        with open(file_path, "w", encoding="utf-8") as f:
+        with open(output_path, "w", encoding="utf-8") as f:
             f.write(res)
 
     def get_layers(self):
@@ -243,3 +415,78 @@ class InteractionMachinery:
         
         for key, group in layer_tree_group_dict.items() :
             layer_tree_group.append(group)
+
+    def process_content(self, layer, content):      
+        for item in ParsingUtility().extract_embedded_columns_two(content):
+            layer.add_attributes_two(item.get("type"), item.get("role"), item.get("value"), item.get("nil"))
+
+        for item in ParsingUtility().extract_embedded_columns_three(content):
+            layer.add_attributes_three(item.get("type"), item.get("role"), item.get("value"), item.get("uom"), item.get("nil"))
+
+        for item in ParsingUtility().extract_one_to_one(content):
+            type = item.get("type")
+            print("--" + layer.get_name() + "--")
+            print(item)
+
+            if type in self.ignore_set:
+                pass
+
+            elif 
+
+            layer.add
+
+            
+            
+        #     elif type in self.formated_sql:
+        #         schema = self.formated_sql[type].get("schema")
+        #         attribute = self.formated_sql[type].get("one").get("attribute")
+        #         group = self.formated_sql[type].get("one").get("group")
+        #         publish = self.qlr_attr[type].get("one")
+        #         layer.add_association_snowflake_one(schema, type, publish, attribute, item.get("col"), item.get("role"))
+                        
+            # elif type in self.property.keys():
+            #     schema = self.property[type].get_schema()
+            #     layer.add_association_object_one(schema, type, item.get("role"),item.get("col"))
+            
+        #     elif type.replace("Property","") in self.feature.keys():
+        #         renamed_type = type.replace("Property","")
+        #         schema = self.feature[renamed_type].get_schema()
+        #         layer.add_association_feature_one(schema, type, item.get("role"),item.get("col"))
+
+        #     elif type in self.feature_association_set.keys():
+        #         schema = self.assosication[type].get("schema")
+        #         ref_types = self.feature_association_set[type].get("type")
+        #         layer.add_association_feature_one(schema, type, item.get("role"), item.get("col"), ref_types)
+            
+        #     else : 
+        #         raise ValueError(f"[ERROR] {layer.get_type()} {type} can not be found in property, feature, snowflake, ignore:")
+
+        # for item in ParsingUtility().extract_one_to_many(content):
+        #     type = item.get("type")
+
+        #     if type in self.ignore_set:
+        #         pass
+            
+        #     elif type in self.formated_sql:
+        #         schema = self.formated_sql[type].get("schema")
+        #         argument = self.formated_sql[type].get("many").get("argument")
+        #         attribute = self.formated_sql[type].get("many").get("attribute")
+        #         publish = self.qlr_attr[type].get("many")
+        #         layer.add_association_snowflake_many(schema, type, publish, argument, attribute, item.get("col"), item.get("role"))
+                        
+        #     elif type in self.property.keys():
+        #         schema = self.property[type].get_schema()
+        #         layer.add_association_object_many(schema, type, item.get("role"))
+            
+        #     elif type.replace("Property","") in self.feature.keys():
+        #         renamed_type = type.replace("Property","")
+        #         schema = self.feature[renamed_type].get_schema()
+        #         layer.add_association_feature_many(schema, type, item.get("role"))
+
+        #     elif type in self.feature_association_set.keys():
+        #         schema = self.assosication[type].get("schema")
+        #         ref_types = self.feature_association_set[type].get("type")
+        #         layer.add_association_feature_many(schema, type, item.get("role"), ref_types)
+            
+        #     else : 
+        #         raise ValueError(f"[ERROR] {layer.get_type()} {type} can not be found in property, feature, snowflake, ignore:")

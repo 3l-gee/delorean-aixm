@@ -67,7 +67,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.connectionStatus = connectionStatus;
         this.databaseHelper = databaseHelper;
 
-        log.info("Initialized DatabaseBindingService");
+        log.atDebug().setMessage("Initialized DatabaseBindingService").log();
         log.atDebug().setMessage("Root class: {}").addArgument(() -> rootClass.getName()).log();
         log.atDebug().setMessage("Feature class: {}").addArgument(() -> featureClass.getName()).log();
         log.atDebug().setMessage("TimeSlice class: {}").addArgument(() -> timeSliceClass.getName()).log();
@@ -171,9 +171,12 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
     }
 
     public String inputStreamToSQL(InputStream inputStream) {
+        if (inputStream == null) {
+            throw new RuntimeException("Error reading SQL resource stream: input stream is null (resource not found)");
+        }
         try {
-            String string = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8).lines()
-                    .collect(Collectors.joining("\n"));
+            String string = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8).lines().collect(Collectors.joining("\n"));
+
             return string;
         } catch (Exception e) {
             throw new RuntimeException("Error reading SQL resource stream", e);
@@ -363,18 +366,21 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
     /**
      * Extracts an object of type ROOT from the database based on the provided structure and ID.
      * @param structure The class type of the structure to extract.
-     * @param id The ID of the object to extract.
+     * @param fieldName The name of the field to use for extraction.
+     * @param value The value of the field to use for extraction.
      * @return The extracted object, or null if not found.
      */
-    public ROOT extract(Class<ROOT> structure, Object id) {
+    public ROOT extract(Class<ROOT> structure, String fieldName, Object value) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("sessionfactory is not init");
         }
 
+        Long hjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
+
         try (Session session = this.getSession()) {
             Transaction transaction = session.beginTransaction();
             try {
-                ROOT object = session.find(structure, id);
+                ROOT object = session.find(structure, hjid);
                 transaction.commit();
                 return object;
             } catch (Exception e) {
@@ -390,12 +396,16 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
      * time are considered valid as well as the timeslices that are valid after or at the given time.
      * @param structure The class type of the structure for which the valid timeslice is to be determined.
      * @param time The time for which to determine the valid timeslice.
+     * @param fieldName The name of the field to use for extraction.
+     * @param value The value of the field to use for extraction.
      * @return The valid timeslice for the given structure and time.
      */
-    public ROOT predicateValidTimeslice(Class<ROOT> structure, Instant time) {
+    public ROOT predicateValidTimeslice(Class<ROOT> structure, Instant time, String fieldName, Object value) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
+
+        Long hjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
 
         // collect relevant tiemeslice property ids
         Session session = sessionFactory.openSession();
@@ -418,32 +428,40 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         List<Long> BMMIds = session.createNativeQuery(BMMIdsSQL, Long.class).setParameter("time", time).getResultList();
         BMMIdsTX.commit();
 
-        return this.databaseHelper.predicateValidTimeslice(BMMIds, TPIds, this.sessionFactory);
+        return this.databaseHelper.predicateValidTimeslice(BMMIds, TPIds, this.sessionFactory, hjid);
     }
 
     /**
      * Merges the provided message into the database.
      * @param message The message object to be merged into the database. It should be of type ROOT.
+     * @param fieldName The name of the field to use for extraction.
+     * @param value The value of the field to use for extraction.
      * @throws IllegalArgumentException if the session factory is not initialized.
      */
-    public void merge(ROOT message) {
+    public void merge(ROOT message, String fieldName, Object value) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
-        this.databaseHelper.merge(message, this.sessionFactory);
+        Long hjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
+
+        this.databaseHelper.merge(message, this.sessionFactory, hjid);
     }
 
     /**
      * Integrates the provided message into the database
      * @param message The message object to be integrated into the database. It should be of type ROOT.
+     * @param fieldName The name of the field to use for extraction.
+     * @param value The value of the field to use for extraction.
      * @throws IllegalArgumentException if the session factory is not initialized.
      */
-    public void integrate(ROOT message) {
+    public void integrate(ROOT message, String fieldName, Object value) {
         if (this.sessionFactory == null) {
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
-        this.databaseHelper.merge(message, this.sessionFactory);
+        Long hjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
+
+        this.databaseHelper.merge(message, this.sessionFactory, hjid);
     }
 }

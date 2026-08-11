@@ -125,7 +125,7 @@ public class RoundTripXmlAixm511E2E {
         String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511.xml";
 
         // do
-        container.unmarshal(xmlPath);
+        container.unmarshal(xmlPath, "eadffe99");
 
     }
 
@@ -186,15 +186,37 @@ public class RoundTripXmlAixm511E2E {
     void databaseExtract() {
 
         // do
-        container.predicate("2022-01-01T00:00:00Z");
+        container.predicate("2022-01-01T00:00:00Z", "hjid", "1");
 
         // check that
     }
 
 
     @Test
-    @Order(80)
+    @Order(71)
     void extractExtractedXml() {
+
+        // given
+        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511-predicated.xml.log";
+
+        // do
+        container.marshal(xmlPath);
+    } 
+
+    @Test
+    @Order(72)
+    void databaseExtractDescription() {
+
+        // do
+        container.predicate("2022-01-01T00:00:00Z", "deloreanDescription", "eadffe99");
+
+        // check that
+    }
+
+
+    @Test
+    @Order(73)
+    void extractExtractedXmlDescription() {
 
         // given
         String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511-predicated.xml.log";

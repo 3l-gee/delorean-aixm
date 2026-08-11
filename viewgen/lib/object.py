@@ -1,31 +1,27 @@
-from lib.layer import Layer, HeleperFunction
+from lib.layer import View, HeleperFunction
 
-class Property(Layer) :
+class Object(View) :
 
-    def __init__(self, input_path, type, schema, snowflake=False):
-        super().__init__(input_path, type, schema, snowflake)
+    def __init__(self, type, schema):
         self.layer_type = "property"
-        self.publish = {
-                "form" : {
-                    "generic" : [
-                        {
-                            "field": "id",
-                            "name": "id",
-                        },
-                        {
-                            "field": "nilreason",
-                            "name": "nilreason",
-                        }
-                    ],
-                    "attributes" : []},
-                "geometry" : [],
-                "action" : {
-
-                },
-                "html" : {
-
-                },
-            }
+        self.dependecy = set()
+        self.name = HeleperFunction.remove_suffix(type)
+        self.schema = schema
+        self.full_sql = ""
+        self.attributes = {
+            "view": self.generate_view(self.name, schema),
+            "select": self.generate_select(self.name, schema),
+            "attributes": {
+                "feature": self.generate_attributes(self.name, schema)
+            },
+            "inner": self.generate_inner(self.name, schema),
+            "left": self.generate_left(self.name, schema),
+            "lateral" : [],
+            "where": [],
+            "group": self.generate_group(self.name, schema),
+            "order": self.generate_order(self.name, schema),
+            "index" : [f"create index if not exists {self.schema}_{self.name}_id on {self.schema}.{self.name}_view (id)"]
+        }
 
     def get_name(self):
         return f"{self.schema}.{self.name}_view"
@@ -33,8 +29,8 @@ class Property(Layer) :
     def generate_view(self, type, schema) :
         name = HeleperFunction.remove_suffix(type)
         return [
-            f"drop materialized view if exists {schema}.{name}_view cascade;",
-            f"create materialized view {schema}.{name}_view as"
+            f"drop view if exists {schema}.{name}_view cascade;",
+            f"create view {schema}.{name}_view as"
             ]
 
     def generate_select(self, name, schema) :
@@ -43,15 +39,19 @@ class Property(Layer) :
     def generate_attributes(self, type, schema) : 
         name = HeleperFunction.remove_suffix(type)
         return [
-            f"{schema}.{name}_pt.id::integer as id",
-            f"{schema}.{name}_pt.nilreason::text AS {self.name}_nilreason",
+            f"{schema}.{name}_p.hjid as hjid",
+            f"aixm.aixm_property.nil_reason::text AS nilreason",
+            f"aixm.aixm_object.id",
+            f"aixm.aixm_object.id as object_hjid"
         ]
         
     def generate_inner(self, type, schema) : 
         name = HeleperFunction.remove_suffix(type)
         return [
-            f"from {schema}.{name}_pt ",
-            f"inner join {schema}.{name} on {schema}.{name}_pt.{name}_id = {schema}.{name}.id"
+            f"from {schema}.{name}_p ",
+            f"inner join aixm.aixm_property on {schema}.{name}_p.hjid = aixm.aixm_property.hjid",
+            f"inner join {schema}.{name}_o on {schema}.{name}_p.{name}_hjid = {schema}.{name}_o.hjid",
+            f"inner join aixm.aixm_object on {schema}.{name}_o.hjid = aixm.aixm_object.hjid",
         ]
 
     def generate_left(self, type, schema) :
@@ -74,29 +74,18 @@ class Property(Layer) :
         ]
         
     def add_attributes_two(self, type, role, value, nil) :
-        name = HeleperFunction.remove_suffix(type)
-        self.attributes["attributes"]["feature"].append(f"coalesce(cast({self.schema}.{self.name}.{value} as varchar), '(' || {self.schema}.{self.name}.{nil} || ')')::text as {role}")
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_o.{value}")
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_o.{nil}") 
         self.add_group(str(self.name), value, self.schema)
         self.add_group(str(self.name), nil, self.schema)
-
-        self.publish["form"]["attributes"].append({
-                "type" : f"{type}",
-                "field": f"{role}",
-                "name" : f"{role}"
-            })
     
     def add_attributes_three(self, type, role, value, uom, nil) :
-        name = HeleperFunction.remove_suffix(type)
-        self.attributes["attributes"]["feature"].append(f"coalesce(cast({self.schema}.{self.name}.{value} as varchar) || ' ' || {self.schema}.{self.name}.{uom}, '(' || {self.schema}.{self.name}.{nil} || ')')::text as {role}")
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_o.{value}")
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_o.{uom}")
+        self.attributes["attributes"]["feature"].append(f"{self.schema}.{self.name}_o.{nil}") 
         self.add_group(str(self.name), value, self.schema)
         self.add_group(str(self.name), uom, self.schema)
         self.add_group(str(self.name), nil, self.schema)
-
-        self.publish["form"]["attributes"].append({
-                "type" : f"{type}",
-                "field": f"{role}",
-                "name" : f"{role}"
-            })
         
     def add_association_feature_one(self, schema, type, role, col, ref_types = None):
         if ref_types is None:

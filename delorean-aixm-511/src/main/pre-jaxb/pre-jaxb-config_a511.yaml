@@ -1125,6 +1125,11 @@ property:
   - AltimeterSourcePropertyType
   - AltimeterSourceStatusPropertyType
   - CityPropertyType
+  - WorkAreaPropertyType
+  - AirspacePropertyType
+  - DMEPropertyType
+  - FinalLegPropertyType
+  - RouteDMEPropertyType
   - ConditionCombinationPropertyType
   - NonMovementAreaPropertyType
   - SurfaceCharacteristicsPropertyType

@@ -102,7 +102,7 @@ public class RoundTripZipAixm51E2E {
         String xmlPath = "src/test/resources/roundtrip/donlon-aixm-51.zip";
 
         // do
-        container.unmarshal(xmlPath);
+        container.unmarshal(xmlPath, "7a0eb6ab");
 
     }
 
@@ -160,10 +160,10 @@ public class RoundTripZipAixm51E2E {
 
     @Test
     @Order(70)
-    void databaseExtract() {
+    void databaseExtractHjid() {
 
         // do
-        container.predicate("2022-01-01T00:00:00Z");
+        container.predicate("2022-01-01T00:00:00Z", "hjid", "1");
 
         // check that
     }
@@ -171,7 +171,7 @@ public class RoundTripZipAixm51E2E {
 
     @Test
     @Order(80)
-    void extractExtractedXml() {
+    void extractExtractedXmlHjid() {
 
         // given
         String xmlPath = "src/test/java/com/delorean/aixm/aixm51/out/donlon-aixm-51-extracted.xml.log";

@@ -204,8 +204,9 @@ class Jaxb:
     xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" 
     xmlns:hj="http://jvnet.org/hyperjaxb/jpa" 
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" 
+    xmlns:ci="http://jaxb.dev.java.net/plugin/code-injector"
     version="3.0"
-    jaxb:extensionBindingPrefixes="xjc annox hj orm">
+    jaxb:extensionBindingPrefixes="xjc annox hj orm ci">
 """
     enum_end = '</jaxb:typesafeEnumClass>'
     end = '</jaxb:bindings>'
@@ -243,11 +244,11 @@ class HyperJAXB:
     
     @staticmethod
     def orm_tsp_filter():
-        return f'''@org.hibernate.annotations.Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")'''
+        return f'''@org.hibernate.annotations.Filter(name = "TPHjidFilter", condition = "hjid = ANY(:ids)")'''
     
     @staticmethod
     def orm_tsp_filter_def():
-        return f'''@org.hibernate.annotations.FilterDef(name = "TPHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = Long.class))'''
+        return f'''@org.hibernate.annotations.FilterDef(name = "TPHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = long[].class))'''
     
     @staticmethod
     def orm_table(annotation):
@@ -267,7 +268,7 @@ class HyperJAXB:
     def orm_join_table(schema, owning_table, target_table):
         owning_table_acronym = Config().generate_phonetic_acronym(owning_table)
         target_table_acronym = Config().generate_phonetic_acronym(target_table)
-        join_table_name = Util.snake_case_table([owning_table_acronym, target_table_acronym, "l"]).replace('"', '')
+        join_table_name = Util.snake_case_table([owning_table_acronym, target_table_acronym, "link"]).replace('"', '')
         owning_table = Util.snake_case_column(str(owning_table)).replace('"', '')
         target_table = Util.snake_case_column(str(target_table)).replace('"', '')
 

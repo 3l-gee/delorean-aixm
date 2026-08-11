@@ -20,10 +20,21 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
+              </filters>
               <transformers>
                 <transformer>
                   <mainClass>com.delorean.aixm.cli.DeloreanCLIAIXM511</mainClass>
                 </transformer>
+                <transformer />
               </transformers>
             </configuration>
           </execution>

@@ -5,12 +5,12 @@
     <variable name="MODULE_LEVEL" value="${app.log.level:-WARN}" />
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex{0}</pattern>
         </encoder>
     </appender>
 
     <!-- GLOBAL ROOT LEVEL -->
-    <root level="INFO">
+    <root level="${CORE_LEVEL}">
         <appender-ref ref="STDOUT" />
     </root>
 

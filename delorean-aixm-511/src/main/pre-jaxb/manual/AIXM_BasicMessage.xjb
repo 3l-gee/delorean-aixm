@@ -20,7 +20,7 @@
                 </hj:entity>
             </jaxb:bindings>
             <jaxb:bindings node="//xs:group[@name='AIXMBasicMessagePropertyGroup']//xs:element[@name='hasMember']">
-                <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "BMMHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+                <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "BMMHjidFilter", condition = "hjid = ANY (:ids)")</annox:annotate>
                 <hj:many-to-many>
                     <orm:join-table name="message_member_link" schema="aixm">
                         <orm:join-column name="message_hjid" referenced-column-name="hjid"/>
@@ -40,9 +40,15 @@
 					<orm:column name="salt_description" nullable="true"/>
 				</hj:basic>
             </jaxb:bindings>
+            <jaxb:bindings node="//xs:group[@name='AIXMBasicMessagePropertyGroup']//xs:element[@name='deloreanDescription']">
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
+				<hj:basic>
+					<orm:column name="delorean_description" nullable="true"/>
+				</hj:basic>
+            </jaxb:bindings>
             <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
-                <annox:annotate target="class">@org.hibernate.annotations.FilterDef(name = "BMMHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = Long.class))</annox:annotate>
-                <annox:annotate target="class">@org.hibernate.annotations.Filter(name = "BMMHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+                <annox:annotate target="class">@org.hibernate.annotations.FilterDef(name = "BMMHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = long[].class))</annox:annotate>
+                <annox:annotate target="class">@org.hibernate.annotations.Filter(name = "BMMHjidFilter", condition = "hjid = ANY (:ids)")</annox:annotate>
                 <hj:entity>
                     <orm:table name="message_member" schema="aixm"/>
                 </hj:entity>

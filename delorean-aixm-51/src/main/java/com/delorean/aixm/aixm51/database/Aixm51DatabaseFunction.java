@@ -253,6 +253,7 @@ public class Aixm51DatabaseFunction extends
      * associated BasicMessageMemberAIXMPropertyType instances that are valid for a
      * given timeslice.
      * 
+     * @param hjid                    The ID of the AIXMBasicMessageType instance to retrieve.
      * @param BasicMessageMemberIds A list of IDs for
      *                              BasicMessageMemberAIXMPropertyType instances to
      *                              filter by.
@@ -263,20 +264,27 @@ public class Aixm51DatabaseFunction extends
      * @return
      */
     @Override
-    public AIXMBasicMessageType predicateValidTimeslice(List<Long> BasicMessageMemberIds,
-            List<Long> TimeslicePropertyIds, SessionFactory sessionFactory) {
+    public AIXMBasicMessageType predicateValidTimeslice(List<Long> BasicMessageMemberIds, List<Long> TimeslicePropertyIds, SessionFactory sessionFactory, Long hjid) {
         Session session = sessionFactory.openSession();
 
-        session.enableFilter("TPHjidFilter").setParameterList("ids", TimeslicePropertyIds);
-        session.enableFilter("BMMHjidFilter").setParameterList("ids", BasicMessageMemberIds);
+        long[] timesliceIdsArray = TimeslicePropertyIds != null 
+                ? TimeslicePropertyIds.stream().mapToLong(Long::longValue).toArray() 
+                : new long[0];
+
+        long[] basicMessageMemberIdsArray = BasicMessageMemberIds != null 
+                ? BasicMessageMemberIds.stream().mapToLong(Long::longValue).toArray() 
+                : new long[0];
+                
+        session.enableFilter("TPHjidFilter").setParameter("ids", timesliceIdsArray);
+        session.enableFilter("BMMHjidFilter").setParameter("ids", basicMessageMemberIdsArray);
         Transaction transaction = null;
 
         try {
             transaction = session.beginTransaction();
 
             AIXMBasicMessageType msg = session
-                    .createQuery("from AIXMBasicMessageType m where m.hjid = :id", AIXMBasicMessageType.class)
-                    .setParameter("id", 1L).getSingleResult();
+                    .createQuery("from AIXMBasicMessageType m where m.hjid = :hjid", AIXMBasicMessageType.class)
+                    .setParameter("hjid", hjid).getSingleResult();
 
             transaction.commit();
             return msg;
@@ -301,7 +309,7 @@ public class Aixm51DatabaseFunction extends
      *                       operations.
      */
     @Override
-    public void merge(AIXMBasicMessageType message, SessionFactory sessionFactory) {
+    public void merge(AIXMBasicMessageType message, SessionFactory sessionFactory, Long hjid) {
         Session session = sessionFactory.openSession();
         List<MutationFeatureTimeslice> mutationFeatureTimeslices = new ArrayList<>();
 
@@ -310,9 +318,9 @@ public class Aixm51DatabaseFunction extends
         message.unsetHasMember();
 
         // 2. extract current top timeslice from db (top = last)
-        mutationFeatureTimeslices.addAll(Aixm51DatabaseFunction.generateTimesliceAction(session, featureList));
+        mutationFeatureTimeslices.addAll(Aixm51DatabaseFunction.generateTimesliceAction(session, featureList, hjid));
 
-        ConsoleLogger.startProgress("Merging", message.getHasMember().size() + mutationFeatureTimeslices.size());
+        ConsoleLogger.startProgress("Merging", basicMessageMembers.size() + mutationFeatureTimeslices.size());
 
         // 3. feature, timeslice and correction slice are merged
         Transaction mergeTransaction = session.beginTransaction();
@@ -360,7 +368,6 @@ public class Aixm51DatabaseFunction extends
                 BasicMessage.class).setMaxResults(1).getSingleResult();
 
         Long messageHjid = result.hjid();
-        String messageId = result.id();
 
         List<Long> memberHjids = new ArrayList<>();
         for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
@@ -531,10 +538,10 @@ public class Aixm51DatabaseFunction extends
      * @return A list of MutationFeatureTimeslice instances representing the current
      *         top timeslice for each feature in the database.
      */
-    private static List<MutationFeatureTimeslice> generateTimesliceAction(Session session, List<String> featureList) {
+    private static List<MutationFeatureTimeslice> generateTimesliceAction(Session session, List<String> featureList, Long hjid) {
         List<MutationFeatureTimeslice> featureTimeslices = new ArrayList<>();
         for (String name : featureList) {
-            String sql = Aixm51DatabaseFunction.queryValidTimeslice(name);
+            String sql = Aixm51DatabaseFunction.queryValidTimeslice(name, hjid);
             List<Tuple> tuples = session.createNativeQuery(sql, Tuple.class).getResultList();
             featureTimeslices.addAll(tuples.stream()
                     .map(t -> new MutationFeatureTimeslice(
@@ -560,7 +567,7 @@ public class Aixm51DatabaseFunction extends
      * @return A SQL query string to retrieve the current top timeslice information
      *         for the specified feature schema name.
      */
-    private static String queryValidTimeslice(String featureSchemaName) {
+    private static String queryValidTimeslice(String featureSchemaName, Long hjid) {
         String[] parts = featureSchemaName.split("\\.");
         String schema = parts[0];
         String feature = parts[1];
@@ -584,7 +591,7 @@ public class Aixm51DatabaseFunction extends
          * INNER JOIN aixm.aixm_timeslice ON navaids_point.dme_t.hjid =
          * aixm.aixm_timeslice.hjid
          * INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid =
-         * aixm.message_member.feature_id
+         * aixm.message_member.feature_hjid
          * INNER JOIN aixm.message_member_link ON aixm.message_member.hjid =
          * aixm.message_member_link.member_hjid
          * INNER JOIN aixm.aixm_message ON aixm.message_member_link.message_hjid =
@@ -611,17 +618,22 @@ public class Aixm51DatabaseFunction extends
                 INNER JOIN %2$s ON aixm.aixm_feature.hjid = %2$s.timeslice_hjid
                 INNER JOIN %3$s ON %2$s.%4$s = %3$s.hjid
                 INNER JOIN aixm.aixm_timeslice ON %3$s.hjid = aixm.aixm_timeslice.hjid
-                -- WHERE
-                -- aixm.aixm_feature.lifecycle_status = 'APPROVED'
-                -- AND
-                -- aixm.aixm_timeslice.lifecycle_status = 'APPROVED'
+                INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid = aixm.message_member.feature_hjid
+                INNER JOIN aixm.message_member_link ON aixm.message_member.hjid = aixm.message_member_link.member_hjid
+                INNER JOIN aixm.aixm_message ON aixm.message_member_link.message_hjid = aixm.aixm_message.hjid
+                WHERE aixm.aixm_message.hjid = %5$s
+                AND
+                aixm.aixm_feature.lifecycle_status = 'APPROVED'
+                AND
+                aixm.aixm_timeslice.lifecycle_status = 'APPROVED'
                 ORDER BY aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
                 """
                 .formatted(
                         featureTable, // %1$s
                         timeSlicePropertyTable, // %2$s
                         timeSliceTable, // %3$s
-                        timeSliceTableJoinColumn // %4$s
+                        timeSliceTableJoinColumn, // %4$s
+                        hjid // %5$s
                 );
     }
 }

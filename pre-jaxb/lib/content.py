@@ -26,15 +26,17 @@ class SingletonMeta(type):
     
 class Content(metaclass=SingletonMeta): 
     postgresql_domain_type_check: Dict[str, str] = {
-        "nilreason": """CREATE DOMAIN public.nilreason AS TEXT CHECK (VALUE ~ '^(inapplicable|missing|template|unknown|withheld|other:.+)$');"""
+        "nilreason": """DROP DOMAIN IF EXISTS public.nilreason;
+        CREATE DOMAIN public.nilreason AS TEXT CHECK (VALUE ~ '^(inapplicable|missing|template|unknown|withheld|other:.+)$');"""
     }
 
     postgresql_domain_type_checkless: Dict[str, str] = {
-        "nilreason": """CREATE DOMAIN public.nilreason AS TEXT;"""
+        "nilreason": """DROP DOMAIN IF EXISTS public.nilreason;
+        CREATE DOMAIN public.nilreason AS TEXT;"""
     }
 
     postgresql_comments: Dict[str, str] = {
-        "nilreason" : "COMMENT ON DOMAIN public.nilreason IS 'Generated from XSD : GML 3.2 http://www.opengis.net/gml/3.2:NilReasonEnumeration';"
+        "nilreason" : """COMMENT ON DOMAIN public.nilreason IS 'Generated from XSD : GML 3.2 http://www.opengis.net/gml/3.2:NilReasonEnumeration';"""
     }
 
     def __init__(self, path: str, verbose: bool = False): 

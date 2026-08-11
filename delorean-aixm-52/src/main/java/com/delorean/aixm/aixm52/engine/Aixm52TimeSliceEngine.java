@@ -14,6 +14,27 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Aixm52TimeSliceEngine {
 
+    /**
+     * Propagates a lifecycle status string to an AbstractAIXMFeatureType and all 
+     * extracted AbstractAIXMTimeSliceType instances using existing reflection helpers.
+     * 
+     * @param feature The target AIXM feature instance.
+     * @param status The lifecycle status string to set.
+     */
+    public static void applyTimeSliceLifecycleStatus(AbstractAIXMFeatureType feature, String status) {
+        if (feature == null) {
+            return;
+        }
+
+        List<AbstractAIXMTimeSliceType> timeSlices = invokeTimeSlice(feature);
+        for (AbstractAIXMTimeSliceType timeSlice : timeSlices) {
+            if (timeSlice != null) {
+                log.atDebug().log("Setting lifecycleStatus='{}' for TimeSlice seq: {}", status, timeSlice.getSequenceNumber());
+                timeSlice.setLifecycleStatus(status);
+            }
+        }
+    }
+
     @SuppressWarnings("unchecked")
     public static int countTimeSlices(AbstractAIXMFeatureType feature){
         if (feature == null) {
