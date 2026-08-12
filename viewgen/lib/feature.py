@@ -56,8 +56,6 @@ class Feature(View) :
             "index" : [f"create index if not exists {self.schema}_{self.name}_id on {self.schema}.{self.name}_view (id)"]
         }
 
-    def get_name(self):
-        return f"{self.schema}.{self.name}_view"
 
     def generate_view(self, name, schema) :
         return [
@@ -148,102 +146,49 @@ class Feature(View) :
         self.add_group(str(self.name + "_t"), uom, self.schema)
         self.add_group(str(self.name + "_t"), nil, self.schema)
 
-    def add_association_feature_one(self, schema, type, role, col, ref_types = None):
-        if ref_types is None:
-            ref_types = []
-
-        ref_types.append(type.replace("Property",""))
-
-        name = HeleperFunction.remove_suffix(type)
-
-        if not self.attributes["attributes"].get(type):
-            self.attributes["attributes"][type] = []
-
-        hash = self.generate_letter_hash(str(schema + "_" + name + "_pt"))
-
-        self.attributes["attributes"][type].extend([
-            f"coalesce(cast({hash}.title as varchar), '(' || {hash}.nilreason[1] || ')')::text AS {role}",
-            f"{hash}.href::text AS {role}_href"
+    def add_association_feature_one(self, role, join_table_schema, join_table_table, join_table_column, join_table_revcolumn, target_schema, target_table):
+        join_hash = self.generate_letter_hash(join_table_schema)
+        target_hash = self.generate_letter_hash(target_table)
+        
+        self.attributes["attributes"].setdefault(role, []).extend([
+            f"jsonb_build_object('href', {target_hash}.href",
+            f"'nilreason', {target_hash}.nil_reason",
+            f"'title', {target_hash}.simple_link_title) AS {role}"
         ])
         
-        self.add_group(hash, "title")
-        self.add_group(hash, "nilreason[1]")
-        self.add_group(hash, "href")
 
-        self.attributes["left"].append(f"left join {schema}.{name}_pt {hash} on {self.schema}.{self.name}_t.{col} = {hash}.id")
+        self.attributes["left"].extend([
+            f"left join {join_table_schema}.{join_table_table} {join_hash} on {self.schema}.{self.name}_t.hjid = {join_hash}.{join_table_column}",
+            f"left join {target_schema}.{target_table}_p {target_hash} on {join_hash}.{join_table_revcolumn} = {target_hash}.hjid"
+        ])
     
-    def add_association_object_one(self, schema, type, role, col):
-        name = HeleperFunction.remove_suffix(type)
-
-        self.dependecy.add(f"{schema}.{name}_view")
-        if not self.attributes["attributes"].get(type):
-            self.attributes["attributes"][type] = []
-
-        hash = self.generate_letter_hash(str(schema + "_" + name + "_view"))
-
-        self.attributes["attributes"][type].extend([
-            f"{hash}.id AS {role}",
-            f"{hash}.annotation::jsonb AS {role}_annotation"
+    def add_association_object_one(self, role, join_table_schema, join_table_table, join_table_column, join_table_revcolumn, target_schema, target_table):
+        join_hash = self.generate_letter_hash(join_table_schema)
+        
+        self.attributes["attributes"].setdefault(role, []).extend([
+            f"jsonb_build_object('hjid', aixm.aixm_property.hjid",
+            f"'nilreason', aixm.aixm_property.nil_reason) AS {role}"
         ])
 
-        self.add_group(hash, "id")
-
-        self.attributes["left"].append(f"left join {schema}.{name}_view {hash} on {self.schema}.{self.name}_t.{col} = {hash}.id")
-
-    def add_association_feature_many(self, schema, type, role, ref_types = None):
-        if ref_types is None:
-            ref_types = []
-
-        ref_types.append(type.replace("Property",""))
-
-        name = HeleperFunction.remove_suffix(type)
-
-        if not self.attributes["attributes"].get(type):
-            self.attributes["attributes"][type] = []
-
-        hash_one = self.generate_letter_hash(str("master_join"))
-        hash_two = self.generate_letter_hash(str(schema + "_" + name + "_lat"))
-        hash_three = self.generate_letter_hash(str(schema + "_" + name + "_pt"))
-
-        self.attributes["lateral"].extend([
-            f"left join lateral(",
-            f"  select jsonb_agg(DISTINCT jsonb_build_object(",
-            f"      'id', {hash_two}.id,",
-            f"      'title', coalesce(cast({hash_two}.title AS varchar), '(' || {hash_two}.nilreason[1] || ')'),",
-            f"      'href', {hash_two}.href",
-            f"  )) as {role}"
-            f"  from master_join {hash_one}",
-            f"  join {schema}.{name}_pt {hash_two} on {hash_one}.target_id = {hash_two}.id",
-            f"  where {hash_one}.source_id = {self.schema}.{self.name}_t.id",
-            f") as {hash_three} on TRUE"
+        self.attributes["left"].extend([
+            f"left join {join_table_schema}.{join_table_table} {join_hash} on {self.schema}.{self.name}_t.hjid = {join_hash}.{join_table_column}",
+            f"left join aixm.aixm_property on {join_hash}.{join_table_revcolumn} = aixm.aixm_property.hjid"
         ])
 
-        self.attributes["attributes"][type].extend([
-            f"{hash_three}.{role}::jsonb as {role}"
+    def add_association_feature_many(self, role, join_table_schema, join_table_table, join_table_column, join_table_revcolumn, target_schema, target_table):
+        
+        self.attributes["attributes"].setdefault(role, []).extend([
+            f"(select coalesce(jsonb_agg(jsonb_build_object('href', {target_schema}.{target_table}_p.href",
+            f"'nilreason', {target_schema}.{target_table}_p.nil_reason",
+            f"'title', {target_schema}.{target_table}_p.simple_link_title)),'[]'::jsonb) from {join_table_schema}.{join_table_table} join {target_schema}.{target_table}_p on {join_table_schema}.{join_table_table}.{join_table_revcolumn} = {target_schema}.{target_table}_p.hjid where {self.schema}.{self.name}_t.hjid = {join_table_schema}.{join_table_table}.{join_table_column} ) as {role}"
         ])
+        
 
-    def add_association_object_many(self, schema, type, role):
-        name = HeleperFunction.remove_suffix(type)
+    def add_association_object_many(self, role, join_table_schema, join_table_table, join_table_column, join_table_revcolumn, target_schema, target_table):
 
-        self.dependecy.add(f"{schema}.{name}_view")
-        if not self.attributes["attributes"].get(type):
-            self.attributes["attributes"][type] = []
-
-        hash_one = self.generate_letter_hash(str("master_join"))
-        hash_two = self.generate_letter_hash(str(schema + "_" + name + "_lat"))
-        hash_three = self.generate_letter_hash(str(schema + "_" + name + "_view"))
-
-        self.attributes["lateral"].extend([
-            f"left join lateral(",
-            f"  select jsonb_agg(DISTINCT {hash_two}.id) as {role}",
-            f"  from master_join {hash_one}",
-            f"  join {schema}.{name}_view {hash_two} on {hash_one}.target_id = {hash_two}.id",
-            f"  where {hash_one}.source_id = {self.schema}.{self.name}_t.id",
-            f") as {hash_three} on TRUE"
-        ])
-
-        self.attributes["attributes"][type].extend([
-            f"{hash_three}.{role}::jsonb as {role}",
+        self.attributes["attributes"].setdefault(role, []).extend([
+            f"(select coalesce(jsonb_agg(jsonb_build_object('hjid', aixm.aixm_property.hjid",
+            f"'nilreason', aixm.aixm_property.nil_reason)),'[]'::jsonb) from {join_table_schema}.{join_table_table} join aixm.aixm_property on {join_table_schema}.{join_table_table}.{join_table_revcolumn} = aixm.aixm_property.hjid where {self.schema}.{self.name}_t.hjid = {join_table_schema}.{join_table_table}.{join_table_column} ) as {role}"
         ])
 
     def add_association_snowflake_one(self, schema, type, publish_param, attribute, col, role):

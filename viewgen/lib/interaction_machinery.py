@@ -370,7 +370,7 @@ class InteractionMachinery:
         for key in self.views.keys():
             res += "--" + key + "\n\n"
             for feature in self.views[key].values():
-                res += "--" + feature.get_name() + "\n\n"
+                res += "--" + feature.get_view() + "\n\n"
                 res += feature.get_sql() + "\n\n"
         
         with open(output_path, "w", encoding="utf-8") as f:
@@ -381,7 +381,7 @@ class InteractionMachinery:
         self.parsing.process(self.files)
         return self.parsing.get_layer()
     
-    def populate_qgis_prj(self, prj) : 
+    def populate_qgis_prj(self, prj) :  
         project_layers = prj.find(".//projectlayers")
         layer_tree_group = prj.find(".//layer-tree-group")
 
@@ -416,26 +416,110 @@ class InteractionMachinery:
         for key, group in layer_tree_group_dict.items() :
             layer_tree_group.append(group)
 
-    def process_content(self, layer, content):      
-        for item in ParsingUtility().extract_embedded_columns_two(content):
-            layer.add_attributes_two(item.get("type"), item.get("role"), item.get("value"), item.get("nil"))
+    def process_content(self, layer, content):
+        parser = ParsingUtility()
 
-        for item in ParsingUtility().extract_embedded_columns_three(content):
-            layer.add_attributes_three(item.get("type"), item.get("role"), item.get("value"), item.get("uom"), item.get("nil"))
+        # 1. Embedded Columns (2-tuple)
+        for item in parser.extract_embedded_columns_two(content):
+            layer.add_attributes_two(
+                item.get("type"),
+                item.get("role"),
+                item.get("value"),
+                item.get("nil"),
+            )
 
-        for item in ParsingUtility().extract_one_to_one(content):
-            type = item.get("type")
-            print("--" + layer.get_name() + "--")
-            print(item)
+        # 2. Embedded Columns (3-tuple)
+        for item in parser.extract_embedded_columns_three(content):
+            layer.add_attributes_three(
+                item.get("type"),
+                item.get("role"),
+                item.get("value"),
+                item.get("uom"),
+                item.get("nil"),
+            )
 
-            if type in self.ignore_set:
-                pass
+        # 3. One-to-One Associations
+        for item in parser.extract_one_to_one(content):
+            prop_type = item.get("type")
+            if not prop_type or prop_type in self.ignore_set:
+                continue
 
-            elif 
+            target_type = prop_type.replace("PropertyType", "Type")
+            renamed_type = prop_type.replace("Property", "")
 
-            layer.add
+            # Relates to a Feature
+            if prop_type in self.property_set and target_type in self.feature_set:
+                referenced_layer = self.views["feature"][renamed_type]
+                layer.add_association_feature_one(
+                    item.get("role"),
+                    item.get("schema"),
+                    item.get("join"),
+                    item.get("column"),
+                    item.get("revcolumn"),
+                    referenced_layer.get_schema(),
+                    referenced_layer.get_name(),
+                )
 
-            
+            # Relates to an Object
+            elif prop_type in self.property_set and target_type in self.object_set:
+                referenced_layer = self.views["object"][renamed_type]
+                layer.add_association_object_one(
+                    item.get("role"),
+                    item.get("schema"),
+                    item.get("join"),
+                    item.get("column"),
+                    item.get("revcolumn"),
+                    referenced_layer.get_schema(),
+                    referenced_layer.get_name(),
+                )
+
+            elif prop_type in ["AIXMPointPropertyType", "AIXMElevatedPointPropertyType", "AIXMCurvePropertyType", "AIXMElevatedCurvePropertyType", "AIXMSurfacePropertyType", "AIXMElevatedSurfacePropertyType"]:
+                continue
+
+            else:
+                print("Missing 1:1 match:", item)
+
+        # 4. One-to-Many Associations
+        for item in parser.extract_one_to_many(content):
+            prop_type = item.get("type")
+            if not prop_type or prop_type in self.ignore_set:
+                continue
+
+            target_type = prop_type.replace("PropertyType", "Type")
+            renamed_type = prop_type.replace("Property", "")
+
+            # Relates to Features
+            if prop_type in self.property_set and target_type in self.feature_set:
+                referenced_layer = self.views["feature"][renamed_type]
+                layer.add_association_feature_many(
+                    item.get("role"),
+                    item.get("schema"),
+                    item.get("join"),
+                    item.get("column"),
+                    item.get("revcolumn"),
+                    referenced_layer.get_schema(),
+                    referenced_layer.get_name(),
+                )
+
+            # Relates to an Object
+            elif prop_type in self.property_set and target_type in self.object_set:
+                referenced_layer = self.views["object"][renamed_type]
+                layer.add_association_object_many(
+                    item.get("role"),
+                    item.get("schema"),
+                    item.get("join"),
+                    item.get("column"),
+                    item.get("revcolumn"),
+                    referenced_layer.get_schema(),
+                    referenced_layer.get_name(),
+                )
+
+            elif prop_type in ["AIXMPointPropertyType", "AIXMElevatedPointPropertyType", "AIXMCurvePropertyType", "AIXMElevatedCurvePropertyType", "AIXMSurfacePropertyType", "AIXMElevatedSurfacePropertyType"]:
+                continue
+
+            else:
+                print("Missing 1:N match:", item)
+
             
         #     elif type in self.formated_sql:
         #         schema = self.formated_sql[type].get("schema")

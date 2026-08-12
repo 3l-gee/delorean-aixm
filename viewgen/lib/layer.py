@@ -35,11 +35,14 @@ class View:
             "index" : [f"create index if not exists {self.schema}_{self.name}_id on {self.schema}.{self.name}_view (id)"]
         }
 
+    def get_view(self):
+        return f"{self.schema}.{self.name}_view"
+
     def get_schema(self):
-        return self.schema
-    
+        return repr(self.schema).strip("'\"")
+
     def get_name(self):
-        return self.name
+        return repr(self.name).strip("'\"")
     
     def get_sql(self):
         return self.full_sql

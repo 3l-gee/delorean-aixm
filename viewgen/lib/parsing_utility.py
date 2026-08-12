@@ -88,23 +88,6 @@ class ParsingUtility:
         return embedded_columns
 
     @staticmethod
-    def extract_one_to_one(parsing, content):
-        """Extract one-to-one relationships."""
-        res = []
-        raw_one_to_one = re.findall(parsing["one_to_one"]["method"], content)
-        for column in raw_one_to_one:
-            join_table, schema, join_column, invers_join_column, type, role = column[0], column[1], column[2], column[3], column[4], column[5]
-            res.append({
-                "table" :   f"{schema}.{join_table}",
-                "column" :  f"{schema}.{join_table}.{join_column}",
-                "invers" :  f"{schema}.{join_table}.{invers_join_column}",
-                "type" : type,
-                "role" : role.lower()
-            })
-
-        return res
-
-    @staticmethod
     def extract_one_to_many(parsing, content):
         """Extract one-to-many relationships."""
         res = []
@@ -521,13 +504,22 @@ class ParsingUtility:
         res = []
         raw_one_to_one = re.findall(ParsingUtility.parsing["one_to_one"]["method"], content)
         for column in raw_one_to_one:
+            clean = [
+                c.strip("{}'\" \t\n") if isinstance(c, str) else c for c in column
+            ]
+
+            raw_role = clean[5]
+            role_val = raw_role.replace("get", "").replace("Item", "")
+            role_val = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", role_val)
+            role_val = re.sub(r"([A-Z]+)([A-Z][a-z])", r"\1_\2", role_val).lower()
+
             res.append({
-                "join"      : column[0],
-                "schema"    : column[1],
-                "column"    : column[2],
-                "revcolumn" : column[3],
-                "type"      : column[4],
-                "role"      : column[5]
+                "join":     str(clean[0]),
+                "schema":   str(clean[1]),
+                "column":   str(clean[2]),
+                "revcolumn":str(clean[3]),
+                "type":     str(clean[4]),
+                "role":     str(role_val),
             })
 
         return res
@@ -535,14 +527,23 @@ class ParsingUtility:
     def extract_one_to_many(self, content):
         """Extract one-to-many relationships."""
         res = []
-        raw_one_to_many = re.findall(ParsingUtility.parsing["one_to_many"]["method"], content)
-        for column in raw_one_to_many:
-            join, ref_in, ref_out, type, role = column[0], column[1], column[2], column[3], column[4]
+        raw_one_to_one = re.findall(ParsingUtility.parsing["one_to_one"]["method"], content)
+        for column in raw_one_to_one:
+            clean = [
+                c.strip("{}'\" \t\n") if isinstance(c, str) else c for c in column
+            ]
+
+            raw_role = clean[5]
+            role_val = raw_role.replace("get", "").replace("Item", "")
+            role_val = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", role_val)
+            role_val = re.sub(r"([A-Z]+)([A-Z][a-z])", r"\1_\2", role_val).lower()
+
             res.append({
-                "col" : join,
-                "ref_in" : ref_in,
-                "ref_out" : ref_out,
-                "type" : type,
-                "role" : role.lower()
+                "join":     str(clean[0]),
+                "schema":   str(clean[1]),
+                "column":   str(clean[2]),
+                "revcolumn":str(clean[3]),
+                "type":     str(clean[4]),
+                "role":     str(role_val),
             })
         return res

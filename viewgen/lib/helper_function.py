@@ -2,6 +2,7 @@ import os
 import json
 from unicodedata import name
 import yaml
+import re
 from lxml import etree
 from lxml import html
 
@@ -114,6 +115,11 @@ class HeleperFunction:
                 break
 
         return name.lower()
+
+    def role_clean_up(s):
+        s = s.replace("get", "").replace("Item", "")
+        s = re.sub(r'(?<!^)(?=[A-Z])', '_', s).lower()
+        return s
 
 
 
