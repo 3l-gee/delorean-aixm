@@ -1,0 +1,90 @@
+# Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+# Project information
+site_name: delorean-aixm
+site_author: Raphaël Gerth
+site_url: https://delorean-aixm.com/
+site_description: Open-source ETL toolkit and database system for AIXM aeronautical data
+
+# Repository
+repo_name: 3l-gee/delorean-aixm
+repo_url: https://github.com/3l-gee/delorean-aixm
+
+# Configuration
+theme: 
+  name: material
+  custom_dir: docs/overrides
+  language: en
+  favicon: img/favicon.ico
+  logo: img/delorean-aixm-logo-big.svg
+  homepage: img/delorean-aixm-logo-big.svg
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - content.action.edit
+    - content.code.copy
+    - navigation.indexes
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep purple 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch dark /light mode
+
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch dark /light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Plugins
+plugins:
+  - search
+
+# Additional configuration
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+
+# Extensions
+markdown_extensions:
+  - fenced_code
+  - tables
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - home: index.md
+  - concepts: concepts.md
+  - cli-manual: 
+    - cli-manual: cli/index.md
+    - syntax: cli/syntax.md
+    - exemple: cli/exemple.md
+  - sdk-manual: 
+    - sdk-manual: sdk/index.md
+    - introduction: sdk/introduction.md
+    - exemple: sdk/exemple.md
+  - dev-manual: 
+    - dev-manual: dev/index.md
+    - building: dev/building.md
+    - architecture: dev/architecture.md
+  - roadmap: roadmap.md
+  - FAQ: faq.md
+
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+  - js/mermaid-init.js
+  - js/custom-bg.js
+
+extra_css:
+  - css/dark-rtd.css
