@@ -47,7 +47,7 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
     "abstractDirectFlight"
 })
 @Entity(name = "DirectFlightPropertyType")
-@Table(name = "directflightpropertytype", schema = "route")
+@Table(name = "directflight_p", schema = "route")
 public class DirectFlightPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

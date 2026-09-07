@@ -182,7 +182,7 @@ public class DeicingAreaMarkingTimeSliceType
     @OneToMany(targetEntity = MarkingElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "dcngarmrkngtmslctp_elmnt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "dcngarmrkngtmslctp_elmnt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "deicingareamarking_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "element_hjid", referencedColumnName = "hjid")
@@ -236,7 +236,7 @@ public class DeicingAreaMarkingTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "dcngarmrkngtmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "dcngarmrkngtmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "deicingareamarking_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -374,7 +374,7 @@ public class DeicingAreaMarkingTimeSliceType
     @OneToOne(targetEntity = DeicingAreaPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "dcngarmrkngtmslctp_mrkddcngar_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "dcngarmrkngtmslctp_mrkddcngar_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "deicingareamarking_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "markeddeicingarea_hjid", referencedColumnName = "hjid")
@@ -400,14 +400,14 @@ public class DeicingAreaMarkingTimeSliceType
         }
         final DeicingAreaMarkingTimeSliceType that = ((DeicingAreaMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMarkedDeicingArea();
-            boolean rhsFieldIsSet = that.isSetMarkedDeicingArea();
-            JAXBElement<DeicingAreaPropertyType> lhsField;
-            lhsField = this.getMarkedDeicingArea();
-            JAXBElement<DeicingAreaPropertyType> rhsField;
-            rhsField = that.getMarkedDeicingArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedDeicingArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedDeicingArea", rhsField);
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -439,14 +439,14 @@ public class DeicingAreaMarkingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElement();
-            boolean rhsFieldIsSet = that.isSetElement();
-            List<MarkingElementPropertyType> lhsField;
-            lhsField = (this.isSetElement()?this.getElement():null);
-            List<MarkingElementPropertyType> rhsField;
-            rhsField = (that.isSetElement()?that.getElement():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            boolean lhsFieldIsSet = this.isSetMarkedDeicingArea();
+            boolean rhsFieldIsSet = that.isSetMarkedDeicingArea();
+            JAXBElement<DeicingAreaPropertyType> lhsField;
+            lhsField = this.getMarkedDeicingArea();
+            JAXBElement<DeicingAreaPropertyType> rhsField;
+            rhsField = that.getMarkedDeicingArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedDeicingArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedDeicingArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -465,14 +465,14 @@ public class DeicingAreaMarkingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<MarkingElementPropertyType> lhsField;
+            lhsField = (this.isSetElement()?this.getElement():null);
+            List<MarkingElementPropertyType> rhsField;
+            rhsField = (that.isSetElement()?that.getElement():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

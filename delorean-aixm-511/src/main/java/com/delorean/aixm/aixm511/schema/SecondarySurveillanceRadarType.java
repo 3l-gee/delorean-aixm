@@ -79,7 +79,7 @@ public class SecondarySurveillanceRadarType
      * 
      * 
      */
-    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @Filter(name = "TPHjidFilter", condition = "hjid = ANY(:ids)")
     @OneToMany(targetEntity = SecondarySurveillanceRadarTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)

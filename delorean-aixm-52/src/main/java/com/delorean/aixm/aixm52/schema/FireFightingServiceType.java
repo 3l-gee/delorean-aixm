@@ -79,7 +79,7 @@ public class FireFightingServiceType
      * 
      * 
      */
-    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @Filter(name = "TPHjidFilter", condition = "hjid = ANY(:ids)")
     @OneToMany(targetEntity = FireFightingServiceTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)

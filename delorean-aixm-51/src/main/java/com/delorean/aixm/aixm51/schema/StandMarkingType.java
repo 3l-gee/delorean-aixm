@@ -79,7 +79,7 @@ public class StandMarkingType
      * 
      * 
      */
-    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @Filter(name = "TPHjidFilter", condition = "hjid = ANY(:ids)")
     @OneToMany(targetEntity = StandMarkingTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)

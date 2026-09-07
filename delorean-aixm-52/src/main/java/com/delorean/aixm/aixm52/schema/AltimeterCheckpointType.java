@@ -79,7 +79,7 @@ public class AltimeterCheckpointType
      * 
      * 
      */
-    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @Filter(name = "TPHjidFilter", condition = "hjid = ANY(:ids)")
     @OneToMany(targetEntity = AltimeterCheckpointTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)

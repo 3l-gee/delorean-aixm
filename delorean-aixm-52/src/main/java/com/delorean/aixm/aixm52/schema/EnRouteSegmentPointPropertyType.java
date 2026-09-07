@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "enRouteSegmentPoint"
 })
 @Entity(name = "EnRouteSegmentPointPropertyType")
-@Table(name = "enroutesegmentpointpropertytype", schema = "navaids_point")
+@Table(name = "enroutesegmentpoint_p", schema = "navaids_point")
 public class EnRouteSegmentPointPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

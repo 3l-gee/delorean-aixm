@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "missedApproachGroup"
 })
 @Entity(name = "MissedApproachGroupPropertyType")
-@Table(name = "missedapproachgrouppropertytype", schema = "procedure")
+@Table(name = "missedapproachgroup_p", schema = "procedure")
 public class MissedApproachGroupPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

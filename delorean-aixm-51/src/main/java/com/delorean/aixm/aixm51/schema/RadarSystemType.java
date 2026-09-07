@@ -79,7 +79,7 @@ public class RadarSystemType
      * 
      * 
      */
-    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @Filter(name = "TPHjidFilter", condition = "hjid = ANY(:ids)")
     @OneToMany(targetEntity = RadarSystemTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)

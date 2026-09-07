@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "standardLevel"
 })
 @Entity(name = "StandardLevelPropertyType")
-@Table(name = "standardlevelpropertytype", schema = "shared")
+@Table(name = "standardlevel_p", schema = "shared")
 public class StandardLevelPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "surfaceContaminationLayer"
 })
 @Entity(name = "SurfaceContaminationLayerPropertyType")
-@Table(name = "surfacecontaminationlayerpropertytype", schema = "airport_heliport")
+@Table(name = "surfacecontaminationlayer_p", schema = "airport_heliport")
 public class SurfaceContaminationLayerPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

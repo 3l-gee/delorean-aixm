@@ -47,7 +47,7 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
     "abstractSurfaceContamination"
 })
 @Entity(name = "SurfaceContaminationPropertyType")
-@Table(name = "surfacecontaminationpropertytype", schema = "airport_heliport")
+@Table(name = "surfacecontamination_p", schema = "airport_heliport")
 public class SurfaceContaminationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airspaceGeometryComponent"
 })
 @Entity(name = "AirspaceGeometryComponentPropertyType")
-@Table(name = "airspacegeometrycomponentpropertytype", schema = "airspace")
+@Table(name = "airspacegeometrycomponent_p", schema = "airspace")
 public class AirspaceGeometryComponentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

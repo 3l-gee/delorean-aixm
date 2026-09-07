@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "lightActivation"
 })
 @Entity(name = "LightActivationPropertyType")
-@Table(name = "lightactivationpropertytype", schema = "airport_heliport")
+@Table(name = "lightactivation_p", schema = "airport_heliport")
 public class LightActivationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

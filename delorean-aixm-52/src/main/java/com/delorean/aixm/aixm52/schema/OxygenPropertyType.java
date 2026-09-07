@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "oxygen"
 })
 @Entity(name = "OxygenPropertyType")
-@Table(name = "oxygenpropertytype", schema = "service")
+@Table(name = "oxygen_p", schema = "service")
 public class OxygenPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

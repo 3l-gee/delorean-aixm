@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "authorityForSpecialNavigationStation"
 })
 @Entity(name = "AuthorityForSpecialNavigationStationPropertyType")
-@Table(name = "authorityforspecialnavigationstationpropertytype", schema = "navaids_point")
+@Table(name = "authorityforspecialnavigationstation_p", schema = "navaids_point")
 public class AuthorityForSpecialNavigationStationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

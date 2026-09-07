@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "manoeuvringAreaAvailability"
 })
 @Entity(name = "ManoeuvringAreaAvailabilityPropertyType")
-@Table(name = "manoeuvringareaavailabilitypropertytype", schema = "airport_heliport")
+@Table(name = "manoeuvringareaavailability_p", schema = "airport_heliport")
 public class ManoeuvringAreaAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

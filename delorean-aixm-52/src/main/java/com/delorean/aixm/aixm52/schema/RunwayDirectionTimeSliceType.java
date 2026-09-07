@@ -491,7 +491,7 @@ public class RunwayDirectionTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rnwdrctntmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "rnwdrctntmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -545,7 +545,7 @@ public class RunwayDirectionTimeSliceType
     @OneToMany(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rnwdrctntmslctp_avlblt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "rnwdrctntmslctp_avlblt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
@@ -809,7 +809,7 @@ public class RunwayDirectionTimeSliceType
     @OneToOne(targetEntity = RunwayPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rnwdrctntmslctp_usdrnw_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "rnwdrctntmslctp_usdrnw_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "usedrunway_hjid", referencedColumnName = "hjid")
@@ -825,7 +825,7 @@ public class RunwayDirectionTimeSliceType
     @OneToOne(targetEntity = RunwayElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rnwdrctntmslctp_strtngelmnt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "rnwdrctntmslctp_strtngelmnt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "startingelement_hjid", referencedColumnName = "hjid")
@@ -878,66 +878,27 @@ public class RunwayDirectionTimeSliceType
         }
         final RunwayDirectionTimeSliceType that = ((RunwayDirectionTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetApproachMarkingCondition();
-            boolean rhsFieldIsSet = that.isSetApproachMarkingCondition();
-            JAXBElement<CodeMarkingConditionType> lhsField;
-            lhsField = this.getApproachMarkingCondition();
-            JAXBElement<CodeMarkingConditionType> rhsField;
-            rhsField = that.getApproachMarkingCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachMarkingCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachMarkingCondition", rhsField);
+            boolean lhsFieldIsSet = this.isSetApproachMarkingType();
+            boolean rhsFieldIsSet = that.isSetApproachMarkingType();
+            JAXBElement<CodeRunwayMarkingType> lhsField;
+            lhsField = this.getApproachMarkingType();
+            JAXBElement<CodeRunwayMarkingType> rhsField;
+            rhsField = that.getApproachMarkingType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachMarkingType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachMarkingType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElevationTDZ();
-            boolean rhsFieldIsSet = that.isSetElevationTDZ();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getElevationTDZ();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getElevationTDZ();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevationTDZ", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevationTDZ", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUsedRunway();
-            boolean rhsFieldIsSet = that.isSetUsedRunway();
-            JAXBElement<RunwayPropertyType> lhsField;
-            lhsField = this.getUsedRunway();
-            JAXBElement<RunwayPropertyType> rhsField;
-            rhsField = that.getUsedRunway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usedRunway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usedRunway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMagneticBearing();
-            boolean rhsFieldIsSet = that.isSetMagneticBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getMagneticBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getMagneticBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
+            boolean lhsFieldIsSet = this.isSetClassLightingJAR();
+            boolean rhsFieldIsSet = that.isSetClassLightingJAR();
+            JAXBElement<CodeLightingJARType> lhsField;
+            lhsField = this.getClassLightingJAR();
+            JAXBElement<CodeLightingJARType> rhsField;
+            rhsField = that.getClassLightingJAR();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classLightingJAR", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classLightingJAR", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -956,32 +917,6 @@ public class RunwayDirectionTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTrueBearing();
-            boolean rhsFieldIsSet = that.isSetTrueBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getTrueBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getTrueBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSlope();
-            boolean rhsFieldIsSet = that.isSetSlope();
-            JAXBElement<ValSlopeType> lhsField;
-            lhsField = this.getSlope();
-            JAXBElement<ValSlopeType> rhsField;
-            rhsField = that.getSlope();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPatternVFR();
             boolean rhsFieldIsSet = that.isSetPatternVFR();
             JAXBElement<CodeDirectionTurnType> lhsField;
@@ -995,53 +930,14 @@ public class RunwayDirectionTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStartingElement();
-            boolean rhsFieldIsSet = that.isSetStartingElement();
-            JAXBElement<RunwayElementPropertyType> lhsField;
-            lhsField = this.getStartingElement();
-            JAXBElement<RunwayElementPropertyType> rhsField;
-            rhsField = that.getStartingElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSlopeTDZ();
-            boolean rhsFieldIsSet = that.isSetSlopeTDZ();
-            JAXBElement<ValSlopeType> lhsField;
-            lhsField = this.getSlopeTDZ();
-            JAXBElement<ValSlopeType> rhsField;
-            rhsField = that.getSlopeTDZ();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slopeTDZ", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slopeTDZ", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApproachGuidance();
-            boolean rhsFieldIsSet = that.isSetApproachGuidance();
-            JAXBElement<CodeRunwayApproachGuidanceType> lhsField;
-            lhsField = this.getApproachGuidance();
-            JAXBElement<CodeRunwayApproachGuidanceType> rhsField;
-            rhsField = that.getApproachGuidance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachGuidance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachGuidance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClassLightingJAR();
-            boolean rhsFieldIsSet = that.isSetClassLightingJAR();
-            JAXBElement<CodeLightingJARType> lhsField;
-            lhsField = this.getClassLightingJAR();
-            JAXBElement<CodeLightingJARType> rhsField;
-            rhsField = that.getClassLightingJAR();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classLightingJAR", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classLightingJAR", rhsField);
+            boolean lhsFieldIsSet = this.isSetUsedRunway();
+            boolean rhsFieldIsSet = that.isSetUsedRunway();
+            JAXBElement<RunwayPropertyType> lhsField;
+            lhsField = this.getUsedRunway();
+            JAXBElement<RunwayPropertyType> rhsField;
+            rhsField = that.getUsedRunway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usedRunway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usedRunway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1073,14 +969,118 @@ public class RunwayDirectionTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetApproachMarkingType();
-            boolean rhsFieldIsSet = that.isSetApproachMarkingType();
-            JAXBElement<CodeRunwayMarkingType> lhsField;
-            lhsField = this.getApproachMarkingType();
-            JAXBElement<CodeRunwayMarkingType> rhsField;
-            rhsField = that.getApproachMarkingType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachMarkingType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachMarkingType", rhsField);
+            boolean lhsFieldIsSet = this.isSetSlopeTDZ();
+            boolean rhsFieldIsSet = that.isSetSlopeTDZ();
+            JAXBElement<ValSlopeType> lhsField;
+            lhsField = this.getSlopeTDZ();
+            JAXBElement<ValSlopeType> rhsField;
+            rhsField = that.getSlopeTDZ();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slopeTDZ", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slopeTDZ", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElevationTDZ();
+            boolean rhsFieldIsSet = that.isSetElevationTDZ();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getElevationTDZ();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getElevationTDZ();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevationTDZ", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevationTDZ", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrueBearing();
+            boolean rhsFieldIsSet = that.isSetTrueBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getTrueBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getTrueBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMagneticBearing();
+            boolean rhsFieldIsSet = that.isSetMagneticBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getMagneticBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getMagneticBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSlope();
+            boolean rhsFieldIsSet = that.isSetSlope();
+            JAXBElement<ValSlopeType> lhsField;
+            lhsField = this.getSlope();
+            JAXBElement<ValSlopeType> rhsField;
+            rhsField = that.getSlope();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slope", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproachMarkingCondition();
+            boolean rhsFieldIsSet = that.isSetApproachMarkingCondition();
+            JAXBElement<CodeMarkingConditionType> lhsField;
+            lhsField = this.getApproachMarkingCondition();
+            JAXBElement<CodeMarkingConditionType> rhsField;
+            rhsField = that.getApproachMarkingCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachMarkingCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachMarkingCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartingElement();
+            boolean rhsFieldIsSet = that.isSetStartingElement();
+            JAXBElement<RunwayElementPropertyType> lhsField;
+            lhsField = this.getStartingElement();
+            JAXBElement<RunwayElementPropertyType> rhsField;
+            rhsField = that.getStartingElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproachGuidance();
+            boolean rhsFieldIsSet = that.isSetApproachGuidance();
+            JAXBElement<CodeRunwayApproachGuidanceType> lhsField;
+            lhsField = this.getApproachGuidance();
+            JAXBElement<CodeRunwayApproachGuidanceType> rhsField;
+            rhsField = that.getApproachGuidance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachGuidance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachGuidance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

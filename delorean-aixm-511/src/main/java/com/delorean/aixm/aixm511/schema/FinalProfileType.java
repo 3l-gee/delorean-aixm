@@ -108,7 +108,7 @@ public class FinalProfileType
     @OneToMany(targetEntity = ApproachAltitudeTablePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlprfltp_alttd_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlprfltp_alttd_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalprofile_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "altitude_hjid", referencedColumnName = "hjid")
@@ -162,7 +162,7 @@ public class FinalProfileType
     @OneToMany(targetEntity = ApproachDistanceTablePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlprfltp_dstnc_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlprfltp_dstnc_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalprofile_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "distance_hjid", referencedColumnName = "hjid")
@@ -216,7 +216,7 @@ public class FinalProfileType
     @OneToMany(targetEntity = ApproachTimingTablePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlprfltp_tmng_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlprfltp_tmng_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalprofile_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "timing_hjid", referencedColumnName = "hjid")
@@ -270,7 +270,7 @@ public class FinalProfileType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlprfltp_annttn_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlprfltp_annttn_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalprofile_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -362,14 +362,14 @@ public class FinalProfileType
         }
         final FinalProfileType that = ((FinalProfileType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAltitude();
+            boolean rhsFieldIsSet = that.isSetAltitude();
+            List<ApproachAltitudeTablePropertyType> lhsField;
+            lhsField = (this.isSetAltitude()?this.getAltitude():null);
+            List<ApproachAltitudeTablePropertyType> rhsField;
+            rhsField = (that.isSetAltitude()?that.getAltitude():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -388,14 +388,14 @@ public class FinalProfileType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAltitude();
-            boolean rhsFieldIsSet = that.isSetAltitude();
-            List<ApproachAltitudeTablePropertyType> lhsField;
-            lhsField = (this.isSetAltitude()?this.getAltitude():null);
-            List<ApproachAltitudeTablePropertyType> rhsField;
-            rhsField = (that.isSetAltitude()?that.getAltitude():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FinalProfileExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FinalProfileExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -414,14 +414,14 @@ public class FinalProfileType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FinalProfileExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<FinalProfileExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

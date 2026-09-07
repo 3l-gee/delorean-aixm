@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "radioFrequency"
 })
 @Entity(name = "RadioFrequencyPropertyType")
-@Table(name = "radiofrequencypropertytype", schema = "navaids_point")
+@Table(name = "radiofrequency_p", schema = "navaids_point")
 public class RadioFrequencyPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

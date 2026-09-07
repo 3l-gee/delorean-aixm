@@ -223,19 +223,6 @@ public class ApronTimeSliceExtensionType implements Serializable, Equals, HashCo
         }
         final ApronTimeSliceExtensionType that = ((ApronTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApronExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApronExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApronExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApronExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ApronTimeSliceExtensionType implements Serializable, Equals, HashCo
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractApronExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApronExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractApronExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractApronExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

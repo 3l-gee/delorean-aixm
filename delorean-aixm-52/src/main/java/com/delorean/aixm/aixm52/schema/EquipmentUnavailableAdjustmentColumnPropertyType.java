@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "equipmentUnavailableAdjustmentColumn"
 })
 @Entity(name = "EquipmentUnavailableAdjustmentColumnPropertyType")
-@Table(name = "equipmentunavailableadjustmentcolumnpropertytype", schema = "procedure")
+@Table(name = "equipmentunavailableadjustmentcolumn_p", schema = "procedure")
 public class EquipmentUnavailableAdjustmentColumnPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

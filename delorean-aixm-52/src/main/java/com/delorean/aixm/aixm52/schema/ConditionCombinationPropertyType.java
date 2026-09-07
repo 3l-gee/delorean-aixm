@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "conditionCombination"
 })
 @Entity(name = "ConditionCombinationPropertyType")
-@Table(name = "conditioncombinationpropertytype", schema = "airport_heliport")
+@Table(name = "conditioncombination_p", schema = "airport_heliport")
 public class ConditionCombinationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

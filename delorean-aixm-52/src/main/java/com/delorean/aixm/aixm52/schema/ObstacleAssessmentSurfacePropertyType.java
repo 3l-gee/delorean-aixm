@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "obstacleAssessmentSurface"
 })
 @Entity(name = "ObstacleAssessmentSurfacePropertyType")
-@Table(name = "obstacleassessmentsurfacepropertytype", schema = "shared")
+@Table(name = "obstacleassessmentsurface_p", schema = "shared")
 public class ObstacleAssessmentSurfacePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

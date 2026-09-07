@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "workareaActivity"
 })
 @Entity(name = "WorkareaActivityPropertyType")
-@Table(name = "workareaactivitypropertytype", schema = "airport_heliport")
+@Table(name = "workareaactivity_p", schema = "airport_heliport")
 public class WorkareaActivityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

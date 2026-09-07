@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "routeAvailability"
 })
 @Entity(name = "RouteAvailabilityPropertyType")
-@Table(name = "routeavailabilitypropertytype", schema = "route")
+@Table(name = "routeavailability_p", schema = "route")
 public class RouteAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -207,7 +207,7 @@ public class GuidanceLineDirectionType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "gdnclndrctntp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "gdnclndrctntp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "guidancelinedirection_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -315,7 +315,7 @@ public class GuidanceLineDirectionType
     @OneToOne(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "gdnclndrctntp_thmnvrngaravlblt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "gdnclndrctntp_thmnvrngaravlblt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "guidancelinedirection_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "themanoeuvringareaavailability_hjid", referencedColumnName = "hjid")
@@ -341,6 +341,19 @@ public class GuidanceLineDirectionType
         }
         final GuidanceLineDirectionType that = ((GuidanceLineDirectionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            JAXBElement<CodeDirectionType> lhsField;
+            lhsField = this.getDirection();
+            JAXBElement<CodeDirectionType> rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCardinalDirection();
             boolean rhsFieldIsSet = that.isSetCardinalDirection();
             JAXBElement<CodeCardinalDirectionType> lhsField;
@@ -349,19 +362,6 @@ public class GuidanceLineDirectionType
             rhsField = that.getCardinalDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheManoeuvringAreaAvailability();
-            boolean rhsFieldIsSet = that.isSetTheManoeuvringAreaAvailability();
-            JAXBElement<ManoeuvringAreaAvailabilityPropertyType> lhsField;
-            lhsField = this.getTheManoeuvringAreaAvailability();
-            JAXBElement<ManoeuvringAreaAvailabilityPropertyType> rhsField;
-            rhsField = that.getTheManoeuvringAreaAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theManoeuvringAreaAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theManoeuvringAreaAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -393,14 +393,14 @@ public class GuidanceLineDirectionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDirection();
-            boolean rhsFieldIsSet = that.isSetDirection();
-            JAXBElement<CodeDirectionType> lhsField;
-            lhsField = this.getDirection();
-            JAXBElement<CodeDirectionType> rhsField;
-            rhsField = that.getDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            boolean lhsFieldIsSet = this.isSetTheManoeuvringAreaAvailability();
+            boolean rhsFieldIsSet = that.isSetTheManoeuvringAreaAvailability();
+            JAXBElement<ManoeuvringAreaAvailabilityPropertyType> lhsField;
+            lhsField = this.getTheManoeuvringAreaAvailability();
+            JAXBElement<ManoeuvringAreaAvailabilityPropertyType> rhsField;
+            rhsField = that.getTheManoeuvringAreaAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theManoeuvringAreaAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theManoeuvringAreaAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

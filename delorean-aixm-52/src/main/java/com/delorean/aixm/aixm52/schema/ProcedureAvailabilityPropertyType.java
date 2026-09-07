@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "procedureAvailability"
 })
 @Entity(name = "ProcedureAvailabilityPropertyType")
-@Table(name = "procedureavailabilitypropertytype", schema = "procedure")
+@Table(name = "procedureavailability_p", schema = "procedure")
 public class ProcedureAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

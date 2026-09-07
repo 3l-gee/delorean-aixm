@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightConditionElement"
 })
 @Entity(name = "FlightConditionElementPropertyType")
-@Table(name = "flightconditionelementpropertytype", schema = "route")
+@Table(name = "flightconditionelement_p", schema = "route")
 public class FlightConditionElementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

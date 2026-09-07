@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "guidanceLineDirection"
 })
 @Entity(name = "GuidanceLineDirectionPropertyType")
-@Table(name = "guidancelinedirectionpropertytype", schema = "airport_heliport")
+@Table(name = "guidancelinedirection_p", schema = "airport_heliport")
 public class GuidanceLineDirectionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

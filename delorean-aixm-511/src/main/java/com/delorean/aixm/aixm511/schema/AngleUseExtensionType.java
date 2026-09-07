@@ -223,19 +223,6 @@ public class AngleUseExtensionType implements Serializable, Equals, HashCode, To
         }
         final AngleUseExtensionType that = ((AngleUseExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAngleUseExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAngleUseExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAngleUseExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAngleUseExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAngleUseExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAngleUseExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AngleUseExtensionType implements Serializable, Equals, HashCode, To
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAngleUseExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAngleUseExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAngleUseExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAngleUseExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAngleUseExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAngleUseExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

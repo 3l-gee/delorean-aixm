@@ -63,7 +63,7 @@ public class FeatureTypeSpecification extends AbstractFilterSpecification<Abstra
         log.atDebug().setMessage("Parsing following json for FeatureTypeSpecification: {}").addArgument(() -> json).log();
 
         List<String> targetTypesList = new ArrayList<>();
-        JsonNode targetTypesNode = json.path("identifiers");
+        JsonNode targetTypesNode = json.path("types");
 
         if (targetTypesNode.isArray()) {
             targetTypesNode.forEach(type -> {

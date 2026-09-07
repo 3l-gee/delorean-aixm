@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightInspectionTrajectory"
 })
 @Entity(name = "FlightInspectionTrajectoryPropertyType")
-@Table(name = "flightinspectiontrajectorypropertytype", schema = "navaids_point")
+@Table(name = "flightinspectiontrajectory_p", schema = "navaids_point")
 public class FlightInspectionTrajectoryPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

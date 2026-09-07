@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "authorityForAerialRefuelling"
 })
 @Entity(name = "AuthorityForAerialRefuellingPropertyType")
-@Table(name = "authorityforaerialrefuellingpropertytype", schema = "aerial_refuelling")
+@Table(name = "authorityforaerialrefuelling_p", schema = "aerial_refuelling")
 public class AuthorityForAerialRefuellingPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

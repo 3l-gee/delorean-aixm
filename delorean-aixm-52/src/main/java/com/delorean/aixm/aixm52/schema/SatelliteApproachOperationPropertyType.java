@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "satelliteApproachOperation"
 })
 @Entity(name = "SatelliteApproachOperationPropertyType")
-@Table(name = "satelliteapproachoperationpropertytype", schema = "navaids_point")
+@Table(name = "satelliteapproachoperation_p", schema = "navaids_point")
 public class SatelliteApproachOperationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

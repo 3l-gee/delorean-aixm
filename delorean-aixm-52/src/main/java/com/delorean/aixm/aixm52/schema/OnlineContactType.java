@@ -129,7 +129,7 @@ public class OnlineContactType
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "onlncntcttp_tmintrvl_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "onlncntcttp_tmintrvl_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "onlinecontact_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
@@ -183,7 +183,7 @@ public class OnlineContactType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "onlncntcttp_annttn_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "onlncntcttp_annttn_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "onlinecontact_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -237,7 +237,7 @@ public class OnlineContactType
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "onlncntcttp_spcldtathrt_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "onlncntcttp_spcldtathrt_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "onlinecontact_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
@@ -501,40 +501,27 @@ public class OnlineContactType
         }
         final OnlineContactType that = ((OnlineContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLinkage();
-            boolean rhsFieldIsSet = that.isSetLinkage();
-            JAXBElement<TextAddressType> lhsField;
-            lhsField = this.getLinkage();
-            JAXBElement<TextAddressType> rhsField;
-            rhsField = that.getLinkage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
+            boolean lhsFieldIsSet = this.isSetProtocol();
+            boolean rhsFieldIsSet = that.isSetProtocol();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getProtocol();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getProtocol();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEMail();
-            boolean rhsFieldIsSet = that.isSetEMail();
-            JAXBElement<TextAddressType> lhsField;
-            lhsField = this.getEMail();
-            JAXBElement<TextAddressType> rhsField;
-            rhsField = that.getEMail();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "eMail", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "eMail", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNetwork();
-            boolean rhsFieldIsSet = that.isSetNetwork();
-            JAXBElement<CodeTelecomNetworkType> lhsField;
-            lhsField = this.getNetwork();
-            JAXBElement<CodeTelecomNetworkType> rhsField;
-            rhsField = that.getNetwork();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "network", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "network", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -553,14 +540,27 @@ public class OnlineContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetProtocol();
-            boolean rhsFieldIsSet = that.isSetProtocol();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getProtocol();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getProtocol();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
+            boolean lhsFieldIsSet = this.isSetNetwork();
+            boolean rhsFieldIsSet = that.isSetNetwork();
+            JAXBElement<CodeTelecomNetworkType> lhsField;
+            lhsField = this.getNetwork();
+            JAXBElement<CodeTelecomNetworkType> rhsField;
+            rhsField = that.getNetwork();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "network", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "network", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEMail();
+            boolean rhsFieldIsSet = that.isSetEMail();
+            JAXBElement<TextAddressType> lhsField;
+            lhsField = this.getEMail();
+            JAXBElement<TextAddressType> rhsField;
+            rhsField = that.getEMail();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "eMail", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "eMail", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -592,14 +592,14 @@ public class OnlineContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            boolean lhsFieldIsSet = this.isSetLinkage();
+            boolean rhsFieldIsSet = that.isSetLinkage();
+            JAXBElement<TextAddressType> lhsField;
+            lhsField = this.getLinkage();
+            JAXBElement<TextAddressType> rhsField;
+            rhsField = that.getLinkage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

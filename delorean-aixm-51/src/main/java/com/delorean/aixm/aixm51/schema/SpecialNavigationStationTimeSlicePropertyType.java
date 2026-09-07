@@ -64,9 +64,9 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "specialNavigationStationTimeSlice"
 })
 @FilterDef(name = "TPHjidFilter", parameters = {
-    @ParamDef(name = "ids", type = Long.class)
+    @ParamDef(name = "ids", type = long[].class)
 })
-@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid = ANY(:ids)")
 @Entity(name = "SpecialNavigationStationTimeSlicePropertyType")
 @Table(name = "specialnavigationstation_tp", schema = "navaids_point")
 public class SpecialNavigationStationTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
@@ -78,9 +78,9 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
     @XmlAttribute(name = "owns")
     protected Boolean owns;
     @XmlTransient
-    protected java.lang.Long hjid;
+    protected Long hjid;
     @XmlTransient
-    protected java.lang.Long hjversion;
+    protected Long hjversion;
 
     /**
      * Gets the value of the specialNavigationStationTimeSlice property.
@@ -159,14 +159,14 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.Long }
+     *     {@link Long }
      *     
      */
     @Id
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public java.lang.Long gethjid() {
+    public Long gethjid() {
         return hjid;
     }
 
@@ -175,10 +175,10 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.Long }
+     *     {@link Long }
      *     
      */
-    public void sethjid(java.lang.Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -187,12 +187,12 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.Long }
+     *     {@link Long }
      *     
      */
     @Version
     @Column(name = "hjversion")
-    public java.lang.Long gethjversion() {
+    public Long gethjversion() {
         return hjversion;
     }
 
@@ -201,10 +201,10 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.Long }
+     *     {@link Long }
      *     
      */
-    public void sethjversion(java.lang.Long value) {
+    public void sethjversion(Long value) {
         this.hjversion = value;
     }
 

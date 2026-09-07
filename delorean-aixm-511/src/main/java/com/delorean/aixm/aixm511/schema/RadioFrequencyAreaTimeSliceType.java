@@ -387,7 +387,7 @@ public class RadioFrequencyAreaTimeSliceType
     @OneToMany(targetEntity = CircleSectorPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdfrqncartmslctp_sctr_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "rdfrqncartmslctp_sctr_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "radiofrequencyarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "sector_hjid", referencedColumnName = "hjid")
@@ -441,7 +441,7 @@ public class RadioFrequencyAreaTimeSliceType
     @OneToMany(targetEntity = AIXMSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdfrqncartmslctp_extnt_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "rdfrqncartmslctp_extnt_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "radiofrequencyarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
@@ -495,7 +495,7 @@ public class RadioFrequencyAreaTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdfrqncartmslctp_annttn_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "rdfrqncartmslctp_annttn_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "radiofrequencyarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -616,7 +616,7 @@ public class RadioFrequencyAreaTimeSliceType
     @OneToOne(targetEntity = SecondarySurveillanceRadarPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdfrqncartmslctp_eqpmntrdr_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "rdfrqncartmslctp_eqpmntrdr_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "radiofrequencyarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "equipmentradar_hjid", referencedColumnName = "hjid")
@@ -632,7 +632,7 @@ public class RadioFrequencyAreaTimeSliceType
     @OneToOne(targetEntity = PrecisionApproachRadarPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdfrqncartmslctp_eqpmntprcsnapprchrdr_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "rdfrqncartmslctp_eqpmntprcsnapprchrdr_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "radiofrequencyarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "equipmentprecisionapproachradar_hjid", referencedColumnName = "hjid")
@@ -648,7 +648,7 @@ public class RadioFrequencyAreaTimeSliceType
     @OneToOne(targetEntity = RadioCommunicationChannelPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdfrqncartmslctp_eqpmntfrqnc_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "rdfrqncartmslctp_eqpmntfrqnc_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "radiofrequencyarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "equipmentfrequency_hjid", referencedColumnName = "hjid")
@@ -664,7 +664,7 @@ public class RadioFrequencyAreaTimeSliceType
     @OneToOne(targetEntity = SpecialNavigationStationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdfrqncartmslctp_eqpmntspclnvgtnsttn_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "rdfrqncartmslctp_eqpmntspclnvgtnsttn_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "radiofrequencyarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "equipmentspecialnavigationstation_hjid", referencedColumnName = "hjid")
@@ -680,7 +680,7 @@ public class RadioFrequencyAreaTimeSliceType
     @OneToOne(targetEntity = NavaidEquipmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdfrqncartmslctp_eqpmntnvdeqpmnt_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "rdfrqncartmslctp_eqpmntnvdeqpmnt_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "radiofrequencyarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "equipmentnavaidequipment_hjid", referencedColumnName = "hjid")
@@ -706,45 +706,6 @@ public class RadioFrequencyAreaTimeSliceType
         }
         final RadioFrequencyAreaTimeSliceType that = ((RadioFrequencyAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAngleScallop();
-            boolean rhsFieldIsSet = that.isSetAngleScallop();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getAngleScallop();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getAngleScallop();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleScallop", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleScallop", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEquipmentPrecisionApproachRadar();
-            boolean rhsFieldIsSet = that.isSetEquipmentPrecisionApproachRadar();
-            JAXBElement<PrecisionApproachRadarPropertyType> lhsField;
-            lhsField = this.getEquipmentPrecisionApproachRadar();
-            JAXBElement<PrecisionApproachRadarPropertyType> rhsField;
-            rhsField = that.getEquipmentPrecisionApproachRadar();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentPrecisionApproachRadar", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentPrecisionApproachRadar", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RadioFrequencyAreaTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RadioFrequencyAreaTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEquipmentRadar();
             boolean rhsFieldIsSet = that.isSetEquipmentRadar();
             JAXBElement<SecondarySurveillanceRadarPropertyType> lhsField;
@@ -758,27 +719,14 @@ public class RadioFrequencyAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<CircleSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector()?this.getSector():null);
-            List<CircleSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector()?that.getSector():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeRadioFrequencyAreaType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeRadioFrequencyAreaType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetAngleScallop();
+            boolean rhsFieldIsSet = that.isSetAngleScallop();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getAngleScallop();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getAngleScallop();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleScallop", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleScallop", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -797,19 +745,6 @@ public class RadioFrequencyAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEquipmentNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetEquipmentNavaidEquipment();
-            JAXBElement<NavaidEquipmentPropertyType> lhsField;
-            lhsField = this.getEquipmentNavaidEquipment();
-            JAXBElement<NavaidEquipmentPropertyType> rhsField;
-            rhsField = that.getEquipmentNavaidEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentNavaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentNavaidEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEquipmentSpecialNavigationStation();
             boolean rhsFieldIsSet = that.isSetEquipmentSpecialNavigationStation();
             JAXBElement<SpecialNavigationStationPropertyType> lhsField;
@@ -823,14 +758,14 @@ public class RadioFrequencyAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            List<AIXMSurfacePropertyType> lhsField;
-            lhsField = (this.isSetExtent()?this.getExtent():null);
-            List<AIXMSurfacePropertyType> rhsField;
-            rhsField = (that.isSetExtent()?that.getExtent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetEquipmentPrecisionApproachRadar();
+            boolean rhsFieldIsSet = that.isSetEquipmentPrecisionApproachRadar();
+            JAXBElement<PrecisionApproachRadarPropertyType> lhsField;
+            lhsField = this.getEquipmentPrecisionApproachRadar();
+            JAXBElement<PrecisionApproachRadarPropertyType> rhsField;
+            rhsField = that.getEquipmentPrecisionApproachRadar();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentPrecisionApproachRadar", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentPrecisionApproachRadar", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -849,6 +784,45 @@ public class RadioFrequencyAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeRadioFrequencyAreaType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeRadioFrequencyAreaType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            List<AIXMSurfacePropertyType> lhsField;
+            lhsField = (this.isSetExtent()?this.getExtent():null);
+            List<AIXMSurfacePropertyType> rhsField;
+            rhsField = (that.isSetExtent()?that.getExtent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RadioFrequencyAreaTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<RadioFrequencyAreaTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSignalType();
             boolean rhsFieldIsSet = that.isSetSignalType();
             JAXBElement<CodeRadioSignalType> lhsField;
@@ -857,6 +831,32 @@ public class RadioFrequencyAreaTimeSliceType
             rhsField = that.getSignalType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signalType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signalType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<CircleSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector()?this.getSector():null);
+            List<CircleSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector()?that.getSector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEquipmentNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetEquipmentNavaidEquipment();
+            JAXBElement<NavaidEquipmentPropertyType> lhsField;
+            lhsField = this.getEquipmentNavaidEquipment();
+            JAXBElement<NavaidEquipmentPropertyType> rhsField;
+            rhsField = that.getEquipmentNavaidEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentNavaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentNavaidEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

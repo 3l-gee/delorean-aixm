@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "serviceOperationalStatus"
 })
 @Entity(name = "ServiceOperationalStatusPropertyType")
-@Table(name = "serviceoperationalstatuspropertytype", schema = "service")
+@Table(name = "serviceoperationalstatus_p", schema = "service")
 public class ServiceOperationalStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

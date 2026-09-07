@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "verticalStructurePart"
 })
 @Entity(name = "VerticalStructurePartPropertyType")
-@Table(name = "verticalstructurepartpropertytype", schema = "obstacle")
+@Table(name = "verticalstructurepart_p", schema = "obstacle")
 public class VerticalStructurePartPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

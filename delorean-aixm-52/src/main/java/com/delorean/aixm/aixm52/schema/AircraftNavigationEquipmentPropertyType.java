@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "aircraftNavigationEquipment"
 })
 @Entity(name = "AircraftNavigationEquipmentPropertyType")
-@Table(name = "aircraftnavigationequipmentpropertytype", schema = "shared")
+@Table(name = "aircraftnavigationequipment_p", schema = "shared")
 public class AircraftNavigationEquipmentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -241,7 +241,7 @@ public class SpecialNavigationSystemTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "spclnvgtnsstmtmslctp_annttn_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "spclnvgtnsstmtmslctp_annttn_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "specialnavigationsystem_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -362,7 +362,7 @@ public class SpecialNavigationSystemTimeSliceType
     @OneToOne(targetEntity = AuthorityForSpecialNavigationSystemPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "spclnvgtnsstmtmslctp_rspnsblorgnstn_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "spclnvgtnsstmtmslctp_rspnsblorgnstn_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "specialnavigationsystem_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "responsibleorganisation_hjid", referencedColumnName = "hjid")
@@ -387,19 +387,6 @@ public class SpecialNavigationSystemTimeSliceType
             return false;
         }
         final SpecialNavigationSystemTimeSliceType that = ((SpecialNavigationSystemTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeSpecialNavigationChainDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeSpecialNavigationChainDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
@@ -461,6 +448,19 @@ public class SpecialNavigationSystemTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeSpecialNavigationChainDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeSpecialNavigationChainDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

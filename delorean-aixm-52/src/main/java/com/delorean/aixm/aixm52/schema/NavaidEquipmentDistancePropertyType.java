@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "navaidEquipmentDistance"
 })
 @Entity(name = "NavaidEquipmentDistancePropertyType")
-@Table(name = "navaidequipmentdistancepropertytype", schema = "airport_heliport")
+@Table(name = "navaidequipmentdistance_p", schema = "airport_heliport")
 public class NavaidEquipmentDistancePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -351,7 +351,7 @@ public class ObstructionType
     @OneToMany(targetEntity = AltitudeAdjustmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "obstrctntp_adjstmnt_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "obstrctntp_adjstmnt_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "obstruction_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "adjustment_hjid", referencedColumnName = "hjid")
@@ -405,7 +405,7 @@ public class ObstructionType
     @OneToMany(targetEntity = ObstaclePlacementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "obstrctntp_obstclplcmnt_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "obstrctntp_obstclplcmnt_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "obstruction_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "obstacleplacement_hjid", referencedColumnName = "hjid")
@@ -459,7 +459,7 @@ public class ObstructionType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "obstrctntp_annttn_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "obstrctntp_annttn_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "obstruction_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -621,7 +621,7 @@ public class ObstructionType
     @OneToOne(targetEntity = VerticalStructurePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "obstrctntp_thvrtclstrctr_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "obstrctntp_thvrtclstrctr_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "obstruction_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "theverticalstructure_hjid", referencedColumnName = "hjid")
@@ -647,27 +647,40 @@ public class ObstructionType
         }
         final ObstructionType that = ((ObstructionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRequiredClearance();
-            boolean rhsFieldIsSet = that.isSetRequiredClearance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getRequiredClearance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getRequiredClearance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "requiredClearance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "requiredClearance", rhsField);
+            boolean lhsFieldIsSet = this.isSetControlling();
+            boolean rhsFieldIsSet = that.isSetControlling();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getControlling();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getControlling();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlling", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlling", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTheVerticalStructure();
-            boolean rhsFieldIsSet = that.isSetTheVerticalStructure();
-            JAXBElement<VerticalStructurePropertyType> lhsField;
-            lhsField = this.getTheVerticalStructure();
-            JAXBElement<VerticalStructurePropertyType> rhsField;
-            rhsField = that.getTheVerticalStructure();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theVerticalStructure", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theVerticalStructure", rhsField);
+            boolean lhsFieldIsSet = this.isSetSurfacePenetration();
+            boolean rhsFieldIsSet = that.isSetSurfacePenetration();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSurfacePenetration();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSurfacePenetration();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfacePenetration", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfacePenetration", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCloseIn();
+            boolean rhsFieldIsSet = that.isSetCloseIn();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCloseIn();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCloseIn();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "closeIn", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "closeIn", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -686,27 +699,14 @@ public class ObstructionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAdjustment();
-            boolean rhsFieldIsSet = that.isSetAdjustment();
-            List<AltitudeAdjustmentPropertyType> lhsField;
-            lhsField = (this.isSetAdjustment()?this.getAdjustment():null);
-            List<AltitudeAdjustmentPropertyType> rhsField;
-            rhsField = (that.isSetAdjustment()?that.getAdjustment():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "adjustment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "adjustment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetControlling();
-            boolean rhsFieldIsSet = that.isSetControlling();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getControlling();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getControlling();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlling", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlling", rhsField);
+            boolean lhsFieldIsSet = this.isSetRequiredClearance();
+            boolean rhsFieldIsSet = that.isSetRequiredClearance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getRequiredClearance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getRequiredClearance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "requiredClearance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "requiredClearance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -738,6 +738,32 @@ public class ObstructionType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTheVerticalStructure();
+            boolean rhsFieldIsSet = that.isSetTheVerticalStructure();
+            JAXBElement<VerticalStructurePropertyType> lhsField;
+            lhsField = this.getTheVerticalStructure();
+            JAXBElement<VerticalStructurePropertyType> rhsField;
+            rhsField = that.getTheVerticalStructure();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theVerticalStructure", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theVerticalStructure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAdjustment();
+            boolean rhsFieldIsSet = that.isSetAdjustment();
+            List<AltitudeAdjustmentPropertyType> lhsField;
+            lhsField = (this.isSetAdjustment()?this.getAdjustment():null);
+            List<AltitudeAdjustmentPropertyType> rhsField;
+            rhsField = (that.isSetAdjustment()?that.getAdjustment():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "adjustment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "adjustment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -759,32 +785,6 @@ public class ObstructionType
             rhsField = that.getSlopePenetration();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slopePenetration", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slopePenetration", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCloseIn();
-            boolean rhsFieldIsSet = that.isSetCloseIn();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCloseIn();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCloseIn();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "closeIn", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "closeIn", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfacePenetration();
-            boolean rhsFieldIsSet = that.isSetSurfacePenetration();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSurfacePenetration();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSurfacePenetration();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfacePenetration", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfacePenetration", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

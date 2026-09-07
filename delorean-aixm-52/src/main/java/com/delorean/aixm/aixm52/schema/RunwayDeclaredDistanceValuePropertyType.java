@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "runwayDeclaredDistanceValue"
 })
 @Entity(name = "RunwayDeclaredDistanceValuePropertyType")
-@Table(name = "runwaydeclareddistancevaluepropertytype", schema = "airport_heliport")
+@Table(name = "runwaydeclareddistancevalue_p", schema = "airport_heliport")
 public class RunwayDeclaredDistanceValuePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

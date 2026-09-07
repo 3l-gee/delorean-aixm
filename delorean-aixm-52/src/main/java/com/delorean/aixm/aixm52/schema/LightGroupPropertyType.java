@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "lightGroup"
 })
 @Entity(name = "LightGroupPropertyType")
-@Table(name = "lightgrouppropertytype", schema = "airport_heliport")
+@Table(name = "lightgroup_p", schema = "airport_heliport")
 public class LightGroupPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

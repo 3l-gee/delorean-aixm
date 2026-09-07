@@ -1,26 +1,23 @@
 name: "Delorean CLI Task Example"
 version: "1.0"
 verbose: true
-logging: "DEBUG"
+# logging: "DEBUG"
 
 containers:
   - container: "container-A"
     database:
-      url: "jdbc:postgresql://localhost:5433/test"
+      url: "jdbc:postgresql://localhost:5433/aixm-test-52"
       username: "postgres"
       password: "postgres"
       hbm2ddl: "create"
 
 pipeline:
-  - action: "set_context"
-    description: "Context for AIXM 5.2 processing"
-
   - action: "unmarshal"
     target: "container-A"
     path: "delorean-cli-aixm52/src/test/resources/donlon-aixm-52.xml"
     description : "a5016052"
 
-  - action: "setStatus"
+  - action: "set_status"
     target: "container-A"
     status: "APPROVED"
 
@@ -35,6 +32,9 @@ pipeline:
     domain-check : false
 
   - action: "persist"
+    target: "container-A"
+
+  - action: "render"
     target: "container-A"
 
   - action: "inspect_persisted_message"

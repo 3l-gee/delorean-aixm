@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "altimeterSource"
 })
 @Entity(name = "AltimeterSourcePropertyType")
-@Table(name = "altimetersourcepropertytype", schema = "airport_heliport")
+@Table(name = "altimetersource_p", schema = "airport_heliport")
 public class AltimeterSourcePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

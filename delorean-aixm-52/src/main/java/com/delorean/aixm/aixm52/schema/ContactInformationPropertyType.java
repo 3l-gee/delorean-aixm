@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "contactInformation"
 })
 @Entity(name = "ContactInformationPropertyType")
-@Table(name = "contactinformationpropertytype", schema = "shared")
+@Table(name = "contactinformation_p", schema = "shared")
 public class ContactInformationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

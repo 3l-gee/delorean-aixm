@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "city"
 })
 @Entity(name = "CityPropertyType")
-@Table(name = "citypropertytype", schema = "airport_heliport")
+@Table(name = "city_p", schema = "airport_heliport")
 public class CityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

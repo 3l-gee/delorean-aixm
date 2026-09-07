@@ -104,7 +104,7 @@ public class LandingTakeoffAreaCollectionType
     @OneToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "lndngtkffarcllctntp_rnw_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "lndngtkffarcllctntp_rnw_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "landingtakeoffareacollection_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "runway_hjid", referencedColumnName = "hjid")
@@ -158,7 +158,7 @@ public class LandingTakeoffAreaCollectionType
     @OneToMany(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "lndngtkffarcllctntp_tlof_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "lndngtkffarcllctntp_tlof_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "landingtakeoffareacollection_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "tlof_hjid", referencedColumnName = "hjid")
@@ -212,7 +212,7 @@ public class LandingTakeoffAreaCollectionType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "lndngtkffarcllctntp_annttn_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "lndngtkffarcllctntp_annttn_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "landingtakeoffareacollection_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -304,19 +304,6 @@ public class LandingTakeoffAreaCollectionType
         }
         final LandingTakeoffAreaCollectionType that = ((LandingTakeoffAreaCollectionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRunway();
-            boolean rhsFieldIsSet = that.isSetRunway();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetRunway()?this.getRunway():null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetRunway()?that.getRunway():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -351,6 +338,19 @@ public class LandingTakeoffAreaCollectionType
             rhsField = (that.isSetTLOF()?that.getTLOF():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tlof", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tlof", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunway();
+            boolean rhsFieldIsSet = that.isSetRunway();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetRunway()?this.getRunway():null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetRunway()?that.getRunway():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

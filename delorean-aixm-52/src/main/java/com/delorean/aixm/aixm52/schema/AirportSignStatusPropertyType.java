@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airportSignStatus"
 })
 @Entity(name = "AirportSignStatusPropertyType")
-@Table(name = "airportsignstatuspropertytype", schema = "airport_heliport")
+@Table(name = "airportsignstatus_p", schema = "airport_heliport")
 public class AirportSignStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "courseGroup"
 })
 @Entity(name = "CourseGroupPropertyType")
-@Table(name = "coursegrouppropertytype", schema = "procedure")
+@Table(name = "coursegroup_p", schema = "procedure")
 public class CourseGroupPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -223,19 +223,6 @@ public class DistanceExtensionType implements Serializable, Equals, HashCode, To
         }
         final DistanceExtensionType that = ((DistanceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDistanceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDistanceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDistanceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDistanceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDistanceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDistanceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class DistanceExtensionType implements Serializable, Equals, HashCode, To
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractDistanceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDistanceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDistanceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDistanceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDistanceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDistanceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

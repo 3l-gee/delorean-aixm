@@ -138,7 +138,7 @@ public class CityType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "cttp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "cttp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "city_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")

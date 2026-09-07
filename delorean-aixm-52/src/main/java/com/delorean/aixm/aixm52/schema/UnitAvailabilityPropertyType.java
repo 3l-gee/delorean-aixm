@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "unitAvailability"
 })
 @Entity(name = "UnitAvailabilityPropertyType")
-@Table(name = "unitavailabilitypropertytype", schema = "organisation")
+@Table(name = "unitavailability_p", schema = "organisation")
 public class UnitAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

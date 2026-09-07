@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "minimumAltitudeAreaSector"
 })
 @Entity(name = "MinimumAltitudeAreaSectorPropertyType")
-@Table(name = "minimumaltitudeareasectorpropertytype", schema = "procedure")
+@Table(name = "minimumaltitudeareasector_p", schema = "procedure")
 public class MinimumAltitudeAreaSectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "holdingPatternDuration"
 })
 @Entity(name = "HoldingPatternDurationPropertyType")
-@Table(name = "holdingpatterndurationpropertytype", schema = "holding")
+@Table(name = "holdingpatternduration_p", schema = "holding")
 public class HoldingPatternDurationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

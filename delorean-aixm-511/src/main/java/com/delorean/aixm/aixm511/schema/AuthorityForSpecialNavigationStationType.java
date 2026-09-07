@@ -142,7 +142,7 @@ public class AuthorityForSpecialNavigationStationType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "athrtfrspclnvgtnsttntp_annttn_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "athrtfrspclnvgtnsttntp_annttn_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "authorityforspecialnavigationstation_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -182,7 +182,7 @@ public class AuthorityForSpecialNavigationStationType
     @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "athrtfrspclnvgtnsttntp_thorgnstnathrt_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "athrtfrspclnvgtnsttntp_thorgnstnathrt_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "authorityforspecialnavigationstation_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "theorganisationauthority_hjid", referencedColumnName = "hjid")

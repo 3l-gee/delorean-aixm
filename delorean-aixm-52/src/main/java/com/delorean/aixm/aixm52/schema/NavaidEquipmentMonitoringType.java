@@ -117,7 +117,7 @@ public class NavaidEquipmentMonitoringType
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "nvdeqpmntmntrngtp_tmintrvl_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "nvdeqpmntmntrngtp_tmintrvl_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "navaidequipmentmonitoring_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
@@ -171,7 +171,7 @@ public class NavaidEquipmentMonitoringType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "nvdeqpmntmntrngtp_annttn_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "nvdeqpmntmntrngtp_annttn_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "navaidequipmentmonitoring_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -225,7 +225,7 @@ public class NavaidEquipmentMonitoringType
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "nvdeqpmntmntrngtp_spcldtathrt_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "nvdeqpmntmntrngtp_spcldtathrt_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "navaidequipmentmonitoring_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
@@ -360,19 +360,6 @@ public class NavaidEquipmentMonitoringType
         }
         final NavaidEquipmentMonitoringType that = ((NavaidEquipmentMonitoringType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMonitored();
-            boolean rhsFieldIsSet = that.isSetMonitored();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMonitored();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMonitored();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitored", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitored", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<NavaidEquipmentMonitoringExtensionType> lhsField;
@@ -407,6 +394,19 @@ public class NavaidEquipmentMonitoringType
             rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMonitored();
+            boolean rhsFieldIsSet = that.isSetMonitored();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMonitored();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMonitored();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitored", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitored", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

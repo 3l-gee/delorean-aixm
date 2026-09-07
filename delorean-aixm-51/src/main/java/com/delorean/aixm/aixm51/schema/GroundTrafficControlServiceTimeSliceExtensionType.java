@@ -297,14 +297,14 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
         }
         final GroundTrafficControlServiceTimeSliceExtensionType that = ((GroundTrafficControlServiceTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTrafficSeparationServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTrafficSeparationServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTrafficSeparationServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTrafficSeparationServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTrafficSeparationServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTrafficSeparationServiceExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -323,19 +323,6 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGroundTrafficControlServiceExtension();
             AbstractExtensionType lhsField;
@@ -344,6 +331,19 @@ public class GroundTrafficControlServiceTimeSliceExtensionType implements Serial
             rhsField = that.getAbstractGroundTrafficControlServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundTrafficControlServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundTrafficControlServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTrafficSeparationServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTrafficSeparationServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTrafficSeparationServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTrafficSeparationServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTrafficSeparationServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTrafficSeparationServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

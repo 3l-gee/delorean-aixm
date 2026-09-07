@@ -181,7 +181,7 @@ public class SatelliteServiceTimeSliceType
     @OneToMany(targetEntity = SatelliteServiceAreaPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvctmslctp_srvcar_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvctmslctp_srvcar_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "servicearea_hjid", referencedColumnName = "hjid")
@@ -235,7 +235,7 @@ public class SatelliteServiceTimeSliceType
     @OneToMany(targetEntity = SatelliteApproachOperationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvctmslctp_apprchlctn_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvctmslctp_apprchlctn_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "approachlocation_hjid", referencedColumnName = "hjid")
@@ -289,7 +289,7 @@ public class SatelliteServiceTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvctmslctp_annttn_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvctmslctp_annttn_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -384,7 +384,7 @@ public class SatelliteServiceTimeSliceType
     @OneToOne(targetEntity = SatelliteSystemPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvctmslctp_stlltsstm_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvctmslctp_stlltsstm_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "satellitesystem_hjid", referencedColumnName = "hjid")
@@ -423,14 +423,14 @@ public class SatelliteServiceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetApproachLocation();
+            boolean rhsFieldIsSet = that.isSetApproachLocation();
+            List<SatelliteApproachOperationPropertyType> lhsField;
+            lhsField = (this.isSetApproachLocation()?this.getApproachLocation():null);
+            List<SatelliteApproachOperationPropertyType> rhsField;
+            rhsField = (that.isSetApproachLocation()?that.getApproachLocation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -462,6 +462,19 @@ public class SatelliteServiceTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSatelliteSystem();
             boolean rhsFieldIsSet = that.isSetSatelliteSystem();
             JAXBElement<SatelliteSystemPropertyType> lhsField;
@@ -470,19 +483,6 @@ public class SatelliteServiceTimeSliceType
             rhsField = that.getSatelliteSystem();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satelliteSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satelliteSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApproachLocation();
-            boolean rhsFieldIsSet = that.isSetApproachLocation();
-            List<SatelliteApproachOperationPropertyType> lhsField;
-            lhsField = (this.isSetApproachLocation()?this.getApproachLocation():null);
-            List<SatelliteApproachOperationPropertyType> rhsField;
-            rhsField = (that.isSetApproachLocation()?that.getApproachLocation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

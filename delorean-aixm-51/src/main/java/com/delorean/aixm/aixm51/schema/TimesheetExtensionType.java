@@ -223,19 +223,6 @@ public class TimesheetExtensionType implements Serializable, Equals, HashCode, T
         }
         final TimesheetExtensionType that = ((TimesheetExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTimesheetExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTimesheetExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTimesheetExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTimesheetExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimesheetExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimesheetExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class TimesheetExtensionType implements Serializable, Equals, HashCode, T
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTimesheetExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTimesheetExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTimesheetExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTimesheetExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimesheetExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimesheetExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -169,7 +169,7 @@ public class AirspaceBorderCrossingType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcbrdrcrssngtp_annttn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "arspcbrdrcrssngtp_annttn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "airspacebordercrossing_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -251,7 +251,7 @@ public class AirspaceBorderCrossingType
     @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcbrdrcrssngtp_extdarspc_l", schema = "route", joinColumns = {
+    @JoinTable(name = "arspcbrdrcrssngtp_extdarspc_link", schema = "route", joinColumns = {
         @JoinColumn(name = "airspacebordercrossing_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "exitedairspace_hjid", referencedColumnName = "hjid")
@@ -267,7 +267,7 @@ public class AirspaceBorderCrossingType
     @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcbrdrcrssngtp_entrdarspc_l", schema = "route", joinColumns = {
+    @JoinTable(name = "arspcbrdrcrssngtp_entrdarspc_link", schema = "route", joinColumns = {
         @JoinColumn(name = "airspacebordercrossing_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "enteredairspace_hjid", referencedColumnName = "hjid")
@@ -293,32 +293,6 @@ public class AirspaceBorderCrossingType
         }
         final AirspaceBorderCrossingType that = ((AirspaceBorderCrossingType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEnteredAirspace();
-            boolean rhsFieldIsSet = that.isSetEnteredAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getEnteredAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getEnteredAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "enteredAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "enteredAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExitedAirspace();
             boolean rhsFieldIsSet = that.isSetExitedAirspace();
             JAXBElement<AirspacePropertyType> lhsField;
@@ -340,6 +314,32 @@ public class AirspaceBorderCrossingType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEnteredAirspace();
+            boolean rhsFieldIsSet = that.isSetEnteredAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getEnteredAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getEnteredAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "enteredAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "enteredAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

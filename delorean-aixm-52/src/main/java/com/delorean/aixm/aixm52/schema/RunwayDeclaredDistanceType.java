@@ -142,7 +142,7 @@ public class RunwayDeclaredDistanceType
     @OneToMany(targetEntity = RunwayDeclaredDistanceValuePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rnwdclrddstnctp_dclrdvl_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "rnwdclrddstnctp_dclrdvl_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "runwaydeclareddistance_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "declaredvalue_hjid", referencedColumnName = "hjid")
@@ -196,7 +196,7 @@ public class RunwayDeclaredDistanceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rnwdclrddstnctp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "rnwdclrddstnctp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "runwaydeclareddistance_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")

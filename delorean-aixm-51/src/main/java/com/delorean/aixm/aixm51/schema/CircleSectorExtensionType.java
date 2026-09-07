@@ -223,19 +223,6 @@ public class CircleSectorExtensionType implements Serializable, Equals, HashCode
         }
         final CircleSectorExtensionType that = ((CircleSectorExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractCircleSectorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractCircleSectorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractCircleSectorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractCircleSectorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCircleSectorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCircleSectorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class CircleSectorExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractCircleSectorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractCircleSectorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractCircleSectorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractCircleSectorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCircleSectorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCircleSectorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

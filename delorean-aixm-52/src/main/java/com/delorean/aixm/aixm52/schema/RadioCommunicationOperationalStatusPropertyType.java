@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "radioCommunicationOperationalStatus"
 })
 @Entity(name = "RadioCommunicationOperationalStatusPropertyType")
-@Table(name = "radiocommunicationoperationalstatuspropertytype", schema = "service")
+@Table(name = "radiocommunicationoperationalstatus_p", schema = "service")
 public class RadioCommunicationOperationalStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

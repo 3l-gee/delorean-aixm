@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "meteorology"
 })
 @Entity(name = "MeteorologyPropertyType")
-@Table(name = "meteorologypropertytype", schema = "shared")
+@Table(name = "meteorology_p", schema = "shared")
 public class MeteorologyPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

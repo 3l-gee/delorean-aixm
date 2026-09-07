@@ -216,7 +216,7 @@ public class StandardLevelColumnTimeSliceType
     @OneToMany(targetEntity = StandardLevelPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stndrdlvlclmntmslctp_lvl_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "stndrdlvlclmntmslctp_lvl_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "standardlevelcolumn_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "level_hjid", referencedColumnName = "hjid")
@@ -300,7 +300,7 @@ public class StandardLevelColumnTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stndrdlvlclmntmslctp_annttn_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "stndrdlvlclmntmslctp_annttn_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "standardlevelcolumn_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -418,7 +418,7 @@ public class StandardLevelColumnTimeSliceType
     @OneToOne(targetEntity = StandardLevelTablePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stndrdlvlclmntmslctp_lvltbl_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "stndrdlvlclmntmslctp_lvltbl_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "standardlevelcolumn_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "leveltable_hjid", referencedColumnName = "hjid")
@@ -444,19 +444,6 @@ public class StandardLevelColumnTimeSliceType
         }
         final StandardLevelColumnTimeSliceType that = ((StandardLevelColumnTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<StandardLevelColumnTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<StandardLevelColumnTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -470,14 +457,27 @@ public class StandardLevelColumnTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUnitOfMeasurement();
-            boolean rhsFieldIsSet = that.isSetUnitOfMeasurement();
-            JAXBElement<String> lhsField;
-            lhsField = this.getUnitOfMeasurement();
-            JAXBElement<String> rhsField;
-            rhsField = that.getUnitOfMeasurement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitOfMeasurement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitOfMeasurement", rhsField);
+            boolean lhsFieldIsSet = this.isSetLevel();
+            boolean rhsFieldIsSet = that.isSetLevel();
+            List<StandardLevelPropertyType> lhsField;
+            lhsField = (this.isSetLevel()?this.getLevel():null);
+            List<StandardLevelPropertyType> rhsField;
+            rhsField = (that.isSetLevel()?that.getLevel():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<StandardLevelColumnTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<StandardLevelColumnTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -496,19 +496,6 @@ public class StandardLevelColumnTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLevelTable();
-            boolean rhsFieldIsSet = that.isSetLevelTable();
-            JAXBElement<StandardLevelTablePropertyType> lhsField;
-            lhsField = this.getLevelTable();
-            JAXBElement<StandardLevelTablePropertyType> rhsField;
-            rhsField = that.getLevelTable();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelTable", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelTable", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSeries();
             boolean rhsFieldIsSet = that.isSetSeries();
             JAXBElement<CodeLevelSeriesType> lhsField;
@@ -522,14 +509,27 @@ public class StandardLevelColumnTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLevel();
-            boolean rhsFieldIsSet = that.isSetLevel();
-            List<StandardLevelPropertyType> lhsField;
-            lhsField = (this.isSetLevel()?this.getLevel():null);
-            List<StandardLevelPropertyType> rhsField;
-            rhsField = (that.isSetLevel()?that.getLevel():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
+            boolean lhsFieldIsSet = this.isSetUnitOfMeasurement();
+            boolean rhsFieldIsSet = that.isSetUnitOfMeasurement();
+            JAXBElement<String> lhsField;
+            lhsField = this.getUnitOfMeasurement();
+            JAXBElement<String> rhsField;
+            rhsField = that.getUnitOfMeasurement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitOfMeasurement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitOfMeasurement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLevelTable();
+            boolean rhsFieldIsSet = that.isSetLevelTable();
+            JAXBElement<StandardLevelTablePropertyType> lhsField;
+            lhsField = this.getLevelTable();
+            JAXBElement<StandardLevelTablePropertyType> rhsField;
+            rhsField = that.getLevelTable();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelTable", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelTable", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

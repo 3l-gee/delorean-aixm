@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "unitDependency"
 })
 @Entity(name = "UnitDependencyPropertyType")
-@Table(name = "unitdependencypropertytype", schema = "organisation")
+@Table(name = "unitdependency_p", schema = "organisation")
 public class UnitDependencyPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

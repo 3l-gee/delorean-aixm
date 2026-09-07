@@ -125,7 +125,7 @@ public class SatelliteServiceAreaType
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvcartp_tmintrvl_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvcartp_tmintrvl_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservicearea_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
@@ -179,7 +179,7 @@ public class SatelliteServiceAreaType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvcartp_annttn_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvcartp_annttn_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservicearea_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -233,7 +233,7 @@ public class SatelliteServiceAreaType
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvcartp_spcldtathrt_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvcartp_spcldtathrt_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservicearea_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
@@ -317,7 +317,7 @@ public class SatelliteServiceAreaType
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvcartp_cntr_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvcartp_cntr_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservicearea_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "country_hjid", referencedColumnName = "hjid")
@@ -371,7 +371,7 @@ public class SatelliteServiceAreaType
     @OneToMany(targetEntity = AIXMSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "stlltsrvcartp_ar_l", schema = "navaids_point", joinColumns = {
+    @JoinTable(name = "stlltsrvcartp_ar_link", schema = "navaids_point", joinColumns = {
         @JoinColumn(name = "satelliteservicearea_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "area_hjid", referencedColumnName = "hjid")
@@ -476,19 +476,6 @@ public class SatelliteServiceAreaType
         }
         final SatelliteServiceAreaType that = ((SatelliteServiceAreaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SatelliteServiceAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SatelliteServiceAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -502,27 +489,14 @@ public class SatelliteServiceAreaType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCountry();
-            boolean rhsFieldIsSet = that.isSetCountry();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetCountry()?this.getCountry():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetCountry()?that.getCountry():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
+            boolean lhsFieldIsSet = this.isSetArea();
+            boolean rhsFieldIsSet = that.isSetArea();
+            List<AIXMSurfacePropertyType> lhsField;
+            lhsField = (this.isSetArea()?this.getArea():null);
+            List<AIXMSurfacePropertyType> rhsField;
+            rhsField = (that.isSetArea()?that.getArea():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "area", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "area", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -541,6 +515,32 @@ public class SatelliteServiceAreaType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCountry();
+            boolean rhsFieldIsSet = that.isSetCountry();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetCountry()?this.getCountry():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetCountry()?that.getCountry():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -554,14 +554,14 @@ public class SatelliteServiceAreaType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArea();
-            boolean rhsFieldIsSet = that.isSetArea();
-            List<AIXMSurfacePropertyType> lhsField;
-            lhsField = (this.isSetArea()?this.getArea():null);
-            List<AIXMSurfacePropertyType> rhsField;
-            rhsField = (that.isSetArea()?that.getArea():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "area", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "area", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SatelliteServiceAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SatelliteServiceAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

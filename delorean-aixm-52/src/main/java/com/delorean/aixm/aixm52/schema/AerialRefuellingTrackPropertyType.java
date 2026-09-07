@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "aerialRefuellingTrack"
 })
 @Entity(name = "AerialRefuellingTrackPropertyType")
-@Table(name = "aerialrefuellingtrackpropertytype", schema = "aerial_refuelling")
+@Table(name = "aerialrefuellingtrack_p", schema = "aerial_refuelling")
 public class AerialRefuellingTrackPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

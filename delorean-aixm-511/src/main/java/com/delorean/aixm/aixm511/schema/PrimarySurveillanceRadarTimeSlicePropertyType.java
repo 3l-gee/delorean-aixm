@@ -64,9 +64,9 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "primarySurveillanceRadarTimeSlice"
 })
 @FilterDef(name = "TPHjidFilter", parameters = {
-    @ParamDef(name = "ids", type = Long.class)
+    @ParamDef(name = "ids", type = long[].class)
 })
-@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid = ANY(:ids)")
 @Entity(name = "PrimarySurveillanceRadarTimeSlicePropertyType")
 @Table(name = "primarysurveillanceradar_tp", schema = "surveillance")
 public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
@@ -78,9 +78,9 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
     @XmlAttribute(name = "owns")
     protected Boolean owns;
     @XmlTransient
-    protected java.lang.Long hjid;
+    protected Long hjid;
     @XmlTransient
-    protected java.lang.Long hjversion;
+    protected Long hjversion;
 
     /**
      * Gets the value of the primarySurveillanceRadarTimeSlice property.
@@ -159,14 +159,14 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.Long }
+     *     {@link Long }
      *     
      */
     @Id
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public java.lang.Long gethjid() {
+    public Long gethjid() {
         return hjid;
     }
 
@@ -175,10 +175,10 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.Long }
+     *     {@link Long }
      *     
      */
-    public void sethjid(java.lang.Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -187,12 +187,12 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.Long }
+     *     {@link Long }
      *     
      */
     @Version
     @Column(name = "hjversion")
-    public java.lang.Long gethjversion() {
+    public Long gethjversion() {
         return hjversion;
     }
 
@@ -201,10 +201,10 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.Long }
+     *     {@link Long }
      *     
      */
-    public void sethjversion(java.lang.Long value) {
+    public void sethjversion(Long value) {
         this.hjversion = value;
     }
 
@@ -230,19 +230,6 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
         }
         final PrimarySurveillanceRadarTimeSlicePropertyType that = ((PrimarySurveillanceRadarTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPrimarySurveillanceRadarTimeSlice();
             boolean rhsFieldIsSet = that.isSetPrimarySurveillanceRadarTimeSlice();
             PrimarySurveillanceRadarTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
             rhsField = that.getPrimarySurveillanceRadarTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primarySurveillanceRadarTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primarySurveillanceRadarTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

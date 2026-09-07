@@ -138,7 +138,7 @@ public class FuelType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fltp_annttn_l", schema = "service", joinColumns = {
+    @JoinTable(name = "fltp_annttn_link", schema = "service", joinColumns = {
         @JoinColumn(name = "fuel_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")

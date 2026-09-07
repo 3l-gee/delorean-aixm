@@ -223,19 +223,6 @@ public class TaxiwayTimeSliceExtensionType implements Serializable, Equals, Hash
         }
         final TaxiwayTimeSliceExtensionType that = ((TaxiwayTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTaxiwayExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTaxiwayExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTaxiwayExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTaxiwayExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTaxiwayExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTaxiwayExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class TaxiwayTimeSliceExtensionType implements Serializable, Equals, Hash
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTaxiwayExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTaxiwayExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTaxiwayExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTaxiwayExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTaxiwayExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTaxiwayExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

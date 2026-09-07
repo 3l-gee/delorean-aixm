@@ -73,6 +73,8 @@ public class AIXMBasicMessageType
     @XmlTransient
     protected String saltDescription;
     @XmlTransient
+    protected String deloreanDescription;
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -99,10 +101,10 @@ public class AIXMBasicMessageType
      * 
      * 
      */
-    @Filter(name = "BMMHjidFilter", condition = "hjid IN (:ids)")
+    @Filter(name = "BMMHjidFilter", condition = "hjid = ANY(:ids)")
     @ManyToMany(targetEntity = BasicMessageMemberAIXMPropertyType.class, cascade = {
         CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    }, fetch = FetchType.LAZY)
     @JoinTable(name = "message_member_link", schema = "aixm", joinColumns = {
         @JoinColumn(name = "message_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
@@ -192,6 +194,37 @@ public class AIXMBasicMessageType
     @Transient
     public boolean isSetSaltDescription() {
         return (this.saltDescription!= null);
+    }
+
+    /**
+     * Gets the value of the deloreanDescription property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    @Basic
+    @Column(name = "delorean_description", nullable = true, length = 255)
+    public String getDeloreanDescription() {
+        return deloreanDescription;
+    }
+
+    /**
+     * Sets the value of the deloreanDescription property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDeloreanDescription(String value) {
+        this.deloreanDescription = value;
+    }
+
+    @Transient
+    public boolean isSetDeloreanDescription() {
+        return (this.deloreanDescription!= null);
     }
 
     /**
@@ -287,6 +320,19 @@ public class AIXMBasicMessageType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDeloreanDescription();
+            boolean rhsFieldIsSet = that.isSetDeloreanDescription();
+            String lhsField;
+            lhsField = this.getDeloreanDescription();
+            String rhsField;
+            rhsField = that.getDeloreanDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deloreanDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deloreanDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetHasMember();
             boolean rhsFieldIsSet = that.isSetHasMember();
             List<BasicMessageMemberAIXMPropertyType> lhsField;
@@ -326,6 +372,13 @@ public class AIXMBasicMessageType
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "saltDescription", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
+        {
+            boolean theFieldIsSet = this.isSetDeloreanDescription();
+            String theField;
+            theField = this.getDeloreanDescription();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "deloreanDescription", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
         return currentHashCode;
     }
 
@@ -349,6 +402,12 @@ public class AIXMBasicMessageType
             String theField;
             theField = this.getSaltDescription();
             strategy.appendField(locator, this, "saltDescription", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetDeloreanDescription();
+            String theField;
+            theField = this.getDeloreanDescription();
+            strategy.appendField(locator, this, "deloreanDescription", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

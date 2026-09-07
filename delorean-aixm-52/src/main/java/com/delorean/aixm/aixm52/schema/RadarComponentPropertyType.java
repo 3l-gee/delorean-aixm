@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "radarComponent"
 })
 @Entity(name = "RadarComponentPropertyType")
-@Table(name = "radarcomponentpropertytype", schema = "surveillance")
+@Table(name = "radarcomponent_p", schema = "surveillance")
 public class RadarComponentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

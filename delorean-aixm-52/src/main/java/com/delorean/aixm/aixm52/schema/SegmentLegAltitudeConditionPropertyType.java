@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "segmentLegAltitudeCondition"
 })
 @Entity(name = "SegmentLegAltitudeConditionPropertyType")
-@Table(name = "segmentlegaltitudeconditionpropertytype", schema = "procedure")
+@Table(name = "segmentlegaltitudecondition_p", schema = "procedure")
 public class SegmentLegAltitudeConditionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

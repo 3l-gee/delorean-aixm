@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "obstaclePlacement"
 })
 @Entity(name = "ObstaclePlacementPropertyType")
-@Table(name = "obstacleplacementpropertytype", schema = "shared")
+@Table(name = "obstacleplacement_p", schema = "shared")
 public class ObstaclePlacementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

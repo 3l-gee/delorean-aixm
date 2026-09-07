@@ -133,7 +133,7 @@ public class ConditionCombinationType
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "cndtncmbntntp_tmintrvl_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "cndtncmbntntp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "conditioncombination_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
@@ -187,7 +187,7 @@ public class ConditionCombinationType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "cndtncmbntntp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "cndtncmbntntp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "conditioncombination_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -241,7 +241,7 @@ public class ConditionCombinationType
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "cndtncmbntntp_spcldtathrt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "cndtncmbntntp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "conditioncombination_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
@@ -325,7 +325,7 @@ public class ConditionCombinationType
     @OneToMany(targetEntity = MeteorologyPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "cndtncmbntntp_wthr_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "cndtncmbntntp_wthr_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "conditioncombination_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "weather_hjid", referencedColumnName = "hjid")
@@ -379,7 +379,7 @@ public class ConditionCombinationType
     @OneToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "cndtncmbntntp_arcrft_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "cndtncmbntntp_arcrft_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "conditioncombination_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "aircraft_hjid", referencedColumnName = "hjid")
@@ -433,7 +433,7 @@ public class ConditionCombinationType
     @OneToMany(targetEntity = FlightCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "cndtncmbntntp_flght_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "cndtncmbntntp_flght_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "conditioncombination_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flight_hjid", referencedColumnName = "hjid")
@@ -487,7 +487,7 @@ public class ConditionCombinationType
     @OneToMany(targetEntity = ConditionCombinationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "cndtncmbntntp_sbcndtn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "cndtncmbntntp_sbcndtn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "conditioncombination_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "subcondition_hjid", referencedColumnName = "hjid")
@@ -592,6 +592,32 @@ public class ConditionCombinationType
         }
         final ConditionCombinationType that = ((ConditionCombinationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetFlight();
+            boolean rhsFieldIsSet = that.isSetFlight();
+            List<FlightCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetFlight()?this.getFlight():null);
+            List<FlightCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetFlight()?that.getFlight():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSubCondition();
+            boolean rhsFieldIsSet = that.isSetSubCondition();
+            List<ConditionCombinationPropertyType> lhsField;
+            lhsField = (this.isSetSubCondition()?this.getSubCondition():null);
+            List<ConditionCombinationPropertyType> rhsField;
+            rhsField = (that.isSetSubCondition()?that.getSubCondition():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -613,32 +639,6 @@ public class ConditionCombinationType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLogicalOperator();
-            boolean rhsFieldIsSet = that.isSetLogicalOperator();
-            JAXBElement<CodeLogicalOperatorType> lhsField;
-            lhsField = this.getLogicalOperator();
-            JAXBElement<CodeLogicalOperatorType> rhsField;
-            rhsField = that.getLogicalOperator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logicalOperator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logicalOperator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ConditionCombinationExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ConditionCombinationExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -670,32 +670,6 @@ public class ConditionCombinationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlight();
-            boolean rhsFieldIsSet = that.isSetFlight();
-            List<FlightCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetFlight()?this.getFlight():null);
-            List<FlightCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetFlight()?that.getFlight():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSubCondition();
-            boolean rhsFieldIsSet = that.isSetSubCondition();
-            List<ConditionCombinationPropertyType> lhsField;
-            lhsField = (this.isSetSubCondition()?this.getSubCondition():null);
-            List<ConditionCombinationPropertyType> rhsField;
-            rhsField = (that.isSetSubCondition()?that.getSubCondition():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAircraft();
             boolean rhsFieldIsSet = that.isSetAircraft();
             List<AircraftCharacteristicPropertyType> lhsField;
@@ -704,6 +678,32 @@ public class ConditionCombinationType
             rhsField = (that.isSetAircraft()?that.getAircraft():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ConditionCombinationExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ConditionCombinationExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLogicalOperator();
+            boolean rhsFieldIsSet = that.isSetLogicalOperator();
+            JAXBElement<CodeLogicalOperatorType> lhsField;
+            lhsField = this.getLogicalOperator();
+            JAXBElement<CodeLogicalOperatorType> rhsField;
+            rhsField = that.getLogicalOperator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logicalOperator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logicalOperator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

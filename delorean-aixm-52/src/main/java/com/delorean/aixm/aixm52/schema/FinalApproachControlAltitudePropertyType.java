@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "finalApproachControlAltitude"
 })
 @Entity(name = "FinalApproachControlAltitudePropertyType")
-@Table(name = "finalapproachcontrolaltitudepropertytype", schema = "procedure")
+@Table(name = "finalapproachcontrolaltitude_p", schema = "procedure")
 public class FinalApproachControlAltitudePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

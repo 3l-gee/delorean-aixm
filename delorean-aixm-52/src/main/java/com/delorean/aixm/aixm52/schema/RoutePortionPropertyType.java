@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "routePortion"
 })
 @Entity(name = "RoutePortionPropertyType")
-@Table(name = "routeportionpropertytype", schema = "route")
+@Table(name = "routeportion_p", schema = "route")
 public class RoutePortionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

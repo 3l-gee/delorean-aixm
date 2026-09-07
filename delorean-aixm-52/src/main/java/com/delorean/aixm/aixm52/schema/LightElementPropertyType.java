@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "lightElement"
 })
 @Entity(name = "LightElementPropertyType")
-@Table(name = "lightelementpropertytype", schema = "shared")
+@Table(name = "lightelement_p", schema = "shared")
 public class LightElementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

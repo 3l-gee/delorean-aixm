@@ -173,7 +173,7 @@ public class ReflectorType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rflctrtp_annttn_l", schema = "surveillance", joinColumns = {
+    @JoinTable(name = "rflctrtp_annttn_link", schema = "surveillance", joinColumns = {
         @JoinColumn(name = "reflector_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -268,7 +268,7 @@ public class ReflectorType
     @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rflctrtp_tchdwnrflctr_l", schema = "surveillance", joinColumns = {
+    @JoinTable(name = "rflctrtp_tchdwnrflctr_link", schema = "surveillance", joinColumns = {
         @JoinColumn(name = "reflector_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "touchdownreflector_hjid", referencedColumnName = "hjid")
@@ -294,14 +294,14 @@ public class ReflectorType
         }
         final ReflectorType that = ((ReflectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeReflectorType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeReflectorType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetTouchdownReflector();
+            boolean rhsFieldIsSet = that.isSetTouchdownReflector();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getTouchdownReflector();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getTouchdownReflector();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchdownReflector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchdownReflector", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -320,6 +320,19 @@ public class ReflectorType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeReflectorType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeReflectorType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ReflectorExtensionType> lhsField;
@@ -328,19 +341,6 @@ public class ReflectorType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTouchdownReflector();
-            boolean rhsFieldIsSet = that.isSetTouchdownReflector();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getTouchdownReflector();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getTouchdownReflector();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchdownReflector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchdownReflector", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -109,7 +109,7 @@ public class DirectFlightClassType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtclsstp_annttn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "drctflghtclsstp_annttn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "directflightclass_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")

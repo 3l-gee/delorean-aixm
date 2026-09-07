@@ -1,14 +1,27 @@
 package com.delorean.aixm.core.xml;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
+import java.io.UncheckedIOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Future;
+import java.time.LocalTime;
 
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -28,6 +41,7 @@ import org.w3c.dom.Document;
 import com.delorean.aixm.core.DeloreanUtility;
 import com.delorean.aixm.core.inspection.InspectionBindingService;
 import com.delorean.aixm.core.inspection.ValidationSeverity;
+import com.delorean.aixm.core.log.ConsoleLogger;
 import com.delorean.aixm.core.inspection.InspectionSource;
 import lombok.extern.slf4j.Slf4j;
 
@@ -166,48 +180,46 @@ public class XmlBindingService<ROOT, FEATURE> {
     }
 
     public String statistics(String path) {
-        InputStream xmlStream;
-        if (path.toLowerCase().endsWith(".zip")) {
-            xmlStream = DeloreanUtility.absPathZipToInputStream(path);
-        } else {
-            xmlStream = DeloreanUtility.absPathToInputStream(path);
-        }
+        InputStream xmlStream = path.toLowerCase().endsWith(".zip") 
+            ? DeloreanUtility.absPathZipToInputStream(path) 
+            : DeloreanUtility.absPathToInputStream(path);
 
-        if (xmlStream == null) {
-            return null;
-        } 
+        if (xmlStream == null) return null;
+
+        long featureCount = 0;
+        long timeSliceCount = 0;
 
         try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setNamespaceAware(true); 
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document xmlDocument = builder.parse(xmlStream);
+            XMLInputFactory factory = XMLInputFactory.newInstance();
+            // Disable DTDs/external entities for speed & security
+            factory.setProperty(XMLInputFactory.SUPPORT_DTD, false); 
+            XMLStreamReader reader = factory.createXMLStreamReader(xmlStream);
 
-            XPathFactory xpathFactory = XPathFactory.newInstance();
-            XPath xpath = xpathFactory.newXPath();
-            
-            xpath.setNamespaceContext(new DynamicNamespaceContext(xmlDocument));
-
-            // --- Query 1: count(/message:AIXMBasicMessage/message:hasMember/*) ---
-            String query1 = "count(/message:AIXMBasicMessage/message:hasMember/*)";
-            Number count1 = (Number) xpath.evaluate(query1, xmlDocument, XPathConstants.NUMBER);
-            long featureCount = count1.longValue();
-
-            // --- Query 2: count(//aixm:timeSlice) ---
-            String query2 = "count(//aixm:timeSlice)";
-            Number count2 = (Number) xpath.evaluate(query2, xmlDocument, XPathConstants.NUMBER);
-            long timeSliceCount = count2.longValue();
-            
-            // 5. Format and return the statistics
-            return new String("F: " + featureCount + " / T: " + timeSliceCount);
+            while (reader.hasNext()) {
+                int event = reader.next();
+                if (event == XMLStreamConstants.START_ELEMENT) {
+                    String localName = reader.getLocalName();
+                    
+                    // Matches elements under message:hasMember
+                    if ("hasMember".equals(localName)) {
+                        featureCount++;
+                    } 
+                    // Matches any aixm:timeSlice element
+                    else if ("timeSlice".equals(localName)) {
+                        timeSliceCount++;
+                    }
+                }
+            }
+            reader.close();
+            return "F: " + featureCount + " / T: " + timeSliceCount;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error reading XML stats", e);
             return "Error processing XML: " + e.getMessage();
         } finally {
-             if (xmlStream != null) {
-                 try { xmlStream.close(); } catch (Exception e) { /* ignore */ }
-             }
+            if (xmlStream != null) {
+                try { xmlStream.close(); } catch (Exception e) { /* ignore */ }
+            }
         }
     }
 
@@ -215,38 +227,28 @@ public class XmlBindingService<ROOT, FEATURE> {
     @SuppressWarnings("unchecked")
     public ROOT unmarshal(InputStream xmlStream, String description) {
         log.atDebug().setMessage("Unmarshalling XML stream into ROOT class: {}").addArgument(() -> this.rootClass.getName()).log();
-        // Unmarshal the XML content from the InputStream
+
         Object unmarshalledObject;
-        try {
-            unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
-        } catch (JAXBException e) {
-            log.error("JAXB exception during unmarshalling : " + e.getMessage());
-            if (e.getLinkedException() != null) {
-                e.getLinkedException().printStackTrace(); 
+        try (BufferedInputStream bufferedStream = new BufferedInputStream(xmlStream, 65536)) {
+            XMLInputFactory factory = XMLInputFactory.newInstance();
+            factory.setProperty(XMLInputFactory.SUPPORT_DTD, false);
+            XMLStreamReader xmlReader = factory.createXMLStreamReader(bufferedStream);
+
+            unmarshalledObject = this.unmarshaller.unmarshal(xmlReader);
+                if (!(unmarshalledObject instanceof JAXBElement<?> rootElement)) {
+                throw new IllegalStateException("Unexpected root element type: " + 
+                    (unmarshalledObject != null ? unmarshalledObject.getClass().getName() : "null"));
             }
-            
-            e.printStackTrace();
-            return null;
 
-        } catch (Exception e) {
-            throw new RuntimeException("General exception during unmarshalling: " + e.getMessage(), e);
-        }
+            if (!this.rootClass.isInstance(rootElement.getValue())) {
+                throw new IllegalStateException("Inconsistent type: expected " + 
+                    this.rootClass.getName() + " but got " + rootElement.getValue().getClass().getName());
+            }
 
-        // Check if the root element is of type JAXBElement
-        JAXBElement<?> rootElement;
-        if (unmarshalledObject instanceof JAXBElement<?>) {
-            rootElement = (JAXBElement<?>) unmarshalledObject;
-        } else {
-            throw new RuntimeException("Unknown root element type: " + unmarshalledObject.getClass().getName());
-        }
+            @SuppressWarnings("unchecked")
+            ROOT result = (ROOT) rootElement.getValue();
 
-        // Verify if the root element matches the expected type
-        JAXBElement<ROOT> aixmElement;
-        if (this.rootClass.isInstance(rootElement.getValue())) {
-            aixmElement = (JAXBElement<ROOT>) rootElement;
-            ROOT result = (ROOT) aixmElement.getValue();
-
-            // Dynamically set the description/file name using reflection if provided
+            // Avoid reflection: require ROOT classes to implement a simple interface
             if (description != null && result != null) {
                 try {
                     Method method = result.getClass().getMethod("setDeloreanDescription", String.class);
@@ -260,11 +262,16 @@ public class XmlBindingService<ROOT, FEATURE> {
 
             return result;
 
-        } else {
-            throw new RuntimeException("Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
+        } catch (JAXBException e) {
+            log.error("Failed to unmarshal XML stream: {}", e.getMessage(), e);
+            throw new RuntimeException("Unmarshalling error", e);
+        } catch (XMLStreamException e) {
+            throw new RuntimeException("XML error during unmarshalling", e);
+        } catch (IOException  e) {
+            throw new RuntimeException("I/O error during unmarshalling", e);
         }
     }
-    
+
     public void marshal(ROOT record, FileOutputStream outputStream, Class<ROOT> clazz, QName qName) {
         log.atDebug().setMessage("Marshalling record of type: {} with QName: {}").addArgument(() -> clazz.getName()).addArgument(() -> qName.toString()).log();
         if (record == null) {
@@ -277,21 +284,235 @@ public class XmlBindingService<ROOT, FEATURE> {
             throw new RuntimeException("Cannot marshal to a null OutputStream for type: " + clazz.getName());
         }
 
-        try {
+        try (BufferedOutputStream bufferedStream = new BufferedOutputStream(outputStream, 65536)) {
             XMLOutputFactory factory = XMLOutputFactory.newInstance();
-            XMLStreamWriter standardWriter = factory.createXMLStreamWriter(outputStream, "UTF-8");
-            XMLStreamWriter customWriter = new XMLWriterHelper(standardWriter);
+            XMLStreamWriter standardWriter = factory.createXMLStreamWriter(bufferedStream, "UTF-8");
             JAXBElement<ROOT> rootElement = new JAXBElement<>(qName, this.rootClass, record);
-            this.marshaller.marshal(rootElement, customWriter);
-            customWriter.flush();
-            customWriter.close();
+            this.marshaller.marshal(rootElement, standardWriter);
+            standardWriter.flush();
+            standardWriter.close();
 
         } catch (JAXBException e) {
-            throw new RuntimeException("JAXB exception during marshalling: " + e.getMessage(), e);
-        
+            throw new RuntimeException("JAXB exception during marshalling: " + e);
         } catch (Exception e) {
             throw new RuntimeException("General exception during marshalling: " + e.getMessage(), e);
         }
+    }
+
+    // public void marshal(ROOT record, FileOutputStream outputStream, Class<ROOT> clazz, QName qName) {
+    //     log.atDebug().setMessage("Marshalling record of type: {} with QName: {}").addArgument(() -> clazz.getName()).addArgument(() -> qName.toString()).log();
+    //     if (record == null) {
+    //         throw new RuntimeException("Cannot marshal a null record of type: " + clazz.getName());
+    //     }
+    //     if (qName == null) {
+    //         throw new RuntimeException("Cannot marshal with a null QName for type: " + clazz.getName());
+    //     }
+    //     if (outputStream == null) {
+    //         throw new RuntimeException("Cannot marshal to a null OutputStream for type: " + clazz.getName());
+    //     }
+
+    //     List<?> originalMembers = null;
+    //     Method setHasMemberMethod = null;
+
+    //     System.out.print("start : " + LocalTime.now());
+
+    //     try (BufferedOutputStream bufferedStream = new BufferedOutputStream(outputStream, 65536)) {
+    //         XMLOutputFactory factory = XMLOutputFactory.newInstance();
+    //         XMLStreamWriter standardWriter = factory.createXMLStreamWriter(bufferedStream, "UTF-8");
+
+    //         // 1. Fetch the hasMember collection dynamically without compile-time schema dependencies
+    //         Method getHasMemberMethod = record.getClass().getMethod("getHasMember");
+    //         originalMembers = (List<?>) getHasMemberMethod.invoke(record);
+    //         ConsoleLogger.startProgress("Marshalling", originalMembers.size());
+
+    //         if (originalMembers != null && !originalMembers.isEmpty()) {
+    //             setHasMemberMethod = record.getClass().getMethod("setHasMember", List.class);
+    //             setHasMemberMethod.invoke(record, new ArrayList<>());
+    //         }
+
+    //         System.out.print("Step 1 : " + LocalTime.now());
+
+    //         // 2. Open Root Element
+    //         standardWriter.writeStartDocument("UTF-8", "1.0");
+
+    //         String prefix = (qName.getPrefix() != null && !qName.getPrefix().isEmpty()) ? qName.getPrefix() : "aixm";
+    //         String nsUri = qName.getNamespaceURI();
+    //         standardWriter.writeStartElement(prefix, qName.getLocalPart(), nsUri);
+
+    //         standardWriter.writeNamespace("gml", "http://www.opengis.net/gml/3.2");
+
+    //         String gmlId = invokeGetterString(record, "getId");
+    //         if (gmlId != null) {
+    //             standardWriter.writeAttribute("gml", "http://www.opengis.net/gml/3.2", "id", gmlId);
+    //         }
+
+    //         // AbstractAIXMMessageType: aggregationType
+    //         Object aggregationType = invokeGetter(record, "getAggregationType");
+    //         if (aggregationType != null) {
+    //             standardWriter.writeAttribute("aggregationType", aggregationType.toString());
+    //         }
+
+    //         // metaDataProperty (List)
+    //         List<?> metaDataProperties = (List<?>) invokeGetter(record, "getMetaDataProperty");
+    //         marshalChildElements(metaDataProperties, standardWriter);
+
+    //         // description
+    //         Object description = invokeGetter(record, "getDescription");
+    //         marshalChildElement(description, standardWriter);
+
+    //         // descriptionReference
+    //         Object descriptionReference = invokeGetter(record, "getDescriptionReference");
+    //         marshalChildElement(descriptionReference, standardWriter);
+
+    //         // identifier
+    //         Object identifier = invokeGetter(record, "getIdentifier");
+    //         marshalChildElement(identifier, standardWriter);
+
+    //         // name (List)
+    //         List<?> names = (List<?>) invokeGetter(record, "getName");
+    //         marshalChildElements(names, standardWriter);
+
+    //         // boundedBy
+    //         Object boundedBy = invokeGetter(record, "getBoundedBy");
+    //         marshalChildElement(boundedBy, standardWriter);
+
+    //         // location (JAXBElement wrapper)
+    //         Object locationObj = invokeGetter(record, "getLocation");
+    //         marshalJaxbElementOrObject(locationObj, standardWriter);
+
+    //         // validTime
+    //         Object validTime = invokeGetter(record, "getValidTime");
+    //         marshalChildElement(validTime, standardWriter);
+
+    //         // history (JAXBElement wrapper)
+    //         Object historyObj = invokeGetter(record, "getHistory");
+    //         marshalJaxbElementOrObject(historyObj, standardWriter);
+
+    //         // dataSource
+    //         Object dataSource = invokeGetter(record, "getDataSource");
+    //         marshalChildElement(dataSource, standardWriter);
+
+    //         // dataSourceReference
+    //         Object dataSourceReference = invokeGetter(record, "getDataSourceReference");
+    //         marshalChildElement(dataSourceReference, standardWriter);
+
+    //         // messageMetadata
+    //         Object messageMetadata = invokeGetter(record, "getMessageMetadata");
+    //         marshalChildElement(messageMetadata, standardWriter);
+
+    //         // Flush StAX writer to guarantee header & properties are fully written to stream
+    //         standardWriter.flush();
+
+    //         System.out.print("Step 2 : " + LocalTime.now());
+
+
+    //         // 3. Process members in chunks and write directly to the underlying buffered output stream
+    //         if (originalMembers != null && !originalMembers.isEmpty()) {
+    //             int chunkSize = 2000;
+    //             for (int i = 0; i < originalMembers.size(); i += chunkSize) {
+    //                 List<?> chunk = originalMembers.subList(i, Math.min(i + chunkSize, originalMembers.size()));
+    //                 List<String> xmlSnippets = marshallChunks(chunk);
+
+    //                 for (String xmlSnippet : xmlSnippets) {
+    //                     bufferedStream.write(xmlSnippet.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+    //                 }
+    //                 bufferedStream.flush();
+
+    //                 ConsoleLogger.incrementProgress(chunkSize);
+
+    //             }
+    //         }
+
+    //         System.out.print("Step 3 : " + LocalTime.now());
+
+
+    //         // 4. Close Root Element via standardWriter
+    //         standardWriter.writeEndElement();
+    //         standardWriter.writeEndDocument();
+
+    //         System.out.print("Step 4 : " + LocalTime.now());
+
+
+    //         // 5. Clean Flush and Closure
+    //         standardWriter.flush();
+    //         bufferedStream.flush();
+    //         standardWriter.close();
+
+    //         System.out.print("Step 5 : " + LocalTime.now());
+
+            
+    //     } catch (Exception e) {
+    //         throw new RuntimeException("Exception during parallel AIXM marshalling: " + e.getMessage(), e);
+    //     } finally {
+    //         // Restore original members to the root object
+    //         if (originalMembers != null && setHasMemberMethod != null) {
+    //             try {
+    //                 setHasMemberMethod.invoke(record, originalMembers);
+    //             } catch (Exception ignored) {}
+    //         }
+    //     }
+        
+    //     ConsoleLogger.stopProgress();
+
+    // }
+
+    private List<String> marshallChunks(List<?> chunk) throws JAXBException {
+        Marshaller threadMarshaller = this.context.createMarshaller();
+        threadMarshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+        threadMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.FALSE);
+
+        List<String> xmlChunks = new ArrayList<>(chunk.size());
+        for (Object member : chunk) {
+            StringWriter sw = new StringWriter();
+            threadMarshaller.marshal(member, sw);
+            xmlChunks.add(sw.toString());
+        }
+
+        return xmlChunks;
+    }
+
+    private void marshalChildElement(Object obj, XMLStreamWriter writer) throws Exception {
+        if (obj == null) return;
+        Marshaller m = this.context.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.FALSE);
+        m.marshal(obj, writer);
+    }
+
+    private void marshalChildElements(List<?> list, XMLStreamWriter writer) throws Exception {
+        if (list == null || list.isEmpty()) return;
+        Marshaller m = this.context.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+        for (Object item : list) {
+            if (item != null) {
+                m.marshal(item, writer);
+            }
+        }
+    }
+
+    private void marshalJaxbElementOrObject(Object obj, XMLStreamWriter writer) throws Exception {
+        if (obj == null) return;
+        Marshaller m = this.context.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+        if (obj instanceof JAXBElement) {
+            m.marshal((JAXBElement<?>) obj, writer);
+        } else {
+            m.marshal(obj, writer);
+        }
+    }
+
+    private Object invokeGetter(Object target, String methodName) {
+        try {
+            Method method = target.getClass().getMethod(methodName);
+            return method.invoke(target);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private String invokeGetterString(Object target, String methodName) {
+        Object result = invokeGetter(target, methodName);
+        return result != null ? result.toString() : null;
     }
 
     @SuppressWarnings("unchecked")

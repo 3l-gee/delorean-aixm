@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airspaceVolumeDependency"
 })
 @Entity(name = "AirspaceVolumeDependencyPropertyType")
-@Table(name = "airspacevolumedependencypropertytype", schema = "airspace")
+@Table(name = "airspacevolumedependency_p", schema = "airspace")
 public class AirspaceVolumeDependencyPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

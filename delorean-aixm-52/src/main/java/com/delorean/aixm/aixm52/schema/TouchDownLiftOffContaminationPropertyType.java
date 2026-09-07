@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "touchDownLiftOffContamination"
 })
 @Entity(name = "TouchDownLiftOffContaminationPropertyType")
-@Table(name = "touchdownliftoffcontaminationpropertytype", schema = "airport_heliport")
+@Table(name = "touchdownliftoffcontamination_p", schema = "airport_heliport")
 public class TouchDownLiftOffContaminationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

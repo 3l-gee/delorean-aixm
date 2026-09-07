@@ -169,7 +169,7 @@ public class AirspaceBorderCrossingTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcbrdrcrssngtmslctp_annttn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "arspcbrdrcrssngtmslctp_annttn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "airspacebordercrossing_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -251,7 +251,7 @@ public class AirspaceBorderCrossingTimeSliceType
     @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcbrdrcrssngtmslctp_extdarspc_l", schema = "route", joinColumns = {
+    @JoinTable(name = "arspcbrdrcrssngtmslctp_extdarspc_link", schema = "route", joinColumns = {
         @JoinColumn(name = "airspacebordercrossing_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "exitedairspace_hjid", referencedColumnName = "hjid")
@@ -267,7 +267,7 @@ public class AirspaceBorderCrossingTimeSliceType
     @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcbrdrcrssngtmslctp_entrdarspc_l", schema = "route", joinColumns = {
+    @JoinTable(name = "arspcbrdrcrssngtmslctp_entrdarspc_link", schema = "route", joinColumns = {
         @JoinColumn(name = "airspacebordercrossing_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "enteredairspace_hjid", referencedColumnName = "hjid")
@@ -292,19 +292,6 @@ public class AirspaceBorderCrossingTimeSliceType
             return false;
         }
         final AirspaceBorderCrossingTimeSliceType that = ((AirspaceBorderCrossingTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetExitedAirspace();
-            boolean rhsFieldIsSet = that.isSetExitedAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getExitedAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getExitedAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
@@ -340,6 +327,19 @@ public class AirspaceBorderCrossingTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExitedAirspace();
+            boolean rhsFieldIsSet = that.isSetExitedAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getExitedAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getExitedAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

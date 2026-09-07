@@ -223,19 +223,6 @@ public class AirspaceGeometryComponentExtensionType implements Serializable, Equ
         }
         final AirspaceGeometryComponentExtensionType that = ((AirspaceGeometryComponentExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirspaceGeometryComponentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirspaceGeometryComponentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirspaceGeometryComponentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirspaceGeometryComponentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceGeometryComponentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceGeometryComponentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AirspaceGeometryComponentExtensionType implements Serializable, Equ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirspaceGeometryComponentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirspaceGeometryComponentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirspaceGeometryComponentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirspaceGeometryComponentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceGeometryComponentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceGeometryComponentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

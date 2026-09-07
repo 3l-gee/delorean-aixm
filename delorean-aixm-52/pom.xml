@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.delorean-aixm</groupId>
         <artifactId>delorean-aixm</artifactId>
-        <version>0.2.0</version>
+        <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -318,7 +318,7 @@
                                 </configuration>
                             </execution>
 
-                            <!-- SQL generation -->
+                            <!-- Queries generation -->
                             <execution>
                                 <id>generate aixm 52 sql</id>
                                 <phase>generate-sources</phase>
@@ -334,9 +334,9 @@
                                         <argument>--config</argument>
                                         <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-config_a52.yaml</argument>
                                         <argument>--path_to_bmm</argument>
-                                        <argument>${project.basedir}/src/main/resources/sql/query_basic_message_member_ids.sql</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/query-basic-message-member-ids.sql</argument>
                                         <argument>--path_to_tsp</argument>
-                                        <argument>${project.basedir}/src/main/resources/sql/query_time_slice_property_ids.sql</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/query-time-slice-property-ids.sql</argument>
                                         <argument>--path_to_sfl</argument>
                                         <argument>${project.basedir}/src/main/resources/sql/schema_feature_list.txt</argument>
                                     </arguments>
@@ -357,6 +357,29 @@
                                         <classpath/>
                                         <argument>com.delorean.aixm.postjaxb.PostJAXBRunner</argument>
                                         <argument>${project.basedir}/src/main/post-jaxb/post-jaxb-config_a52.yaml</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+
+                            <!-- View generation -->
+                            <execution>
+                                <id>generate aixm 52 views</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>${project.parent.basedir}/.venv/Scripts/python.exe</executable>
+                                    <arguments>
+                                        <argument>${project.parent.basedir}/post-jaxb/view_cli.py</argument>
+                                        <argument>--config</argument>
+                                        <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-config_a52.yaml</argument>
+                                        <argument>--output_view_sql</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/delorean-aixm-view.sql</argument>
+                                        <argument>--output_materialized_sql</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/delorean-aixm-materialized.sql</argument>
+                                        <argument>--directory</argument>
+                                        <argument>${project.basedir}/src/main/java/com/delorean/aixm/aixm52/schema</argument>
                                     </arguments>
                                 </configuration>
                             </execution>

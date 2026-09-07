@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "reflector"
 })
 @Entity(name = "ReflectorPropertyType")
-@Table(name = "reflectorpropertytype", schema = "surveillance")
+@Table(name = "reflector_p", schema = "surveillance")
 public class ReflectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

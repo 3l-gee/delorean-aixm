@@ -142,7 +142,7 @@ public class RunwayDeclaredDistanceType
     @OneToMany(targetEntity = RunwayDeclaredDistanceValuePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rnwdclrddstnctp_dclrdvl_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "rnwdclrddstnctp_dclrdvl_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "runwaydeclareddistance_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "declaredvalue_hjid", referencedColumnName = "hjid")
@@ -196,7 +196,7 @@ public class RunwayDeclaredDistanceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rnwdclrddstnctp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "rnwdclrddstnctp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "runwaydeclareddistance_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -301,19 +301,6 @@ public class RunwayDeclaredDistanceType
         }
         final RunwayDeclaredDistanceType that = ((RunwayDeclaredDistanceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDeclaredValue();
-            boolean rhsFieldIsSet = that.isSetDeclaredValue();
-            List<RunwayDeclaredDistanceValuePropertyType> lhsField;
-            lhsField = (this.isSetDeclaredValue()?this.getDeclaredValue():null);
-            List<RunwayDeclaredDistanceValuePropertyType> rhsField;
-            rhsField = (that.isSetDeclaredValue()?that.getDeclaredValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declaredValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declaredValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<RunwayDeclaredDistanceExtensionType> lhsField;
@@ -322,6 +309,19 @@ public class RunwayDeclaredDistanceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeDeclaredDistanceType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeDeclaredDistanceType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -340,14 +340,14 @@ public class RunwayDeclaredDistanceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeDeclaredDistanceType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeDeclaredDistanceType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetDeclaredValue();
+            boolean rhsFieldIsSet = that.isSetDeclaredValue();
+            List<RunwayDeclaredDistanceValuePropertyType> lhsField;
+            lhsField = (this.isSetDeclaredValue()?this.getDeclaredValue():null);
+            List<RunwayDeclaredDistanceValuePropertyType> rhsField;
+            rhsField = (that.isSetDeclaredValue()?that.getDeclaredValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declaredValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declaredValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

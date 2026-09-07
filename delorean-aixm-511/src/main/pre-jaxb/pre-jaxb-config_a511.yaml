@@ -1,8 +1,9 @@
 version: a5_1_1
+aixm: aixm 5.1.1
 output_path_xjb: src/main/schema/bindings/aixm.xjb
-output_path_domain_check: src/main/resources/sql/domain_check.sql
-output_path_domain_checkless: src/main/resources/sql/domain_checkless.sql
-output_path_postgresql_comments : src/main/resources/sql/postgresql_comments.sql
+output_path_domain_check: src/main/resources/sql/domain-check.sql
+output_path_domain_checkless: src/main/resources/sql/domain-checkless.sql
+output_path_postgresql_comments : src/main/resources/sql/postgresql-comments.sql
 
 ignore:
 - # TODO solve this

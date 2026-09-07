@@ -223,19 +223,6 @@ public class RunwayBlastPadTimeSliceExtensionType implements Serializable, Equal
         }
         final RunwayBlastPadTimeSliceExtensionType that = ((RunwayBlastPadTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwayBlastPadExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwayBlastPadExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwayBlastPadExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwayBlastPadExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayBlastPadExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayBlastPadExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RunwayBlastPadTimeSliceExtensionType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRunwayBlastPadExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwayBlastPadExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRunwayBlastPadExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRunwayBlastPadExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayBlastPadExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayBlastPadExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

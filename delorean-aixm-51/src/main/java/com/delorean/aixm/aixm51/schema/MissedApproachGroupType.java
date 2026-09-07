@@ -210,7 +210,7 @@ public class MissedApproachGroupType
     @OneToMany(targetEntity = AltimeterSourcePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "mssdapprchgrptp_altmtr_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "mssdapprchgrptp_altmtr_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "missedapproachgroup_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "altimeter_hjid", referencedColumnName = "hjid")
@@ -264,7 +264,7 @@ public class MissedApproachGroupType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "mssdapprchgrptp_annttn_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "mssdapprchgrptp_annttn_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "missedapproachgroup_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -396,32 +396,6 @@ public class MissedApproachGroupType
         }
         final MissedApproachGroupType that = ((MissedApproachGroupType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAlternateClimbAltitude();
-            boolean rhsFieldIsSet = that.isSetAlternateClimbAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAlternateClimbAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAlternateClimbAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<MissedApproachGroupExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<MissedApproachGroupExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetInstruction();
             boolean rhsFieldIsSet = that.isSetInstruction();
             JAXBElement<TextInstructionType> lhsField;
@@ -430,19 +404,6 @@ public class MissedApproachGroupType
             rhsField = that.getInstruction();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAlternateClimbInstruction();
-            boolean rhsFieldIsSet = that.isSetAlternateClimbInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getAlternateClimbInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getAlternateClimbInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbInstruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -469,6 +430,45 @@ public class MissedApproachGroupType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<MissedApproachGroupExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<MissedApproachGroupExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAlternateClimbAltitude();
+            boolean rhsFieldIsSet = that.isSetAlternateClimbAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAlternateClimbAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAlternateClimbAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAlternateClimbInstruction();
+            boolean rhsFieldIsSet = that.isSetAlternateClimbInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getAlternateClimbInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getAlternateClimbInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbInstruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

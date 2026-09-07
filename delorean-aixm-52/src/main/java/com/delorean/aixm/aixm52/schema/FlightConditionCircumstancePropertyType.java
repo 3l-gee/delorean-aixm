@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightConditionCircumstance"
 })
 @Entity(name = "FlightConditionCircumstancePropertyType")
-@Table(name = "flightconditioncircumstancepropertytype", schema = "route")
+@Table(name = "flightconditioncircumstance_p", schema = "route")
 public class FlightConditionCircumstancePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

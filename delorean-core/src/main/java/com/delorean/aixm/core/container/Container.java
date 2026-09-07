@@ -56,7 +56,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         this.qName = qName;
         this.id = id;
 
-        log.info("Successfully initialized Container: " + id);
+        log.info("Container: " + this.name + " initialized");
         log.atDebug().setMessage("Root class: {}").addArgument(() -> rootClass.getName()).log();
         log.atDebug().setMessage("Feature class: {}").addArgument(() -> featureClass.getName()).log();
         log.atDebug().setMessage("TimeSlice class: {}").addArgument(() -> timeSliceClass.getName()).log();
@@ -132,7 +132,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         boolean success = this.databaseBinding.SetCredentials(url, username, password, hbm2ddl);
 
         if (success) {
-            log.info("Connected to <" + this.databaseBinding.getUrl() + ">");
+            log.info("Connected <" + this.name + "> to <" + this.databaseBinding.getUrl() + ">");
         } else {
             log.error("Failed to connect to <" + this.databaseBinding.getUrl() + ">");
         }
@@ -261,7 +261,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
 
         this.deloreanEngine.applyMessageLifecycleStatus(this.message, status);
         String stats = this.deloreanEngine.statistics(this.message);
-        log.info("Lifecycle status set to '{}' for message: <{}> stats: {}", status, this.name, stats);
+        log.info("Lifecycle <" + this.name + "> status set to '{}'", status);
     }
 
     /**
@@ -312,7 +312,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
 
         this.databaseBinding.persistedMessageinspection();
-        log.info("Persisted Message Inspection <" + this.name + ">");
+        log.info("Persisted Message Inspection <" + this.name + "> connection <" + this.databaseBinding.getUrl() + ">");
     }
 
     /**
@@ -350,7 +350,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
         this.databaseBinding.startup(withDomainCheck);
 
-        log.info("Initialized <" + this.databaseBinding.getUrl() + ">");
+        log.info("Initialized <" + this.name + "> connection: <" + this.databaseBinding.getUrl() + ">");
     }
 
     /** Tears down database connections and state. */
@@ -359,7 +359,16 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.databaseBinding.shutdown();
-        log.info("Shutdown <" + this.databaseBinding.getUrl() + ">");
+        log.info("Shutdown <" + this.name + "> connection: <" + this.databaseBinding.getUrl() + ">");
+    }
+
+    /** Tears down database connections and state. */
+    public void render() {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }
+        this.databaseBinding.geometryRender();
+        log.info("Rendered <" + this.name + "> connection: <" + this.databaseBinding.getUrl() + ">");
     }
 
     /** Saves the full aixm message currently in-memory to the database. */
@@ -389,11 +398,11 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
      * Unmarshals an external dataset path and merges it temporally onto the current
      * message. Resolves partial diff (delta) to full timeslices.
      */
-    public void integrate(String path, String fieldName, Object value) {
+    public void integrate(String path) {
         ROOT newMessage = this.doUnmarshal(path, null);
         this.message = this.deloreanEngine.integrate(this.message, newMessage);
         String stats = this.deloreanEngine.statistics(message);
-        log.info("Diff applied to <" + this.name + "> stats: " + stats);
+        log.info("Integrated <" + this.name + "> stats: " + stats);
     }
 
     /**
@@ -407,7 +416,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
 
         this.message = (ROOT) this.databaseBinding.extract(this.rootClass, fieldName, value);
         String stats = this.deloreanEngine.statistics(this.message);
-        log.info("Extracted <" + this.name + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        log.info("Extracted <" + this.name + "> from: <" + this.databaseBinding.getUrl() + "> stats: " + stats);
     }
 
     /**
@@ -475,7 +484,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         message = this.deloreanEngine.diff(this.message);
         this.doMarshal(path, message);
         String stats = this.xmlBinding.statistics(path);
-        log.info("Diff applied to <" + this.name + "> to: " + path + " stats: " + stats);
+        log.info("Diffed <" + this.name + "> to: <" + path + "> stats: " + stats);
     }
 
     /**
@@ -484,7 +493,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
     public void filter(AbstractFilterConfig config) {
         this.message = this.deloreanEngine.filter(this.message, config);
         String stats = this.deloreanEngine.statistics(this.message);
-        log.info("Filter applied to <" + this.name + "> stats: " + stats);
+        log.info("Filtered <" + this.name + "> stats: " + stats);
     }
 
     /**
@@ -503,7 +512,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         ROOT filteredMessage = this.deloreanEngine.filter(clonedMessage, config);
         String stats = this.deloreanEngine.statistics(filteredMessage);
         newContainer.setMessage(filteredMessage);
-        log.info("Prune applied to <" + this.name + "> stats: " + stats);
+        log.info("Pruned <" + this.name + "> stats: " + stats);
         return newContainer;
     }
 
@@ -522,7 +531,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         ROOT clonedMessage = this.deloreanEngine.clone(this.message);
         String stats = this.deloreanEngine.statistics(clonedMessage);
         newContainer.setMessage(clonedMessage);
-        log.info("Clone applied to <" + this.name + "> stats: " + stats);
+        log.info("Cloned <" + this.name + "> stats: " + stats);
         return newContainer;
     }
 }

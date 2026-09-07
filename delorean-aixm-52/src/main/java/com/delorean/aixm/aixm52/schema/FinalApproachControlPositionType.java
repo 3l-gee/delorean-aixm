@@ -345,7 +345,7 @@ public class FinalApproachControlPositionType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlapprchcntrlpstntp_annttn_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlapprchcntrlpstntp_annttn_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalapproachcontrolposition_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -442,7 +442,7 @@ public class FinalApproachControlPositionType
     @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmfxdsgntdpnt_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmfxdsgntdpnt_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalapproachcontrolposition_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "relativefromfixdesignatedpoint_hjid", referencedColumnName = "hjid")
@@ -458,7 +458,7 @@ public class FinalApproachControlPositionType
     @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmnvdsstm_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmnvdsstm_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalapproachcontrolposition_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "relativefromnavaidsystem_hjid", referencedColumnName = "hjid")
@@ -474,7 +474,7 @@ public class FinalApproachControlPositionType
     @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmpstn_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmpstn_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalapproachcontrolposition_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "relativefromposition_hjid", referencedColumnName = "hjid")
@@ -490,7 +490,7 @@ public class FinalApproachControlPositionType
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmrnwpnt_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmrnwpnt_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalapproachcontrolposition_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "relativefromrunwaypoint_hjid", referencedColumnName = "hjid")
@@ -506,7 +506,7 @@ public class FinalApproachControlPositionType
     @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmamngpnt_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmamngpnt_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalapproachcontrolposition_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "relativefromaimingpoint_hjid", referencedColumnName = "hjid")
@@ -522,7 +522,7 @@ public class FinalApproachControlPositionType
     @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmarprtrfrncpnt_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "fnlapprchcntrlpstntp_rltvfrmarprtrfrncpnt_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "finalapproachcontrolposition_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "relativefromairportreferencepoint_hjid", referencedColumnName = "hjid")
@@ -548,79 +548,14 @@ public class FinalApproachControlPositionType
         }
         final FinalApproachControlPositionType that = ((FinalApproachControlPositionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRelativeFromRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetRelativeFromRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getRelativeFromRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getRelativeFromRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeFromPosition();
-            boolean rhsFieldIsSet = that.isSetRelativeFromPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getRelativeFromPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getRelativeFromPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeFromFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetRelativeFromFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getRelativeFromFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getRelativeFromFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeFromAimingPoint();
-            boolean rhsFieldIsSet = that.isSetRelativeFromAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getRelativeFromAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getRelativeFromAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FinalApproachControlPositionExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<FinalApproachControlPositionExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -639,6 +574,71 @@ public class FinalApproachControlPositionType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRelativeFromRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetRelativeFromRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getRelativeFromRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getRelativeFromRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeFromAimingPoint();
+            boolean rhsFieldIsSet = that.isSetRelativeFromAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getRelativeFromAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getRelativeFromAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FinalApproachControlPositionExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FinalApproachControlPositionExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeFromFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetRelativeFromFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getRelativeFromFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getRelativeFromFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRelativeFromNavaidSystem();
             boolean rhsFieldIsSet = that.isSetRelativeFromNavaidSystem();
             JAXBElement<NavaidPropertyType> lhsField;
@@ -652,14 +652,14 @@ public class FinalApproachControlPositionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRelativeFromPosition();
+            boolean rhsFieldIsSet = that.isSetRelativeFromPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getRelativeFromPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getRelativeFromPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

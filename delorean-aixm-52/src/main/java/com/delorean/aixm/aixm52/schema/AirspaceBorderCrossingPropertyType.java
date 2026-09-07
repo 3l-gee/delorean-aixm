@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airspaceBorderCrossing"
 })
 @Entity(name = "AirspaceBorderCrossingPropertyType")
-@Table(name = "airspacebordercrossingpropertytype", schema = "route")
+@Table(name = "airspacebordercrossing_p", schema = "route")
 public class AirspaceBorderCrossingPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

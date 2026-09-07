@@ -149,7 +149,7 @@ public class AerialRefuellingAnchorType
     @OneToMany(targetEntity = CourseGroupPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_otbndcrs_l", schema = "aerial_refuelling", joinColumns = {
+    @JoinTable(name = "arlrfllnganchrtp_otbndcrs_link", schema = "aerial_refuelling", joinColumns = {
         @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "outboundcourse_hjid", referencedColumnName = "hjid")
@@ -203,7 +203,7 @@ public class AerialRefuellingAnchorType
     @OneToMany(targetEntity = CourseGroupPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_inbndcrs_l", schema = "aerial_refuelling", joinColumns = {
+    @JoinTable(name = "arlrfllnganchrtp_inbndcrs_link", schema = "aerial_refuelling", joinColumns = {
         @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "inboundcourse_hjid", referencedColumnName = "hjid")
@@ -467,7 +467,7 @@ public class AerialRefuellingAnchorType
     @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_vrtclextnt_l", schema = "aerial_refuelling", joinColumns = {
+    @JoinTable(name = "arlrfllnganchrtp_vrtclextnt_link", schema = "aerial_refuelling", joinColumns = {
         @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "verticalextent_hjid", referencedColumnName = "hjid")
@@ -521,7 +521,7 @@ public class AerialRefuellingAnchorType
     @OneToMany(targetEntity = AerialRefuellingPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_pnt_l", schema = "aerial_refuelling", joinColumns = {
+    @JoinTable(name = "arlrfllnganchrtp_pnt_link", schema = "aerial_refuelling", joinColumns = {
         @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "point_hjid", referencedColumnName = "hjid")
@@ -575,7 +575,7 @@ public class AerialRefuellingAnchorType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_annttn_l", schema = "aerial_refuelling", joinColumns = {
+    @JoinTable(name = "arlrfllnganchrtp_annttn_link", schema = "aerial_refuelling", joinColumns = {
         @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -742,7 +742,7 @@ public class AerialRefuellingAnchorType
     @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arlrfllnganchrtp_extnt_l", schema = "aerial_refuelling", joinColumns = {
+    @JoinTable(name = "arlrfllnganchrtp_extnt_link", schema = "aerial_refuelling", joinColumns = {
         @JoinColumn(name = "aerialrefuellinganchor_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
@@ -768,27 +768,14 @@ public class AerialRefuellingAnchorType
         }
         final AerialRefuellingAnchorType that = ((AerialRefuellingAnchorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTurnDirection();
-            boolean rhsFieldIsSet = that.isSetTurnDirection();
-            JAXBElement<CodeDirectionTurnType> lhsField;
-            lhsField = this.getTurnDirection();
-            JAXBElement<CodeDirectionTurnType> rhsField;
-            rhsField = that.getTurnDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetLegLength();
+            boolean rhsFieldIsSet = that.isSetLegLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLegLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLegLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legLength", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legLength", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -807,6 +794,32 @@ public class AerialRefuellingAnchorType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetPoint();
+            boolean rhsFieldIsSet = that.isSetPoint();
+            List<AerialRefuellingPointPropertyType> lhsField;
+            lhsField = (this.isSetPoint()?this.getPoint():null);
+            List<AerialRefuellingPointPropertyType> rhsField;
+            rhsField = (that.isSetPoint()?that.getPoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRefuellingBaseLevelReference();
             boolean rhsFieldIsSet = that.isSetRefuellingBaseLevelReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -820,14 +833,27 @@ public class AerialRefuellingAnchorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLegLength();
-            boolean rhsFieldIsSet = that.isSetLegLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLegLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLegLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legLength", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legLength", rhsField);
+            boolean lhsFieldIsSet = this.isSetTurnDirection();
+            boolean rhsFieldIsSet = that.isSetTurnDirection();
+            JAXBElement<CodeDirectionTurnType> lhsField;
+            lhsField = this.getTurnDirection();
+            JAXBElement<CodeDirectionTurnType> rhsField;
+            rhsField = that.getTurnDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundCourse();
+            boolean rhsFieldIsSet = that.isSetOutboundCourse();
+            List<CourseGroupPropertyType> lhsField;
+            lhsField = (this.isSetOutboundCourse()?this.getOutboundCourse():null);
+            List<CourseGroupPropertyType> rhsField;
+            rhsField = (that.isSetOutboundCourse()?that.getOutboundCourse():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -846,27 +872,14 @@ public class AerialRefuellingAnchorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPoint();
-            boolean rhsFieldIsSet = that.isSetPoint();
-            List<AerialRefuellingPointPropertyType> lhsField;
-            lhsField = (this.isSetPoint()?this.getPoint():null);
-            List<AerialRefuellingPointPropertyType> rhsField;
-            rhsField = (that.isSetPoint()?that.getPoint():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOutboundCourse();
-            boolean rhsFieldIsSet = that.isSetOutboundCourse();
-            List<CourseGroupPropertyType> lhsField;
-            lhsField = (this.isSetOutboundCourse()?this.getOutboundCourse():null);
-            List<CourseGroupPropertyType> rhsField;
-            rhsField = (that.isSetOutboundCourse()?that.getOutboundCourse():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourse", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeedLimit();
+            boolean rhsFieldIsSet = that.isSetSpeedLimit();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeedLimit();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeedLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -906,19 +919,6 @@ public class AerialRefuellingAnchorType
             rhsField = (that.isSetInboundCourse()?that.getInboundCourse():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inboundCourse", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inboundCourse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpeedLimit();
-            boolean rhsFieldIsSet = that.isSetSpeedLimit();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeedLimit();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeedLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

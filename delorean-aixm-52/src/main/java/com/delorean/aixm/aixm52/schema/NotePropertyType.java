@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "note"
 })
 @Entity(name = "NotePropertyType")
-@Table(name = "notepropertytype", schema = "note")
+@Table(name = "note_p", schema = "note")
 public class NotePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

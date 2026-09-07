@@ -138,7 +138,7 @@ public class HoldingPatternDistanceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "hldngpttrndstnctp_annttn_l", schema = "holding", joinColumns = {
+    @JoinTable(name = "hldngpttrndstnctp_annttn_link", schema = "holding", joinColumns = {
         @JoinColumn(name = "holdingpatterndistance_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")

@@ -223,19 +223,6 @@ public class MinimumAltitudeAreaSectorExtensionType implements Serializable, Equ
         }
         final MinimumAltitudeAreaSectorExtensionType that = ((MinimumAltitudeAreaSectorExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractMinimumAltitudeAreaSectorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractMinimumAltitudeAreaSectorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractMinimumAltitudeAreaSectorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractMinimumAltitudeAreaSectorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMinimumAltitudeAreaSectorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMinimumAltitudeAreaSectorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class MinimumAltitudeAreaSectorExtensionType implements Serializable, Equ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractMinimumAltitudeAreaSectorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractMinimumAltitudeAreaSectorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractMinimumAltitudeAreaSectorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractMinimumAltitudeAreaSectorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMinimumAltitudeAreaSectorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMinimumAltitudeAreaSectorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

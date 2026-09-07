@@ -43,7 +43,7 @@ public class DatabaseBindingFactory<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.configuration = new Configuration().configure(configurationPath);
         this.databaseHelper = databaseHelper;
 
-        log.info("Successfully initialized DatabaseBindingFactory");
+        log.atDebug().setMessage("Successfully initialized DatabaseBindingFactory");
         log.atDebug().setMessage("Root class: {}").addArgument(() -> rootClass.getName()).log();
         log.atDebug().setMessage("Feature class: {}").addArgument(() -> featureClass.getName()).log();
         log.atDebug().setMessage("TimeSlice class: {}").addArgument(() -> timeSliceClass.getName()).log();

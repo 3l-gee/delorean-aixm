@@ -260,6 +260,19 @@ public class RunwayDirectionLightSystemTimeSliceExtensionType implements Seriali
         }
         final RunwayDirectionLightSystemTimeSliceExtensionType that = ((RunwayDirectionLightSystemTimeSliceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractRunwayDirectionLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwayDirectionLightSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRunwayDirectionLightSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRunwayDirectionLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayDirectionLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayDirectionLightSystemExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
@@ -281,19 +294,6 @@ public class RunwayDirectionLightSystemTimeSliceExtensionType implements Seriali
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwayDirectionLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwayDirectionLightSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwayDirectionLightSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwayDirectionLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayDirectionLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayDirectionLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "circlingRestriction"
 })
 @Entity(name = "CirclingRestrictionPropertyType")
-@Table(name = "circlingrestrictionpropertytype", schema = "procedure")
+@Table(name = "circlingrestriction_p", schema = "procedure")
 public class CirclingRestrictionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

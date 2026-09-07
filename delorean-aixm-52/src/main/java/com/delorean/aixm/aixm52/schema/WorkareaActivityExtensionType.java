@@ -260,19 +260,6 @@ public class WorkareaActivityExtensionType implements Serializable, Equals, Hash
         }
         final WorkareaActivityExtensionType that = ((WorkareaActivityExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractWorkareaActivityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractWorkareaActivityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractWorkareaActivityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractWorkareaActivityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractWorkareaActivityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractWorkareaActivityExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class WorkareaActivityExtensionType implements Serializable, Equals, Hash
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractWorkareaActivityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractWorkareaActivityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractWorkareaActivityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractWorkareaActivityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractWorkareaActivityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractWorkareaActivityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

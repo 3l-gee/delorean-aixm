@@ -206,7 +206,7 @@ public class LightActivationType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "lghtactvtntp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "lghtactvtntp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "lightactivation_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -337,32 +337,6 @@ public class LightActivationType
         }
         final LightActivationType that = ((LightActivationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetClicks();
-            boolean rhsFieldIsSet = that.isSetClicks();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getClicks();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getClicks();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clicks", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clicks", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetActivation();
             boolean rhsFieldIsSet = that.isSetActivation();
             JAXBElement<CodeSystemActivationType> lhsField;
@@ -397,6 +371,32 @@ public class LightActivationType
             rhsField = that.getIntensityLevel();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensityLevel", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensityLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClicks();
+            boolean rhsFieldIsSet = that.isSetClicks();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getClicks();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getClicks();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clicks", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clicks", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

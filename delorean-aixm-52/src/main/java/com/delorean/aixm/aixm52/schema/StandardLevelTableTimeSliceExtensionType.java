@@ -223,19 +223,6 @@ public class StandardLevelTableTimeSliceExtensionType implements Serializable, E
         }
         final StandardLevelTableTimeSliceExtensionType that = ((StandardLevelTableTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractStandardLevelTableExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractStandardLevelTableExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractStandardLevelTableExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractStandardLevelTableExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardLevelTableExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardLevelTableExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class StandardLevelTableTimeSliceExtensionType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractStandardLevelTableExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractStandardLevelTableExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractStandardLevelTableExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractStandardLevelTableExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardLevelTableExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardLevelTableExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

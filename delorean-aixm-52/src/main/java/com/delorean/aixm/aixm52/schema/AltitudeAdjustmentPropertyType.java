@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "altitudeAdjustment"
 })
 @Entity(name = "AltitudeAdjustmentPropertyType")
-@Table(name = "altitudeadjustmentpropertytype", schema = "shared")
+@Table(name = "altitudeadjustment_p", schema = "shared")
 public class AltitudeAdjustmentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

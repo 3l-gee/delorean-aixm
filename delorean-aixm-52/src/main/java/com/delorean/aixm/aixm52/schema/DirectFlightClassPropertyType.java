@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "directFlightClass"
 })
 @Entity(name = "DirectFlightClassPropertyType")
-@Table(name = "directflightclasspropertytype", schema = "route")
+@Table(name = "directflightclass_p", schema = "route")
 public class DirectFlightClassPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

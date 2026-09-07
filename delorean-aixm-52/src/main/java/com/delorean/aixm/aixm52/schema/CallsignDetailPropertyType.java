@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "callsignDetail"
 })
 @Entity(name = "CallsignDetailPropertyType")
-@Table(name = "callsigndetailpropertytype", schema = "service")
+@Table(name = "callsigndetail_p", schema = "service")
 public class CallsignDetailPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -177,7 +177,7 @@ public class PassengerLoadingBridgeTimeSliceType
     @OneToMany(targetEntity = AircraftStandPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "pssngrldngbrdgtmslctp_assctdstnd_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "pssngrldngbrdgtmslctp_assctdstnd_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "passengerloadingbridge_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "associatedstand_hjid", referencedColumnName = "hjid")
@@ -231,7 +231,7 @@ public class PassengerLoadingBridgeTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "pssngrldngbrdgtmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "pssngrldngbrdgtmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "passengerloadingbridge_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -326,7 +326,7 @@ public class PassengerLoadingBridgeTimeSliceType
     @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "pssngrldngbrdgtmslctp_extnt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "pssngrldngbrdgtmslctp_extnt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "passengerloadingbridge_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
@@ -351,6 +351,19 @@ public class PassengerLoadingBridgeTimeSliceType
             return false;
         }
         final PassengerLoadingBridgeTimeSliceType that = ((PassengerLoadingBridgeTimeSliceType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeLoadingBridgeType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeLoadingBridgeType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
@@ -386,19 +399,6 @@ public class PassengerLoadingBridgeTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeLoadingBridgeType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeLoadingBridgeType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

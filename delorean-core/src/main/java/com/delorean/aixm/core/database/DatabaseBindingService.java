@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.delorean.aixm.core.config.GlobalDeloreanConfig;
 import com.delorean.aixm.core.log.ConsoleLogger;
 
 import org.hibernate.Transaction;
@@ -11,8 +12,10 @@ import org.hibernate.Transaction;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
@@ -20,6 +23,12 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 import java.util.function.Function;
 import lombok.extern.slf4j.Slf4j;
@@ -236,19 +245,28 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                 case "create":
                 case "create-only":
                 case "create-drop":
+                    // Schema and functions Initalization
                     this.executeSQLScript(this.sqlPreInit);
+
+                    // Domain types with restriction or not
                     if (withDomainCheck){
-                        String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("domain_check")));
+                        String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("domain-check")));
                         this.executeSQLScript(sql);
                     } else {
-                        String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("domain_checkless")));
+                        String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("domain-checkless")));
                         this.executeSQLScript(sql);
                     }
-
+                    
+                    // Bulk of schema content
                     this.sessionFactory = configuration.buildSessionFactory();
-                    String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("postgresql_comments")));
-                    this.executeSQLScript(sql);
+
+                    // GML view and GIST index
                     this.executeSQLScript(this.sqlPostInit);
+
+                    //View layer generation
+                    String sql = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("delorean-aixm-view")));
+                    this.executeSQLScript(sql);
+
                     break;
 
                 case "none":
@@ -274,6 +292,116 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             throw new IllegalArgumentException("sessionfactory is not init");
         }
         this.databaseHelper.persistedMessageinspection(this.sessionFactory);
+    }
+
+    /**
+     * Renders GML AIXM geometry surfaces through a parallelised system of unlogged table inserts and materialised views.
+     */
+    public void geometryRender(){
+        // 0. load geometry render sql 
+        String curveSqlTemplate = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("curve-rendering")));
+        String surfaceSqlTemplate = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("surface-rendering")));
+        int threads = GlobalDeloreanConfig.getInstance().getService().getIoThreads();
+
+        Long curveCount;
+        Long ringCount;
+
+        // 1. Truncate target table once before starting threads
+        try (Session session = sessionFactory.openSession()) {
+            Transaction tx = session.beginTransaction();
+
+            // Truncate destination tables
+            session.createNativeMutationQuery("TRUNCATE TABLE gml.curve_unlogged_table;").executeUpdate();
+            session.createNativeMutationQuery("TRUNCATE TABLE gml.polygon_unlogged_table;").executeUpdate();
+            
+            // Count source entities
+            curveCount = (Long) session.createNativeQuery("SELECT COUNT(*) FROM gml.curve;", Long.class).getSingleResult();
+            ringCount = (Long) session.createNativeQuery("SELECT COUNT(*) FROM gml.ring;", Long.class).getSingleResult();   
+
+            tx.commit();
+            log.atDebug().setMessage("Target table gml.polygon_unlogged_table and gml.curve_unlogged_table truncated successfully.").log();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to prepare target table", e);
+        }
+
+        log.atDebug().setMessage("Rendering geometry through {} thread(s) across {} partition(s)")
+            .addArgument(() -> threads)
+            .addArgument(() -> threads)
+            .log();
+
+        ConsoleLogger.startProgress("Rendering", curveCount + ringCount);
+        ExecutorService executor = Executors.newFixedThreadPool(threads);
+
+        try {
+            // Phase 1: Parallel Curve Rendering
+            List<Future<?>> curveFutures = new ArrayList<>();
+            for (int pid = 0; pid < threads; pid++) {
+                final int partitionId = pid;
+                curveFutures.add(executor.submit(() -> geometryRenderWorker(partitionId, threads, curveSqlTemplate)));
+            }
+
+            for (Future<?> f : curveFutures) {
+                f.get();
+            }
+
+            // Phase 2: Parallel Surface Rendering            
+            List<Future<?>> surfaceFutures = new ArrayList<>();
+            for (int pid = 0; pid < threads; pid++) {
+                final int partitionId = pid;
+                surfaceFutures.add(executor.submit(() -> geometryRenderWorker(partitionId, threads, surfaceSqlTemplate)));
+            }
+
+            for (Future<?> f : surfaceFutures) {
+                f.get();
+            }
+
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("geometry rendering interrupted", e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException("geometry rendering failed", e.getCause());
+        } finally {
+            executor.shutdown();
+        }
+
+        // Requires manual resource cleanup to avoid JDBC leaks:
+        try (Session session = sessionFactory.openSession()) {
+            Transaction tx = session.beginTransaction();
+            
+            session.doWork(connection -> {
+                try (PreparedStatement stmt = connection.prepareStatement("SELECT refresh_delorean_materialized_views()")) {
+                    stmt.execute();
+                }
+            });
+            
+            tx.commit();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to refresh materialized views", e);
+        }
+
+        ConsoleLogger.stopProgress();
+    }
+
+    private int geometryRenderWorker (int partitionId, int numWorkers, String sqlTemplate) {
+        String sql = String.format(sqlTemplate, numWorkers, partitionId);
+
+        // Each worker thread opens its own isolated Hibernate Session
+        try (Session session = sessionFactory.openSession()) {
+            Transaction tx = session.beginTransaction();
+            int insertedRows = session.createNativeMutationQuery(sql).executeUpdate();
+            tx.commit();
+
+            ConsoleLogger.incrementProgress(insertedRows);
+
+            log.atDebug().setMessage("[Worker {} Done. Inserted {} rows.")
+                .addArgument(partitionId)
+                .addArgument(insertedRows).log();
+
+            return insertedRows;
+
+        } catch (Exception e) {
+            throw new RuntimeException("Worker partition failure on ID " + partitionId, e);
+        }
     }
 
     /**
@@ -331,7 +459,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                 
                 stmt.execute(sql);
 
-                log.info("SQL script executed successfully.");
+                log.atDebug().setMessage("SQL script executed successfully.");
             }
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("PostgreSQL JDBC Driver not found. Please check your dependencies.", e);
@@ -375,20 +503,9 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             throw new IllegalArgumentException("sessionfactory is not init");
         }
 
-        Long hjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
+        Long messageHjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
 
-        try (Session session = this.getSession()) {
-            Transaction transaction = session.beginTransaction();
-            try {
-                ROOT object = session.find(structure, hjid);
-                transaction.commit();
-                return object;
-            } catch (Exception e) {
-                transaction.rollback();
-                e.printStackTrace();
-                return null;
-            }
-        }
+        return this.databaseHelper.extract(messageHjid, this.sessionFactory);
     }
 
     /**
@@ -409,7 +526,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
         // collect relevant tiemeslice property ids
         Session session = sessionFactory.openSession();
-        InputStream TPIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("query_time_slice_property_ids"));
+        InputStream TPIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("query-time-slice-property-ids"));
         if (TPIdsStream == null) {
             throw new IllegalStateException("TimeSliceProperty predicate script not found");
         }
@@ -419,7 +536,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         TPIdsTX.commit();
 
         // collect relevant basic message memebers ids
-        InputStream BMMIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("query_basic_message_member_ids"));
+        InputStream BMMIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream(this.sqlFilesMap.get("query-basic-message-member-ids"));
         if (BMMIdsStream == null) {
             throw new IllegalStateException("TimeSliceProperty predicate script not found");
         }
@@ -443,9 +560,9 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
-        Long hjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
+        Long messageHjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
 
-        this.databaseHelper.merge(message, this.sessionFactory, hjid);
+        this.databaseHelper.merge(message, this.sessionFactory, messageHjid);
     }
 
     /**
@@ -460,8 +577,8 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
-        Long hjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
+        Long messageHjid = this.databaseHelper.getMessageHjid(this.sessionFactory, fieldName, value);
 
-        this.databaseHelper.merge(message, this.sessionFactory, hjid);
+        this.databaseHelper.merge(message, this.sessionFactory, messageHjid);
     }
 }

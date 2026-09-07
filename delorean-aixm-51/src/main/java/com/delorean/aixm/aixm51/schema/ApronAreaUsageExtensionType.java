@@ -260,19 +260,6 @@ public class ApronAreaUsageExtensionType implements Serializable, Equals, HashCo
         }
         final ApronAreaUsageExtensionType that = ((ApronAreaUsageExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApronAreaUsageExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApronAreaUsageExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApronAreaUsageExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApronAreaUsageExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronAreaUsageExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronAreaUsageExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
             boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class ApronAreaUsageExtensionType implements Serializable, Equals, HashCo
             rhsField = that.getAbstractUsageConditionExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractApronAreaUsageExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApronAreaUsageExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractApronAreaUsageExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractApronAreaUsageExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronAreaUsageExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronAreaUsageExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

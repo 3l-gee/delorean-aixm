@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "minima"
 })
 @Entity(name = "MinimaPropertyType")
-@Table(name = "minimapropertytype", schema = "procedure")
+@Table(name = "minima_p", schema = "procedure")
 public class MinimaPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

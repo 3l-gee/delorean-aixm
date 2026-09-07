@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "surveillanceGroundStation"
 })
 @Entity(name = "SurveillanceGroundStationPropertyType")
-@Table(name = "surveillancegroundstationpropertytype", schema = "surveillance")
+@Table(name = "surveillancegroundstation_p", schema = "surveillance")
 public class SurveillanceGroundStationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "onlineContact"
 })
 @Entity(name = "OnlineContactPropertyType")
-@Table(name = "onlinecontactpropertytype", schema = "shared")
+@Table(name = "onlinecontact_p", schema = "shared")
 public class OnlineContactPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

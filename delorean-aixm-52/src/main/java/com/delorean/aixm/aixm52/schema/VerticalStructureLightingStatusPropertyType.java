@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "verticalStructureLightingStatus"
 })
 @Entity(name = "VerticalStructureLightingStatusPropertyType")
-@Table(name = "verticalstructurelightingstatuspropertytype", schema = "obstacle")
+@Table(name = "verticalstructurelightingstatus_p", schema = "obstacle")
 public class VerticalStructureLightingStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "oil"
 })
 @Entity(name = "OilPropertyType")
-@Table(name = "oilpropertytype", schema = "service")
+@Table(name = "oil_p", schema = "service")
 public class OilPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

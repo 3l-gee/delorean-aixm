@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "landingTakeoffAreaCollection"
 })
 @Entity(name = "LandingTakeoffAreaCollectionPropertyType")
-@Table(name = "landingtakeoffareacollectionpropertytype", schema = "procedure")
+@Table(name = "landingtakeoffareacollection_p", schema = "procedure")
 public class LandingTakeoffAreaCollectionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

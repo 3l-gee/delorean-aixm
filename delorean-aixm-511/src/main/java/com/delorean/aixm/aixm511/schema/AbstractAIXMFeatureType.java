@@ -291,19 +291,6 @@ public abstract class AbstractAIXMFeatureType
         }
         final AbstractAIXMFeatureType that = ((AbstractAIXMFeatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLifecycleStatus();
-            boolean rhsFieldIsSet = that.isSetLifecycleStatus();
-            String lhsField;
-            lhsField = this.getLifecycleStatus();
-            String rhsField;
-            rhsField = that.getLifecycleStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lifecycleStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lifecycleStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFeatureMetadata();
             boolean rhsFieldIsSet = that.isSetFeatureMetadata();
             FeatureMetadataPropertyType lhsField;
@@ -312,6 +299,19 @@ public abstract class AbstractAIXMFeatureType
             rhsField = that.getFeatureMetadata();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMetadata", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLifecycleStatus();
+            boolean rhsFieldIsSet = that.isSetLifecycleStatus();
+            String lhsField;
+            lhsField = this.getLifecycleStatus();
+            String rhsField;
+            rhsField = that.getLifecycleStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lifecycleStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lifecycleStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

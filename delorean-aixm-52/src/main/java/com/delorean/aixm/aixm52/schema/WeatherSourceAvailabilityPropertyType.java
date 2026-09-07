@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "weatherSourceAvailability"
 })
 @Entity(name = "WeatherSourceAvailabilityPropertyType")
-@Table(name = "weathersourceavailabilitypropertytype", schema = "airport_heliport")
+@Table(name = "weathersourceavailability_p", schema = "airport_heliport")
 public class WeatherSourceAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

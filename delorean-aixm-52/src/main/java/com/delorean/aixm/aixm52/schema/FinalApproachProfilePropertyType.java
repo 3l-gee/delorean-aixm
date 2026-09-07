@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "finalApproachProfile"
 })
 @Entity(name = "FinalApproachProfilePropertyType")
-@Table(name = "finalapproachprofilepropertytype", schema = "procedure")
+@Table(name = "finalapproachprofile_p", schema = "procedure")
 public class FinalApproachProfilePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

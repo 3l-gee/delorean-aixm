@@ -43,7 +43,7 @@ public class DeloreanCLIAIXM51  extends DeloreanCLI {
         Aixm51FilterConfig config = new Aixm51FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
 
         switch (filterType) {
-            case "feature_indetifier":
+            case "feature_indentifier":
                 config.addFeatureFilter(new FeatureIdentifierSpecification(args));
                 break;
 

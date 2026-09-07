@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airspaceLayerClass"
 })
 @Entity(name = "AirspaceLayerClassPropertyType")
-@Table(name = "airspacelayerclasspropertytype", schema = "airspace")
+@Table(name = "airspacelayerclass_p", schema = "airspace")
 public class AirspaceLayerClassPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

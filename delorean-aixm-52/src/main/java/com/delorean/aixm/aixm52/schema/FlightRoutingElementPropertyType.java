@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightRoutingElement"
 })
 @Entity(name = "FlightRoutingElementPropertyType")
-@Table(name = "flightroutingelementpropertytype", schema = "route")
+@Table(name = "flightroutingelement_p", schema = "route")
 public class FlightRoutingElementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

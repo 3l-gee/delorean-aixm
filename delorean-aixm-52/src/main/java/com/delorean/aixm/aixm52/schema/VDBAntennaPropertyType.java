@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "vdbAntenna"
 })
 @Entity(name = "VDBAntennaPropertyType")
-@Table(name = "vdbantennapropertytype", schema = "navaids_point")
+@Table(name = "vdbantenna_p", schema = "navaids_point")
 public class VDBAntennaPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

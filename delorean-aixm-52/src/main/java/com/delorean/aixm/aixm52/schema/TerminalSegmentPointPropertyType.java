@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "terminalSegmentPoint"
 })
 @Entity(name = "TerminalSegmentPointPropertyType")
-@Table(name = "terminalsegmentpointpropertytype", schema = "navaids_point")
+@Table(name = "terminalsegmentpoint_p", schema = "navaids_point")
 public class TerminalSegmentPointPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

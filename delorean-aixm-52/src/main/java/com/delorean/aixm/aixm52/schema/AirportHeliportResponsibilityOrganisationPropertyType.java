@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airportHeliportResponsibilityOrganisation"
 })
 @Entity(name = "AirportHeliportResponsibilityOrganisationPropertyType")
-@Table(name = "airportheliportresponsibilityorganisationpropertytype", schema = "airport_heliport")
+@Table(name = "airportheliportresponsibilityorganisation_p", schema = "airport_heliport")
 public class AirportHeliportResponsibilityOrganisationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

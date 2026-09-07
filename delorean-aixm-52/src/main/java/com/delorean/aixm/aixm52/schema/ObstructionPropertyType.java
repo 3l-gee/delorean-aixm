@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "obstruction"
 })
 @Entity(name = "ObstructionPropertyType")
-@Table(name = "obstructionpropertytype", schema = "shared")
+@Table(name = "obstruction_p", schema = "shared")
 public class ObstructionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

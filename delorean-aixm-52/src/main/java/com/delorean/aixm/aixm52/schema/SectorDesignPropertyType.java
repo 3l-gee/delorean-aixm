@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "sectorDesign"
 })
 @Entity(name = "SectorDesignPropertyType")
-@Table(name = "sectordesignpropertytype", schema = "procedure")
+@Table(name = "sectordesign_p", schema = "procedure")
 public class SectorDesignPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

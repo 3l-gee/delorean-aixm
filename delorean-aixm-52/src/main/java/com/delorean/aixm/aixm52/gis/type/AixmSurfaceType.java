@@ -67,8 +67,8 @@ public class AixmSurfaceType extends com.delorean.aixm.core.gis.type.Surface imp
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "aixm_point_annotation_link", schema = "gml", joinColumns = {
-        @JoinColumn(name = "aixm_point_hjid", referencedColumnName = "hjid")
+    @JoinTable(name = "aixm_surface_annotation_link", schema = "gml", joinColumns = {
+        @JoinColumn(name = "aixm_surface_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "approachCondition"
 })
 @Entity(name = "ApproachConditionPropertyType")
-@Table(name = "approachconditionpropertytype", schema = "procedure")
+@Table(name = "approachcondition_p", schema = "procedure")
 public class ApproachConditionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

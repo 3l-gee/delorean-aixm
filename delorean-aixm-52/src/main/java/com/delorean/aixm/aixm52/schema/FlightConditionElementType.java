@@ -827,7 +827,7 @@ public class FlightConditionElementType
     @OneToMany(targetEntity = FlightRestrictionLevelPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtlvl_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtlvl_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightlevel_hjid", referencedColumnName = "hjid")
@@ -881,7 +881,7 @@ public class FlightConditionElementType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_annttn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_annttn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -976,7 +976,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = MeteorologyPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnwthr_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnwthr_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionweather_hjid", referencedColumnName = "hjid")
@@ -992,7 +992,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarcrft_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarcrft_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionaircraft_hjid", referencedColumnName = "hjid")
@@ -1008,7 +1008,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = FlightCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnflght_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnflght_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionflight_hjid", referencedColumnName = "hjid")
@@ -1024,7 +1024,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = FlightConditionCombinationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnoprnd_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnoprnd_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionoperand_hjid", referencedColumnName = "hjid")
@@ -1040,7 +1040,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = DirectFlightPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtndrctflghtcndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtndrctflghtcndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditiondirectflightcondition_hjid", referencedColumnName = "hjid")
@@ -1056,7 +1056,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = AirspaceBorderCrossingPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnbrdrcrssngcndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnbrdrcrssngcndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionbordercrossingcondition_hjid", referencedColumnName = "hjid")
@@ -1072,7 +1072,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = RoutePortionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnrtprtncndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnrtprtncndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionrouteportioncondition_hjid", referencedColumnName = "hjid")
@@ -1088,7 +1088,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = StandardInstrumentDeparturePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnstndrdinstrmntdprtrcndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnstndrdinstrmntdprtrcndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionstandardinstrumentdeparturecondition_hjid", referencedColumnName = "hjid")
@@ -1104,7 +1104,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = StandardInstrumentArrivalPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnstndrdinstrmntarrvlcndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnstndrdinstrmntarrvlcndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionstandardinstrumentarrivalcondition_hjid", referencedColumnName = "hjid")
@@ -1120,7 +1120,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnorgnstncndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnorgnstncndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionorganisationcondition_hjid", referencedColumnName = "hjid")
@@ -1136,7 +1136,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnfxdsgntdpnt_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnfxdsgntdpnt_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "significantpointconditionfixdesignatedpoint_hjid", referencedColumnName = "hjid")
@@ -1152,7 +1152,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnnvdsstm_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnnvdsstm_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "significantpointconditionnavaidsystem_hjid", referencedColumnName = "hjid")
@@ -1168,7 +1168,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnpstn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnpstn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "significantpointconditionposition_hjid", referencedColumnName = "hjid")
@@ -1184,7 +1184,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnrnwpnt_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnrnwpnt_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "significantpointconditionrunwaypoint_hjid", referencedColumnName = "hjid")
@@ -1200,7 +1200,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnamngpnt_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnamngpnt_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "significantpointconditionaimingpoint_hjid", referencedColumnName = "hjid")
@@ -1216,7 +1216,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnarprtrfrncpnt_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_sgnfcntpntcndtnarprtrfrncpnt_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "significantpointconditionairportreferencepoint_hjid", referencedColumnName = "hjid")
@@ -1232,7 +1232,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarspccndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarspccndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionairspacecondition_hjid", referencedColumnName = "hjid")
@@ -1248,7 +1248,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarprthlprtcndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarprthlprtcndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionairportheliportcondition_hjid", referencedColumnName = "hjid")
@@ -1264,7 +1264,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarlrfllngcndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_flghtcndtnarlrfllngcndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "flightconditionaerialrefuellingcondition_hjid", referencedColumnName = "hjid")
@@ -1280,7 +1280,7 @@ public class FlightConditionElementType
     @OneToOne(targetEntity = FlightConditionCircumstancePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flghtcndtnelmnttp_oprtnlcndtn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "flghtcndtnelmnttp_oprtnlcndtn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "flightconditionelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "operationalcondition_hjid", referencedColumnName = "hjid")
@@ -1306,157 +1306,14 @@ public class FlightConditionElementType
         }
         final FlightConditionElementType that = ((FlightConditionElementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionRoutePortionCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionRoutePortionCondition();
-            JAXBElement<RoutePortionPropertyType> lhsField;
-            lhsField = this.getFlightConditionRoutePortionCondition();
-            JAXBElement<RoutePortionPropertyType> rhsField;
-            rhsField = that.getFlightConditionRoutePortionCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionRoutePortionCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionRoutePortionCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionDirectFlightCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionDirectFlightCondition();
-            JAXBElement<DirectFlightPropertyType> lhsField;
-            lhsField = this.getFlightConditionDirectFlightCondition();
-            JAXBElement<DirectFlightPropertyType> rhsField;
-            rhsField = that.getFlightConditionDirectFlightCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionDirectFlightCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionDirectFlightCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIndex();
-            boolean rhsFieldIsSet = that.isSetIndex();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getIndex();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getIndex();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "index", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "index", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOperationalCondition();
-            boolean rhsFieldIsSet = that.isSetOperationalCondition();
-            JAXBElement<FlightConditionCircumstancePropertyType> lhsField;
-            lhsField = this.getOperationalCondition();
-            JAXBElement<FlightConditionCircumstancePropertyType> rhsField;
-            rhsField = that.getOperationalCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionWeather();
-            boolean rhsFieldIsSet = that.isSetFlightConditionWeather();
-            JAXBElement<MeteorologyPropertyType> lhsField;
-            lhsField = this.getFlightConditionWeather();
-            JAXBElement<MeteorologyPropertyType> rhsField;
-            rhsField = that.getFlightConditionWeather();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionWeather", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionWeather", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSignificantPointConditionPosition();
-            boolean rhsFieldIsSet = that.isSetSignificantPointConditionPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getSignificantPointConditionPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getSignificantPointConditionPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightLevel();
-            boolean rhsFieldIsSet = that.isSetFlightLevel();
-            List<FlightRestrictionLevelPropertyType> lhsField;
-            lhsField = (this.isSetFlightLevel()?this.getFlightLevel():null);
-            List<FlightRestrictionLevelPropertyType> rhsField;
-            rhsField = (that.isSetFlightLevel()?that.getFlightLevel():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightLevel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionOperand();
-            boolean rhsFieldIsSet = that.isSetFlightConditionOperand();
-            JAXBElement<FlightConditionCombinationPropertyType> lhsField;
-            lhsField = this.getFlightConditionOperand();
-            JAXBElement<FlightConditionCombinationPropertyType> rhsField;
-            rhsField = that.getFlightConditionOperand();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionOperand", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionOperand", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightConditionElementExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<FlightConditionElementExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionAirspaceCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionAirspaceCondition();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getFlightConditionAirspaceCondition();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getFlightConditionAirspaceCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAirspaceCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAirspaceCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionAirportHeliportCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionAirportHeliportCondition();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getFlightConditionAirportHeliportCondition();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getFlightConditionAirportHeliportCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAirportHeliportCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAirportHeliportCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionStandardInstrumentDepartureCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionStandardInstrumentDepartureCondition();
-            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
-            lhsField = this.getFlightConditionStandardInstrumentDepartureCondition();
-            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
-            rhsField = that.getFlightConditionStandardInstrumentDepartureCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionStandardInstrumentDepartureCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionStandardInstrumentDepartureCondition", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditionFlight();
+            boolean rhsFieldIsSet = that.isSetFlightConditionFlight();
+            JAXBElement<FlightCharacteristicPropertyType> lhsField;
+            lhsField = this.getFlightConditionFlight();
+            JAXBElement<FlightCharacteristicPropertyType> rhsField;
+            rhsField = that.getFlightConditionFlight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionFlight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionFlight", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1475,27 +1332,14 @@ public class FlightConditionElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionOrganisationCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionOrganisationCondition();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getFlightConditionOrganisationCondition();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getFlightConditionOrganisationCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionOrganisationCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionOrganisationCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionStandardInstrumentArrivalCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionStandardInstrumentArrivalCondition();
-            JAXBElement<StandardInstrumentArrivalPropertyType> lhsField;
-            lhsField = this.getFlightConditionStandardInstrumentArrivalCondition();
-            JAXBElement<StandardInstrumentArrivalPropertyType> rhsField;
-            rhsField = that.getFlightConditionStandardInstrumentArrivalCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionStandardInstrumentArrivalCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionStandardInstrumentArrivalCondition", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditionAircraft();
+            boolean rhsFieldIsSet = that.isSetFlightConditionAircraft();
+            JAXBElement<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = this.getFlightConditionAircraft();
+            JAXBElement<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = that.getFlightConditionAircraft();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAircraft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAircraft", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1514,45 +1358,6 @@ public class FlightConditionElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionBorderCrossingCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionBorderCrossingCondition();
-            JAXBElement<AirspaceBorderCrossingPropertyType> lhsField;
-            lhsField = this.getFlightConditionBorderCrossingCondition();
-            JAXBElement<AirspaceBorderCrossingPropertyType> rhsField;
-            rhsField = that.getFlightConditionBorderCrossingCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionBorderCrossingCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionBorderCrossingCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionAerialRefuellingCondition();
-            boolean rhsFieldIsSet = that.isSetFlightConditionAerialRefuellingCondition();
-            JAXBElement<AerialRefuellingPropertyType> lhsField;
-            lhsField = this.getFlightConditionAerialRefuellingCondition();
-            JAXBElement<AerialRefuellingPropertyType> rhsField;
-            rhsField = that.getFlightConditionAerialRefuellingCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAerialRefuellingCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAerialRefuellingCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSignificantPointConditionRunwayPoint();
             boolean rhsFieldIsSet = that.isSetSignificantPointConditionRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
@@ -1566,14 +1371,79 @@ public class FlightConditionElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditionFlight();
-            boolean rhsFieldIsSet = that.isSetFlightConditionFlight();
-            JAXBElement<FlightCharacteristicPropertyType> lhsField;
-            lhsField = this.getFlightConditionFlight();
-            JAXBElement<FlightCharacteristicPropertyType> rhsField;
-            rhsField = that.getFlightConditionFlight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionFlight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionFlight", rhsField);
+            boolean lhsFieldIsSet = this.isSetOperationalCondition();
+            boolean rhsFieldIsSet = that.isSetOperationalCondition();
+            JAXBElement<FlightConditionCircumstancePropertyType> lhsField;
+            lhsField = this.getOperationalCondition();
+            JAXBElement<FlightConditionCircumstancePropertyType> rhsField;
+            rhsField = that.getOperationalCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionStandardInstrumentDepartureCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionStandardInstrumentDepartureCondition();
+            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
+            lhsField = this.getFlightConditionStandardInstrumentDepartureCondition();
+            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
+            rhsField = that.getFlightConditionStandardInstrumentDepartureCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionStandardInstrumentDepartureCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionStandardInstrumentDepartureCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightLevel();
+            boolean rhsFieldIsSet = that.isSetFlightLevel();
+            List<FlightRestrictionLevelPropertyType> lhsField;
+            lhsField = (this.isSetFlightLevel()?this.getFlightLevel():null);
+            List<FlightRestrictionLevelPropertyType> rhsField;
+            rhsField = (that.isSetFlightLevel()?that.getFlightLevel():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionRoutePortionCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionRoutePortionCondition();
+            JAXBElement<RoutePortionPropertyType> lhsField;
+            lhsField = this.getFlightConditionRoutePortionCondition();
+            JAXBElement<RoutePortionPropertyType> rhsField;
+            rhsField = that.getFlightConditionRoutePortionCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionRoutePortionCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionRoutePortionCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIndex();
+            boolean rhsFieldIsSet = that.isSetIndex();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getIndex();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getIndex();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "index", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "index", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionWeather();
+            boolean rhsFieldIsSet = that.isSetFlightConditionWeather();
+            JAXBElement<MeteorologyPropertyType> lhsField;
+            lhsField = this.getFlightConditionWeather();
+            JAXBElement<MeteorologyPropertyType> rhsField;
+            rhsField = that.getFlightConditionWeather();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionWeather", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionWeather", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1592,6 +1462,149 @@ public class FlightConditionElementType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightConditionElementExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FlightConditionElementExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionAerialRefuellingCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionAerialRefuellingCondition();
+            JAXBElement<AerialRefuellingPropertyType> lhsField;
+            lhsField = this.getFlightConditionAerialRefuellingCondition();
+            JAXBElement<AerialRefuellingPropertyType> rhsField;
+            rhsField = that.getFlightConditionAerialRefuellingCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAerialRefuellingCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAerialRefuellingCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionOrganisationCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionOrganisationCondition();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getFlightConditionOrganisationCondition();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getFlightConditionOrganisationCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionOrganisationCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionOrganisationCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionAirspaceCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionAirspaceCondition();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getFlightConditionAirspaceCondition();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getFlightConditionAirspaceCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAirspaceCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAirspaceCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionOperand();
+            boolean rhsFieldIsSet = that.isSetFlightConditionOperand();
+            JAXBElement<FlightConditionCombinationPropertyType> lhsField;
+            lhsField = this.getFlightConditionOperand();
+            JAXBElement<FlightConditionCombinationPropertyType> rhsField;
+            rhsField = that.getFlightConditionOperand();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionOperand", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionOperand", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSignificantPointConditionPosition();
+            boolean rhsFieldIsSet = that.isSetSignificantPointConditionPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getSignificantPointConditionPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getSignificantPointConditionPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionBorderCrossingCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionBorderCrossingCondition();
+            JAXBElement<AirspaceBorderCrossingPropertyType> lhsField;
+            lhsField = this.getFlightConditionBorderCrossingCondition();
+            JAXBElement<AirspaceBorderCrossingPropertyType> rhsField;
+            rhsField = that.getFlightConditionBorderCrossingCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionBorderCrossingCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionBorderCrossingCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionStandardInstrumentArrivalCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionStandardInstrumentArrivalCondition();
+            JAXBElement<StandardInstrumentArrivalPropertyType> lhsField;
+            lhsField = this.getFlightConditionStandardInstrumentArrivalCondition();
+            JAXBElement<StandardInstrumentArrivalPropertyType> rhsField;
+            rhsField = that.getFlightConditionStandardInstrumentArrivalCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionStandardInstrumentArrivalCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionStandardInstrumentArrivalCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionDirectFlightCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionDirectFlightCondition();
+            JAXBElement<DirectFlightPropertyType> lhsField;
+            lhsField = this.getFlightConditionDirectFlightCondition();
+            JAXBElement<DirectFlightPropertyType> rhsField;
+            rhsField = that.getFlightConditionDirectFlightCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionDirectFlightCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionDirectFlightCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditionAirportHeliportCondition();
+            boolean rhsFieldIsSet = that.isSetFlightConditionAirportHeliportCondition();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getFlightConditionAirportHeliportCondition();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getFlightConditionAirportHeliportCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAirportHeliportCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAirportHeliportCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSignificantPointConditionAimingPoint();
             boolean rhsFieldIsSet = that.isSetSignificantPointConditionAimingPoint();
             JAXBElement<TouchDownLiftOffPropertyType> lhsField;
@@ -1600,19 +1613,6 @@ public class FlightConditionElementType
             rhsField = that.getSignificantPointConditionAimingPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointConditionAimingPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointConditionAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditionAircraft();
-            boolean rhsFieldIsSet = that.isSetFlightConditionAircraft();
-            JAXBElement<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = this.getFlightConditionAircraft();
-            JAXBElement<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = that.getFlightConditionAircraft();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditionAircraft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditionAircraft", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

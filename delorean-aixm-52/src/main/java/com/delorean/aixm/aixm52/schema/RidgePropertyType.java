@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "ridge"
 })
 @Entity(name = "RidgePropertyType")
-@Table(name = "ridgepropertytype", schema = "airport_heliport")
+@Table(name = "ridge_p", schema = "airport_heliport")
 public class RidgePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

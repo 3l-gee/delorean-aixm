@@ -15592,7 +15592,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirspaceVolumeDependencyPropertyType']">
       <hj:entity>
-        <orm:table name="airspacevolumedependencypropertytype" schema="airspace"/>
+        <orm:table name="airspacevolumedependency_p" schema="airspace"/>
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirspaceVolumeDependencyPropertyType']//xs:element[@ref='aixm:AirspaceVolumeDependency']">
@@ -43341,7 +43341,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:group[@name='AIXMBasicMessagePropertyGroup']//xs:element[@name='hasMember']">
       <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "BMMHjidFilter", condition = "hjid = ANY(:ids)")</annox:annotate>
-      <hj:many-to-many>
+      <hj:many-to-many fetch="LAZY">
         <orm:join-table name="message_member_link" schema="aixm">
           <orm:join-column name="message_hjid" referenced-column-name="hjid"/>
           <orm:inverse-join-column name="member_hjid" referenced-column-name="hjid"/>

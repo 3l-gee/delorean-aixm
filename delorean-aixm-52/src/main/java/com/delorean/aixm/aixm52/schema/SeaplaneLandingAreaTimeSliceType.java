@@ -125,7 +125,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = SeaplaneRampSitePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_rmpst_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_rmpst_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "rampsite_hjid", referencedColumnName = "hjid")
@@ -179,7 +179,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = FloatingDockSitePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_dckst_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_dckst_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "docksite_hjid", referencedColumnName = "hjid")
@@ -263,7 +263,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -317,7 +317,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_avlblt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_avlblt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
@@ -371,7 +371,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = GangwayPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_assgndgngw_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_assgndgngw_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "assignedgangway_hjid", referencedColumnName = "hjid")
@@ -483,7 +483,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_extnt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_extnt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
@@ -499,7 +499,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_assctdarprthlprt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_assctdarprthlprt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "associatedairportheliport_hjid", referencedColumnName = "hjid")
@@ -538,14 +538,27 @@ public class SeaplaneLandingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SeaplaneLandingAreaTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SeaplaneLandingAreaTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssignedGangway();
+            boolean rhsFieldIsSet = that.isSetAssignedGangway();
+            List<GangwayPropertyType> lhsField;
+            lhsField = (this.isSetAssignedGangway()?this.getAssignedGangway():null);
+            List<GangwayPropertyType> rhsField;
+            rhsField = (that.isSetAssignedGangway()?that.getAssignedGangway():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "assignedGangway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "assignedGangway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -564,19 +577,6 @@ public class SeaplaneLandingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAssociatedAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAssociatedAirportHeliport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRampSite();
             boolean rhsFieldIsSet = that.isSetRampSite();
             List<SeaplaneRampSitePropertyType> lhsField;
@@ -590,14 +590,27 @@ public class SeaplaneLandingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SeaplaneLandingAreaTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SeaplaneLandingAreaTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAssociatedAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAssociatedAirportHeliport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -611,19 +624,6 @@ public class SeaplaneLandingAreaTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAssignedGangway();
-            boolean rhsFieldIsSet = that.isSetAssignedGangway();
-            List<GangwayPropertyType> lhsField;
-            lhsField = (this.isSetAssignedGangway()?this.getAssignedGangway():null);
-            List<GangwayPropertyType> rhsField;
-            rhsField = (that.isSetAssignedGangway()?that.getAssignedGangway():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "assignedGangway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "assignedGangway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

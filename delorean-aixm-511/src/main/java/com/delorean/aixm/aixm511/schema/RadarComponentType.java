@@ -142,7 +142,7 @@ public class RadarComponentType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdrcmpnnttp_annttn_l", schema = "surveillance", joinColumns = {
+    @JoinTable(name = "rdrcmpnnttp_annttn_link", schema = "surveillance", joinColumns = {
         @JoinColumn(name = "radarcomponent_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -182,7 +182,7 @@ public class RadarComponentType
     @OneToOne(targetEntity = RadarEquipmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "rdrcmpnnttp_thrdreqpmnt_l", schema = "surveillance", joinColumns = {
+    @JoinTable(name = "rdrcmpnnttp_thrdreqpmnt_link", schema = "surveillance", joinColumns = {
         @JoinColumn(name = "radarcomponent_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "theradarequipment_hjid", referencedColumnName = "hjid")

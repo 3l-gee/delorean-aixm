@@ -176,7 +176,7 @@ public class AirspaceGeometryComponentType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcgmtrcmpnnttp_annttn_l", schema = "airspace", joinColumns = {
+    @JoinTable(name = "arspcgmtrcmpnnttp_annttn_link", schema = "airspace", joinColumns = {
         @JoinColumn(name = "airspacegeometrycomponent_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -216,7 +216,7 @@ public class AirspaceGeometryComponentType
     @OneToOne(targetEntity = AirspaceVolumePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcgmtrcmpnnttp_tharspcvlm_l", schema = "airspace", joinColumns = {
+    @JoinTable(name = "arspcgmtrcmpnnttp_tharspcvlm_link", schema = "airspace", joinColumns = {
         @JoinColumn(name = "airspacegeometrycomponent_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "theairspacevolume_hjid", referencedColumnName = "hjid")
@@ -344,19 +344,6 @@ public class AirspaceGeometryComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperationSequence();
-            boolean rhsFieldIsSet = that.isSetOperationSequence();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getOperationSequence();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getOperationSequence();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationSequence", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationSequence", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTheAirspaceVolume();
             boolean rhsFieldIsSet = that.isSetTheAirspaceVolume();
             AirspaceVolumePropertyType lhsField;
@@ -370,14 +357,14 @@ public class AirspaceGeometryComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetOperationSequence();
+            boolean rhsFieldIsSet = that.isSetOperationSequence();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getOperationSequence();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getOperationSequence();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationSequence", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationSequence", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -391,6 +378,19 @@ public class AirspaceGeometryComponentType
             rhsField = that.getOperation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

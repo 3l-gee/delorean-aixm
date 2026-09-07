@@ -109,7 +109,7 @@ public class DirectFlightClassType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "drctflghtclsstp_annttn_l", schema = "route", joinColumns = {
+    @JoinTable(name = "drctflghtclsstp_annttn_link", schema = "route", joinColumns = {
         @JoinColumn(name = "directflightclass_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -245,14 +245,14 @@ public class DirectFlightClassType
         }
         final DirectFlightClassType that = ((DirectFlightClassType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExceedLength();
-            boolean rhsFieldIsSet = that.isSetExceedLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getExceedLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getExceedLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exceedLength", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exceedLength", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<DirectFlightClassExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<DirectFlightClassExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -271,14 +271,14 @@ public class DirectFlightClassType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<DirectFlightClassExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<DirectFlightClassExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetExceedLength();
+            boolean rhsFieldIsSet = that.isSetExceedLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getExceedLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getExceedLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exceedLength", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exceedLength", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

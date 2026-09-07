@@ -223,19 +223,6 @@ public class GuidanceLineTimeSliceExtensionType implements Serializable, Equals,
         }
         final GuidanceLineTimeSliceExtensionType that = ((GuidanceLineTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGuidanceLineExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGuidanceLineExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGuidanceLineExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGuidanceLineExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class GuidanceLineTimeSliceExtensionType implements Serializable, Equals,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGuidanceLineExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGuidanceLineExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGuidanceLineExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGuidanceLineExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -57,11 +57,13 @@ public class DeloreanAIXM51 implements com.delorean.aixm.core.DeloreanProcessor 
             "/sql/pre-init.sql",
             "/sql/post-init.sql",
             Map.of(
-            "domain_check", "/sql/domain_check.sql",
-            "domain_checkless", "/sql/domain_checkless.sql",
-            "query_basic_message_member_ids", "/sql/query_basic_message_member_ids.sql",
-            "query_time_slice_property_ids", "/sql/query_time_slice_property_ids.sql",
-            "postgresql_comments","/sql/postgresql_comments.sql"
+                "domain-check", "/sql/domain-check.sql",
+                "domain-checkless", "/sql/domain-checkless.sql",
+                "query-basic-message-member-ids", "/sql/query-basic-message-member-ids.sql",
+                "query-time-slice-property-ids", "/sql/query-time-slice-property-ids.sql",
+                "delorean-aixm-view", "/sql/delorean-aixm-materialized.sql",
+                "surface-rendering", "/sql/surface-rendering.sql",
+                "curve-rendering", "/sql/curve-rendering.sql"
             ),
             "hibernate/hibernate.cfg.xml",
             com.delorean.aixm.core.Delorean.class,

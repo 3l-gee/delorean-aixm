@@ -260,19 +260,6 @@ public class AirportProtectionAreaMarkingTimeSliceExtensionType implements Seria
         }
         final AirportProtectionAreaMarkingTimeSliceExtensionType that = ((AirportProtectionAreaMarkingTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportProtectionAreaMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportProtectionAreaMarkingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportProtectionAreaMarkingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportProtectionAreaMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportProtectionAreaMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportProtectionAreaMarkingExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -294,6 +281,19 @@ public class AirportProtectionAreaMarkingTimeSliceExtensionType implements Seria
             rhsField = that.getAbstractMarkingExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirportProtectionAreaMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportProtectionAreaMarkingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirportProtectionAreaMarkingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirportProtectionAreaMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportProtectionAreaMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportProtectionAreaMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

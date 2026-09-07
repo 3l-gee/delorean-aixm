@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "navigationAreaSector"
 })
 @Entity(name = "NavigationAreaSectorPropertyType")
-@Table(name = "navigationareasectorpropertytype", schema = "procedure")
+@Table(name = "navigationareasector_p", schema = "procedure")
 public class NavigationAreaSectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

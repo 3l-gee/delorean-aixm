@@ -260,19 +260,6 @@ public class NDBTimeSliceExtensionType implements Serializable, Equals, HashCode
         }
         final NDBTimeSliceExtensionType that = ((NDBTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNDBExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNDBExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNDBExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNDBExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNDBExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNDBExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class NDBTimeSliceExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNDBExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNDBExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNDBExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNDBExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNDBExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNDBExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

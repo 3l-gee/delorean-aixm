@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "procedureTransitionLeg"
 })
 @Entity(name = "ProcedureTransitionLegPropertyType")
-@Table(name = "proceduretransitionlegpropertytype", schema = "procedure")
+@Table(name = "proceduretransitionleg_p", schema = "procedure")
 public class ProcedureTransitionLegPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

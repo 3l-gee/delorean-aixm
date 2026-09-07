@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "aerialRefuellingAnchor"
 })
 @Entity(name = "AerialRefuellingAnchorPropertyType")
-@Table(name = "aerialrefuellinganchorpropertytype", schema = "aerial_refuelling")
+@Table(name = "aerialrefuellinganchor_p", schema = "aerial_refuelling")
 public class AerialRefuellingAnchorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

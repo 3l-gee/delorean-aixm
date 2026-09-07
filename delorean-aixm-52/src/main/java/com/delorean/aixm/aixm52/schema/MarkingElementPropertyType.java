@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "markingElement"
 })
 @Entity(name = "MarkingElementPropertyType")
-@Table(name = "markingelementpropertytype", schema = "airport_heliport")
+@Table(name = "markingelement_p", schema = "airport_heliport")
 public class MarkingElementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

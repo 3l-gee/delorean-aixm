@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "postalAddress"
 })
 @Entity(name = "PostalAddressPropertyType")
-@Table(name = "postaladdresspropertytype", schema = "shared")
+@Table(name = "postaladdress_p", schema = "shared")
 public class PostalAddressPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

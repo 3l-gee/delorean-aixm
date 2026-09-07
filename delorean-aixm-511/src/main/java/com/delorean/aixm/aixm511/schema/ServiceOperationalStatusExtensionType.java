@@ -260,6 +260,19 @@ public class ServiceOperationalStatusExtensionType implements Serializable, Equa
         }
         final ServiceOperationalStatusExtensionType that = ((ServiceOperationalStatusExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractServiceOperationalStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractServiceOperationalStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractServiceOperationalStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractServiceOperationalStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceOperationalStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceOperationalStatusExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -281,19 +294,6 @@ public class ServiceOperationalStatusExtensionType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractServiceOperationalStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractServiceOperationalStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractServiceOperationalStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractServiceOperationalStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceOperationalStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceOperationalStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

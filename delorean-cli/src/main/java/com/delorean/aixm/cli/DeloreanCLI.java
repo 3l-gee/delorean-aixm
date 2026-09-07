@@ -31,6 +31,7 @@ import java.net.http.HttpResponse;
 
 import com.delorean.aixm.cli.DeloreanCLI.ActionType;
 import com.delorean.aixm.core.DeloreanProcessor;
+import com.delorean.aixm.core.config.GlobalDeloreanConfig;
 import com.delorean.aixm.core.container.Container;
 import com.delorean.aixm.core.container.ContainerWarehouse;
 import com.delorean.aixm.core.log.ConsoleLogger;
@@ -70,55 +71,94 @@ import lombok.extern.slf4j.Slf4j;
  * @version 0.2.0
  */
 @Slf4j
-@Command(mixinStandardHelpOptions = true, version = "0.2.0", description = "Executes structured aeronautical data transformation pipelines via YAML files or isolated direct command contexts.")
+@Command(
+    mixinStandardHelpOptions = true, 
+    version = "0.2.0", 
+    customSynopsis = {
+        "delorean-a511 --yaml <config.yaml>",
+        "delorean-a511 -a <action> -f <file> -d <dbname> -U <user> [options]"
+    },
+    description = {
+        "Process and manage AIXM 5.1.1 aviation datasets.",
+        "",
+        "MODES OF OPERATION:",
+        "  1. Direct Command Line Mode",
+        "     Execute a single action (persist, extract, merge, prune) directly.",
+        "  2. YAML Workflow Mode",
+        "     Run a multi-step pipeline defined in a configuration file.",
+        "",
+        "ACTIONS (-a, --action):",
+        "  persist   Load AIXM XML data from a file into the database.",
+        "  extract   Extracts AIXM records from the database into an XML file.",
+        "  merge     Combine multi-temporal AIXM datasets into a single timeline.",
+        "  predicate Extracts AIXM records from the database using a predicate that selects active time slices and writes them into an XML file.",
+        "  render    Render AIXM geometry and materialised views.",
+    }
+)
 public abstract class DeloreanCLI implements Callable<Integer> {
 
-    @ArgGroup(multiplicity = "1", heading = "Execution Mode (Choose either YAML pipeline or Direct CLI command):%n")
+    // Global Options
+    @Option(names = {"--help", "help"}, usageHelp = true, description = "Show this help message and exit.")
+    boolean helpRequested;
+
+    @Option(names = {"-v", "--version"}, versionHelp = true, description = "Show CLI and binding version information.")
+    boolean versionRequested;
+
+    @ArgGroup(multiplicity = "1")
     ExecutionMode mode;
 
     static class ExecutionMode {
-        @Option(names = { "-y", "--yaml" }, required = true, description = "YAML workflow configuration file")
-        File yamlFile;
+        @ArgGroup(exclusive = false, heading = "%nWORKFLOW OPTIONS:%n")
+        YamlOptions yamlMode;
 
-        @ArgGroup(exclusive = false, heading = "Direct CLI Mode Options:%n")
+        @ArgGroup(exclusive = false, heading = "%nOPTIONS:%n")
         DirectCommandOptions directCmd;
     }
 
+    static class YamlOptions {
+        @Option(names = { "-y", "--yaml" }, required = true, paramLabel = "<path>", description = "Path to YAML pipeline configuration file.")
+        File yamlFile;
+    }
+
     static class DirectCommandOptions {
-
-        @Option(names = { "-h", "--host" }, description = "Database server host or socket directory")
-        String host;
-
-        @Option(names = { "-p", "--port" }, description = "Database server port")
-        String port;
-
-        @Option(names = { "-d", "--dbname" }, description = "Database name to connect to")
-        String database;
-
-        @Option(names = { "-U", "--username" }, description = "Database user name")
-        String user;
-
-        @Option(names = { "-W",
-                "--password" }, description = "Database authentication password.", interactive = true, arity = "0..1")
-        String password;
-
-        @Option(names = { "-a",
-                "--action" }, required = true, description = "Action to perform: [persist, extract, merge, prune]")
+        @Option(names = { "-a", "--action" }, required = true, paramLabel = "<action>", description = "Required for direct mode. Action to perform.")
         ActionType action;
 
-        @Option(names = { "-f", "--file" }, description = "Target contextual data file path target string identifier")
+        @Option(names = { "-f", "--file" }, paramLabel = "<path>", description = "Path to the input or output AIXM XML file.")
         String file;
 
-        @Option(names = { "--id" }, description = "Entity identity payload variable argument mapping for extraction")
+        @Option(names = { "--id" }, paramLabel = "<gml:identifier>", description = "Filter extraction by feature UUID/ID.")
         String id;
 
-        @Option(names = { "--time" }, description = "Entity identity payload variable argument mapping for extraction")
+        @Option(names = { "--time" }, paramLabel = "<timestamp>", description = {
+            "Target timestamp for temporal snapshot extraction",
+            "(ISO-8601, e.g., '2026-09-01T12:00:00Z')."
+        })
         String time;
 
+        @ArgGroup(exclusive = false, heading = "%nDATABASE OPTIONS:%n")
+        DatabaseOptions connection;
+    }
+
+    static class DatabaseOptions {
+        @Option(names = { "-h", "--host" }, paramLabel = "<host>", description = "Database server host [default: localhost].")
+        String host = "localhost";
+
+        @Option(names = { "-p", "--port" }, paramLabel = "<port>", description = "Database server port [default: 5432].")
+        String port = "5432";
+
+        @Option(names = { "-d", "--dbname" }, paramLabel = "<name>", description = "Target PostgreSQL/PostGIS database name.")
+        String database;
+
+        @Option(names = { "-U", "--username" }, paramLabel = "<user>", description = "Database user name.")
+        String user;
+
+        @Option(names = { "-W", "--password" }, paramLabel = "[<pass>]", description = "Prompt for or specify database password.", interactive = true, arity = "0..1")
+        String password;
     }
 
     enum ActionType {
-        persist, extract, merge, prune
+        persist, extract, merge, prune, predicate, render
     }
 
     protected abstract DeloreanProcessor createProcessor();
@@ -131,17 +171,19 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             return 1;
         }
 
+        File yamlFile = mode.yamlMode.yamlFile;
+
         // Mode 1: YAML Execution Processing
-        if (mode.yamlFile != null) {
-            if (!mode.yamlFile.exists()) {
-                System.err.println("Error: Configuration file not found: " + mode.yamlFile.getAbsolutePath());
+        if (yamlFile != null) {
+            if (!yamlFile.exists()) {
+                System.err.println("Error: Configuration file not found: " + yamlFile.getAbsolutePath());
                 return 1;
             }
-            if (!validateYaml(mode.yamlFile)) {
+            if (!validateYaml(yamlFile)) {
                 System.err.println("Validation failures encountered. Halting execution pipeline.");
                 return 1;
             }
-            return executePipeline(processor, mode.yamlFile) ? 0 : 1;
+            return executePipeline(processor, yamlFile) ? 0 : 1;
         }
 
         // Mode 2: Direct Command Line Restricted Execution Pathway
@@ -166,8 +208,8 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 return false;
             }
 
-            String dbUrl = "jdbc:postgresql://" + opts.host + ":" + opts.port + "/" + opts.database;
-            container.SetCredentials(dbUrl, opts.user, opts.password, "update");
+            String dbUrl = "jdbc:postgresql://" + opts.connection.host + ":" + opts.connection.port + "/" + opts.connection.database;
+            container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
 
             container.startup(false);
 
@@ -195,8 +237,15 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 }
 
                 if ("merge".equals(baseActionName)) {
-                    container.persist();
+                    if (opts.id == null) {
+                        log.error("A feature identifier (--id) is required to merge data for " + baseActionName);
+                        container.shutdown();
+                        return false;
+                    }
+                    container.merge("hjid", opts.id);
                 }
+
+                container.render();
             }
 
             // --- POST-ACTION: Automated Marshalling Phase ---
@@ -206,15 +255,26 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                     container.shutdown();
                 }
 
-                container.marshal(opts.file);
-
                 if ("extract".equals(baseActionName)) {
                     container.extract("hjid", opts.id);
                 }
 
                 if ("predicate".equals(baseActionName)) {
+                    if (opts.time == null) {
+                        log.error("A timestamp (--time) is required to predicate data for " + baseActionName);
+                        container.shutdown();
+                        return false;
+                    }
+
+                    if (opts.id == null) {
+                        log.error("A feature identifier (--id) is required to predicate data for " + baseActionName);
+                        container.shutdown();
+                        return false;
+                    }
                     container.predicate(opts.time, "hjid", opts.id);
                 }
+
+                container.marshal(opts.file);
             }
 
             // Gracefully release DB connections upon completion
@@ -230,10 +290,36 @@ public abstract class DeloreanCLI implements Callable<Integer> {
     private boolean executePipeline(DeloreanProcessor processor, File yaml) {
         try {
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            JsonNode rootNode = mapper.readTree(mode.yamlFile);
+            JsonNode rootNode = mapper.readTree(yaml);
             String name = rootNode.path("name").asText("Unnamed Workflow");
-            String logLevel = rootNode.path("logging").asText("INFO");
-            boolean verbose = rootNode.path("verbose").asBoolean(false);
+
+            // Access the global singleton instance
+            GlobalDeloreanConfig config = GlobalDeloreanConfig.getInstance();
+            // 1. Map Logging section
+            JsonNode loggingNode = rootNode.path("logging");
+            if (loggingNode.isObject()) {
+                String logLevel = loggingNode.path("level").asText("INFO");
+                boolean logToFile = loggingNode.path("log_to_file").asBoolean(false);
+                String filePath = loggingNode.path("file_path").asText("logs/delorean.log");
+
+                config.getLogging().setLevel(logLevel);
+                config.getLogging().setLogToFile(logToFile);
+                config.getLogging().setFilePath(filePath);
+            } else if (loggingNode.isTextual()) {
+                config.getLogging().setLevel(loggingNode.asText("INFO"));
+            }
+
+            // 2. Map Service section
+            JsonNode serviceNode = rootNode.path("service");
+            if (serviceNode.isObject()) {
+                int workerThreads = serviceNode.path("worker_threads").asInt(config.getService().getWorkerThreads());
+                int ioThreads = serviceNode.path("io_threads").asInt(config.getService().getIoThreads());
+                int batchSize = serviceNode.path("batch_size").asInt(config.getService().getBatchSize());
+
+                config.getService().setWorkerThreads(workerThreads);
+                config.getService().setIoThreads(ioThreads);
+                config.getService().setBatchSize(batchSize);
+            }
 
             // Initialize Containers
             JsonNode containersNode = rootNode.path("containers");
@@ -277,7 +363,8 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                     case "extract":
                     case "predicate":
                     case "integrate":
-                    case "setStatus":
+                    case "set_status":
+                    case "render":
                     case "filter":
                         String containerName = actionNode.path("target").asText();
                         Container<?, ?, ?, ?, ?, ?> container = processor.getContainerByName(containerName);
@@ -364,7 +451,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 container.shutdown();
                 break;
                 
-            case "setstatus":
+            case "set_status":
                 if (args != null && args.has("status")) {
                     container.setStatus(args.get("status").asText());
                 } else {
@@ -374,7 +461,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
 
             case "unmarshal":
                 if (args != null && args.has("path")) {
-                    JsonNode descritpionNode = args.has("descritpion") ? args.get("descritpion") : null;
+                    JsonNode descritpionNode = args.has("description") ? args.get("description") : null;
 
                     if (descritpionNode != null) {
                         String description = descritpionNode.asText();
@@ -398,6 +485,10 @@ public abstract class DeloreanCLI implements Callable<Integer> {
 
             case "persist":
                 container.persist();
+                break;
+
+            case "render":
+                container.render();
                 break;
 
             case "merge":
@@ -462,13 +553,8 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 break;
 
             case "integrate":
-                if (args != null && args.has("path") && args.has("field") && args.has("value")) {
-                    JsonNode timeNode = args.get("time");
-                    JsonNode valueNode = args.get("value");
-                    JsonNode fieldNode = args.get("field");
-
-                    Object value = valueNode.isInt() ? valueNode.asInt() : valueNode.asText();
-                    container.integrate(args.get("path").asText(), fieldNode.asText(), value);
+                if (args != null && args.has("path")) {
+                    container.integrate(args.get("path").asText());
                 } else {
                     throw new IllegalArgumentException("Action 'integrate' failed: Missing required argument 'path', 'field', or 'value'.");
                 }

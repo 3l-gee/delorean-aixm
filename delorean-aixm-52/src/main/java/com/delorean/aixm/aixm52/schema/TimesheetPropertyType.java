@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "timesheet"
 })
 @Entity(name = "TimesheetPropertyType")
-@Table(name = "timesheetpropertytype", schema = "shared")
+@Table(name = "timesheet_p", schema = "shared")
 public class TimesheetPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

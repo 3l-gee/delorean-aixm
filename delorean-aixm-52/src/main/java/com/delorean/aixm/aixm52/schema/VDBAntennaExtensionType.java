@@ -223,19 +223,6 @@ public class VDBAntennaExtensionType implements Serializable, Equals, HashCode, 
         }
         final VDBAntennaExtensionType that = ((VDBAntennaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractVDBAntennaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVDBAntennaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVDBAntennaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVDBAntennaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVDBAntennaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVDBAntennaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class VDBAntennaExtensionType implements Serializable, Equals, HashCode, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractVDBAntennaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVDBAntennaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractVDBAntennaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractVDBAntennaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVDBAntennaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVDBAntennaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

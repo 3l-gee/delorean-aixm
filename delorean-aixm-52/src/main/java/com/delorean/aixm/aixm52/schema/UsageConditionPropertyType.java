@@ -47,7 +47,7 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
     "abstractUsageCondition"
 })
 @Entity(name = "UsageConditionPropertyType")
-@Table(name = "usageconditionpropertytype", schema = "airport_heliport")
+@Table(name = "usagecondition_p", schema = "airport_heliport")
 public class UsageConditionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

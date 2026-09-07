@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "terminalArrivalAreaSector"
 })
 @Entity(name = "TerminalArrivalAreaSectorPropertyType")
-@Table(name = "terminalarrivalareasectorpropertytype", schema = "procedure")
+@Table(name = "terminalarrivalareasector_p", schema = "procedure")
 public class TerminalArrivalAreaSectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

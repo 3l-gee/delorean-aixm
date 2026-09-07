@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "angle"
 })
 @Entity(name = "AnglePropertyType")
-@Table(name = "anglepropertytype", schema = "navaids_point")
+@Table(name = "angle_p", schema = "navaids_point")
 public class AnglePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

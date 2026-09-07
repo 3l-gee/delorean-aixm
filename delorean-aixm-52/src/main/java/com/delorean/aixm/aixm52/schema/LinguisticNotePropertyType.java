@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "linguisticNote"
 })
 @Entity(name = "LinguisticNotePropertyType")
-@Table(name = "linguisticnotepropertytype", schema = "note")
+@Table(name = "linguisticnote_p", schema = "note")
 public class LinguisticNotePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

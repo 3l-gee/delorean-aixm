@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "organisationAuthorityAssociation"
 })
 @Entity(name = "OrganisationAuthorityAssociationPropertyType")
-@Table(name = "organisationauthorityassociationpropertytype", schema = "organisation")
+@Table(name = "organisationauthorityassociation_p", schema = "organisation")
 public class OrganisationAuthorityAssociationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

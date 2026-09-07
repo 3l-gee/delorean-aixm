@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "taxiwayContamination"
 })
 @Entity(name = "TaxiwayContaminationPropertyType")
-@Table(name = "taxiwaycontaminationpropertytype", schema = "airport_heliport")
+@Table(name = "taxiwaycontamination_p", schema = "airport_heliport")
 public class TaxiwayContaminationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "specialNavigationStationStatus"
 })
 @Entity(name = "SpecialNavigationStationStatusPropertyType")
-@Table(name = "specialnavigationstationstatuspropertytype", schema = "navaids_point")
+@Table(name = "specialnavigationstationstatus_p", schema = "navaids_point")
 public class SpecialNavigationStationStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

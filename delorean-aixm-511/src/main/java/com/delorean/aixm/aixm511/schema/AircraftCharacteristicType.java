@@ -818,7 +818,7 @@ public class AircraftCharacteristicType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "arcrftchrctrstctp_annttn_l", schema = "shared", joinColumns = {
+    @JoinTable(name = "arcrftchrctrstctp_annttn_link", schema = "shared", joinColumns = {
         @JoinColumn(name = "aircraftcharacteristic_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -1186,92 +1186,14 @@ public class AircraftCharacteristicType
         }
         final AircraftCharacteristicType that = ((AircraftCharacteristicType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNavigationEquipment();
-            boolean rhsFieldIsSet = that.isSetNavigationEquipment();
-            JAXBElement<CodeNavigationEquipmentType> lhsField;
-            lhsField = this.getNavigationEquipment();
-            JAXBElement<CodeNavigationEquipmentType> rhsField;
-            rhsField = that.getNavigationEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWingSpanInterpretation();
-            boolean rhsFieldIsSet = that.isSetWingSpanInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getWingSpanInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getWingSpanInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "wingSpanInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "wingSpanInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCommunicationEquipment();
-            boolean rhsFieldIsSet = that.isSetCommunicationEquipment();
-            JAXBElement<CodeCommunicationModeType> lhsField;
-            lhsField = this.getCommunicationEquipment();
-            JAXBElement<CodeCommunicationModeType> rhsField;
-            rhsField = that.getCommunicationEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWakeTurbulence();
-            boolean rhsFieldIsSet = that.isSetWakeTurbulence();
-            JAXBElement<CodeWakeTurbulenceType> lhsField;
-            lhsField = this.getWakeTurbulence();
-            JAXBElement<CodeWakeTurbulenceType> rhsField;
-            rhsField = that.getWakeTurbulence();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "wakeTurbulence", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "wakeTurbulence", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClassWingSpan();
-            boolean rhsFieldIsSet = that.isSetClassWingSpan();
-            JAXBElement<CodeAircraftWingspanClassType> lhsField;
-            lhsField = this.getClassWingSpan();
-            JAXBElement<CodeAircraftWingspanClassType> rhsField;
-            rhsField = that.getClassWingSpan();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classWingSpan", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classWingSpan", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAircraftType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAircraftType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVerticalSeparationCapability();
-            boolean rhsFieldIsSet = that.isSetVerticalSeparationCapability();
-            JAXBElement<CodeRVSMType> lhsField;
-            lhsField = this.getVerticalSeparationCapability();
-            JAXBElement<CodeRVSMType> rhsField;
-            rhsField = that.getVerticalSeparationCapability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalSeparationCapability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalSeparationCapability", rhsField);
+            boolean lhsFieldIsSet = this.isSetAircraftLandingCategory();
+            boolean rhsFieldIsSet = that.isSetAircraftLandingCategory();
+            JAXBElement<CodeAircraftCategoryType> lhsField;
+            lhsField = this.getAircraftLandingCategory();
+            JAXBElement<CodeAircraftCategoryType> rhsField;
+            rhsField = that.getAircraftLandingCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftLandingCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftLandingCategory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1290,53 +1212,14 @@ public class AircraftCharacteristicType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPassengers();
-            boolean rhsFieldIsSet = that.isSetPassengers();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getPassengers();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getPassengers();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengers", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengers", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurveillanceEquipment();
-            boolean rhsFieldIsSet = that.isSetSurveillanceEquipment();
-            JAXBElement<CodeTransponderType> lhsField;
-            lhsField = this.getSurveillanceEquipment();
-            JAXBElement<CodeTransponderType> rhsField;
-            rhsField = that.getSurveillanceEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surveillanceEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surveillanceEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpeed();
-            boolean rhsFieldIsSet = that.isSetSpeed();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeed();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AircraftCharacteristicExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AircraftCharacteristicExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAircraftType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAircraftType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1355,32 +1238,6 @@ public class AircraftCharacteristicType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAircraftLandingCategory();
-            boolean rhsFieldIsSet = that.isSetAircraftLandingCategory();
-            JAXBElement<CodeAircraftCategoryType> lhsField;
-            lhsField = this.getAircraftLandingCategory();
-            JAXBElement<CodeAircraftCategoryType> rhsField;
-            rhsField = that.getAircraftLandingCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftLandingCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftLandingCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPassengersInterpretation();
-            boolean rhsFieldIsSet = that.isSetPassengersInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getPassengersInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getPassengersInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengersInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengersInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpeedInterpretation();
             boolean rhsFieldIsSet = that.isSetSpeedInterpretation();
             JAXBElement<CodeValueInterpretationType> lhsField;
@@ -1394,14 +1251,14 @@ public class AircraftCharacteristicType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAntiCollisionAndSeparationEquipment();
-            boolean rhsFieldIsSet = that.isSetAntiCollisionAndSeparationEquipment();
-            JAXBElement<CodeEquipmentAntiCollisionType> lhsField;
-            lhsField = this.getAntiCollisionAndSeparationEquipment();
-            JAXBElement<CodeEquipmentAntiCollisionType> rhsField;
-            rhsField = that.getAntiCollisionAndSeparationEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "antiCollisionAndSeparationEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "antiCollisionAndSeparationEquipment", rhsField);
+            boolean lhsFieldIsSet = this.isSetSurveillanceEquipment();
+            boolean rhsFieldIsSet = that.isSetSurveillanceEquipment();
+            JAXBElement<CodeTransponderType> lhsField;
+            lhsField = this.getSurveillanceEquipment();
+            JAXBElement<CodeTransponderType> rhsField;
+            rhsField = that.getSurveillanceEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surveillanceEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surveillanceEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1420,6 +1277,110 @@ public class AircraftCharacteristicType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetWakeTurbulence();
+            boolean rhsFieldIsSet = that.isSetWakeTurbulence();
+            JAXBElement<CodeWakeTurbulenceType> lhsField;
+            lhsField = this.getWakeTurbulence();
+            JAXBElement<CodeWakeTurbulenceType> rhsField;
+            rhsField = that.getWakeTurbulence();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "wakeTurbulence", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "wakeTurbulence", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AircraftCharacteristicExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AircraftCharacteristicExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpeed();
+            boolean rhsFieldIsSet = that.isSetSpeed();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeed();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNavigationSpecification();
+            boolean rhsFieldIsSet = that.isSetNavigationSpecification();
+            JAXBElement<CodeNavigationSpecificationType> lhsField;
+            lhsField = this.getNavigationSpecification();
+            JAXBElement<CodeNavigationSpecificationType> rhsField;
+            rhsField = that.getNavigationSpecification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationSpecification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationSpecification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCommunicationEquipment();
+            boolean rhsFieldIsSet = that.isSetCommunicationEquipment();
+            JAXBElement<CodeCommunicationModeType> lhsField;
+            lhsField = this.getCommunicationEquipment();
+            JAXBElement<CodeCommunicationModeType> rhsField;
+            rhsField = that.getCommunicationEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPassengers();
+            boolean rhsFieldIsSet = that.isSetPassengers();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getPassengers();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getPassengers();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengers", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengers", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalSeparationCapability();
+            boolean rhsFieldIsSet = that.isSetVerticalSeparationCapability();
+            JAXBElement<CodeRVSMType> lhsField;
+            lhsField = this.getVerticalSeparationCapability();
+            JAXBElement<CodeRVSMType> rhsField;
+            rhsField = that.getVerticalSeparationCapability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalSeparationCapability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalSeparationCapability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWingSpanInterpretation();
+            boolean rhsFieldIsSet = that.isSetWingSpanInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getWingSpanInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getWingSpanInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "wingSpanInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "wingSpanInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEngine();
             boolean rhsFieldIsSet = that.isSetEngine();
             JAXBElement<CodeAircraftEngineType> lhsField;
@@ -1433,27 +1394,27 @@ public class AircraftCharacteristicType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTypeAircraftICAO();
-            boolean rhsFieldIsSet = that.isSetTypeAircraftICAO();
-            JAXBElement<CodeAircraftICAOType> lhsField;
-            lhsField = this.getTypeAircraftICAO();
-            JAXBElement<CodeAircraftICAOType> rhsField;
-            rhsField = that.getTypeAircraftICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "typeAircraftICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "typeAircraftICAO", rhsField);
+            boolean lhsFieldIsSet = this.isSetClassWingSpan();
+            boolean rhsFieldIsSet = that.isSetClassWingSpan();
+            JAXBElement<CodeAircraftWingspanClassType> lhsField;
+            lhsField = this.getClassWingSpan();
+            JAXBElement<CodeAircraftWingspanClassType> rhsField;
+            rhsField = that.getClassWingSpan();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classWingSpan", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classWingSpan", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNumberEngine();
-            boolean rhsFieldIsSet = that.isSetNumberEngine();
-            JAXBElement<CodeAircraftEngineNumberType> lhsField;
-            lhsField = this.getNumberEngine();
-            JAXBElement<CodeAircraftEngineNumberType> rhsField;
-            rhsField = that.getNumberEngine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberEngine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberEngine", rhsField);
+            boolean lhsFieldIsSet = this.isSetNavigationEquipment();
+            boolean rhsFieldIsSet = that.isSetNavigationEquipment();
+            JAXBElement<CodeNavigationEquipmentType> lhsField;
+            lhsField = this.getNavigationEquipment();
+            JAXBElement<CodeNavigationEquipmentType> rhsField;
+            rhsField = that.getNavigationEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1472,14 +1433,53 @@ public class AircraftCharacteristicType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNavigationSpecification();
-            boolean rhsFieldIsSet = that.isSetNavigationSpecification();
-            JAXBElement<CodeNavigationSpecificationType> lhsField;
-            lhsField = this.getNavigationSpecification();
-            JAXBElement<CodeNavigationSpecificationType> rhsField;
-            rhsField = that.getNavigationSpecification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationSpecification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationSpecification", rhsField);
+            boolean lhsFieldIsSet = this.isSetNumberEngine();
+            boolean rhsFieldIsSet = that.isSetNumberEngine();
+            JAXBElement<CodeAircraftEngineNumberType> lhsField;
+            lhsField = this.getNumberEngine();
+            JAXBElement<CodeAircraftEngineNumberType> rhsField;
+            rhsField = that.getNumberEngine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberEngine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberEngine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAntiCollisionAndSeparationEquipment();
+            boolean rhsFieldIsSet = that.isSetAntiCollisionAndSeparationEquipment();
+            JAXBElement<CodeEquipmentAntiCollisionType> lhsField;
+            lhsField = this.getAntiCollisionAndSeparationEquipment();
+            JAXBElement<CodeEquipmentAntiCollisionType> rhsField;
+            rhsField = that.getAntiCollisionAndSeparationEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "antiCollisionAndSeparationEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "antiCollisionAndSeparationEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTypeAircraftICAO();
+            boolean rhsFieldIsSet = that.isSetTypeAircraftICAO();
+            JAXBElement<CodeAircraftICAOType> lhsField;
+            lhsField = this.getTypeAircraftICAO();
+            JAXBElement<CodeAircraftICAOType> rhsField;
+            rhsField = that.getTypeAircraftICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "typeAircraftICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "typeAircraftICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPassengersInterpretation();
+            boolean rhsFieldIsSet = that.isSetPassengersInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getPassengersInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getPassengersInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengersInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengersInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

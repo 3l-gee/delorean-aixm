@@ -142,7 +142,7 @@ public class ProcedureTransitionLegType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "prcdrtrnstnlgtp_annttn_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "prcdrtrnstnlgtp_annttn_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "proceduretransitionleg_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -182,7 +182,7 @@ public class ProcedureTransitionLegType
     @OneToOne(targetEntity = SegmentLegPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "prcdrtrnstnlgtp_thsgmntlg_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "prcdrtrnstnlgtp_thsgmntlg_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "proceduretransitionleg_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "thesegmentleg_hjid", referencedColumnName = "hjid")
@@ -284,19 +284,6 @@ public class ProcedureTransitionLegType
         }
         final ProcedureTransitionLegType that = ((ProcedureTransitionLegType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
-            boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
-            SegmentLegPropertyType lhsField;
-            lhsField = this.getTheSegmentLeg();
-            SegmentLegPropertyType rhsField;
-            rhsField = that.getTheSegmentLeg();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
             boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
             JAXBElement<NoSequenceType> lhsField;
@@ -305,6 +292,19 @@ public class ProcedureTransitionLegType
             rhsField = that.getSeqNumberARINC();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
+            boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
+            SegmentLegPropertyType lhsField;
+            lhsField = this.getTheSegmentLeg();
+            SegmentLegPropertyType rhsField;
+            rhsField = that.getTheSegmentLeg();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

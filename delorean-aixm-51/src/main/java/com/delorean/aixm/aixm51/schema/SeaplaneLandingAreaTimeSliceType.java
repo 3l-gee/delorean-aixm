@@ -117,7 +117,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = SeaplaneRampSitePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_rmpst_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_rmpst_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "rampsite_hjid", referencedColumnName = "hjid")
@@ -171,7 +171,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = FloatingDockSitePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_dckst_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_dckst_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "docksite_hjid", referencedColumnName = "hjid")
@@ -255,7 +255,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -309,7 +309,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToMany(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_avlblt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_avlblt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
@@ -391,7 +391,7 @@ public class SeaplaneLandingAreaTimeSliceType
     @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnlndngartmslctp_extnt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnlndngartmslctp_extnt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanelandingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
@@ -430,32 +430,6 @@ public class SeaplaneLandingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDockSite();
-            boolean rhsFieldIsSet = that.isSetDockSite();
-            List<FloatingDockSitePropertyType> lhsField;
-            lhsField = (this.isSetDockSite()?this.getDockSite():null);
-            List<FloatingDockSitePropertyType> rhsField;
-            rhsField = (that.isSetDockSite()?that.getDockSite():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dockSite", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dockSite", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SeaplaneLandingAreaTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SeaplaneLandingAreaTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -464,6 +438,32 @@ public class SeaplaneLandingAreaTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDockSite();
+            boolean rhsFieldIsSet = that.isSetDockSite();
+            List<FloatingDockSitePropertyType> lhsField;
+            lhsField = (this.isSetDockSite()?this.getDockSite():null);
+            List<FloatingDockSitePropertyType> rhsField;
+            rhsField = (that.isSetDockSite()?that.getDockSite():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dockSite", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dockSite", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -482,14 +482,14 @@ public class SeaplaneLandingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SeaplaneLandingAreaTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SeaplaneLandingAreaTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

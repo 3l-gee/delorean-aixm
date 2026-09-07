@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightRestrictionRoute"
 })
 @Entity(name = "FlightRestrictionRoutePropertyType")
-@Table(name = "flightrestrictionroutepropertytype", schema = "route")
+@Table(name = "flightrestrictionroute_p", schema = "route")
 public class FlightRestrictionRoutePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

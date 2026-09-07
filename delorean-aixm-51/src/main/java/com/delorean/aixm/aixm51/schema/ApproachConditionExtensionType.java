@@ -223,19 +223,6 @@ public class ApproachConditionExtensionType implements Serializable, Equals, Has
         }
         final ApproachConditionExtensionType that = ((ApproachConditionExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApproachConditionExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApproachConditionExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApproachConditionExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApproachConditionExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachConditionExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachConditionExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ApproachConditionExtensionType implements Serializable, Equals, Has
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractApproachConditionExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApproachConditionExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractApproachConditionExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractApproachConditionExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachConditionExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachConditionExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

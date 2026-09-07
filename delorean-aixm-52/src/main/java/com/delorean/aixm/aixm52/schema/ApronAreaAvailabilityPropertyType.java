@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "apronAreaAvailability"
 })
 @Entity(name = "ApronAreaAvailabilityPropertyType")
-@Table(name = "apronareaavailabilitypropertytype", schema = "airport_heliport")
+@Table(name = "apronareaavailability_p", schema = "airport_heliport")
 public class ApronAreaAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

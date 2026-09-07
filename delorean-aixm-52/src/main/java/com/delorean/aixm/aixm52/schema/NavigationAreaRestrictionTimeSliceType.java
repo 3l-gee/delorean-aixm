@@ -151,7 +151,7 @@ public class NavigationAreaRestrictionTimeSliceType
     @OneToMany(targetEntity = ProcedurePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "nvgtnarrstrctntmslctp_prcdr_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "nvgtnarrstrctntmslctp_prcdr_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "navigationarearestriction_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "procedure_hjid", referencedColumnName = "hjid")
@@ -265,7 +265,7 @@ public class NavigationAreaRestrictionTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "nvgtnarrstrctntmslctp_annttn_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "nvgtnarrstrctntmslctp_annttn_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "navigationarearestriction_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -360,7 +360,7 @@ public class NavigationAreaRestrictionTimeSliceType
     @OneToOne(targetEntity = ObstacleAssessmentSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "nvgtnarrstrctntmslctp_dsgnsrfc_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "nvgtnarrstrctntmslctp_dsgnsrfc_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "navigationarearestriction_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "designsurface_hjid", referencedColumnName = "hjid")
@@ -376,7 +376,7 @@ public class NavigationAreaRestrictionTimeSliceType
     @OneToOne(targetEntity = CircleSectorPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "nvgtnarrstrctntmslctp_sctrdfntn_l", schema = "procedure", joinColumns = {
+    @JoinTable(name = "nvgtnarrstrctntmslctp_sctrdfntn_link", schema = "procedure", joinColumns = {
         @JoinColumn(name = "navigationarearestriction_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "sectordefinition_hjid", referencedColumnName = "hjid")
@@ -402,14 +402,14 @@ public class NavigationAreaRestrictionTimeSliceType
         }
         final NavigationAreaRestrictionTimeSliceType that = ((NavigationAreaRestrictionTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetProcedure();
-            boolean rhsFieldIsSet = that.isSetProcedure();
-            List<ProcedurePropertyType> lhsField;
-            lhsField = (this.isSetProcedure()?this.getProcedure():null);
-            List<ProcedurePropertyType> rhsField;
-            rhsField = (that.isSetProcedure()?that.getProcedure():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "procedure", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "procedure", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavigationAreaRestrictionTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<NavigationAreaRestrictionTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -428,32 +428,6 @@ public class NavigationAreaRestrictionTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSectorDefinition();
-            boolean rhsFieldIsSet = that.isSetSectorDefinition();
-            JAXBElement<CircleSectorPropertyType> lhsField;
-            lhsField = this.getSectorDefinition();
-            JAXBElement<CircleSectorPropertyType> rhsField;
-            rhsField = that.getSectorDefinition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDesignSurface();
             boolean rhsFieldIsSet = that.isSetDesignSurface();
             JAXBElement<ObstacleAssessmentSurfacePropertyType> lhsField;
@@ -467,14 +441,40 @@ public class NavigationAreaRestrictionTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavigationAreaRestrictionTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<NavigationAreaRestrictionTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProcedure();
+            boolean rhsFieldIsSet = that.isSetProcedure();
+            List<ProcedurePropertyType> lhsField;
+            lhsField = (this.isSetProcedure()?this.getProcedure():null);
+            List<ProcedurePropertyType> rhsField;
+            rhsField = (that.isSetProcedure()?that.getProcedure():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "procedure", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "procedure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSectorDefinition();
+            boolean rhsFieldIsSet = that.isSetSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> lhsField;
+            lhsField = this.getSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> rhsField;
+            rhsField = that.getSectorDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

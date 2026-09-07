@@ -223,19 +223,6 @@ public class WaterBodyTimeSliceExtensionType implements Serializable, Equals, Ha
         }
         final WaterBodyTimeSliceExtensionType that = ((WaterBodyTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractWaterBodyExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractWaterBodyExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractWaterBodyExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractWaterBodyExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractWaterBodyExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractWaterBodyExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class WaterBodyTimeSliceExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractWaterBodyExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractWaterBodyExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractWaterBodyExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractWaterBodyExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractWaterBodyExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractWaterBodyExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "holdingUse"
 })
 @Entity(name = "HoldingUsePropertyType")
-@Table(name = "holdingusepropertytype", schema = "procedure")
+@Table(name = "holdinguse_p", schema = "procedure")
 public class HoldingUsePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

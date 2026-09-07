@@ -47,7 +47,7 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
     "abstractPropertiesWithSchedule"
 })
 @Entity(name = "PropertiesWithSchedulePropertyType")
-@Table(name = "propertieswithschedulepropertytype", schema = "shared")
+@Table(name = "propertieswithschedule_p", schema = "shared")
 public class PropertiesWithSchedulePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

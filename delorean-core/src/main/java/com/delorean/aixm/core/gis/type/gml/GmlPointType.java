@@ -59,6 +59,19 @@ public class GmlPointType extends com.delorean.aixm.core.gis.type.Point implemen
         this.geometricProperty = geometricProperty;
     }
 
+    @Column(
+        name = "prop_href_sub", 
+        columnDefinition = "text GENERATED ALWAYS AS (CASE WHEN geometric_type::text = 'REF'::text THEN \"substring\"(prop_href::text, '([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$'::text) ELSE NULL END) STORED",
+        insertable = false, 
+        updatable = false
+    )
+    public String getHrefSub() {
+        return null;
+    }
+
+    public void setHrefSub(String hrefSub) {
+    }
+
     @Override
     public List<String> aggregateEpsgCode() {
         if (pos != null && pos.getSrsName() != null){

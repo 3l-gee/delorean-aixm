@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "finalApproachSegmentData"
 })
 @Entity(name = "FinalApproachSegmentDataPropertyType")
-@Table(name = "finalapproachsegmentdatapropertytype", schema = "procedure")
+@Table(name = "finalapproachsegmentdata_p", schema = "procedure")
 public class FinalApproachSegmentDataPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

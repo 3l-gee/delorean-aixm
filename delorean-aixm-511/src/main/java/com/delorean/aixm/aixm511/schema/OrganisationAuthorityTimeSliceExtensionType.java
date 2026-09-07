@@ -223,19 +223,6 @@ public class OrganisationAuthorityTimeSliceExtensionType implements Serializable
         }
         final OrganisationAuthorityTimeSliceExtensionType that = ((OrganisationAuthorityTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractOrganisationAuthorityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractOrganisationAuthorityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractOrganisationAuthorityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractOrganisationAuthorityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOrganisationAuthorityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOrganisationAuthorityExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class OrganisationAuthorityTimeSliceExtensionType implements Serializable
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractOrganisationAuthorityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractOrganisationAuthorityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractOrganisationAuthorityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractOrganisationAuthorityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOrganisationAuthorityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOrganisationAuthorityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

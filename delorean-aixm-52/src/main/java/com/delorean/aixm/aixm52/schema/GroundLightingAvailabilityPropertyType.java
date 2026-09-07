@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "groundLightingAvailability"
 })
 @Entity(name = "GroundLightingAvailabilityPropertyType")
-@Table(name = "groundlightingavailabilitypropertytype", schema = "airport_heliport")
+@Table(name = "groundlightingavailability_p", schema = "airport_heliport")
 public class GroundLightingAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

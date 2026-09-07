@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "distance"
 })
 @Entity(name = "DistancePropertyType")
-@Table(name = "distancepropertytype", schema = "navaids_point")
+@Table(name = "distance_p", schema = "navaids_point")
 public class DistancePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

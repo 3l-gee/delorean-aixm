@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "directFlightSegment"
 })
 @Entity(name = "DirectFlightSegmentPropertyType")
-@Table(name = "directflightsegmentpropertytype", schema = "route")
+@Table(name = "directflightsegment_p", schema = "route")
 public class DirectFlightSegmentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

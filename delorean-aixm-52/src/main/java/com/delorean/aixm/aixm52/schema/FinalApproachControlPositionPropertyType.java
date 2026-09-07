@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "finalApproachControlPosition"
 })
 @Entity(name = "FinalApproachControlPositionPropertyType")
-@Table(name = "finalapproachcontrolpositionpropertytype", schema = "procedure")
+@Table(name = "finalapproachcontrolposition_p", schema = "procedure")
 public class FinalApproachControlPositionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "pointReference"
 })
 @Entity(name = "PointReferencePropertyType")
-@Table(name = "pointreferencepropertytype", schema = "navaids_point")
+@Table(name = "pointreference_p", schema = "navaids_point")
 public class PointReferencePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

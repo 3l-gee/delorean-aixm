@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightCharacteristic"
 })
 @Entity(name = "FlightCharacteristicPropertyType")
-@Table(name = "flightcharacteristicpropertytype", schema = "shared")
+@Table(name = "flightcharacteristic_p", schema = "shared")
 public class FlightCharacteristicPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

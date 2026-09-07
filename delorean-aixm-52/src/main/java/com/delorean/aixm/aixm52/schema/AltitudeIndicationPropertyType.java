@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "altitudeIndication"
 })
 @Entity(name = "AltitudeIndicationPropertyType")
-@Table(name = "altitudeindicationpropertytype", schema = "route")
+@Table(name = "altitudeindication_p", schema = "route")
 public class AltitudeIndicationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

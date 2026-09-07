@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "designStandard"
 })
 @Entity(name = "DesignStandardPropertyType")
-@Table(name = "designstandardpropertytype", schema = "shared")
+@Table(name = "designstandard_p", schema = "shared")
 public class DesignStandardPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

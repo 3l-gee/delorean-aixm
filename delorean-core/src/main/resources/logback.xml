@@ -36,6 +36,7 @@
 
     <!-- STEER MODULES LOGS -->
     <logger name="com.delorean" level="${CORE_LEVEL}" />
+    <logger name="com.zaxxer.hikari" level="${MODULE_LEVEL}" />
     <logger name="org.hibernate" level="${MODULE_LEVEL}" />
     <logger name="jakarta.xml" level="${MODULE_LEVEL}" />
     <logger name="jakarta.persistence" level="${MODULE_LEVEL}" />

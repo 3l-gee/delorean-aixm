@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "circleSector"
 })
 @Entity(name = "CircleSectorPropertyType")
-@Table(name = "circlesectorpropertytype", schema = "shared")
+@Table(name = "circlesector_p", schema = "shared")
 public class CircleSectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

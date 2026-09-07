@@ -260,14 +260,14 @@ public class DeicingAreaMarkingTimeSliceExtensionType implements Serializable, E
         }
         final DeicingAreaMarkingTimeSliceExtensionType that = ((DeicingAreaMarkingTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDeicingAreaMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDeicingAreaMarkingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDeicingAreaMarkingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDeicingAreaMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDeicingAreaMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDeicingAreaMarkingExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class DeicingAreaMarkingTimeSliceExtensionType implements Serializable, E
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractDeicingAreaMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDeicingAreaMarkingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDeicingAreaMarkingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDeicingAreaMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDeicingAreaMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDeicingAreaMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

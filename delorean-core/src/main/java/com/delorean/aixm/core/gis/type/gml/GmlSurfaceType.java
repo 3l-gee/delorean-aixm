@@ -55,6 +55,19 @@ public class GmlSurfaceType extends com.delorean.aixm.core.gis.type.Surface impl
     public void setGeometricType(GeometricType geometricType) {
         this.geometricType = geometricType;
     }
+    
+    @Column(
+        name = "href_sub", 
+        columnDefinition = "text GENERATED ALWAYS AS (CASE WHEN geometric_type::text = 'REF'::text THEN \"substring\"(href::text, '([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$'::text) ELSE NULL END) STORED",
+        insertable = false, 
+        updatable = false
+    )
+    public String getHrefSub() {
+        return null;
+    }
+
+    public void setHrefSub(String hrefSub) {
+    }
 
     @Override
     public List<String> aggregateEpsgCode() {

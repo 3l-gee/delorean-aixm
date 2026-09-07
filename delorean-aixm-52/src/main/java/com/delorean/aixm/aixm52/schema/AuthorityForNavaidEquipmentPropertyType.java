@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "authorityForNavaidEquipment"
 })
 @Entity(name = "AuthorityForNavaidEquipmentPropertyType")
-@Table(name = "authorityfornavaidequipmentpropertytype", schema = "navaids_point")
+@Table(name = "authorityfornavaidequipment_p", schema = "navaids_point")
 public class AuthorityForNavaidEquipmentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

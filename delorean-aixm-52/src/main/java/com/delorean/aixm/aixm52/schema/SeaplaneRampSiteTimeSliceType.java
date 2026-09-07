@@ -169,7 +169,7 @@ public class SeaplaneRampSiteTimeSliceType
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnrmpsttmslctp_annttn_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnrmpsttmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanerampsite_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
@@ -251,7 +251,7 @@ public class SeaplaneRampSiteTimeSliceType
     @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnrmpsttmslctp_extnt_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnrmpsttmslctp_extnt_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanerampsite_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
@@ -267,7 +267,7 @@ public class SeaplaneRampSiteTimeSliceType
     @OneToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "splnrmpsttmslctp_cntrln_l", schema = "airport_heliport", joinColumns = {
+    @JoinTable(name = "splnrmpsttmslctp_cntrln_link", schema = "airport_heliport", joinColumns = {
         @JoinColumn(name = "seaplanerampsite_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "centreline_hjid", referencedColumnName = "hjid")

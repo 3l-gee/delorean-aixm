@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "surfaceCharacteristics"
 })
 @Entity(name = "SurfaceCharacteristicsPropertyType")
-@Table(name = "surfacecharacteristicspropertytype", schema = "airport_heliport")
+@Table(name = "surfacecharacteristics_p", schema = "airport_heliport")
 public class SurfaceCharacteristicsPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

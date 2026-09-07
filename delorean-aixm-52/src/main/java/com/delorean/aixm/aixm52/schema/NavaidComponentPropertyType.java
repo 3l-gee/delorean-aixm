@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "navaidComponent"
 })
 @Entity(name = "NavaidComponentPropertyType")
-@Table(name = "navaidcomponentpropertytype", schema = "navaids_point")
+@Table(name = "navaidcomponent_p", schema = "navaids_point")
 public class NavaidComponentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
