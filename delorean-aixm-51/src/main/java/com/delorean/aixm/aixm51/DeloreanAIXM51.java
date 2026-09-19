@@ -4,14 +4,12 @@ import com.delorean.aixm.core.CoreConfig;
 import com.delorean.aixm.core.Delorean;
 import com.delorean.aixm.core.container.Container;
 import com.delorean.aixm.core.container.ContainerWarehouse;
-import com.delorean.aixm.core.context.Context;
 import com.delorean.aixm.core.context.ContextWarehouse;
 import com.delorean.aixm.aixm51.schema.message.AIXMBasicMessageType;
 import com.delorean.aixm.aixm51.schema.message.BasicMessageMemberAIXMPropertyType;
 
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.xml.namespace.QName;
 

@@ -37,7 +37,6 @@ This is achieved by taking the official XML schema definition files `aixm.xsd` p
 `hyperjaxb` then compiles the schemas and binding rules into `java.class` annotated for both XML streaming (JAXB) and database persistence (JPA/Hibernate). Finally, `postjaxb.py` performs a second pass on the generated `java.class`, modifying addapted types, naming and fix structural limitations inherent to `hyperjaxb`.
 
 ```mermaid
-
 stateDiagram-v2
     direction LR
     aixm.xsd --> hyperjaxb
@@ -91,10 +90,7 @@ Overall, this means that Delorean-AIXM has only one automatically generated laye
 
 To abstract away the complex, deeply nested table structure of AIXM and eliminate the performance penalty of querying 8–10 levels of joins at runtime, Delorean-AIXM relies on Materialized Views. These materialized views flatten the normalized 3NF AIXM schema into clean, tabular representations of aeronautical features while automatically resolving spatial, relational, and temporal logic directly inside PostgreSQL. This is the key reason why the AIXM schema can be connected to standard GIS tool, the performance of querying these materialised views is sub-millisecond.
 
-The unlogged table for curve and surface geometries enables the GML geometries to be rendered in parallel, since multiple sessions can write to the unlogged table simultaneously, thereby speeding up the rendering process.
-
 ```mermaid
-
 erDiagram
     direction TB
 
@@ -176,7 +172,7 @@ stateDiagram-v2
     postjaxb --> domain_types
 ```
 
-As mentioned above, the GML AIXM geometries are computed in the database. First, PostGIS computes the complex segments (arcs, circles and geodesics) from the GML primitives (points, lines and polygons), which are then merged to form curves. These curves then serve as the geometric basis for the views and surfaces. In a second phase, PostGIS computes the surface rings by aggregating, cutting, merging and ordering the previously generated curves. These rings are then merged into polygons to form surfaces.
+As mentioned above, the GML AIXM geometries are computed in the database. First, PostGIS computes the complex segments (arcs, circles and geodesics) from the GML primitives (points, lines and polygons) stored as fragments, which are then merged to form curves. These curves then serve as the geometric basis for the views and surfaces. In a second phase, PostGIS computes the surface rings by aggregating, cutting, merging and ordering the previously generated curves. These rings are then merged into polygons to form surfaces.
 
 Why use an unlogged table rather than a view for this? A view (materialised or not) can only be used by one session at a time. This means that all the geometry and intermediate results must be computed and held in memory by a single session. This significantly slows down the computation, even on a high-end, optimised PostgreSQL server, because the memory allocation per session is almost always reached. By using an unlogged table and multiple sessions, we can divide the memory footprint and increase the number of parallel jobs. However, the number of sessions should match the number of cores available to the database, as having too many sessions would be counterproductive. 
 

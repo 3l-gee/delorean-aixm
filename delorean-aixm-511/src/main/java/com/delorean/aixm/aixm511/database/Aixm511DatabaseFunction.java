@@ -11,14 +11,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import jakarta.persistence.EntityGraph;
 import jakarta.persistence.Tuple;
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,13 +24,9 @@ import com.delorean.aixm.core.config.GlobalDeloreanConfig;
 import com.delorean.aixm.core.context.ContextWarehouse;
 import com.delorean.aixm.core.database.AbstractDatabaseFunctions;
 import com.delorean.aixm.core.database.HibernateHelper;
-import com.delorean.aixm.core.database.MessageMemberLink;
 import com.delorean.aixm.core.database.MutationFeatureTimeslice;
 import com.delorean.aixm.core.log.ConsoleLogger;
-import com.delorean.aixm.core.log.LogLevel;
-import com.delorean.aixm.core.org.gml.v_3_2.StringOrRefType;
 import com.delorean.aixm.core.database.TimeSliceAction;
-import com.delorean.aixm.core.database.BasicMessage;
 
 import com.delorean.aixm.aixm511.schema.AbstractAIXMFeatureType;
 import com.delorean.aixm.aixm511.schema.AbstractAIXMObjectType;
@@ -187,7 +181,6 @@ public class Aixm511DatabaseFunction extends
             String id = m.getId();
             String salt = m.getSalt();
             String saltDescription = m.getSaltDescription();
-            StringOrRefType description = m.getDescription();
             int memberCount = m.getHasMember() != null ? m.getHasMember().size() : 0;
 
             log.info("HJID: {} ID: {} Members: {} Salt: {} Description: {}",
@@ -195,7 +188,7 @@ public class Aixm511DatabaseFunction extends
                 id, 
                 memberCount, 
                 salt != null ? salt : "N/A (Non hashed IDs)",
-                description != null ? description.getValue() : "N/A");
+                saltDescription != null ? saltDescription : "N/A (Non hashed IDs)");
         }
 
         session.close();

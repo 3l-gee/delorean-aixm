@@ -66,6 +66,7 @@ markdown_extensions:
 nav:
   - home: index.md
   - concepts: concepts.md
+  - features: features.md
   - cli-manual: 
     - cli-manual: cli/index.md
     - syntax: cli/syntax.md
@@ -79,7 +80,7 @@ nav:
     - building: dev/building.md
     - architecture: dev/architecture.md
   - roadmap: roadmap.md
-  - FAQ: faq.md
+  - faq: faq.md
 
 extra_javascript:
   - https://unpkg.com/mermaid/dist/mermaid.min.js
@@ -87,4 +88,4 @@ extra_javascript:
   - js/custom-bg.js
 
 extra_css:
-  - css/dark-rtd.css
+- stylesheets/extra.css

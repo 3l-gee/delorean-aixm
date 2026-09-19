@@ -212,7 +212,7 @@ This will add new timeslices to existing features, ignore old or duplicate times
 ```
 ## `diff`
 
-Computes a diff for the target container's AIXM message and unmarshalling the output to a AIXM file at `path`. This turn a `BASELINE` AIXM message containing all the features and timeslices into a `PERMDELTA` AIXM message by keeping only the changed features. The time range is assumed to have been defined previously, either by a `predicate` or a `timeslice` action.
+Computes a diff for the target container's AIXM message and marshalling the output to a AIXM file at `path`. This turn a `BASELINE` AIXM message containing all the features and timeslices into a `PERMDELTA` AIXM message by keeping only the changed features and changed attributes. The time range is assumed to have been defined previously, either by a `predicate` or a `timeslice` action.
 
 **Parameters**
 
@@ -246,7 +246,7 @@ Extracts AIXM message from the target container matching a field/value pair, sta
 
 ## `predicate`
 
-Extracts AIXM message from the target container that are active past a given timestamp, filtered further by a field/value pair.
+Extracts AIXM message from the target container with only active timeslice past a given timestamp, filtered further by a field/value pair.
 
 **Parameters**
 
@@ -266,7 +266,7 @@ Extracts AIXM message from the target container that are active past a given tim
 
 ## `integrate`
 
-Integrates an external `PERMDELTA` AIXM message file into the target container's AIXM message. Merges a `PERMDELTA` AIXM message into a existing Baseline that converting partial timelice into full timelices. Can then be merged into the persisted AIXM messaege.
+Integrates an external `PERMDELTA` AIXM message file into the target container's AIXM message. Merges a `PERMDELTA` AIXM message into a existing Baseline converting partial timelice into full timelices. Can then be merged into the persisted AIXM messaege.
 
 **Parameters**
 

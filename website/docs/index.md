@@ -1,8 +1,12 @@
 # Delorean-AIXM
 
-Welcome to the documentation repository for **Delorean-AIXM**, an open-source ETL toolkit designed to process, convert, and store AIXM 5.1, 5.1.1, and 5.2 aeronautical datasets into postgresql databases thanks to the postgis extension.
+Welcome to the documentation repository for **Delorean-AIXM**, an open-source ETL AIXM-native toolkit and spatial framework designed to process, render, and store AIXM 5.1, 5.1.1, and 5.2 aeronautical datasets into PostgreSQL databases using the PostGIS extension.
 
 AIXM is a complex schema that requires specialised software to display it. Delorean solves this issue by creating a schema-compliant database that can be queried using standard GIS tools. This abstracts the inherent structure of AIXM, rendering the complex GML geometry and building the correct timeslice structure as a time series.
+
+>Why Delorean-AIXM?
+
+>Unlike traditional tools, which require you to regenerate and re-ingest an entire AIXM dataset whenever an update occurs, Delorean-AIXM allows you to simply merge incremental updates. The temporal engine automatically updates feature histories in place, ensuring your spatial database is continuously up to date with no downtime.
 
 ## Key Features
 
@@ -15,7 +19,7 @@ AIXM is a complex schema that requires specialised software to display it. Delor
 
 * **Java Runtime (JDK / JRE)** 21
 * **PostgreSQL** 15+
-* **PostGIS Extension** 3.x+
+* **PostGIS Extension** 3.3+
 
 ## Project layout
 

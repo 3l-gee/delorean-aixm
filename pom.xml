@@ -398,16 +398,21 @@
             </execution>
           </executions>
         </plugin>
-      </plugins>
+    </plugins>
   </build>
-  
+
   <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-pmd-plugin</artifactId>
-        <version>3.21.2</version>
-      </plugin>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>3.28.0</version>
+          <configuration>
+            <rulesets>
+              <ruleset>.\pmd-ruleset.xml</ruleset>
+            </rulesets>
+          </configuration>
+        </plugin>
     </plugins>
   </reporting>
 </project>

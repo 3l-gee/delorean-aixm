@@ -26,7 +26,7 @@ Delorean support all feature types found in aixm for the following aixm versions
 	* [x] Merge
 	* [ ] Combine
 	* [x] Integrate
-	* [ ] Delta
+	* [x] Diff
 	* [X] Filter
 	* [X] Prune
 	* [X] Clone
@@ -51,7 +51,7 @@ Delorean support all feature types found in aixm for the following aixm versions
 		* [ ] TEMPDELTA
 		* [ ] SNAPSHOT
 * [x] UI/UX
-	* [ ] Yaml Workflow
+	* [x] Yaml Workflow
 	* [x] Logging
 	* [x] Statistics
 	* [ ] Strict / Loose Mode
