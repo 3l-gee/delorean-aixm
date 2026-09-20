@@ -211,8 +211,6 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             String dbUrl = "jdbc:postgresql://" + opts.connection.host + ":" + opts.connection.port + "/" + opts.connection.database;
             container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
 
-            container.startup(false);
-
             // Synthesize programmatic arguments for matching existing switch cases
             ObjectNode syntheticArgs = JsonNodeFactory.instance.objectNode();
             if (opts.file != null)
@@ -222,8 +220,14 @@ public abstract class DeloreanCLI implements Callable<Integer> {
 
             String baseActionName = opts.action.name();
 
-            // --- PRE-ACTION: Automated Unmarshalling Phase ---
-            if ("persist".equals(baseActionName) || "merge".equals(baseActionName)) {
+            if ("format".equals(baseActionName))  {
+                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "create");
+                container.startup(false);
+                
+            } else if ("persist".equals(baseActionName) || "merge".equals(baseActionName)) {
+                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
+                container.startup(false);
+
                 if (opts.file == null) {
                     log.error("A source file (-f / --file) is required to unmarshal data for " + baseActionName);
                     container.shutdown();
@@ -246,13 +250,14 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 }
 
                 container.render();
-            }
+            } else if ("extract".equals(baseActionName) || "predicate".equals(baseActionName)) {
+                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
+                container.startup(false);
 
-            // --- POST-ACTION: Automated Marshalling Phase ---
-            if ("extract".equals(baseActionName) || "predicate".equals(baseActionName)) {
                 if (opts.file == null) {
                     log.error("A source file (-f / --file) is required to unmarshal data for " + baseActionName);
                     container.shutdown();
+                    return false;
                 }
 
                 if ("extract".equals(baseActionName)) {
@@ -275,6 +280,14 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 }
 
                 container.marshal(opts.file);
+            } else if ("render".equals(baseActionName)) {
+                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
+                container.startup(false);
+                container.render();
+            } else {
+                log.error("Unknown action specified: " + baseActionName);
+                container.shutdown();
+                return false;
             }
 
             // Gracefully release DB connections upon completion

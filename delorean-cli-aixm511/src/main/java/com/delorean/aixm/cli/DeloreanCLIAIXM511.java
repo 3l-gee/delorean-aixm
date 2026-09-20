@@ -39,7 +39,7 @@ public class DeloreanCLIAIXM511  extends DeloreanCLI {
         Aixm511FilterConfig config = new Aixm511FilterConfig(BasicMessageMemberAIXMPropertyType.class, AbstractAIXMFeatureType.class, AbstractAIXMTimeSliceType.class);
 
         switch (filterType) {
-            case "feature_indetifier":
+            case "feature_identifier":
                 config.addFeatureFilter(new FeatureIdentifierSpecification(args));
                 break;
 

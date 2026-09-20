@@ -227,7 +227,17 @@ public class DeloreanUtility {
         if (filePath == null || filePath.trim().isEmpty()) {
             throw new IllegalArgumentException("File path cannot be null or empty.");
         }
+
         Path path = Paths.get(filePath);
+
+        try {
+            if (path.getParent() != null) {
+                Files.createDirectories(path.getParent());
+                log.atDebug().setMessage("Directories created for path: {}").addArgument(() -> path.getParent().toString()).log();
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to create directory or output stream for path: " + filePath, e);
+        }
 
         try {
             FileOutputStream fos = new FileOutputStream(path.toFile());

@@ -3,6 +3,8 @@ package com.delorean.aixm.aixm511.integration;
 import org.junit.jupiter.api.*;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
+import java.nio.file.Path;
+import java.nio.file.Paths; 
 
 import com.delorean.aixm.aixm511.DeloreanAIXM511;
 import com.delorean.aixm.aixm511.engine.Aixm511Engine;
@@ -29,6 +31,8 @@ public class RoundTripZipAixm511E2E {
     Container<?,?,?,?,?,?> container;
     DeloreanAIXM511 delorean;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
+        Path OutDir = Paths.get("target", "test_output", "aixm511", "round_trip_zip_aixm");
+
 
     @Test
     @Order(1)
@@ -118,7 +122,7 @@ public class RoundTripZipAixm511E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511-marshalled.xml.log";
+        String xmlPath = OutDir.resolve("donlon-aixm-511-marshalled.xml.log").toString();
 
         // do
         container.marshal(xmlPath);
@@ -174,7 +178,7 @@ public class RoundTripZipAixm511E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511-extracted.xml.log";
+        String xmlPath = OutDir.resolve("donlon-aixm-511-extracted.xml.log").toString();
 
         // do
         container.marshal(xmlPath);

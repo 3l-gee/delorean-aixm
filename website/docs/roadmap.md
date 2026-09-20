@@ -9,10 +9,17 @@ gitGraph TB:
     branch codegen
     commit id: "JAXB generation"
     commit id: "XJB generation"
+    commit id: "AIXM 5.1"
+    checkout main
+    merge codegen
+    checkout codegen
     branch xml
     commit id: "adapters"
     commit id: "marshalling"
     commit id: "unmarshalling"
+    checkout main
+    merge xml
+    checkout xml
     branch db
     commit id: "schema generation"
     commit id: "persistence"
@@ -24,20 +31,41 @@ gitGraph TB:
     checkout db
     commit id: "geometry rendering"
     commit id: "view generation"
+    checkout main
+    merge db
+    checkout db
     branch qgis
     commit id: "visualisation project generation"
     commit id: "action"
     commit id: "html widget"
     checkout main
     merge qgis type: HIGHLIGHT tag: "v0.2.0"
+    checkout main
+    commit id: "modularisation"
     checkout codegen
-    merge main id: "5.1.1 / 5.2" type:REVERSE
+    merge main
+    commit id: "Hyperjaxb generation"
+    commit id: "AIXM 5.1.1"
+    commit id: "AIXM 5.2"
+    checkout main
+    merge codegen
+    checkout xml
+    merge codegen
+    commit id: "Rigorous namespace, nil, nil reason"
+    checkout main
+    merge xml
     checkout db
-    merge main id: "geo, temporal, source filter & merger" type:REVERSE
+    merge xml
+    commit id: "AIXM types as PostgreSQL domain"
+    commit id: "Multithreaded inserst, reads"
+    checkout main
+    merge db
     checkout testing
-    merge main id: "automated testing" type:REVERSE
-    checkout qgis 
-    merge main id: "edition project generation" type:REVERSE
+    merge db
+    commit id: "Containerised automated testing"
+    checkout main
+    merge testing
+    commit id: "Cli, workflow and sdk toolkit" type: HIGHLIGHT tag: "v1.0.0"
     checkout codegen
     commit id: "validation & buisiness rules (java)" type:REVERSE
     checkout db
@@ -51,5 +79,4 @@ gitGraph TB:
     checkout db
     commit id: "temp delta & perm delta" type:REVERSE
     checkout main
-    commit id:" " "release"  type:REVERSE tag: "v1.0.0"
 ```

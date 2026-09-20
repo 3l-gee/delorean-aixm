@@ -70,11 +70,11 @@ nav:
   - cli-manual: 
     - cli-manual: cli/index.md
     - syntax: cli/syntax.md
-    - exemple: cli/exemple.md
+    - example: cli/example.md
   - sdk-manual: 
     - sdk-manual: sdk/index.md
     - introduction: sdk/introduction.md
-    - exemple: sdk/exemple.md
+    - example: sdk/example.md
   - dev-manual: 
     - dev-manual: dev/index.md
     - building: dev/building.md

@@ -35,6 +35,8 @@ public class MergeAixm511E2E {
     Container<?,?,?,?,?,?> AContainer;
     Container<?,?,?,?,?,?> BContainer;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
+    Path OutDir = Paths.get("target", "test_output", "aixm511", "merge_aixm");
+
 
     @Test
     @Order(1)
@@ -249,7 +251,7 @@ public class MergeAixm511E2E {
     void extractAll() {
 
         // given
-        String xmlPath = "src/test/resources/merge/timeslice-merge-all.xml.log";
+        String xmlPath = OutDir.resolve("timeslice-merge-all.xml.log").toString();
 
         // do
         BContainer.marshal(xmlPath);
@@ -271,7 +273,7 @@ public class MergeAixm511E2E {
     void extractLast() {
 
         // given
-        String xmlPath = "src/test/resources/merge/timeslice-merge-last.xml.log";
+        String xmlPath = OutDir.resolve("timeslice-merge-last.xml.log").toString();
 
         // do
         BContainer.marshal(xmlPath);
@@ -304,14 +306,10 @@ public class MergeAixm511E2E {
             );
         }
 
-        Path outDir = Paths.get(
-            "src/test/java/com/aixm/delorean/aixm511/out"
-        );
-
-        Path dataFile = outDir.resolve("merge-data.sql");
+        Path dataFile = OutDir.resolve("merge-data.sql");
 
         try {
-            Files.createDirectories(outDir);
+            Files.createDirectories(OutDir);
             Files.writeString(
                 dataFile,
                 result.getStdout(),

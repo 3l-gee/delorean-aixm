@@ -1,18 +1,18 @@
 # Syntax
 
-YAML workflow files contain four parts, ensuring optimal configuration of all required settings.
+YAML workflow files contain five parts, ensuring optimal configuration of all required settings.
 
 ```yaml
 name: <string>            # optional, defaults to "Unnamed Workflow"
-logging: <object|string>  # optional
-service: <object>         # optional
-containers: [ ... ]       # optional list of container definitions
-pipeline: [ ... ]         # ordered list of pipeline steps
+logging: <object|string>  # optional logging parameters
+service: <object>         # optional service parameters
+containers: [ ... ]       # list of container definitions
+pipeline: [ ... ]         # list of pipeline steps
 ```
 
 ## `logging`
 
-Per default, `logging` is be enabled at the `INFO` level and `log_to_file` as `false`, no logs are written to files as default.
+By default, `logging` is be enabled at the `INFO` level and `log_to_file` as `false`, no logs are written to files as default.
 `Logging` accepts a logging level, a `log_to_file` option and a `file_path` used as logging path.
 ```yaml
 logging:
@@ -23,8 +23,7 @@ logging:
 
 ## `service`
 
-Per default `service` is configured with `worker_threads : 4`, `io_threads: 4` and `200 batch_size`. 
-`worker_threads` opnes as many threads and sess
+By default `service` is configured with `worker_threads : 4`, `io_threads: 4` and `batch_size: 200`. 
 
 ### `worker_threads`
 
@@ -37,7 +36,7 @@ The `worker_threads` setting dictates how many concurrent Hibernate sessions pro
 
 The `io_threads` setting determines the number of concurrent, non-blocking database sessions that execute geometry rendering on unlogged staging tables through inserts.
 
- * Set this to a maximum of 1x the physical CPU core count allocated to the database hosting machine to prevent context-switching overhead.
+ * Set this to a maximum of 2x the physical CPU core count allocated to the database hosting machine to prevent context-switching overhead.
  * Databases that require their displayed geometry to be re-rendered should first be over-provisioned, with only a portion of their CPU being allocated to geometry rendering. A database hosted on a single CPU will be unavailable during the rendering process.
 
 ### `batch_size`
@@ -55,7 +54,7 @@ service:
 
 ## `containers`
 
-A container comprises a name, a database connection, and an AIXM message. Multiple containers can be opened simultaneously to handle different or split datasets in different ways. A database-less container can be created that only operates with AIXM message file in memory.
+A container comprises a name, a database connection, and an AIXM message. Multiple containers can be opened simultaneously to handle different or split datasets in different ways. A database-less container can be created that only operates with an AIXM message file in memory.
 
 ```yaml
 containers:
@@ -95,7 +94,7 @@ Initializes the target container's runtime state (Hibernate session, connection 
 
 | Key | Required | Description |
 |---|---|---|
-| `domain-check` | no | Boolean. If `true`, build postgresql domain in the database schema as part of startup. Defaults to `false`. |
+| `domain-check` | no | Boolean. If `true`, build PostgreSQL domain in the database schema as part of startup. Defaults to `false`. |
 
 ```yaml
 - action: startup
@@ -114,7 +113,7 @@ Gracefully releases the target container's database connections and runtime reso
 
 ## `unmarshal`
 
-Loads an AIXM XML file from disk and loads it into the target container's in-memory model, accepts `.xml` and `.zip` extension (as long as it is zipped xml file).
+Reads an AIXM XML file from disk and loads it into the target container's in-memory model, accepts `.xml` and `.zip` extensions (as long as it is zipped xml file).
 
 **Parameters**
 
@@ -132,7 +131,7 @@ Loads an AIXM XML file from disk and loads it into the target container's in-mem
 
 ## `marshal`
 
-Serializes the target container's current in-memory model back out to an AIXM XML file, accepts `.xml` and `.zip` extension and will automatically zip the serialized AIXM message.
+Serializes the target container's current in-memory model back out to an AIXM XML file, accepts `.xml` and `.zip` extensions and will automatically zip the serialized AIXM message.
 
 **Parameters**
 
@@ -193,7 +192,7 @@ Writes the target container's AIXM message into the database. No additional para
 
 ## `merge`
 
-Merges the target container's AIXM message into an persisted AIXM message using the target container database connections, matched by a field/value pair (e.g. merging by `hjid`).
+Merges the target container's AIXM message into a persisted AIXM message using the target container database connections, matched by a field/value pair (e.g. merging by `hjid`).
 
 This will add new timeslices to existing features, ignore old or duplicate timeslices, and add new features that have not yet been persisted in the existing message.
 
@@ -212,7 +211,7 @@ This will add new timeslices to existing features, ignore old or duplicate times
 ```
 ## `diff`
 
-Computes a diff for the target container's AIXM message and marshalling the output to a AIXM file at `path`. This turn a `BASELINE` AIXM message containing all the features and timeslices into a `PERMDELTA` AIXM message by keeping only the changed features and changed attributes. The time range is assumed to have been defined previously, either by a `predicate` or a `timeslice` action.
+Computes a diff for the target container's AIXM message and marshalling the output to an AIXM file at `path`. This turns a `BASELINE` AIXM message containing all the features and timeslices into a `PERMDELTA` AIXM message by keeping only the changed features and changed attributes. The time range is assumed to have been defined previously, either by a `predicate` or a filter on a timeslice or on an entire AIXM message.
 
 **Parameters**
 
@@ -266,7 +265,7 @@ Extracts AIXM message from the target container with only active timeslice past 
 
 ## `integrate`
 
-Integrates an external `PERMDELTA` AIXM message file into the target container's AIXM message. Merges a `PERMDELTA` AIXM message into a existing Baseline converting partial timelice into full timelices. Can then be merged into the persisted AIXM messaege.
+Integrates an external `PERMDELTA` AIXM message file into the target container's AIXM message. Merges a `PERMDELTA` AIXM message into an existing baseline converting partial timeslice into full timeslices. Can then be merged into the persisted AIXM message.
 
 **Parameters**
 
@@ -304,8 +303,6 @@ Sets a status flag on the target container.
   target: main
   status: ACTIVE
 ```
-
-## `filter`
 
 ## `set_context`
 
@@ -363,7 +360,7 @@ Applies a filter to the target container's feature or time-slice model, narrowin
 
 | Key | Required | Description |
 |---|---|---|
-| `type` | yes | One of `feature_indentifier`, `feature_type`, `timeslice_valid_time`. |
+| `type` | yes | One of `feature_identifier`, `feature_type`, `timeslice_valid_time`. |
 | `nullHandling` | yes | How to treat missing/null data during evaluation (consumed by the base filter specification). |
 | `evaluationType` | yes | Evaluation mode for the filter (consumed by the base filter specification). |
 
@@ -371,11 +368,11 @@ Applies a filter to the target container's feature or time-slice model, narrowin
 
 | `type` value | Specification class | Applies to |
 |---|---|---|
-| `feature_indentifier` | `FeatureIdentifierSpecification` | Feature filter |
+| `feature_identifier` | `FeatureIdentifierSpecification` | Feature filter |
 | `feature_type` | `FeatureTypeSpecification` | Feature filter |
 | `timeslice_valid_time` | `TimeSliceValidTimeSpecification` | Time-slice filter |
 
-### `feature_indentifier`
+### `feature_identifier`
 
 Matches features whose `gml:identifier` value is in a given list (case-insensitive).
 
@@ -386,7 +383,7 @@ Matches features whose `gml:identifier` value is in a given list (case-insensiti
 ```yaml
 - action: filter
   target: main
-  type: feature_indentifier
+  type: feature_identifier
   nullHandling: EXCLUDE
   evaluationType: INCLUDE
   identifiers:
@@ -396,7 +393,7 @@ Matches features whose `gml:identifier` value is in a given list (case-insensiti
 
 ### `feature_type`
 
-Matches features by Java class simple name is in a given list `types`.
+Matches features whose Java class simple name is in a given list `types`.
 
 | Key | Required | Description |
 |---|---|---|
@@ -445,7 +442,7 @@ Prunes data from one container into another, using the same filter-specification
 |---|---|---|
 | `from` | yes | Name of the source container. |
 | `to` | yes | Name of the destination container. |
-| `type` | yes | One of `feature_indentifier`, `feature_type`, `timeslice_valid_time` — same filter types as `filter`. |
+| `type` | yes | One of `feature_identifier`, `feature_type`, `timeslice_valid_time` — same filter types as `filter`. |
 | *(additional)* | depends | Same per-type keys as `filter` (see above). |
 
 ```yaml
@@ -465,8 +462,8 @@ Clones one container's state into another. Uses `from`/`to` instead of `target`.
 
 | Key | Required | Description |
 |---|---|---|
-| `from` | yes | Name of the container to clone into. |
-| `to` | yes | Name of the container being cloned. |
+| `from` | yes | Name of the container being cloned. |
+| `to` | yes | Name of the container to clone into. |
 
 ```yaml
 - action: clone

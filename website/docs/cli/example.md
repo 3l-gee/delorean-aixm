@@ -5,7 +5,7 @@
 ### Persist a file into a fresh container
 
 ```bash
-delorean-cli \
+java -jar delorean-cli-aixm51-1.0.0.jar \
   -h localhost \
   -p 5432 \
   -d aixm \
@@ -16,23 +16,22 @@ delorean-cli \
 
 You'll be prompted interactively for the password.
 
-### Extract a AIXM message feature by hjid
+### Extract an AIXM message feature by hjid
 
 ```bash
-delorean-cli \
+java -jar delorean-cli-aixm51-1.0.0.jar \
   -h localhost -p 5432 -d aixm -U delorean -W \
   -a extract \
   -f out/extracted.xml \
   --id 4457231
 ```
 
-This marshals the container to `out/extracted.xml`, then extracts the
-AIXM message whose `hjid` matches `--id`.
+This  extracts the AIXM message whose `hjid` matches `--id`, then marshals the container to `out/extracted.xml`.
 
 ### Merge an update file
 
 ```bash
-delorean-cli \
+java -jar delorean-cli-aixm51-1.0.0.jar \
   -h db.internal -p 5432 -d aixm_prod -U etl_svc -W \
   -a merge \
   -f data/delta.xml
@@ -68,7 +67,7 @@ pipeline:
 ```
 
 ```bash
-delorean-cli -y single-container-roundtrip.yaml
+java -jar delorean-cli-aixm51-1.0.0.jar -y single-container-roundtrip.yaml
 ```
 
 ### Minimal single-container round trip with logging
@@ -194,7 +193,7 @@ earliest/latest valid timeslice without pinning to a specific instant:
     value: RWY09L
 ```
 
-### Integrating a delta file onto a unmarshalled message
+### Integrating a delta file onto an unmarshalled message
 
 ```yaml
 pipeline:
@@ -223,8 +222,8 @@ pipeline:
     target: main
   - action: extract
     target: main
-    field: designator
-    value: RWY09L
+    field: hjid
+    value: 4532
   - action: unmarshal
     target: main
     path: data/baseline.xml
@@ -233,8 +232,8 @@ pipeline:
     path: data/delta.xml
   - action: merge
     target: main
-    field: designator
-    value: RWY09L
+    field: hjid
+    value: 4532
   - action: shutdown
     target: main
 ```

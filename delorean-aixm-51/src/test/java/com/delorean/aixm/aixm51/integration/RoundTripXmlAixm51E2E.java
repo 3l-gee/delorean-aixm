@@ -45,6 +45,9 @@ public class RoundTripXmlAixm51E2E {
         "-c", "shared_preload_libraries=pg_stat_statements", 
         "-c", "pg_stat_statements.track=all");
 
+
+    Path OutDir = Paths.get("target", "test-output", "aixm51", "round_trip_xml_aixm");
+
     @Test
     @Order(1)
     void startPostgreSQLContainer() throws Exception {
@@ -142,7 +145,7 @@ public class RoundTripXmlAixm51E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src/test/java/com/aixm/delorean/aixm51/out/donlon-aixm-51-marshalled.xml.log";
+        String xmlPath = OutDir.resolve("donlon-aixm-51-marshalled.xml.log").toString();
 
         // do
         container.marshal(xmlPath);
@@ -216,7 +219,7 @@ public class RoundTripXmlAixm51E2E {
     void extractExtractedXmlHjid() {
 
         // given
-        String xmlPath = "src/test/java/com/aixm/delorean/aixm51/out/donlon-aixm-51-predicated.xml.log";
+        String xmlPath = OutDir.resolve("donlon-aixm-51-predicated.xml.log").toString();
 
         // do
         container.marshal(xmlPath);
@@ -238,7 +241,7 @@ public class RoundTripXmlAixm51E2E {
     void extractExtractedXmlDescription() {
 
         // given
-        String xmlPath = "src/test/java/com/aixm/delorean/aixm51/out/donlon-aixm-51-predicated.xml.log";
+        String xmlPath = OutDir.resolve("donlon-aixm-51-predicated.xml.log").toString();
 
         // do
         container.marshal(xmlPath);
@@ -271,14 +274,9 @@ public class RoundTripXmlAixm51E2E {
             );
         }
 
-        Path outDir = Paths.get(
-            "src/test/java/com/aixm/delorean/aixm51/out"
-        );
-
-        Path schemaFile = outDir.resolve("aixm-51-schema.sql");
+        Path schemaFile = OutDir.resolve("aixm-51-schema.sql");
 
         try {
-            Files.createDirectories(outDir);
             Files.writeString(
                 schemaFile,
                 result.getStdout(),
@@ -318,14 +316,9 @@ public class RoundTripXmlAixm51E2E {
             );
         }
 
-        Path outDir = Paths.get(
-            "src/test/java/com/aixm/delorean/aixm51/out"
-        );
-
-        Path dataFile = outDir.resolve("donlon-aixm-51-data.sql");
+        Path dataFile = OutDir.resolve("donlon-aixm-51-data.sql");
 
         try {
-            Files.createDirectories(outDir);
             Files.writeString(
                 dataFile,
                 result.getStdout(),
@@ -340,16 +333,13 @@ public class RoundTripXmlAixm51E2E {
     
     @AfterAll
     void exportPgStatStatements() {
-        Path outDir = Paths.get("src/test/java/com/aixm/delorean/aixm51/out");
-        Path pgStatFile = outDir.resolve("pg_stat_statements.log");
+        Path pgStatFile = OutDir.resolve("pg_stat_statements.log");
         String query = "SELECT query, calls, total_exec_time FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 100;";
 
         ExecResult result;
 
         //do
         try {
-            Files.createDirectories(outDir);
-
             result = postgis.execInContainer(
                 "psql", "-U", postgis.getUsername(), 
                 "-d", postgis.getDatabaseName(), 
