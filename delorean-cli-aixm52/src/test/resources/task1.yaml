@@ -14,7 +14,7 @@ containers:
 pipeline:
   - action: "unmarshal"
     target: "container-A"
-    path: "delorean-cli-aixm52/src/test/resources/donlon-aixm-52.xml"
+    path: "src/test/resources/donlon-aixm-52.xml"
     description : "a5016052"
 
   - action: "set_status"
@@ -47,11 +47,11 @@ pipeline:
 
   - action: "marshal"
     target: "container-A"
-    path: "C:/Users/rapha/Downloads/extract.xml"
+    path: "target/test_output/aixm51/yaml_cli_e2e/yaml-marshal.xml"
 
   - action: "diff"
     target: "container-A"
-    path: "C:/Users/rapha/Downloads/diff.xml"
+    path: "target/test_output/aixm51/yaml_cli_e2e/yaml-diff.xml"
 
   - action: "predicate"
     target: "container-A"
@@ -61,7 +61,7 @@ pipeline:
 
   - action: "marshal"
     target: "container-A"
-    path: "C:/Users/rapha/Downloads/predicate.xml"
+    path: "target/test_output/aixm51/yaml_cli_e2e/yaml-predicate.xml"
 
   - action: "shutdown"
     target: "container-A"

@@ -39,7 +39,8 @@ public class RoundTripXmlAixm52E2E {
     String id;
     Container<?,?,?,?,?,?> container;
     DeloreanAIXM52 delorean;
-    PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine")
+    PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse(
+        "postgis/postgis:16-3.4-alpine")
         .asCompatibleSubstituteFor("postgres"))
         .withCommand("postgres", 
         "-c", "shared_preload_libraries=pg_stat_statements", 

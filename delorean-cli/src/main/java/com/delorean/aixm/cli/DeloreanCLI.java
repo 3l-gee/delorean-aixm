@@ -158,7 +158,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
     }
 
     enum ActionType {
-        persist, extract, merge, prune, predicate, render
+        format, persist, merge, extract, predicate, render
     }
 
     protected abstract DeloreanProcessor createProcessor();
@@ -171,10 +171,9 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             return 1;
         }
 
-        File yamlFile = mode.yamlMode.yamlFile;
-
-        // Mode 1: YAML Execution Processing
-        if (yamlFile != null) {
+        // Mode 1: YAML
+        if (mode.yamlMode != null) {
+            File yamlFile = mode.yamlMode.yamlFile;
             if (!yamlFile.exists()) {
                 System.err.println("Error: Configuration file not found: " + yamlFile.getAbsolutePath());
                 return 1;
@@ -186,7 +185,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             return executePipeline(processor, yamlFile) ? 0 : 1;
         }
 
-        // Mode 2: Direct Command Line Restricted Execution Pathway
+        // Mode 2: Direct
         if (mode.directCmd != null) {
             return executeDirectAction(processor, mode.directCmd) ? 0 : 1;
         }
@@ -208,8 +207,12 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 return false;
             }
 
+            if (opts.connection.database == null || opts.connection.host == null || opts.connection.port == null || opts.connection.user == null || opts.connection.password == null) {
+                log.error("Database connection parameters are incomplete. Please provide host, port, database, user, and password.");
+                return false;
+            }
+
             String dbUrl = "jdbc:postgresql://" + opts.connection.host + ":" + opts.connection.port + "/" + opts.connection.database;
-            container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
 
             // Synthesize programmatic arguments for matching existing switch cases
             ObjectNode syntheticArgs = JsonNodeFactory.instance.objectNode();
@@ -225,7 +228,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 container.startup(false);
                 
             } else if ("persist".equals(baseActionName) || "merge".equals(baseActionName)) {
-                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
+                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "none");
                 container.startup(false);
 
                 if (opts.file == null) {
@@ -251,7 +254,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
 
                 container.render();
             } else if ("extract".equals(baseActionName) || "predicate".equals(baseActionName)) {
-                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
+                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "none");
                 container.startup(false);
 
                 if (opts.file == null) {
@@ -281,7 +284,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
 
                 container.marshal(opts.file);
             } else if ("render".equals(baseActionName)) {
-                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "update");
+                container.SetCredentials(dbUrl, opts.connection.user, opts.connection.password, "none");
                 container.startup(false);
                 container.render();
             } else {
@@ -289,9 +292,6 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                 container.shutdown();
                 return false;
             }
-
-            // Gracefully release DB connections upon completion
-            container.shutdown();
 
             return true;
         } catch (Exception e) {

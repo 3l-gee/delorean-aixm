@@ -1,20 +1,21 @@
 name: "Delorean CLI Task Example"
 version: "1.0"
-# logging: DEBUG
+verbose: true
+# logging: "DEBUG"
 
 containers:
   - container: "container-A"
     database:
-      url: "jdbc:postgresql://localhost:5433/aixm-test-51"
+      url: "jdbc:postgresql://localhost:5433/aixm-test-511"
       username: "postgres"
       password: "postgres"
-      hbm2ddl: "create"
+      hbm2ddl: "none"
 
 pipeline:
   - action: "unmarshal"
     target: "container-A"
-    path: "delorean-cli-aixm51/src/test/resources/donlon-aixm-51.xml"
-    description : "489bc9f0"
+    path: "src/test/resources/donlon-aixm-511.xml"
+    description : "a5016052"
 
   - action: "set_status"
     target: "container-A"
@@ -42,26 +43,25 @@ pipeline:
   - action: "extract"
     target: "container-A"
     field: "deloreanDescription"
-    field: "deloreanDescription"
-    value: "489bc9f0"
+    value: "a5016052"
 
   - action: "marshal"
     target: "container-A"
-    path: "C:/Users/rapha/Downloads/aixm51/extract.xml"
+    path: "target/test_output/aixm51/yaml_cli_e2e/yaml-marshal.xml"
 
   - action: "diff"
     target: "container-A"
-    path: "C:/Users/rapha/Downloads/aixm51/extract.xml"
+    path: "target/test_output/aixm51/yaml_cli_e2e/yaml-diff.xml"
 
   - action: "predicate"
     target: "container-A"
     time : "2017-07-01T00:00:00Z"
     field: "deloreanDescription"
-    value: "489bc9f0"
+    value: "a5016052"
 
   - action: "marshal"
     target: "container-A"
-    path: "C:/Users/rapha/Downloads/aixm51/predicate.xml"
+    path: "target/test_output/aixm51/yaml_cli_e2e/yaml-predicate.xml"
 
   - action: "shutdown"
     target: "container-A"
